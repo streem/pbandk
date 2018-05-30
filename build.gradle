@@ -1,0 +1,100 @@
+group 'pbandk'
+
+buildscript {
+    ext.kotlin_version = '1.2.41'
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://dl.bintray.com/jetbrains/kotlin-native-dependencies'
+        }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.jetbrains.kotlin:kotlin-native-gradle-plugin:0.7'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+project(':protoc-gen-kotlin') {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'application'
+    sourceCompatibility = '1.8'
+    compileKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    mainClassName = 'pbandk.gen.MainKt'
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        compile 'com.google.protobuf:protobuf-java:3.5.1'
+        compile project(':runtime:jvm')
+        testCompile 'junit:junit:4.12'
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+    /*
+    apply plugin: 'konan'
+    konanArtifacts {
+        program('protoc-gen-kotlin') {
+            enableOptimizations true
+            entryPoint 'pbandk.gen.main'
+        }
+    }
+    */
+}
+
+project(':runtime:common') {
+    apply plugin: 'kotlin-platform-common'
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+    }
+}
+
+project(':runtime:js') {
+    apply plugin: 'kotlin-platform-js'
+    dependencies {
+        expectedBy project(':runtime:common')
+        compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    }
+}
+
+project(':runtime:jvm') {
+    apply plugin: 'kotlin-platform-jvm'
+    sourceCompatibility = '1.8'
+    compileKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    dependencies {
+        expectedBy project(':runtime:common')
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        testCompile 'junit:junit:4.12'
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+}
+
+project(':runtime:native') {
+    apply plugin: 'konan'
+    konanArtifacts {
+        library('pb-and-k') {
+            enableMultiplatform true
+        }
+    }
+    dependencies {
+        expectedBy project(':runtime:common')
+    }
+}

@@ -1,0 +1,3 @@
+rootProject.name = 'pb-and-k'
+
+include ':protoc-gen-kotlin', ':runtime:common', ':runtime:js', ':runtime:jvm', ':runtime:native'
