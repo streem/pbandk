@@ -7,6 +7,32 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
     var currentUnknownFields: MutableMap<Int, UnknownField>? = null
 
     actual fun readTag() = stream.readTag()
+    actual fun readDouble() = stream.readDouble()
+    actual fun readFloat() = stream.readFloat()
+    actual fun readInt32() = stream.readInt32()
+    actual fun readInt64() = stream.readInt64()
+    actual fun readUInt32() = stream.readUInt32()
+    actual fun readUInt64() = stream.readUInt64()
+    actual fun readSInt32() = stream.readSInt32()
+    actual fun readSInt64() = stream.readSInt64()
+    actual fun readFixed32() = stream.readFixed32()
+    actual fun readFixed64() = stream.readFixed64()
+    actual fun readSFixed32() = stream.readSFixed32()
+    actual fun readSFixed64() = stream.readSFixed64()
+    actual fun readBool() = stream.readBool()
+    actual fun readString() = stream.readString()
+    actual fun readBytes() = ByteArr(stream.readByteArray())
+    actual fun readEnum() = stream.readEnum()
+    actual fun <T : Message> readMessage(s: Message.Companion<T>): T {
+        val oldLimit = stream.pushLimit(stream.readRawVarint32())
+        val oldUnknownFields = currentUnknownFields
+        if (!discardUnknownFields) currentUnknownFields = mutableMapOf()
+        val ret = s.unmarshal(this)
+        require(stream.isAtEnd) { "Not at the end of the current message limit as expected" }
+        stream.popLimit(oldLimit)
+        currentUnknownFields = oldUnknownFields
+        return ret
+    }
 
     actual fun unknownField() {
         val tag = stream.lastTag
@@ -32,22 +58,6 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
     }
 
     actual fun unknownFields() = currentUnknownFields?.toMap() ?: emptyMap()
-
-    actual fun readBytes() = ByteArr(stream.readByteArray())
-    actual fun readString() = stream.readString()
-
-    actual fun readEnum() = stream.readEnum()
-
-    actual fun <T : Message> readMessage(s: Message.Companion<T>): T {
-        val oldLimit = stream.pushLimit(stream.readRawVarint32())
-        val oldUnknownFields = currentUnknownFields
-        if (!discardUnknownFields) currentUnknownFields = mutableMapOf()
-        val ret = s.unmarshal(this)
-        require(stream.isAtEnd) { "Not at the end of the current message limit as expected" }
-        stream.popLimit(oldLimit)
-        currentUnknownFields = oldUnknownFields
-        return ret
-    }
 
     actual companion object {
         actual fun fromByteArray(arr: ByteArray) = Unmarshaller(CodedInputStream.newInstance(arr))

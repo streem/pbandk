@@ -19,20 +19,22 @@ data class File(
     }
 
     sealed class Field {
-        enum class Type {
-            BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, GROUP, INT32, INT64, MESSAGE,
-            SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64,
-        }
+        abstract val name: String
 
         data class Standard(
             val number: Int,
-            val name: String,
+            override val name: String,
             val type: Type,
             val typeName: String?
         ) : Field()
         data class OneOf(
-            val name: String,
+            override val name: String,
             val fields: List<Standard>
         ) : Field()
+
+        enum class Type {
+            BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, GROUP, INT32, INT64, MESSAGE,
+            SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64,
+        }
     }
 }

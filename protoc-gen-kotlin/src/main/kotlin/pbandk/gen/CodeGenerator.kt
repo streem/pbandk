@@ -76,7 +76,10 @@ open class CodeGenerator {
     }
 
     protected fun writeConstructorField(field: File.Field.Standard): CodeGenerator {
-        TODO()
+        val defaultValue =
+            if (field.type == File.Field.Type.ENUM) field.typeName!!.safeTypeName + ".valueOf(0)"
+            else field.type.defaultValue
+        return lineMid("val ${field.name.safeFieldName}: ${field.kotlinTypeName} = $defaultValue")
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
@@ -124,37 +127,140 @@ open class CodeGenerator {
     }
 
     protected fun writeMessageMarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        TODO()
+        line("internal fun $fullTypeName.marshalImpl(m: Marshaller) {").indented {
+            // Go over each and write each if it's not default
+            type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
+                val fieldRef = field.fieldRef()
+                if (oneOf == null) {
+                    line("if (${field.type.nonDefaultCheck(fieldRef)})").indented {
+                        line("m.writeTag(${field.tag}).${field.type.writeMethod}($fieldRef)")
+                    }
+                } else {
+                    // We acknowledge several unnecessary instanceof's here, however it's worth it to keep the fields
+                    // in order and keep the code simple.
+                    val oneOfFieldName = oneOf.name.safeFieldName
+                    val subClassName = "$fullTypeName.${oneOf.name.safeTypeName}.${field.name.safeTypeName}"
+                    line("if ($oneOfFieldName is $subClassName)").indented {
+                        line("m.writeTag(${field.tag}).${field.type.writeMethod}($oneOfFieldName.$fieldRef)")
+                    }
+                }
+            }
+            // Also persist unknown fields
+            line("if (unknownFields.isNotEmpty())").indented {
+                line("m.writeUnknownFields(unknownFields)")
+            }
+        }.line("}")
     }
 
     protected fun writeMessageUnmarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        TODO()
+        line("internal fun $fullTypeName.Companion.unmarshalImpl(u: Unmarshaller): $fullTypeName {").indented {
+            // A bunch of locals for each field, initialized with defaults
+            val fieldNames = type.fields.map {
+                lineBegin("var ${it.name.safeFieldName}: ")
+                when (it) {
+                    is File.Field.Standard -> lineEnd("${it.kotlinTypeName} = ${it.type.defaultValue}")
+                    is File.Field.OneOf -> lineEnd("$fullTypeName.${it.name.safeTypeName}? = null")
+                }
+                it.name.safeFieldName
+            }
+            // Now loop reading the tag and check fields in order
+            line("while (true) when (u.readTag()) {").indented {
+                // Tag of 0 means we're done
+                line("0 -> return $fullTypeName(${fieldNames.joinToString(", ")}, u.unknownFields())")
+                // Each field tag
+                type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
+                    lineBegin("${field.tag} -> ")
+                    if (oneOf == null) {
+                        lineEnd("${field.name.safeFieldName} = ${field.unmarshalReadExpr}")
+                    } else {
+                        val oneOfType = "$fullTypeName.${oneOf.name.safeTypeName}.${field.name.safeTypeName}"
+                        lineEnd("${oneOf.name.safeFieldName} = $oneOfType(${field.unmarshalReadExpr})")
+                    }
+                }
+                // Unknown field
+                line("else -> u.unknownField()")
+            }.line("}")
+        }.line("}")
     }
 
     protected val String.safeTypeName get() = this
     protected val String.safeFieldName get() = this
     protected val String.safeEnumValueName get() = this
+    protected fun File.Type.Message.sortedStandardFieldsWithOneOfs() =
+        fields.flatMap {
+            when (it) {
+                is File.Field.Standard -> listOf(it to null)
+                is File.Field.OneOf -> it.fields.map { f -> f to it }
+            }
+        }.sortedBy { it.first.number }
     protected fun File.Field.Standard.fieldRef() =
         if (type == File.Field.Type.ENUM) "${name.safeFieldName}.value" else name.safeFieldName
-    protected val File.Field.Type.sizeMethod get() = when (this) {
-        File.Field.Type.BOOL -> "boolSize"
-        File.Field.Type.BYTES -> "byteArrSize"
-        File.Field.Type.DOUBLE -> "doubleSize"
-        File.Field.Type.ENUM -> "enumSize"
-        File.Field.Type.FIXED32 -> "fixed32Size"
-        File.Field.Type.FIXED64 -> "fixed64Size"
-        File.Field.Type.FLOAT -> "floatSize"
+    protected val File.Field.Standard.unmarshalReadExpr get()= when (type) {
+        File.Field.Type.ENUM -> "$kotlinTypeName.valueOf(u.readEnum())"
+        File.Field.Type.MESSAGE -> "u.readMessage($kotlinTypeName.Companion)"
+        else -> "u.${type.readMethod}()"
+    }
+    protected val File.Field.Standard.kotlinTypeName get() = typeName?.safeTypeName?.plus("?") ?: type.standardTypeName
+    protected val File.Field.Standard.tag get() = (number shl 3) or type.wireFormat
+    protected val File.Field.Type.string get() = when (this) {
+        File.Field.Type.BOOL -> "bool"
+        File.Field.Type.BYTES -> "bytes"
+        File.Field.Type.DOUBLE -> "double"
+        File.Field.Type.ENUM -> "enum"
+        File.Field.Type.FIXED32 -> "fixed32"
+        File.Field.Type.FIXED64 -> "fixed64"
+        File.Field.Type.FLOAT -> "float"
         File.Field.Type.GROUP -> TODO()
-        File.Field.Type.INT32 -> "int32Size"
-        File.Field.Type.INT64 -> "int64Size"
-        File.Field.Type.MESSAGE -> error("Not handled here")
-        File.Field.Type.SFIXED32 -> "sFixed32Size"
-        File.Field.Type.SFIXED64 -> "sFixed64Size"
-        File.Field.Type.SINT32 -> "sInt32Size"
-        File.Field.Type.SINT64 -> "sInt64Size"
-        File.Field.Type.STRING -> "stringSize"
-        File.Field.Type.UINT32 -> "uInt32Size"
-        File.Field.Type.UINT64 -> "uInt64Size"
+        File.Field.Type.INT32 -> "int32"
+        File.Field.Type.INT64 -> "int64"
+        File.Field.Type.MESSAGE -> "message"
+        File.Field.Type.SFIXED32 -> "sFixed32"
+        File.Field.Type.SFIXED64 -> "sFixed64"
+        File.Field.Type.SINT32 -> "sInt32"
+        File.Field.Type.SINT64 -> "sInt64"
+        File.Field.Type.STRING -> "string"
+        File.Field.Type.UINT32 -> "uInt32"
+        File.Field.Type.UINT64 -> "uInt64"
+    }
+    protected val File.Field.Type.sizeMethod get() = string + "Size"
+    protected val File.Field.Type.readMethod get() = "read" + string.capitalize()
+    protected val File.Field.Type.writeMethod get() = "write" + string.capitalize()
+    protected val File.Field.Type.standardTypeName get() = when (this) {
+        File.Field.Type.BOOL -> "Boolean"
+        File.Field.Type.BYTES -> "pbandk.ByteArr"
+        File.Field.Type.DOUBLE -> "Double"
+        File.Field.Type.ENUM -> error("No standard type name for enums")
+        File.Field.Type.FIXED32 -> "Int"
+        File.Field.Type.FIXED64 -> "Long"
+        File.Field.Type.FLOAT -> "Float"
+        File.Field.Type.GROUP -> TODO()
+        File.Field.Type.INT32 -> "Int"
+        File.Field.Type.INT64 -> "Long"
+        File.Field.Type.MESSAGE -> error("No standard type name for enums")
+        File.Field.Type.SFIXED32 -> "Int"
+        File.Field.Type.SFIXED64 -> "Long"
+        File.Field.Type.SINT32 -> "Int"
+        File.Field.Type.SINT64 -> "Long"
+        File.Field.Type.STRING -> "String"
+        File.Field.Type.UINT32 -> "Int"
+        File.Field.Type.UINT64 -> "Long"
+    }
+    protected val File.Field.Type.wireFormat get() = when (this) {
+        File.Field.Type.BOOL, File.Field.Type.ENUM, File.Field.Type.INT32, File.Field.Type.INT64,
+            File.Field.Type.SINT32, File.Field.Type.SINT64, File.Field.Type.UINT32, File.Field.Type.UINT64 -> 0
+        File.Field.Type.BYTES, File.Field.Type.MESSAGE, File.Field.Type.STRING -> 2
+        File.Field.Type.DOUBLE, File.Field.Type.FIXED64, File.Field.Type.SFIXED64 -> 1
+        File.Field.Type.FIXED32, File.Field.Type.FLOAT, File.Field.Type.SFIXED32 -> 5
+        File.Field.Type.GROUP -> 3
+    }
+    protected val File.Field.Type.defaultValue get() = when (this) {
+        File.Field.Type.BOOL -> "false"
+        File.Field.Type.BYTES -> "pbandk.ByteArr.empty"
+        File.Field.Type.ENUM -> error("No generic default value for enums")
+        File.Field.Type.GROUP -> TODO()
+        File.Field.Type.MESSAGE -> "null"
+        File.Field.Type.STRING -> "\"\""
+        else -> "0"
     }
     protected fun File.Field.Type.nonDefaultCheck(varName: String) = when (this) {
         File.Field.Type.BOOL -> "!$varName"

@@ -53,7 +53,7 @@ internal fun ConformanceRequest.sizeImpl(): Int {
     var size = 0
     when (payload) {
         is ConformanceRequest.Payload.ProtobufPayload ->
-            size += Sizer.tagSize(1) + Sizer.byteArrSize(payload.protobufPayload)
+            size += Sizer.tagSize(1) + Sizer.bytesSize(payload.protobufPayload)
         is ConformanceRequest.Payload.JsonPayload ->
             size += Sizer.tagSize(2) + Sizer.stringSize(payload.jsonPayload)
     }

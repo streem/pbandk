@@ -18,6 +18,6 @@ actual object Sizer {
     actual fun sFixed64Size(value: Long) = CodedOutputStream.computeSFixed64SizeNoTag(value)
     actual fun boolSize(value: Boolean) = CodedOutputStream.computeBoolSizeNoTag(value)
     actual fun stringSize(value: String) = CodedOutputStream.computeStringSizeNoTag(value)
-    actual fun byteArrSize(value: ByteArr) = CodedOutputStream.computeByteArraySizeNoTag(value.array)
+    actual fun bytesSize(value: ByteArr) = CodedOutputStream.computeByteArraySizeNoTag(value.array)
     actual fun enumSize(value: Int) = CodedOutputStream.computeEnumSizeNoTag(value)
 }
