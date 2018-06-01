@@ -6,6 +6,6 @@ class ByteArr(val array: ByteArray) {
     override fun toString() = array.contentToString()
 
     companion object {
-        val empty = ByteArr(byteArrayOf())
+        val empty = ByteArr(ByteArray(0))
     }
 }

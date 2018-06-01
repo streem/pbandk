@@ -6,10 +6,10 @@ actual class Marshaller(val stream: CodedOutputStream) {
 
     actual constructor(arr: ByteArray) : this(CodedOutputStream.newInstance(arr))
 
-    actual inline fun writeTag(tag: Int) = also { stream.writeUInt32NoTag(tag) }
-    actual inline fun writeString(value: String) = stream.writeStringNoTag(value)
-    actual inline fun writeBytes(value: ByteArr) = stream.writeByteArrayNoTag(value.array)
-    actual inline fun writeEnum(value: Int) = stream.writeEnumNoTag(value)
+    actual fun writeTag(tag: Int) = also { stream.writeUInt32NoTag(tag) }
+    actual fun writeString(value: String) = stream.writeStringNoTag(value)
+    actual fun writeBytes(value: ByteArr) = stream.writeByteArrayNoTag(value.array)
+    actual fun writeEnum(value: Int) = stream.writeEnumNoTag(value)
     actual fun writeMessage(value: Message) {
         stream.writeUInt32NoTag(value.size)
         value.marshal(this)

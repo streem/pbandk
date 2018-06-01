@@ -14,6 +14,7 @@ expect object Sizer {
     fun fixed64Size(value: Long): Int
     fun sFixed32Size(value: Int): Int
     fun sFixed64Size(value: Long): Int
+    fun boolSize(value: Boolean): Int
     fun stringSize(value: String): Int
     fun byteArrSize(value: ByteArr): Int
     fun enumSize(value: Int): Int
