@@ -24,8 +24,8 @@ actual class Marshaller(val stream: CodedOutputStream) {
     actual fun writeBytes(value: ByteArr) = stream.writeByteArrayNoTag(value.array)
     actual fun writeEnum(value: Int) = stream.writeEnumNoTag(value)
     actual fun writeMessage(value: Message) {
-        stream.writeUInt32NoTag(value.size)
-        value.marshal(this)
+        stream.writeUInt32NoTag(value.protoSize)
+        value.protoMarshal(this)
     }
     actual fun writeUnknownFields(fields: Map<Int, UnknownField>) {
         fun writeUnknownFieldValue(fieldNum: Int, v: UnknownField.Value) {

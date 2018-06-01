@@ -16,7 +16,7 @@ data class UnknownField(val fieldNum: Int, val value: Value) {
             override fun size() = Sizer.fixed64Size(fixed64)
         }
         data class LengthDelimited(val bytes: ByteArr) : Value() {
-            override fun size() = Sizer.byteArrSize(bytes)
+            override fun size() = Sizer.bytesSize(bytes)
         }
         object StartGroup : Value() {
             override fun size() = TODO()

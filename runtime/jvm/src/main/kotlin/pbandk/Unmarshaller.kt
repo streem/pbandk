@@ -27,7 +27,7 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         val oldLimit = stream.pushLimit(stream.readRawVarint32())
         val oldUnknownFields = currentUnknownFields
         if (!discardUnknownFields) currentUnknownFields = mutableMapOf()
-        val ret = s.unmarshal(this)
+        val ret = s.protoUnmarshal(this)
         require(stream.isAtEnd) { "Not at the end of the current message limit as expected" }
         stream.popLimit(oldLimit)
         currentUnknownFields = oldUnknownFields

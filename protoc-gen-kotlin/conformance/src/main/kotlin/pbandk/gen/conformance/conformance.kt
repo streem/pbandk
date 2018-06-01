@@ -28,10 +28,10 @@ data class ConformanceRequest(
         data class JsonPayload(val jsonPayload: String = "") : Payload()
     }
 
-    override val size by lazy { sizeImpl() }
-    override fun marshal(m: Marshaller) = marshalImpl(m)
+    override val protoSize by lazy { protoSizeImpl() }
+    override fun protoMarshal(m: Marshaller) = protoMarshalImpl(m)
     companion object : Message.Companion<ConformanceRequest> {
-        override fun unmarshal(u: Unmarshaller) = ConformanceRequest.unmarshalImpl(u)
+        override fun protoUnmarshal(u: Unmarshaller) = ConformanceRequest.protoUnmarshalImpl(u)
     }
 }
 
@@ -49,7 +49,7 @@ data class ConformanceResponse(
     }
 }
 
-internal fun ConformanceRequest.sizeImpl(): Int {
+internal fun ConformanceRequest.protoSizeImpl(): Int {
     var size = 0
     when (payload) {
         is ConformanceRequest.Payload.ProtobufPayload ->
@@ -65,7 +65,7 @@ internal fun ConformanceRequest.sizeImpl(): Int {
     return size
 }
 
-internal fun ConformanceRequest.marshalImpl(m: Marshaller) {
+internal fun ConformanceRequest.protoMarshalImpl(m: Marshaller) {
     when (payload) {
         is ConformanceRequest.Payload.ProtobufPayload ->
             m.writeTag(10).writeBytes(payload.protobufPayload)
@@ -80,7 +80,7 @@ internal fun ConformanceRequest.marshalImpl(m: Marshaller) {
         m.writeUnknownFields(unknownFields)
 }
 
-internal fun ConformanceRequest.Companion.unmarshalImpl(u: Unmarshaller): ConformanceRequest {
+internal fun ConformanceRequest.Companion.protoUnmarshalImpl(u: Unmarshaller): ConformanceRequest {
     var payload: ConformanceRequest.Payload? = null
     var requestedOutputFormat: WireFormat = WireFormat.UNSPECIFIED
     var messageType = ""

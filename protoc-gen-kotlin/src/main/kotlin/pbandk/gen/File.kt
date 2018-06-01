@@ -2,34 +2,49 @@ package pbandk.gen
 
 data class File(
     val name: String,
-    val packageName: String,
+    val packageName: String?,
     val version: Int,
     val types: List<Type>
 ) {
     sealed class Type {
+        abstract val name: String
+        abstract val kotlinTypeName: String
+
         data class Message(
-            val name: String,
+            override val name: String,
             val fields: List<Field>,
-            val nestedTypes: List<Type>
+            val nestedTypes: List<Type>,
+            override val kotlinTypeName: String
         ) : Type()
+
         data class Enum(
-            val name: String,
-            val values: List<Pair<Int, String>>
-        ) : Type()
+            override val name: String,
+            val values: List<Value>,
+            override val kotlinTypeName: String
+        ) : Type() {
+            data class Value(val number: Int, val name: String, val kotlinValueName: String)
+        }
     }
 
     sealed class Field {
         abstract val name: String
+        abstract val kotlinFieldName: String
 
         data class Standard(
             val number: Int,
             override val name: String,
             val type: Type,
-            val typeName: String?
+            val localTypeName: String?,
+            override val kotlinFieldName: String,
+            val kotlinLocalTypeName: String?
         ) : Field()
+
         data class OneOf(
             override val name: String,
-            val fields: List<Standard>
+            val fields: List<Standard>,
+            val kotlinFieldTypeNames: Map<String, String>,
+            override val kotlinFieldName: String,
+            val kotlinTypeName: String
         ) : Field()
 
         enum class Type {

@@ -6,7 +6,8 @@ open class CodeGenerator {
 
     fun generate(file: File): String {
         if (file.version != 3) TODO("Only proto3 currently supported")
-        line("package ${file.packageName}")
+        file.packageName?.let { line("package $it") }
+        line()
         file.types.forEach(::writeType)
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
         return bld.toString()
@@ -28,35 +29,27 @@ open class CodeGenerator {
     }
 
     protected fun writeEnumType(type: File.Type.Enum) {
-        val typeName = type.name.safeTypeName
         // Enums are data classes w/ a single value and a companion object with known values
-        line("data class $typeName(val value: Int) {").indented {
+        line("data class ${type.kotlinTypeName}(val value: Int) {").indented {
             line("companion object {").indented {
-                type.values.forEach { (number, name) ->
-                    line("val ${name.safeEnumValueName} = $typeName($number)")
-                }
+                type.values.forEach { line("val ${it.kotlinValueName} = ${type.kotlinTypeName}(${it.number})") }
                 line()
                 line("fun fromValue(value: Int) = when (value) {").indented {
-                    type.values.forEach { (number, name) ->
-                        line("$number -> ${name.safeEnumValueName}")
-                    }
-                    line("else -> $typeName(value)")
+                    type.values.forEach { line("${it.number} -> ${it.kotlinValueName}") }
+                    line("else -> ${type.kotlinTypeName}(value)")
                 }.line("}")
             }.line("}")
-        }.line("}")
+        }.line("}").line()
     }
 
     protected fun writeMessageType(type: File.Type.Message) {
-        val typeName = type.name.safeTypeName
         // No fields means it's an object
         if (type.fields.isEmpty()) TODO("Handle empty field set as an object")
-        line("data class $typeName(").indented {
+        line("data class ${type.kotlinTypeName}(").indented {
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Standard ->
-                        lineBegin().writeConstructorField(field).lineEnd(",")
-                    is File.Field.OneOf ->
-                        line("val ${field.name.safeFieldName}: ${field.name.safeTypeName}? = null,")
+                    is File.Field.Standard -> lineBegin().writeConstructorField(field).lineEnd(",")
+                    is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}? = null,")
                 }
             }
             // The unknown fields
@@ -65,21 +58,21 @@ open class CodeGenerator {
             // One-ofs as sealed class hierarchies
             type.fields.mapNotNull { it as? File.Field.OneOf }.forEach(::writeOneOfType)
             // IO helpers
-            line("override val size by lazy { sizeImpl() }")
-            line("override fun marshal(m: pbandk.Marshaller) = marshalImpl(m)")
-            line("companion object : pbandk.Message.Companion<$typeName> {").indented {
-                line("override fun unmarshal(u: Unmarshaller) = $typeName.unmarshalImpl(u)")
+            line("override val protoSize by lazy { protoSizeImpl() }")
+            line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
+            line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
+                line("override fun protoUnmarshal(u: Unmarshaller) = ${type.kotlinTypeName}.protoUnmarshalImpl(u)")
             }.line("}")
             // Nested enums and types
             type.nestedTypes.forEach(::writeType)
-        }.line("}")
+        }.line("}").line()
     }
 
     protected fun writeConstructorField(field: File.Field.Standard): CodeGenerator {
         val defaultValue =
-            if (field.type == File.Field.Type.ENUM) field.typeName!!.safeTypeName + ".valueOf(0)"
+            if (field.type == File.Field.Type.ENUM) "${field.kotlinLocalTypeName}.valueOf(0)"
             else field.type.defaultValue
-        return lineMid("val ${field.name.safeFieldName}: ${field.kotlinTypeName} = $defaultValue")
+        return lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueTypeName} = $defaultValue")
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
@@ -87,33 +80,32 @@ open class CodeGenerator {
     }
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
-        var fullTypeName = type.name.safeTypeName
-        if (parentType != null) fullTypeName = "$parentType.$fullTypeName"
+        val fullTypeName = if (parentType == null) type.kotlinTypeName else "$parentType.${type.kotlinTypeName}"
         writeMessageSizeExtension(type, fullTypeName)
         writeMessageMarshalExtension(type, fullTypeName)
         writeMessageUnmarshalExtension(type, fullTypeName)
     }
 
     protected fun writeMessageSizeExtension(type: File.Type.Message, fullTypeName: String) {
-        line("internal fun $fullTypeName.sizeImpl(): Int {").indented {
-            line("var size = 0")
+        line("internal fun $fullTypeName.protoSizeImpl(): Int {").indented {
+            line("var protoSize = 0")
             // Go over each field doing size check
             type.fields.forEach { field ->
                 when (field) {
                     is File.Field.Standard -> field.fieldRef().also { fieldRef ->
                         line("if (${field.type.nonDefaultCheck(fieldRef)})").indented {
-                            line("size += Sizer.tagSize(${field.number}) + Sizer.${field.type.sizeMethod}($fieldRef)")
+                            line("protoSize += Sizer.tagSize(${field.number}) + " +
+                                "Sizer.${field.type.sizeMethod}($fieldRef)")
                         }
                     }
                     is File.Field.OneOf -> {
-                        val oneOfTypeName = field.name.safeTypeName
-                        val oneOfFieldName = field.name.safeFieldName
-                        line("when ($oneOfFieldName) {").indented {
+                        line("when (${field.kotlinFieldName}) {").indented {
                             field.fields.forEach { subField ->
                                 val subFieldRef = subField.fieldRef()
-                                line("is $fullTypeName.$oneOfTypeName.${subField.name.safeTypeName} ->").indented {
-                                    line("size += Sizer.tagSize(${subField.number}) + " +
-                                        "Sizer.${subField.type.sizeMethod}($oneOfFieldName.$subFieldRef)")
+                                val subFieldTypeName = field.kotlinFieldTypeNames[subField.name]
+                                line("is $fullTypeName.${field.kotlinTypeName}.$subFieldTypeName ->").indented {
+                                    line("protoSize += Sizer.tagSize(${subField.number}) + " +
+                                        "Sizer.${subField.type.sizeMethod}(${field.kotlinFieldName}.$subFieldRef)")
                                 }
                             }
                         }.line("}")
@@ -121,71 +113,70 @@ open class CodeGenerator {
                 }
             }
             // Add the unknown fields and return
-            line("size += unknownFields.entries.sumBy { it.value.size() }")
-            line("return size")
-        }.line("}")
+            line("protoSize += unknownFields.entries.sumBy { it.value.size() }")
+            line("return protoSize")
+        }.line("}").line()
     }
 
     protected fun writeMessageMarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        line("internal fun $fullTypeName.marshalImpl(m: Marshaller) {").indented {
+        line("internal fun $fullTypeName.protoMarshalImpl(protoMarshal: Marshaller) {").indented {
             // Go over each and write each if it's not default
             type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                 val fieldRef = field.fieldRef()
                 if (oneOf == null) {
                     line("if (${field.type.nonDefaultCheck(fieldRef)})").indented {
-                        line("m.writeTag(${field.tag}).${field.type.writeMethod}($fieldRef)")
+                        line("protoMarshal.writeTag(${field.tag}).${field.type.writeMethod}($fieldRef)")
                     }
                 } else {
                     // We acknowledge several unnecessary instanceof's here, however it's worth it to keep the fields
                     // in order and keep the code simple.
-                    val oneOfFieldName = oneOf.name.safeFieldName
-                    val subClassName = "$fullTypeName.${oneOf.name.safeTypeName}.${field.name.safeTypeName}"
-                    line("if ($oneOfFieldName is $subClassName)").indented {
-                        line("m.writeTag(${field.tag}).${field.type.writeMethod}($oneOfFieldName.$fieldRef)")
+                    val subClassName = "$fullTypeName.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
+                    line("if (${oneOf.kotlinFieldName} is $subClassName)").indented {
+                        line("protoMarshal.writeTag(${field.tag})." +
+                            "${field.type.writeMethod}(${oneOf.kotlinFieldName}.$fieldRef)")
                     }
                 }
             }
             // Also persist unknown fields
             line("if (unknownFields.isNotEmpty())").indented {
-                line("m.writeUnknownFields(unknownFields)")
+                line("protoMarshal.writeUnknownFields(unknownFields)")
             }
-        }.line("}")
+        }.line("}").line()
     }
 
     protected fun writeMessageUnmarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        line("internal fun $fullTypeName.Companion.unmarshalImpl(u: Unmarshaller): $fullTypeName {").indented {
+        val lineStr = "internal fun $fullTypeName.Companion." +
+            "protoUnmarshalImpl(protoUnmarshal: Unmarshaller): $fullTypeName {"
+        line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
-            val fieldNames = type.fields.map {
-                lineBegin("var ${it.name.safeFieldName}: ")
+            val kotlinFields = type.fields.map {
+                lineBegin("var ${it.kotlinFieldName}: ")
                 when (it) {
-                    is File.Field.Standard -> lineEnd("${it.kotlinTypeName} = ${it.type.defaultValue}")
-                    is File.Field.OneOf -> lineEnd("$fullTypeName.${it.name.safeTypeName}? = null")
+                    is File.Field.Standard -> lineEnd("${it.kotlinValueTypeName} = ${it.type.defaultValue}")
+                    is File.Field.OneOf -> lineEnd("$fullTypeName.${it.kotlinTypeName}? = null")
                 }
-                it.name.safeFieldName
+                it.kotlinFieldName
             }
             // Now loop reading the tag and check fields in order
-            line("while (true) when (u.readTag()) {").indented {
+            line("while (true) when (protoUnmarshal.readTag()) {").indented {
                 // Tag of 0 means we're done
-                line("0 -> return $fullTypeName(${fieldNames.joinToString(", ")}, u.unknownFields())")
+                line("0 -> return $fullTypeName(${kotlinFields.joinToString(", ")}, protoUnmarshal.unknownFields())")
                 // Each field tag
                 type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                     lineBegin("${field.tag} -> ")
                     if (oneOf == null) {
-                        lineEnd("${field.name.safeFieldName} = ${field.unmarshalReadExpr}")
+                        lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
                     } else {
-                        val oneOfType = "$fullTypeName.${oneOf.name.safeTypeName}.${field.name.safeTypeName}"
-                        lineEnd("${oneOf.name.safeFieldName} = $oneOfType(${field.unmarshalReadExpr})")
+                        val oneOfTyp = "$fullTypeName.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
+                        lineEnd("${oneOf.kotlinFieldName} = $oneOfTyp(${field.unmarshalReadExpr})")
                     }
                 }
                 // Unknown field
-                line("else -> u.unknownField()")
+                line("else -> protoUnmarshal.unknownField()")
             }.line("}")
-        }.line("}")
+        }.line("}").line()
     }
 
-    protected val String.safeTypeName get() = this
-    protected val String.safeFieldName get() = this
-    protected val String.safeEnumValueName get() = this
     protected fun File.Type.Message.sortedStandardFieldsWithOneOfs() =
         fields.flatMap {
             when (it) {
@@ -194,13 +185,14 @@ open class CodeGenerator {
             }
         }.sortedBy { it.first.number }
     protected fun File.Field.Standard.fieldRef() =
-        if (type == File.Field.Type.ENUM) "${name.safeFieldName}.value" else name.safeFieldName
+        if (type == File.Field.Type.ENUM) "$kotlinFieldName.value" else kotlinFieldName
     protected val File.Field.Standard.unmarshalReadExpr get()= when (type) {
-        File.Field.Type.ENUM -> "$kotlinTypeName.valueOf(u.readEnum())"
-        File.Field.Type.MESSAGE -> "u.readMessage($kotlinTypeName.Companion)"
-        else -> "u.${type.readMethod}()"
+        File.Field.Type.ENUM -> "$kotlinLocalTypeName.valueOf(protoUnmarshal.readEnum())"
+        File.Field.Type.MESSAGE -> "protoUnmarshal.readMessage($kotlinLocalTypeName.Companion)"
+        else -> "protoUnmarshal.${type.readMethod}()"
     }
-    protected val File.Field.Standard.kotlinTypeName get() = typeName?.safeTypeName?.plus("?") ?: type.standardTypeName
+    protected val File.Field.Standard.kotlinValueTypeName get() =
+        kotlinLocalTypeName?.plus("?") ?: type.standardTypeName
     protected val File.Field.Standard.tag get() = (number shl 3) or type.wireFormat
     protected val File.Field.Type.string get() = when (this) {
         File.Field.Type.BOOL -> "bool"

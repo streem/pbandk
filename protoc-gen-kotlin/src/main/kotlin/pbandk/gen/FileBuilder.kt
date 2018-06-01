@@ -2,48 +2,79 @@ package pbandk.gen
 
 import com.google.protobuf.DescriptorProtos
 
-open class FileBuilder {
+open class FileBuilder(val namer: Namer = Namer.Standard) {
 
-    fun fromProto(fileDesc: DescriptorProtos.FileDescriptorProto) = File(
+    fun fromProto(fileDesc: DescriptorProtos.FileDescriptorProto, params: Map<String, String>) = File(
         name = fileDesc.name,
-        packageName = packageName(fileDesc),
+        packageName = packageName(fileDesc, params),
         version = fileDesc.syntax.removePrefix("proto").toInt(),
-        types = fileDesc.enumTypeList.map { fromProto(it) } + fileDesc.messageTypeList.map { fromProto(it) }
+        types = typesFromProto(fileDesc.enumTypeList, fileDesc.messageTypeList)
     )
 
-    protected fun packageName(fileDesc: DescriptorProtos.FileDescriptorProto): String {
-        var packageName = fileDesc.options.uninterpretedOptionList.find {
+    protected fun packageName(fileDesc: DescriptorProtos.FileDescriptorProto, params: Map<String, String>) =
+        params["kotlin_package"] ?: fileDesc.options.uninterpretedOptionList.find {
             it.nameList.singleOrNull()?.namePart == "kotlin_package"
-        }?.stringValue?.toStringUtf8() ?: ""
-        if (packageName.isEmpty()) packageName = fileDesc.options.javaPackage
-        if (packageName.isEmpty()) packageName = fileDesc.`package`
-        return packageName
+        }?.stringValue?.toStringUtf8() ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
+
+    protected fun typesFromProto(
+        enumTypes: List<DescriptorProtos.EnumDescriptorProto>,
+        msgTypes: List<DescriptorProtos.DescriptorProto>
+    ) = mutableSetOf<String>().let { usedTypeNames ->
+        enumTypes.map { fromProto(it, usedTypeNames) } + msgTypes.map { fromProto(it, usedTypeNames) }
     }
 
-    protected fun fromProto(enumDesc: DescriptorProtos.EnumDescriptorProto) = File.Type.Enum(
+    protected fun fromProto(
+        enumDesc: DescriptorProtos.EnumDescriptorProto,
+        usedTypeNames: MutableSet<String>
+    ) = File.Type.Enum(
         name = enumDesc.name,
-        values = enumDesc.valueList.map { it.number to it.name }
+        values = mutableSetOf<String>().let { usedValueNames ->
+            enumDesc.valueList.map {
+                File.Type.Enum.Value(it.number, it.name, namer.newEnumValueName(it.name, usedValueNames))
+            }
+        },
+        kotlinTypeName = namer.newTypeName(enumDesc.name, usedTypeNames)
     )
 
-    protected fun fromProto(msgDesc: DescriptorProtos.DescriptorProto): File.Type.Message = File.Type.Message(
+    protected fun fromProto(
+        msgDesc: DescriptorProtos.DescriptorProto,
+        usedTypeNames: MutableSet<String>
+    ): File.Type.Message = File.Type.Message(
         name = msgDesc.name,
-        fields = fieldsFromProto(msgDesc),
-        nestedTypes = msgDesc.enumTypeList.map { fromProto(it) } + msgDesc.nestedTypeList.map { fromProto(it) }
+        fields = fieldsFromProto(msgDesc, usedTypeNames),
+        nestedTypes = typesFromProto(msgDesc.enumTypeList, msgDesc.nestedTypeList),
+        kotlinTypeName = namer.newTypeName(msgDesc.name, usedTypeNames)
     )
 
-    protected fun fieldsFromProto(msgDesc: DescriptorProtos.DescriptorProto) = mutableSetOf<Int>().let { seenOneOfIndexes ->
+    protected fun fieldsFromProto(
+        msgDesc: DescriptorProtos.DescriptorProto,
+        usedTypeNames: MutableSet<String>
+    ) = mutableSetOf<Int>().let { seenOneOfIndexes ->
+        val usedFieldNames = mutableSetOf<String>()
         msgDesc.fieldList.mapNotNull { field ->
-            if (!field.hasOneofIndex()) fromProto(field)
-            else if (seenOneOfIndexes.add(field.oneofIndex)) File.Field.OneOf(
-                name = msgDesc.oneofDeclList[field.oneofIndex].name,
-                fields = msgDesc.fieldList.filter {
-                    it.hasOneofIndex() && it.oneofIndex == field.oneofIndex
-                }.map { fromProto(it) }
-            ) else null
+            if (!field.hasOneofIndex()) fromProto(field, usedFieldNames)
+            else if (seenOneOfIndexes.add(field.oneofIndex)) msgDesc.oneofDeclList[field.oneofIndex].name.let { name ->
+                val fieldTypeNames = mutableMapOf<String, String>()
+                File.Field.OneOf(
+                    name = name,
+                    fields = mutableSetOf<String>().let { usedFieldTypeNames ->
+                        msgDesc.fieldList.filter { it.hasOneofIndex() && it.oneofIndex == field.oneofIndex }.map {
+                            fieldTypeNames += it.name to namer.newTypeName(it.name, usedFieldTypeNames)
+                            fromProto(it, mutableSetOf())
+                        }
+                    },
+                    kotlinFieldTypeNames = fieldTypeNames,
+                    kotlinFieldName = namer.newFieldName(name, usedFieldNames),
+                    kotlinTypeName = namer.newTypeName(name, usedTypeNames)
+                )
+            } else null
         }
     }
 
-    protected fun fromProto(fieldDesc: DescriptorProtos.FieldDescriptorProto) = File.Field.Standard(
+    protected fun fromProto(
+        fieldDesc: DescriptorProtos.FieldDescriptorProto,
+        usedFieldNames: MutableSet<String>
+    ) = File.Field.Standard(
         number = fieldDesc.number,
         name = fieldDesc.name,
         type = when (fieldDesc.type!!) {
@@ -66,7 +97,12 @@ open class FileBuilder {
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT32 -> File.Field.Type.UINT32
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT64 -> File.Field.Type.UINT64
         },
-        typeName = if (fieldDesc.hasTypeName()) fieldDesc.typeName else null
+        localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
+        kotlinFieldName = namer.newFieldName(fieldDesc.name, usedFieldNames),
+        kotlinLocalTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName.split('.').joinToString(".") {
+            // TODO: this is not good enough, we need to keep a mapping to real name value
+            if (it.isEmpty()) it else namer.newTypeName(it, mutableSetOf())
+        }
     )
 
     companion object : FileBuilder()
