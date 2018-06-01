@@ -8,7 +8,12 @@ data class WireFormat(val value: Int) {
         val PROTOBUF = WireFormat(1)
         val JSON = WireFormat(2)
 
-        val knownValues = mapOf(0 to UNSPECIFIED, 1 to PROTOBUF, 2 to JSON)
+        fun fromValue(value: Int) = when (value) {
+            0 -> UNSPECIFIED
+            1 -> PROTOBUF
+            2 -> JSON
+            else -> WireFormat(value)
+        }
     }
 }
 
@@ -23,7 +28,7 @@ data class ConformanceRequest(
         data class JsonPayload(val jsonPayload: String = "") : Payload()
     }
 
-    override fun size() = sizeImpl()
+    override val size by lazy { sizeImpl() }
     override fun marshal(m: Marshaller) = marshalImpl(m)
     companion object : Message.Companion<ConformanceRequest> {
         override fun unmarshal(u: Unmarshaller) = ConformanceRequest.unmarshalImpl(u)
@@ -44,9 +49,36 @@ data class ConformanceResponse(
     }
 }
 
-internal fun ConformanceRequest.sizeImpl(): Int = TODO()
+internal fun ConformanceRequest.sizeImpl(): Int {
+    var size = 0
+    when (payload) {
+        is ConformanceRequest.Payload.ProtobufPayload ->
+            size += Sizer.tagSize(1) + Sizer.byteArrSize(payload.protobufPayload)
+        is ConformanceRequest.Payload.JsonPayload ->
+            size += Sizer.tagSize(2) + Sizer.stringSize(payload.jsonPayload)
+    }
+    if (requestedOutputFormat.value != 0)
+        size += Sizer.tagSize(3) + Sizer.enumSize(requestedOutputFormat.value)
+    if (messageType.isNotEmpty())
+        size += Sizer.tagSize(4) + Sizer.stringSize(messageType)
+    size += unknownFields.entries.sumBy { it.value.size() }
+    return size
+}
 
-internal fun ConformanceRequest.marshalImpl(m: Marshaller): Marshaller = TODO()
+internal fun ConformanceRequest.marshalImpl(m: Marshaller) {
+    when (payload) {
+        is ConformanceRequest.Payload.ProtobufPayload ->
+            m.writeTag(10).writeBytes(payload.protobufPayload)
+        is ConformanceRequest.Payload.JsonPayload ->
+            m.writeTag(18).writeString(payload.jsonPayload)
+    }
+    if (requestedOutputFormat.value != 0)
+        m.writeTag(24).writeEnum(requestedOutputFormat.value)
+    if (messageType.isNotEmpty())
+        m.writeTag(34).writeString(messageType)
+    if (unknownFields.isNotEmpty())
+        m.writeUnknownFields(unknownFields)
+}
 
 internal fun ConformanceRequest.Companion.unmarshalImpl(u: Unmarshaller): ConformanceRequest {
     var payload: ConformanceRequest.Payload? = null
@@ -56,7 +88,7 @@ internal fun ConformanceRequest.Companion.unmarshalImpl(u: Unmarshaller): Confor
         0 -> return ConformanceRequest(payload, requestedOutputFormat, messageType, u.unknownFields())
         10 -> payload = ConformanceRequest.Payload.ProtobufPayload(u.readBytes())
         18 -> payload = ConformanceRequest.Payload.JsonPayload(u.readString())
-        24 -> requestedOutputFormat = u.readEnum(WireFormat.knownValues, ::WireFormat)
+        24 -> requestedOutputFormat = WireFormat.fromValue(u.readEnum())
         34 -> messageType = u.readString()
         else -> u.unknownField()
     }

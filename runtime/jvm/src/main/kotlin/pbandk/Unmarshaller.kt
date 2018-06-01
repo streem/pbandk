@@ -36,8 +36,7 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
     actual fun readBytes() = ByteArr(stream.readByteArray())
     actual fun readString() = stream.readString()
 
-    actual fun <T> readEnum(knownValues: Map<Int, T>, create: (Int) -> T) =
-        stream.readEnum().let { knownValues[it] ?: create(it) }
+    actual fun readEnum() = stream.readEnum()
 
     actual fun <T : Message> readMessage(s: Message.Companion<T>): T {
         val oldLimit = stream.pushLimit(stream.readRawVarint32())
