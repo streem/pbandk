@@ -126,22 +126,22 @@ project(':runtime:native') {
 import java.nio.file.Paths
 task generateWellKnownTypes {
     dependsOn ':protoc-gen-kotlin:installDist'
-
     doFirst {
         // Build up the CLI info
         def protocPath = System.getProperty('protoc.path')
         if (protocPath == null) throw new InvalidUserDataException("System property protoc.path must be set")
-        def protocBin = Paths.get(protocPath, 'bin/protoc')
-        def kotlinArg = '--kotlin_out=kotlin_package=pbandk.wkt,log=debug:./runtime/common/src/main/kotlin'
-        def pluginArg = '--plugin=protoc-gen-kotlin=' + Paths.get('./protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
-        if (System.properties['os.name'].toLowerCase().contains('windows'))
-            pluginArg += '.bat'
-        def includePath = Paths.get(protocPath, 'include/google/protobuf')
-        // TODO: all protos, not just this one
-        def protoArg = includePath.resolve('any.proto')
-        // Exec it
-        exec {
-            commandLine protocBin, kotlinArg, pluginArg, '-I', includePath, protoArg
+        def args = []
+        args << Paths.get(protocPath, 'bin/protoc')
+        args << '--kotlin_out=kotlin_package=pbandk.wkt,log=debug:./runtime/common/src/main/kotlin'
+        args << '--plugin=protoc-gen-kotlin=' + Paths.get('./protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
+        if (System.properties['os.name'].toLowerCase().contains('windows')) args[-1] += '.bat'
+        def includePath = Paths.get(protocPath, 'include')
+        args << '-I' << includePath
+        args += includePath.resolve('google/protobuf').toFile().listFiles().findAll {
+            // TODO: remove last conditional here and include all protos
+            it.isFile() && it.toString().endsWith('any.proto')
         }
+        // Run it
+        exec { commandLine(*args) }
     }
 }

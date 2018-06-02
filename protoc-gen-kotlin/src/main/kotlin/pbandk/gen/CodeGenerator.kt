@@ -5,7 +5,6 @@ open class CodeGenerator {
     protected var indent = ""
 
     fun generate(file: File): String {
-        if (file.version != 3) TODO("Only proto3 currently supported")
         file.packageName?.let { line("package $it") }
         line()
         file.types.forEach(::writeType)
@@ -44,11 +43,10 @@ open class CodeGenerator {
 
     protected fun writeMessageType(type: File.Type.Message) {
         // No fields means it's an object
-        if (type.fields.isEmpty()) TODO("Handle empty field set as an object")
         line("data class ${type.kotlinTypeName}(").indented {
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Standard -> lineBegin().writeConstructorField(field).lineEnd(",")
+                    is File.Field.Standard -> lineBegin().writeConstructorField(field, true).lineEnd(",")
                     is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}? = null,")
                 }
             }
@@ -69,15 +67,20 @@ open class CodeGenerator {
         }.line("}").line()
     }
 
-    protected fun writeConstructorField(field: File.Field.Standard): CodeGenerator {
-        val defaultValue =
-            if (field.type == File.Field.Type.ENUM) "${field.kotlinLocalTypeName}.valueOf(0)"
-            else field.type.defaultValue
-        return lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueTypeName} = $defaultValue")
+    protected fun writeConstructorField(field: File.Field.Standard, nullableIfMessage: Boolean): CodeGenerator {
+        lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
+        if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
+        return this
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
-        TODO()
+        line("sealed class ${oneOf.kotlinTypeName} {").indented {
+            oneOf.fields.forEach { field ->
+                lineBegin("data class ${oneOf.kotlinFieldTypeNames[field.name]}(")
+                writeConstructorField(field, false)
+                lineEnd(") : ${oneOf.kotlinTypeName}()")
+            }
+        }.line("}").line()
     }
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
@@ -88,7 +91,7 @@ open class CodeGenerator {
     }
 
     protected fun writeMessageSizeExtension(type: File.Type.Message, fullTypeName: String) {
-        line("internal fun $fullTypeName.protoSizeImpl(): Int {").indented {
+        line("private fun $fullTypeName.protoSizeImpl(): Int {").indented {
             line("var protoSize = 0")
             // Go over each field doing size check
             type.fields.forEach { field ->
@@ -120,7 +123,7 @@ open class CodeGenerator {
     }
 
     protected fun writeMessageMarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        line("internal fun $fullTypeName.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {").indented {
+        line("private fun $fullTypeName.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {").indented {
             // Go over each and write each if it's not default
             type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                 val fieldRef = field.fieldRef()
@@ -146,14 +149,14 @@ open class CodeGenerator {
     }
 
     protected fun writeMessageUnmarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        val lineStr = "internal fun $fullTypeName.Companion." +
+        val lineStr = "private fun $fullTypeName.Companion." +
             "protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): $fullTypeName {"
         line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val kotlinFields = type.fields.map {
                 lineBegin("var ${it.kotlinFieldName}: ")
                 when (it) {
-                    is File.Field.Standard -> lineEnd("${it.kotlinValueTypeName} = ${it.type.defaultValue}")
+                    is File.Field.Standard -> lineEnd("${it.kotlinValueType(true)} = ${it.defaultValue}")
                     is File.Field.OneOf -> lineEnd("$fullTypeName.${it.kotlinTypeName}? = null")
                 }
                 it.kotlinFieldName
@@ -192,8 +195,12 @@ open class CodeGenerator {
         File.Field.Type.MESSAGE -> "protoUnmarshal.readMessage($kotlinLocalTypeName.Companion)"
         else -> "protoUnmarshal.${type.readMethod}()"
     }
-    protected val File.Field.Standard.kotlinValueTypeName get() =
-        kotlinLocalTypeName?.plus("?") ?: type.standardTypeName
+    protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean) =
+        (kotlinLocalTypeName ?: type.standardTypeName).let {
+            if (type == File.Field.Type.MESSAGE && nullableIfMessage) "$it?" else it
+        }
+    protected val File.Field.Standard.defaultValue get() =
+        if (type == File.Field.Type.ENUM) "$kotlinLocalTypeName.valueOf(0)" else type.defaultValue
     protected val File.Field.Standard.tag get() = (number shl 3) or type.wireFormat
     protected val File.Field.Type.string get() = when (this) {
         File.Field.Type.BOOL -> "bool"
@@ -256,7 +263,7 @@ open class CodeGenerator {
         else -> "0"
     }
     protected fun File.Field.Type.nonDefaultCheck(varName: String) = when (this) {
-        File.Field.Type.BOOL -> "!$varName"
+        File.Field.Type.BOOL -> varName
         File.Field.Type.BYTES -> "$varName.array.isNotEmpty()"
         File.Field.Type.GROUP -> TODO()
         File.Field.Type.MESSAGE -> "$varName != null"

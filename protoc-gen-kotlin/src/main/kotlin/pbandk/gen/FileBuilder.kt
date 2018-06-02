@@ -7,7 +7,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
     fun fromProto(fileDesc: DescriptorProtos.FileDescriptorProto, params: Map<String, String>) = File(
         name = fileDesc.name,
         packageName = packageName(fileDesc, params),
-        version = fileDesc.syntax.removePrefix("proto").toInt(),
+        version = fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
         types = typesFromProto(fileDesc.enumTypeList, fileDesc.messageTypeList)
     )
 

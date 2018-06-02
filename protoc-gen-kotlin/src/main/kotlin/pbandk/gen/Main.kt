@@ -18,11 +18,14 @@ fun main(args: Array<String>) {
 
     // Convert to file model and generate the code
     PluginProtos.CodeGeneratorResponse.newBuilder().addAllFile(request.fileToGenerateList.map { fileName ->
+        debug { "Preparing $fileName" }
         val protoFile = request.protoFileList.find { it.name == fileName } ?: error("Unable to find $fileName")
         val file = FileBuilder.fromProto(protoFile, params)
         // Package name + file name (s/proto/kt)
-        val filePath = (file.packageName?.replace('.', '/')?.plus('/') ?: "") + fileName.removeSuffix(".proto") + ".kt"
-        debug { "Generating $filePath from $fileName" }
+        val fileNameSansPath = fileName.substringAfterLast('/')
+        val filePath = (file.packageName?.replace('.', '/')?.plus('/') ?: "") +
+            fileNameSansPath.removeSuffix(".proto") + ".kt"
+        debug { "Generating $filePath" }
         PluginProtos.CodeGeneratorResponse.File.newBuilder().
             setName(filePath).
             setContent(CodeGenerator().generate(file)).
