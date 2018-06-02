@@ -4,7 +4,7 @@ import com.google.protobuf.CodedInputStream
 import com.google.protobuf.WireFormat
 
 actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields: Boolean = false) {
-    var currentUnknownFields: MutableMap<Int, UnknownField>? = null
+    var currentUnknownFields = if (discardUnknownFields) null else mutableMapOf<Int, UnknownField>()
 
     actual fun readTag() = stream.readTag()
     actual fun readDouble() = stream.readDouble()

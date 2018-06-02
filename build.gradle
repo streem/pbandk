@@ -40,7 +40,7 @@ project(':protoc-gen-kotlin') {
         testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     }
-    /*
+    /* TODO: move to Kotlin Native one day
     apply plugin: 'konan'
     konanArtifacts {
         program('protoc-gen-kotlin') {
@@ -119,5 +119,29 @@ project(':runtime:native') {
     }
     dependencies {
         expectedBy project(':runtime:common')
+    }
+}
+
+
+import java.nio.file.Paths
+task generateWellKnownTypes {
+    dependsOn ':protoc-gen-kotlin:installDist'
+
+    doFirst {
+        // Build up the CLI info
+        def protocPath = System.getProperty('protoc.path')
+        if (protocPath == null) throw new InvalidUserDataException("System property protoc.path must be set")
+        def protocBin = Paths.get(protocPath, 'bin/protoc')
+        def kotlinArg = '--kotlin_out=kotlin_package=pbandk.wkt,log=debug:./runtime/common/src/main/kotlin'
+        def pluginArg = '--plugin=protoc-gen-kotlin=' + Paths.get('./protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
+        if (System.properties['os.name'].toLowerCase().contains('windows'))
+            pluginArg += '.bat'
+        def includePath = Paths.get(protocPath, 'include/google/protobuf')
+        // TODO: all protos, not just this one
+        def protoArg = includePath.resolve('any.proto')
+        // Exec it
+        exec {
+            commandLine protocBin, kotlinArg, pluginArg, '-I', includePath, protoArg
+        }
     }
 }

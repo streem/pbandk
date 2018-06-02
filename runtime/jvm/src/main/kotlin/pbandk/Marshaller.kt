@@ -41,4 +41,8 @@ actual class Marshaller(val stream: CodedOutputStream) {
         }
         fields.forEach { writeUnknownFieldValue(it.key, it.value.value) }
     }
+
+    actual companion object {
+        actual fun stringToUtf8Bytes(str: String) = str.toByteArray()
+    }
 }

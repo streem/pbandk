@@ -61,7 +61,8 @@ open class CodeGenerator {
             line("override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
             line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
-                line("override fun protoUnmarshal(u: Unmarshaller) = ${type.kotlinTypeName}.protoUnmarshalImpl(u)")
+                line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = " +
+                    "${type.kotlinTypeName}.protoUnmarshalImpl(u)")
             }.line("}")
             // Nested enums and types
             type.nestedTypes.forEach(::writeType)
@@ -94,8 +95,8 @@ open class CodeGenerator {
                 when (field) {
                     is File.Field.Standard -> field.fieldRef().also { fieldRef ->
                         line("if (${field.type.nonDefaultCheck(fieldRef)})").indented {
-                            line("protoSize += Sizer.tagSize(${field.number}) + " +
-                                "Sizer.${field.type.sizeMethod}($fieldRef)")
+                            line("protoSize += pbandk.Sizer.tagSize(${field.number}) + " +
+                                "pbandk.Sizer.${field.type.sizeMethod}($fieldRef)")
                         }
                     }
                     is File.Field.OneOf -> {
@@ -104,8 +105,8 @@ open class CodeGenerator {
                                 val subFieldRef = subField.fieldRef()
                                 val subFieldTypeName = field.kotlinFieldTypeNames[subField.name]
                                 line("is $fullTypeName.${field.kotlinTypeName}.$subFieldTypeName ->").indented {
-                                    line("protoSize += Sizer.tagSize(${subField.number}) + " +
-                                        "Sizer.${subField.type.sizeMethod}(${field.kotlinFieldName}.$subFieldRef)")
+                                    line("protoSize += pbandk.Sizer.tagSize(${subField.number}) + pbandk.Sizer." +
+                                        "${subField.type.sizeMethod}(${field.kotlinFieldName}.$subFieldRef)")
                                 }
                             }
                         }.line("}")
@@ -119,7 +120,7 @@ open class CodeGenerator {
     }
 
     protected fun writeMessageMarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        line("internal fun $fullTypeName.protoMarshalImpl(protoMarshal: Marshaller) {").indented {
+        line("internal fun $fullTypeName.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {").indented {
             // Go over each and write each if it's not default
             type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                 val fieldRef = field.fieldRef()
@@ -146,7 +147,7 @@ open class CodeGenerator {
 
     protected fun writeMessageUnmarshalExtension(type: File.Type.Message, fullTypeName: String) {
         val lineStr = "internal fun $fullTypeName.Companion." +
-            "protoUnmarshalImpl(protoUnmarshal: Unmarshaller): $fullTypeName {"
+            "protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): $fullTypeName {"
         line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val kotlinFields = type.fields.map {
