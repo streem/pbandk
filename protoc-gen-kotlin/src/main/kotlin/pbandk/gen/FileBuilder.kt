@@ -4,17 +4,18 @@ import com.google.protobuf.DescriptorProtos
 
 open class FileBuilder(val namer: Namer = Namer.Standard) {
 
-    fun fromProto(fileDesc: DescriptorProtos.FileDescriptorProto, params: Map<String, String>) = File(
-        name = fileDesc.name,
-        packageName = packageName(fileDesc, params),
-        version = fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
-        types = typesFromProto(fileDesc.enumTypeList, fileDesc.messageTypeList)
+    fun buildFile(ctx: Context) = File(
+        name = ctx.fileDesc.name,
+        packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() },
+        kotlinPackageName = packageName(ctx),
+        version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
+        types = typesFromProto(ctx.fileDesc.enumTypeList, ctx.fileDesc.messageTypeList)
     )
 
-    protected fun packageName(fileDesc: DescriptorProtos.FileDescriptorProto, params: Map<String, String>) =
-        params["kotlin_package"] ?: fileDesc.options.uninterpretedOptionList.find {
+    protected fun packageName(ctx: Context) =
+        ctx.params["kotlin_package"] ?: ctx.fileDesc.options.uninterpretedOptionList.find {
             it.nameList.singleOrNull()?.namePart == "kotlin_package"
-        }?.stringValue?.toStringUtf8() ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
+        }?.stringValue?.toStringUtf8() ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
     protected fun typesFromProto(
         enumTypes: List<DescriptorProtos.EnumDescriptorProto>,
@@ -99,10 +100,14 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         },
         localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
         kotlinFieldName = namer.newFieldName(fieldDesc.name, usedFieldNames),
-        kotlinLocalTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName.split('.').joinToString(".") {
-            // TODO: this is not good enough, we need to keep a mapping to real name value
-            if (it.isEmpty()) it else namer.newTypeName(it, mutableSetOf())
-        }
+        kotlinLocalTypeName =
+            if (!fieldDesc.hasTypeName() || fieldDesc.typeName.startsWith('.')) null
+            else namer.newTypeName(fieldDesc.typeName, mutableSetOf())
+    )
+
+    data class Context(
+        val fileDesc: DescriptorProtos.FileDescriptorProto,
+        val params: Map<String, String>
     )
 
     companion object : FileBuilder()

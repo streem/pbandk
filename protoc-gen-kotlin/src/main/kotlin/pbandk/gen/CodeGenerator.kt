@@ -1,11 +1,11 @@
 package pbandk.gen
 
-open class CodeGenerator {
+open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
     protected val bld = StringBuilder()
     protected var indent = ""
 
     fun generate(file: File): String {
-        file.packageName?.let { line("package $it") }
+        file.kotlinPackageName?.let { line("package $it") }
         line()
         file.types.forEach(::writeType)
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
@@ -154,10 +154,17 @@ open class CodeGenerator {
         line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val kotlinFields = type.fields.map {
-                lineBegin("var ${it.kotlinFieldName}: ")
+                lineBegin("var ${it.kotlinFieldName}")
                 when (it) {
-                    is File.Field.Standard -> lineEnd("${it.kotlinValueType(true)} = ${it.defaultValue}")
-                    is File.Field.OneOf -> lineEnd("$fullTypeName.${it.kotlinTypeName}? = null")
+                    is File.Field.Standard -> {
+                        // Don't need type for boolean, int, or string
+                        it.kotlinValueType(true).also {
+                            if (it != "Boolean" && it != "Int" && it != "String") lineMid(": $it")
+                        }
+                        lineEnd(" = ${it.defaultValue}")
+                    }
+                    is File.Field.OneOf ->
+                        lineEnd(": $fullTypeName.${it.kotlinTypeName}? = null")
                 }
                 it.kotlinFieldName
             }
@@ -190,17 +197,19 @@ open class CodeGenerator {
         }.sortedBy { it.first.number }
     protected fun File.Field.Standard.fieldRef() =
         if (type == File.Field.Type.ENUM) "$kotlinFieldName.value" else kotlinFieldName
+    protected val File.Field.Standard.kotlinQualifiedTypeName get() =
+        kotlinLocalTypeName ?:
+            localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
+            type.standardTypeName
     protected val File.Field.Standard.unmarshalReadExpr get()= when (type) {
-        File.Field.Type.ENUM -> "$kotlinLocalTypeName.valueOf(protoUnmarshal.readEnum())"
-        File.Field.Type.MESSAGE -> "protoUnmarshal.readMessage($kotlinLocalTypeName.Companion)"
+        File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(protoUnmarshal.readEnum())"
+        File.Field.Type.MESSAGE -> "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)"
         else -> "protoUnmarshal.${type.readMethod}()"
     }
     protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean) =
-        (kotlinLocalTypeName ?: type.standardTypeName).let {
-            if (type == File.Field.Type.MESSAGE && nullableIfMessage) "$it?" else it
-        }
+        kotlinQualifiedTypeName.let { if (type == File.Field.Type.MESSAGE && nullableIfMessage) "$it?" else it }
     protected val File.Field.Standard.defaultValue get() =
-        if (type == File.Field.Type.ENUM) "$kotlinLocalTypeName.valueOf(0)" else type.defaultValue
+        if (type == File.Field.Type.ENUM) "$kotlinQualifiedTypeName.fromValue(0)" else type.defaultValue
     protected val File.Field.Standard.tag get() = (number shl 3) or type.wireFormat
     protected val File.Field.Type.string get() = when (this) {
         File.Field.Type.BOOL -> "bool"

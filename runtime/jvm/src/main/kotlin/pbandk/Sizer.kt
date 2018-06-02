@@ -20,4 +20,5 @@ actual object Sizer {
     actual fun stringSize(value: String) = CodedOutputStream.computeStringSizeNoTag(value)
     actual fun bytesSize(value: ByteArr) = CodedOutputStream.computeByteArraySizeNoTag(value.array)
     actual fun enumSize(value: Int) = CodedOutputStream.computeEnumSizeNoTag(value)
+    actual fun messageSize(value: Message) = value.protoSize
 }

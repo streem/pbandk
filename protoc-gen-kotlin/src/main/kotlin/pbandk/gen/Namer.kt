@@ -6,7 +6,7 @@ interface Namer {
     fun newEnumValueName(preferred: String, nameSet: MutableSet<String>): String
 
     open class Standard : Namer {
-        val reservedTypeNames = setOf("Boolean", "Double", "Float", "Int", "Long", "String")
+        val reservedTypeNames = setOf("Boolean", "Companion", "Double", "Float", "Int", "Long", "String")
         val reservedFieldNames = setOf(
             "class", "pbandk", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
         )

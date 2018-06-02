@@ -3,9 +3,29 @@ package pbandk.gen
 data class File(
     val name: String,
     val packageName: String?,
+    val kotlinPackageName: String?,
     val version: Int,
     val types: List<Type>
 ) {
+    // Map is keyed by protobuf names (qualified starting w/ a dot if packageName is non-null) with value of Kotlin FQCN
+    fun kotlinTypeMappings() = mutableMapOf<String, String>().also { ret ->
+        fun applyType(t: Type, parentProtobufTypeName: String? = null, parentKotlinTypeName: String? = null) {
+            val protobufTypeName = when {
+                parentProtobufTypeName != null -> "$parentProtobufTypeName."
+                packageName != null -> ".$packageName."
+                else -> ""
+            } + t.name
+            val kotlinTypeName = when {
+                parentKotlinTypeName != null -> "$parentKotlinTypeName."
+                kotlinPackageName != null -> "$kotlinPackageName."
+                else -> ""
+            } + t.kotlinTypeName
+            ret += protobufTypeName to kotlinTypeName
+            (t as? Type.Message)?.nestedTypes?.forEach { applyType(it, protobufTypeName, kotlinTypeName) }
+        }
+        types.forEach { applyType(it) }
+    }
+
     sealed class Type {
         abstract val name: String
         abstract val kotlinTypeName: String
@@ -36,6 +56,7 @@ data class File(
             val type: Type,
             val localTypeName: String?,
             override val kotlinFieldName: String,
+            // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
             val kotlinLocalTypeName: String?
         ) : Field()
 

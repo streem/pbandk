@@ -16,19 +16,25 @@ fun main(args: Array<String>) {
     logDebug = params["log"] == "debug"
     debug { "Running generator with params: $params" }
 
-    // Convert to file model and generate the code
-    PluginProtos.CodeGeneratorResponse.newBuilder().addAllFile(request.fileToGenerateList.map { fileName ->
-        debug { "Preparing $fileName" }
-        val protoFile = request.protoFileList.find { it.name == fileName } ?: error("Unable to find $fileName")
-        val file = FileBuilder.fromProto(protoFile, params)
-        // Package name + file name (s/proto/kt)
-        val fileNameSansPath = fileName.substringAfterLast('/')
-        val filePath = (file.packageName?.replace('.', '/')?.plus('/') ?: "") +
-            fileNameSansPath.removeSuffix(".proto") + ".kt"
-        debug { "Generating $filePath" }
-        PluginProtos.CodeGeneratorResponse.File.newBuilder().
-            setName(filePath).
-            setContent(CodeGenerator().generate(file)).
-            build()
+    // Convert to file model and generate the code only for ones requested
+    val kotlinTypeMappings = mutableMapOf<String, String>()
+    PluginProtos.CodeGeneratorResponse.newBuilder().addAllFile(request.protoFileList.mapNotNull { protoFile ->
+        debug { "Reading ${protoFile.name}" }
+        // Convert the file to our model
+        val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params))
+        // Update the type mappings
+        kotlinTypeMappings += file.kotlinTypeMappings()
+        // Generate if necessary
+        if (!request.fileToGenerateList.contains(protoFile.name)) null else {
+            // Package name + file name (s/proto/kt)
+            val fileNameSansPath = protoFile.name.substringAfterLast('/')
+            val filePath = (file.kotlinPackageName?.replace('.', '/')?.plus('/') ?: "") +
+                    fileNameSansPath.removeSuffix(".proto") + ".kt"
+            debug { "Generating $filePath" }
+            PluginProtos.CodeGeneratorResponse.File.newBuilder().
+                    setName(filePath).
+                    setContent(CodeGenerator(kotlinTypeMappings).generate(file)).
+                    build()
+        }
     }).build().writeTo(System.out)
 }
