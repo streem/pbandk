@@ -19,7 +19,7 @@ expect class Marshaller(arr: ByteArray) {
     fun writeString(value: String)
     fun writeBytes(value: ByteArr)
     fun writeEnum(value: Int)
-    fun writeMessage(value: Message)
+    fun writeMessage(value: Message<*>)
     fun writeUnknownFields(fields: Map<Int, UnknownField>)
     fun <T> writePackedRepeated(list: List<T>, writeFn: (T) -> Unit)
 

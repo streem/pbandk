@@ -10,7 +10,7 @@ interface Namer {
             "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "MutableList", "String"
         )
         val disallowedFieldNames = setOf(
-            "emptyList", "pbandk", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
+            "emptyList", "pbandk", "plus", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
         )
         val kotlinKeywords = setOf(
             "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",

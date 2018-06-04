@@ -22,12 +22,13 @@ data class ConformanceRequest(
     val requestedOutputFormat: WireFormat = WireFormat.UNSPECIFIED,
     val messageType: String = "",
     val unknownFields: Map<Int, UnknownField> = emptyMap()
-) : Message {
+) : Message<ConformanceRequest> {
     sealed class Payload {
         data class ProtobufPayload(val protobufPayload: ByteArr = ByteArr.empty) : Payload()
         data class JsonPayload(val jsonPayload: String = "") : Payload()
     }
 
+    override operator fun plus(other: ConformanceRequest?) = protoMergeImpl(other)
     override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: Marshaller) = protoMarshalImpl(m)
     companion object : Message.Companion<ConformanceRequest> {
@@ -48,6 +49,19 @@ data class ConformanceResponse(
         data class Skipped(val skipped: String = "") : Result()
     }
 }
+
+internal fun ConformanceRequest.protoMergeImpl(plus: ConformanceRequest?): ConformanceRequest = plus?.copy(
+    payload = when {
+        payload is ConformanceRequest.Payload.ProtobufPayload && plus.payload is ConformanceRequest.Payload.ProtobufPayload -> {
+            println(payload.protobufPayload)
+            println(plus.payload.protobufPayload)
+            TODO()
+        }
+        else ->
+            plus.payload ?: payload
+    },
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
 
 internal fun ConformanceRequest.protoSizeImpl(): Int {
     var size = 0

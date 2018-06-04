@@ -138,8 +138,7 @@ task generateWellKnownTypes {
         def includePath = Paths.get(protocPath, 'include')
         args << '-I' << includePath
         args += includePath.resolve('google/protobuf').toFile().listFiles().findAll {
-            // TODO: remove last conditional here and include all protos
-            it.isFile() && it.toString().endsWith('any.proto')
+            it.isFile() && it.toString().endsWith('.proto')
         }
         // Run it
         exec { commandLine(*args) }

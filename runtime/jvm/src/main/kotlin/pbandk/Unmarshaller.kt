@@ -23,7 +23,7 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
     actual fun readString() = stream.readString()
     actual fun readBytes() = ByteArr(stream.readByteArray())
     actual fun readEnum() = stream.readEnum()
-    actual fun <T : Message> readMessage(s: Message.Companion<T>): T {
+    actual fun <T : Message<T>> readMessage(s: Message.Companion<T>): T {
         val oldLimit = stream.pushLimit(stream.readRawVarint32())
         val oldUnknownFields = currentUnknownFields
         if (!discardUnknownFields) currentUnknownFields = mutableMapOf()

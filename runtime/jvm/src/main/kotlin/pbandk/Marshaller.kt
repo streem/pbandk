@@ -23,7 +23,7 @@ actual class Marshaller(val stream: CodedOutputStream) {
     actual fun writeString(value: String) = stream.writeStringNoTag(value)
     actual fun writeBytes(value: ByteArr) = stream.writeByteArrayNoTag(value.array)
     actual fun writeEnum(value: Int) = stream.writeEnumNoTag(value)
-    actual fun writeMessage(value: Message) {
+    actual fun writeMessage(value: Message<*>) {
         stream.writeUInt32NoTag(value.protoSize)
         value.protoMarshal(this)
     }

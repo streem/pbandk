@@ -51,10 +51,11 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             }
             // The unknown fields
             line("val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
-        }.line(") : pbandk.Message {").indented {
+        }.line(") : pbandk.Message<${type.kotlinTypeName}> {").indented {
             // One-ofs as sealed class hierarchies
             type.fields.mapNotNull { it as? File.Field.OneOf }.forEach(::writeOneOfType)
             // IO helpers
+            line("override operator fun plus(other: ${type.kotlinTypeName}?) = protoMergeImpl(other)")
             line("override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
             line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
@@ -84,14 +85,58 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
         val fullTypeName = if (parentType == null) type.kotlinTypeName else "$parentType.${type.kotlinTypeName}"
+        writeMessageMergeExtension(type, fullTypeName)
         writeMessageSizeExtension(type, fullTypeName)
         writeMessageMarshalExtension(type, fullTypeName)
         writeMessageUnmarshalExtension(type, fullTypeName)
         type.nestedTypes.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it, fullTypeName) }
     }
 
+    protected fun writeMessageMergeExtension(type: File.Type.Message, fullTypeName: String) {
+        fun mergeStandard(field: File.Field.Standard) {
+            if (field.repeated) {
+                line("${field.kotlinFieldName} = ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
+            } else if (field.type == File.Field.Type.MESSAGE) {
+                line("${field.kotlinFieldName} = " +
+                    "${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},")
+            }
+        }
+        fun mergeOneOf(oneOf: File.Field.OneOf) {
+            val fieldsToMerge = oneOf.fields.filter { it.repeated || it.type == File.Field.Type.MESSAGE }
+            if (fieldsToMerge.isEmpty()) {
+                line("${oneOf.kotlinFieldName} = plus.${oneOf.kotlinFieldName} ?: ${oneOf.kotlinFieldName},")
+            } else {
+                line("${oneOf.kotlinFieldName} = when {").indented {
+                    fieldsToMerge.forEach { subField ->
+                        val subTypeName = "$fullTypeName." +
+                                "${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[subField.name]}"
+                        line("${oneOf.kotlinFieldName} is $subTypeName && " +
+                                "plus.${oneOf.kotlinFieldName} is $subTypeName ->").indented {
+                            line("$subTypeName(${oneOf.kotlinFieldName}.${subField.kotlinFieldName} + " +
+                                "plus.${oneOf.kotlinFieldName}.${subField.kotlinFieldName})")
+                        }
+                    }
+                    line("else ->").indented {
+                        line("plus.${oneOf.kotlinFieldName} ?: ${oneOf.kotlinFieldName}")
+                    }
+                }.line("},")
+            }
+        }
+
+        line()
+        line("private fun $fullTypeName.protoMergeImpl(plus: $fullTypeName?): $fullTypeName = plus?.copy(").indented {
+            type.fields.forEach { field ->
+                when (field) {
+                    is File.Field.Standard -> mergeStandard(field)
+                    is File.Field.OneOf -> mergeOneOf(field)
+                }
+            }
+            line("unknownFields = unknownFields + plus.unknownFields")
+        }.line(") ?: this")
+    }
+
     protected fun writeMessageSizeExtension(type: File.Type.Message, fullTypeName: String) {
-        line("private fun $fullTypeName.protoSizeImpl(): Int {").indented {
+        line().line("private fun $fullTypeName.protoSizeImpl(): Int {").indented {
             line("var protoSize = 0")
             // Go over each field doing size check
             type.fields.forEach { field ->
@@ -112,11 +157,11 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             // Add the unknown fields and return
             line("protoSize += unknownFields.entries.sumBy { it.value.size() }")
             line("return protoSize")
-        }.line("}").line()
+        }.line("}")
     }
 
     protected fun writeMessageMarshalExtension(type: File.Type.Message, fullTypeName: String) {
-        line("private fun $fullTypeName.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {").indented {
+        line().line("private fun $fullTypeName.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {").indented {
             // Go over each and write each if it's not default
             type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                 if (oneOf == null) {
@@ -133,13 +178,13 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             line("if (unknownFields.isNotEmpty())").indented {
                 line("protoMarshal.writeUnknownFields(unknownFields)")
             }
-        }.line("}").line()
+        }.line("}")
     }
 
     protected fun writeMessageUnmarshalExtension(type: File.Type.Message, fullTypeName: String) {
         val lineStr = "private fun $fullTypeName.Companion." +
             "protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): $fullTypeName {"
-        line(lineStr).indented {
+        line().line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val kotlinFields = type.fields.map {
                 lineBegin("var ${it.kotlinFieldName}")
@@ -156,7 +201,8 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             // Now loop reading the tag and check fields in order
             line("while (true) when (protoUnmarshal.readTag()) {").indented {
                 // Tag of 0 means we're done
-                line("0 -> return $fullTypeName(${kotlinFields.joinToString(", ")}, protoUnmarshal.unknownFields())")
+                val fieldSet = if (kotlinFields.isEmpty()) "" else kotlinFields.joinToString(", ", postfix = ", ")
+                line("0 -> return $fullTypeName(${fieldSet}protoUnmarshal.unknownFields())")
                 // Each field tag
                 type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                     lineBegin("${field.tag} -> ")
@@ -179,7 +225,7 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
                 // Unknown field
                 line("else -> protoUnmarshal.unknownField()")
             }.line("}")
-        }.line("}").line()
+        }.line("}")
     }
 
     protected fun File.Type.Message.sortedStandardFieldsWithOneOfs() =
