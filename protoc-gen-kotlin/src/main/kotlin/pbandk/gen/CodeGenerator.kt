@@ -28,11 +28,11 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
 
     protected fun writeEnumType(type: File.Type.Enum) {
         // Enums are data classes w/ a single value and a companion object with known values
-        line().line("data class ${type.kotlinTypeName}(val value: Int) {").indented {
-            line("companion object {").indented {
+        line().line("data class ${type.kotlinTypeName}(override val value: Int) : pbandk.Message.Enum {").indented {
+            line("companion object : pbandk.Message.Enum.Companion<${type.kotlinTypeName}> {").indented {
                 type.values.forEach { line("val ${it.kotlinValueName} = ${type.kotlinTypeName}(${it.number})") }
                 line()
-                line("fun fromValue(value: Int) = when (value) {").indented {
+                line("override fun fromValue(value: Int) = when (value) {").indented {
                     type.values.forEach { line("${it.number} -> ${it.kotlinValueName}") }
                     line("else -> ${type.kotlinTypeName}(value)")
                 }.line("}")
@@ -236,14 +236,13 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             }
         }.sortedBy { it.first.number }
 
-    protected val File.Field.Standard.fieldRef get() =
-        if (type == File.Field.Type.ENUM) "$kotlinFieldName.value" else kotlinFieldName
+    protected val File.Field.Standard.fieldRef get() = kotlinFieldName
     protected val File.Field.Standard.kotlinQualifiedTypeName get() =
         kotlinLocalTypeName ?:
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
             type.standardTypeName
     protected val File.Field.Standard.unmarshalReadExpr get() = when (type) {
-        File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(protoUnmarshal.readEnum())".let {
+        File.Field.Type.ENUM -> "protoUnmarshal.readEnum($kotlinQualifiedTypeName.Companion)".let {
             if (repeated) "protoUnmarshal.readRepeated { $it }" else it
         }
         File.Field.Type.MESSAGE -> "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)".let {
@@ -291,7 +290,6 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
         File.Field.Type.FIXED32 -> "fixed32"
         File.Field.Type.FIXED64 -> "fixed64"
         File.Field.Type.FLOAT -> "float"
-        File.Field.Type.GROUP -> TODO()
         File.Field.Type.INT32 -> "int32"
         File.Field.Type.INT64 -> "int64"
         File.Field.Type.MESSAGE -> "message"
@@ -314,7 +312,6 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
         File.Field.Type.FIXED32 -> "Int"
         File.Field.Type.FIXED64 -> "Long"
         File.Field.Type.FLOAT -> "Float"
-        File.Field.Type.GROUP -> TODO()
         File.Field.Type.INT32 -> "Int"
         File.Field.Type.INT64 -> "Long"
         File.Field.Type.MESSAGE -> error("No standard type name for enums")
@@ -332,7 +329,6 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
         File.Field.Type.BYTES, File.Field.Type.MESSAGE, File.Field.Type.STRING -> 2
         File.Field.Type.DOUBLE, File.Field.Type.FIXED64, File.Field.Type.SFIXED64 -> 1
         File.Field.Type.FIXED32, File.Field.Type.FLOAT, File.Field.Type.SFIXED32 -> 5
-        File.Field.Type.GROUP -> 3
     }
     protected val File.Field.Type.defaultValue get() = when (this) {
         File.Field.Type.BOOL -> "false"
@@ -344,7 +340,6 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
         File.Field.Type.FIXED64, File.Field.Type.INT64, File.Field.Type.SFIXED64,
             File.Field.Type.SINT64, File.Field.Type.UINT64 -> "0L"
         File.Field.Type.FLOAT -> "0.0F"
-        File.Field.Type.GROUP -> TODO()
         File.Field.Type.MESSAGE -> "null"
         File.Field.Type.STRING -> "\"\""
     }
@@ -353,8 +348,7 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
     protected fun File.Field.Type.nonDefaultCheck(varName: String) = when (this) {
         File.Field.Type.BOOL -> varName
         File.Field.Type.BYTES -> "$varName.array.isNotEmpty()"
-        File.Field.Type.ENUM -> "$varName != 0"
-        File.Field.Type.GROUP -> TODO()
+        File.Field.Type.ENUM -> "$varName.value != 0"
         File.Field.Type.STRING -> "$varName.isNotEmpty()"
         else -> "$varName != $defaultValue"
     }

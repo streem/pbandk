@@ -1,10 +1,10 @@
 package pbandk.wkt
 
-data class NullValue(val value: Int) {
-    companion object {
+data class NullValue(override val value: Int) : pbandk.Message.Enum {
+    companion object : pbandk.Message.Enum.Companion<NullValue> {
         val NULL_VALUE = NullValue(0)
 
-        fun fromValue(value: Int) = when (value) {
+        override fun fromValue(value: Int) = when (value) {
             0 -> NULL_VALUE
             else -> NullValue(value)
         }
@@ -142,7 +142,7 @@ private fun Value.protoMergeImpl(plus: Value?): Value = plus?.copy(
 private fun Value.protoSizeImpl(): Int {
     var protoSize = 0
     when (kind) {
-        is Value.Kind.NullValue -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.nullValue.value)
+        is Value.Kind.NullValue -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.nullValue)
         is Value.Kind.NumberValue -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.doubleSize(kind.numberValue)
         is Value.Kind.StringValue -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(kind.stringValue)
         is Value.Kind.BoolValue -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.boolSize(kind.boolValue)
@@ -154,7 +154,7 @@ private fun Value.protoSizeImpl(): Int {
 }
 
 private fun Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (kind is Value.Kind.NullValue) protoMarshal.writeTag(8).writeEnum(kind.nullValue.value)
+    if (kind is Value.Kind.NullValue) protoMarshal.writeTag(8).writeEnum(kind.nullValue)
     if (kind is Value.Kind.NumberValue) protoMarshal.writeTag(17).writeDouble(kind.numberValue)
     if (kind is Value.Kind.StringValue) protoMarshal.writeTag(26).writeString(kind.stringValue)
     if (kind is Value.Kind.BoolValue) protoMarshal.writeTag(32).writeBool(kind.boolValue)
@@ -168,7 +168,7 @@ private fun Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
     var kind: Value.Kind? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return Value(kind, protoUnmarshal.unknownFields())
-        8 -> kind = Value.Kind.NullValue(pbandk.wkt.NullValue.fromValue(protoUnmarshal.readEnum()))
+        8 -> kind = Value.Kind.NullValue(protoUnmarshal.readEnum(pbandk.wkt.NullValue.Companion))
         17 -> kind = Value.Kind.NumberValue(protoUnmarshal.readDouble())
         26 -> kind = Value.Kind.StringValue(protoUnmarshal.readString())
         32 -> kind = Value.Kind.BoolValue(protoUnmarshal.readBool())

@@ -10,4 +10,12 @@ interface Message<T : Message<T>> {
         fun protoUnmarshal(u: Unmarshaller): T
         fun protoUnmarshal(arr: ByteArray) = protoUnmarshal(Unmarshaller.fromByteArray(arr))
     }
+
+    interface Enum {
+        val value: Int
+
+        interface Companion<T : Enum> {
+            fun fromValue(value: Int): T
+        }
+    }
 }

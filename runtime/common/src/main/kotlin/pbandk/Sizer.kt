@@ -17,7 +17,7 @@ expect object Sizer {
     fun boolSize(value: Boolean): Int
     fun stringSize(value: String): Int
     fun bytesSize(value: ByteArr): Int
-    fun enumSize(value: Int): Int
+    fun enumSize(value: Message.Enum): Int
     fun messageSize(value: Message<*>): Int
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int): Int
 }

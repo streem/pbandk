@@ -22,7 +22,7 @@ actual class Marshaller(val stream: CodedOutputStream) {
     actual fun writeBool(value: Boolean) = stream.writeBoolNoTag(value)
     actual fun writeString(value: String) = stream.writeStringNoTag(value)
     actual fun writeBytes(value: ByteArr) = stream.writeByteArrayNoTag(value.array)
-    actual fun writeEnum(value: Int) = stream.writeEnumNoTag(value)
+    actual fun writeEnum(value: Message.Enum) = stream.writeEnumNoTag(value.value)
     actual fun writeMessage(value: Message<*>) {
         stream.writeUInt32NoTag(value.protoSize)
         value.protoMarshal(this)

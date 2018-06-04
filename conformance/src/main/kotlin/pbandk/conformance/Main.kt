@@ -1,5 +1,6 @@
-package pbandk.gen.conformance
+package pbandk.conformance
 
+import pbandk.conformance.pb.ConformanceRequest
 import java.io.BufferedInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -16,7 +17,7 @@ fun doTestIo(stdin: BufferedInputStream) {
     // Read full set of bytes
     val messageBytes = ByteArray(messageSize).also(stdin::readFull)
     System.err.println("READ ALL BYTES!: $messageSize")
-    val req = ConformanceRequest.unmarshal(messageBytes)
+    val req = ConformanceRequest.protoUnmarshal(messageBytes)
     System.err.println("READ: $req")
     error("NO!!")
 }

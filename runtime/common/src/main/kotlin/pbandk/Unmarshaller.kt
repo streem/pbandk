@@ -19,7 +19,7 @@ expect class Unmarshaller {
     fun readBool(): Boolean
     fun readString(): String
     fun readBytes(): ByteArr
-    fun readEnum(): Int
+    fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>): T
     fun <T : Message<T>> readMessage(s: Message.Companion<T>): T
     fun <T> readRepeated(readFn: () -> T): List<T>
     

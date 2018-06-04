@@ -51,34 +51,21 @@ project(':protoc-gen-kotlin') {
     */
 }
 
-project(':protoc-gen-kotlin:conformance') {
-    apply plugin: 'java'
-    apply plugin: 'kotlin'
-    apply plugin: 'application'
-    sourceCompatibility = '1.8'
-    compileKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    mainClassName = 'pbandk.gen.conformance.MainKt'
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        compile 'com.google.protobuf:protobuf-java:3.5.1'
-        compile project(':protoc-gen-kotlin')
-        testCompile 'junit:junit:4.12'
-        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    }
-}
-
 project(':runtime:common') {
     apply plugin: 'kotlin-platform-common'
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+    }
+
+    task generateWellKnownTypes {
+        dependsOn ':protoc-gen-kotlin:installDist'
+        doFirst {
+            def protocPath = System.getProperty('protoc.path')
+            if (protocPath == null) throw new InvalidUserDataException('System property protoc.path must be set')
+            runProtoGen(Paths.get(protocPath, 'include').toString(), 'src/main/kotlin', 'pbandk.wkt', 'debug', 'google/protobuf')
+        }
     }
 }
 
@@ -108,6 +95,14 @@ project(':runtime:jvm') {
         testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     }
+    test {
+        testLogging {
+            outputs.upToDateWhen {false}
+            showStandardStreams = true
+            exceptionFormat = 'full'
+            events 'passed', 'skipped', 'failed'
+        }
+    }
 }
 
 project(':runtime:native') {
@@ -122,22 +117,57 @@ project(':runtime:native') {
     }
 }
 
+project(':conformance') {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'application'
+    sourceCompatibility = '1.8'
+    compileKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    mainClassName = 'pbandk.conformance.MainKt'
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        compile 'com.google.protobuf:protobuf-java:3.5.1'
+        compile project(':protoc-gen-kotlin')
+        testCompile 'junit:junit:4.12'
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+
+    task generateProto {
+        dependsOn ':protoc-gen-kotlin:installDist'
+        doFirst {
+            runProtoGen('src/main/proto', 'src/main/kotlin', 'pbandk.conformance.pb', 'debug')
+        }
+    }
+
+    task testConformance {
+        // ./conformance-test-runner --enforce_recommended --failure_list failure_list_java.txt ./conformance-java
+    }
+}
 
 import java.nio.file.Paths
-task generateWellKnownTypes {
-    dependsOn ':protoc-gen-kotlin:installDist'
-    doFirst {
-        // Build up the CLI info
-        def protocPath = System.getProperty('protoc.path')
-        if (protocPath == null) throw new InvalidUserDataException("System property protoc.path must be set")
-        def args = []
-        args << Paths.get(protocPath, 'bin/protoc')
-        args << '--kotlin_out=kotlin_package=pbandk.wkt,log=debug:./runtime/common/src/main/kotlin'
-        args << '--plugin=protoc-gen-kotlin=' + Paths.get('./protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
+allprojects {
+    ext.runProtoGen = { inPath, outPath, kotlinPackage = null, logLevel = null, inSubPath = null ->
+        // Build CLI args
+        def args = ['protoc']
+        args << '--kotlin_out='
+        if (kotlinPackage != null) args[-1] += "kotlin_package=$kotlinPackage,"
+        if (logLevel != null) args[-1] += "log=$logLevel,"
+        args[-1] += 'empty_arg:' + Paths.get(outPath)
+        args << '--plugin=protoc-gen-kotlin=' +
+            Paths.get(project.rootDir.toString(), 'protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
         if (System.properties['os.name'].toLowerCase().contains('windows')) args[-1] += '.bat'
-        def includePath = Paths.get(protocPath, 'include')
+        def includePath = Paths.get(inPath)
+        if (!includePath.absolute) includePath = Paths.get(project.projectDir.toString(), inPath)
         args << '-I' << includePath
-        args += includePath.resolve('google/protobuf').toFile().listFiles().findAll {
+        def filePath = includePath
+        if (inSubPath != null) filePath = includePath.resolve(inSubPath)
+        args += filePath.toFile().listFiles().findAll {
             it.isFile() && it.toString().endsWith('.proto')
         }
         // Run it

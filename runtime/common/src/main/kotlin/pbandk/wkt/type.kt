@@ -1,11 +1,11 @@
 package pbandk.wkt
 
-data class Syntax(val value: Int) {
-    companion object {
+data class Syntax(override val value: Int) : pbandk.Message.Enum {
+    companion object : pbandk.Message.Enum.Companion<Syntax> {
         val SYNTAX_PROTO2 = Syntax(0)
         val SYNTAX_PROTO3 = Syntax(1)
 
-        fun fromValue(value: Int) = when (value) {
+        override fun fromValue(value: Int) = when (value) {
             0 -> SYNTAX_PROTO2
             1 -> SYNTAX_PROTO3
             else -> Syntax(value)
@@ -50,8 +50,8 @@ data class Field(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Field.protoUnmarshalImpl(u)
     }
 
-    data class Kind(val value: Int) {
-        companion object {
+    data class Kind(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<Kind> {
             val TYPE_UNKNOWN = Kind(0)
             val TYPE_DOUBLE = Kind(1)
             val TYPE_FLOAT = Kind(2)
@@ -72,7 +72,7 @@ data class Field(
             val TYPE_SINT32 = Kind(17)
             val TYPE_SINT64 = Kind(18)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 0 -> TYPE_UNKNOWN
                 1 -> TYPE_DOUBLE
                 2 -> TYPE_FLOAT
@@ -97,14 +97,14 @@ data class Field(
         }
     }
 
-    data class Cardinality(val value: Int) {
-        companion object {
+    data class Cardinality(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<Cardinality> {
             val CARDINALITY_UNKNOWN = Cardinality(0)
             val CARDINALITY_OPTIONAL = Cardinality(1)
             val CARDINALITY_REQUIRED = Cardinality(2)
             val CARDINALITY_REPEATED = Cardinality(3)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 0 -> CARDINALITY_UNKNOWN
                 1 -> CARDINALITY_OPTIONAL
                 2 -> CARDINALITY_REQUIRED
@@ -173,7 +173,7 @@ private fun Type.protoSizeImpl(): Int {
     if (oneofs.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.packedRepeatedSize(oneofs, pbandk.Sizer::stringSize)
     if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
     if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(sourceContext)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(syntax.value)
+    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -184,7 +184,7 @@ private fun Type.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (oneofs.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(oneofs, protoMarshal::writeString)
     if (options.isNotEmpty()) protoMarshal.writeTag(34).writePackedRepeated(options, protoMarshal::writeMessage)
     if (sourceContext != null) protoMarshal.writeTag(42).writeMessage(sourceContext)
-    if (syntax.value != 0) protoMarshal.writeTag(48).writeEnum(syntax.value)
+    if (syntax.value != 0) protoMarshal.writeTag(48).writeEnum(syntax)
     if (unknownFields.isNotEmpty())
         protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -203,7 +203,7 @@ private fun Type.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         26 -> oneofs += protoUnmarshal.readRepeated(protoUnmarshal::readString)
         34 -> options += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Option.Companion) }
         42 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
-        48 -> syntax = pbandk.wkt.Syntax.fromValue(protoUnmarshal.readEnum())
+        48 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -215,8 +215,8 @@ private fun Field.protoMergeImpl(plus: Field?): Field = plus?.copy(
 
 private fun Field.protoSizeImpl(): Int {
     var protoSize = 0
-    if (kind.value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.value)
-    if (cardinality.value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.enumSize(cardinality.value)
+    if (kind.value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind)
+    if (cardinality.value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.enumSize(cardinality)
     if (number != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(number)
     if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(name)
     if (typeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(typeUrl)
@@ -230,8 +230,8 @@ private fun Field.protoSizeImpl(): Int {
 }
 
 private fun Field.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (kind.value != 0) protoMarshal.writeTag(8).writeEnum(kind.value)
-    if (cardinality.value != 0) protoMarshal.writeTag(16).writeEnum(cardinality.value)
+    if (kind.value != 0) protoMarshal.writeTag(8).writeEnum(kind)
+    if (cardinality.value != 0) protoMarshal.writeTag(16).writeEnum(cardinality)
     if (number != 0) protoMarshal.writeTag(24).writeInt32(number)
     if (name.isNotEmpty()) protoMarshal.writeTag(34).writeString(name)
     if (typeUrl.isNotEmpty()) protoMarshal.writeTag(50).writeString(typeUrl)
@@ -257,8 +257,8 @@ private fun Field.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
     var defaultValue = ""
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return Field(kind, cardinality, number, name, typeUrl, oneofIndex, packed, options, jsonName, defaultValue, protoUnmarshal.unknownFields())
-        8 -> kind = pbandk.wkt.Field.Kind.fromValue(protoUnmarshal.readEnum())
-        16 -> cardinality = pbandk.wkt.Field.Cardinality.fromValue(protoUnmarshal.readEnum())
+        8 -> kind = protoUnmarshal.readEnum(pbandk.wkt.Field.Kind.Companion)
+        16 -> cardinality = protoUnmarshal.readEnum(pbandk.wkt.Field.Cardinality.Companion)
         24 -> number = protoUnmarshal.readInt32()
         34 -> name = protoUnmarshal.readString()
         50 -> typeUrl = protoUnmarshal.readString()
@@ -284,7 +284,7 @@ private fun Enum.protoSizeImpl(): Int {
     if (enumvalue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.packedRepeatedSize(enumvalue, pbandk.Sizer::messageSize)
     if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
     if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.messageSize(sourceContext)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(syntax.value)
+    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -294,7 +294,7 @@ private fun Enum.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (enumvalue.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(enumvalue, protoMarshal::writeMessage)
     if (options.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(options, protoMarshal::writeMessage)
     if (sourceContext != null) protoMarshal.writeTag(34).writeMessage(sourceContext)
-    if (syntax.value != 0) protoMarshal.writeTag(40).writeEnum(syntax.value)
+    if (syntax.value != 0) protoMarshal.writeTag(40).writeEnum(syntax)
     if (unknownFields.isNotEmpty())
         protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -311,7 +311,7 @@ private fun Enum.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         18 -> enumvalue += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.EnumValue.Companion) }
         26 -> options += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Option.Companion) }
         34 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
-        40 -> syntax = pbandk.wkt.Syntax.fromValue(protoUnmarshal.readEnum())
+        40 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }

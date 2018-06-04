@@ -20,8 +20,13 @@ fun main(args: Array<String>) {
     val kotlinTypeMappings = mutableMapOf<String, String>()
     PluginProtos.CodeGeneratorResponse.newBuilder().addAllFile(request.protoFileList.mapNotNull { protoFile ->
         debug { "Reading ${protoFile.name}" }
+        val needToGenerate = request.fileToGenerateList.contains(protoFile.name)
         // Convert the file to our model
-        val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params))
+        val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params.let {
+            // As a special case, if we're not generating it but it's a well-known type package, change it our known one
+            if (needToGenerate || protoFile.`package` != "google.protobuf") it
+            else it + ("kotlin_package" to "pbandk.wkt")
+        }))
         // Update the type mappings
         kotlinTypeMappings += file.kotlinTypeMappings()
         // Generate if necessary

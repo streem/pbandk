@@ -46,6 +46,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         name = msgDesc.name,
         fields = fieldsFromProto(ctx, msgDesc, usedTypeNames),
         nestedTypes = typesFromProto(ctx, msgDesc.enumTypeList, msgDesc.nestedTypeList),
+        mapEntry = msgDesc.options?.mapEntry == true,
         kotlinTypeName = namer.newTypeName(msgDesc.name, usedTypeNames)
     )
 
@@ -56,7 +57,9 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
     ) = mutableSetOf<Int>().let { seenOneOfIndexes ->
         val usedFieldNames = mutableSetOf<String>()
         msgDesc.fieldList.mapNotNull { field ->
-            if (!field.hasOneofIndex()) fromProto(ctx, field, usedFieldNames)
+            // Exclude any group fields
+            if (field.type == DescriptorProtos.FieldDescriptorProto.Type.TYPE_GROUP) null
+            else if (!field.hasOneofIndex()) fromProto(ctx, msgDesc, field, usedFieldNames)
             else if (seenOneOfIndexes.add(field.oneofIndex)) msgDesc.oneofDeclList[field.oneofIndex].name.let { name ->
                 val fieldTypeNames = mutableMapOf<String, String>()
                 File.Field.OneOf(
@@ -64,7 +67,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
                     fields = mutableSetOf<String>().let { usedFieldTypeNames ->
                         msgDesc.fieldList.filter { it.hasOneofIndex() && it.oneofIndex == field.oneofIndex }.map {
                             fieldTypeNames += it.name to namer.newTypeName(it.name, usedFieldTypeNames)
-                            fromProto(ctx, it, mutableSetOf())
+                            fromProto(ctx, msgDesc, it, mutableSetOf())
                         }
                     },
                     kotlinFieldTypeNames = fieldTypeNames,
@@ -77,6 +80,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
 
     protected fun fromProto(
         ctx: Context,
+        parent: DescriptorProtos.DescriptorProto,
         fieldDesc: DescriptorProtos.FieldDescriptorProto,
         usedFieldNames: MutableSet<String>
     ) = File.Field.Standard(
@@ -90,7 +94,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_FIXED32 -> File.Field.Type.FIXED32
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_FIXED64 -> File.Field.Type.FIXED64
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_FLOAT -> File.Field.Type.FLOAT
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_GROUP -> File.Field.Type.GROUP
+            DescriptorProtos.FieldDescriptorProto.Type.TYPE_GROUP -> TODO("Group types not supported")
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT32 -> File.Field.Type.INT32
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64 -> File.Field.Type.INT64
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE -> File.Field.Type.MESSAGE
@@ -105,6 +109,10 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
         repeated = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED,
         packed = ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true,
+        // TODO: write test on maps in nested types
+        map = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED &&
+            fieldDesc.type == DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE &&
+            ctx.findLocalMessage(fieldDesc.typeName)?.options?.mapEntry == true,
         kotlinFieldName = namer.newFieldName(fieldDesc.name, usedFieldNames),
         kotlinLocalTypeName =
             if (!fieldDesc.hasTypeName() || fieldDesc.typeName.startsWith('.')) null
@@ -114,7 +122,24 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
     data class Context(
         val fileDesc: DescriptorProtos.FileDescriptorProto,
         val params: Map<String, String>
-    )
+    ) {
+        fun findLocalMessage(
+            name: String,
+            parent: DescriptorProtos.DescriptorProto? = null
+        ): DescriptorProtos.DescriptorProto? {
+            // Get the set to look in and the type name
+            val (lookIn, typeName) =
+                if (parent == null) fileDesc.messageTypeList to name.removePrefix(".${fileDesc.`package`}.")
+                else parent.nestedTypeList to name
+            // Go deeper if there's a dot
+            typeName.indexOf('.').let {
+                if (it == -1) return lookIn.find { it.name == typeName }
+                return findLocalMessage(typeName.substring(it + 1), typeName.substring(0, it).let { parentTypeName ->
+                    lookIn.find { it.name == parentTypeName }
+                } ?: return null)
+            }
+        }
+    }
 
     companion object : FileBuilder()
 }

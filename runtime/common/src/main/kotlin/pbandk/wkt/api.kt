@@ -65,7 +65,7 @@ private fun Api.protoSizeImpl(): Int {
     if (version.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(version)
     if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(sourceContext)
     if (mixins.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.packedRepeatedSize(mixins, pbandk.Sizer::messageSize)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.enumSize(syntax.value)
+    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -77,7 +77,7 @@ private fun Api.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (version.isNotEmpty()) protoMarshal.writeTag(34).writeString(version)
     if (sourceContext != null) protoMarshal.writeTag(42).writeMessage(sourceContext)
     if (mixins.isNotEmpty()) protoMarshal.writeTag(50).writePackedRepeated(mixins, protoMarshal::writeMessage)
-    if (syntax.value != 0) protoMarshal.writeTag(56).writeEnum(syntax.value)
+    if (syntax.value != 0) protoMarshal.writeTag(56).writeEnum(syntax)
     if (unknownFields.isNotEmpty())
         protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -98,7 +98,7 @@ private fun Api.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
         34 -> version = protoUnmarshal.readString()
         42 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
         50 -> mixins += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Mixin.Companion) }
-        56 -> syntax = pbandk.wkt.Syntax.fromValue(protoUnmarshal.readEnum())
+        56 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -116,7 +116,7 @@ private fun Method.protoSizeImpl(): Int {
     if (responseTypeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(responseTypeUrl)
     if (responseStreaming) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(responseStreaming)
     if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.enumSize(syntax.value)
+    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -128,7 +128,7 @@ private fun Method.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (responseTypeUrl.isNotEmpty()) protoMarshal.writeTag(34).writeString(responseTypeUrl)
     if (responseStreaming) protoMarshal.writeTag(40).writeBool(responseStreaming)
     if (options.isNotEmpty()) protoMarshal.writeTag(50).writePackedRepeated(options, protoMarshal::writeMessage)
-    if (syntax.value != 0) protoMarshal.writeTag(56).writeEnum(syntax.value)
+    if (syntax.value != 0) protoMarshal.writeTag(56).writeEnum(syntax)
     if (unknownFields.isNotEmpty())
         protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -149,7 +149,7 @@ private fun Method.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
         34 -> responseTypeUrl = protoUnmarshal.readString()
         40 -> responseStreaming = protoUnmarshal.readBool()
         50 -> options += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Option.Companion) }
-        56 -> syntax = pbandk.wkt.Syntax.fromValue(protoUnmarshal.readEnum())
+        56 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }

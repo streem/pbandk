@@ -12,7 +12,7 @@ import kotlin.test.assertTrue
 
 class WellKnownTypesTest {
 
-    fun <T : Message> Message.Companion<T>.assertMessageEquals(msg: T, pbMsg: MessageLite) {
+    fun <T : Message<T>> Message.Companion<T>.assertMessageEquals(msg: T, pbMsg: MessageLite) {
         // First a simple check of their byte arrays
         val pbBytes = pbMsg.toByteArray()
         assertTrue(pbBytes.contentEquals(msg.protoMarshal()))

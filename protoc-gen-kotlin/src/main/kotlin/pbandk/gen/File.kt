@@ -34,6 +34,7 @@ data class File(
             override val name: String,
             val fields: List<Field>,
             val nestedTypes: List<Type>,
+            val mapEntry: Boolean,
             override val kotlinTypeName: String
         ) : Type()
 
@@ -57,6 +58,7 @@ data class File(
             val localTypeName: String?,
             val repeated: Boolean,
             val packed: Boolean,
+            val map: Boolean,
             override val kotlinFieldName: String,
             // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
             val kotlinLocalTypeName: String?
@@ -71,7 +73,7 @@ data class File(
         ) : Field()
 
         enum class Type {
-            BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, GROUP, INT32, INT64, MESSAGE,
+            BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, INT32, INT64, MESSAGE,
             SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64,
         }
     }

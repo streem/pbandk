@@ -115,8 +115,8 @@ data class FieldDescriptorProto(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldDescriptorProto.protoUnmarshalImpl(u)
     }
 
-    data class Type(val value: Int) {
-        companion object {
+    data class Type(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<Type> {
             val TYPE_DOUBLE = Type(1)
             val TYPE_FLOAT = Type(2)
             val TYPE_INT64 = Type(3)
@@ -136,7 +136,7 @@ data class FieldDescriptorProto(
             val TYPE_SINT32 = Type(17)
             val TYPE_SINT64 = Type(18)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 1 -> TYPE_DOUBLE
                 2 -> TYPE_FLOAT
                 3 -> TYPE_INT64
@@ -160,13 +160,13 @@ data class FieldDescriptorProto(
         }
     }
 
-    data class Label(val value: Int) {
-        companion object {
+    data class Label(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<Label> {
             val LABEL_OPTIONAL = Label(1)
             val LABEL_REQUIRED = Label(2)
             val LABEL_REPEATED = Label(3)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 1 -> LABEL_OPTIONAL
                 2 -> LABEL_REQUIRED
                 3 -> LABEL_REPEATED
@@ -292,13 +292,13 @@ data class FileOptions(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FileOptions.protoUnmarshalImpl(u)
     }
 
-    data class OptimizeMode(val value: Int) {
-        companion object {
+    data class OptimizeMode(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<OptimizeMode> {
             val SPEED = OptimizeMode(1)
             val CODE_SIZE = OptimizeMode(2)
             val LITE_RUNTIME = OptimizeMode(3)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 1 -> SPEED
                 2 -> CODE_SIZE
                 3 -> LITE_RUNTIME
@@ -341,13 +341,13 @@ data class FieldOptions(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldOptions.protoUnmarshalImpl(u)
     }
 
-    data class CType(val value: Int) {
-        companion object {
+    data class CType(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<CType> {
             val STRING = CType(0)
             val CORD = CType(1)
             val STRING_PIECE = CType(2)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 0 -> STRING
                 1 -> CORD
                 2 -> STRING_PIECE
@@ -356,13 +356,13 @@ data class FieldOptions(
         }
     }
 
-    data class JSType(val value: Int) {
-        companion object {
+    data class JSType(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<JSType> {
             val JS_NORMAL = JSType(0)
             val JS_STRING = JSType(1)
             val JS_NUMBER = JSType(2)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 0 -> JS_NORMAL
                 1 -> JS_STRING
                 2 -> JS_NUMBER
@@ -437,13 +437,13 @@ data class MethodOptions(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MethodOptions.protoUnmarshalImpl(u)
     }
 
-    data class IdempotencyLevel(val value: Int) {
-        companion object {
+    data class IdempotencyLevel(override val value: Int) : pbandk.Message.Enum {
+        companion object : pbandk.Message.Enum.Companion<IdempotencyLevel> {
             val IDEMPOTENCY_UNKNOWN = IdempotencyLevel(0)
             val NO_SIDE_EFFECTS = IdempotencyLevel(1)
             val IDEMPOTENT = IdempotencyLevel(2)
 
-            fun fromValue(value: Int) = when (value) {
+            override fun fromValue(value: Int) = when (value) {
                 0 -> IDEMPOTENCY_UNKNOWN
                 1 -> NO_SIDE_EFFECTS
                 2 -> IDEMPOTENT
@@ -817,8 +817,8 @@ private fun FieldDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
     if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (number != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(number)
-    if (label.value != 0) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.enumSize(label.value)
-    if (type.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(type.value)
+    if (label.value != 0) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.enumSize(label)
+    if (type.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(type)
     if (typeName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(typeName)
     if (extendee.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(extendee)
     if (defaultValue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(defaultValue)
@@ -833,8 +833,8 @@ private fun FieldDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshalle
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (extendee.isNotEmpty()) protoMarshal.writeTag(18).writeString(extendee)
     if (number != 0) protoMarshal.writeTag(24).writeInt32(number)
-    if (label.value != 0) protoMarshal.writeTag(32).writeEnum(label.value)
-    if (type.value != 0) protoMarshal.writeTag(40).writeEnum(type.value)
+    if (label.value != 0) protoMarshal.writeTag(32).writeEnum(label)
+    if (type.value != 0) protoMarshal.writeTag(40).writeEnum(type)
     if (typeName.isNotEmpty()) protoMarshal.writeTag(50).writeString(typeName)
     if (defaultValue.isNotEmpty()) protoMarshal.writeTag(58).writeString(defaultValue)
     if (options != null) protoMarshal.writeTag(66).writeMessage(options)
@@ -860,8 +860,8 @@ private fun FieldDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pb
         10 -> name = protoUnmarshal.readString()
         18 -> extendee = protoUnmarshal.readString()
         24 -> number = protoUnmarshal.readInt32()
-        32 -> label = pbandk.wkt.FieldDescriptorProto.Label.fromValue(protoUnmarshal.readEnum())
-        40 -> type = pbandk.wkt.FieldDescriptorProto.Type.fromValue(protoUnmarshal.readEnum())
+        32 -> label = protoUnmarshal.readEnum(pbandk.wkt.FieldDescriptorProto.Label.Companion)
+        40 -> type = protoUnmarshal.readEnum(pbandk.wkt.FieldDescriptorProto.Type.Companion)
         50 -> typeName = protoUnmarshal.readString()
         58 -> defaultValue = protoUnmarshal.readString()
         66 -> options = protoUnmarshal.readMessage(pbandk.wkt.FieldOptions.Companion)
@@ -1108,7 +1108,7 @@ private fun FileOptions.protoSizeImpl(): Int {
     if (javaMultipleFiles) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.boolSize(javaMultipleFiles)
     if (javaGenerateEqualsAndHash) protoSize += pbandk.Sizer.tagSize(20) + pbandk.Sizer.boolSize(javaGenerateEqualsAndHash)
     if (javaStringCheckUtf8) protoSize += pbandk.Sizer.tagSize(27) + pbandk.Sizer.boolSize(javaStringCheckUtf8)
-    if (optimizeFor.value != 0) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.enumSize(optimizeFor.value)
+    if (optimizeFor.value != 0) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.enumSize(optimizeFor)
     if (goPackage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(11) + pbandk.Sizer.stringSize(goPackage)
     if (ccGenericServices) protoSize += pbandk.Sizer.tagSize(16) + pbandk.Sizer.boolSize(ccGenericServices)
     if (javaGenericServices) protoSize += pbandk.Sizer.tagSize(17) + pbandk.Sizer.boolSize(javaGenericServices)
@@ -1129,7 +1129,7 @@ private fun FileOptions.protoSizeImpl(): Int {
 private fun FileOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (javaPackage.isNotEmpty()) protoMarshal.writeTag(10).writeString(javaPackage)
     if (javaOuterClassname.isNotEmpty()) protoMarshal.writeTag(66).writeString(javaOuterClassname)
-    if (optimizeFor.value != 0) protoMarshal.writeTag(72).writeEnum(optimizeFor.value)
+    if (optimizeFor.value != 0) protoMarshal.writeTag(72).writeEnum(optimizeFor)
     if (javaMultipleFiles) protoMarshal.writeTag(80).writeBool(javaMultipleFiles)
     if (goPackage.isNotEmpty()) protoMarshal.writeTag(90).writeString(goPackage)
     if (ccGenericServices) protoMarshal.writeTag(128).writeBool(ccGenericServices)
@@ -1174,7 +1174,7 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
         0 -> return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash, javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices, javaGenericServices, pyGenericServices, phpGenericServices, deprecated, ccEnableArenas, objcClassPrefix, csharpNamespace, swiftPrefix, phpClassPrefix, phpNamespace, uninterpretedOption, protoUnmarshal.unknownFields())
         10 -> javaPackage = protoUnmarshal.readString()
         66 -> javaOuterClassname = protoUnmarshal.readString()
-        72 -> optimizeFor = pbandk.wkt.FileOptions.OptimizeMode.fromValue(protoUnmarshal.readEnum())
+        72 -> optimizeFor = protoUnmarshal.readEnum(pbandk.wkt.FileOptions.OptimizeMode.Companion)
         80 -> javaMultipleFiles = protoUnmarshal.readBool()
         90 -> goPackage = protoUnmarshal.readString()
         128 -> ccGenericServices = protoUnmarshal.readBool()
@@ -1245,9 +1245,9 @@ private fun FieldOptions.protoMergeImpl(plus: FieldOptions?): FieldOptions = plu
 
 private fun FieldOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (ctype.value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(ctype.value)
+    if (ctype.value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(ctype)
     if (packed) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(packed)
-    if (jstype.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(jstype.value)
+    if (jstype.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(jstype)
     if (lazy) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(lazy)
     if (deprecated) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
     if (weak) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.boolSize(weak)
@@ -1257,11 +1257,11 @@ private fun FieldOptions.protoSizeImpl(): Int {
 }
 
 private fun FieldOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (ctype.value != 0) protoMarshal.writeTag(8).writeEnum(ctype.value)
+    if (ctype.value != 0) protoMarshal.writeTag(8).writeEnum(ctype)
     if (packed) protoMarshal.writeTag(16).writeBool(packed)
     if (deprecated) protoMarshal.writeTag(24).writeBool(deprecated)
     if (lazy) protoMarshal.writeTag(40).writeBool(lazy)
-    if (jstype.value != 0) protoMarshal.writeTag(48).writeEnum(jstype.value)
+    if (jstype.value != 0) protoMarshal.writeTag(48).writeEnum(jstype)
     if (weak) protoMarshal.writeTag(80).writeBool(weak)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty())
@@ -1278,11 +1278,11 @@ private fun FieldOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unm
     var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FieldOptions(ctype, packed, jstype, lazy, deprecated, weak, uninterpretedOption, protoUnmarshal.unknownFields())
-        8 -> ctype = pbandk.wkt.FieldOptions.CType.fromValue(protoUnmarshal.readEnum())
+        8 -> ctype = protoUnmarshal.readEnum(pbandk.wkt.FieldOptions.CType.Companion)
         16 -> packed = protoUnmarshal.readBool()
         24 -> deprecated = protoUnmarshal.readBool()
         40 -> lazy = protoUnmarshal.readBool()
-        48 -> jstype = pbandk.wkt.FieldOptions.JSType.fromValue(protoUnmarshal.readEnum())
+        48 -> jstype = protoUnmarshal.readEnum(pbandk.wkt.FieldOptions.JSType.Companion)
         80 -> weak = protoUnmarshal.readBool()
         7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
         else -> protoUnmarshal.unknownField()
@@ -1421,7 +1421,7 @@ private fun MethodOptions.protoMergeImpl(plus: MethodOptions?): MethodOptions = 
 private fun MethodOptions.protoSizeImpl(): Int {
     var protoSize = 0
     if (deprecated) protoSize += pbandk.Sizer.tagSize(33) + pbandk.Sizer.boolSize(deprecated)
-    if (idempotencyLevel.value != 0) protoSize += pbandk.Sizer.tagSize(34) + pbandk.Sizer.enumSize(idempotencyLevel.value)
+    if (idempotencyLevel.value != 0) protoSize += pbandk.Sizer.tagSize(34) + pbandk.Sizer.enumSize(idempotencyLevel)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -1429,7 +1429,7 @@ private fun MethodOptions.protoSizeImpl(): Int {
 
 private fun MethodOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (deprecated) protoMarshal.writeTag(264).writeBool(deprecated)
-    if (idempotencyLevel.value != 0) protoMarshal.writeTag(272).writeEnum(idempotencyLevel.value)
+    if (idempotencyLevel.value != 0) protoMarshal.writeTag(272).writeEnum(idempotencyLevel)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty())
         protoMarshal.writeUnknownFields(unknownFields)
@@ -1442,7 +1442,7 @@ private fun MethodOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Un
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return MethodOptions(deprecated, idempotencyLevel, uninterpretedOption, protoUnmarshal.unknownFields())
         264 -> deprecated = protoUnmarshal.readBool()
-        272 -> idempotencyLevel = pbandk.wkt.MethodOptions.IdempotencyLevel.fromValue(protoUnmarshal.readEnum())
+        272 -> idempotencyLevel = protoUnmarshal.readEnum(pbandk.wkt.MethodOptions.IdempotencyLevel.Companion)
         7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
         else -> protoUnmarshal.unknownField()
     }
