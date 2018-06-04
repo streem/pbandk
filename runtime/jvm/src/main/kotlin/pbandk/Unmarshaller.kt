@@ -33,6 +33,16 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         currentUnknownFields = oldUnknownFields
         return ret
     }
+    actual fun <T> readRepeated(readFn: () -> T): List<T> {
+        // If the last tag is not length-delimited (i.e. packed), just do a singleton list of the one read
+        if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) return listOf(readFn())
+        // Otherwise, read packed
+        val oldLimit = stream.pushLimit(stream.readRawVarint32())
+        val ret = ArrayList<T>()
+        while (!stream.isAtEnd) ret += readFn()
+        stream.popLimit(oldLimit)
+        return ret.also { it.trimToSize() }
+    }
 
     actual fun unknownField() {
         val tag = stream.lastTag

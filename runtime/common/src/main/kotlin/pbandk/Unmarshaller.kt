@@ -21,6 +21,7 @@ expect class Unmarshaller {
     fun readBytes(): ByteArr
     fun readEnum(): Int
     fun <T : Message> readMessage(s: Message.Companion<T>): T
+    fun <T> readRepeated(readFn: () -> T): List<T>
     
     fun unknownField()
     fun unknownFields(): Map<Int, UnknownField>

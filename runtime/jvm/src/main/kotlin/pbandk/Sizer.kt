@@ -21,4 +21,6 @@ actual object Sizer {
     actual fun bytesSize(value: ByteArr) = CodedOutputStream.computeByteArraySizeNoTag(value.array)
     actual fun enumSize(value: Int) = CodedOutputStream.computeEnumSizeNoTag(value)
     actual fun messageSize(value: Message) = value.protoSize
+    actual fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
+        list.sumBy(sizeFn).let { it + uInt32Size(it) }
 }

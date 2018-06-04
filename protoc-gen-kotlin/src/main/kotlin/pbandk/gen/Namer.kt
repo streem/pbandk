@@ -6,9 +6,16 @@ interface Namer {
     fun newEnumValueName(preferred: String, nameSet: MutableSet<String>): String
 
     open class Standard : Namer {
-        val reservedTypeNames = setOf("Boolean", "Companion", "Double", "Float", "Int", "Long", "String")
-        val reservedFieldNames = setOf(
-            "class", "pbandk", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
+        val disallowedTypeNames = setOf(
+            "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "MutableList", "String"
+        )
+        val disallowedFieldNames = setOf(
+            "emptyList", "pbandk", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
+        )
+        val kotlinKeywords = setOf(
+            "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",
+            "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
+            "true", "try", "typealias", "val", "var", "when", "while"
         )
 
         protected fun underscoreToCamelCase(str: String): String {
@@ -22,13 +29,14 @@ interface Namer {
 
         override fun newTypeName(preferred: String, nameSet: MutableSet<String>): String {
             var name = underscoreToCamelCase(preferred).capitalize()
-            while (nameSet.contains(name) || reservedTypeNames.contains(name)) name += '_'
+            while (nameSet.contains(name) || disallowedTypeNames.contains(name)) name += '_'
             return name.also { nameSet += name }
         }
 
         override fun newFieldName(preferred: String, nameSet: MutableSet<String>): String {
             var name = underscoreToCamelCase(preferred).decapitalize()
-            while (nameSet.contains(name) || reservedFieldNames.contains(name)) name += '_'
+            while (nameSet.contains(name) || disallowedFieldNames.contains(name)) name += '_'
+            if (kotlinKeywords.contains(name)) name = "`$name`"
             return name.also { nameSet += name }
         }
 

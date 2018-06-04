@@ -19,4 +19,5 @@ expect object Sizer {
     fun bytesSize(value: ByteArr): Int
     fun enumSize(value: Int): Int
     fun messageSize(value: Message): Int
+    fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int): Int
 }

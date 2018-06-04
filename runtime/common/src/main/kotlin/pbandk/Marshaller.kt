@@ -21,6 +21,7 @@ expect class Marshaller(arr: ByteArray) {
     fun writeEnum(value: Int)
     fun writeMessage(value: Message)
     fun writeUnknownFields(fields: Map<Int, UnknownField>)
+    fun <T> writePackedRepeated(list: List<T>, writeFn: (T) -> Unit)
 
     companion object {
         fun stringToUtf8Bytes(str: String): ByteArray

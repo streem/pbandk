@@ -9,7 +9,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() },
         kotlinPackageName = packageName(ctx),
         version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
-        types = typesFromProto(ctx.fileDesc.enumTypeList, ctx.fileDesc.messageTypeList)
+        types = typesFromProto(ctx, ctx.fileDesc.enumTypeList, ctx.fileDesc.messageTypeList)
     )
 
     protected fun packageName(ctx: Context) =
@@ -18,10 +18,11 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         }?.stringValue?.toStringUtf8() ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
     protected fun typesFromProto(
+        ctx: Context,
         enumTypes: List<DescriptorProtos.EnumDescriptorProto>,
         msgTypes: List<DescriptorProtos.DescriptorProto>
     ) = mutableSetOf<String>().let { usedTypeNames ->
-        enumTypes.map { fromProto(it, usedTypeNames) } + msgTypes.map { fromProto(it, usedTypeNames) }
+        enumTypes.map { fromProto(it, usedTypeNames) } + msgTypes.map { fromProto(ctx, it, usedTypeNames) }
     }
 
     protected fun fromProto(
@@ -38,22 +39,24 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
     )
 
     protected fun fromProto(
+        ctx: Context,
         msgDesc: DescriptorProtos.DescriptorProto,
         usedTypeNames: MutableSet<String>
     ): File.Type.Message = File.Type.Message(
         name = msgDesc.name,
-        fields = fieldsFromProto(msgDesc, usedTypeNames),
-        nestedTypes = typesFromProto(msgDesc.enumTypeList, msgDesc.nestedTypeList),
+        fields = fieldsFromProto(ctx, msgDesc, usedTypeNames),
+        nestedTypes = typesFromProto(ctx, msgDesc.enumTypeList, msgDesc.nestedTypeList),
         kotlinTypeName = namer.newTypeName(msgDesc.name, usedTypeNames)
     )
 
     protected fun fieldsFromProto(
+        ctx: Context,
         msgDesc: DescriptorProtos.DescriptorProto,
         usedTypeNames: MutableSet<String>
     ) = mutableSetOf<Int>().let { seenOneOfIndexes ->
         val usedFieldNames = mutableSetOf<String>()
         msgDesc.fieldList.mapNotNull { field ->
-            if (!field.hasOneofIndex()) fromProto(field, usedFieldNames)
+            if (!field.hasOneofIndex()) fromProto(ctx, field, usedFieldNames)
             else if (seenOneOfIndexes.add(field.oneofIndex)) msgDesc.oneofDeclList[field.oneofIndex].name.let { name ->
                 val fieldTypeNames = mutableMapOf<String, String>()
                 File.Field.OneOf(
@@ -61,7 +64,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
                     fields = mutableSetOf<String>().let { usedFieldTypeNames ->
                         msgDesc.fieldList.filter { it.hasOneofIndex() && it.oneofIndex == field.oneofIndex }.map {
                             fieldTypeNames += it.name to namer.newTypeName(it.name, usedFieldTypeNames)
-                            fromProto(it, mutableSetOf())
+                            fromProto(ctx, it, mutableSetOf())
                         }
                     },
                     kotlinFieldTypeNames = fieldTypeNames,
@@ -73,6 +76,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
     }
 
     protected fun fromProto(
+        ctx: Context,
         fieldDesc: DescriptorProtos.FieldDescriptorProto,
         usedFieldNames: MutableSet<String>
     ) = File.Field.Standard(
@@ -99,6 +103,8 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
             DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT64 -> File.Field.Type.UINT64
         },
         localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
+        repeated = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED,
+        packed = ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true,
         kotlinFieldName = namer.newFieldName(fieldDesc.name, usedFieldNames),
         kotlinLocalTypeName =
             if (!fieldDesc.hasTypeName() || fieldDesc.typeName.startsWith('.')) null

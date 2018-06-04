@@ -55,6 +55,8 @@ data class File(
             override val name: String,
             val type: Type,
             val localTypeName: String?,
+            val repeated: Boolean,
+            val packed: Boolean,
             override val kotlinFieldName: String,
             // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
             val kotlinLocalTypeName: String?
