@@ -629,25 +629,25 @@ private fun TestAllTypesProto2.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (optionalStringPiece.isNotEmpty()) protoMarshal.writeTag(194).writeString(optionalStringPiece)
     if (optionalCord.isNotEmpty()) protoMarshal.writeTag(202).writeString(optionalCord)
     if (recursiveMessage != null) protoMarshal.writeTag(218).writeMessage(recursiveMessage)
-    if (repeatedInt32.isNotEmpty()) repeatedInt32.forEach { protoMarshal.writeTag(248).writeInt32(it) }
-    if (repeatedInt64.isNotEmpty()) repeatedInt64.forEach { protoMarshal.writeTag(256).writeInt64(it) }
-    if (repeatedUint32.isNotEmpty()) repeatedUint32.forEach { protoMarshal.writeTag(264).writeUInt32(it) }
-    if (repeatedUint64.isNotEmpty()) repeatedUint64.forEach { protoMarshal.writeTag(272).writeUInt64(it) }
-    if (repeatedSint32.isNotEmpty()) repeatedSint32.forEach { protoMarshal.writeTag(280).writeSInt32(it) }
-    if (repeatedSint64.isNotEmpty()) repeatedSint64.forEach { protoMarshal.writeTag(288).writeSInt64(it) }
-    if (repeatedFixed32.isNotEmpty()) repeatedFixed32.forEach { protoMarshal.writeTag(301).writeFixed32(it) }
-    if (repeatedFixed64.isNotEmpty()) repeatedFixed64.forEach { protoMarshal.writeTag(305).writeFixed64(it) }
-    if (repeatedSfixed32.isNotEmpty()) repeatedSfixed32.forEach { protoMarshal.writeTag(317).writeSFixed32(it) }
-    if (repeatedSfixed64.isNotEmpty()) repeatedSfixed64.forEach { protoMarshal.writeTag(321).writeSFixed64(it) }
-    if (repeatedFloat.isNotEmpty()) repeatedFloat.forEach { protoMarshal.writeTag(333).writeFloat(it) }
-    if (repeatedDouble.isNotEmpty()) repeatedDouble.forEach { protoMarshal.writeTag(337).writeDouble(it) }
-    if (repeatedBool.isNotEmpty()) repeatedBool.forEach { protoMarshal.writeTag(344).writeBool(it) }
+    if (repeatedInt32.isNotEmpty()) repeatedInt32.forEach { protoMarshal.writeTag(250).writeInt32(it) }
+    if (repeatedInt64.isNotEmpty()) repeatedInt64.forEach { protoMarshal.writeTag(258).writeInt64(it) }
+    if (repeatedUint32.isNotEmpty()) repeatedUint32.forEach { protoMarshal.writeTag(266).writeUInt32(it) }
+    if (repeatedUint64.isNotEmpty()) repeatedUint64.forEach { protoMarshal.writeTag(274).writeUInt64(it) }
+    if (repeatedSint32.isNotEmpty()) repeatedSint32.forEach { protoMarshal.writeTag(282).writeSInt32(it) }
+    if (repeatedSint64.isNotEmpty()) repeatedSint64.forEach { protoMarshal.writeTag(290).writeSInt64(it) }
+    if (repeatedFixed32.isNotEmpty()) repeatedFixed32.forEach { protoMarshal.writeTag(298).writeFixed32(it) }
+    if (repeatedFixed64.isNotEmpty()) repeatedFixed64.forEach { protoMarshal.writeTag(306).writeFixed64(it) }
+    if (repeatedSfixed32.isNotEmpty()) repeatedSfixed32.forEach { protoMarshal.writeTag(314).writeSFixed32(it) }
+    if (repeatedSfixed64.isNotEmpty()) repeatedSfixed64.forEach { protoMarshal.writeTag(322).writeSFixed64(it) }
+    if (repeatedFloat.isNotEmpty()) repeatedFloat.forEach { protoMarshal.writeTag(330).writeFloat(it) }
+    if (repeatedDouble.isNotEmpty()) repeatedDouble.forEach { protoMarshal.writeTag(338).writeDouble(it) }
+    if (repeatedBool.isNotEmpty()) repeatedBool.forEach { protoMarshal.writeTag(346).writeBool(it) }
     if (repeatedString.isNotEmpty()) repeatedString.forEach { protoMarshal.writeTag(354).writeString(it) }
     if (repeatedBytes.isNotEmpty()) repeatedBytes.forEach { protoMarshal.writeTag(362).writeBytes(it) }
     if (repeatedNestedMessage.isNotEmpty()) repeatedNestedMessage.forEach { protoMarshal.writeTag(386).writeMessage(it) }
     if (repeatedForeignMessage.isNotEmpty()) repeatedForeignMessage.forEach { protoMarshal.writeTag(394).writeMessage(it) }
-    if (repeatedNestedEnum.isNotEmpty()) repeatedNestedEnum.forEach { protoMarshal.writeTag(408).writeEnum(it) }
-    if (repeatedForeignEnum.isNotEmpty()) repeatedForeignEnum.forEach { protoMarshal.writeTag(416).writeEnum(it) }
+    if (repeatedNestedEnum.isNotEmpty()) repeatedNestedEnum.forEach { protoMarshal.writeTag(410).writeEnum(it) }
+    if (repeatedForeignEnum.isNotEmpty()) repeatedForeignEnum.forEach { protoMarshal.writeTag(418).writeEnum(it) }
     if (repeatedStringPiece.isNotEmpty()) repeatedStringPiece.forEach { protoMarshal.writeTag(434).writeString(it) }
     if (repeatedCord.isNotEmpty()) repeatedCord.forEach { protoMarshal.writeTag(442).writeString(it) }
     if (mapInt32Int32.isNotEmpty()) protoMarshal.writeTag(450).writeMap(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto2::MapInt32Int32Entry)
@@ -825,25 +825,25 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         194 -> optionalStringPiece = protoUnmarshal.readString()
         202 -> optionalCord = protoUnmarshal.readString()
         218 -> recursiveMessage = protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto2.Companion)
-        248 -> repeatedInt32 = protoUnmarshal.readRepeated(repeatedInt32, protoUnmarshal::readInt32)
-        256 -> repeatedInt64 = protoUnmarshal.readRepeated(repeatedInt64, protoUnmarshal::readInt64)
-        264 -> repeatedUint32 = protoUnmarshal.readRepeated(repeatedUint32, protoUnmarshal::readUInt32)
-        272 -> repeatedUint64 = protoUnmarshal.readRepeated(repeatedUint64, protoUnmarshal::readUInt64)
-        280 -> repeatedSint32 = protoUnmarshal.readRepeated(repeatedSint32, protoUnmarshal::readSInt32)
-        288 -> repeatedSint64 = protoUnmarshal.readRepeated(repeatedSint64, protoUnmarshal::readSInt64)
-        301 -> repeatedFixed32 = protoUnmarshal.readRepeated(repeatedFixed32, protoUnmarshal::readFixed32)
-        305 -> repeatedFixed64 = protoUnmarshal.readRepeated(repeatedFixed64, protoUnmarshal::readFixed64)
-        317 -> repeatedSfixed32 = protoUnmarshal.readRepeated(repeatedSfixed32, protoUnmarshal::readSFixed32)
-        321 -> repeatedSfixed64 = protoUnmarshal.readRepeated(repeatedSfixed64, protoUnmarshal::readSFixed64)
-        333 -> repeatedFloat = protoUnmarshal.readRepeated(repeatedFloat, protoUnmarshal::readFloat)
-        337 -> repeatedDouble = protoUnmarshal.readRepeated(repeatedDouble, protoUnmarshal::readDouble)
-        344 -> repeatedBool = protoUnmarshal.readRepeated(repeatedBool, protoUnmarshal::readBool)
+        250 -> repeatedInt32 = protoUnmarshal.readRepeated(repeatedInt32, protoUnmarshal::readInt32)
+        258 -> repeatedInt64 = protoUnmarshal.readRepeated(repeatedInt64, protoUnmarshal::readInt64)
+        266 -> repeatedUint32 = protoUnmarshal.readRepeated(repeatedUint32, protoUnmarshal::readUInt32)
+        274 -> repeatedUint64 = protoUnmarshal.readRepeated(repeatedUint64, protoUnmarshal::readUInt64)
+        282 -> repeatedSint32 = protoUnmarshal.readRepeated(repeatedSint32, protoUnmarshal::readSInt32)
+        290 -> repeatedSint64 = protoUnmarshal.readRepeated(repeatedSint64, protoUnmarshal::readSInt64)
+        298 -> repeatedFixed32 = protoUnmarshal.readRepeated(repeatedFixed32, protoUnmarshal::readFixed32)
+        306 -> repeatedFixed64 = protoUnmarshal.readRepeated(repeatedFixed64, protoUnmarshal::readFixed64)
+        314 -> repeatedSfixed32 = protoUnmarshal.readRepeated(repeatedSfixed32, protoUnmarshal::readSFixed32)
+        322 -> repeatedSfixed64 = protoUnmarshal.readRepeated(repeatedSfixed64, protoUnmarshal::readSFixed64)
+        330 -> repeatedFloat = protoUnmarshal.readRepeated(repeatedFloat, protoUnmarshal::readFloat)
+        338 -> repeatedDouble = protoUnmarshal.readRepeated(repeatedDouble, protoUnmarshal::readDouble)
+        346 -> repeatedBool = protoUnmarshal.readRepeated(repeatedBool, protoUnmarshal::readBool)
         354 -> repeatedString = protoUnmarshal.readRepeated(repeatedString, protoUnmarshal::readString)
         362 -> repeatedBytes = protoUnmarshal.readRepeated(repeatedBytes, protoUnmarshal::readBytes)
         386 -> repeatedNestedMessage = protoUnmarshal.readRepeatedMessage(repeatedNestedMessage, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion)
         394 -> repeatedForeignMessage = protoUnmarshal.readRepeatedMessage(repeatedForeignMessage, pbandk.conformance.pb.ForeignMessageProto2.Companion)
-        408 -> repeatedNestedEnum = protoUnmarshal.readRepeatedEnum(repeatedNestedEnum, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion)
-        416 -> repeatedForeignEnum = protoUnmarshal.readRepeatedEnum(repeatedForeignEnum, pbandk.conformance.pb.ForeignEnumProto2.Companion)
+        410 -> repeatedNestedEnum = protoUnmarshal.readRepeatedEnum(repeatedNestedEnum, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion)
+        418 -> repeatedForeignEnum = protoUnmarshal.readRepeatedEnum(repeatedForeignEnum, pbandk.conformance.pb.ForeignEnumProto2.Companion)
         434 -> repeatedStringPiece = protoUnmarshal.readRepeated(repeatedStringPiece, protoUnmarshal::readString)
         442 -> repeatedCord = protoUnmarshal.readRepeated(repeatedCord, protoUnmarshal::readString)
         450 -> mapInt32Int32 = protoUnmarshal.readMap(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.Companion)

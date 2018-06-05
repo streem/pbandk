@@ -304,7 +304,10 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
-    protected val File.Field.Standard.tag get() = (number shl 3) or type.wireFormat
+    protected val File.Field.Standard.tag get() = (number shl 3) or when {
+        repeated -> 2
+        else -> type.wireFormat
+    }
     protected fun File.Field.Standard.sizeExpr(ref: String = fieldRef) = when {
         map ->
             "pbandk.Sizer.tagSize($number) + pbandk.Sizer.mapSize($ref, $kotlinQualifiedTypeConstructorRef)"

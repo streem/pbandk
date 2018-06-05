@@ -606,8 +606,8 @@ private fun FileDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller
     if (extension.isNotEmpty()) extension.forEach { protoMarshal.writeTag(58).writeMessage(it) }
     if (options != null) protoMarshal.writeTag(66).writeMessage(options)
     if (sourceCodeInfo != null) protoMarshal.writeTag(74).writeMessage(sourceCodeInfo)
-    if (publicDependency.isNotEmpty()) publicDependency.forEach { protoMarshal.writeTag(80).writeInt32(it) }
-    if (weakDependency.isNotEmpty()) weakDependency.forEach { protoMarshal.writeTag(88).writeInt32(it) }
+    if (publicDependency.isNotEmpty()) publicDependency.forEach { protoMarshal.writeTag(82).writeInt32(it) }
+    if (weakDependency.isNotEmpty()) weakDependency.forEach { protoMarshal.writeTag(90).writeInt32(it) }
     if (syntax.isNotEmpty()) protoMarshal.writeTag(98).writeString(syntax)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -638,8 +638,8 @@ private fun FileDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pba
         58 -> extension = protoUnmarshal.readRepeatedMessage(extension, pbandk.wkt.FieldDescriptorProto.Companion)
         66 -> options = protoUnmarshal.readMessage(pbandk.wkt.FileOptions.Companion)
         74 -> sourceCodeInfo = protoUnmarshal.readMessage(pbandk.wkt.SourceCodeInfo.Companion)
-        80 -> publicDependency = protoUnmarshal.readRepeated(publicDependency, protoUnmarshal::readInt32)
-        88 -> weakDependency = protoUnmarshal.readRepeated(weakDependency, protoUnmarshal::readInt32)
+        82 -> publicDependency = protoUnmarshal.readRepeated(publicDependency, protoUnmarshal::readInt32)
+        90 -> weakDependency = protoUnmarshal.readRepeated(weakDependency, protoUnmarshal::readInt32)
         98 -> syntax = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
@@ -1566,8 +1566,8 @@ private fun SourceCodeInfo.Location.protoSizeImpl(): Int {
 }
 
 private fun SourceCodeInfo.Location.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (path.isNotEmpty()) protoMarshal.writeTag(8).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
-    if (span.isNotEmpty()) protoMarshal.writeTag(16).writePackedRepeated(span, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (path.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (span.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(span, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
     if (leadingComments.isNotEmpty()) protoMarshal.writeTag(26).writeString(leadingComments)
     if (trailingComments.isNotEmpty()) protoMarshal.writeTag(34).writeString(trailingComments)
     if (leadingDetachedComments.isNotEmpty()) leadingDetachedComments.forEach { protoMarshal.writeTag(50).writeString(it) }
@@ -1583,8 +1583,8 @@ private fun SourceCodeInfo.Location.Companion.protoUnmarshalImpl(protoUnmarshal:
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return SourceCodeInfo.Location(pbandk.ListWithSize.Builder.fixed(path), pbandk.ListWithSize.Builder.fixed(span), leadingComments, trailingComments,
             pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), protoUnmarshal.unknownFields())
-        8 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
-        16 -> span = protoUnmarshal.readRepeated(span, protoUnmarshal::readInt32)
+        10 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
+        18 -> span = protoUnmarshal.readRepeated(span, protoUnmarshal::readInt32)
         26 -> leadingComments = protoUnmarshal.readString()
         34 -> trailingComments = protoUnmarshal.readString()
         50 -> leadingDetachedComments = protoUnmarshal.readRepeated(leadingDetachedComments, protoUnmarshal::readString)
@@ -1634,7 +1634,7 @@ private fun GeneratedCodeInfo.Annotation.protoSizeImpl(): Int {
 }
 
 private fun GeneratedCodeInfo.Annotation.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (path.isNotEmpty()) protoMarshal.writeTag(8).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (path.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
     if (sourceFile.isNotEmpty()) protoMarshal.writeTag(18).writeString(sourceFile)
     if (begin != 0) protoMarshal.writeTag(24).writeInt32(begin)
     if (end != 0) protoMarshal.writeTag(32).writeInt32(end)
@@ -1648,7 +1648,7 @@ private fun GeneratedCodeInfo.Annotation.Companion.protoUnmarshalImpl(protoUnmar
     var end = 0
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, protoUnmarshal.unknownFields())
-        8 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
+        10 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
         18 -> sourceFile = protoUnmarshal.readString()
         24 -> begin = protoUnmarshal.readInt32()
         32 -> end = protoUnmarshal.readInt32()

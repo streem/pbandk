@@ -12,7 +12,7 @@ data class NullValue(override val value: Int) : pbandk.Message.Enum {
 }
 
 data class Struct(
-    val fields: List<pbandk.wkt.Struct.FieldsEntry> = emptyList(),
+    val fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Struct> {
     override operator fun plus(other: Struct?) = protoMergeImpl(other)
@@ -23,10 +23,10 @@ data class Struct(
     }
 
     data class FieldsEntry(
-        val key: String = "",
-        val value: pbandk.wkt.Value? = null,
+        override val key: String = "",
+        override val value: pbandk.wkt.Value? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<FieldsEntry> {
+    ) : pbandk.Message<FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
         override operator fun plus(other: FieldsEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -76,21 +76,21 @@ private fun Struct.protoMergeImpl(plus: Struct?): Struct = plus?.copy(
 
 private fun Struct.protoSizeImpl(): Int {
     var protoSize = 0
-    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.packedRepeatedSize(fields, pbandk.Sizer::messageSize)
+    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.mapSize(fields, pbandk.wkt.Struct::FieldsEntry)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun Struct.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (fields.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(fields, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (fields.isNotEmpty()) protoMarshal.writeTag(10).writeMap(fields, pbandk.wkt.Struct::FieldsEntry)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Struct.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Struct {
-    var fields: pbandk.ListWithSize.Builder<pbandk.wkt.Struct.FieldsEntry>? = null
+    var fields: pbandk.MapWithSize.Builder<String, pbandk.wkt.Value?>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Struct(pbandk.ListWithSize.Builder.fixed(fields), protoUnmarshal.unknownFields())
-        10 -> fields = protoUnmarshal.readRepeatedMessage(fields, pbandk.wkt.Struct.FieldsEntry.Companion)
+        0 -> return Struct(pbandk.MapWithSize.Builder.fixed(fields), protoUnmarshal.unknownFields())
+        10 -> fields = protoUnmarshal.readMap(fields, pbandk.wkt.Struct.FieldsEntry.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
