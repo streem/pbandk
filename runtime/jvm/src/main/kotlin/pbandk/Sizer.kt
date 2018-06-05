@@ -24,4 +24,10 @@ actual object Sizer {
     actual fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
         if (list is ListWithSize) list.protoSize + uInt32Size(list.protoSize)
         else list.sumBy(sizeFn).let { it + uInt32Size(it) }
+    actual fun <K, V, T : Message<T>> mapSize(
+        map: Map<K, V>,
+        createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
+    ) =
+        if (map is MapWithSize) map.protoSize + uInt32Size(map.protoSize)
+        else map.entries.sumBy { (k, v) -> createEntry(k, v, emptyMap()).protoSize }.let { it + uInt32Size(it) }
 }

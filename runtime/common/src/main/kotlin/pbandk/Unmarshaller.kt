@@ -30,6 +30,10 @@ expect class Unmarshaller {
         appendTo: ListWithSize.Builder<T>?,
         s: Message.Companion<T>
     ) : ListWithSize.Builder<T>
+    fun <K, V, T> readMap(
+        appendTo: MapWithSize.Builder<K, V>?,
+        s: Message.Companion<T>
+    ) : MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V>
     
     fun unknownField()
     fun unknownFields(): Map<Int, UnknownField>

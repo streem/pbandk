@@ -45,6 +45,17 @@ actual class Marshaller(val stream: CodedOutputStream) {
         stream.writeUInt32NoTag((list as? ListWithSize)?.protoSize ?: list.sumBy(sizeFn))
         list.forEach(writeFn)
     }
+    actual fun <K, V, T : Message<T>> writeMap(
+        map: Map<K, V>,
+        createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
+    ) {
+        if (map is MapWithSize) {
+            stream.writeUInt32NoTag(map.protoSize)
+            map.entries.forEach { e -> writeMessage(e as? Message<*> ?: createEntry(e.key, e.value, emptyMap())) }
+        } else {
+            writePackedRepeated(map.map { (k, v) -> createEntry(k, v, emptyMap()) }, Sizer::messageSize, ::writeMessage)
+        }
+    }
 
     actual companion object {
         actual fun stringToUtf8Bytes(str: String) = str.toByteArray()

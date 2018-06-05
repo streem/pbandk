@@ -22,6 +22,10 @@ expect class Marshaller(arr: ByteArray) {
     fun writeMessage(value: Message<*>)
     fun writeUnknownFields(fields: Map<Int, UnknownField>)
     fun <T> writePackedRepeated(list: List<T>, sizeFn: (T) -> Int, writeFn: (T) -> Unit)
+    fun <K, V, T : Message<T>> writeMap(
+        map: Map<K, V>,
+        createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
+    )
 
     companion object {
         fun stringToUtf8Bytes(str: String): ByteArray

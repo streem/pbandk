@@ -49,9 +49,23 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         }
     actual fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
         readRepeated(appendTo) { readEnum(s) }
-
     actual fun <T : Message<T>> readRepeatedMessage(appendTo: ListWithSize.Builder<T>?, s: Message.Companion<T>) =
         readRepeated(appendTo) { readMessage(s) }
+    actual fun <K, V, T> readMap(
+        appendTo: MapWithSize.Builder<K, V>?,
+        s: Message.Companion<T>
+    ): MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
+        (appendTo ?: MapWithSize.Builder()).also { bld ->
+            // If it's not length delimited, it's just a single-item to append
+            if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
+                bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }
+            } else stream.readRawVarint32().also { len ->
+                bld.protoSize += len
+                val oldLimit = stream.pushLimit(len)
+                while (!stream.isAtEnd) bld.entries += readMessage(s)
+                stream.popLimit(oldLimit)
+            }
+        }
 
     actual fun unknownField() {
         val tag = stream.lastTag

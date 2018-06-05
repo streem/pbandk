@@ -41,17 +41,22 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
     }
 
     protected fun writeMessageType(type: File.Type.Message) {
-        // No fields means it's an object
+        var extends = "pbandk.Message<${type.kotlinTypeName}>"
+        if (type.mapEntry) {
+            extends += ", Map.Entry<${(type.fields[0] as File.Field.Standard).kotlinValueType(false)}, " +
+                "${(type.fields[1] as File.Field.Standard).kotlinValueType(true)}>"
+        }
         line().line("data class ${type.kotlinTypeName}(").indented {
+            val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Standard -> lineBegin().writeConstructorField(field, true).lineEnd(",")
+                    is File.Field.Standard -> lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
                     is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}? = null,")
                 }
             }
             // The unknown fields
             line("val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
-        }.line(") : pbandk.Message<${type.kotlinTypeName}> {").indented {
+        }.line(") : $extends {").indented {
             // One-ofs as sealed class hierarchies
             type.fields.mapNotNull { it as? File.Field.OneOf }.forEach(::writeOneOfType)
             // IO helpers
