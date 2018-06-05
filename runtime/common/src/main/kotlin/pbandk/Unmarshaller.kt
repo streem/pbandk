@@ -21,7 +21,15 @@ expect class Unmarshaller {
     fun readBytes(): ByteArr
     fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>): T
     fun <T : Message<T>> readMessage(s: Message.Companion<T>): T
-    fun <T> readRepeated(readFn: () -> T): List<T>
+    fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T): ListWithSize.Builder<T>
+    fun <T : Message.Enum> readRepeatedEnum(
+        appendTo: ListWithSize.Builder<T>?,
+        s: Message.Enum.Companion<T>
+    ) : ListWithSize.Builder<T>
+    fun <T : Message<T>> readRepeatedMessage(
+        appendTo: ListWithSize.Builder<T>?,
+        s: Message.Companion<T>
+    ) : ListWithSize.Builder<T>
     
     fun unknownField()
     fun unknownFields(): Map<Int, UnknownField>

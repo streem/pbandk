@@ -25,16 +25,15 @@ private fun FieldMask.protoSizeImpl(): Int {
 }
 
 private fun FieldMask.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (paths.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(paths, protoMarshal::writeString)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (paths.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(paths, pbandk.Sizer::stringSize, protoMarshal::writeString)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FieldMask.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FieldMask {
-    var paths: List<String> = emptyList()
+    var paths: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FieldMask(paths, protoUnmarshal.unknownFields())
-        10 -> paths += protoUnmarshal.readRepeated(protoUnmarshal::readString)
+        0 -> return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), protoUnmarshal.unknownFields())
+        10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString)
         else -> protoUnmarshal.unknownField()
     }
 }

@@ -25,8 +25,7 @@ private fun SourceContext.protoSizeImpl(): Int {
 
 private fun SourceContext.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (fileName.isNotEmpty()) protoMarshal.writeTag(10).writeString(fileName)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun SourceContext.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): SourceContext {

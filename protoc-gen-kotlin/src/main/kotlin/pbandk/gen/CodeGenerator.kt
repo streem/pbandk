@@ -175,9 +175,7 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
                 }
             }
             // Also persist unknown fields
-            line("if (unknownFields.isNotEmpty())").indented {
-                line("protoMarshal.writeUnknownFields(unknownFields)")
-            }
+            line("if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)")
         }.line("}")
     }
 
@@ -186,40 +184,41 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             "protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): $fullTypeName {"
         line().line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
-            val kotlinFields = type.fields.map {
-                lineBegin("var ${it.kotlinFieldName}")
+            val doneKotlinFields = type.fields.map {
                 when (it) {
                     is File.Field.Standard -> {
-                        if (it.requiresExplicitTypeWithVal) lineMid(": " + it.kotlinValueType(true))
-                        lineEnd(" = ${it.defaultValue}")
+                        line(it.unmarshalVarDecl)
+                        it.unmarshalVarDone
                     }
-                    is File.Field.OneOf ->
-                        lineEnd(": $fullTypeName.${it.kotlinTypeName}? = null")
+                    is File.Field.OneOf -> {
+                        line("var ${it.kotlinFieldName}: $fullTypeName.${it.kotlinTypeName}? = null")
+                        it.kotlinFieldName
+                    }
                 }
-                it.kotlinFieldName
             }
             // Now loop reading the tag and check fields in order
             line("while (true) when (protoUnmarshal.readTag()) {").indented {
-                // Tag of 0 means we're done
-                val fieldSet = if (kotlinFields.isEmpty()) "" else kotlinFields.joinToString(", ", postfix = ", ")
-                line("0 -> return $fullTypeName(${fieldSet}protoUnmarshal.unknownFields())")
+                // Tag 0 means done. Wrap the params to the class.
+                lineBegin("0 -> return $fullTypeName(")
+                val chunkedDoneFields = doneKotlinFields.chunked(4)
+                chunkedDoneFields.forEachIndexed { index, doneFieldSet ->
+                    val doneFieldStr = doneFieldSet.joinToString(", ", postfix = ",")
+                    if (index == 0 && chunkedDoneFields.size == 1) lineMid(doneFieldStr)
+                    else if (index == 0) lineEnd(doneFieldStr)
+                    else if (index == chunkedDoneFields.size - 1) indented { lineBegin(doneFieldStr) }
+                    else indented { line(doneFieldStr) }
+                }
+                if (chunkedDoneFields.isNotEmpty()) lineMid(" ")
+                lineEnd("protoUnmarshal.unknownFields())")
                 // Each field tag
                 type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
                     lineBegin("${field.tag} -> ")
-                    // TODO: message merging
                     if (oneOf == null) {
-                        if (field.repeated) lineEnd("${field.kotlinFieldName} += ${field.unmarshalReadExpr}")
-                        else lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
+                        lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
                     } else {
                         val oneOfTyp = "$fullTypeName.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
-                        if (field.repeated) {
-                            lineMid("${oneOf.kotlinFieldName} = ")
-                            lineMid("if (${oneOf.kotlinFieldName} is $oneOfTyp) $oneOfTyp.copy(" +
-                                "${field.kotlinFieldName} = ${field.kotlinFieldName} + ${field.unmarshalReadExpr})")
-                            lineEnd(" else $oneOfTyp(${field.unmarshalReadExpr})")
-                        } else {
-                            lineEnd("${oneOf.kotlinFieldName} = $oneOfTyp(${field.unmarshalReadExpr})")
-                        }
+                        require(!field.repeated)
+                        lineEnd("${oneOf.kotlinFieldName} = $oneOfTyp(${field.unmarshalReadExpr})")
                     }
                 }
                 // Unknown field
@@ -242,17 +241,24 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
             type.standardTypeName
     protected val File.Field.Standard.unmarshalReadExpr get() = when (type) {
-        File.Field.Type.ENUM -> "protoUnmarshal.readEnum($kotlinQualifiedTypeName.Companion)".let {
-            if (repeated) "protoUnmarshal.readRepeated { $it }" else it
-        }
-        File.Field.Type.MESSAGE -> "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)".let {
-            if (repeated) "protoUnmarshal.readRepeated { $it }" else it
-        }
+        File.Field.Type.ENUM ->
+            if (repeated) "protoUnmarshal.readRepeatedEnum($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
+            else "protoUnmarshal.readEnum($kotlinQualifiedTypeName.Companion)"
+        File.Field.Type.MESSAGE ->
+            if (repeated) "protoUnmarshal.readRepeatedMessage($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
+            else "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)"
         else -> {
-            if (repeated) "protoUnmarshal.readRepeated(protoUnmarshal::${type.readMethod})"
+            if (repeated) "protoUnmarshal.readRepeated($kotlinFieldName, protoUnmarshal::${type.readMethod})"
             else "protoUnmarshal.${type.readMethod}()"
         }
     }
+    protected val File.Field.Standard.unmarshalVarDecl get() = when {
+        repeated -> "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
+        requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
+        else -> "var $kotlinFieldName = $defaultValue"
+    }
+    protected val File.Field.Standard.unmarshalVarDone get() =
+        if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)" else kotlinFieldName
     protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean) = when {
         repeated -> "List<$kotlinQualifiedTypeName>"
         type == File.Field.Type.MESSAGE && nullableIfMessage -> "$kotlinQualifiedTypeName?"
@@ -273,7 +279,9 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             "pbandk.Sizer.tagSize($number) + pbandk.Sizer.${type.sizeMethod}($ref)"
     }
     protected fun File.Field.Standard.writeExpr(ref: String = fieldRef) = when {
-        repeated && packed -> "protoMarshal.writeTag($tag).writePackedRepeated($ref, protoMarshal::${type.writeMethod})"
+        repeated && packed ->
+            "protoMarshal.writeTag($tag).writePackedRepeated(" +
+                "$ref, pbandk.Sizer::${type.sizeMethod}, protoMarshal::${type.writeMethod})"
         repeated -> "$ref.forEach { protoMarshal.writeTag($tag).${type.writeMethod}(it) }"
         else -> "protoMarshal.writeTag($tag).${type.writeMethod}($ref)"
     }

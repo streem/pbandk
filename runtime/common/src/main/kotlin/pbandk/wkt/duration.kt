@@ -28,8 +28,7 @@ private fun Duration.protoSizeImpl(): Int {
 private fun Duration.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (seconds != 0L) protoMarshal.writeTag(8).writeInt64(seconds)
     if (nanos != 0) protoMarshal.writeTag(16).writeInt32(nanos)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Duration.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Duration {

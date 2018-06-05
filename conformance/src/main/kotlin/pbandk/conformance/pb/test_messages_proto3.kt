@@ -671,46 +671,46 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (optionalStringPiece.isNotEmpty()) protoMarshal.writeTag(194).writeString(optionalStringPiece)
     if (optionalCord.isNotEmpty()) protoMarshal.writeTag(202).writeString(optionalCord)
     if (recursiveMessage != null) protoMarshal.writeTag(218).writeMessage(recursiveMessage)
-    if (repeatedInt32.isNotEmpty()) protoMarshal.writeTag(248).writePackedRepeated(repeatedInt32, protoMarshal::writeInt32)
-    if (repeatedInt64.isNotEmpty()) protoMarshal.writeTag(256).writePackedRepeated(repeatedInt64, protoMarshal::writeInt64)
-    if (repeatedUint32.isNotEmpty()) protoMarshal.writeTag(264).writePackedRepeated(repeatedUint32, protoMarshal::writeUInt32)
-    if (repeatedUint64.isNotEmpty()) protoMarshal.writeTag(272).writePackedRepeated(repeatedUint64, protoMarshal::writeUInt64)
-    if (repeatedSint32.isNotEmpty()) protoMarshal.writeTag(280).writePackedRepeated(repeatedSint32, protoMarshal::writeSInt32)
-    if (repeatedSint64.isNotEmpty()) protoMarshal.writeTag(288).writePackedRepeated(repeatedSint64, protoMarshal::writeSInt64)
-    if (repeatedFixed32.isNotEmpty()) protoMarshal.writeTag(301).writePackedRepeated(repeatedFixed32, protoMarshal::writeFixed32)
-    if (repeatedFixed64.isNotEmpty()) protoMarshal.writeTag(305).writePackedRepeated(repeatedFixed64, protoMarshal::writeFixed64)
-    if (repeatedSfixed32.isNotEmpty()) protoMarshal.writeTag(317).writePackedRepeated(repeatedSfixed32, protoMarshal::writeSFixed32)
-    if (repeatedSfixed64.isNotEmpty()) protoMarshal.writeTag(321).writePackedRepeated(repeatedSfixed64, protoMarshal::writeSFixed64)
-    if (repeatedFloat.isNotEmpty()) protoMarshal.writeTag(333).writePackedRepeated(repeatedFloat, protoMarshal::writeFloat)
-    if (repeatedDouble.isNotEmpty()) protoMarshal.writeTag(337).writePackedRepeated(repeatedDouble, protoMarshal::writeDouble)
-    if (repeatedBool.isNotEmpty()) protoMarshal.writeTag(344).writePackedRepeated(repeatedBool, protoMarshal::writeBool)
-    if (repeatedString.isNotEmpty()) protoMarshal.writeTag(354).writePackedRepeated(repeatedString, protoMarshal::writeString)
-    if (repeatedBytes.isNotEmpty()) protoMarshal.writeTag(362).writePackedRepeated(repeatedBytes, protoMarshal::writeBytes)
-    if (repeatedNestedMessage.isNotEmpty()) protoMarshal.writeTag(386).writePackedRepeated(repeatedNestedMessage, protoMarshal::writeMessage)
-    if (repeatedForeignMessage.isNotEmpty()) protoMarshal.writeTag(394).writePackedRepeated(repeatedForeignMessage, protoMarshal::writeMessage)
-    if (repeatedNestedEnum.isNotEmpty()) protoMarshal.writeTag(408).writePackedRepeated(repeatedNestedEnum, protoMarshal::writeEnum)
-    if (repeatedForeignEnum.isNotEmpty()) protoMarshal.writeTag(416).writePackedRepeated(repeatedForeignEnum, protoMarshal::writeEnum)
-    if (repeatedStringPiece.isNotEmpty()) protoMarshal.writeTag(434).writePackedRepeated(repeatedStringPiece, protoMarshal::writeString)
-    if (repeatedCord.isNotEmpty()) protoMarshal.writeTag(442).writePackedRepeated(repeatedCord, protoMarshal::writeString)
-    if (mapInt32Int32.isNotEmpty()) protoMarshal.writeTag(450).writePackedRepeated(mapInt32Int32, protoMarshal::writeMessage)
-    if (mapInt64Int64.isNotEmpty()) protoMarshal.writeTag(458).writePackedRepeated(mapInt64Int64, protoMarshal::writeMessage)
-    if (mapUint32Uint32.isNotEmpty()) protoMarshal.writeTag(466).writePackedRepeated(mapUint32Uint32, protoMarshal::writeMessage)
-    if (mapUint64Uint64.isNotEmpty()) protoMarshal.writeTag(474).writePackedRepeated(mapUint64Uint64, protoMarshal::writeMessage)
-    if (mapSint32Sint32.isNotEmpty()) protoMarshal.writeTag(482).writePackedRepeated(mapSint32Sint32, protoMarshal::writeMessage)
-    if (mapSint64Sint64.isNotEmpty()) protoMarshal.writeTag(490).writePackedRepeated(mapSint64Sint64, protoMarshal::writeMessage)
-    if (mapFixed32Fixed32.isNotEmpty()) protoMarshal.writeTag(498).writePackedRepeated(mapFixed32Fixed32, protoMarshal::writeMessage)
-    if (mapFixed64Fixed64.isNotEmpty()) protoMarshal.writeTag(506).writePackedRepeated(mapFixed64Fixed64, protoMarshal::writeMessage)
-    if (mapSfixed32Sfixed32.isNotEmpty()) protoMarshal.writeTag(514).writePackedRepeated(mapSfixed32Sfixed32, protoMarshal::writeMessage)
-    if (mapSfixed64Sfixed64.isNotEmpty()) protoMarshal.writeTag(522).writePackedRepeated(mapSfixed64Sfixed64, protoMarshal::writeMessage)
-    if (mapInt32Float.isNotEmpty()) protoMarshal.writeTag(530).writePackedRepeated(mapInt32Float, protoMarshal::writeMessage)
-    if (mapInt32Double.isNotEmpty()) protoMarshal.writeTag(538).writePackedRepeated(mapInt32Double, protoMarshal::writeMessage)
-    if (mapBoolBool.isNotEmpty()) protoMarshal.writeTag(546).writePackedRepeated(mapBoolBool, protoMarshal::writeMessage)
-    if (mapStringString.isNotEmpty()) protoMarshal.writeTag(554).writePackedRepeated(mapStringString, protoMarshal::writeMessage)
-    if (mapStringBytes.isNotEmpty()) protoMarshal.writeTag(562).writePackedRepeated(mapStringBytes, protoMarshal::writeMessage)
-    if (mapStringNestedMessage.isNotEmpty()) protoMarshal.writeTag(570).writePackedRepeated(mapStringNestedMessage, protoMarshal::writeMessage)
-    if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeTag(578).writePackedRepeated(mapStringForeignMessage, protoMarshal::writeMessage)
-    if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeTag(586).writePackedRepeated(mapStringNestedEnum, protoMarshal::writeMessage)
-    if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeTag(594).writePackedRepeated(mapStringForeignEnum, protoMarshal::writeMessage)
+    if (repeatedInt32.isNotEmpty()) protoMarshal.writeTag(248).writePackedRepeated(repeatedInt32, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (repeatedInt64.isNotEmpty()) protoMarshal.writeTag(256).writePackedRepeated(repeatedInt64, pbandk.Sizer::int64Size, protoMarshal::writeInt64)
+    if (repeatedUint32.isNotEmpty()) protoMarshal.writeTag(264).writePackedRepeated(repeatedUint32, pbandk.Sizer::uInt32Size, protoMarshal::writeUInt32)
+    if (repeatedUint64.isNotEmpty()) protoMarshal.writeTag(272).writePackedRepeated(repeatedUint64, pbandk.Sizer::uInt64Size, protoMarshal::writeUInt64)
+    if (repeatedSint32.isNotEmpty()) protoMarshal.writeTag(280).writePackedRepeated(repeatedSint32, pbandk.Sizer::sInt32Size, protoMarshal::writeSInt32)
+    if (repeatedSint64.isNotEmpty()) protoMarshal.writeTag(288).writePackedRepeated(repeatedSint64, pbandk.Sizer::sInt64Size, protoMarshal::writeSInt64)
+    if (repeatedFixed32.isNotEmpty()) protoMarshal.writeTag(301).writePackedRepeated(repeatedFixed32, pbandk.Sizer::fixed32Size, protoMarshal::writeFixed32)
+    if (repeatedFixed64.isNotEmpty()) protoMarshal.writeTag(305).writePackedRepeated(repeatedFixed64, pbandk.Sizer::fixed64Size, protoMarshal::writeFixed64)
+    if (repeatedSfixed32.isNotEmpty()) protoMarshal.writeTag(317).writePackedRepeated(repeatedSfixed32, pbandk.Sizer::sFixed32Size, protoMarshal::writeSFixed32)
+    if (repeatedSfixed64.isNotEmpty()) protoMarshal.writeTag(321).writePackedRepeated(repeatedSfixed64, pbandk.Sizer::sFixed64Size, protoMarshal::writeSFixed64)
+    if (repeatedFloat.isNotEmpty()) protoMarshal.writeTag(333).writePackedRepeated(repeatedFloat, pbandk.Sizer::floatSize, protoMarshal::writeFloat)
+    if (repeatedDouble.isNotEmpty()) protoMarshal.writeTag(337).writePackedRepeated(repeatedDouble, pbandk.Sizer::doubleSize, protoMarshal::writeDouble)
+    if (repeatedBool.isNotEmpty()) protoMarshal.writeTag(344).writePackedRepeated(repeatedBool, pbandk.Sizer::boolSize, protoMarshal::writeBool)
+    if (repeatedString.isNotEmpty()) protoMarshal.writeTag(354).writePackedRepeated(repeatedString, pbandk.Sizer::stringSize, protoMarshal::writeString)
+    if (repeatedBytes.isNotEmpty()) protoMarshal.writeTag(362).writePackedRepeated(repeatedBytes, pbandk.Sizer::bytesSize, protoMarshal::writeBytes)
+    if (repeatedNestedMessage.isNotEmpty()) protoMarshal.writeTag(386).writePackedRepeated(repeatedNestedMessage, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedForeignMessage.isNotEmpty()) protoMarshal.writeTag(394).writePackedRepeated(repeatedForeignMessage, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedNestedEnum.isNotEmpty()) protoMarshal.writeTag(408).writePackedRepeated(repeatedNestedEnum, pbandk.Sizer::enumSize, protoMarshal::writeEnum)
+    if (repeatedForeignEnum.isNotEmpty()) protoMarshal.writeTag(416).writePackedRepeated(repeatedForeignEnum, pbandk.Sizer::enumSize, protoMarshal::writeEnum)
+    if (repeatedStringPiece.isNotEmpty()) protoMarshal.writeTag(434).writePackedRepeated(repeatedStringPiece, pbandk.Sizer::stringSize, protoMarshal::writeString)
+    if (repeatedCord.isNotEmpty()) protoMarshal.writeTag(442).writePackedRepeated(repeatedCord, pbandk.Sizer::stringSize, protoMarshal::writeString)
+    if (mapInt32Int32.isNotEmpty()) protoMarshal.writeTag(450).writePackedRepeated(mapInt32Int32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapInt64Int64.isNotEmpty()) protoMarshal.writeTag(458).writePackedRepeated(mapInt64Int64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapUint32Uint32.isNotEmpty()) protoMarshal.writeTag(466).writePackedRepeated(mapUint32Uint32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapUint64Uint64.isNotEmpty()) protoMarshal.writeTag(474).writePackedRepeated(mapUint64Uint64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapSint32Sint32.isNotEmpty()) protoMarshal.writeTag(482).writePackedRepeated(mapSint32Sint32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapSint64Sint64.isNotEmpty()) protoMarshal.writeTag(490).writePackedRepeated(mapSint64Sint64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapFixed32Fixed32.isNotEmpty()) protoMarshal.writeTag(498).writePackedRepeated(mapFixed32Fixed32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapFixed64Fixed64.isNotEmpty()) protoMarshal.writeTag(506).writePackedRepeated(mapFixed64Fixed64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapSfixed32Sfixed32.isNotEmpty()) protoMarshal.writeTag(514).writePackedRepeated(mapSfixed32Sfixed32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapSfixed64Sfixed64.isNotEmpty()) protoMarshal.writeTag(522).writePackedRepeated(mapSfixed64Sfixed64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapInt32Float.isNotEmpty()) protoMarshal.writeTag(530).writePackedRepeated(mapInt32Float, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapInt32Double.isNotEmpty()) protoMarshal.writeTag(538).writePackedRepeated(mapInt32Double, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapBoolBool.isNotEmpty()) protoMarshal.writeTag(546).writePackedRepeated(mapBoolBool, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapStringString.isNotEmpty()) protoMarshal.writeTag(554).writePackedRepeated(mapStringString, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapStringBytes.isNotEmpty()) protoMarshal.writeTag(562).writePackedRepeated(mapStringBytes, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapStringNestedMessage.isNotEmpty()) protoMarshal.writeTag(570).writePackedRepeated(mapStringNestedMessage, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeTag(578).writePackedRepeated(mapStringForeignMessage, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeTag(586).writePackedRepeated(mapStringNestedEnum, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeTag(594).writePackedRepeated(mapStringForeignEnum, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
     if (oneofField is TestAllTypesProto3.OneofField.OneofUint32) protoMarshal.writeTag(888).writeUInt32(oneofField.oneofUint32)
     if (oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage) protoMarshal.writeTag(898).writeMessage(oneofField.oneofNestedMessage)
     if (oneofField is TestAllTypesProto3.OneofField.OneofString) protoMarshal.writeTag(906).writeString(oneofField.oneofString)
@@ -729,27 +729,27 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (optionalDoubleWrapper != null) protoMarshal.writeTag(1658).writeMessage(optionalDoubleWrapper)
     if (optionalStringWrapper != null) protoMarshal.writeTag(1666).writeMessage(optionalStringWrapper)
     if (optionalBytesWrapper != null) protoMarshal.writeTag(1674).writeMessage(optionalBytesWrapper)
-    if (repeatedBoolWrapper.isNotEmpty()) protoMarshal.writeTag(1690).writePackedRepeated(repeatedBoolWrapper, protoMarshal::writeMessage)
-    if (repeatedInt32Wrapper.isNotEmpty()) protoMarshal.writeTag(1698).writePackedRepeated(repeatedInt32Wrapper, protoMarshal::writeMessage)
-    if (repeatedInt64Wrapper.isNotEmpty()) protoMarshal.writeTag(1706).writePackedRepeated(repeatedInt64Wrapper, protoMarshal::writeMessage)
-    if (repeatedUint32Wrapper.isNotEmpty()) protoMarshal.writeTag(1714).writePackedRepeated(repeatedUint32Wrapper, protoMarshal::writeMessage)
-    if (repeatedUint64Wrapper.isNotEmpty()) protoMarshal.writeTag(1722).writePackedRepeated(repeatedUint64Wrapper, protoMarshal::writeMessage)
-    if (repeatedFloatWrapper.isNotEmpty()) protoMarshal.writeTag(1730).writePackedRepeated(repeatedFloatWrapper, protoMarshal::writeMessage)
-    if (repeatedDoubleWrapper.isNotEmpty()) protoMarshal.writeTag(1738).writePackedRepeated(repeatedDoubleWrapper, protoMarshal::writeMessage)
-    if (repeatedStringWrapper.isNotEmpty()) protoMarshal.writeTag(1746).writePackedRepeated(repeatedStringWrapper, protoMarshal::writeMessage)
-    if (repeatedBytesWrapper.isNotEmpty()) protoMarshal.writeTag(1754).writePackedRepeated(repeatedBytesWrapper, protoMarshal::writeMessage)
+    if (repeatedBoolWrapper.isNotEmpty()) protoMarshal.writeTag(1690).writePackedRepeated(repeatedBoolWrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedInt32Wrapper.isNotEmpty()) protoMarshal.writeTag(1698).writePackedRepeated(repeatedInt32Wrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedInt64Wrapper.isNotEmpty()) protoMarshal.writeTag(1706).writePackedRepeated(repeatedInt64Wrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedUint32Wrapper.isNotEmpty()) protoMarshal.writeTag(1714).writePackedRepeated(repeatedUint32Wrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedUint64Wrapper.isNotEmpty()) protoMarshal.writeTag(1722).writePackedRepeated(repeatedUint64Wrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedFloatWrapper.isNotEmpty()) protoMarshal.writeTag(1730).writePackedRepeated(repeatedFloatWrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedDoubleWrapper.isNotEmpty()) protoMarshal.writeTag(1738).writePackedRepeated(repeatedDoubleWrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedStringWrapper.isNotEmpty()) protoMarshal.writeTag(1746).writePackedRepeated(repeatedStringWrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedBytesWrapper.isNotEmpty()) protoMarshal.writeTag(1754).writePackedRepeated(repeatedBytesWrapper, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
     if (optionalDuration != null) protoMarshal.writeTag(2410).writeMessage(optionalDuration)
     if (optionalTimestamp != null) protoMarshal.writeTag(2418).writeMessage(optionalTimestamp)
     if (optionalFieldMask != null) protoMarshal.writeTag(2426).writeMessage(optionalFieldMask)
     if (optionalStruct != null) protoMarshal.writeTag(2434).writeMessage(optionalStruct)
     if (optionalAny != null) protoMarshal.writeTag(2442).writeMessage(optionalAny)
     if (optionalValue != null) protoMarshal.writeTag(2450).writeMessage(optionalValue)
-    if (repeatedDuration.isNotEmpty()) protoMarshal.writeTag(2490).writePackedRepeated(repeatedDuration, protoMarshal::writeMessage)
-    if (repeatedTimestamp.isNotEmpty()) protoMarshal.writeTag(2498).writePackedRepeated(repeatedTimestamp, protoMarshal::writeMessage)
-    if (repeatedFieldmask.isNotEmpty()) protoMarshal.writeTag(2506).writePackedRepeated(repeatedFieldmask, protoMarshal::writeMessage)
-    if (repeatedAny.isNotEmpty()) protoMarshal.writeTag(2522).writePackedRepeated(repeatedAny, protoMarshal::writeMessage)
-    if (repeatedValue.isNotEmpty()) protoMarshal.writeTag(2530).writePackedRepeated(repeatedValue, protoMarshal::writeMessage)
-    if (repeatedStruct.isNotEmpty()) protoMarshal.writeTag(2594).writePackedRepeated(repeatedStruct, protoMarshal::writeMessage)
+    if (repeatedDuration.isNotEmpty()) protoMarshal.writeTag(2490).writePackedRepeated(repeatedDuration, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedTimestamp.isNotEmpty()) protoMarshal.writeTag(2498).writePackedRepeated(repeatedTimestamp, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedFieldmask.isNotEmpty()) protoMarshal.writeTag(2506).writePackedRepeated(repeatedFieldmask, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedAny.isNotEmpty()) protoMarshal.writeTag(2522).writePackedRepeated(repeatedAny, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedValue.isNotEmpty()) protoMarshal.writeTag(2530).writePackedRepeated(repeatedValue, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (repeatedStruct.isNotEmpty()) protoMarshal.writeTag(2594).writePackedRepeated(repeatedStruct, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
     if (fieldname1 != 0) protoMarshal.writeTag(3208).writeInt32(fieldname1)
     if (fieldName2 != 0) protoMarshal.writeTag(3216).writeInt32(fieldName2)
     if (fieldName3 != 0) protoMarshal.writeTag(3224).writeInt32(fieldName3)
@@ -768,8 +768,7 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (field_Name16 != 0) protoMarshal.writeTag(3328).writeInt32(field_Name16)
     if (fieldName17_ != 0) protoMarshal.writeTag(3336).writeInt32(fieldName17_)
     if (fieldName18_ != 0) protoMarshal.writeTag(3344).writeInt32(fieldName18_)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3 {
@@ -795,46 +794,46 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var optionalStringPiece = ""
     var optionalCord = ""
     var recursiveMessage: pbandk.conformance.pb.TestAllTypesProto3? = null
-    var repeatedInt32: List<Int> = emptyList()
-    var repeatedInt64: List<Long> = emptyList()
-    var repeatedUint32: List<Int> = emptyList()
-    var repeatedUint64: List<Long> = emptyList()
-    var repeatedSint32: List<Int> = emptyList()
-    var repeatedSint64: List<Long> = emptyList()
-    var repeatedFixed32: List<Int> = emptyList()
-    var repeatedFixed64: List<Long> = emptyList()
-    var repeatedSfixed32: List<Int> = emptyList()
-    var repeatedSfixed64: List<Long> = emptyList()
-    var repeatedFloat: List<Float> = emptyList()
-    var repeatedDouble: List<Double> = emptyList()
-    var repeatedBool: List<Boolean> = emptyList()
-    var repeatedString: List<String> = emptyList()
-    var repeatedBytes: List<pbandk.ByteArr> = emptyList()
-    var repeatedNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage> = emptyList()
-    var repeatedForeignMessage: List<pbandk.conformance.pb.ForeignMessage> = emptyList()
-    var repeatedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> = emptyList()
-    var repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnum> = emptyList()
-    var repeatedStringPiece: List<String> = emptyList()
-    var repeatedCord: List<String> = emptyList()
-    var mapInt32Int32: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry> = emptyList()
-    var mapInt64Int64: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry> = emptyList()
-    var mapUint32Uint32: List<pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry> = emptyList()
-    var mapUint64Uint64: List<pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry> = emptyList()
-    var mapSint32Sint32: List<pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry> = emptyList()
-    var mapSint64Sint64: List<pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry> = emptyList()
-    var mapFixed32Fixed32: List<pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry> = emptyList()
-    var mapFixed64Fixed64: List<pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry> = emptyList()
-    var mapSfixed32Sfixed32: List<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry> = emptyList()
-    var mapSfixed64Sfixed64: List<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry> = emptyList()
-    var mapInt32Float: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry> = emptyList()
-    var mapInt32Double: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry> = emptyList()
-    var mapBoolBool: List<pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry> = emptyList()
-    var mapStringString: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry> = emptyList()
-    var mapStringBytes: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry> = emptyList()
-    var mapStringNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry> = emptyList()
-    var mapStringForeignMessage: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry> = emptyList()
-    var mapStringNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry> = emptyList()
-    var mapStringForeignEnum: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry> = emptyList()
+    var repeatedInt32: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedInt64: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedUint32: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedUint64: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedSint32: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedSint64: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedFixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedFixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedFloat: pbandk.ListWithSize.Builder<Float>? = null
+    var repeatedDouble: pbandk.ListWithSize.Builder<Double>? = null
+    var repeatedBool: pbandk.ListWithSize.Builder<Boolean>? = null
+    var repeatedString: pbandk.ListWithSize.Builder<String>? = null
+    var repeatedBytes: pbandk.ListWithSize.Builder<pbandk.ByteArr>? = null
+    var repeatedNestedMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>? = null
+    var repeatedForeignMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignMessage>? = null
+    var repeatedNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
+    var repeatedForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignEnum>? = null
+    var repeatedStringPiece: pbandk.ListWithSize.Builder<String>? = null
+    var repeatedCord: pbandk.ListWithSize.Builder<String>? = null
+    var mapInt32Int32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry>? = null
+    var mapInt64Int64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry>? = null
+    var mapUint32Uint32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry>? = null
+    var mapUint64Uint64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry>? = null
+    var mapSint32Sint32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry>? = null
+    var mapSint64Sint64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry>? = null
+    var mapFixed32Fixed32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry>? = null
+    var mapFixed64Fixed64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry>? = null
+    var mapSfixed32Sfixed32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry>? = null
+    var mapSfixed64Sfixed64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry>? = null
+    var mapInt32Float: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry>? = null
+    var mapInt32Double: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry>? = null
+    var mapBoolBool: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry>? = null
+    var mapStringString: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry>? = null
+    var mapStringBytes: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry>? = null
+    var mapStringNestedMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry>? = null
+    var mapStringForeignMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry>? = null
+    var mapStringNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry>? = null
+    var mapStringForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry>? = null
     var oneofField: TestAllTypesProto3.OneofField? = null
     var optionalBoolWrapper: pbandk.wkt.BoolValue? = null
     var optionalInt32Wrapper: pbandk.wkt.Int32Value? = null
@@ -845,27 +844,27 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var optionalDoubleWrapper: pbandk.wkt.DoubleValue? = null
     var optionalStringWrapper: pbandk.wkt.StringValue? = null
     var optionalBytesWrapper: pbandk.wkt.BytesValue? = null
-    var repeatedBoolWrapper: List<pbandk.wkt.BoolValue> = emptyList()
-    var repeatedInt32Wrapper: List<pbandk.wkt.Int32Value> = emptyList()
-    var repeatedInt64Wrapper: List<pbandk.wkt.Int64Value> = emptyList()
-    var repeatedUint32Wrapper: List<pbandk.wkt.UInt32Value> = emptyList()
-    var repeatedUint64Wrapper: List<pbandk.wkt.UInt64Value> = emptyList()
-    var repeatedFloatWrapper: List<pbandk.wkt.FloatValue> = emptyList()
-    var repeatedDoubleWrapper: List<pbandk.wkt.DoubleValue> = emptyList()
-    var repeatedStringWrapper: List<pbandk.wkt.StringValue> = emptyList()
-    var repeatedBytesWrapper: List<pbandk.wkt.BytesValue> = emptyList()
+    var repeatedBoolWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.BoolValue>? = null
+    var repeatedInt32Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.Int32Value>? = null
+    var repeatedInt64Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.Int64Value>? = null
+    var repeatedUint32Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.UInt32Value>? = null
+    var repeatedUint64Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.UInt64Value>? = null
+    var repeatedFloatWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.FloatValue>? = null
+    var repeatedDoubleWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.DoubleValue>? = null
+    var repeatedStringWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.StringValue>? = null
+    var repeatedBytesWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.BytesValue>? = null
     var optionalDuration: pbandk.wkt.Duration? = null
     var optionalTimestamp: pbandk.wkt.Timestamp? = null
     var optionalFieldMask: pbandk.wkt.FieldMask? = null
     var optionalStruct: pbandk.wkt.Struct? = null
     var optionalAny: pbandk.wkt.Any? = null
     var optionalValue: pbandk.wkt.Value? = null
-    var repeatedDuration: List<pbandk.wkt.Duration> = emptyList()
-    var repeatedTimestamp: List<pbandk.wkt.Timestamp> = emptyList()
-    var repeatedFieldmask: List<pbandk.wkt.FieldMask> = emptyList()
-    var repeatedStruct: List<pbandk.wkt.Struct> = emptyList()
-    var repeatedAny: List<pbandk.wkt.Any> = emptyList()
-    var repeatedValue: List<pbandk.wkt.Value> = emptyList()
+    var repeatedDuration: pbandk.ListWithSize.Builder<pbandk.wkt.Duration>? = null
+    var repeatedTimestamp: pbandk.ListWithSize.Builder<pbandk.wkt.Timestamp>? = null
+    var repeatedFieldmask: pbandk.ListWithSize.Builder<pbandk.wkt.FieldMask>? = null
+    var repeatedStruct: pbandk.ListWithSize.Builder<pbandk.wkt.Struct>? = null
+    var repeatedAny: pbandk.ListWithSize.Builder<pbandk.wkt.Any>? = null
+    var repeatedValue: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
     var fieldname1 = 0
     var fieldName2 = 0
     var fieldName3 = 0
@@ -885,7 +884,34 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var fieldName17_ = 0
     var fieldName18_ = 0
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return TestAllTypesProto3(optionalInt32, optionalInt64, optionalUint32, optionalUint64, optionalSint32, optionalSint64, optionalFixed32, optionalFixed64, optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble, optionalBool, optionalString, optionalBytes, optionalNestedMessage, optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalStringPiece, optionalCord, recursiveMessage, repeatedInt32, repeatedInt64, repeatedUint32, repeatedUint64, repeatedSint32, repeatedSint64, repeatedFixed32, repeatedFixed64, repeatedSfixed32, repeatedSfixed64, repeatedFloat, repeatedDouble, repeatedBool, repeatedString, repeatedBytes, repeatedNestedMessage, repeatedForeignMessage, repeatedNestedEnum, repeatedForeignEnum, repeatedStringPiece, repeatedCord, mapInt32Int32, mapInt64Int64, mapUint32Uint32, mapUint64Uint64, mapSint32Sint32, mapSint64Sint64, mapFixed32Fixed32, mapFixed64Fixed64, mapSfixed32Sfixed32, mapSfixed64Sfixed64, mapInt32Float, mapInt32Double, mapBoolBool, mapStringString, mapStringBytes, mapStringNestedMessage, mapStringForeignMessage, mapStringNestedEnum, mapStringForeignEnum, oneofField, optionalBoolWrapper, optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper, optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper, repeatedBoolWrapper, repeatedInt32Wrapper, repeatedInt64Wrapper, repeatedUint32Wrapper, repeatedUint64Wrapper, repeatedFloatWrapper, repeatedDoubleWrapper, repeatedStringWrapper, repeatedBytesWrapper, optionalDuration, optionalTimestamp, optionalFieldMask, optionalStruct, optionalAny, optionalValue, repeatedDuration, repeatedTimestamp, repeatedFieldmask, repeatedStruct, repeatedAny, repeatedValue, fieldname1, fieldName2, fieldName3, field_name4, field0name5, field0Name6, fieldName7, fieldName8, fieldName9, fieldName10, fIELDNAME11, fIELDName12, _fieldName13, _FieldName14, field_name15, field_Name16, fieldName17_, fieldName18_, protoUnmarshal.unknownFields())
+        0 -> return TestAllTypesProto3(optionalInt32, optionalInt64, optionalUint32, optionalUint64,
+            optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
+            optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble,
+            optionalBool, optionalString, optionalBytes, optionalNestedMessage,
+            optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalStringPiece,
+            optionalCord, recursiveMessage, pbandk.ListWithSize.Builder.fixed(repeatedInt32), pbandk.ListWithSize.Builder.fixed(repeatedInt64),
+            pbandk.ListWithSize.Builder.fixed(repeatedUint32), pbandk.ListWithSize.Builder.fixed(repeatedUint64), pbandk.ListWithSize.Builder.fixed(repeatedSint32), pbandk.ListWithSize.Builder.fixed(repeatedSint64),
+            pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32), pbandk.ListWithSize.Builder.fixed(repeatedSfixed64),
+            pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool), pbandk.ListWithSize.Builder.fixed(repeatedString),
+            pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage), pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum),
+            pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.ListWithSize.Builder.fixed(mapInt32Int32),
+            pbandk.ListWithSize.Builder.fixed(mapInt64Int64), pbandk.ListWithSize.Builder.fixed(mapUint32Uint32), pbandk.ListWithSize.Builder.fixed(mapUint64Uint64), pbandk.ListWithSize.Builder.fixed(mapSint32Sint32),
+            pbandk.ListWithSize.Builder.fixed(mapSint64Sint64), pbandk.ListWithSize.Builder.fixed(mapFixed32Fixed32), pbandk.ListWithSize.Builder.fixed(mapFixed64Fixed64), pbandk.ListWithSize.Builder.fixed(mapSfixed32Sfixed32),
+            pbandk.ListWithSize.Builder.fixed(mapSfixed64Sfixed64), pbandk.ListWithSize.Builder.fixed(mapInt32Float), pbandk.ListWithSize.Builder.fixed(mapInt32Double), pbandk.ListWithSize.Builder.fixed(mapBoolBool),
+            pbandk.ListWithSize.Builder.fixed(mapStringString), pbandk.ListWithSize.Builder.fixed(mapStringBytes), pbandk.ListWithSize.Builder.fixed(mapStringNestedMessage), pbandk.ListWithSize.Builder.fixed(mapStringForeignMessage),
+            pbandk.ListWithSize.Builder.fixed(mapStringNestedEnum), pbandk.ListWithSize.Builder.fixed(mapStringForeignEnum), oneofField, optionalBoolWrapper,
+            optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper,
+            optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper,
+            pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
+            pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper),
+            pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper), optionalDuration, optionalTimestamp, optionalFieldMask,
+            optionalStruct, optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration),
+            pbandk.ListWithSize.Builder.fixed(repeatedTimestamp), pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny),
+            pbandk.ListWithSize.Builder.fixed(repeatedValue), fieldname1, fieldName2, fieldName3,
+            field_name4, field0name5, field0Name6, fieldName7,
+            fieldName8, fieldName9, fieldName10, fIELDNAME11,
+            fIELDName12, _fieldName13, _FieldName14, field_name15,
+            field_Name16, fieldName17_, fieldName18_, protoUnmarshal.unknownFields())
         8 -> optionalInt32 = protoUnmarshal.readInt32()
         16 -> optionalInt64 = protoUnmarshal.readInt64()
         24 -> optionalUint32 = protoUnmarshal.readUInt32()
@@ -908,46 +934,46 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         194 -> optionalStringPiece = protoUnmarshal.readString()
         202 -> optionalCord = protoUnmarshal.readString()
         218 -> recursiveMessage = protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.Companion)
-        248 -> repeatedInt32 += protoUnmarshal.readRepeated(protoUnmarshal::readInt32)
-        256 -> repeatedInt64 += protoUnmarshal.readRepeated(protoUnmarshal::readInt64)
-        264 -> repeatedUint32 += protoUnmarshal.readRepeated(protoUnmarshal::readUInt32)
-        272 -> repeatedUint64 += protoUnmarshal.readRepeated(protoUnmarshal::readUInt64)
-        280 -> repeatedSint32 += protoUnmarshal.readRepeated(protoUnmarshal::readSInt32)
-        288 -> repeatedSint64 += protoUnmarshal.readRepeated(protoUnmarshal::readSInt64)
-        301 -> repeatedFixed32 += protoUnmarshal.readRepeated(protoUnmarshal::readFixed32)
-        305 -> repeatedFixed64 += protoUnmarshal.readRepeated(protoUnmarshal::readFixed64)
-        317 -> repeatedSfixed32 += protoUnmarshal.readRepeated(protoUnmarshal::readSFixed32)
-        321 -> repeatedSfixed64 += protoUnmarshal.readRepeated(protoUnmarshal::readSFixed64)
-        333 -> repeatedFloat += protoUnmarshal.readRepeated(protoUnmarshal::readFloat)
-        337 -> repeatedDouble += protoUnmarshal.readRepeated(protoUnmarshal::readDouble)
-        344 -> repeatedBool += protoUnmarshal.readRepeated(protoUnmarshal::readBool)
-        354 -> repeatedString += protoUnmarshal.readRepeated(protoUnmarshal::readString)
-        362 -> repeatedBytes += protoUnmarshal.readRepeated(protoUnmarshal::readBytes)
-        386 -> repeatedNestedMessage += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion) }
-        394 -> repeatedForeignMessage += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.ForeignMessage.Companion) }
-        408 -> repeatedNestedEnum += protoUnmarshal.readRepeated { protoUnmarshal.readEnum(pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion) }
-        416 -> repeatedForeignEnum += protoUnmarshal.readRepeated { protoUnmarshal.readEnum(pbandk.conformance.pb.ForeignEnum.Companion) }
-        434 -> repeatedStringPiece += protoUnmarshal.readRepeated(protoUnmarshal::readString)
-        442 -> repeatedCord += protoUnmarshal.readRepeated(protoUnmarshal::readString)
-        450 -> mapInt32Int32 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry.Companion) }
-        458 -> mapInt64Int64 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry.Companion) }
-        466 -> mapUint32Uint32 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry.Companion) }
-        474 -> mapUint64Uint64 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry.Companion) }
-        482 -> mapSint32Sint32 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry.Companion) }
-        490 -> mapSint64Sint64 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry.Companion) }
-        498 -> mapFixed32Fixed32 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry.Companion) }
-        506 -> mapFixed64Fixed64 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry.Companion) }
-        514 -> mapSfixed32Sfixed32 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion) }
-        522 -> mapSfixed64Sfixed64 += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion) }
-        530 -> mapInt32Float += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry.Companion) }
-        538 -> mapInt32Double += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry.Companion) }
-        546 -> mapBoolBool += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry.Companion) }
-        554 -> mapStringString += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry.Companion) }
-        562 -> mapStringBytes += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry.Companion) }
-        570 -> mapStringNestedMessage += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry.Companion) }
-        578 -> mapStringForeignMessage += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry.Companion) }
-        586 -> mapStringNestedEnum += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry.Companion) }
-        594 -> mapStringForeignEnum += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry.Companion) }
+        248 -> repeatedInt32 = protoUnmarshal.readRepeated(repeatedInt32, protoUnmarshal::readInt32)
+        256 -> repeatedInt64 = protoUnmarshal.readRepeated(repeatedInt64, protoUnmarshal::readInt64)
+        264 -> repeatedUint32 = protoUnmarshal.readRepeated(repeatedUint32, protoUnmarshal::readUInt32)
+        272 -> repeatedUint64 = protoUnmarshal.readRepeated(repeatedUint64, protoUnmarshal::readUInt64)
+        280 -> repeatedSint32 = protoUnmarshal.readRepeated(repeatedSint32, protoUnmarshal::readSInt32)
+        288 -> repeatedSint64 = protoUnmarshal.readRepeated(repeatedSint64, protoUnmarshal::readSInt64)
+        301 -> repeatedFixed32 = protoUnmarshal.readRepeated(repeatedFixed32, protoUnmarshal::readFixed32)
+        305 -> repeatedFixed64 = protoUnmarshal.readRepeated(repeatedFixed64, protoUnmarshal::readFixed64)
+        317 -> repeatedSfixed32 = protoUnmarshal.readRepeated(repeatedSfixed32, protoUnmarshal::readSFixed32)
+        321 -> repeatedSfixed64 = protoUnmarshal.readRepeated(repeatedSfixed64, protoUnmarshal::readSFixed64)
+        333 -> repeatedFloat = protoUnmarshal.readRepeated(repeatedFloat, protoUnmarshal::readFloat)
+        337 -> repeatedDouble = protoUnmarshal.readRepeated(repeatedDouble, protoUnmarshal::readDouble)
+        344 -> repeatedBool = protoUnmarshal.readRepeated(repeatedBool, protoUnmarshal::readBool)
+        354 -> repeatedString = protoUnmarshal.readRepeated(repeatedString, protoUnmarshal::readString)
+        362 -> repeatedBytes = protoUnmarshal.readRepeated(repeatedBytes, protoUnmarshal::readBytes)
+        386 -> repeatedNestedMessage = protoUnmarshal.readRepeatedMessage(repeatedNestedMessage, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion)
+        394 -> repeatedForeignMessage = protoUnmarshal.readRepeatedMessage(repeatedForeignMessage, pbandk.conformance.pb.ForeignMessage.Companion)
+        408 -> repeatedNestedEnum = protoUnmarshal.readRepeatedEnum(repeatedNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)
+        416 -> repeatedForeignEnum = protoUnmarshal.readRepeatedEnum(repeatedForeignEnum, pbandk.conformance.pb.ForeignEnum.Companion)
+        434 -> repeatedStringPiece = protoUnmarshal.readRepeated(repeatedStringPiece, protoUnmarshal::readString)
+        442 -> repeatedCord = protoUnmarshal.readRepeated(repeatedCord, protoUnmarshal::readString)
+        450 -> mapInt32Int32 = protoUnmarshal.readRepeatedMessage(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry.Companion)
+        458 -> mapInt64Int64 = protoUnmarshal.readRepeatedMessage(mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry.Companion)
+        466 -> mapUint32Uint32 = protoUnmarshal.readRepeatedMessage(mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry.Companion)
+        474 -> mapUint64Uint64 = protoUnmarshal.readRepeatedMessage(mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry.Companion)
+        482 -> mapSint32Sint32 = protoUnmarshal.readRepeatedMessage(mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry.Companion)
+        490 -> mapSint64Sint64 = protoUnmarshal.readRepeatedMessage(mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry.Companion)
+        498 -> mapFixed32Fixed32 = protoUnmarshal.readRepeatedMessage(mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry.Companion)
+        506 -> mapFixed64Fixed64 = protoUnmarshal.readRepeatedMessage(mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry.Companion)
+        514 -> mapSfixed32Sfixed32 = protoUnmarshal.readRepeatedMessage(mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion)
+        522 -> mapSfixed64Sfixed64 = protoUnmarshal.readRepeatedMessage(mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion)
+        530 -> mapInt32Float = protoUnmarshal.readRepeatedMessage(mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry.Companion)
+        538 -> mapInt32Double = protoUnmarshal.readRepeatedMessage(mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry.Companion)
+        546 -> mapBoolBool = protoUnmarshal.readRepeatedMessage(mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry.Companion)
+        554 -> mapStringString = protoUnmarshal.readRepeatedMessage(mapStringString, pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry.Companion)
+        562 -> mapStringBytes = protoUnmarshal.readRepeatedMessage(mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry.Companion)
+        570 -> mapStringNestedMessage = protoUnmarshal.readRepeatedMessage(mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry.Companion)
+        578 -> mapStringForeignMessage = protoUnmarshal.readRepeatedMessage(mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry.Companion)
+        586 -> mapStringNestedEnum = protoUnmarshal.readRepeatedMessage(mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry.Companion)
+        594 -> mapStringForeignEnum = protoUnmarshal.readRepeatedMessage(mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry.Companion)
         888 -> oneofField = TestAllTypesProto3.OneofField.OneofUint32(protoUnmarshal.readUInt32())
         898 -> oneofField = TestAllTypesProto3.OneofField.OneofNestedMessage(protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion))
         906 -> oneofField = TestAllTypesProto3.OneofField.OneofString(protoUnmarshal.readString())
@@ -966,27 +992,27 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         1658 -> optionalDoubleWrapper = protoUnmarshal.readMessage(pbandk.wkt.DoubleValue.Companion)
         1666 -> optionalStringWrapper = protoUnmarshal.readMessage(pbandk.wkt.StringValue.Companion)
         1674 -> optionalBytesWrapper = protoUnmarshal.readMessage(pbandk.wkt.BytesValue.Companion)
-        1690 -> repeatedBoolWrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.BoolValue.Companion) }
-        1698 -> repeatedInt32Wrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Int32Value.Companion) }
-        1706 -> repeatedInt64Wrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Int64Value.Companion) }
-        1714 -> repeatedUint32Wrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UInt32Value.Companion) }
-        1722 -> repeatedUint64Wrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UInt64Value.Companion) }
-        1730 -> repeatedFloatWrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.FloatValue.Companion) }
-        1738 -> repeatedDoubleWrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.DoubleValue.Companion) }
-        1746 -> repeatedStringWrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.StringValue.Companion) }
-        1754 -> repeatedBytesWrapper += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.BytesValue.Companion) }
+        1690 -> repeatedBoolWrapper = protoUnmarshal.readRepeatedMessage(repeatedBoolWrapper, pbandk.wkt.BoolValue.Companion)
+        1698 -> repeatedInt32Wrapper = protoUnmarshal.readRepeatedMessage(repeatedInt32Wrapper, pbandk.wkt.Int32Value.Companion)
+        1706 -> repeatedInt64Wrapper = protoUnmarshal.readRepeatedMessage(repeatedInt64Wrapper, pbandk.wkt.Int64Value.Companion)
+        1714 -> repeatedUint32Wrapper = protoUnmarshal.readRepeatedMessage(repeatedUint32Wrapper, pbandk.wkt.UInt32Value.Companion)
+        1722 -> repeatedUint64Wrapper = protoUnmarshal.readRepeatedMessage(repeatedUint64Wrapper, pbandk.wkt.UInt64Value.Companion)
+        1730 -> repeatedFloatWrapper = protoUnmarshal.readRepeatedMessage(repeatedFloatWrapper, pbandk.wkt.FloatValue.Companion)
+        1738 -> repeatedDoubleWrapper = protoUnmarshal.readRepeatedMessage(repeatedDoubleWrapper, pbandk.wkt.DoubleValue.Companion)
+        1746 -> repeatedStringWrapper = protoUnmarshal.readRepeatedMessage(repeatedStringWrapper, pbandk.wkt.StringValue.Companion)
+        1754 -> repeatedBytesWrapper = protoUnmarshal.readRepeatedMessage(repeatedBytesWrapper, pbandk.wkt.BytesValue.Companion)
         2410 -> optionalDuration = protoUnmarshal.readMessage(pbandk.wkt.Duration.Companion)
         2418 -> optionalTimestamp = protoUnmarshal.readMessage(pbandk.wkt.Timestamp.Companion)
         2426 -> optionalFieldMask = protoUnmarshal.readMessage(pbandk.wkt.FieldMask.Companion)
         2434 -> optionalStruct = protoUnmarshal.readMessage(pbandk.wkt.Struct.Companion)
         2442 -> optionalAny = protoUnmarshal.readMessage(pbandk.wkt.Any.Companion)
         2450 -> optionalValue = protoUnmarshal.readMessage(pbandk.wkt.Value.Companion)
-        2490 -> repeatedDuration += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Duration.Companion) }
-        2498 -> repeatedTimestamp += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Timestamp.Companion) }
-        2506 -> repeatedFieldmask += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.FieldMask.Companion) }
-        2522 -> repeatedAny += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Any.Companion) }
-        2530 -> repeatedValue += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Value.Companion) }
-        2594 -> repeatedStruct += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Struct.Companion) }
+        2490 -> repeatedDuration = protoUnmarshal.readRepeatedMessage(repeatedDuration, pbandk.wkt.Duration.Companion)
+        2498 -> repeatedTimestamp = protoUnmarshal.readRepeatedMessage(repeatedTimestamp, pbandk.wkt.Timestamp.Companion)
+        2506 -> repeatedFieldmask = protoUnmarshal.readRepeatedMessage(repeatedFieldmask, pbandk.wkt.FieldMask.Companion)
+        2522 -> repeatedAny = protoUnmarshal.readRepeatedMessage(repeatedAny, pbandk.wkt.Any.Companion)
+        2530 -> repeatedValue = protoUnmarshal.readRepeatedMessage(repeatedValue, pbandk.wkt.Value.Companion)
+        2594 -> repeatedStruct = protoUnmarshal.readRepeatedMessage(repeatedStruct, pbandk.wkt.Struct.Companion)
         3208 -> fieldname1 = protoUnmarshal.readInt32()
         3216 -> fieldName2 = protoUnmarshal.readInt32()
         3224 -> fieldName3 = protoUnmarshal.readInt32()
@@ -1025,8 +1051,7 @@ private fun TestAllTypesProto3.NestedMessage.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.NestedMessage.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (a != 0) protoMarshal.writeTag(8).writeInt32(a)
     if (corecursive != null) protoMarshal.writeTag(18).writeMessage(corecursive)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.NestedMessage.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.NestedMessage {
@@ -1055,8 +1080,7 @@ private fun TestAllTypesProto3.MapInt32Int32Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapInt32Int32Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(8).writeInt32(key)
     if (value != 0) protoMarshal.writeTag(16).writeInt32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapInt32Int32Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapInt32Int32Entry {
@@ -1085,8 +1109,7 @@ private fun TestAllTypesProto3.MapInt64Int64Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapInt64Int64Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0L) protoMarshal.writeTag(8).writeInt64(key)
     if (value != 0L) protoMarshal.writeTag(16).writeInt64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapInt64Int64Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapInt64Int64Entry {
@@ -1115,8 +1138,7 @@ private fun TestAllTypesProto3.MapUint32Uint32Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapUint32Uint32Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(8).writeUInt32(key)
     if (value != 0) protoMarshal.writeTag(16).writeUInt32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapUint32Uint32Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapUint32Uint32Entry {
@@ -1145,8 +1167,7 @@ private fun TestAllTypesProto3.MapUint64Uint64Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapUint64Uint64Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0L) protoMarshal.writeTag(8).writeUInt64(key)
     if (value != 0L) protoMarshal.writeTag(16).writeUInt64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapUint64Uint64Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapUint64Uint64Entry {
@@ -1175,8 +1196,7 @@ private fun TestAllTypesProto3.MapSint32Sint32Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapSint32Sint32Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(8).writeSInt32(key)
     if (value != 0) protoMarshal.writeTag(16).writeSInt32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapSint32Sint32Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapSint32Sint32Entry {
@@ -1205,8 +1225,7 @@ private fun TestAllTypesProto3.MapSint64Sint64Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapSint64Sint64Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0L) protoMarshal.writeTag(8).writeSInt64(key)
     if (value != 0L) protoMarshal.writeTag(16).writeSInt64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapSint64Sint64Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapSint64Sint64Entry {
@@ -1235,8 +1254,7 @@ private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(13).writeFixed32(key)
     if (value != 0) protoMarshal.writeTag(21).writeFixed32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapFixed32Fixed32Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapFixed32Fixed32Entry {
@@ -1265,8 +1283,7 @@ private fun TestAllTypesProto3.MapFixed64Fixed64Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapFixed64Fixed64Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0L) protoMarshal.writeTag(9).writeFixed64(key)
     if (value != 0L) protoMarshal.writeTag(17).writeFixed64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapFixed64Fixed64Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapFixed64Fixed64Entry {
@@ -1295,8 +1312,7 @@ private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(13).writeSFixed32(key)
     if (value != 0) protoMarshal.writeTag(21).writeSFixed32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapSfixed32Sfixed32Entry {
@@ -1325,8 +1341,7 @@ private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0L) protoMarshal.writeTag(9).writeSFixed64(key)
     if (value != 0L) protoMarshal.writeTag(17).writeSFixed64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapSfixed64Sfixed64Entry {
@@ -1355,8 +1370,7 @@ private fun TestAllTypesProto3.MapInt32FloatEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapInt32FloatEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(8).writeInt32(key)
     if (value != 0.0F) protoMarshal.writeTag(21).writeFloat(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapInt32FloatEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapInt32FloatEntry {
@@ -1385,8 +1399,7 @@ private fun TestAllTypesProto3.MapInt32DoubleEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapInt32DoubleEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key != 0) protoMarshal.writeTag(8).writeInt32(key)
     if (value != 0.0) protoMarshal.writeTag(17).writeDouble(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapInt32DoubleEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapInt32DoubleEntry {
@@ -1415,8 +1428,7 @@ private fun TestAllTypesProto3.MapBoolBoolEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapBoolBoolEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key) protoMarshal.writeTag(8).writeBool(key)
     if (value) protoMarshal.writeTag(16).writeBool(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapBoolBoolEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapBoolBoolEntry {
@@ -1445,8 +1457,7 @@ private fun TestAllTypesProto3.MapStringStringEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapStringStringEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
     if (value.isNotEmpty()) protoMarshal.writeTag(18).writeString(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapStringStringEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapStringStringEntry {
@@ -1475,8 +1486,7 @@ private fun TestAllTypesProto3.MapStringBytesEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapStringBytesEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
     if (value.array.isNotEmpty()) protoMarshal.writeTag(18).writeBytes(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapStringBytesEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapStringBytesEntry {
@@ -1506,8 +1516,7 @@ private fun TestAllTypesProto3.MapStringNestedMessageEntry.protoSizeImpl(): Int 
 private fun TestAllTypesProto3.MapStringNestedMessageEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
     if (value != null) protoMarshal.writeTag(18).writeMessage(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapStringNestedMessageEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapStringNestedMessageEntry {
@@ -1537,8 +1546,7 @@ private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoSizeImpl(): Int
 private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
     if (value != null) protoMarshal.writeTag(18).writeMessage(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapStringForeignMessageEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapStringForeignMessageEntry {
@@ -1567,8 +1575,7 @@ private fun TestAllTypesProto3.MapStringNestedEnumEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapStringNestedEnumEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
     if (value.value != 0) protoMarshal.writeTag(16).writeEnum(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapStringNestedEnumEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapStringNestedEnumEntry {
@@ -1597,8 +1604,7 @@ private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoSizeImpl(): Int {
 private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
     if (value.value != 0) protoMarshal.writeTag(16).writeEnum(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun TestAllTypesProto3.MapStringForeignEnumEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): TestAllTypesProto3.MapStringForeignEnumEntry {
@@ -1625,8 +1631,7 @@ private fun ForeignMessage.protoSizeImpl(): Int {
 
 private fun ForeignMessage.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (c != 0) protoMarshal.writeTag(8).writeInt32(c)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ForeignMessage.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ForeignMessage {

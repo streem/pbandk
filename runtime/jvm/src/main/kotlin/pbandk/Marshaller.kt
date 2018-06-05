@@ -41,8 +41,8 @@ actual class Marshaller(val stream: CodedOutputStream) {
         }
         fields.forEach { writeUnknownFieldValue(it.key, it.value.value) }
     }
-    actual fun <T> writePackedRepeated(list: List<T>, writeFn: (T) -> Unit) {
-        stream.writeUInt32NoTag(list.size)
+    actual fun <T> writePackedRepeated(list: List<T>, sizeFn: (T) -> Int, writeFn: (T) -> Unit) {
+        stream.writeUInt32NoTag((list as? ListWithSize)?.protoSize ?: list.sumBy(sizeFn))
         list.forEach(writeFn)
     }
 

@@ -22,5 +22,6 @@ actual object Sizer {
     actual fun enumSize(value: Message.Enum) = CodedOutputStream.computeEnumSizeNoTag(value.value)
     actual fun messageSize(value: Message<*>) = value.protoSize
     actual fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
-        list.sumBy(sizeFn).let { it + uInt32Size(it) }
+        if (list is ListWithSize) list.protoSize + uInt32Size(list.protoSize)
+        else list.sumBy(sizeFn).let { it + uInt32Size(it) }
 }

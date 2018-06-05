@@ -72,32 +72,32 @@ private fun Api.protoSizeImpl(): Int {
 
 private fun Api.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (methods.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(methods, protoMarshal::writeMessage)
-    if (options.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(options, protoMarshal::writeMessage)
+    if (methods.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(methods, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (options.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(options, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
     if (version.isNotEmpty()) protoMarshal.writeTag(34).writeString(version)
     if (sourceContext != null) protoMarshal.writeTag(42).writeMessage(sourceContext)
-    if (mixins.isNotEmpty()) protoMarshal.writeTag(50).writePackedRepeated(mixins, protoMarshal::writeMessage)
+    if (mixins.isNotEmpty()) protoMarshal.writeTag(50).writePackedRepeated(mixins, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
     if (syntax.value != 0) protoMarshal.writeTag(56).writeEnum(syntax)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Api.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Api {
     var name = ""
-    var methods: List<pbandk.wkt.Method> = emptyList()
-    var options: List<pbandk.wkt.Option> = emptyList()
+    var methods: pbandk.ListWithSize.Builder<pbandk.wkt.Method>? = null
+    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
     var version = ""
     var sourceContext: pbandk.wkt.SourceContext? = null
-    var mixins: List<pbandk.wkt.Mixin> = emptyList()
+    var mixins: pbandk.ListWithSize.Builder<pbandk.wkt.Mixin>? = null
     var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Api(name, methods, options, version, sourceContext, mixins, syntax, protoUnmarshal.unknownFields())
+        0 -> return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
+            sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> methods += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Method.Companion) }
-        26 -> options += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Option.Companion) }
+        18 -> methods = protoUnmarshal.readRepeatedMessage(methods, pbandk.wkt.Method.Companion)
+        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
         34 -> version = protoUnmarshal.readString()
         42 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
-        50 -> mixins += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Mixin.Companion) }
+        50 -> mixins = protoUnmarshal.readRepeatedMessage(mixins, pbandk.wkt.Mixin.Companion)
         56 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
@@ -127,10 +127,9 @@ private fun Method.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (requestStreaming) protoMarshal.writeTag(24).writeBool(requestStreaming)
     if (responseTypeUrl.isNotEmpty()) protoMarshal.writeTag(34).writeString(responseTypeUrl)
     if (responseStreaming) protoMarshal.writeTag(40).writeBool(responseStreaming)
-    if (options.isNotEmpty()) protoMarshal.writeTag(50).writePackedRepeated(options, protoMarshal::writeMessage)
+    if (options.isNotEmpty()) protoMarshal.writeTag(50).writePackedRepeated(options, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
     if (syntax.value != 0) protoMarshal.writeTag(56).writeEnum(syntax)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Method.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Method {
@@ -139,16 +138,17 @@ private fun Method.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
     var requestStreaming = false
     var responseTypeUrl = ""
     var responseStreaming = false
-    var options: List<pbandk.wkt.Option> = emptyList()
+    var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
     var syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0)
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl, responseStreaming, options, syntax, protoUnmarshal.unknownFields())
+        0 -> return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl,
+            responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
         18 -> requestTypeUrl = protoUnmarshal.readString()
         24 -> requestStreaming = protoUnmarshal.readBool()
         34 -> responseTypeUrl = protoUnmarshal.readString()
         40 -> responseStreaming = protoUnmarshal.readBool()
-        50 -> options += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.Option.Companion) }
+        50 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
         56 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
@@ -169,8 +169,7 @@ private fun Mixin.protoSizeImpl(): Int {
 private fun Mixin.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (root.isNotEmpty()) protoMarshal.writeTag(18).writeString(root)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Mixin.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Mixin {

@@ -28,8 +28,7 @@ private fun Timestamp.protoSizeImpl(): Int {
 private fun Timestamp.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (seconds != 0L) protoMarshal.writeTag(8).writeInt64(seconds)
     if (nanos != 0) protoMarshal.writeTag(16).writeInt32(nanos)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Timestamp.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Timestamp {

@@ -553,15 +553,14 @@ private fun FileDescriptorSet.protoSizeImpl(): Int {
 
 private fun FileDescriptorSet.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (file.isNotEmpty()) file.forEach { protoMarshal.writeTag(10).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FileDescriptorSet.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FileDescriptorSet {
-    var file: List<pbandk.wkt.FileDescriptorProto> = emptyList()
+    var file: pbandk.ListWithSize.Builder<pbandk.wkt.FileDescriptorProto>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FileDescriptorSet(file, protoUnmarshal.unknownFields())
-        10 -> file += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.FileDescriptorProto.Companion) }
+        0 -> return FileDescriptorSet(pbandk.ListWithSize.Builder.fixed(file), protoUnmarshal.unknownFields())
+        10 -> file = protoUnmarshal.readRepeatedMessage(file, pbandk.wkt.FileDescriptorProto.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -610,36 +609,37 @@ private fun FileDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller
     if (publicDependency.isNotEmpty()) publicDependency.forEach { protoMarshal.writeTag(80).writeInt32(it) }
     if (weakDependency.isNotEmpty()) weakDependency.forEach { protoMarshal.writeTag(88).writeInt32(it) }
     if (syntax.isNotEmpty()) protoMarshal.writeTag(98).writeString(syntax)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FileDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FileDescriptorProto {
     var name = ""
     var `package` = ""
-    var dependency: List<String> = emptyList()
-    var publicDependency: List<Int> = emptyList()
-    var weakDependency: List<Int> = emptyList()
-    var messageType: List<pbandk.wkt.DescriptorProto> = emptyList()
-    var enumType: List<pbandk.wkt.EnumDescriptorProto> = emptyList()
-    var service: List<pbandk.wkt.ServiceDescriptorProto> = emptyList()
-    var extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList()
+    var dependency: pbandk.ListWithSize.Builder<String>? = null
+    var publicDependency: pbandk.ListWithSize.Builder<Int>? = null
+    var weakDependency: pbandk.ListWithSize.Builder<Int>? = null
+    var messageType: pbandk.ListWithSize.Builder<pbandk.wkt.DescriptorProto>? = null
+    var enumType: pbandk.ListWithSize.Builder<pbandk.wkt.EnumDescriptorProto>? = null
+    var service: pbandk.ListWithSize.Builder<pbandk.wkt.ServiceDescriptorProto>? = null
+    var extension: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
     var options: pbandk.wkt.FileOptions? = null
     var sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null
     var syntax = ""
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FileDescriptorProto(name, `package`, dependency, publicDependency, weakDependency, messageType, enumType, service, extension, options, sourceCodeInfo, syntax, protoUnmarshal.unknownFields())
+        0 -> return FileDescriptorProto(name, `package`, pbandk.ListWithSize.Builder.fixed(dependency), pbandk.ListWithSize.Builder.fixed(publicDependency),
+            pbandk.ListWithSize.Builder.fixed(weakDependency), pbandk.ListWithSize.Builder.fixed(messageType), pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(service),
+            pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
         18 -> `package` = protoUnmarshal.readString()
-        26 -> dependency += protoUnmarshal.readRepeated(protoUnmarshal::readString)
-        34 -> messageType += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.DescriptorProto.Companion) }
-        42 -> enumType += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.EnumDescriptorProto.Companion) }
-        50 -> service += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.ServiceDescriptorProto.Companion) }
-        58 -> extension += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.FieldDescriptorProto.Companion) }
+        26 -> dependency = protoUnmarshal.readRepeated(dependency, protoUnmarshal::readString)
+        34 -> messageType = protoUnmarshal.readRepeatedMessage(messageType, pbandk.wkt.DescriptorProto.Companion)
+        42 -> enumType = protoUnmarshal.readRepeatedMessage(enumType, pbandk.wkt.EnumDescriptorProto.Companion)
+        50 -> service = protoUnmarshal.readRepeatedMessage(service, pbandk.wkt.ServiceDescriptorProto.Companion)
+        58 -> extension = protoUnmarshal.readRepeatedMessage(extension, pbandk.wkt.FieldDescriptorProto.Companion)
         66 -> options = protoUnmarshal.readMessage(pbandk.wkt.FileOptions.Companion)
         74 -> sourceCodeInfo = protoUnmarshal.readMessage(pbandk.wkt.SourceCodeInfo.Companion)
-        80 -> publicDependency += protoUnmarshal.readRepeated(protoUnmarshal::readInt32)
-        88 -> weakDependency += protoUnmarshal.readRepeated(protoUnmarshal::readInt32)
+        80 -> publicDependency = protoUnmarshal.readRepeated(publicDependency, protoUnmarshal::readInt32)
+        88 -> weakDependency = protoUnmarshal.readRepeated(weakDependency, protoUnmarshal::readInt32)
         98 -> syntax = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
@@ -685,33 +685,34 @@ private fun DescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (oneofDecl.isNotEmpty()) oneofDecl.forEach { protoMarshal.writeTag(66).writeMessage(it) }
     if (reservedRange.isNotEmpty()) reservedRange.forEach { protoMarshal.writeTag(74).writeMessage(it) }
     if (reservedName.isNotEmpty()) reservedName.forEach { protoMarshal.writeTag(82).writeString(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun DescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DescriptorProto {
     var name = ""
-    var field: List<pbandk.wkt.FieldDescriptorProto> = emptyList()
-    var extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList()
-    var nestedType: List<pbandk.wkt.DescriptorProto> = emptyList()
-    var enumType: List<pbandk.wkt.EnumDescriptorProto> = emptyList()
-    var extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
-    var oneofDecl: List<pbandk.wkt.OneofDescriptorProto> = emptyList()
+    var field: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
+    var extension: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
+    var nestedType: pbandk.ListWithSize.Builder<pbandk.wkt.DescriptorProto>? = null
+    var enumType: pbandk.ListWithSize.Builder<pbandk.wkt.EnumDescriptorProto>? = null
+    var extensionRange: pbandk.ListWithSize.Builder<pbandk.wkt.DescriptorProto.ExtensionRange>? = null
+    var oneofDecl: pbandk.ListWithSize.Builder<pbandk.wkt.OneofDescriptorProto>? = null
     var options: pbandk.wkt.MessageOptions? = null
-    var reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange> = emptyList()
-    var reservedName: List<String> = emptyList()
+    var reservedRange: pbandk.ListWithSize.Builder<pbandk.wkt.DescriptorProto.ReservedRange>? = null
+    var reservedName: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return DescriptorProto(name, field, extension, nestedType, enumType, extensionRange, oneofDecl, options, reservedRange, reservedName, protoUnmarshal.unknownFields())
+        0 -> return DescriptorProto(name, pbandk.ListWithSize.Builder.fixed(field), pbandk.ListWithSize.Builder.fixed(extension), pbandk.ListWithSize.Builder.fixed(nestedType),
+            pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(extensionRange), pbandk.ListWithSize.Builder.fixed(oneofDecl), options,
+            pbandk.ListWithSize.Builder.fixed(reservedRange), pbandk.ListWithSize.Builder.fixed(reservedName), protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> field += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.FieldDescriptorProto.Companion) }
-        26 -> nestedType += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.DescriptorProto.Companion) }
-        34 -> enumType += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.EnumDescriptorProto.Companion) }
-        42 -> extensionRange += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.DescriptorProto.ExtensionRange.Companion) }
-        50 -> extension += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.FieldDescriptorProto.Companion) }
+        18 -> field = protoUnmarshal.readRepeatedMessage(field, pbandk.wkt.FieldDescriptorProto.Companion)
+        26 -> nestedType = protoUnmarshal.readRepeatedMessage(nestedType, pbandk.wkt.DescriptorProto.Companion)
+        34 -> enumType = protoUnmarshal.readRepeatedMessage(enumType, pbandk.wkt.EnumDescriptorProto.Companion)
+        42 -> extensionRange = protoUnmarshal.readRepeatedMessage(extensionRange, pbandk.wkt.DescriptorProto.ExtensionRange.Companion)
+        50 -> extension = protoUnmarshal.readRepeatedMessage(extension, pbandk.wkt.FieldDescriptorProto.Companion)
         58 -> options = protoUnmarshal.readMessage(pbandk.wkt.MessageOptions.Companion)
-        66 -> oneofDecl += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.OneofDescriptorProto.Companion) }
-        74 -> reservedRange += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.DescriptorProto.ReservedRange.Companion) }
-        82 -> reservedName += protoUnmarshal.readRepeated(protoUnmarshal::readString)
+        66 -> oneofDecl = protoUnmarshal.readRepeatedMessage(oneofDecl, pbandk.wkt.OneofDescriptorProto.Companion)
+        74 -> reservedRange = protoUnmarshal.readRepeatedMessage(reservedRange, pbandk.wkt.DescriptorProto.ReservedRange.Companion)
+        82 -> reservedName = protoUnmarshal.readRepeated(reservedName, protoUnmarshal::readString)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -734,8 +735,7 @@ private fun DescriptorProto.ExtensionRange.protoMarshalImpl(protoMarshal: pbandk
     if (start != 0) protoMarshal.writeTag(8).writeInt32(start)
     if (end != 0) protoMarshal.writeTag(16).writeInt32(end)
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun DescriptorProto.ExtensionRange.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DescriptorProto.ExtensionRange {
@@ -766,8 +766,7 @@ private fun DescriptorProto.ReservedRange.protoSizeImpl(): Int {
 private fun DescriptorProto.ReservedRange.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (start != 0) protoMarshal.writeTag(8).writeInt32(start)
     if (end != 0) protoMarshal.writeTag(16).writeInt32(end)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun DescriptorProto.ReservedRange.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DescriptorProto.ReservedRange {
@@ -795,15 +794,14 @@ private fun ExtensionRangeOptions.protoSizeImpl(): Int {
 
 private fun ExtensionRangeOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ExtensionRangeOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ExtensionRangeOptions {
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ExtensionRangeOptions(uninterpretedOption, protoUnmarshal.unknownFields())
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        0 -> return ExtensionRangeOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -840,8 +838,7 @@ private fun FieldDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshalle
     if (options != null) protoMarshal.writeTag(66).writeMessage(options)
     if (oneofIndex != 0) protoMarshal.writeTag(72).writeInt32(oneofIndex)
     if (jsonName.isNotEmpty()) protoMarshal.writeTag(82).writeString(jsonName)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FieldDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FieldDescriptorProto {
@@ -856,7 +853,9 @@ private fun FieldDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pb
     var jsonName = ""
     var options: pbandk.wkt.FieldOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FieldDescriptorProto(name, number, label, type, typeName, extendee, defaultValue, oneofIndex, jsonName, options, protoUnmarshal.unknownFields())
+        0 -> return FieldDescriptorProto(name, number, label, type,
+            typeName, extendee, defaultValue, oneofIndex,
+            jsonName, options, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
         18 -> extendee = protoUnmarshal.readString()
         24 -> number = protoUnmarshal.readInt32()
@@ -887,8 +886,7 @@ private fun OneofDescriptorProto.protoSizeImpl(): Int {
 private fun OneofDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (options != null) protoMarshal.writeTag(18).writeMessage(options)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun OneofDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): OneofDescriptorProto {
@@ -927,23 +925,23 @@ private fun EnumDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
     if (reservedRange.isNotEmpty()) reservedRange.forEach { protoMarshal.writeTag(34).writeMessage(it) }
     if (reservedName.isNotEmpty()) reservedName.forEach { protoMarshal.writeTag(42).writeString(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumDescriptorProto {
     var name = ""
-    var value: List<pbandk.wkt.EnumValueDescriptorProto> = emptyList()
+    var value: pbandk.ListWithSize.Builder<pbandk.wkt.EnumValueDescriptorProto>? = null
     var options: pbandk.wkt.EnumOptions? = null
-    var reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> = emptyList()
-    var reservedName: List<String> = emptyList()
+    var reservedRange: pbandk.ListWithSize.Builder<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>? = null
+    var reservedName: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return EnumDescriptorProto(name, value, options, reservedRange, reservedName, protoUnmarshal.unknownFields())
+        0 -> return EnumDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(value), options, pbandk.ListWithSize.Builder.fixed(reservedRange),
+            pbandk.ListWithSize.Builder.fixed(reservedName), protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> value += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.EnumValueDescriptorProto.Companion) }
+        18 -> value = protoUnmarshal.readRepeatedMessage(value, pbandk.wkt.EnumValueDescriptorProto.Companion)
         26 -> options = protoUnmarshal.readMessage(pbandk.wkt.EnumOptions.Companion)
-        34 -> reservedRange += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.EnumDescriptorProto.EnumReservedRange.Companion) }
-        42 -> reservedName += protoUnmarshal.readRepeated(protoUnmarshal::readString)
+        34 -> reservedRange = protoUnmarshal.readRepeatedMessage(reservedRange, pbandk.wkt.EnumDescriptorProto.EnumReservedRange.Companion)
+        42 -> reservedName = protoUnmarshal.readRepeated(reservedName, protoUnmarshal::readString)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -963,8 +961,7 @@ private fun EnumDescriptorProto.EnumReservedRange.protoSizeImpl(): Int {
 private fun EnumDescriptorProto.EnumReservedRange.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (start != 0) protoMarshal.writeTag(8).writeInt32(start)
     if (end != 0) protoMarshal.writeTag(16).writeInt32(end)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumDescriptorProto.EnumReservedRange.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumDescriptorProto.EnumReservedRange {
@@ -996,8 +993,7 @@ private fun EnumValueDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marsh
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (number != 0) protoMarshal.writeTag(16).writeInt32(number)
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumValueDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumValueDescriptorProto {
@@ -1032,18 +1028,17 @@ private fun ServiceDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshal
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (method.isNotEmpty()) method.forEach { protoMarshal.writeTag(18).writeMessage(it) }
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ServiceDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ServiceDescriptorProto {
     var name = ""
-    var method: List<pbandk.wkt.MethodDescriptorProto> = emptyList()
+    var method: pbandk.ListWithSize.Builder<pbandk.wkt.MethodDescriptorProto>? = null
     var options: pbandk.wkt.ServiceOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ServiceDescriptorProto(name, method, options, protoUnmarshal.unknownFields())
+        0 -> return ServiceDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(method), options, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> method += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.MethodDescriptorProto.Companion) }
+        18 -> method = protoUnmarshal.readRepeatedMessage(method, pbandk.wkt.MethodDescriptorProto.Companion)
         26 -> options = protoUnmarshal.readMessage(pbandk.wkt.ServiceOptions.Companion)
         else -> protoUnmarshal.unknownField()
     }
@@ -1073,8 +1068,7 @@ private fun MethodDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshall
     if (options != null) protoMarshal.writeTag(34).writeMessage(options)
     if (clientStreaming) protoMarshal.writeTag(40).writeBool(clientStreaming)
     if (serverStreaming) protoMarshal.writeTag(48).writeBool(serverStreaming)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun MethodDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MethodDescriptorProto {
@@ -1085,7 +1079,8 @@ private fun MethodDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: p
     var clientStreaming = false
     var serverStreaming = false
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return MethodDescriptorProto(name, inputType, outputType, options, clientStreaming, serverStreaming, protoUnmarshal.unknownFields())
+        0 -> return MethodDescriptorProto(name, inputType, outputType, options,
+            clientStreaming, serverStreaming, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
         18 -> inputType = protoUnmarshal.readString()
         26 -> outputType = protoUnmarshal.readString()
@@ -1146,8 +1141,7 @@ private fun FileOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (phpNamespace.isNotEmpty()) protoMarshal.writeTag(330).writeString(phpNamespace)
     if (phpGenericServices) protoMarshal.writeTag(336).writeBool(phpGenericServices)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FileOptions {
@@ -1169,9 +1163,13 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
     var swiftPrefix = ""
     var phpClassPrefix = ""
     var phpNamespace = ""
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash, javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices, javaGenericServices, pyGenericServices, phpGenericServices, deprecated, ccEnableArenas, objcClassPrefix, csharpNamespace, swiftPrefix, phpClassPrefix, phpNamespace, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
+            javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices,
+            javaGenericServices, pyGenericServices, phpGenericServices, deprecated,
+            ccEnableArenas, objcClassPrefix, csharpNamespace, swiftPrefix,
+            phpClassPrefix, phpNamespace, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         10 -> javaPackage = protoUnmarshal.readString()
         66 -> javaOuterClassname = protoUnmarshal.readString()
         72 -> optimizeFor = protoUnmarshal.readEnum(pbandk.wkt.FileOptions.OptimizeMode.Companion)
@@ -1190,7 +1188,7 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
         322 -> phpClassPrefix = protoUnmarshal.readString()
         330 -> phpNamespace = protoUnmarshal.readString()
         336 -> phpGenericServices = protoUnmarshal.readBool()
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1217,8 +1215,7 @@ private fun MessageOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (deprecated) protoMarshal.writeTag(24).writeBool(deprecated)
     if (mapEntry) protoMarshal.writeTag(56).writeBool(mapEntry)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun MessageOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MessageOptions {
@@ -1226,14 +1223,15 @@ private fun MessageOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
     var noStandardDescriptorAccessor = false
     var deprecated = false
     var mapEntry = false
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return MessageOptions(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return MessageOptions(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry,
+            pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         8 -> messageSetWireFormat = protoUnmarshal.readBool()
         16 -> noStandardDescriptorAccessor = protoUnmarshal.readBool()
         24 -> deprecated = protoUnmarshal.readBool()
         56 -> mapEntry = protoUnmarshal.readBool()
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1264,8 +1262,7 @@ private fun FieldOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (jstype.value != 0) protoMarshal.writeTag(48).writeEnum(jstype)
     if (weak) protoMarshal.writeTag(80).writeBool(weak)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FieldOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FieldOptions {
@@ -1275,16 +1272,17 @@ private fun FieldOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unm
     var lazy = false
     var deprecated = false
     var weak = false
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FieldOptions(ctype, packed, jstype, lazy, deprecated, weak, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return FieldOptions(ctype, packed, jstype, lazy,
+            deprecated, weak, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         8 -> ctype = protoUnmarshal.readEnum(pbandk.wkt.FieldOptions.CType.Companion)
         16 -> packed = protoUnmarshal.readBool()
         24 -> deprecated = protoUnmarshal.readBool()
         40 -> lazy = protoUnmarshal.readBool()
         48 -> jstype = protoUnmarshal.readEnum(pbandk.wkt.FieldOptions.JSType.Companion)
         80 -> weak = protoUnmarshal.readBool()
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1303,15 +1301,14 @@ private fun OneofOptions.protoSizeImpl(): Int {
 
 private fun OneofOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun OneofOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): OneofOptions {
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return OneofOptions(uninterpretedOption, protoUnmarshal.unknownFields())
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        0 -> return OneofOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1334,19 +1331,18 @@ private fun EnumOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (allowAlias) protoMarshal.writeTag(16).writeBool(allowAlias)
     if (deprecated) protoMarshal.writeTag(24).writeBool(deprecated)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumOptions {
     var allowAlias = false
     var deprecated = false
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return EnumOptions(allowAlias, deprecated, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return EnumOptions(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         16 -> allowAlias = protoUnmarshal.readBool()
         24 -> deprecated = protoUnmarshal.readBool()
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1367,17 +1363,16 @@ private fun EnumValueOptions.protoSizeImpl(): Int {
 private fun EnumValueOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (deprecated) protoMarshal.writeTag(8).writeBool(deprecated)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumValueOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumValueOptions {
     var deprecated = false
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return EnumValueOptions(deprecated, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return EnumValueOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         8 -> deprecated = protoUnmarshal.readBool()
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1398,17 +1393,16 @@ private fun ServiceOptions.protoSizeImpl(): Int {
 private fun ServiceOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (deprecated) protoMarshal.writeTag(264).writeBool(deprecated)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ServiceOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ServiceOptions {
     var deprecated = false
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ServiceOptions(deprecated, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return ServiceOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         264 -> deprecated = protoUnmarshal.readBool()
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1431,19 +1425,18 @@ private fun MethodOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (deprecated) protoMarshal.writeTag(264).writeBool(deprecated)
     if (idempotencyLevel.value != 0) protoMarshal.writeTag(272).writeEnum(idempotencyLevel)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun MethodOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MethodOptions {
     var deprecated = false
     var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel = pbandk.wkt.MethodOptions.IdempotencyLevel.fromValue(0)
-    var uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList()
+    var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return MethodOptions(deprecated, idempotencyLevel, uninterpretedOption, protoUnmarshal.unknownFields())
+        0 -> return MethodOptions(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         264 -> deprecated = protoUnmarshal.readBool()
         272 -> idempotencyLevel = protoUnmarshal.readEnum(pbandk.wkt.MethodOptions.IdempotencyLevel.Companion)
-        7994 -> uninterpretedOption += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.Companion) }
+        7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1474,12 +1467,11 @@ private fun UninterpretedOption.protoMarshalImpl(protoMarshal: pbandk.Marshaller
     if (doubleValue != 0.0) protoMarshal.writeTag(49).writeDouble(doubleValue)
     if (stringValue.array.isNotEmpty()) protoMarshal.writeTag(58).writeBytes(stringValue)
     if (aggregateValue.isNotEmpty()) protoMarshal.writeTag(66).writeString(aggregateValue)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun UninterpretedOption.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UninterpretedOption {
-    var name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList()
+    var name: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption.NamePart>? = null
     var identifierValue = ""
     var positiveIntValue = 0L
     var negativeIntValue = 0L
@@ -1487,8 +1479,9 @@ private fun UninterpretedOption.Companion.protoUnmarshalImpl(protoUnmarshal: pba
     var stringValue: pbandk.ByteArr = pbandk.ByteArr.empty
     var aggregateValue = ""
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return UninterpretedOption(name, identifierValue, positiveIntValue, negativeIntValue, doubleValue, stringValue, aggregateValue, protoUnmarshal.unknownFields())
-        18 -> name += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.UninterpretedOption.NamePart.Companion) }
+        0 -> return UninterpretedOption(pbandk.ListWithSize.Builder.fixed(name), identifierValue, positiveIntValue, negativeIntValue,
+            doubleValue, stringValue, aggregateValue, protoUnmarshal.unknownFields())
+        18 -> name = protoUnmarshal.readRepeatedMessage(name, pbandk.wkt.UninterpretedOption.NamePart.Companion)
         26 -> identifierValue = protoUnmarshal.readString()
         32 -> positiveIntValue = protoUnmarshal.readUInt64()
         40 -> negativeIntValue = protoUnmarshal.readInt64()
@@ -1514,8 +1507,7 @@ private fun UninterpretedOption.NamePart.protoSizeImpl(): Int {
 private fun UninterpretedOption.NamePart.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (namePart.isNotEmpty()) protoMarshal.writeTag(10).writeString(namePart)
     if (isExtension) protoMarshal.writeTag(16).writeBool(isExtension)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun UninterpretedOption.NamePart.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UninterpretedOption.NamePart {
@@ -1543,15 +1535,14 @@ private fun SourceCodeInfo.protoSizeImpl(): Int {
 
 private fun SourceCodeInfo.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (location.isNotEmpty()) location.forEach { protoMarshal.writeTag(10).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun SourceCodeInfo.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): SourceCodeInfo {
-    var location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList()
+    var location: pbandk.ListWithSize.Builder<pbandk.wkt.SourceCodeInfo.Location>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return SourceCodeInfo(location, protoUnmarshal.unknownFields())
-        10 -> location += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.SourceCodeInfo.Location.Companion) }
+        0 -> return SourceCodeInfo(pbandk.ListWithSize.Builder.fixed(location), protoUnmarshal.unknownFields())
+        10 -> location = protoUnmarshal.readRepeatedMessage(location, pbandk.wkt.SourceCodeInfo.Location.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1575,28 +1566,28 @@ private fun SourceCodeInfo.Location.protoSizeImpl(): Int {
 }
 
 private fun SourceCodeInfo.Location.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (path.isNotEmpty()) protoMarshal.writeTag(8).writePackedRepeated(path, protoMarshal::writeInt32)
-    if (span.isNotEmpty()) protoMarshal.writeTag(16).writePackedRepeated(span, protoMarshal::writeInt32)
+    if (path.isNotEmpty()) protoMarshal.writeTag(8).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (span.isNotEmpty()) protoMarshal.writeTag(16).writePackedRepeated(span, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
     if (leadingComments.isNotEmpty()) protoMarshal.writeTag(26).writeString(leadingComments)
     if (trailingComments.isNotEmpty()) protoMarshal.writeTag(34).writeString(trailingComments)
     if (leadingDetachedComments.isNotEmpty()) leadingDetachedComments.forEach { protoMarshal.writeTag(50).writeString(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun SourceCodeInfo.Location.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): SourceCodeInfo.Location {
-    var path: List<Int> = emptyList()
-    var span: List<Int> = emptyList()
+    var path: pbandk.ListWithSize.Builder<Int>? = null
+    var span: pbandk.ListWithSize.Builder<Int>? = null
     var leadingComments = ""
     var trailingComments = ""
-    var leadingDetachedComments: List<String> = emptyList()
+    var leadingDetachedComments: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return SourceCodeInfo.Location(path, span, leadingComments, trailingComments, leadingDetachedComments, protoUnmarshal.unknownFields())
-        8 -> path += protoUnmarshal.readRepeated(protoUnmarshal::readInt32)
-        16 -> span += protoUnmarshal.readRepeated(protoUnmarshal::readInt32)
+        0 -> return SourceCodeInfo.Location(pbandk.ListWithSize.Builder.fixed(path), pbandk.ListWithSize.Builder.fixed(span), leadingComments, trailingComments,
+            pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), protoUnmarshal.unknownFields())
+        8 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
+        16 -> span = protoUnmarshal.readRepeated(span, protoUnmarshal::readInt32)
         26 -> leadingComments = protoUnmarshal.readString()
         34 -> trailingComments = protoUnmarshal.readString()
-        50 -> leadingDetachedComments += protoUnmarshal.readRepeated(protoUnmarshal::readString)
+        50 -> leadingDetachedComments = protoUnmarshal.readRepeated(leadingDetachedComments, protoUnmarshal::readString)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1615,15 +1606,14 @@ private fun GeneratedCodeInfo.protoSizeImpl(): Int {
 
 private fun GeneratedCodeInfo.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (annotation.isNotEmpty()) annotation.forEach { protoMarshal.writeTag(10).writeMessage(it) }
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun GeneratedCodeInfo.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): GeneratedCodeInfo {
-    var annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList()
+    var annotation: pbandk.ListWithSize.Builder<pbandk.wkt.GeneratedCodeInfo.Annotation>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return GeneratedCodeInfo(annotation, protoUnmarshal.unknownFields())
-        10 -> annotation += protoUnmarshal.readRepeated { protoUnmarshal.readMessage(pbandk.wkt.GeneratedCodeInfo.Annotation.Companion) }
+        0 -> return GeneratedCodeInfo(pbandk.ListWithSize.Builder.fixed(annotation), protoUnmarshal.unknownFields())
+        10 -> annotation = protoUnmarshal.readRepeatedMessage(annotation, pbandk.wkt.GeneratedCodeInfo.Annotation.Companion)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -1644,22 +1634,21 @@ private fun GeneratedCodeInfo.Annotation.protoSizeImpl(): Int {
 }
 
 private fun GeneratedCodeInfo.Annotation.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (path.isNotEmpty()) protoMarshal.writeTag(8).writePackedRepeated(path, protoMarshal::writeInt32)
+    if (path.isNotEmpty()) protoMarshal.writeTag(8).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
     if (sourceFile.isNotEmpty()) protoMarshal.writeTag(18).writeString(sourceFile)
     if (begin != 0) protoMarshal.writeTag(24).writeInt32(begin)
     if (end != 0) protoMarshal.writeTag(32).writeInt32(end)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun GeneratedCodeInfo.Annotation.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): GeneratedCodeInfo.Annotation {
-    var path: List<Int> = emptyList()
+    var path: pbandk.ListWithSize.Builder<Int>? = null
     var sourceFile = ""
     var begin = 0
     var end = 0
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return GeneratedCodeInfo.Annotation(path, sourceFile, begin, end, protoUnmarshal.unknownFields())
-        8 -> path += protoUnmarshal.readRepeated(protoUnmarshal::readInt32)
+        0 -> return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, protoUnmarshal.unknownFields())
+        8 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
         18 -> sourceFile = protoUnmarshal.readString()
         24 -> begin = protoUnmarshal.readInt32()
         32 -> end = protoUnmarshal.readInt32()

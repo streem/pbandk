@@ -59,7 +59,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         msgDesc.fieldList.mapNotNull { field ->
             // Exclude any group fields
             if (field.type == DescriptorProtos.FieldDescriptorProto.Type.TYPE_GROUP) null
-            else if (!field.hasOneofIndex()) fromProto(ctx, msgDesc, field, usedFieldNames)
+            else if (!field.hasOneofIndex()) fromProto(ctx, field, usedFieldNames)
             else if (seenOneOfIndexes.add(field.oneofIndex)) msgDesc.oneofDeclList[field.oneofIndex].name.let { name ->
                 val fieldTypeNames = mutableMapOf<String, String>()
                 File.Field.OneOf(
@@ -67,7 +67,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
                     fields = mutableSetOf<String>().let { usedFieldTypeNames ->
                         msgDesc.fieldList.filter { it.hasOneofIndex() && it.oneofIndex == field.oneofIndex }.map {
                             fieldTypeNames += it.name to namer.newTypeName(it.name, usedFieldTypeNames)
-                            fromProto(ctx, msgDesc, it, mutableSetOf())
+                            fromProto(ctx, it, mutableSetOf())
                         }
                     },
                     kotlinFieldTypeNames = fieldTypeNames,
@@ -80,44 +80,47 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
 
     protected fun fromProto(
         ctx: Context,
-        parent: DescriptorProtos.DescriptorProto,
         fieldDesc: DescriptorProtos.FieldDescriptorProto,
         usedFieldNames: MutableSet<String>
     ) = File.Field.Standard(
         number = fieldDesc.number,
         name = fieldDesc.name,
-        type = when (fieldDesc.type!!) {
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_BOOL -> File.Field.Type.BOOL
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_BYTES -> File.Field.Type.BYTES
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_DOUBLE -> File.Field.Type.DOUBLE
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_ENUM -> File.Field.Type.ENUM
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_FIXED32 -> File.Field.Type.FIXED32
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_FIXED64 -> File.Field.Type.FIXED64
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_FLOAT -> File.Field.Type.FLOAT
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_GROUP -> TODO("Group types not supported")
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT32 -> File.Field.Type.INT32
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64 -> File.Field.Type.INT64
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE -> File.Field.Type.MESSAGE
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_SFIXED32 -> File.Field.Type.SFIXED32
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_SFIXED64 -> File.Field.Type.SFIXED64
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_SINT32 -> File.Field.Type.SINT32
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_SINT64 -> File.Field.Type.SINT64
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_STRING -> File.Field.Type.STRING
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT32 -> File.Field.Type.UINT32
-            DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT64 -> File.Field.Type.UINT64
-        },
+        type = fromProto(fieldDesc.type!!),
         localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
         repeated = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED,
         packed = ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true,
-        // TODO: write test on maps in nested types
-        map = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED &&
-            fieldDesc.type == DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE &&
-            ctx.findLocalMessage(fieldDesc.typeName)?.options?.mapEntry == true,
+        mapEntry =
+            if (fieldDesc.label != DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED ||
+                fieldDesc.type != DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE) null
+            else ctx.findLocalMessage(fieldDesc.typeName)?.takeIf { it.options?.mapEntry == true }?.let {
+                fromProto(it.fieldList[0].type) to fromProto(it.fieldList[1].type)
+            },
         kotlinFieldName = namer.newFieldName(fieldDesc.name, usedFieldNames),
         kotlinLocalTypeName =
             if (!fieldDesc.hasTypeName() || fieldDesc.typeName.startsWith('.')) null
             else namer.newTypeName(fieldDesc.typeName, mutableSetOf())
     )
+
+    protected fun fromProto(type: DescriptorProtos.FieldDescriptorProto.Type) = when (type) {
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_BOOL -> File.Field.Type.BOOL
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_BYTES -> File.Field.Type.BYTES
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_DOUBLE -> File.Field.Type.DOUBLE
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_ENUM -> File.Field.Type.ENUM
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_FIXED32 -> File.Field.Type.FIXED32
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_FIXED64 -> File.Field.Type.FIXED64
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_FLOAT -> File.Field.Type.FLOAT
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_GROUP -> TODO("Group types not supported")
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT32 -> File.Field.Type.INT32
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64 -> File.Field.Type.INT64
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE -> File.Field.Type.MESSAGE
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_SFIXED32 -> File.Field.Type.SFIXED32
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_SFIXED64 -> File.Field.Type.SFIXED64
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_SINT32 -> File.Field.Type.SINT32
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_SINT64 -> File.Field.Type.SINT64
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_STRING -> File.Field.Type.STRING
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT32 -> File.Field.Type.UINT32
+        DescriptorProtos.FieldDescriptorProto.Type.TYPE_UINT64 -> File.Field.Type.UINT64
+    }
 
     data class Context(
         val fileDesc: DescriptorProtos.FileDescriptorProto,

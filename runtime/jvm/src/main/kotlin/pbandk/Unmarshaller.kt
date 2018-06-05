@@ -33,16 +33,25 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         currentUnknownFields = oldUnknownFields
         return ret
     }
-    actual fun <T> readRepeated(readFn: () -> T): List<T> {
-        // If the last tag is not length-delimited (i.e. packed), just do a singleton list of the one read
-        if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) return listOf(readFn())
-        // Otherwise, read packed
-        val oldLimit = stream.pushLimit(stream.readRawVarint32())
-        val ret = ArrayList<T>()
-        while (!stream.isAtEnd) ret += readFn()
-        stream.popLimit(oldLimit)
-        return ret.also { it.trimToSize() }
-    }
+    actual fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T) =
+        (appendTo ?: ListWithSize.Builder()).also { bld ->
+            // If it's not length delimited, it's just a single-item to append
+            if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
+                stream.totalBytesRead.also { preRead ->
+                    bld.list += readFn().also { bld.protoSize += stream.totalBytesRead - preRead }
+                }
+            } else stream.readRawVarint32().also { len ->
+                bld.protoSize += len
+                val oldLimit = stream.pushLimit(len)
+                while (!stream.isAtEnd) bld.list += readFn()
+                stream.popLimit(oldLimit)
+            }
+        }
+    actual fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
+        readRepeated(appendTo) { readEnum(s) }
+
+    actual fun <T : Message<T>> readRepeatedMessage(appendTo: ListWithSize.Builder<T>?, s: Message.Companion<T>) =
+        readRepeated(appendTo) { readMessage(s) }
 
     actual fun unknownField() {
         val tag = stream.lastTag

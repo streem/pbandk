@@ -121,8 +121,7 @@ private fun DoubleValue.protoSizeImpl(): Int {
 
 private fun DoubleValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value != 0.0) protoMarshal.writeTag(9).writeDouble(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun DoubleValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DoubleValue {
@@ -147,8 +146,7 @@ private fun FloatValue.protoSizeImpl(): Int {
 
 private fun FloatValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value != 0.0F) protoMarshal.writeTag(13).writeFloat(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FloatValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FloatValue {
@@ -173,8 +171,7 @@ private fun Int64Value.protoSizeImpl(): Int {
 
 private fun Int64Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value != 0L) protoMarshal.writeTag(8).writeInt64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Int64Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Int64Value {
@@ -199,8 +196,7 @@ private fun UInt64Value.protoSizeImpl(): Int {
 
 private fun UInt64Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value != 0L) protoMarshal.writeTag(8).writeUInt64(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun UInt64Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UInt64Value {
@@ -225,8 +221,7 @@ private fun Int32Value.protoSizeImpl(): Int {
 
 private fun Int32Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value != 0) protoMarshal.writeTag(8).writeInt32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Int32Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Int32Value {
@@ -251,8 +246,7 @@ private fun UInt32Value.protoSizeImpl(): Int {
 
 private fun UInt32Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value != 0) protoMarshal.writeTag(8).writeUInt32(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun UInt32Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UInt32Value {
@@ -277,8 +271,7 @@ private fun BoolValue.protoSizeImpl(): Int {
 
 private fun BoolValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value) protoMarshal.writeTag(8).writeBool(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun BoolValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): BoolValue {
@@ -303,8 +296,7 @@ private fun StringValue.protoSizeImpl(): Int {
 
 private fun StringValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value.isNotEmpty()) protoMarshal.writeTag(10).writeString(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun StringValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): StringValue {
@@ -329,8 +321,7 @@ private fun BytesValue.protoSizeImpl(): Int {
 
 private fun BytesValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (value.array.isNotEmpty()) protoMarshal.writeTag(10).writeBytes(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun BytesValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): BytesValue {

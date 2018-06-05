@@ -28,8 +28,7 @@ private fun Any.protoSizeImpl(): Int {
 private fun Any.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (typeUrl.isNotEmpty()) protoMarshal.writeTag(10).writeString(typeUrl)
     if (value.array.isNotEmpty()) protoMarshal.writeTag(18).writeBytes(value)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Any.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Any {

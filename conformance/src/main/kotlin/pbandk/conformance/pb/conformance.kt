@@ -77,8 +77,7 @@ private fun ConformanceRequest.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (payload is ConformanceRequest.Payload.JsonPayload) protoMarshal.writeTag(18).writeString(payload.jsonPayload)
     if (requestedOutputFormat.value != 0) protoMarshal.writeTag(24).writeEnum(requestedOutputFormat)
     if (messageType.isNotEmpty()) protoMarshal.writeTag(34).writeString(messageType)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ConformanceRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ConformanceRequest {
@@ -121,8 +120,7 @@ private fun ConformanceResponse.protoMarshalImpl(protoMarshal: pbandk.Marshaller
     if (result is ConformanceResponse.Result.JsonPayload) protoMarshal.writeTag(34).writeString(result.jsonPayload)
     if (result is ConformanceResponse.Result.Skipped) protoMarshal.writeTag(42).writeString(result.skipped)
     if (result is ConformanceResponse.Result.SerializeError) protoMarshal.writeTag(50).writeString(result.serializeError)
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ConformanceResponse.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ConformanceResponse {

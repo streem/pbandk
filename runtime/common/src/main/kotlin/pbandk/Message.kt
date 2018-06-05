@@ -18,4 +18,6 @@ interface Message<T : Message<T>> {
             fun fromValue(value: Int): T
         }
     }
+
+    interface MapEntry<K, V> : Message<MapEntry<K, V>>, Map.Entry<K, V>
 }

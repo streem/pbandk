@@ -22,8 +22,7 @@ private fun Empty.protoSizeImpl(): Int {
 }
 
 private fun Empty.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (unknownFields.isNotEmpty())
-        protoMarshal.writeUnknownFields(unknownFields)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Empty.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Empty {
