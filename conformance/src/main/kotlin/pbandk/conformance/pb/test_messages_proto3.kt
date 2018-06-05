@@ -59,25 +59,25 @@ data class TestAllTypesProto3(
     val repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnum> = emptyList(),
     val repeatedStringPiece: List<String> = emptyList(),
     val repeatedCord: List<String> = emptyList(),
-    val mapInt32Int32: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry> = emptyList(),
-    val mapInt64Int64: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry> = emptyList(),
-    val mapUint32Uint32: List<pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry> = emptyList(),
-    val mapUint64Uint64: List<pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry> = emptyList(),
-    val mapSint32Sint32: List<pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry> = emptyList(),
-    val mapSint64Sint64: List<pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry> = emptyList(),
-    val mapFixed32Fixed32: List<pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry> = emptyList(),
-    val mapFixed64Fixed64: List<pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry> = emptyList(),
-    val mapSfixed32Sfixed32: List<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry> = emptyList(),
-    val mapSfixed64Sfixed64: List<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry> = emptyList(),
-    val mapInt32Float: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry> = emptyList(),
-    val mapInt32Double: List<pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry> = emptyList(),
-    val mapBoolBool: List<pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry> = emptyList(),
-    val mapStringString: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry> = emptyList(),
-    val mapStringBytes: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry> = emptyList(),
-    val mapStringNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry> = emptyList(),
-    val mapStringForeignMessage: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry> = emptyList(),
-    val mapStringNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry> = emptyList(),
-    val mapStringForeignEnum: List<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry> = emptyList(),
+    val mapInt32Int32: Map<Int, Int> = emptyMap(),
+    val mapInt64Int64: Map<Long, Long> = emptyMap(),
+    val mapUint32Uint32: Map<Int, Int> = emptyMap(),
+    val mapUint64Uint64: Map<Long, Long> = emptyMap(),
+    val mapSint32Sint32: Map<Int, Int> = emptyMap(),
+    val mapSint64Sint64: Map<Long, Long> = emptyMap(),
+    val mapFixed32Fixed32: Map<Int, Int> = emptyMap(),
+    val mapFixed64Fixed64: Map<Long, Long> = emptyMap(),
+    val mapSfixed32Sfixed32: Map<Int, Int> = emptyMap(),
+    val mapSfixed64Sfixed64: Map<Long, Long> = emptyMap(),
+    val mapInt32Float: Map<Int, Float> = emptyMap(),
+    val mapInt32Double: Map<Int, Double> = emptyMap(),
+    val mapBoolBool: Map<Boolean, Boolean> = emptyMap(),
+    val mapStringString: Map<String, String> = emptyMap(),
+    val mapStringBytes: Map<String, pbandk.ByteArr> = emptyMap(),
+    val mapStringNestedMessage: Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?> = emptyMap(),
+    val mapStringForeignMessage: Map<String, pbandk.conformance.pb.ForeignMessage?> = emptyMap(),
+    val mapStringNestedEnum: Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> = emptyMap(),
+    val mapStringForeignEnum: Map<String, pbandk.conformance.pb.ForeignEnum> = emptyMap(),
     val oneofField: OneofField? = null,
     val optionalBoolWrapper: pbandk.wkt.BoolValue? = null,
     val optionalInt32Wrapper: pbandk.wkt.Int32Value? = null,
@@ -566,25 +566,25 @@ private fun TestAllTypesProto3.protoSizeImpl(): Int {
     if (repeatedForeignEnum.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(52) + pbandk.Sizer.packedRepeatedSize(repeatedForeignEnum, pbandk.Sizer::enumSize)
     if (repeatedStringPiece.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(54) + pbandk.Sizer.packedRepeatedSize(repeatedStringPiece, pbandk.Sizer::stringSize)
     if (repeatedCord.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(55) + pbandk.Sizer.packedRepeatedSize(repeatedCord, pbandk.Sizer::stringSize)
-    if (mapInt32Int32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(56) + pbandk.Sizer.packedRepeatedSize(mapInt32Int32, pbandk.Sizer::messageSize)
-    if (mapInt64Int64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(57) + pbandk.Sizer.packedRepeatedSize(mapInt64Int64, pbandk.Sizer::messageSize)
-    if (mapUint32Uint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(58) + pbandk.Sizer.packedRepeatedSize(mapUint32Uint32, pbandk.Sizer::messageSize)
-    if (mapUint64Uint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(59) + pbandk.Sizer.packedRepeatedSize(mapUint64Uint64, pbandk.Sizer::messageSize)
-    if (mapSint32Sint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(60) + pbandk.Sizer.packedRepeatedSize(mapSint32Sint32, pbandk.Sizer::messageSize)
-    if (mapSint64Sint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(61) + pbandk.Sizer.packedRepeatedSize(mapSint64Sint64, pbandk.Sizer::messageSize)
-    if (mapFixed32Fixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(62) + pbandk.Sizer.packedRepeatedSize(mapFixed32Fixed32, pbandk.Sizer::messageSize)
-    if (mapFixed64Fixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(63) + pbandk.Sizer.packedRepeatedSize(mapFixed64Fixed64, pbandk.Sizer::messageSize)
-    if (mapSfixed32Sfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(64) + pbandk.Sizer.packedRepeatedSize(mapSfixed32Sfixed32, pbandk.Sizer::messageSize)
-    if (mapSfixed64Sfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(65) + pbandk.Sizer.packedRepeatedSize(mapSfixed64Sfixed64, pbandk.Sizer::messageSize)
-    if (mapInt32Float.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(66) + pbandk.Sizer.packedRepeatedSize(mapInt32Float, pbandk.Sizer::messageSize)
-    if (mapInt32Double.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(67) + pbandk.Sizer.packedRepeatedSize(mapInt32Double, pbandk.Sizer::messageSize)
-    if (mapBoolBool.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(68) + pbandk.Sizer.packedRepeatedSize(mapBoolBool, pbandk.Sizer::messageSize)
-    if (mapStringString.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(69) + pbandk.Sizer.packedRepeatedSize(mapStringString, pbandk.Sizer::messageSize)
-    if (mapStringBytes.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(70) + pbandk.Sizer.packedRepeatedSize(mapStringBytes, pbandk.Sizer::messageSize)
-    if (mapStringNestedMessage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(71) + pbandk.Sizer.packedRepeatedSize(mapStringNestedMessage, pbandk.Sizer::messageSize)
-    if (mapStringForeignMessage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(72) + pbandk.Sizer.packedRepeatedSize(mapStringForeignMessage, pbandk.Sizer::messageSize)
-    if (mapStringNestedEnum.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(73) + pbandk.Sizer.packedRepeatedSize(mapStringNestedEnum, pbandk.Sizer::messageSize)
-    if (mapStringForeignEnum.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(74) + pbandk.Sizer.packedRepeatedSize(mapStringForeignEnum, pbandk.Sizer::messageSize)
+    if (mapInt32Int32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(56) + pbandk.Sizer.mapSize(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3::MapInt32Int32Entry)
+    if (mapInt64Int64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(57) + pbandk.Sizer.mapSize(mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3::MapInt64Int64Entry)
+    if (mapUint32Uint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(58) + pbandk.Sizer.mapSize(mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3::MapUint32Uint32Entry)
+    if (mapUint64Uint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(59) + pbandk.Sizer.mapSize(mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3::MapUint64Uint64Entry)
+    if (mapSint32Sint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(60) + pbandk.Sizer.mapSize(mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3::MapSint32Sint32Entry)
+    if (mapSint64Sint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(61) + pbandk.Sizer.mapSize(mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3::MapSint64Sint64Entry)
+    if (mapFixed32Fixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(62) + pbandk.Sizer.mapSize(mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3::MapFixed32Fixed32Entry)
+    if (mapFixed64Fixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(63) + pbandk.Sizer.mapSize(mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3::MapFixed64Fixed64Entry)
+    if (mapSfixed32Sfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(64) + pbandk.Sizer.mapSize(mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed32Sfixed32Entry)
+    if (mapSfixed64Sfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(65) + pbandk.Sizer.mapSize(mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed64Sfixed64Entry)
+    if (mapInt32Float.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(66) + pbandk.Sizer.mapSize(mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3::MapInt32FloatEntry)
+    if (mapInt32Double.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(67) + pbandk.Sizer.mapSize(mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3::MapInt32DoubleEntry)
+    if (mapBoolBool.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(68) + pbandk.Sizer.mapSize(mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3::MapBoolBoolEntry)
+    if (mapStringString.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(69) + pbandk.Sizer.mapSize(mapStringString, pbandk.conformance.pb.TestAllTypesProto3::MapStringStringEntry)
+    if (mapStringBytes.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(70) + pbandk.Sizer.mapSize(mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3::MapStringBytesEntry)
+    if (mapStringNestedMessage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(71) + pbandk.Sizer.mapSize(mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedMessageEntry)
+    if (mapStringForeignMessage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(72) + pbandk.Sizer.mapSize(mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
+    if (mapStringNestedEnum.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(73) + pbandk.Sizer.mapSize(mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
+    if (mapStringForeignEnum.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(74) + pbandk.Sizer.mapSize(mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
     when (oneofField) {
         is TestAllTypesProto3.OneofField.OneofUint32 -> protoSize += pbandk.Sizer.tagSize(111) + pbandk.Sizer.uInt32Size(oneofField.oneofUint32)
         is TestAllTypesProto3.OneofField.OneofNestedMessage -> protoSize += pbandk.Sizer.tagSize(112) + pbandk.Sizer.messageSize(oneofField.oneofNestedMessage)
@@ -692,25 +692,25 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (repeatedForeignEnum.isNotEmpty()) protoMarshal.writeTag(416).writePackedRepeated(repeatedForeignEnum, pbandk.Sizer::enumSize, protoMarshal::writeEnum)
     if (repeatedStringPiece.isNotEmpty()) protoMarshal.writeTag(434).writePackedRepeated(repeatedStringPiece, pbandk.Sizer::stringSize, protoMarshal::writeString)
     if (repeatedCord.isNotEmpty()) protoMarshal.writeTag(442).writePackedRepeated(repeatedCord, pbandk.Sizer::stringSize, protoMarshal::writeString)
-    if (mapInt32Int32.isNotEmpty()) protoMarshal.writeTag(450).writePackedRepeated(mapInt32Int32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapInt64Int64.isNotEmpty()) protoMarshal.writeTag(458).writePackedRepeated(mapInt64Int64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapUint32Uint32.isNotEmpty()) protoMarshal.writeTag(466).writePackedRepeated(mapUint32Uint32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapUint64Uint64.isNotEmpty()) protoMarshal.writeTag(474).writePackedRepeated(mapUint64Uint64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapSint32Sint32.isNotEmpty()) protoMarshal.writeTag(482).writePackedRepeated(mapSint32Sint32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapSint64Sint64.isNotEmpty()) protoMarshal.writeTag(490).writePackedRepeated(mapSint64Sint64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapFixed32Fixed32.isNotEmpty()) protoMarshal.writeTag(498).writePackedRepeated(mapFixed32Fixed32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapFixed64Fixed64.isNotEmpty()) protoMarshal.writeTag(506).writePackedRepeated(mapFixed64Fixed64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapSfixed32Sfixed32.isNotEmpty()) protoMarshal.writeTag(514).writePackedRepeated(mapSfixed32Sfixed32, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapSfixed64Sfixed64.isNotEmpty()) protoMarshal.writeTag(522).writePackedRepeated(mapSfixed64Sfixed64, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapInt32Float.isNotEmpty()) protoMarshal.writeTag(530).writePackedRepeated(mapInt32Float, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapInt32Double.isNotEmpty()) protoMarshal.writeTag(538).writePackedRepeated(mapInt32Double, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapBoolBool.isNotEmpty()) protoMarshal.writeTag(546).writePackedRepeated(mapBoolBool, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapStringString.isNotEmpty()) protoMarshal.writeTag(554).writePackedRepeated(mapStringString, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapStringBytes.isNotEmpty()) protoMarshal.writeTag(562).writePackedRepeated(mapStringBytes, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapStringNestedMessage.isNotEmpty()) protoMarshal.writeTag(570).writePackedRepeated(mapStringNestedMessage, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeTag(578).writePackedRepeated(mapStringForeignMessage, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeTag(586).writePackedRepeated(mapStringNestedEnum, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeTag(594).writePackedRepeated(mapStringForeignEnum, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (mapInt32Int32.isNotEmpty()) protoMarshal.writeTag(450).writeMap(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3::MapInt32Int32Entry)
+    if (mapInt64Int64.isNotEmpty()) protoMarshal.writeTag(458).writeMap(mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3::MapInt64Int64Entry)
+    if (mapUint32Uint32.isNotEmpty()) protoMarshal.writeTag(466).writeMap(mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3::MapUint32Uint32Entry)
+    if (mapUint64Uint64.isNotEmpty()) protoMarshal.writeTag(474).writeMap(mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3::MapUint64Uint64Entry)
+    if (mapSint32Sint32.isNotEmpty()) protoMarshal.writeTag(482).writeMap(mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3::MapSint32Sint32Entry)
+    if (mapSint64Sint64.isNotEmpty()) protoMarshal.writeTag(490).writeMap(mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3::MapSint64Sint64Entry)
+    if (mapFixed32Fixed32.isNotEmpty()) protoMarshal.writeTag(498).writeMap(mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3::MapFixed32Fixed32Entry)
+    if (mapFixed64Fixed64.isNotEmpty()) protoMarshal.writeTag(506).writeMap(mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3::MapFixed64Fixed64Entry)
+    if (mapSfixed32Sfixed32.isNotEmpty()) protoMarshal.writeTag(514).writeMap(mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed32Sfixed32Entry)
+    if (mapSfixed64Sfixed64.isNotEmpty()) protoMarshal.writeTag(522).writeMap(mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed64Sfixed64Entry)
+    if (mapInt32Float.isNotEmpty()) protoMarshal.writeTag(530).writeMap(mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3::MapInt32FloatEntry)
+    if (mapInt32Double.isNotEmpty()) protoMarshal.writeTag(538).writeMap(mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3::MapInt32DoubleEntry)
+    if (mapBoolBool.isNotEmpty()) protoMarshal.writeTag(546).writeMap(mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3::MapBoolBoolEntry)
+    if (mapStringString.isNotEmpty()) protoMarshal.writeTag(554).writeMap(mapStringString, pbandk.conformance.pb.TestAllTypesProto3::MapStringStringEntry)
+    if (mapStringBytes.isNotEmpty()) protoMarshal.writeTag(562).writeMap(mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3::MapStringBytesEntry)
+    if (mapStringNestedMessage.isNotEmpty()) protoMarshal.writeTag(570).writeMap(mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedMessageEntry)
+    if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeTag(578).writeMap(mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
+    if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeTag(586).writeMap(mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
+    if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeTag(594).writeMap(mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
     if (oneofField is TestAllTypesProto3.OneofField.OneofUint32) protoMarshal.writeTag(888).writeUInt32(oneofField.oneofUint32)
     if (oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage) protoMarshal.writeTag(898).writeMessage(oneofField.oneofNestedMessage)
     if (oneofField is TestAllTypesProto3.OneofField.OneofString) protoMarshal.writeTag(906).writeString(oneofField.oneofString)
@@ -815,25 +815,25 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var repeatedForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignEnum>? = null
     var repeatedStringPiece: pbandk.ListWithSize.Builder<String>? = null
     var repeatedCord: pbandk.ListWithSize.Builder<String>? = null
-    var mapInt32Int32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry>? = null
-    var mapInt64Int64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry>? = null
-    var mapUint32Uint32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry>? = null
-    var mapUint64Uint64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry>? = null
-    var mapSint32Sint32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry>? = null
-    var mapSint64Sint64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry>? = null
-    var mapFixed32Fixed32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry>? = null
-    var mapFixed64Fixed64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry>? = null
-    var mapSfixed32Sfixed32: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry>? = null
-    var mapSfixed64Sfixed64: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry>? = null
-    var mapInt32Float: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry>? = null
-    var mapInt32Double: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry>? = null
-    var mapBoolBool: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry>? = null
-    var mapStringString: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry>? = null
-    var mapStringBytes: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry>? = null
-    var mapStringNestedMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry>? = null
-    var mapStringForeignMessage: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry>? = null
-    var mapStringNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry>? = null
-    var mapStringForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry>? = null
+    var mapInt32Int32: pbandk.MapWithSize.Builder<Int, Int>? = null
+    var mapInt64Int64: pbandk.MapWithSize.Builder<Long, Long>? = null
+    var mapUint32Uint32: pbandk.MapWithSize.Builder<Int, Int>? = null
+    var mapUint64Uint64: pbandk.MapWithSize.Builder<Long, Long>? = null
+    var mapSint32Sint32: pbandk.MapWithSize.Builder<Int, Int>? = null
+    var mapSint64Sint64: pbandk.MapWithSize.Builder<Long, Long>? = null
+    var mapFixed32Fixed32: pbandk.MapWithSize.Builder<Int, Int>? = null
+    var mapFixed64Fixed64: pbandk.MapWithSize.Builder<Long, Long>? = null
+    var mapSfixed32Sfixed32: pbandk.MapWithSize.Builder<Int, Int>? = null
+    var mapSfixed64Sfixed64: pbandk.MapWithSize.Builder<Long, Long>? = null
+    var mapInt32Float: pbandk.MapWithSize.Builder<Int, Float>? = null
+    var mapInt32Double: pbandk.MapWithSize.Builder<Int, Double>? = null
+    var mapBoolBool: pbandk.MapWithSize.Builder<Boolean, Boolean>? = null
+    var mapStringString: pbandk.MapWithSize.Builder<String, String>? = null
+    var mapStringBytes: pbandk.MapWithSize.Builder<String, pbandk.ByteArr>? = null
+    var mapStringNestedMessage: pbandk.MapWithSize.Builder<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>? = null
+    var mapStringForeignMessage: pbandk.MapWithSize.Builder<String, pbandk.conformance.pb.ForeignMessage?>? = null
+    var mapStringNestedEnum: pbandk.MapWithSize.Builder<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
+    var mapStringForeignEnum: pbandk.MapWithSize.Builder<String, pbandk.conformance.pb.ForeignEnum>? = null
     var oneofField: TestAllTypesProto3.OneofField? = null
     var optionalBoolWrapper: pbandk.wkt.BoolValue? = null
     var optionalInt32Wrapper: pbandk.wkt.Int32Value? = null
@@ -894,12 +894,12 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
             pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32), pbandk.ListWithSize.Builder.fixed(repeatedSfixed64),
             pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool), pbandk.ListWithSize.Builder.fixed(repeatedString),
             pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage), pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum),
-            pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.ListWithSize.Builder.fixed(mapInt32Int32),
-            pbandk.ListWithSize.Builder.fixed(mapInt64Int64), pbandk.ListWithSize.Builder.fixed(mapUint32Uint32), pbandk.ListWithSize.Builder.fixed(mapUint64Uint64), pbandk.ListWithSize.Builder.fixed(mapSint32Sint32),
-            pbandk.ListWithSize.Builder.fixed(mapSint64Sint64), pbandk.ListWithSize.Builder.fixed(mapFixed32Fixed32), pbandk.ListWithSize.Builder.fixed(mapFixed64Fixed64), pbandk.ListWithSize.Builder.fixed(mapSfixed32Sfixed32),
-            pbandk.ListWithSize.Builder.fixed(mapSfixed64Sfixed64), pbandk.ListWithSize.Builder.fixed(mapInt32Float), pbandk.ListWithSize.Builder.fixed(mapInt32Double), pbandk.ListWithSize.Builder.fixed(mapBoolBool),
-            pbandk.ListWithSize.Builder.fixed(mapStringString), pbandk.ListWithSize.Builder.fixed(mapStringBytes), pbandk.ListWithSize.Builder.fixed(mapStringNestedMessage), pbandk.ListWithSize.Builder.fixed(mapStringForeignMessage),
-            pbandk.ListWithSize.Builder.fixed(mapStringNestedEnum), pbandk.ListWithSize.Builder.fixed(mapStringForeignEnum), oneofField, optionalBoolWrapper,
+            pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.MapWithSize.Builder.fixed(mapInt32Int32),
+            pbandk.MapWithSize.Builder.fixed(mapInt64Int64), pbandk.MapWithSize.Builder.fixed(mapUint32Uint32), pbandk.MapWithSize.Builder.fixed(mapUint64Uint64), pbandk.MapWithSize.Builder.fixed(mapSint32Sint32),
+            pbandk.MapWithSize.Builder.fixed(mapSint64Sint64), pbandk.MapWithSize.Builder.fixed(mapFixed32Fixed32), pbandk.MapWithSize.Builder.fixed(mapFixed64Fixed64), pbandk.MapWithSize.Builder.fixed(mapSfixed32Sfixed32),
+            pbandk.MapWithSize.Builder.fixed(mapSfixed64Sfixed64), pbandk.MapWithSize.Builder.fixed(mapInt32Float), pbandk.MapWithSize.Builder.fixed(mapInt32Double), pbandk.MapWithSize.Builder.fixed(mapBoolBool),
+            pbandk.MapWithSize.Builder.fixed(mapStringString), pbandk.MapWithSize.Builder.fixed(mapStringBytes), pbandk.MapWithSize.Builder.fixed(mapStringNestedMessage), pbandk.MapWithSize.Builder.fixed(mapStringForeignMessage),
+            pbandk.MapWithSize.Builder.fixed(mapStringNestedEnum), pbandk.MapWithSize.Builder.fixed(mapStringForeignEnum), oneofField, optionalBoolWrapper,
             optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper,
             optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper,
             pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
@@ -955,25 +955,25 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         416 -> repeatedForeignEnum = protoUnmarshal.readRepeatedEnum(repeatedForeignEnum, pbandk.conformance.pb.ForeignEnum.Companion)
         434 -> repeatedStringPiece = protoUnmarshal.readRepeated(repeatedStringPiece, protoUnmarshal::readString)
         442 -> repeatedCord = protoUnmarshal.readRepeated(repeatedCord, protoUnmarshal::readString)
-        450 -> mapInt32Int32 = protoUnmarshal.readRepeatedMessage(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry.Companion)
-        458 -> mapInt64Int64 = protoUnmarshal.readRepeatedMessage(mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry.Companion)
-        466 -> mapUint32Uint32 = protoUnmarshal.readRepeatedMessage(mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry.Companion)
-        474 -> mapUint64Uint64 = protoUnmarshal.readRepeatedMessage(mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry.Companion)
-        482 -> mapSint32Sint32 = protoUnmarshal.readRepeatedMessage(mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry.Companion)
-        490 -> mapSint64Sint64 = protoUnmarshal.readRepeatedMessage(mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry.Companion)
-        498 -> mapFixed32Fixed32 = protoUnmarshal.readRepeatedMessage(mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry.Companion)
-        506 -> mapFixed64Fixed64 = protoUnmarshal.readRepeatedMessage(mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry.Companion)
-        514 -> mapSfixed32Sfixed32 = protoUnmarshal.readRepeatedMessage(mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion)
-        522 -> mapSfixed64Sfixed64 = protoUnmarshal.readRepeatedMessage(mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion)
-        530 -> mapInt32Float = protoUnmarshal.readRepeatedMessage(mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry.Companion)
-        538 -> mapInt32Double = protoUnmarshal.readRepeatedMessage(mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry.Companion)
-        546 -> mapBoolBool = protoUnmarshal.readRepeatedMessage(mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry.Companion)
-        554 -> mapStringString = protoUnmarshal.readRepeatedMessage(mapStringString, pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry.Companion)
-        562 -> mapStringBytes = protoUnmarshal.readRepeatedMessage(mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry.Companion)
-        570 -> mapStringNestedMessage = protoUnmarshal.readRepeatedMessage(mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry.Companion)
-        578 -> mapStringForeignMessage = protoUnmarshal.readRepeatedMessage(mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry.Companion)
-        586 -> mapStringNestedEnum = protoUnmarshal.readRepeatedMessage(mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry.Companion)
-        594 -> mapStringForeignEnum = protoUnmarshal.readRepeatedMessage(mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry.Companion)
+        450 -> mapInt32Int32 = protoUnmarshal.readMap(mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3.MapInt32Int32Entry.Companion)
+        458 -> mapInt64Int64 = protoUnmarshal.readMap(mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3.MapInt64Int64Entry.Companion)
+        466 -> mapUint32Uint32 = protoUnmarshal.readMap(mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3.MapUint32Uint32Entry.Companion)
+        474 -> mapUint64Uint64 = protoUnmarshal.readMap(mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3.MapUint64Uint64Entry.Companion)
+        482 -> mapSint32Sint32 = protoUnmarshal.readMap(mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3.MapSint32Sint32Entry.Companion)
+        490 -> mapSint64Sint64 = protoUnmarshal.readMap(mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3.MapSint64Sint64Entry.Companion)
+        498 -> mapFixed32Fixed32 = protoUnmarshal.readMap(mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3.MapFixed32Fixed32Entry.Companion)
+        506 -> mapFixed64Fixed64 = protoUnmarshal.readMap(mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3.MapFixed64Fixed64Entry.Companion)
+        514 -> mapSfixed32Sfixed32 = protoUnmarshal.readMap(mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion)
+        522 -> mapSfixed64Sfixed64 = protoUnmarshal.readMap(mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion)
+        530 -> mapInt32Float = protoUnmarshal.readMap(mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3.MapInt32FloatEntry.Companion)
+        538 -> mapInt32Double = protoUnmarshal.readMap(mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3.MapInt32DoubleEntry.Companion)
+        546 -> mapBoolBool = protoUnmarshal.readMap(mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3.MapBoolBoolEntry.Companion)
+        554 -> mapStringString = protoUnmarshal.readMap(mapStringString, pbandk.conformance.pb.TestAllTypesProto3.MapStringStringEntry.Companion)
+        562 -> mapStringBytes = protoUnmarshal.readMap(mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3.MapStringBytesEntry.Companion)
+        570 -> mapStringNestedMessage = protoUnmarshal.readMap(mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedMessageEntry.Companion)
+        578 -> mapStringForeignMessage = protoUnmarshal.readMap(mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry.Companion)
+        586 -> mapStringNestedEnum = protoUnmarshal.readMap(mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry.Companion)
+        594 -> mapStringForeignEnum = protoUnmarshal.readMap(mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry.Companion)
         888 -> oneofField = TestAllTypesProto3.OneofField.OneofUint32(protoUnmarshal.readUInt32())
         898 -> oneofField = TestAllTypesProto3.OneofField.OneofNestedMessage(protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion))
         906 -> oneofField = TestAllTypesProto3.OneofField.OneofString(protoUnmarshal.readString())

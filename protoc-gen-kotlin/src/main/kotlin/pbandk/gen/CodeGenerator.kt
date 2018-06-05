@@ -1,10 +1,10 @@
 package pbandk.gen
 
-open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
+open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, String>) {
     protected val bld = StringBuilder()
     protected var indent = ""
 
-    fun generate(file: File): String {
+    fun generate(): String {
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach(::writeType)
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
@@ -42,10 +42,7 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
 
     protected fun writeMessageType(type: File.Type.Message) {
         var extends = "pbandk.Message<${type.kotlinTypeName}>"
-        if (type.mapEntry) {
-            extends += ", Map.Entry<${(type.fields[0] as File.Field.Standard).kotlinValueType(false)}, " +
-                "${(type.fields[1] as File.Field.Standard).kotlinValueType(true)}>"
-        }
+        if (type.mapEntry) extends += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
         line().line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
@@ -232,6 +229,20 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
         }.line("}")
     }
 
+    protected fun findLocalType(protoName: String, parent: File.Type.Message? = null): File.Type? {
+        // Get the set to look in and the type name
+        val (lookIn, typeName) =
+            if (parent == null) file.types to protoName.removePrefix(".${file.packageName}.")
+            else parent.nestedTypes to protoName
+        // Go deeper if there's a dot
+        typeName.indexOf('.').let {
+            if (it == -1) return lookIn.find { it.name == typeName }
+            return findLocalType(typeName.substring(it + 1), typeName.substring(0, it).let { parentTypeName ->
+                lookIn.find { it.name == parentTypeName } as? File.Type.Message
+            } ?: return null)
+        }
+    }
+
     protected fun File.Type.Message.sortedStandardFieldsWithOneOfs() =
         fields.flatMap {
             when (it) {
@@ -239,8 +250,18 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
                 is File.Field.OneOf -> it.fields.map { f -> f to it }
             }
         }.sortedBy { it.first.number }
+    protected val File.Type.Message.mapEntryKeyKotlinType get() =
+        if (!mapEntry) null else (fields[0] as File.Field.Standard).kotlinValueType(false)
+    protected val File.Type.Message.mapEntryValueKotlinType get() =
+        if (!mapEntry) null else (fields[1] as File.Field.Standard).kotlinValueType(true)
 
     protected val File.Field.Standard.fieldRef get() = kotlinFieldName
+    protected fun File.Field.Standard.mapEntry() =
+        if (!map) null else (localType as? File.Type.Message)?.takeIf { it.mapEntry }
+    protected val File.Field.Standard.localType get() = localTypeName?.let { findLocalType(it) }
+    protected val File.Field.Standard.kotlinQualifiedTypeConstructorRef get() = kotlinQualifiedTypeName.let { type ->
+        type.lastIndexOf('.').let { if (it == -1) "::$type" else type.substring(0, it) + "::" + type.substring(it + 1) }
+    }
     protected val File.Field.Standard.kotlinQualifiedTypeName get() =
         kotlinLocalTypeName ?:
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
@@ -250,32 +271,43 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             if (repeated) "protoUnmarshal.readRepeatedEnum($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
             else "protoUnmarshal.readEnum($kotlinQualifiedTypeName.Companion)"
         File.Field.Type.MESSAGE ->
-            if (repeated) "protoUnmarshal.readRepeatedMessage($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
-            else "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)"
+            if (!repeated) "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)"
+            else if (map) "protoUnmarshal.readMap($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
+            else "protoUnmarshal.readRepeatedMessage($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
         else -> {
             if (repeated) "protoUnmarshal.readRepeated($kotlinFieldName, protoUnmarshal::${type.readMethod})"
             else "protoUnmarshal.${type.readMethod}()"
         }
     }
     protected val File.Field.Standard.unmarshalVarDecl get() = when {
-        repeated -> "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
+        repeated -> mapEntry().let { mapEntry ->
+            if (mapEntry == null) "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
+            else "var $kotlinFieldName: pbandk.MapWithSize.Builder<" +
+                "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
+        }
         requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
         else -> "var $kotlinFieldName = $defaultValue"
     }
     protected val File.Field.Standard.unmarshalVarDone get() =
-        if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)" else kotlinFieldName
-    protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean) = when {
+        if (map) "pbandk.MapWithSize.Builder.fixed($kotlinFieldName)"
+        else if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
+        else kotlinFieldName
+    protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean): String = when {
+        map -> mapEntry()!!.let { "Map<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>" }
         repeated -> "List<$kotlinQualifiedTypeName>"
         type == File.Field.Type.MESSAGE && nullableIfMessage -> "$kotlinQualifiedTypeName?"
         else -> kotlinQualifiedTypeName
     }
     protected val File.Field.Standard.defaultValue get() = when {
+        map -> "emptyMap()"
         repeated -> "emptyList()"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
     protected val File.Field.Standard.tag get() = (number shl 3) or type.wireFormat
     protected fun File.Field.Standard.sizeExpr(ref: String = fieldRef) = when {
+        map ->
+            "pbandk.Sizer.tagSize($number) + pbandk.Sizer.mapSize($ref, $kotlinQualifiedTypeConstructorRef)"
         repeated && packed ->
             "pbandk.Sizer.tagSize($number) + pbandk.Sizer.packedRepeatedSize($ref, pbandk.Sizer::${type.sizeMethod})"
         repeated ->
@@ -284,6 +316,8 @@ open class CodeGenerator(val kotlinTypeMappings: Map<String, String>) {
             "pbandk.Sizer.tagSize($number) + pbandk.Sizer.${type.sizeMethod}($ref)"
     }
     protected fun File.Field.Standard.writeExpr(ref: String = fieldRef) = when {
+        map ->
+            "protoMarshal.writeTag($tag).writeMap($ref, $kotlinQualifiedTypeConstructorRef)"
         repeated && packed ->
             "protoMarshal.writeTag($tag).writePackedRepeated(" +
                 "$ref, pbandk.Sizer::${type.sizeMethod}, protoMarshal::${type.writeMethod})"

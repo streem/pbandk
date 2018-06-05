@@ -2,7 +2,10 @@ package pbandk.gen
 
 import com.google.protobuf.DescriptorProtos
 
-open class FileBuilder(val namer: Namer = Namer.Standard) {
+open class FileBuilder(
+    val namer: Namer = Namer.Standard,
+    val supportMaps: Boolean = true
+) {
 
     fun buildFile(ctx: Context) = File(
         name = ctx.fileDesc.name,
@@ -46,7 +49,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         name = msgDesc.name,
         fields = fieldsFromProto(ctx, msgDesc, usedTypeNames),
         nestedTypes = typesFromProto(ctx, msgDesc.enumTypeList, msgDesc.nestedTypeList),
-        mapEntry = msgDesc.options?.mapEntry == true,
+        mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
         kotlinTypeName = namer.newTypeName(msgDesc.name, usedTypeNames)
     )
 
@@ -89,12 +92,10 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
         repeated = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED,
         packed = ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true,
-        mapEntry =
-            if (fieldDesc.label != DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED ||
-                fieldDesc.type != DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE) null
-            else ctx.findLocalMessage(fieldDesc.typeName)?.takeIf { it.options?.mapEntry == true }?.let {
-                fromProto(it.fieldList[0].type) to fromProto(it.fieldList[1].type)
-            },
+        map = supportMaps &&
+            fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED &&
+            fieldDesc.type == DescriptorProtos.FieldDescriptorProto.Type.TYPE_MESSAGE &&
+            ctx.findLocalMessage(fieldDesc.typeName)?.options?.mapEntry == true,
         kotlinFieldName = namer.newFieldName(fieldDesc.name, usedFieldNames),
         kotlinLocalTypeName =
             if (!fieldDesc.hasTypeName() || fieldDesc.typeName.startsWith('.')) null
@@ -132,8 +133,8 @@ open class FileBuilder(val namer: Namer = Namer.Standard) {
         ): DescriptorProtos.DescriptorProto? {
             // Get the set to look in and the type name
             val (lookIn, typeName) =
-                if (parent == null) fileDesc.messageTypeList to name.removePrefix(".${fileDesc.`package`}.")
-                else parent.nestedTypeList to name
+                    if (parent == null) fileDesc.messageTypeList to name.removePrefix(".${fileDesc.`package`}.")
+                    else parent.nestedTypeList to name
             // Go deeper if there's a dot
             typeName.indexOf('.').let {
                 if (it == -1) return lookIn.find { it.name == typeName }

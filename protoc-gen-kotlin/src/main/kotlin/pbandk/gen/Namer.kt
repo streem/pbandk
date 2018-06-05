@@ -7,7 +7,7 @@ interface Namer {
 
     open class Standard : Namer {
         val disallowedTypeNames = setOf(
-            "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "MutableList", "String"
+            "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "Map", "String"
         )
         val disallowedFieldNames = setOf(
             "emptyList", "pbandk", "plus", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"

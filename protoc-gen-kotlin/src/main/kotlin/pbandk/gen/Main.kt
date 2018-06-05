@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
             debug { "Generating $filePath" }
             PluginProtos.CodeGeneratorResponse.File.newBuilder().
                     setName(filePath).
-                    setContent(CodeGenerator(kotlinTypeMappings).generate(file)).
+                    setContent(CodeGenerator(file, kotlinTypeMappings).generate()).
                     build()
         }
     }).build().writeTo(System.out)
