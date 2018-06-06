@@ -58,11 +58,11 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         (appendTo ?: MapWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
-                bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }
+                bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }.let { it.key to it }
             } else stream.readRawVarint32().also { len ->
                 bld.protoSize += len
                 val oldLimit = stream.pushLimit(len)
-                while (!stream.isAtEnd) bld.entries += readMessage(s)
+                while (!stream.isAtEnd) bld.entries += readMessage(s).let { it.key to it }
                 stream.popLimit(oldLimit)
             }
         }

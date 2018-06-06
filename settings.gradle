@@ -1,6 +1,9 @@
-rootProject.name = 'pb-and-k'
+rootProject.name = 'pbandk'
 
-include ':conformance',
+include ':conformance:common',
+        ':conformance:js',
+        ':conformance:jvm',
+        ':conformance:native',
         ':protoc-gen-kotlin',
         ':runtime:common',
         ':runtime:js',

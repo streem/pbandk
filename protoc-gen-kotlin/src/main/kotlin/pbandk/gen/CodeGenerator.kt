@@ -101,6 +101,8 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             } else if (field.type == File.Field.Type.MESSAGE) {
                 line("${field.kotlinFieldName} = " +
                     "${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},")
+            } else if (file.version == 2 && field.optional) {
+                line("${field.kotlinFieldName} = plus.${field.kotlinFieldName} ?: ${field.kotlinFieldName},")
             }
         }
         fun mergeOneOf(oneOf: File.Field.OneOf) {
@@ -295,12 +297,14 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean): String = when {
         map -> mapEntry()!!.let { "Map<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>" }
         repeated -> "List<$kotlinQualifiedTypeName>"
-        type == File.Field.Type.MESSAGE && nullableIfMessage -> "$kotlinQualifiedTypeName?"
+        (file.version == 2 && optional) || (type == File.Field.Type.MESSAGE && nullableIfMessage) ->
+            "$kotlinQualifiedTypeName?"
         else -> kotlinQualifiedTypeName
     }
     protected val File.Field.Standard.defaultValue get() = when {
         map -> "emptyMap()"
         repeated -> "emptyList()"
+        file.version == 2 && optional -> "null"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
@@ -327,10 +331,13 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         repeated -> "$ref.forEach { protoMarshal.writeTag($tag).${type.writeMethod}(it) }"
         else -> "protoMarshal.writeTag($tag).${type.writeMethod}($ref)"
     }
-    protected val File.Field.Standard.nonDefaultCheckExpr get() =
-        if (repeated) "$fieldRef.isNotEmpty()" else type.nonDefaultCheck(fieldRef)
+    protected val File.Field.Standard.nonDefaultCheckExpr get() = when {
+        repeated -> "$fieldRef.isNotEmpty()"
+        file.version == 2 && optional -> "$fieldRef != null"
+        else -> type.nonDefaultCheck(fieldRef)
+    }
     protected val File.Field.Standard.requiresExplicitTypeWithVal get() =
-        repeated || type.requiresExplicitTypeWithVal
+        repeated || (file.version == 2 && optional) || type.requiresExplicitTypeWithVal
 
     protected val File.Field.Type.string get() = when (this) {
         File.Field.Type.BOOL -> "bool"

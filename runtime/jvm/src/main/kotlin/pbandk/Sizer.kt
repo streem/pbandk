@@ -20,7 +20,8 @@ actual object Sizer {
     actual fun stringSize(value: String) = CodedOutputStream.computeStringSizeNoTag(value)
     actual fun bytesSize(value: ByteArr) = CodedOutputStream.computeByteArraySizeNoTag(value.array)
     actual fun enumSize(value: Message.Enum) = CodedOutputStream.computeEnumSizeNoTag(value.value)
-    actual fun messageSize(value: Message<*>) = value.protoSize
+    actual fun messageSize(value: Message<*>) =
+        CodedOutputStream.computeUInt32SizeNoTag(value.protoSize) + value.protoSize
     actual fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
         if (list is ListWithSize) list.protoSize + uInt32Size(list.protoSize)
         else list.sumBy(sizeFn).let { it + uInt32Size(it) }

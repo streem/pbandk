@@ -57,6 +57,9 @@ data class File(
             val type: Type,
             val localTypeName: String?,
             val repeated: Boolean,
+            // Note, this is only applicable for proto2
+            // TODO: test explicitly set default value in proto2
+            val optional: Boolean,
             val packed: Boolean,
             val map: Boolean,
             override val kotlinFieldName: String,

@@ -70,7 +70,7 @@ open class FileBuilder(
                     fields = mutableSetOf<String>().let { usedFieldTypeNames ->
                         msgDesc.fieldList.filter { it.hasOneofIndex() && it.oneofIndex == field.oneofIndex }.map {
                             fieldTypeNames += it.name to namer.newTypeName(it.name, usedFieldTypeNames)
-                            fromProto(ctx, it, mutableSetOf())
+                            fromProto(ctx, it, mutableSetOf(), true)
                         }
                     },
                     kotlinFieldTypeNames = fieldTypeNames,
@@ -84,13 +84,15 @@ open class FileBuilder(
     protected fun fromProto(
         ctx: Context,
         fieldDesc: DescriptorProtos.FieldDescriptorProto,
-        usedFieldNames: MutableSet<String>
+        usedFieldNames: MutableSet<String>,
+        alwaysRequired: Boolean = false
     ) = File.Field.Standard(
         number = fieldDesc.number,
         name = fieldDesc.name,
         type = fromProto(fieldDesc.type!!),
         localTypeName = if (!fieldDesc.hasTypeName()) null else fieldDesc.typeName,
         repeated = fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED,
+        optional = !alwaysRequired && fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_OPTIONAL,
         packed = ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true,
         map = supportMaps &&
             fieldDesc.label == DescriptorProtos.FieldDescriptorProto.Label.LABEL_REPEATED &&
