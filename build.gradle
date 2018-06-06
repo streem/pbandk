@@ -35,7 +35,7 @@ project(':protoc-gen-kotlin') {
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         compile 'com.google.protobuf:protobuf-java:3.5.1'
-        compile project(':runtime:jvm')
+        compile project(':runtime:runtime-jvm')
         testCompile 'junit:junit:4.12'
         testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
@@ -51,7 +51,7 @@ project(':protoc-gen-kotlin') {
     */
 }
 
-project(':runtime:common') {
+project(':runtime:runtime-common') {
     apply plugin: 'kotlin-platform-common'
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
@@ -69,16 +69,16 @@ project(':runtime:common') {
     }
 }
 
-project(':runtime:js') {
+project(':runtime:runtime-js') {
     apply plugin: 'kotlin-platform-js'
     dependencies {
-        expectedBy project(':runtime:common')
+        expectedBy project(':runtime:runtime-common')
         compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
     }
 }
 
-project(':runtime:jvm') {
+project(':runtime:runtime-jvm') {
     apply plugin: 'kotlin-platform-jvm'
     sourceCompatibility = '1.8'
     compileKotlin {
@@ -88,7 +88,7 @@ project(':runtime:jvm') {
         kotlinOptions.jvmTarget = '1.8'
     }
     dependencies {
-        expectedBy project(':runtime:common')
+        expectedBy project(':runtime:runtime-common')
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         compile 'com.google.protobuf:protobuf-java:3.5.1'
         testCompile 'junit:junit:4.12'
@@ -105,7 +105,7 @@ project(':runtime:jvm') {
     }
 }
 
-project(':runtime:native') {
+project(':runtime:runtime-native') {
     apply plugin: 'konan'
     konanArtifacts {
         library('pbandk') {
@@ -113,47 +113,14 @@ project(':runtime:native') {
         }
     }
     dependencies {
-        expectedBy project(':runtime:common')
+        expectedBy project(':runtime:runtime-common')
     }
 }
 
-project(':conformance:common') {
-    /*
-    apply plugin: 'java'
-    apply plugin: 'kotlin'
-    apply plugin: 'application'
-    sourceCompatibility = '1.8'
-    compileKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    mainClassName = 'pbandk.conformance.MainKt'
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        compile 'com.google.protobuf:protobuf-java:3.5.1'
-        compile project(':protoc-gen-kotlin')
-        testCompile 'junit:junit:4.12'
-        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    }
-
-    task generateProto {
-        dependsOn ':protoc-gen-kotlin:installDist'
-        doFirst {
-            runProtoGen('src/main/proto', 'src/main/kotlin', 'pbandk.conformance.pb', 'debug')
-        }
-    }
-
-    task testConformance {
-        // ./conformance-test-runner --enforce_recommended --failure_list failure_list_java.txt ./conformance-java
-    }
-
-*/
+project(':conformance:conformance-common') {
     apply plugin: 'kotlin-platform-common'
     dependencies {
-        compile project(':runtime:common')
+        compile project(':runtime:runtime-common')
         compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
@@ -167,17 +134,17 @@ project(':conformance:common') {
     }
 }
 
-project(':conformance:js') {
+project(':conformance:conformance-js') {
     apply plugin: 'kotlin-platform-js'
     dependencies {
-        expectedBy project(':conformance:common')
-        compile project(':runtime:js')
+        expectedBy project(':conformance:conformance-common')
+        compile project(':runtime:runtime-js')
         compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
     }
 }
 
-project(':conformance:jvm') {
+project(':conformance:conformance-jvm') {
     apply plugin: 'kotlin-platform-jvm'
     apply plugin: 'application'
     sourceCompatibility = '1.8'
@@ -189,8 +156,8 @@ project(':conformance:jvm') {
     }
     mainClassName = 'pbandk.conformance.MainKt'
     dependencies {
-        expectedBy project(':conformance:common')
-        compile project(':runtime:jvm')
+        expectedBy project(':conformance:conformance-common')
+        compile project(':runtime:runtime-jvm')
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         testCompile 'junit:junit:4.12'
         testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
@@ -206,18 +173,18 @@ project(':conformance:jvm') {
     }
 }
 
-project(':conformance:native') {
+project(':conformance:conformance-native') {
     apply plugin: 'konan'
     konanArtifacts {
         program('pbandk-conformance') {
             enableMultiplatform true
             libraries {
-                allLibrariesFrom project(':runtime:native')
+                allLibrariesFrom project(':runtime:runtime-native')
             }
         }
     }
     dependencies {
-        expectedBy project(':conformance:common')
+        expectedBy project(':conformance:conformance-common')
     }
 }
 
