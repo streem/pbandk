@@ -1,16 +1,16 @@
 package pbandk
 
 import pbandk.protobufjs.Reader
-import pbandk.protobufjs.fromProtobufjsLong
 
 actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false) {
 
     var lastTag = 0
     var currentUnknownFields = if (discardUnknownFields) null else mutableMapOf<Int, UnknownField>()
+    var endPos = r.len
 
     // 0 means there is no next tag
     actual fun readTag(): Int {
-        lastTag = if (r.pos == r.len - 1) 0 else readInt32().also { if (it ushr 3 == 0) error("Invalid tag") }
+        lastTag = if (r.pos == endPos) 0 else readInt32().also { if (it ushr 3 == 0) error("Invalid tag") }
         return lastTag
     }
     actual fun readDouble() = r.double()
@@ -27,14 +27,16 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
     actual fun readSFixed64() = Long.fromProtobufjsLong(r.sfixed64())
     actual fun readBool() = r.bool()
     actual fun readString() = r.string()
-    actual fun readBytes() = ByteArr(r.bytes())
+    actual fun readBytes() = ByteArr(r.bytes().asByteArray())
     actual fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>) = s.fromValue(readInt32())
     actual fun <T : Message<T>> readMessage(s: Message.Companion<T>): T {
-        val endPos = readInt32() + r.pos
+        val oldEndPos = endPos
+        endPos = readInt32() + r.pos
         val oldUnknownFields = currentUnknownFields
         if (!discardUnknownFields) currentUnknownFields = mutableMapOf()
         val ret = s.protoUnmarshal(this)
         require(r.pos == endPos) { "Not at the end of the current message limit as expected" }
+        endPos = oldEndPos
         currentUnknownFields = oldUnknownFields
         return ret
     }
@@ -96,6 +98,6 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
     actual fun unknownFields() = currentUnknownFields?.toMap() ?: emptyMap()
 
     actual companion object {
-        actual fun fromByteArray(arr: ByteArray) = Unmarshaller(Reader.create(arr))
+        actual fun fromByteArray(arr: ByteArray) = Unmarshaller(Reader.create(arr.asUint8Array()))
     }
 }

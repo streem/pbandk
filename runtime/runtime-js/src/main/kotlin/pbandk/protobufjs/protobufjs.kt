@@ -1,12 +1,14 @@
 @file:JsModule("protobufjs/light")
 package pbandk.protobufjs
 
+import org.khronos.webgl.Uint8Array
+
 external class Reader {
     val len: Int
     val pos: Int
 
     fun bool(): Boolean
-    fun bytes(): ByteArray
+    fun bytes(): Uint8Array
     fun double(): Double
     fun fixed32(): Int
     fun fixed64(): dynamic
@@ -24,17 +26,15 @@ external class Reader {
     fun skipType(wireType: Int): Reader
 
     companion object {
-        fun create(buf: ByteArray): Reader
+        fun create(buf: Uint8Array): Reader
     }
 }
 
 external class Writer {
-
-    fun fork(): Writer
-    fun ldelim(): Writer
+    val len: Int
 
     fun bool(value: Boolean): Writer
-    fun bytes(value: ByteArray): Writer
+    fun bytes(value: Uint8Array): Writer
     fun double(value: Double): Writer
     fun fixed32(value: Int): Writer
     fun fixed64(value: dynamic): Writer
@@ -49,10 +49,10 @@ external class Writer {
     fun uint32(value: Int): Writer
     fun uint64(value: dynamic): Writer
 
-    fun finish(): ByteArray
+    fun finish(): Uint8Array
 
     companion object {
-        fun alloc(size: Int): Writer
+        fun create(): Writer
     }
 }
 
@@ -60,7 +60,7 @@ external class util {
     class utf8 {
         companion object {
             fun length(str: String): Int
-            fun write(str: String, arr: ByteArray, offset: Int): Int
+            fun write(str: String, arr: Uint8Array, offset: Int): Int
         }
     }
 }

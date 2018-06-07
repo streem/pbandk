@@ -9,6 +9,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "protobufjs": "^6.8.6"
+    "kotlin": "^1.2.41",
+    "protobufjs": "^6.8.6",
+    "runtime-js": "file:../../runtime/runtime-js"
   }
 }

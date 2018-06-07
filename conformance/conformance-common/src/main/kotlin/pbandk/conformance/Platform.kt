@@ -8,4 +8,6 @@ expect object Platform {
 
     fun stdoutWriteIntLE(v: Int)
     fun stdoutWriteFull(arr: ByteArray)
+
+    inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T): T
 }

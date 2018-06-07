@@ -76,6 +76,9 @@ project(':runtime:runtime-js') {
         compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
     }
+    compileKotlin2Js {
+        kotlinOptions.moduleKind = 'commonjs'
+    }
 }
 
 project(':runtime:runtime-jvm') {
@@ -141,6 +144,9 @@ project(':conformance:conformance-js') {
         compile project(':runtime:runtime-js')
         compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    }
+    compileKotlin2Js {
+        kotlinOptions.moduleKind = 'commonjs'
     }
 }
 

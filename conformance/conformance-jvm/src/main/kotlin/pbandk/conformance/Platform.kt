@@ -19,4 +19,6 @@ actual object Platform {
         System.out.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(v).array())
 
     actual fun stdoutWriteFull(arr: ByteArray) = System.out.write(arr)
+
+    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try { fn() } catch (e: Exception) { errFn(e) }
 }

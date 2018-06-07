@@ -1,10 +1,9 @@
 package pbandk
 
 import pbandk.protobufjs.Writer
-import pbandk.protobufjs.protobufjsLong
 import pbandk.protobufjs.util
 
-actual class Marshaller(val w: Writer) : pbandk.impl.Marshaller() {
+actual class Marshaller(val w: Writer, val expectedSize: Int) : pbandk.impl.Marshaller() {
     actual fun writeTag(tag: Int) = also { w.uint32(tag) }
     actual fun writeDouble(value: Double) { w.double(value) }
     actual fun writeFloat(value: Float) { w.float(value) }
@@ -20,12 +19,14 @@ actual class Marshaller(val w: Writer) : pbandk.impl.Marshaller() {
     actual fun writeSFixed64(value: Long) { w.sfixed64(value.protobufjsLong) }
     actual fun writeBool(value: Boolean) { w.bool(value) }
     actual fun writeString(value: String) { w.string(value) }
-    actual override fun writeBytes(value: ByteArr) { w.bytes(value.array) }
-    actual fun complete(): ByteArray? = w.finish()
+    actual override fun writeBytes(value: ByteArr) { w.bytes(value.array.asUint8Array()) }
+    actual fun complete(): ByteArray? = w.finish().asByteArray().also {
+        require(it.size == expectedSize) { "Expected $expectedSize, got ${it.size}" }
+    }
 
     actual companion object {
-        actual fun allocate(size: Int) = Marshaller(Writer.alloc(size))
+        actual fun allocate(size: Int) = Marshaller(Writer.create(), size)
         actual fun stringToUtf8Bytes(str: String) =
-            ByteArray(util.utf8.length(str)).also { util.utf8.write(str, it, 0) }
+            ByteArray(util.utf8.length(str)).also { util.utf8.write(str, it.asUint8Array(), 0) }
     }
 }

@@ -2,13 +2,14 @@
   "name": "runtime-js",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/classes/kotlin/main/runtime-js.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "kotlin": "^1.2.41",
     "protobufjs": "^6.8.6"
   }
 }
