@@ -3,7 +3,7 @@ package pbandk.conformance
 import pbandk.ByteArr
 import pbandk.conformance.pb.*
 
-var logDebug = true
+var logDebug = false
 inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
 fun main(args: Array<String>) {

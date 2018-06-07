@@ -1,6 +1,6 @@
 package pbandk
 
-expect class Marshaller(arr: ByteArray) {
+expect class Marshaller {
 
     fun writeTag(tag: Int): Marshaller
     fun writeDouble(value: Double)
@@ -27,7 +27,11 @@ expect class Marshaller(arr: ByteArray) {
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
     )
 
+    // May not return a value if wasn't created with allocate
+    fun complete(): ByteArray?
+
     companion object {
+        fun allocate(size: Int): Marshaller
         fun stringToUtf8Bytes(str: String): ByteArray
     }
 }

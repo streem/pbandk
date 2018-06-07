@@ -5,8 +5,8 @@ class MapWithSize<K, V> internal constructor(
     val protoSize: Int
 ) : AbstractMap<K, V>() {
     class Builder<K, V> {
-        internal val entries = mutableMapOf<K, Map.Entry<K, V>>()
-        internal var protoSize = 0
+        val entries = mutableMapOf<K, Map.Entry<K, V>>()
+        var protoSize = 0
 
         fun fixed() = MapWithSize(entries.values.toSet(), protoSize)
 

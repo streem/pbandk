@@ -6,8 +6,8 @@ data class ListWithSize<T> internal constructor(val list: List<T>, val protoSize
     override fun toString() = list.toString()
 
     class Builder<T> {
-        internal val list = ArrayList<T>()
-        internal var protoSize = 0
+        val list = ArrayList<T>()
+        var protoSize = 0
 
         fun add(item: T, size: Int) {
             list.toString()
