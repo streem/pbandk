@@ -29,7 +29,7 @@ project(':runtime:runtime-common') {
     }
 
     task generateWellKnownTypes {
-        dependsOn ':protoc-gen-kotlin:installDist'
+        dependsOn ':protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist'
         doFirst {
             def protocPath = System.getProperty('protoc.path')
             if (protocPath == null) throw new InvalidUserDataException('System property protoc.path must be set')
@@ -97,6 +97,13 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-common') {
         testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
     }
+
+    task generateProto {
+        dependsOn ':protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist'
+        doFirst {
+            runProtoGen('src/main/proto', 'src/main/kotlin', 'pbandk.gen.pb', 'debug')
+        }
+    }
 }
 
 project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
@@ -111,7 +118,7 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
     }
     mainClassName = 'pbandk.gen.MainKt'
     dependencies {
-        expectedBy project(':conformance:conformance-common')
+        expectedBy project(':protoc-gen-kotlin:protoc-gen-kotlin-common')
         compile project(':runtime:runtime-jvm')
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         testCompile 'junit:junit:4.12'
@@ -125,6 +132,21 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
             exceptionFormat = 'full'
             events 'passed', 'skipped', 'failed'
         }
+    }
+}
+
+project(':protoc-gen-kotlin:protoc-gen-kotlin-native') {
+    apply plugin: 'konan'
+    konanArtifacts {
+        program('protoc-gen-kotlin-native') {
+            enableMultiplatform true
+            libraries {
+                allLibrariesFrom project(':runtime:runtime-native')
+            }
+        }
+    }
+    dependencies {
+        expectedBy project(':protoc-gen-kotlin:protoc-gen-kotlin-common')
     }
 }
 
@@ -170,7 +192,7 @@ project(':conformance:conformance-common') {
     }
 
     task generateProto {
-        dependsOn ':protoc-gen-kotlin:installDist'
+        dependsOn ':protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist'
         doFirst {
             runProtoGen('src/main/proto', 'src/main/kotlin', 'pbandk.conformance.pb', 'debug')
         }
@@ -244,7 +266,7 @@ allprojects {
         if (logLevel != null) args[-1] += "log=$logLevel,"
         args[-1] += 'empty_arg:' + Paths.get(outPath)
         args << '--plugin=protoc-gen-kotlin=' +
-            Paths.get(project.rootDir.toString(), 'protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
+            Paths.get(project.rootDir.toString(), 'protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin-jvm/bin/protoc-gen-kotlin-jvm')
         if (System.properties['os.name'].toLowerCase().contains('windows')) args[-1] += '.bat'
         def includePath = Paths.get(inPath)
         if (!includePath.absolute) includePath = Paths.get(project.projectDir.toString(), inPath)

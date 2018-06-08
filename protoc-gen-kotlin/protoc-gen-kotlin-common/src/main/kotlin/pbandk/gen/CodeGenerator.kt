@@ -11,11 +11,11 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         return bld.toString()
     }
 
-    protected fun line() = also { bld.appendln() }
-    protected fun line(str: String) = also { bld.append(indent).appendln(str) }
+    protected fun line() = also { bld.append("\n") }
+    protected fun line(str: String) = also { bld.append(indent).append(str).append("\n") }
     protected fun lineBegin(str: String = "") = also { bld.append(indent).append(str) }
     protected fun lineMid(str: String) = also { bld.append(str) }
-    protected fun lineEnd(str: String = "") = also { bld.appendln(str) }
+    protected fun lineEnd(str: String = "") = also { bld.append(str).append("\n") }
     protected fun indented(fn: () -> Any?) = also {
         indent += "    "
         fn().also { indent = indent.dropLast(4) }
@@ -273,17 +273,20 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         kotlinLocalTypeName ?:
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
             type.standardTypeName
-    protected val File.Field.Standard.unmarshalReadExpr get() = when (type) {
-        File.Field.Type.ENUM ->
-            if (repeated) "protoUnmarshal.readRepeatedEnum($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
-            else "protoUnmarshal.readEnum($kotlinQualifiedTypeName.Companion)"
-        File.Field.Type.MESSAGE ->
-            if (!repeated) "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)"
-            else if (map) "protoUnmarshal.readMap($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
-            else "protoUnmarshal.readRepeatedMessage($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
-        else -> {
-            if (repeated) "protoUnmarshal.readRepeated($kotlinFieldName, protoUnmarshal::${type.readMethod})"
-            else "protoUnmarshal.${type.readMethod}()"
+    protected val File.Field.Standard.unmarshalReadExpr get() = type.neverPacked.let { neverPacked ->
+        val repEnd = if (neverPacked) ", true" else ", false"
+        when (type) {
+            File.Field.Type.ENUM ->
+                if (repeated) "protoUnmarshal.readRepeatedEnum($kotlinFieldName, $kotlinQualifiedTypeName.Companion)"
+                else "protoUnmarshal.readEnum($kotlinQualifiedTypeName.Companion)"
+            File.Field.Type.MESSAGE ->
+                if (!repeated) "protoUnmarshal.readMessage($kotlinQualifiedTypeName.Companion)"
+                else if (map) "protoUnmarshal.readMap($kotlinFieldName, $kotlinQualifiedTypeName.Companion$repEnd)"
+                else "protoUnmarshal.readRepeatedMessage($kotlinFieldName, $kotlinQualifiedTypeName.Companion$repEnd)"
+            else -> {
+                if (repeated) "protoUnmarshal.readRepeated($kotlinFieldName, protoUnmarshal::${type.readMethod}$repEnd)"
+                else "protoUnmarshal.${type.readMethod}()"
+            }
         }
     }
     protected val File.Field.Standard.unmarshalVarDecl get() = when {
@@ -414,4 +417,6 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         File.Field.Type.STRING -> "$varName.isNotEmpty()"
         else -> "$varName != $defaultValue"
     }
+    protected val File.Field.Type.neverPacked get() =
+        file.version == 2 && (this == File.Field.Type.STRING || this == File.Field.Type.MESSAGE)
 }

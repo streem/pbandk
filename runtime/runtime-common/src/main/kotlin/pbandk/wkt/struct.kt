@@ -90,7 +90,7 @@ private fun Struct.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
     var fields: pbandk.MapWithSize.Builder<String, pbandk.wkt.Value?>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return Struct(pbandk.MapWithSize.Builder.fixed(fields), protoUnmarshal.unknownFields())
-        10 -> fields = protoUnmarshal.readMap(fields, pbandk.wkt.Struct.FieldsEntry.Companion)
+        10 -> fields = protoUnmarshal.readMap(fields, pbandk.wkt.Struct.FieldsEntry.Companion, false)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -196,7 +196,7 @@ private fun ListValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
     var values: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return ListValue(pbandk.ListWithSize.Builder.fixed(values), protoUnmarshal.unknownFields())
-        10 -> values = protoUnmarshal.readRepeatedMessage(values, pbandk.wkt.Value.Companion)
+        10 -> values = protoUnmarshal.readRepeatedMessage(values, pbandk.wkt.Value.Companion, false)
         else -> protoUnmarshal.unknownField()
     }
 }

@@ -42,10 +42,10 @@ class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false) {
         return ret
     }
     fun tagWireType(tag: Int) = tag and ((1 shl 3) - 1)
-    fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T) =
+    fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T, neverPacked: Boolean) =
         (appendTo ?: ListWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
-            if (tagWireType(lastTag) != 2) {
+            if (neverPacked || tagWireType(lastTag) != 2) {
                 // Size of input doesn't necessarily match size of output, so we disable size on these single items if
                 // it is not a message
                 bld.list += readFn().also { value ->
@@ -59,16 +59,20 @@ class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false) {
             }
         }
     fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
-        readRepeated(appendTo) { readEnum(s) }
-    fun <T : Message<T>> readRepeatedMessage(appendTo: ListWithSize.Builder<T>?, s: Message.Companion<T>) =
-        readRepeated(appendTo) { readMessage(s) }
+        readRepeated(appendTo, { readEnum(s) }, false)
+    fun <T : Message<T>> readRepeatedMessage(
+        appendTo: ListWithSize.Builder<T>?,
+        s: Message.Companion<T>,
+        neverPacked: Boolean
+    ) = readRepeated(appendTo, { readMessage(s) }, neverPacked)
     fun <K, V, T> readMap(
         appendTo: MapWithSize.Builder<K, V>?,
-        s: Message.Companion<T>
+        s: Message.Companion<T>,
+        neverPacked: Boolean
     ): MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
         (appendTo ?: MapWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
-            if (tagWireType(lastTag) != 2) {
+            if (neverPacked || tagWireType(lastTag) != 2) {
                 bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }.let { it.key to it }
             } else readInt32().also { len ->
                 bld.protoSize += len

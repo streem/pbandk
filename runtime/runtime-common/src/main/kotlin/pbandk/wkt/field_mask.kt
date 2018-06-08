@@ -33,7 +33,7 @@ private fun FieldMask.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
     var paths: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), protoUnmarshal.unknownFields())
-        10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString)
+        10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString, false)
         else -> protoUnmarshal.unknownField()
     }
 }

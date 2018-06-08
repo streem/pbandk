@@ -1,13 +1,13 @@
 package pbandk.gen
 
-import com.google.protobuf.compiler.PluginProtos
+import pbandk.gen.pb.CodeGeneratorResponse
 
 var logDebug = false
-inline fun debug(fn: () -> String) { if (logDebug) System.err.println(fn()) }
+inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
 fun main(args: Array<String>) {
-    // Read the bytes from stdin and parse into request
-    val request = PluginProtos.CodeGeneratorRequest.parseFrom(System.`in`.readBytes())
+    // Read the request from stdin and parse into request
+    val request = Platform.stdinReadRequest()
 
     // Parse the parameters
     val params =
@@ -18,9 +18,9 @@ fun main(args: Array<String>) {
 
     // Convert to file model and generate the code only for ones requested
     val kotlinTypeMappings = mutableMapOf<String, String>()
-    PluginProtos.CodeGeneratorResponse.newBuilder().addAllFile(request.protoFileList.mapNotNull { protoFile ->
+    val response = CodeGeneratorResponse(file = request.protoFile.mapNotNull { protoFile ->
         debug { "Reading ${protoFile.name}" }
-        val needToGenerate = request.fileToGenerateList.contains(protoFile.name)
+        val needToGenerate = request.fileToGenerate.contains(protoFile.name)
         // Convert the file to our model
         val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params.let {
             // As a special case, if we're not generating it but it's a well-known type package, change it our known one
@@ -30,16 +30,14 @@ fun main(args: Array<String>) {
         // Update the type mappings
         kotlinTypeMappings += file.kotlinTypeMappings()
         // Generate if necessary
-        if (!request.fileToGenerateList.contains(protoFile.name)) null else {
+        if (!needToGenerate) null else {
             // Package name + file name (s/proto/kt)
-            val fileNameSansPath = protoFile.name.substringAfterLast('/')
+            val fileNameSansPath = protoFile.name!!.substringAfterLast('/')
             val filePath = (file.kotlinPackageName?.replace('.', '/')?.plus('/') ?: "") +
-                    fileNameSansPath.removeSuffix(".proto") + ".kt"
+                fileNameSansPath.removeSuffix(".proto") + ".kt"
             debug { "Generating $filePath" }
-            PluginProtos.CodeGeneratorResponse.File.newBuilder().
-                    setName(filePath).
-                    setContent(CodeGenerator(file, kotlinTypeMappings).generate()).
-                    build()
+            CodeGeneratorResponse.File(name = filePath, content = CodeGenerator(file, kotlinTypeMappings).generate())
         }
-    }).build().writeTo(System.out)
+    })
+    Platform.stdoutWriteResponse(response)
 }

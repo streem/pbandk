@@ -23,6 +23,5 @@ actual class Marshaller(val stream: CodedOutputStream, val backingBytes: ByteArr
 
     actual companion object {
         actual fun allocate(size: Int) = ByteArray(size).let { Marshaller(CodedOutputStream.newInstance(it), it) }
-        actual fun stringToUtf8Bytes(str: String) = str.toByteArray()
     }
 }

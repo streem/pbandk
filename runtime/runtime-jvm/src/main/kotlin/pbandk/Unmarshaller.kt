@@ -33,10 +33,10 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         currentUnknownFields = oldUnknownFields
         return ret
     }
-    actual fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T) =
+    actual fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T, neverPacked: Boolean) =
         (appendTo ?: ListWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
-            if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
+            if (neverPacked || WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
                 // Size of input doesn't necessarily match size of output, so we disable size on these single items if
                 // it is not a message
                 bld.list += readFn().also { value ->
@@ -51,16 +51,20 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
             }
         }
     actual fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
-        readRepeated(appendTo) { readEnum(s) }
-    actual fun <T : Message<T>> readRepeatedMessage(appendTo: ListWithSize.Builder<T>?, s: Message.Companion<T>) =
-        readRepeated(appendTo) { readMessage(s) }
+        readRepeated(appendTo, { readEnum(s) }, false)
+    actual fun <T : Message<T>> readRepeatedMessage(
+        appendTo: ListWithSize.Builder<T>?,
+        s: Message.Companion<T>,
+        neverPacked: Boolean
+    ) = readRepeated(appendTo, { readMessage(s) }, neverPacked)
     actual fun <K, V, T> readMap(
         appendTo: MapWithSize.Builder<K, V>?,
-        s: Message.Companion<T>
+        s: Message.Companion<T>,
+        neverPacked: Boolean
     ): MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
         (appendTo ?: MapWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
-            if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
+            if (neverPacked || WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
                 // Unlike lists, since this only reads messages, we can use the message's size to always set it for maps
                 bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }.let { it.key to it }
             } else stream.readRawVarint32().also { len ->

@@ -27,7 +27,5 @@ class Marshaller(val w: Writer, val expectedSize: Int) : pbandk.impl.Marshaller(
 
     companion object {
         fun allocate(size: Int) = Marshaller(Writer.create(), size)
-        fun stringToUtf8Bytes(str: String) =
-            ByteArray(util.utf8.length(str)).also { util.utf8.write(str, it.asUint8Array(), 0) }
     }
 }

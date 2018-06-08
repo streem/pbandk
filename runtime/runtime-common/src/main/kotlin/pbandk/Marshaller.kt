@@ -32,6 +32,5 @@ expect class Marshaller {
 
     companion object {
         fun allocate(size: Int): Marshaller
-        fun stringToUtf8Bytes(str: String): ByteArray
     }
 }

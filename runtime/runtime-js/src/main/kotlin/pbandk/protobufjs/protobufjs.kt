@@ -61,6 +61,7 @@ external class util {
         companion object {
             fun length(str: String): Int
             fun write(str: String, arr: Uint8Array, offset: Int): Int
+            fun read(buf: Uint8Array, start: Int, end: Int): String
         }
     }
 }

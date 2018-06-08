@@ -11,3 +11,4 @@ inline fun Uint8Array.asByteArray() =
 actual typealias Marshaller = pbandk.protobufjs.Marshaller
 actual typealias Sizer = pbandk.protobufjs.Sizer
 actual typealias Unmarshaller = pbandk.protobufjs.Unmarshaller
+actual typealias Util = pbandk.protobufjs.Util

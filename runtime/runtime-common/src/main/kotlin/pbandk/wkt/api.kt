@@ -93,11 +93,11 @@ private fun Api.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
         0 -> return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
             sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> methods = protoUnmarshal.readRepeatedMessage(methods, pbandk.wkt.Method.Companion)
-        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
+        18 -> methods = protoUnmarshal.readRepeatedMessage(methods, pbandk.wkt.Method.Companion, false)
+        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
         34 -> version = protoUnmarshal.readString()
         42 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
-        50 -> mixins = protoUnmarshal.readRepeatedMessage(mixins, pbandk.wkt.Mixin.Companion)
+        50 -> mixins = protoUnmarshal.readRepeatedMessage(mixins, pbandk.wkt.Mixin.Companion, false)
         56 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
@@ -148,7 +148,7 @@ private fun Method.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
         24 -> requestStreaming = protoUnmarshal.readBool()
         34 -> responseTypeUrl = protoUnmarshal.readString()
         40 -> responseStreaming = protoUnmarshal.readBool()
-        50 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
+        50 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
         56 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }

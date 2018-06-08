@@ -199,9 +199,9 @@ private fun Type.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         0 -> return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
             sourceContext, syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> fields = protoUnmarshal.readRepeatedMessage(fields, pbandk.wkt.Field.Companion)
-        26 -> oneofs = protoUnmarshal.readRepeated(oneofs, protoUnmarshal::readString)
-        34 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
+        18 -> fields = protoUnmarshal.readRepeatedMessage(fields, pbandk.wkt.Field.Companion, false)
+        26 -> oneofs = protoUnmarshal.readRepeated(oneofs, protoUnmarshal::readString, false)
+        34 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
         42 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
         48 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
@@ -265,7 +265,7 @@ private fun Field.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
         50 -> typeUrl = protoUnmarshal.readString()
         56 -> oneofIndex = protoUnmarshal.readInt32()
         64 -> packed = protoUnmarshal.readBool()
-        74 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
+        74 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
         82 -> jsonName = protoUnmarshal.readString()
         90 -> defaultValue = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
@@ -309,8 +309,8 @@ private fun Enum.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         0 -> return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
             syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> enumvalue = protoUnmarshal.readRepeatedMessage(enumvalue, pbandk.wkt.EnumValue.Companion)
-        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
+        18 -> enumvalue = protoUnmarshal.readRepeatedMessage(enumvalue, pbandk.wkt.EnumValue.Companion, false)
+        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
         34 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
         40 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
@@ -346,7 +346,7 @@ private fun EnumValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
         0 -> return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
         16 -> number = protoUnmarshal.readInt32()
-        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion)
+        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
         else -> protoUnmarshal.unknownField()
     }
 }
