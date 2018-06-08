@@ -20,37 +20,6 @@ allprojects {
     }
 }
 
-project(':protoc-gen-kotlin') {
-    apply plugin: 'java'
-    apply plugin: 'kotlin'
-    apply plugin: 'application'
-    sourceCompatibility = '1.8'
-    compileKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    mainClassName = 'pbandk.gen.MainKt'
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        compile 'com.google.protobuf:protobuf-java:3.5.1'
-        compile project(':runtime:runtime-jvm')
-        testCompile 'junit:junit:4.12'
-        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    }
-    /* TODO: move to Kotlin Native one day
-    apply plugin: 'konan'
-    konanArtifacts {
-        program('protoc-gen-kotlin') {
-            enableOptimizations true
-            entryPoint 'pbandk.gen.main'
-        }
-    }
-    */
-}
-
 project(':runtime:runtime-common') {
     apply plugin: 'kotlin-platform-common'
     dependencies {
@@ -119,6 +88,77 @@ project(':runtime:runtime-native') {
         expectedBy project(':runtime:runtime-common')
     }
 }
+
+project(':protoc-gen-kotlin:protoc-gen-kotlin-common') {
+    apply plugin: 'kotlin-platform-common'
+    dependencies {
+        compile project(':runtime:runtime-common')
+        compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+    }
+}
+
+project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
+    apply plugin: 'kotlin-platform-jvm'
+    apply plugin: 'application'
+    sourceCompatibility = '1.8'
+    compileKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    mainClassName = 'pbandk.gen.MainKt'
+    dependencies {
+        expectedBy project(':conformance:conformance-common')
+        compile project(':runtime:runtime-jvm')
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        testCompile 'junit:junit:4.12'
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+    test {
+        testLogging {
+            outputs.upToDateWhen {false}
+            showStandardStreams = true
+            exceptionFormat = 'full'
+            events 'passed', 'skipped', 'failed'
+        }
+    }
+}
+
+/*
+project(':protoc-gen-kotlin') {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'application'
+    sourceCompatibility = '1.8'
+    compileKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+    mainClassName = 'pbandk.gen.MainKt'
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        compile 'com.google.protobuf:protobuf-java:3.5.1'
+        compile project(':runtime:runtime-jvm')
+        testCompile 'junit:junit:4.12'
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+    /* TODO: move to Kotlin Native one day
+    apply plugin: 'konan'
+    konanArtifacts {
+        program('protoc-gen-kotlin') {
+            enableOptimizations true
+            entryPoint 'pbandk.gen.main'
+        }
+    }
+}
+*/
 
 project(':conformance:conformance-common') {
     apply plugin: 'kotlin-platform-common'
