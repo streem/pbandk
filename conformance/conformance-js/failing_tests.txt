@@ -1,0 +1,12 @@
+#########
+# There is a failure reading some ints
+# See https://github.com/dcodeIO/protobuf.js/issues/1067
+#########
+Required.Proto2.ProtobufInput.RepeatedScalarSelectsLast.INT32.ProtobufOutput
+Required.Proto2.ProtobufInput.RepeatedScalarSelectsLast.UINT32.ProtobufOutput
+Required.Proto2.ProtobufInput.ValidDataRepeated.INT32.ProtobufOutput
+Required.Proto2.ProtobufInput.ValidDataRepeated.UINT32.ProtobufOutput
+Required.Proto3.ProtobufInput.RepeatedScalarSelectsLast.INT32.ProtobufOutput
+Required.Proto3.ProtobufInput.RepeatedScalarSelectsLast.UINT32.ProtobufOutput
+Required.Proto3.ProtobufInput.ValidDataRepeated.INT32.ProtobufOutput
+Required.Proto3.ProtobufInput.ValidDataRepeated.UINT32.ProtobufOutput

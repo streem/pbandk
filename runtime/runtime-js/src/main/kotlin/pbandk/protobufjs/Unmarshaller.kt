@@ -1,47 +1,48 @@
-package pbandk
+package pbandk.protobufjs
 
-import pbandk.protobufjs.Reader
+import pbandk.*
 
-actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false) {
+class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false) {
 
     var lastTag = 0
     var currentUnknownFields = if (discardUnknownFields) null else mutableMapOf<Int, UnknownField>()
     var endPos = r.len
 
     // 0 means there is no next tag
-    actual fun readTag(): Int {
+    fun readTag(): Int {
         lastTag = if (r.pos == endPos) 0 else readInt32().also { if (it ushr 3 == 0) error("Invalid tag") }
         return lastTag
     }
-    actual fun readDouble() = r.double()
-    actual fun readFloat() = r.float()
-    actual fun readInt32() = r.int32()
-    actual fun readInt64() = Long.fromProtobufjsLong(r.int64())
-    actual fun readUInt32() = r.uint32()
-    actual fun readUInt64() = Long.fromProtobufjsLong(r.uint64())
-    actual fun readSInt32() = r.sint32()
-    actual fun readSInt64() = Long.fromProtobufjsLong(r.sint64())
-    actual fun readFixed32() = r.fixed32()
-    actual fun readFixed64() = Long.fromProtobufjsLong(r.fixed64())
-    actual fun readSFixed32() = r.sfixed32()
-    actual fun readSFixed64() = Long.fromProtobufjsLong(r.sfixed64())
-    actual fun readBool() = r.bool()
-    actual fun readString() = r.string()
-    actual fun readBytes() = ByteArr(r.bytes().asByteArray())
-    actual fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>) = s.fromValue(readInt32())
-    actual fun <T : Message<T>> readMessage(s: Message.Companion<T>): T {
+    fun readDouble() = r.double()
+    fun readFloat() = r.float()
+    fun readInt32() = r.int32()
+    fun readInt64() = Long.fromProtobufjsLong(r.int64())
+    fun readUInt32() = r.uint32()
+    fun readUInt64() = Long.fromProtobufjsLong(r.uint64())
+    fun readSInt32() = r.sint32()
+    fun readSInt64() = Long.fromProtobufjsLong(r.sint64())
+    fun readFixed32() = r.fixed32()
+    fun readFixed64() = Long.fromProtobufjsLong(r.fixed64())
+    fun readSFixed32() = r.sfixed32()
+    fun readSFixed64() = Long.fromProtobufjsLong(r.sfixed64())
+    fun readBool() = r.bool()
+    fun readString() = r.string()
+    fun readBytes() = ByteArr(r.bytes().asByteArray())
+    fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>) = s.fromValue(readInt32())
+    fun <T : Message<T>> readMessage(s: Message.Companion<T>): T {
         val oldEndPos = endPos
         endPos = readInt32() + r.pos
         val oldUnknownFields = currentUnknownFields
         if (!discardUnknownFields) currentUnknownFields = mutableMapOf()
-        val ret = s.protoUnmarshal(this)
+        @Suppress("CAST_NEVER_SUCCEEDS")
+        val ret = s.protoUnmarshal(this as pbandk.Unmarshaller)
         require(r.pos == endPos) { "Not at the end of the current message limit as expected" }
         endPos = oldEndPos
         currentUnknownFields = oldUnknownFields
         return ret
     }
     fun tagWireType(tag: Int) = tag and ((1 shl 3) - 1)
-    actual fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T) =
+    fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T) =
         (appendTo ?: ListWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (tagWireType(lastTag) != 2) {
@@ -57,11 +58,11 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
                 while (r.pos < endPos) bld.list += readFn()
             }
         }
-    actual fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
+    fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
         readRepeated(appendTo) { readEnum(s) }
-    actual fun <T : Message<T>> readRepeatedMessage(appendTo: ListWithSize.Builder<T>?, s: Message.Companion<T>) =
+    fun <T : Message<T>> readRepeatedMessage(appendTo: ListWithSize.Builder<T>?, s: Message.Companion<T>) =
         readRepeated(appendTo) { readMessage(s) }
-    actual fun <K, V, T> readMap(
+    fun <K, V, T> readMap(
         appendTo: MapWithSize.Builder<K, V>?,
         s: Message.Companion<T>
     ): MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
@@ -75,7 +76,7 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
                 while (r.pos < endPos) bld.entries += readMessage(s).let { it.key to it }
             }
         }
-    actual fun unknownField() {
+    fun unknownField() {
         val tag = lastTag
         val unknownFields = currentUnknownFields ?: return run { r.skipType(tagWireType(tag)) }
         val value = when (tagWireType(tag)) {
@@ -98,9 +99,9 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
             })
         }
     }
-    actual fun unknownFields() = currentUnknownFields?.toMap() ?: emptyMap()
+    fun unknownFields() = currentUnknownFields?.toMap() ?: emptyMap()
 
-    actual companion object {
-        actual fun fromByteArray(arr: ByteArray) = Unmarshaller(Reader.create(arr.asUint8Array()))
+    companion object {
+        fun fromByteArray(arr: ByteArray) = Unmarshaller(Reader.create(arr.asUint8Array()))
     }
 }
