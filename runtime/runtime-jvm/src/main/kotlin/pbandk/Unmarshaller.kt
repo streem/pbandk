@@ -37,11 +37,14 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         (appendTo ?: ListWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
-                stream.totalBytesRead.also { preRead ->
-                    bld.list += readFn().also { bld.protoSize += stream.totalBytesRead - preRead }
+                // Size of input doesn't necessarily match size of output, so we disable size on these single items if
+                // it is not a message
+                bld.list += readFn().also { value ->
+                    bld.protoSize?.also { bld.protoSize = if (value is Message<*>) it + value.protoSize else null }
                 }
             } else stream.readRawVarint32().also { len ->
-                bld.protoSize += len
+                // Only increment if size hasn't been nulled
+                bld.protoSize?.also { bld.protoSize = it + len }
                 val oldLimit = stream.pushLimit(len)
                 while (!stream.isAtEnd) bld.list += readFn()
                 stream.popLimit(oldLimit)
@@ -58,6 +61,7 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         (appendTo ?: MapWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
+                // Unlike lists, since this only reads messages, we can use the message's size to always set it for maps
                 bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }.let { it.key to it }
             } else stream.readRawVarint32().also { len ->
                 bld.protoSize += len

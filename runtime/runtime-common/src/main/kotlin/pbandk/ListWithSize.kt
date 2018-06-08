@@ -1,19 +1,13 @@
 package pbandk
 
-data class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int) : List<T> by list {
+data class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int?) : List<T> by list {
     constructor(list: List<T>, sizeFn: (T) -> Int) : this(list, list.sumBy(sizeFn))
 
     override fun toString() = list.toString()
 
     class Builder<T> {
         val list = ArrayList<T>()
-        var protoSize = 0
-
-        fun add(item: T, size: Int) {
-            list.toString()
-            list += item
-            protoSize += size
-        }
+        var protoSize: Int? = 0
 
         fun fixed() = ListWithSize(list.also { it.trimToSize() }, protoSize)
 

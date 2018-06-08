@@ -1,8 +1,6 @@
 package pbandk.conformance
 
 import pbandk.ByteArr
-import pbandk.Marshaller
-import pbandk.Unmarshaller
 import pbandk.conformance.pb.*
 
 var logDebug = true

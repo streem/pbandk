@@ -45,11 +45,14 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
         (appendTo ?: ListWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (tagWireType(lastTag) != 2) {
-                r.pos.also { preRead ->
-                    bld.list += readFn().also { bld.protoSize += r.pos - preRead }
+                // Size of input doesn't necessarily match size of output, so we disable size on these single items if
+                // it is not a message
+                bld.list += readFn().also { value ->
+                    bld.protoSize?.also { bld.protoSize = if (value is Message<*>) it + value.protoSize else null }
                 }
             } else readInt32().also { len ->
-                bld.protoSize += len
+                // Only increment if size hasn't been nulled
+                bld.protoSize?.also { bld.protoSize = it + len }
                 val endPos = r.pos + len
                 while (r.pos < endPos) bld.list += readFn()
             }
@@ -85,7 +88,7 @@ actual class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = fal
             else -> error("Unrecognized wire type")
         }
         val fieldNum = tag ushr 3
-        unknownFields += fieldNum to unknownFields[fieldNum].let { prevVal ->
+        unknownFields[fieldNum] = unknownFields[fieldNum].let { prevVal ->
             UnknownField(fieldNum, prevVal?.value.let {
                 when (it) {
                     null -> value

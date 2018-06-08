@@ -216,7 +216,12 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                 lineEnd("protoUnmarshal.unknownFields())")
                 // Each field tag
                 type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
-                    lineBegin("${field.tag} -> ")
+                    var tags = listOf(field.tag)
+                    // As a special case for repeateds, we have to also catch the other (packed or non-packed) versions.
+                    if (field.repeated) ((field.number shl 3) or if (field.packed) field.type.wireFormat else 2).also {
+                        if (field.tag != it) tags += it
+                    }
+                    lineBegin(tags.joinToString(", ") + " -> ")
                     if (oneOf == null) {
                         lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
                     } else {
@@ -309,7 +314,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         else -> type.defaultValue
     }
     protected val File.Field.Standard.tag get() = (number shl 3) or when {
-        repeated -> 2
+        repeated && packed -> 2
         else -> type.wireFormat
     }
     protected fun File.Field.Standard.sizeExpr(ref: String = fieldRef) = when {

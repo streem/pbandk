@@ -12,7 +12,7 @@ abstract class Sizer {
     fun enumSize(value: Message.Enum) = int32Size(value.value)
     fun messageSize(value: Message<*>) = uInt32Size(value.protoSize) + value.protoSize
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
-        if (list is ListWithSize) list.protoSize + uInt32Size(list.protoSize)
+        if (list is ListWithSize && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
         else list.sumBy(sizeFn).let { it + uInt32Size(it) }
     fun <K, V, T : Message<T>> mapSize(
         map: Map<K, V>,
@@ -35,19 +35,22 @@ abstract class Sizer {
             else -> 5
         }
         fun uInt64Size(value: Long): Int {
+            // Taken from CodedOutputStream.java's computeUInt64SizeNoTag
+            var value = value
             if (value and (0L.inv() shl 7) == 0L) return 1
             if (value < 0L) return 10
-            var v = value
             var n = 2
-            if (v and (0L.inv() shl 35) != 0L) {
+            if (value and (0L.inv() shl 35) != 0L) {
                 n += 4
-                v = v ushr 28
+                value = value ushr 28
             }
-            if (v and (0L.inv() shl 21) != 0L) {
+            if (value and (0L.inv() shl 21) != 0L) {
                 n += 2
-                v = v ushr 14
+                value = value ushr 14
             }
-            if (v and (0L.inv() shl 14) != 0L) n += 1
+            if (value and (0L.inv() shl 14) != 0L) {
+                n += 1
+            }
             return n
         }
         fun sInt32Size(value: Int) = uInt32Size(value.zigZagEncoded)

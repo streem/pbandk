@@ -22,8 +22,9 @@ actual object Platform {
         while (total < buf.length.unsafeCast<Int>()) {
             try {
                 total += fs.readSync(process.stdin.fd, buf, total, buf.length - total).unsafeCast<Int>()
-            } catch (e: Exception) {
-                return false
+            } catch (e: dynamic) {
+                if (e.code == "EOF") return false
+                else if (e.code != "EAGAIN") error("Failed reading stdin: $e")
             }
         }
         return true
@@ -39,7 +40,7 @@ actual object Platform {
             total += fs.writeSync(process.stdout.fd, buf, total, buf.length - total).unsafeCast<Int>()
         }
     }
-    actual fun stdoutWriteIntLE(v: Int) = stdoutWriteBuffer(Buffer.alloc(4).writeInt32LE(v, 0))
+    actual fun stdoutWriteIntLE(v: Int) = stdoutWriteBuffer(Buffer.alloc(4).also { it.writeInt32LE(v, 0) })
     actual fun stdoutWriteFull(arr: ByteArray) = stdoutWriteBuffer(arr.asUint8Array())
 
     actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) =

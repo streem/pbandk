@@ -13,8 +13,8 @@ data class FileDescriptorSet(
 }
 
 data class FileDescriptorProto(
-    val name: String = "",
-    val `package`: String = "",
+    val name: String? = null,
+    val `package`: String? = null,
     val dependency: List<String> = emptyList(),
     val publicDependency: List<Int> = emptyList(),
     val weakDependency: List<Int> = emptyList(),
@@ -24,7 +24,7 @@ data class FileDescriptorProto(
     val extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
     val options: pbandk.wkt.FileOptions? = null,
     val sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null,
-    val syntax: String = "",
+    val syntax: String? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FileDescriptorProto> {
     override operator fun plus(other: FileDescriptorProto?) = protoMergeImpl(other)
@@ -36,7 +36,7 @@ data class FileDescriptorProto(
 }
 
 data class DescriptorProto(
-    val name: String = "",
+    val name: String? = null,
     val field: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
     val extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
     val nestedType: List<pbandk.wkt.DescriptorProto> = emptyList(),
@@ -56,8 +56,8 @@ data class DescriptorProto(
     }
 
     data class ExtensionRange(
-        val start: Int = 0,
-        val end: Int = 0,
+        val start: Int? = null,
+        val end: Int? = null,
         val options: pbandk.wkt.ExtensionRangeOptions? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<ExtensionRange> {
@@ -70,8 +70,8 @@ data class DescriptorProto(
     }
 
     data class ReservedRange(
-        val start: Int = 0,
-        val end: Int = 0,
+        val start: Int? = null,
+        val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<ReservedRange> {
         override operator fun plus(other: ReservedRange?) = protoMergeImpl(other)
@@ -96,15 +96,15 @@ data class ExtensionRangeOptions(
 }
 
 data class FieldDescriptorProto(
-    val name: String = "",
-    val number: Int = 0,
-    val label: pbandk.wkt.FieldDescriptorProto.Label = pbandk.wkt.FieldDescriptorProto.Label.fromValue(0),
-    val type: pbandk.wkt.FieldDescriptorProto.Type = pbandk.wkt.FieldDescriptorProto.Type.fromValue(0),
-    val typeName: String = "",
-    val extendee: String = "",
-    val defaultValue: String = "",
-    val oneofIndex: Int = 0,
-    val jsonName: String = "",
+    val name: String? = null,
+    val number: Int? = null,
+    val label: pbandk.wkt.FieldDescriptorProto.Label? = null,
+    val type: pbandk.wkt.FieldDescriptorProto.Type? = null,
+    val typeName: String? = null,
+    val extendee: String? = null,
+    val defaultValue: String? = null,
+    val oneofIndex: Int? = null,
+    val jsonName: String? = null,
     val options: pbandk.wkt.FieldOptions? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FieldDescriptorProto> {
@@ -177,7 +177,7 @@ data class FieldDescriptorProto(
 }
 
 data class OneofDescriptorProto(
-    val name: String = "",
+    val name: String? = null,
     val options: pbandk.wkt.OneofOptions? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<OneofDescriptorProto> {
@@ -190,7 +190,7 @@ data class OneofDescriptorProto(
 }
 
 data class EnumDescriptorProto(
-    val name: String = "",
+    val name: String? = null,
     val value: List<pbandk.wkt.EnumValueDescriptorProto> = emptyList(),
     val options: pbandk.wkt.EnumOptions? = null,
     val reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> = emptyList(),
@@ -205,8 +205,8 @@ data class EnumDescriptorProto(
     }
 
     data class EnumReservedRange(
-        val start: Int = 0,
-        val end: Int = 0,
+        val start: Int? = null,
+        val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<EnumReservedRange> {
         override operator fun plus(other: EnumReservedRange?) = protoMergeImpl(other)
@@ -219,8 +219,8 @@ data class EnumDescriptorProto(
 }
 
 data class EnumValueDescriptorProto(
-    val name: String = "",
-    val number: Int = 0,
+    val name: String? = null,
+    val number: Int? = null,
     val options: pbandk.wkt.EnumValueOptions? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumValueDescriptorProto> {
@@ -233,7 +233,7 @@ data class EnumValueDescriptorProto(
 }
 
 data class ServiceDescriptorProto(
-    val name: String = "",
+    val name: String? = null,
     val method: List<pbandk.wkt.MethodDescriptorProto> = emptyList(),
     val options: pbandk.wkt.ServiceOptions? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -247,12 +247,12 @@ data class ServiceDescriptorProto(
 }
 
 data class MethodDescriptorProto(
-    val name: String = "",
-    val inputType: String = "",
-    val outputType: String = "",
+    val name: String? = null,
+    val inputType: String? = null,
+    val outputType: String? = null,
     val options: pbandk.wkt.MethodOptions? = null,
-    val clientStreaming: Boolean = false,
-    val serverStreaming: Boolean = false,
+    val clientStreaming: Boolean? = null,
+    val serverStreaming: Boolean? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MethodDescriptorProto> {
     override operator fun plus(other: MethodDescriptorProto?) = protoMergeImpl(other)
@@ -264,24 +264,24 @@ data class MethodDescriptorProto(
 }
 
 data class FileOptions(
-    val javaPackage: String = "",
-    val javaOuterClassname: String = "",
-    val javaMultipleFiles: Boolean = false,
-    val javaGenerateEqualsAndHash: Boolean = false,
-    val javaStringCheckUtf8: Boolean = false,
-    val optimizeFor: pbandk.wkt.FileOptions.OptimizeMode = pbandk.wkt.FileOptions.OptimizeMode.fromValue(0),
-    val goPackage: String = "",
-    val ccGenericServices: Boolean = false,
-    val javaGenericServices: Boolean = false,
-    val pyGenericServices: Boolean = false,
-    val phpGenericServices: Boolean = false,
-    val deprecated: Boolean = false,
-    val ccEnableArenas: Boolean = false,
-    val objcClassPrefix: String = "",
-    val csharpNamespace: String = "",
-    val swiftPrefix: String = "",
-    val phpClassPrefix: String = "",
-    val phpNamespace: String = "",
+    val javaPackage: String? = null,
+    val javaOuterClassname: String? = null,
+    val javaMultipleFiles: Boolean? = null,
+    val javaGenerateEqualsAndHash: Boolean? = null,
+    val javaStringCheckUtf8: Boolean? = null,
+    val optimizeFor: pbandk.wkt.FileOptions.OptimizeMode? = null,
+    val goPackage: String? = null,
+    val ccGenericServices: Boolean? = null,
+    val javaGenericServices: Boolean? = null,
+    val pyGenericServices: Boolean? = null,
+    val phpGenericServices: Boolean? = null,
+    val deprecated: Boolean? = null,
+    val ccEnableArenas: Boolean? = null,
+    val objcClassPrefix: String? = null,
+    val csharpNamespace: String? = null,
+    val swiftPrefix: String? = null,
+    val phpClassPrefix: String? = null,
+    val phpNamespace: String? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FileOptions> {
@@ -309,10 +309,10 @@ data class FileOptions(
 }
 
 data class MessageOptions(
-    val messageSetWireFormat: Boolean = false,
-    val noStandardDescriptorAccessor: Boolean = false,
-    val deprecated: Boolean = false,
-    val mapEntry: Boolean = false,
+    val messageSetWireFormat: Boolean? = null,
+    val noStandardDescriptorAccessor: Boolean? = null,
+    val deprecated: Boolean? = null,
+    val mapEntry: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MessageOptions> {
@@ -325,12 +325,12 @@ data class MessageOptions(
 }
 
 data class FieldOptions(
-    val ctype: pbandk.wkt.FieldOptions.CType = pbandk.wkt.FieldOptions.CType.fromValue(0),
-    val packed: Boolean = false,
-    val jstype: pbandk.wkt.FieldOptions.JSType = pbandk.wkt.FieldOptions.JSType.fromValue(0),
-    val lazy: Boolean = false,
-    val deprecated: Boolean = false,
-    val weak: Boolean = false,
+    val ctype: pbandk.wkt.FieldOptions.CType? = null,
+    val packed: Boolean? = null,
+    val jstype: pbandk.wkt.FieldOptions.JSType? = null,
+    val lazy: Boolean? = null,
+    val deprecated: Boolean? = null,
+    val weak: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FieldOptions> {
@@ -385,8 +385,8 @@ data class OneofOptions(
 }
 
 data class EnumOptions(
-    val allowAlias: Boolean = false,
-    val deprecated: Boolean = false,
+    val allowAlias: Boolean? = null,
+    val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumOptions> {
@@ -399,7 +399,7 @@ data class EnumOptions(
 }
 
 data class EnumValueOptions(
-    val deprecated: Boolean = false,
+    val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumValueOptions> {
@@ -412,7 +412,7 @@ data class EnumValueOptions(
 }
 
 data class ServiceOptions(
-    val deprecated: Boolean = false,
+    val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ServiceOptions> {
@@ -425,8 +425,8 @@ data class ServiceOptions(
 }
 
 data class MethodOptions(
-    val deprecated: Boolean = false,
-    val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel = pbandk.wkt.MethodOptions.IdempotencyLevel.fromValue(0),
+    val deprecated: Boolean? = null,
+    val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MethodOptions> {
@@ -455,12 +455,12 @@ data class MethodOptions(
 
 data class UninterpretedOption(
     val name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList(),
-    val identifierValue: String = "",
-    val positiveIntValue: Long = 0L,
-    val negativeIntValue: Long = 0L,
-    val doubleValue: Double = 0.0,
-    val stringValue: pbandk.ByteArr = pbandk.ByteArr.empty,
-    val aggregateValue: String = "",
+    val identifierValue: String? = null,
+    val positiveIntValue: Long? = null,
+    val negativeIntValue: Long? = null,
+    val doubleValue: Double? = null,
+    val stringValue: pbandk.ByteArr? = null,
+    val aggregateValue: String? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<UninterpretedOption> {
     override operator fun plus(other: UninterpretedOption?) = protoMergeImpl(other)
@@ -498,8 +498,8 @@ data class SourceCodeInfo(
     data class Location(
         val path: List<Int> = emptyList(),
         val span: List<Int> = emptyList(),
-        val leadingComments: String = "",
-        val trailingComments: String = "",
+        val leadingComments: String? = null,
+        val trailingComments: String? = null,
         val leadingDetachedComments: List<String> = emptyList(),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Location> {
@@ -525,9 +525,9 @@ data class GeneratedCodeInfo(
 
     data class Annotation(
         val path: List<Int> = emptyList(),
-        val sourceFile: String = "",
-        val begin: Int = 0,
-        val end: Int = 0,
+        val sourceFile: String? = null,
+        val begin: Int? = null,
+        val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Annotation> {
         override operator fun plus(other: Annotation?) = protoMergeImpl(other)
@@ -566,6 +566,8 @@ private fun FileDescriptorSet.Companion.protoUnmarshalImpl(protoUnmarshal: pband
 }
 
 private fun FileDescriptorProto.protoMergeImpl(plus: FileDescriptorProto?): FileDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
+    `package` = plus.`package` ?: `package`,
     dependency = dependency + plus.dependency,
     publicDependency = publicDependency + plus.publicDependency,
     weakDependency = weakDependency + plus.weakDependency,
@@ -575,13 +577,14 @@ private fun FileDescriptorProto.protoMergeImpl(plus: FileDescriptorProto?): File
     extension = extension + plus.extension,
     options = options?.plus(plus.options) ?: plus.options,
     sourceCodeInfo = sourceCodeInfo?.plus(plus.sourceCodeInfo) ?: plus.sourceCodeInfo,
+    syntax = plus.syntax ?: syntax,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun FileDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (`package`.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(`package`)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (`package` != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(`package`)
     if (dependency.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * dependency.size) + dependency.sumBy(pbandk.Sizer::stringSize)
     if (publicDependency.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(10) * publicDependency.size) + publicDependency.sumBy(pbandk.Sizer::int32Size)
     if (weakDependency.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(11) * weakDependency.size) + weakDependency.sumBy(pbandk.Sizer::int32Size)
@@ -591,14 +594,14 @@ private fun FileDescriptorProto.protoSizeImpl(): Int {
     if (extension.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(7) * extension.size) + extension.sumBy(pbandk.Sizer::messageSize)
     if (options != null) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.messageSize(options)
     if (sourceCodeInfo != null) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.messageSize(sourceCodeInfo)
-    if (syntax.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(12) + pbandk.Sizer.stringSize(syntax)
+    if (syntax != null) protoSize += pbandk.Sizer.tagSize(12) + pbandk.Sizer.stringSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun FileDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (`package`.isNotEmpty()) protoMarshal.writeTag(18).writeString(`package`)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
+    if (`package` != null) protoMarshal.writeTag(18).writeString(`package`)
     if (dependency.isNotEmpty()) dependency.forEach { protoMarshal.writeTag(26).writeString(it) }
     if (messageType.isNotEmpty()) messageType.forEach { protoMarshal.writeTag(34).writeMessage(it) }
     if (enumType.isNotEmpty()) enumType.forEach { protoMarshal.writeTag(42).writeMessage(it) }
@@ -606,15 +609,15 @@ private fun FileDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller
     if (extension.isNotEmpty()) extension.forEach { protoMarshal.writeTag(58).writeMessage(it) }
     if (options != null) protoMarshal.writeTag(66).writeMessage(options)
     if (sourceCodeInfo != null) protoMarshal.writeTag(74).writeMessage(sourceCodeInfo)
-    if (publicDependency.isNotEmpty()) publicDependency.forEach { protoMarshal.writeTag(82).writeInt32(it) }
-    if (weakDependency.isNotEmpty()) weakDependency.forEach { protoMarshal.writeTag(90).writeInt32(it) }
-    if (syntax.isNotEmpty()) protoMarshal.writeTag(98).writeString(syntax)
+    if (publicDependency.isNotEmpty()) publicDependency.forEach { protoMarshal.writeTag(80).writeInt32(it) }
+    if (weakDependency.isNotEmpty()) weakDependency.forEach { protoMarshal.writeTag(88).writeInt32(it) }
+    if (syntax != null) protoMarshal.writeTag(98).writeString(syntax)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FileDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FileDescriptorProto {
-    var name = ""
-    var `package` = ""
+    var name: String? = null
+    var `package`: String? = null
     var dependency: pbandk.ListWithSize.Builder<String>? = null
     var publicDependency: pbandk.ListWithSize.Builder<Int>? = null
     var weakDependency: pbandk.ListWithSize.Builder<Int>? = null
@@ -624,7 +627,7 @@ private fun FileDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pba
     var extension: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
     var options: pbandk.wkt.FileOptions? = null
     var sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null
-    var syntax = ""
+    var syntax: String? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FileDescriptorProto(name, `package`, pbandk.ListWithSize.Builder.fixed(dependency), pbandk.ListWithSize.Builder.fixed(publicDependency),
             pbandk.ListWithSize.Builder.fixed(weakDependency), pbandk.ListWithSize.Builder.fixed(messageType), pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(service),
@@ -638,14 +641,15 @@ private fun FileDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pba
         58 -> extension = protoUnmarshal.readRepeatedMessage(extension, pbandk.wkt.FieldDescriptorProto.Companion)
         66 -> options = protoUnmarshal.readMessage(pbandk.wkt.FileOptions.Companion)
         74 -> sourceCodeInfo = protoUnmarshal.readMessage(pbandk.wkt.SourceCodeInfo.Companion)
-        82 -> publicDependency = protoUnmarshal.readRepeated(publicDependency, protoUnmarshal::readInt32)
-        90 -> weakDependency = protoUnmarshal.readRepeated(weakDependency, protoUnmarshal::readInt32)
+        80, 82 -> publicDependency = protoUnmarshal.readRepeated(publicDependency, protoUnmarshal::readInt32)
+        88, 90 -> weakDependency = protoUnmarshal.readRepeated(weakDependency, protoUnmarshal::readInt32)
         98 -> syntax = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
 }
 
 private fun DescriptorProto.protoMergeImpl(plus: DescriptorProto?): DescriptorProto = plus?.copy(
+    name = plus.name ?: name,
     field = field + plus.field,
     extension = extension + plus.extension,
     nestedType = nestedType + plus.nestedType,
@@ -660,7 +664,7 @@ private fun DescriptorProto.protoMergeImpl(plus: DescriptorProto?): DescriptorPr
 
 private fun DescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (field.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * field.size) + field.sumBy(pbandk.Sizer::messageSize)
     if (extension.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(6) * extension.size) + extension.sumBy(pbandk.Sizer::messageSize)
     if (nestedType.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * nestedType.size) + nestedType.sumBy(pbandk.Sizer::messageSize)
@@ -675,7 +679,7 @@ private fun DescriptorProto.protoSizeImpl(): Int {
 }
 
 private fun DescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
     if (field.isNotEmpty()) field.forEach { protoMarshal.writeTag(18).writeMessage(it) }
     if (nestedType.isNotEmpty()) nestedType.forEach { protoMarshal.writeTag(26).writeMessage(it) }
     if (enumType.isNotEmpty()) enumType.forEach { protoMarshal.writeTag(34).writeMessage(it) }
@@ -689,7 +693,7 @@ private fun DescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
 }
 
 private fun DescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DescriptorProto {
-    var name = ""
+    var name: String? = null
     var field: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
     var extension: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
     var nestedType: pbandk.ListWithSize.Builder<pbandk.wkt.DescriptorProto>? = null
@@ -718,29 +722,31 @@ private fun DescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.
 }
 
 private fun DescriptorProto.ExtensionRange.protoMergeImpl(plus: DescriptorProto.ExtensionRange?): DescriptorProto.ExtensionRange = plus?.copy(
+    start = plus.start ?: start,
+    end = plus.end ?: end,
     options = options?.plus(plus.options) ?: plus.options,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun DescriptorProto.ExtensionRange.protoSizeImpl(): Int {
     var protoSize = 0
-    if (start != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(start)
-    if (end != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(end)
+    if (start != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(start)
+    if (end != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(end)
     if (options != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.messageSize(options)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun DescriptorProto.ExtensionRange.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (start != 0) protoMarshal.writeTag(8).writeInt32(start)
-    if (end != 0) protoMarshal.writeTag(16).writeInt32(end)
+    if (start != null) protoMarshal.writeTag(8).writeInt32(start)
+    if (end != null) protoMarshal.writeTag(16).writeInt32(end)
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun DescriptorProto.ExtensionRange.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DescriptorProto.ExtensionRange {
-    var start = 0
-    var end = 0
+    var start: Int? = null
+    var end: Int? = null
     var options: pbandk.wkt.ExtensionRangeOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return DescriptorProto.ExtensionRange(start, end, options, protoUnmarshal.unknownFields())
@@ -752,26 +758,28 @@ private fun DescriptorProto.ExtensionRange.Companion.protoUnmarshalImpl(protoUnm
 }
 
 private fun DescriptorProto.ReservedRange.protoMergeImpl(plus: DescriptorProto.ReservedRange?): DescriptorProto.ReservedRange = plus?.copy(
+    start = plus.start ?: start,
+    end = plus.end ?: end,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun DescriptorProto.ReservedRange.protoSizeImpl(): Int {
     var protoSize = 0
-    if (start != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(start)
-    if (end != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(end)
+    if (start != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(start)
+    if (end != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(end)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun DescriptorProto.ReservedRange.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (start != 0) protoMarshal.writeTag(8).writeInt32(start)
-    if (end != 0) protoMarshal.writeTag(16).writeInt32(end)
+    if (start != null) protoMarshal.writeTag(8).writeInt32(start)
+    if (end != null) protoMarshal.writeTag(16).writeInt32(end)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun DescriptorProto.ReservedRange.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DescriptorProto.ReservedRange {
-    var start = 0
-    var end = 0
+    var start: Int? = null
+    var end: Int? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return DescriptorProto.ReservedRange(start, end, protoUnmarshal.unknownFields())
         8 -> start = protoUnmarshal.readInt32()
@@ -807,50 +815,59 @@ private fun ExtensionRangeOptions.Companion.protoUnmarshalImpl(protoUnmarshal: p
 }
 
 private fun FieldDescriptorProto.protoMergeImpl(plus: FieldDescriptorProto?): FieldDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
+    number = plus.number ?: number,
+    label = plus.label ?: label,
+    type = plus.type ?: type,
+    typeName = plus.typeName ?: typeName,
+    extendee = plus.extendee ?: extendee,
+    defaultValue = plus.defaultValue ?: defaultValue,
+    oneofIndex = plus.oneofIndex ?: oneofIndex,
+    jsonName = plus.jsonName ?: jsonName,
     options = options?.plus(plus.options) ?: plus.options,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun FieldDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (number != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(number)
-    if (label.value != 0) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.enumSize(label)
-    if (type.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(type)
-    if (typeName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(typeName)
-    if (extendee.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(extendee)
-    if (defaultValue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(defaultValue)
-    if (oneofIndex != 0) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.int32Size(oneofIndex)
-    if (jsonName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.stringSize(jsonName)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (number != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(number)
+    if (label != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.enumSize(label)
+    if (type != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(type)
+    if (typeName != null) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(typeName)
+    if (extendee != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(extendee)
+    if (defaultValue != null) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(defaultValue)
+    if (oneofIndex != null) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.int32Size(oneofIndex)
+    if (jsonName != null) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.stringSize(jsonName)
     if (options != null) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.messageSize(options)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun FieldDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (extendee.isNotEmpty()) protoMarshal.writeTag(18).writeString(extendee)
-    if (number != 0) protoMarshal.writeTag(24).writeInt32(number)
-    if (label.value != 0) protoMarshal.writeTag(32).writeEnum(label)
-    if (type.value != 0) protoMarshal.writeTag(40).writeEnum(type)
-    if (typeName.isNotEmpty()) protoMarshal.writeTag(50).writeString(typeName)
-    if (defaultValue.isNotEmpty()) protoMarshal.writeTag(58).writeString(defaultValue)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
+    if (extendee != null) protoMarshal.writeTag(18).writeString(extendee)
+    if (number != null) protoMarshal.writeTag(24).writeInt32(number)
+    if (label != null) protoMarshal.writeTag(32).writeEnum(label)
+    if (type != null) protoMarshal.writeTag(40).writeEnum(type)
+    if (typeName != null) protoMarshal.writeTag(50).writeString(typeName)
+    if (defaultValue != null) protoMarshal.writeTag(58).writeString(defaultValue)
     if (options != null) protoMarshal.writeTag(66).writeMessage(options)
-    if (oneofIndex != 0) protoMarshal.writeTag(72).writeInt32(oneofIndex)
-    if (jsonName.isNotEmpty()) protoMarshal.writeTag(82).writeString(jsonName)
+    if (oneofIndex != null) protoMarshal.writeTag(72).writeInt32(oneofIndex)
+    if (jsonName != null) protoMarshal.writeTag(82).writeString(jsonName)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FieldDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FieldDescriptorProto {
-    var name = ""
-    var number = 0
-    var label: pbandk.wkt.FieldDescriptorProto.Label = pbandk.wkt.FieldDescriptorProto.Label.fromValue(0)
-    var type: pbandk.wkt.FieldDescriptorProto.Type = pbandk.wkt.FieldDescriptorProto.Type.fromValue(0)
-    var typeName = ""
-    var extendee = ""
-    var defaultValue = ""
-    var oneofIndex = 0
-    var jsonName = ""
+    var name: String? = null
+    var number: Int? = null
+    var label: pbandk.wkt.FieldDescriptorProto.Label? = null
+    var type: pbandk.wkt.FieldDescriptorProto.Type? = null
+    var typeName: String? = null
+    var extendee: String? = null
+    var defaultValue: String? = null
+    var oneofIndex: Int? = null
+    var jsonName: String? = null
     var options: pbandk.wkt.FieldOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FieldDescriptorProto(name, number, label, type,
@@ -871,26 +888,27 @@ private fun FieldDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pb
 }
 
 private fun OneofDescriptorProto.protoMergeImpl(plus: OneofDescriptorProto?): OneofDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
     options = options?.plus(plus.options) ?: plus.options,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun OneofDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (options != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(options)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun OneofDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
     if (options != null) protoMarshal.writeTag(18).writeMessage(options)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun OneofDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): OneofDescriptorProto {
-    var name = ""
+    var name: String? = null
     var options: pbandk.wkt.OneofOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return OneofDescriptorProto(name, options, protoUnmarshal.unknownFields())
@@ -901,6 +919,7 @@ private fun OneofDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pb
 }
 
 private fun EnumDescriptorProto.protoMergeImpl(plus: EnumDescriptorProto?): EnumDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
     value = value + plus.value,
     options = options?.plus(plus.options) ?: plus.options,
     reservedRange = reservedRange + plus.reservedRange,
@@ -910,7 +929,7 @@ private fun EnumDescriptorProto.protoMergeImpl(plus: EnumDescriptorProto?): Enum
 
 private fun EnumDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (value.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * value.size) + value.sumBy(pbandk.Sizer::messageSize)
     if (options != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.messageSize(options)
     if (reservedRange.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(4) * reservedRange.size) + reservedRange.sumBy(pbandk.Sizer::messageSize)
@@ -920,7 +939,7 @@ private fun EnumDescriptorProto.protoSizeImpl(): Int {
 }
 
 private fun EnumDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
     if (value.isNotEmpty()) value.forEach { protoMarshal.writeTag(18).writeMessage(it) }
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
     if (reservedRange.isNotEmpty()) reservedRange.forEach { protoMarshal.writeTag(34).writeMessage(it) }
@@ -929,7 +948,7 @@ private fun EnumDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller
 }
 
 private fun EnumDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumDescriptorProto {
-    var name = ""
+    var name: String? = null
     var value: pbandk.ListWithSize.Builder<pbandk.wkt.EnumValueDescriptorProto>? = null
     var options: pbandk.wkt.EnumOptions? = null
     var reservedRange: pbandk.ListWithSize.Builder<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>? = null
@@ -947,26 +966,28 @@ private fun EnumDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pba
 }
 
 private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(plus: EnumDescriptorProto.EnumReservedRange?): EnumDescriptorProto.EnumReservedRange = plus?.copy(
+    start = plus.start ?: start,
+    end = plus.end ?: end,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun EnumDescriptorProto.EnumReservedRange.protoSizeImpl(): Int {
     var protoSize = 0
-    if (start != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(start)
-    if (end != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(end)
+    if (start != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(start)
+    if (end != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(end)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun EnumDescriptorProto.EnumReservedRange.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (start != 0) protoMarshal.writeTag(8).writeInt32(start)
-    if (end != 0) protoMarshal.writeTag(16).writeInt32(end)
+    if (start != null) protoMarshal.writeTag(8).writeInt32(start)
+    if (end != null) protoMarshal.writeTag(16).writeInt32(end)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumDescriptorProto.EnumReservedRange.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumDescriptorProto.EnumReservedRange {
-    var start = 0
-    var end = 0
+    var start: Int? = null
+    var end: Int? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return EnumDescriptorProto.EnumReservedRange(start, end, protoUnmarshal.unknownFields())
         8 -> start = protoUnmarshal.readInt32()
@@ -976,29 +997,31 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.protoUnmarshalImpl(p
 }
 
 private fun EnumValueDescriptorProto.protoMergeImpl(plus: EnumValueDescriptorProto?): EnumValueDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
+    number = plus.number ?: number,
     options = options?.plus(plus.options) ?: plus.options,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun EnumValueDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (number != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(number)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (number != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(number)
     if (options != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.messageSize(options)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun EnumValueDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (number != 0) protoMarshal.writeTag(16).writeInt32(number)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
+    if (number != null) protoMarshal.writeTag(16).writeInt32(number)
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumValueDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumValueDescriptorProto {
-    var name = ""
-    var number = 0
+    var name: String? = null
+    var number: Int? = null
     var options: pbandk.wkt.EnumValueOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return EnumValueDescriptorProto(name, number, options, protoUnmarshal.unknownFields())
@@ -1010,6 +1033,7 @@ private fun EnumValueDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal
 }
 
 private fun ServiceDescriptorProto.protoMergeImpl(plus: ServiceDescriptorProto?): ServiceDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
     method = method + plus.method,
     options = options?.plus(plus.options) ?: plus.options,
     unknownFields = unknownFields + plus.unknownFields
@@ -1017,7 +1041,7 @@ private fun ServiceDescriptorProto.protoMergeImpl(plus: ServiceDescriptorProto?)
 
 private fun ServiceDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (method.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * method.size) + method.sumBy(pbandk.Sizer::messageSize)
     if (options != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.messageSize(options)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
@@ -1025,14 +1049,14 @@ private fun ServiceDescriptorProto.protoSizeImpl(): Int {
 }
 
 private fun ServiceDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
     if (method.isNotEmpty()) method.forEach { protoMarshal.writeTag(18).writeMessage(it) }
     if (options != null) protoMarshal.writeTag(26).writeMessage(options)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ServiceDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ServiceDescriptorProto {
-    var name = ""
+    var name: String? = null
     var method: pbandk.ListWithSize.Builder<pbandk.wkt.MethodDescriptorProto>? = null
     var options: pbandk.wkt.ServiceOptions? = null
     while (true) when (protoUnmarshal.readTag()) {
@@ -1045,39 +1069,44 @@ private fun ServiceDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: 
 }
 
 private fun MethodDescriptorProto.protoMergeImpl(plus: MethodDescriptorProto?): MethodDescriptorProto = plus?.copy(
+    name = plus.name ?: name,
+    inputType = plus.inputType ?: inputType,
+    outputType = plus.outputType ?: outputType,
     options = options?.plus(plus.options) ?: plus.options,
+    clientStreaming = plus.clientStreaming ?: clientStreaming,
+    serverStreaming = plus.serverStreaming ?: serverStreaming,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun MethodDescriptorProto.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (inputType.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(inputType)
-    if (outputType.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(outputType)
+    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
+    if (inputType != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(inputType)
+    if (outputType != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(outputType)
     if (options != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.messageSize(options)
-    if (clientStreaming) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(clientStreaming)
-    if (serverStreaming) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.boolSize(serverStreaming)
+    if (clientStreaming != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(clientStreaming)
+    if (serverStreaming != null) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.boolSize(serverStreaming)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun MethodDescriptorProto.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (inputType.isNotEmpty()) protoMarshal.writeTag(18).writeString(inputType)
-    if (outputType.isNotEmpty()) protoMarshal.writeTag(26).writeString(outputType)
+    if (name != null) protoMarshal.writeTag(10).writeString(name)
+    if (inputType != null) protoMarshal.writeTag(18).writeString(inputType)
+    if (outputType != null) protoMarshal.writeTag(26).writeString(outputType)
     if (options != null) protoMarshal.writeTag(34).writeMessage(options)
-    if (clientStreaming) protoMarshal.writeTag(40).writeBool(clientStreaming)
-    if (serverStreaming) protoMarshal.writeTag(48).writeBool(serverStreaming)
+    if (clientStreaming != null) protoMarshal.writeTag(40).writeBool(clientStreaming)
+    if (serverStreaming != null) protoMarshal.writeTag(48).writeBool(serverStreaming)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun MethodDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MethodDescriptorProto {
-    var name = ""
-    var inputType = ""
-    var outputType = ""
+    var name: String? = null
+    var inputType: String? = null
+    var outputType: String? = null
     var options: pbandk.wkt.MethodOptions? = null
-    var clientStreaming = false
-    var serverStreaming = false
+    var clientStreaming: Boolean? = null
+    var serverStreaming: Boolean? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return MethodDescriptorProto(name, inputType, outputType, options,
             clientStreaming, serverStreaming, protoUnmarshal.unknownFields())
@@ -1092,77 +1121,95 @@ private fun MethodDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: p
 }
 
 private fun FileOptions.protoMergeImpl(plus: FileOptions?): FileOptions = plus?.copy(
+    javaPackage = plus.javaPackage ?: javaPackage,
+    javaOuterClassname = plus.javaOuterClassname ?: javaOuterClassname,
+    javaMultipleFiles = plus.javaMultipleFiles ?: javaMultipleFiles,
+    javaGenerateEqualsAndHash = plus.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash,
+    javaStringCheckUtf8 = plus.javaStringCheckUtf8 ?: javaStringCheckUtf8,
+    optimizeFor = plus.optimizeFor ?: optimizeFor,
+    goPackage = plus.goPackage ?: goPackage,
+    ccGenericServices = plus.ccGenericServices ?: ccGenericServices,
+    javaGenericServices = plus.javaGenericServices ?: javaGenericServices,
+    pyGenericServices = plus.pyGenericServices ?: pyGenericServices,
+    phpGenericServices = plus.phpGenericServices ?: phpGenericServices,
+    deprecated = plus.deprecated ?: deprecated,
+    ccEnableArenas = plus.ccEnableArenas ?: ccEnableArenas,
+    objcClassPrefix = plus.objcClassPrefix ?: objcClassPrefix,
+    csharpNamespace = plus.csharpNamespace ?: csharpNamespace,
+    swiftPrefix = plus.swiftPrefix ?: swiftPrefix,
+    phpClassPrefix = plus.phpClassPrefix ?: phpClassPrefix,
+    phpNamespace = plus.phpNamespace ?: phpNamespace,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun FileOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (javaPackage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(javaPackage)
-    if (javaOuterClassname.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(javaOuterClassname)
-    if (javaMultipleFiles) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.boolSize(javaMultipleFiles)
-    if (javaGenerateEqualsAndHash) protoSize += pbandk.Sizer.tagSize(20) + pbandk.Sizer.boolSize(javaGenerateEqualsAndHash)
-    if (javaStringCheckUtf8) protoSize += pbandk.Sizer.tagSize(27) + pbandk.Sizer.boolSize(javaStringCheckUtf8)
-    if (optimizeFor.value != 0) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.enumSize(optimizeFor)
-    if (goPackage.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(11) + pbandk.Sizer.stringSize(goPackage)
-    if (ccGenericServices) protoSize += pbandk.Sizer.tagSize(16) + pbandk.Sizer.boolSize(ccGenericServices)
-    if (javaGenericServices) protoSize += pbandk.Sizer.tagSize(17) + pbandk.Sizer.boolSize(javaGenericServices)
-    if (pyGenericServices) protoSize += pbandk.Sizer.tagSize(18) + pbandk.Sizer.boolSize(pyGenericServices)
-    if (phpGenericServices) protoSize += pbandk.Sizer.tagSize(42) + pbandk.Sizer.boolSize(phpGenericServices)
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(23) + pbandk.Sizer.boolSize(deprecated)
-    if (ccEnableArenas) protoSize += pbandk.Sizer.tagSize(31) + pbandk.Sizer.boolSize(ccEnableArenas)
-    if (objcClassPrefix.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(36) + pbandk.Sizer.stringSize(objcClassPrefix)
-    if (csharpNamespace.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(37) + pbandk.Sizer.stringSize(csharpNamespace)
-    if (swiftPrefix.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(39) + pbandk.Sizer.stringSize(swiftPrefix)
-    if (phpClassPrefix.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(40) + pbandk.Sizer.stringSize(phpClassPrefix)
-    if (phpNamespace.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(41) + pbandk.Sizer.stringSize(phpNamespace)
+    if (javaPackage != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(javaPackage)
+    if (javaOuterClassname != null) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(javaOuterClassname)
+    if (javaMultipleFiles != null) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.boolSize(javaMultipleFiles)
+    if (javaGenerateEqualsAndHash != null) protoSize += pbandk.Sizer.tagSize(20) + pbandk.Sizer.boolSize(javaGenerateEqualsAndHash)
+    if (javaStringCheckUtf8 != null) protoSize += pbandk.Sizer.tagSize(27) + pbandk.Sizer.boolSize(javaStringCheckUtf8)
+    if (optimizeFor != null) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.enumSize(optimizeFor)
+    if (goPackage != null) protoSize += pbandk.Sizer.tagSize(11) + pbandk.Sizer.stringSize(goPackage)
+    if (ccGenericServices != null) protoSize += pbandk.Sizer.tagSize(16) + pbandk.Sizer.boolSize(ccGenericServices)
+    if (javaGenericServices != null) protoSize += pbandk.Sizer.tagSize(17) + pbandk.Sizer.boolSize(javaGenericServices)
+    if (pyGenericServices != null) protoSize += pbandk.Sizer.tagSize(18) + pbandk.Sizer.boolSize(pyGenericServices)
+    if (phpGenericServices != null) protoSize += pbandk.Sizer.tagSize(42) + pbandk.Sizer.boolSize(phpGenericServices)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(23) + pbandk.Sizer.boolSize(deprecated)
+    if (ccEnableArenas != null) protoSize += pbandk.Sizer.tagSize(31) + pbandk.Sizer.boolSize(ccEnableArenas)
+    if (objcClassPrefix != null) protoSize += pbandk.Sizer.tagSize(36) + pbandk.Sizer.stringSize(objcClassPrefix)
+    if (csharpNamespace != null) protoSize += pbandk.Sizer.tagSize(37) + pbandk.Sizer.stringSize(csharpNamespace)
+    if (swiftPrefix != null) protoSize += pbandk.Sizer.tagSize(39) + pbandk.Sizer.stringSize(swiftPrefix)
+    if (phpClassPrefix != null) protoSize += pbandk.Sizer.tagSize(40) + pbandk.Sizer.stringSize(phpClassPrefix)
+    if (phpNamespace != null) protoSize += pbandk.Sizer.tagSize(41) + pbandk.Sizer.stringSize(phpNamespace)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun FileOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (javaPackage.isNotEmpty()) protoMarshal.writeTag(10).writeString(javaPackage)
-    if (javaOuterClassname.isNotEmpty()) protoMarshal.writeTag(66).writeString(javaOuterClassname)
-    if (optimizeFor.value != 0) protoMarshal.writeTag(72).writeEnum(optimizeFor)
-    if (javaMultipleFiles) protoMarshal.writeTag(80).writeBool(javaMultipleFiles)
-    if (goPackage.isNotEmpty()) protoMarshal.writeTag(90).writeString(goPackage)
-    if (ccGenericServices) protoMarshal.writeTag(128).writeBool(ccGenericServices)
-    if (javaGenericServices) protoMarshal.writeTag(136).writeBool(javaGenericServices)
-    if (pyGenericServices) protoMarshal.writeTag(144).writeBool(pyGenericServices)
-    if (javaGenerateEqualsAndHash) protoMarshal.writeTag(160).writeBool(javaGenerateEqualsAndHash)
-    if (deprecated) protoMarshal.writeTag(184).writeBool(deprecated)
-    if (javaStringCheckUtf8) protoMarshal.writeTag(216).writeBool(javaStringCheckUtf8)
-    if (ccEnableArenas) protoMarshal.writeTag(248).writeBool(ccEnableArenas)
-    if (objcClassPrefix.isNotEmpty()) protoMarshal.writeTag(290).writeString(objcClassPrefix)
-    if (csharpNamespace.isNotEmpty()) protoMarshal.writeTag(298).writeString(csharpNamespace)
-    if (swiftPrefix.isNotEmpty()) protoMarshal.writeTag(314).writeString(swiftPrefix)
-    if (phpClassPrefix.isNotEmpty()) protoMarshal.writeTag(322).writeString(phpClassPrefix)
-    if (phpNamespace.isNotEmpty()) protoMarshal.writeTag(330).writeString(phpNamespace)
-    if (phpGenericServices) protoMarshal.writeTag(336).writeBool(phpGenericServices)
+    if (javaPackage != null) protoMarshal.writeTag(10).writeString(javaPackage)
+    if (javaOuterClassname != null) protoMarshal.writeTag(66).writeString(javaOuterClassname)
+    if (optimizeFor != null) protoMarshal.writeTag(72).writeEnum(optimizeFor)
+    if (javaMultipleFiles != null) protoMarshal.writeTag(80).writeBool(javaMultipleFiles)
+    if (goPackage != null) protoMarshal.writeTag(90).writeString(goPackage)
+    if (ccGenericServices != null) protoMarshal.writeTag(128).writeBool(ccGenericServices)
+    if (javaGenericServices != null) protoMarshal.writeTag(136).writeBool(javaGenericServices)
+    if (pyGenericServices != null) protoMarshal.writeTag(144).writeBool(pyGenericServices)
+    if (javaGenerateEqualsAndHash != null) protoMarshal.writeTag(160).writeBool(javaGenerateEqualsAndHash)
+    if (deprecated != null) protoMarshal.writeTag(184).writeBool(deprecated)
+    if (javaStringCheckUtf8 != null) protoMarshal.writeTag(216).writeBool(javaStringCheckUtf8)
+    if (ccEnableArenas != null) protoMarshal.writeTag(248).writeBool(ccEnableArenas)
+    if (objcClassPrefix != null) protoMarshal.writeTag(290).writeString(objcClassPrefix)
+    if (csharpNamespace != null) protoMarshal.writeTag(298).writeString(csharpNamespace)
+    if (swiftPrefix != null) protoMarshal.writeTag(314).writeString(swiftPrefix)
+    if (phpClassPrefix != null) protoMarshal.writeTag(322).writeString(phpClassPrefix)
+    if (phpNamespace != null) protoMarshal.writeTag(330).writeString(phpNamespace)
+    if (phpGenericServices != null) protoMarshal.writeTag(336).writeBool(phpGenericServices)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FileOptions {
-    var javaPackage = ""
-    var javaOuterClassname = ""
-    var javaMultipleFiles = false
-    var javaGenerateEqualsAndHash = false
-    var javaStringCheckUtf8 = false
-    var optimizeFor: pbandk.wkt.FileOptions.OptimizeMode = pbandk.wkt.FileOptions.OptimizeMode.fromValue(0)
-    var goPackage = ""
-    var ccGenericServices = false
-    var javaGenericServices = false
-    var pyGenericServices = false
-    var phpGenericServices = false
-    var deprecated = false
-    var ccEnableArenas = false
-    var objcClassPrefix = ""
-    var csharpNamespace = ""
-    var swiftPrefix = ""
-    var phpClassPrefix = ""
-    var phpNamespace = ""
+    var javaPackage: String? = null
+    var javaOuterClassname: String? = null
+    var javaMultipleFiles: Boolean? = null
+    var javaGenerateEqualsAndHash: Boolean? = null
+    var javaStringCheckUtf8: Boolean? = null
+    var optimizeFor: pbandk.wkt.FileOptions.OptimizeMode? = null
+    var goPackage: String? = null
+    var ccGenericServices: Boolean? = null
+    var javaGenericServices: Boolean? = null
+    var pyGenericServices: Boolean? = null
+    var phpGenericServices: Boolean? = null
+    var deprecated: Boolean? = null
+    var ccEnableArenas: Boolean? = null
+    var objcClassPrefix: String? = null
+    var csharpNamespace: String? = null
+    var swiftPrefix: String? = null
+    var phpClassPrefix: String? = null
+    var phpNamespace: String? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
@@ -1194,35 +1241,39 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
 }
 
 private fun MessageOptions.protoMergeImpl(plus: MessageOptions?): MessageOptions = plus?.copy(
+    messageSetWireFormat = plus.messageSetWireFormat ?: messageSetWireFormat,
+    noStandardDescriptorAccessor = plus.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
+    deprecated = plus.deprecated ?: deprecated,
+    mapEntry = plus.mapEntry ?: mapEntry,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun MessageOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (messageSetWireFormat) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(messageSetWireFormat)
-    if (noStandardDescriptorAccessor) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(noStandardDescriptorAccessor)
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
-    if (mapEntry) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.boolSize(mapEntry)
+    if (messageSetWireFormat != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(messageSetWireFormat)
+    if (noStandardDescriptorAccessor != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(noStandardDescriptorAccessor)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
+    if (mapEntry != null) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.boolSize(mapEntry)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun MessageOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (messageSetWireFormat) protoMarshal.writeTag(8).writeBool(messageSetWireFormat)
-    if (noStandardDescriptorAccessor) protoMarshal.writeTag(16).writeBool(noStandardDescriptorAccessor)
-    if (deprecated) protoMarshal.writeTag(24).writeBool(deprecated)
-    if (mapEntry) protoMarshal.writeTag(56).writeBool(mapEntry)
+    if (messageSetWireFormat != null) protoMarshal.writeTag(8).writeBool(messageSetWireFormat)
+    if (noStandardDescriptorAccessor != null) protoMarshal.writeTag(16).writeBool(noStandardDescriptorAccessor)
+    if (deprecated != null) protoMarshal.writeTag(24).writeBool(deprecated)
+    if (mapEntry != null) protoMarshal.writeTag(56).writeBool(mapEntry)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun MessageOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MessageOptions {
-    var messageSetWireFormat = false
-    var noStandardDescriptorAccessor = false
-    var deprecated = false
-    var mapEntry = false
+    var messageSetWireFormat: Boolean? = null
+    var noStandardDescriptorAccessor: Boolean? = null
+    var deprecated: Boolean? = null
+    var mapEntry: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return MessageOptions(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry,
@@ -1237,41 +1288,47 @@ private fun MessageOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
 }
 
 private fun FieldOptions.protoMergeImpl(plus: FieldOptions?): FieldOptions = plus?.copy(
+    ctype = plus.ctype ?: ctype,
+    packed = plus.packed ?: packed,
+    jstype = plus.jstype ?: jstype,
+    lazy = plus.lazy ?: lazy,
+    deprecated = plus.deprecated ?: deprecated,
+    weak = plus.weak ?: weak,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun FieldOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (ctype.value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(ctype)
-    if (packed) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(packed)
-    if (jstype.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(jstype)
-    if (lazy) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(lazy)
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
-    if (weak) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.boolSize(weak)
+    if (ctype != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(ctype)
+    if (packed != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(packed)
+    if (jstype != null) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(jstype)
+    if (lazy != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(lazy)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
+    if (weak != null) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.boolSize(weak)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun FieldOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (ctype.value != 0) protoMarshal.writeTag(8).writeEnum(ctype)
-    if (packed) protoMarshal.writeTag(16).writeBool(packed)
-    if (deprecated) protoMarshal.writeTag(24).writeBool(deprecated)
-    if (lazy) protoMarshal.writeTag(40).writeBool(lazy)
-    if (jstype.value != 0) protoMarshal.writeTag(48).writeEnum(jstype)
-    if (weak) protoMarshal.writeTag(80).writeBool(weak)
+    if (ctype != null) protoMarshal.writeTag(8).writeEnum(ctype)
+    if (packed != null) protoMarshal.writeTag(16).writeBool(packed)
+    if (deprecated != null) protoMarshal.writeTag(24).writeBool(deprecated)
+    if (lazy != null) protoMarshal.writeTag(40).writeBool(lazy)
+    if (jstype != null) protoMarshal.writeTag(48).writeEnum(jstype)
+    if (weak != null) protoMarshal.writeTag(80).writeBool(weak)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun FieldOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FieldOptions {
-    var ctype: pbandk.wkt.FieldOptions.CType = pbandk.wkt.FieldOptions.CType.fromValue(0)
-    var packed = false
-    var jstype: pbandk.wkt.FieldOptions.JSType = pbandk.wkt.FieldOptions.JSType.fromValue(0)
-    var lazy = false
-    var deprecated = false
-    var weak = false
+    var ctype: pbandk.wkt.FieldOptions.CType? = null
+    var packed: Boolean? = null
+    var jstype: pbandk.wkt.FieldOptions.JSType? = null
+    var lazy: Boolean? = null
+    var deprecated: Boolean? = null
+    var weak: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FieldOptions(ctype, packed, jstype, lazy,
@@ -1314,29 +1371,31 @@ private fun OneofOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unm
 }
 
 private fun EnumOptions.protoMergeImpl(plus: EnumOptions?): EnumOptions = plus?.copy(
+    allowAlias = plus.allowAlias ?: allowAlias,
+    deprecated = plus.deprecated ?: deprecated,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun EnumOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (allowAlias) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(allowAlias)
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
+    if (allowAlias != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(allowAlias)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(deprecated)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun EnumOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (allowAlias) protoMarshal.writeTag(16).writeBool(allowAlias)
-    if (deprecated) protoMarshal.writeTag(24).writeBool(deprecated)
+    if (allowAlias != null) protoMarshal.writeTag(16).writeBool(allowAlias)
+    if (deprecated != null) protoMarshal.writeTag(24).writeBool(deprecated)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumOptions {
-    var allowAlias = false
-    var deprecated = false
+    var allowAlias: Boolean? = null
+    var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return EnumOptions(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
@@ -1348,26 +1407,27 @@ private fun EnumOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
 }
 
 private fun EnumValueOptions.protoMergeImpl(plus: EnumValueOptions?): EnumValueOptions = plus?.copy(
+    deprecated = plus.deprecated ?: deprecated,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun EnumValueOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(deprecated)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(deprecated)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun EnumValueOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (deprecated) protoMarshal.writeTag(8).writeBool(deprecated)
+    if (deprecated != null) protoMarshal.writeTag(8).writeBool(deprecated)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun EnumValueOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): EnumValueOptions {
-    var deprecated = false
+    var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return EnumValueOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
@@ -1378,26 +1438,27 @@ private fun EnumValueOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk
 }
 
 private fun ServiceOptions.protoMergeImpl(plus: ServiceOptions?): ServiceOptions = plus?.copy(
+    deprecated = plus.deprecated ?: deprecated,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun ServiceOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(33) + pbandk.Sizer.boolSize(deprecated)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(33) + pbandk.Sizer.boolSize(deprecated)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun ServiceOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (deprecated) protoMarshal.writeTag(264).writeBool(deprecated)
+    if (deprecated != null) protoMarshal.writeTag(264).writeBool(deprecated)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ServiceOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ServiceOptions {
-    var deprecated = false
+    var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return ServiceOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
@@ -1408,29 +1469,31 @@ private fun ServiceOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
 }
 
 private fun MethodOptions.protoMergeImpl(plus: MethodOptions?): MethodOptions = plus?.copy(
+    deprecated = plus.deprecated ?: deprecated,
+    idempotencyLevel = plus.idempotencyLevel ?: idempotencyLevel,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun MethodOptions.protoSizeImpl(): Int {
     var protoSize = 0
-    if (deprecated) protoSize += pbandk.Sizer.tagSize(33) + pbandk.Sizer.boolSize(deprecated)
-    if (idempotencyLevel.value != 0) protoSize += pbandk.Sizer.tagSize(34) + pbandk.Sizer.enumSize(idempotencyLevel)
+    if (deprecated != null) protoSize += pbandk.Sizer.tagSize(33) + pbandk.Sizer.boolSize(deprecated)
+    if (idempotencyLevel != null) protoSize += pbandk.Sizer.tagSize(34) + pbandk.Sizer.enumSize(idempotencyLevel)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun MethodOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (deprecated) protoMarshal.writeTag(264).writeBool(deprecated)
-    if (idempotencyLevel.value != 0) protoMarshal.writeTag(272).writeEnum(idempotencyLevel)
+    if (deprecated != null) protoMarshal.writeTag(264).writeBool(deprecated)
+    if (idempotencyLevel != null) protoMarshal.writeTag(272).writeEnum(idempotencyLevel)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun MethodOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MethodOptions {
-    var deprecated = false
-    var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel = pbandk.wkt.MethodOptions.IdempotencyLevel.fromValue(0)
+    var deprecated: Boolean? = null
+    var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return MethodOptions(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
@@ -1443,41 +1506,47 @@ private fun MethodOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Un
 
 private fun UninterpretedOption.protoMergeImpl(plus: UninterpretedOption?): UninterpretedOption = plus?.copy(
     name = name + plus.name,
+    identifierValue = plus.identifierValue ?: identifierValue,
+    positiveIntValue = plus.positiveIntValue ?: positiveIntValue,
+    negativeIntValue = plus.negativeIntValue ?: negativeIntValue,
+    doubleValue = plus.doubleValue ?: doubleValue,
+    stringValue = plus.stringValue ?: stringValue,
+    aggregateValue = plus.aggregateValue ?: aggregateValue,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun UninterpretedOption.protoSizeImpl(): Int {
     var protoSize = 0
     if (name.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * name.size) + name.sumBy(pbandk.Sizer::messageSize)
-    if (identifierValue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(identifierValue)
-    if (positiveIntValue != 0L) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.uInt64Size(positiveIntValue)
-    if (negativeIntValue != 0L) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.int64Size(negativeIntValue)
-    if (doubleValue != 0.0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.doubleSize(doubleValue)
-    if (stringValue.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.bytesSize(stringValue)
-    if (aggregateValue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(aggregateValue)
+    if (identifierValue != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(identifierValue)
+    if (positiveIntValue != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.uInt64Size(positiveIntValue)
+    if (negativeIntValue != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.int64Size(negativeIntValue)
+    if (doubleValue != null) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.doubleSize(doubleValue)
+    if (stringValue != null) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.bytesSize(stringValue)
+    if (aggregateValue != null) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(aggregateValue)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun UninterpretedOption.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) name.forEach { protoMarshal.writeTag(18).writeMessage(it) }
-    if (identifierValue.isNotEmpty()) protoMarshal.writeTag(26).writeString(identifierValue)
-    if (positiveIntValue != 0L) protoMarshal.writeTag(32).writeUInt64(positiveIntValue)
-    if (negativeIntValue != 0L) protoMarshal.writeTag(40).writeInt64(negativeIntValue)
-    if (doubleValue != 0.0) protoMarshal.writeTag(49).writeDouble(doubleValue)
-    if (stringValue.array.isNotEmpty()) protoMarshal.writeTag(58).writeBytes(stringValue)
-    if (aggregateValue.isNotEmpty()) protoMarshal.writeTag(66).writeString(aggregateValue)
+    if (identifierValue != null) protoMarshal.writeTag(26).writeString(identifierValue)
+    if (positiveIntValue != null) protoMarshal.writeTag(32).writeUInt64(positiveIntValue)
+    if (negativeIntValue != null) protoMarshal.writeTag(40).writeInt64(negativeIntValue)
+    if (doubleValue != null) protoMarshal.writeTag(49).writeDouble(doubleValue)
+    if (stringValue != null) protoMarshal.writeTag(58).writeBytes(stringValue)
+    if (aggregateValue != null) protoMarshal.writeTag(66).writeString(aggregateValue)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun UninterpretedOption.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UninterpretedOption {
     var name: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption.NamePart>? = null
-    var identifierValue = ""
-    var positiveIntValue = 0L
-    var negativeIntValue = 0L
-    var doubleValue = 0.0
-    var stringValue: pbandk.ByteArr = pbandk.ByteArr.empty
-    var aggregateValue = ""
+    var identifierValue: String? = null
+    var positiveIntValue: Long? = null
+    var negativeIntValue: Long? = null
+    var doubleValue: Double? = null
+    var stringValue: pbandk.ByteArr? = null
+    var aggregateValue: String? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return UninterpretedOption(pbandk.ListWithSize.Builder.fixed(name), identifierValue, positiveIntValue, negativeIntValue,
             doubleValue, stringValue, aggregateValue, protoUnmarshal.unknownFields())
@@ -1550,6 +1619,8 @@ private fun SourceCodeInfo.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
 private fun SourceCodeInfo.Location.protoMergeImpl(plus: SourceCodeInfo.Location?): SourceCodeInfo.Location = plus?.copy(
     path = path + plus.path,
     span = span + plus.span,
+    leadingComments = plus.leadingComments ?: leadingComments,
+    trailingComments = plus.trailingComments ?: trailingComments,
     leadingDetachedComments = leadingDetachedComments + plus.leadingDetachedComments,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -1558,8 +1629,8 @@ private fun SourceCodeInfo.Location.protoSizeImpl(): Int {
     var protoSize = 0
     if (path.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.packedRepeatedSize(path, pbandk.Sizer::int32Size)
     if (span.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.packedRepeatedSize(span, pbandk.Sizer::int32Size)
-    if (leadingComments.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(leadingComments)
-    if (trailingComments.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(trailingComments)
+    if (leadingComments != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(leadingComments)
+    if (trailingComments != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(trailingComments)
     if (leadingDetachedComments.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(6) * leadingDetachedComments.size) + leadingDetachedComments.sumBy(pbandk.Sizer::stringSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -1568,8 +1639,8 @@ private fun SourceCodeInfo.Location.protoSizeImpl(): Int {
 private fun SourceCodeInfo.Location.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (path.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
     if (span.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(span, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
-    if (leadingComments.isNotEmpty()) protoMarshal.writeTag(26).writeString(leadingComments)
-    if (trailingComments.isNotEmpty()) protoMarshal.writeTag(34).writeString(trailingComments)
+    if (leadingComments != null) protoMarshal.writeTag(26).writeString(leadingComments)
+    if (trailingComments != null) protoMarshal.writeTag(34).writeString(trailingComments)
     if (leadingDetachedComments.isNotEmpty()) leadingDetachedComments.forEach { protoMarshal.writeTag(50).writeString(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -1577,14 +1648,14 @@ private fun SourceCodeInfo.Location.protoMarshalImpl(protoMarshal: pbandk.Marsha
 private fun SourceCodeInfo.Location.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): SourceCodeInfo.Location {
     var path: pbandk.ListWithSize.Builder<Int>? = null
     var span: pbandk.ListWithSize.Builder<Int>? = null
-    var leadingComments = ""
-    var trailingComments = ""
+    var leadingComments: String? = null
+    var trailingComments: String? = null
     var leadingDetachedComments: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return SourceCodeInfo.Location(pbandk.ListWithSize.Builder.fixed(path), pbandk.ListWithSize.Builder.fixed(span), leadingComments, trailingComments,
             pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), protoUnmarshal.unknownFields())
-        10 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
-        18 -> span = protoUnmarshal.readRepeated(span, protoUnmarshal::readInt32)
+        10, 8 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
+        18, 16 -> span = protoUnmarshal.readRepeated(span, protoUnmarshal::readInt32)
         26 -> leadingComments = protoUnmarshal.readString()
         34 -> trailingComments = protoUnmarshal.readString()
         50 -> leadingDetachedComments = protoUnmarshal.readRepeated(leadingDetachedComments, protoUnmarshal::readString)
@@ -1620,35 +1691,38 @@ private fun GeneratedCodeInfo.Companion.protoUnmarshalImpl(protoUnmarshal: pband
 
 private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: GeneratedCodeInfo.Annotation?): GeneratedCodeInfo.Annotation = plus?.copy(
     path = path + plus.path,
+    sourceFile = plus.sourceFile ?: sourceFile,
+    begin = plus.begin ?: begin,
+    end = plus.end ?: end,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
 private fun GeneratedCodeInfo.Annotation.protoSizeImpl(): Int {
     var protoSize = 0
     if (path.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.packedRepeatedSize(path, pbandk.Sizer::int32Size)
-    if (sourceFile.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(sourceFile)
-    if (begin != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(begin)
-    if (end != 0) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.int32Size(end)
+    if (sourceFile != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(sourceFile)
+    if (begin != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(begin)
+    if (end != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.int32Size(end)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun GeneratedCodeInfo.Annotation.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (path.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(path, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
-    if (sourceFile.isNotEmpty()) protoMarshal.writeTag(18).writeString(sourceFile)
-    if (begin != 0) protoMarshal.writeTag(24).writeInt32(begin)
-    if (end != 0) protoMarshal.writeTag(32).writeInt32(end)
+    if (sourceFile != null) protoMarshal.writeTag(18).writeString(sourceFile)
+    if (begin != null) protoMarshal.writeTag(24).writeInt32(begin)
+    if (end != null) protoMarshal.writeTag(32).writeInt32(end)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun GeneratedCodeInfo.Annotation.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): GeneratedCodeInfo.Annotation {
     var path: pbandk.ListWithSize.Builder<Int>? = null
-    var sourceFile = ""
-    var begin = 0
-    var end = 0
+    var sourceFile: String? = null
+    var begin: Int? = null
+    var end: Int? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, protoUnmarshal.unknownFields())
-        10 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
+        10, 8 -> path = protoUnmarshal.readRepeated(path, protoUnmarshal::readInt32)
         18 -> sourceFile = protoUnmarshal.readString()
         24 -> begin = protoUnmarshal.readInt32()
         32 -> end = protoUnmarshal.readInt32()

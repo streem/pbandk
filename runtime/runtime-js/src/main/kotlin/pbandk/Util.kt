@@ -5,7 +5,7 @@ import org.khronos.webgl.Uint8Array
 
 val Long.protobufjsLong: dynamic get() {
     val ret = js("{}")
-    ret.high = this.asDynamic().getLowBits()
+    ret.high = this.asDynamic().getHighBits()
     ret.low = this.asDynamic().getLowBits()
     return ret
 }
