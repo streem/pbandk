@@ -4,7 +4,8 @@ import com.google.protobuf.compiler.PluginProtos
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 
-const val useJvmProto = true
+// Set this to false to use the JVM marshal/unmarshal for code gen proto
+const val useJvmProto = false
 
 actual object Platform {
     actual fun stderrPrintln(str: String) = System.err.println(str)
