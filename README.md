@@ -20,6 +20,7 @@ It is built to work across multiple Kotlin platforms.
 * Specialized support for well known types instead of just referencing them
 * Pluggable service code generation for gRPC support
 * Code comments on generated code
+* JSON support
 
 Read below for more information and see the [examples](examples).
 
@@ -129,6 +130,8 @@ data class AddressBook(
 // Omitted multiple supporting private extension methods
 ```
 
+See the "Generated Code" section below under "Usage" for more details.
+
 ### Usage
 
 #### Generating Code
@@ -171,6 +174,70 @@ dependencies {
 It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly. For Kotlin
 JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatform code, change `pbandk-runtime-jvm` to
 `pbandk-runtime-common`.
+
+#### Generated Code
+
+**Package**
+
+The package is either the `kotlin_package` plugin option or the package set in the message. If the `google.protobuf`
+package is referenced, it is assumed to be a well-known type and is changed to reference `pbandk.wkt`.
+
+**Message**
+
+Each Protobuf message extends `pbandk.Message` and has two overloaded `protoMarshal` methods, the most useful of which
+marshals to a byte array. The companion object of every message has two overloaded `protoUnmarshal` methods, the most
+useful of which accepts a byte array and returns an instance of the class. The other `protoMarshal` and `protoUnmarshal`
+methods accept `Marshaller` and `Unmarshaller` instances respectively which are different for each platform. For
+example, the JVM `Marshaller` uses `com.google.protobuf.CodedOutputStream`.
+
+Messages are immutable Kotlin data classes. This means they automatically implement `hashCode`, `equals`, and
+`toString`. Each class has an `unknownFields` map which contains information about extra fields the unmarshaller didn't
+recognize. If there are values in this map, they will be marshalled on output. The `Unmarshaller` instances have a
+constructor option to discard unknown fields when reading.
+
+For proto3, the only nullable fields are other messages and oneof fields. Other values have defaults. For proto2,
+optional fields are nullable and defaulted as such. Types are basically the same as they would be in Java. However,
+`bytes` fields actually use a `pbandk.ByteArr` class which is a simple wrapper around a byte array. This was done
+because Kotlin does not handle array fields in data classes predictably and it wasn't worth overriding `equals` and
+`hashCode` every time.
+
+Regardless of `optimize_for` options, the generated code is always the same. Each message has a `protoSize` field that
+lazily calculates the size of the message when first invoked. Also, each message has the `plus` operator defined which
+follows protobuf merge semantics.
+
+**Oneof**
+
+Oneof fields are generated as nested classes of a common sealed base class. Each oneof inner field is a data class that
+wraps a single value.
+
+**Enum**
+
+Enum fields are generated as single-integer-value immutable data classes with known values as vals on the companion
+object. This is preferred over traditional enum classes because enums in protobuf are open ended and may not be one of
+the specific known values. Traditional enum classes would not be able to capture this state and using data classes this
+way requires the user to do explicit checks for unknown ordinals during exhaustive when clauses. This does come at very
+negligible cost during equality checks. Although there is the normal single-integer-value constructor on the data class,
+developers should use the `fromValue` method present on the companion object. This will return an existing val if known.
+It is possible in future versions that the generated data class constructor will become private.
+
+Note, there is no reflection outside of normal Kotlin reflection. This means Kotlin reflection has to be used to get
+string values of the enums currently. This may change as the JSON format is developed which requires the string form.
+
+**Repeated and Map**
+
+Repeated fields are normal lists. Developers should make no assumptions about which list implementation is used. Maps
+are represented by Kotlin maps. In proto2, due to how map entries are serialized, both the key and the value are
+considered nullable.
+
+**Well-Known Types**
+
+Well known types (i.e. those in the `google/protobuf` imports) are shipped with the runtime. At this early stage,
+specialized support (e.g. using Kotlin `Any` for `google.protobuf.Any`) is not implemented.
+
+**Services**
+
+Services are not supported yet. If supported in the future, it will likely be in a pluggable way where others can author
+service code generation.
 
 ### Building
 
