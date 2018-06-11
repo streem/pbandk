@@ -14,7 +14,7 @@ buildscript {
 
 allprojects {
     group 'com.github.cretz.pbandk'
-    version '0.1.0-SNAPSHOT'
+    version '0.1.0'
 
     repositories {
         mavenCentral()
@@ -266,6 +266,11 @@ def publishSettings(project, projectName, projectDescription) {
         task packageSources(type: Jar) {
             classifier = 'sources'
             from sourceSets.main.allSource
+            if (project.name.endsWith('-jvm') || project.name.endsWith('-js')) {
+                duplicatesStrategy = 'exclude'
+                def commonProject = project.parent.subprojects.find { it.name.endsWith('-common') }
+                from(sourceSets.main.allSource + commonProject.sourceSets.main.allSource)
+            }
         }
 
         artifacts {
