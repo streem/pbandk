@@ -1,5 +1,3 @@
-group 'pbandk'
-
 buildscript {
     ext.kotlin_version = '1.2.41'
     repositories {
@@ -15,6 +13,9 @@ buildscript {
 }
 
 allprojects {
+    group 'com.github.cretz.pbandk'
+    version '0.1.0-SNAPSHOT'
+
     repositories {
         mavenCentral()
     }
@@ -36,6 +37,8 @@ project(':runtime:runtime-common') {
             runProtoGen(Paths.get(protocPath, 'include').toString(), 'src/main/kotlin', 'pbandk.wkt', 'debug', 'google/protobuf')
         }
     }
+
+    publishSettings(project, 'pbandk-runtime-common', 'Common library for PBAndK Protobuf code')
 }
 
 project(':runtime:runtime-js') {
@@ -48,20 +51,21 @@ project(':runtime:runtime-js') {
     compileKotlin2Js {
         kotlinOptions.moduleKind = 'commonjs'
     }
+    publishSettings(project, 'pbandk-runtime-js', 'JS library for PBAndK Protobuf code')
 }
 
 project(':runtime:runtime-jvm') {
     apply plugin: 'kotlin-platform-jvm'
-    sourceCompatibility = '1.8'
+    sourceCompatibility = '1.6'
     compileKotlin {
-        kotlinOptions.jvmTarget = '1.8'
+        kotlinOptions.jvmTarget = '1.6'
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = '1.8'
+        kotlinOptions.jvmTarget = '1.6'
     }
     dependencies {
         expectedBy project(':runtime:runtime-common')
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
         compile 'com.google.protobuf:protobuf-java:3.5.1'
         testCompile 'junit:junit:4.12'
         testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
@@ -75,6 +79,7 @@ project(':runtime:runtime-jvm') {
             events 'passed', 'skipped', 'failed'
         }
     }
+    publishSettings(project, 'pbandk-runtime-jvm', 'JVM library for PBAndK Protobuf code')
 }
 
 project(':runtime:runtime-native') {
@@ -117,6 +122,7 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
         kotlinOptions.jvmTarget = '1.8'
     }
     mainClassName = 'pbandk.gen.MainKt'
+    applicationName = 'protoc-gen-kotlin'
     dependencies {
         expectedBy project(':protoc-gen-kotlin:protoc-gen-kotlin-common')
         compile project(':runtime:runtime-jvm')
@@ -149,38 +155,6 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-native') {
         expectedBy project(':protoc-gen-kotlin:protoc-gen-kotlin-common')
     }
 }
-
-/*
-project(':protoc-gen-kotlin') {
-    apply plugin: 'java'
-    apply plugin: 'kotlin'
-    apply plugin: 'application'
-    sourceCompatibility = '1.8'
-    compileKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = '1.8'
-    }
-    mainClassName = 'pbandk.gen.MainKt'
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        compile 'com.google.protobuf:protobuf-java:3.5.1'
-        compile project(':runtime:runtime-jvm')
-        testCompile 'junit:junit:4.12'
-        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    }
-    /* TODO: move to Kotlin Native one day
-    apply plugin: 'konan'
-    konanArtifacts {
-        program('protoc-gen-kotlin') {
-            enableOptimizations true
-            entryPoint 'pbandk.gen.main'
-        }
-    }
-}
-*/
 
 project(':conformance:conformance-common') {
     apply plugin: 'kotlin-platform-common'
@@ -266,7 +240,7 @@ allprojects {
         if (logLevel != null) args[-1] += "log=$logLevel,"
         args[-1] += 'empty_arg:' + Paths.get(outPath)
         args << '--plugin=protoc-gen-kotlin=' +
-            Paths.get(project.rootDir.toString(), 'protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin-jvm/bin/protoc-gen-kotlin-jvm')
+            Paths.get(project.rootDir.toString(), 'protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
         if (System.properties['os.name'].toLowerCase().contains('windows')) args[-1] += '.bat'
         def includePath = Paths.get(inPath)
         if (!includePath.absolute) includePath = Paths.get(project.projectDir.toString(), inPath)
@@ -278,5 +252,66 @@ allprojects {
         }
         // Run it
         exec { commandLine(*args) }
+    }
+}
+
+def publishSettings(project, projectName, projectDescription) {
+    project.with {
+        if (!project.hasProperty('ossrhUsername')) return
+        apply plugin: 'maven'
+        apply plugin: 'signing'
+
+        archivesBaseName = projectName
+
+        task packageSources(type: Jar) {
+            classifier = 'sources'
+            from sourceSets.main.allSource
+        }
+
+        artifacts {
+            archives packageSources
+        }
+
+        signing {
+            sign configurations.archives
+        }
+
+        uploadArchives {
+            repositories {
+                mavenDeployer {
+                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                    repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
+                        authentication(userName: ossrhUsername, password: ossrhPassword)
+                    }
+                    snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
+                        authentication(userName: ossrhUsername, password: ossrhPassword)
+                    }
+                    pom.project {
+                        name projectName
+                        packaging 'jar'
+                        description projectDescription
+                        url 'https://github.com/cretz/pbandk'
+                        scm {
+                            connection 'scm:git:git@github.com:cretz/pbandk.git'
+                            developerConnection 'scm:git:git@github.com:cretz/pbandk.git'
+                            url 'git@github.com:cretz/pbandk.git'
+                        }
+                        licenses {
+                            license {
+                                name 'MIT License'
+                                url 'https://opensource.org/licenses/MIT'
+                            }
+                        }
+                        developers {
+                            developer {
+                                id 'cretz'
+                                name 'Chad Retz'
+                                url 'https://github.com/cretz'
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

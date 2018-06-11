@@ -1,7 +1,7 @@
 /pb-and-k.iml
-/.gradle
-/.idea
 /gradle*
+.gradle
+.idea
 build
 node_modules
 package-lock.json

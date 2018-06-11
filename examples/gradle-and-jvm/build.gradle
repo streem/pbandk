@@ -1,0 +1,55 @@
+buildscript {
+    ext.kotlin_version = '1.2.41'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+apply plugin: 'com.google.protobuf'
+
+mainClassName = 'pbandk.examples.addressbook.MainKt'
+applicationName = 'addressbook'
+
+dependencies {
+    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.1.0-SNAPSHOT'
+}
+
+compileJava.enabled = false
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.5.1'
+    }
+    /*
+    // This must be set to the batch file on Windows
+    plugins {
+        kotlin {
+            path = 'c:\\path\\to\\protoc-gen-kotlin.bat'
+        }
+    }
+    */
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.plugins {
+                kotlin {
+                    option 'kotlin_package=pbandk.examples.addressbook.pb'
+                }
+            }
+        }
+    }
+}
