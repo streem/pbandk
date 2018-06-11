@@ -138,7 +138,7 @@ See the "Generated Code" section below under "Usage" for more details.
 
 PBAndK's code generator leverages `protoc`. Download the
 [latest protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`. Then
-download the [latest protoc-gen-kotlin](https://github.com/cretz/pbandk/releases/latest) and make sure
+download the [latest protoc-gen-kotlin](https://github.com/cretz/pb-and-k/releases/latest) and make sure
 `protoc-gen-kotlin` is on the `PATH`. To generate code from `sample.proto` and put in `src/main/kotlin`, run:
 
     protoc --kotlin_out=src/main/kotlin sample.proto
