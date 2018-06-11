@@ -273,8 +273,13 @@ def publishSettings(project, projectName, projectDescription) {
             }
         }
 
+        task packageJavadoc(type: Jar) {
+            // Empty to satisfy Sonatype's javadoc.jar requirement
+            classifier 'javadoc'
+        }
+
         artifacts {
-            archives packageSources
+            archives packageSources, packageJavadoc
         }
 
         signing {

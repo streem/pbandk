@@ -6,7 +6,7 @@ It is built to work across multiple Kotlin platforms.
 **Features**
 
 * Clean data class generation
-* Works for JVM and JS (albeit JS isn't published anywhere)
+* Works for JVM and JS
 * Support for proto2 and proto3 syntaxes
 * Oneof's are properly handled as sealed classes
 * JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for
@@ -19,6 +19,9 @@ It is built to work across multiple Kotlin platforms.
 * Protobuf code generator in Kotlin Native for easier importing
 * Specialized support for well known types instead of just referencing them
 * Pluggable service code generation for gRPC support
+* Code comments on generated code
+
+Read below for more information and see the [examples](examples).
 
 ### Beta
 
@@ -156,8 +159,8 @@ In addition to running `protoc` manually, the
 
 #### Runtime Library
 
-PBAndK's runtime library is a thin layer over the preferred Protobuf library for a certain platform. Currently only the
-JVM library is deployed to Maven central. Using Gradle, the dependency can be added:
+PBAndK's runtime library is a thin layer over the preferred Protobuf library for each platform. Using Gradle, the
+dependency can be added for JVM libraries:
 
 ```
 dependencies {
@@ -165,7 +168,9 @@ dependencies {
 }
 ```
 
-It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly.
+It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly. For Kotlin
+JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatform code, change `pbandk-runtime-jvm` to
+`pbandk-runtime-common`.
 
 ### Building
 
