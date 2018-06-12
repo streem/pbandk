@@ -130,7 +130,9 @@ data class AddressBook(
 // Omitted multiple supporting private extension methods
 ```
 
-See the "Generated Code" section below under "Usage" for more details.
+To see a full version of the file, see
+[here](examples/gradle-and-jvm/src/main/kotlin/pbandk/examples/addressbook/pb/addressbook.kt). See the "Generated Code"
+section below under "Usage" for more details.
 
 ### Usage
 
@@ -148,7 +150,7 @@ explicitly as a plugin:
 
     protoc --kotlin_out=src/main/kotlin --plugin=protoc-gen-kotlin=path/to/protoc-gen-kotlin.bat sample.proto
 
-The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments to,
+The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
 comma-separated options can be added to `--kotlin_out` before the colon and out dir path. To explicitly set the Kotlin
 package to `my.pkg`, use the `kotlin_package` option like so:
 
@@ -162,8 +164,9 @@ In addition to running `protoc` manually, the
 
 #### Runtime Library
 
-PBAndK's runtime library is a thin layer over the preferred Protobuf library for each platform. Using Gradle, the
-dependency can be added for JVM libraries:
+PBAndK's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
+present on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.cretz.pbandk%22). Using Gradle
+and assuming `mavenCentral()` is one of the `repositories`, the dependency can be added for JVM libraries:
 
 ```
 dependencies {
