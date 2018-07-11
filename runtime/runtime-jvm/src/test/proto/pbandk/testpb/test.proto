@@ -1,0 +1,10 @@
+syntax = "proto3";
+package testpb;
+
+message Foo {
+    string val = 1;
+}
+
+message Bar {
+    repeated Foo foos = 1;
+}

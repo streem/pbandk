@@ -417,6 +417,4 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         File.Field.Type.STRING -> "$varName.isNotEmpty()"
         else -> "$varName != $defaultValue"
     }
-    protected val File.Field.Type.neverPacked get() =
-        file.version == 2 && (this == File.Field.Type.STRING || this == File.Field.Type.MESSAGE)
 }

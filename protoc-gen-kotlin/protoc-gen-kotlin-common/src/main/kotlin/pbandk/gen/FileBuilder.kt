@@ -81,23 +81,25 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
         alwaysRequired: Boolean = false
-    ) = File.Field.Standard(
-        number = fieldDesc.number!!,
-        name = fieldDesc.name!!,
-        type = fromProto(fieldDesc.type ?: error("Missing field type")),
-        localTypeName = fieldDesc.typeName,
-        repeated = fieldDesc.label == FieldDescriptorProto.Label.LABEL_REPEATED,
-        optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.LABEL_OPTIONAL,
-        packed = ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true,
-        map = supportMaps &&
-            fieldDesc.label == FieldDescriptorProto.Label.LABEL_REPEATED &&
-            fieldDesc.type == FieldDescriptorProto.Type.TYPE_MESSAGE &&
-            ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
-        kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames),
-        kotlinLocalTypeName =
-            if (fieldDesc.typeName == null || fieldDesc.typeName!!.startsWith('.')) null
-            else namer.newTypeName(fieldDesc.typeName!!, mutableSetOf())
-    )
+    ) = fromProto(fieldDesc.type ?: error("Missing field type")).let { type ->
+        File.Field.Standard(
+            number = fieldDesc.number!!,
+            name = fieldDesc.name!!,
+            type = type,
+            localTypeName = fieldDesc.typeName,
+            repeated = fieldDesc.label == FieldDescriptorProto.Label.LABEL_REPEATED,
+            optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.LABEL_OPTIONAL,
+            packed = !type.neverPacked && (ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true),
+            map = supportMaps &&
+                fieldDesc.label == FieldDescriptorProto.Label.LABEL_REPEATED &&
+                fieldDesc.type == FieldDescriptorProto.Type.TYPE_MESSAGE &&
+                ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
+            kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames),
+            kotlinLocalTypeName =
+                if (fieldDesc.typeName == null || fieldDesc.typeName!!.startsWith('.')) null
+                else namer.newTypeName(fieldDesc.typeName!!, mutableSetOf())
+        )
+    }
 
     protected fun fromProto(type: FieldDescriptorProto.Type) = when (type) {
         FieldDescriptorProto.Type.TYPE_BOOL -> File.Field.Type.BOOL
