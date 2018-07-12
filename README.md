@@ -170,7 +170,7 @@ and assuming `mavenCentral()` is one of the `repositories`, the dependency can b
 
 ```
 dependencies {
-    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.1.0'
+    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.2.0'
 }
 ```
 
