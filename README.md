@@ -258,18 +258,31 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 * `runtime/runtime-jvm` - JVM code for runtime Protobuf support
 * `runtime/runtime-native` - Native code for runtime Protobuf support
 
+Due to current issues, Gradle must be version 4.7 in the steps below.
+
+#### Code Generator
+
 To generate the `protoc-gen-kotlin` distribution, run:
 
     path/to/gradle :protoc-gen-kotlin:protoc-gen-kotlin-jvm:assembleDist
 
 Or use `installDist` to just put it locally and it will be in the `build/install` folder.
 
+#### Runtime Library
+
+To build the runtime library for both JS and the JVM, run:
+
+    path/to/gradle :runtime:runtime-js:assemble
+    path/to/gradle :runtime:runtime-jvm:assemble
+
+#### Conformance Tests
+
 To run conformance tests, the [conformance-test-runner](https://github.com/google/protobuf/tree/master/conformance) must
 be built (does not work on Windows). Then both the JS and JVM projects must be built via:
 
-    path/to/gradle :conformance:conformance-js:installDist
+    path/to/gradle :conformance:conformance-js:assemble
     path/to/gradle :conformance:conformance-jvm:installDist
 
-Then in the `conformance` folder of the cloned `protobuf` source, with `conformance-test-runner` built, run:
-
-    ./conformance-test-runner --enforce-recommended path/to/pb-and-k/conformance/test-conformance.sh
+Set the `CONF_TEST_PATH` environment variable to the full path to
+`path/to/protobuf/conformance/conformance-test-runner`. The JS tests need to have `npm install` run in
+`conformance/conformance-js`. Then simply run `conformance/test-conformance.sh`.
