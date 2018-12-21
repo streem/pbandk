@@ -12,13 +12,13 @@ It is built to work across multiple Kotlin platforms.
 * JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for
   best performance
 * JS platform leverages [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) for best performance
+* Support for custom service/gRPC code generator
 
 **Not Yet Implemented**
 
 * Kotlin Native runtime support
 * Protobuf code generator in Kotlin Native for easier importing
 * Specialized support for well known types instead of just referencing them
-* Pluggable service code generation for gRPC support
 * Code comments on generated code
 * JSON support
 
@@ -178,6 +178,31 @@ It has a dependency on the Google Protobuf Java library. The code targets Java 1
 JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatform code, change `pbandk-runtime-jvm` to
 `pbandk-runtime-common`.
 
+#### Service Code Generation
+
+PBAndK does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in the
+`protoc-gen-kotlin-jvm` project (really in the `protoc-gen-kotlin-common` project and inherited) with a single method
+that can be implemented to generate the code.
+
+To do this, first depend on the project but it will only be needed at compile time because it's already there at
+runtime (note, only in Sonatype snapshot repo until 0.3.0 released):
+
+```
+dependencies {
+    compileOnly 'com.github.cretz.pbandk:protoc-gen-kotlin-jvm:0.3.0-SNAPSHOT'
+}
+```
+
+Then, the `kotlin_service_gen` option can be given to `protoc` to use the generator. The option is a path-separated
+collection of JAR files to put on the classpath. It can end with a pipe (i.e. `|`) following by the fully-qualified
+class name of the implementation of the `ServiceGenerator` to use. If the last part is not present, it will use the
+`ServiceLoader` mechanism to find the first implementation to use. For example, to gen with `my.Generator` from
+`gen.jar`, it might look like:
+
+    protoc --kotlin_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
+    
+For more details, see the [custom-service-gen](examples/custom-service-gen) example.
+
 #### Generated Code
 
 **Package**
@@ -239,8 +264,8 @@ specialized support (e.g. using Kotlin `Any` for `google.protobuf.Any`) is not i
 
 **Services**
 
-Services are not supported yet. If supported in the future, it will likely be in a pluggable way where others can author
-service code generation.
+Services can be handled with a custom service generator. See the "Service Code Generation" section above and the 
+[custom-service-gen](examples/custom-service-gen) example.
 
 ### Building
 

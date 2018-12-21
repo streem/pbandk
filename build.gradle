@@ -122,6 +122,8 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-common') {
             runProtoGen('src/main/proto', 'src/main/kotlin', 'pbandk.gen.pb', 'debug')
         }
     }
+
+    publishSettings(project, 'protoc-gen-kotlin-common', 'Common library for PBAndK Protobuf code generator')
 }
 
 project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
@@ -152,6 +154,8 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
             events 'passed', 'skipped', 'failed'
         }
     }
+
+    publishSettings(project, 'protoc-gen-kotlin-jvm', 'JVM library for PBAndK Protobuf code generator')
 }
 
 project(':protoc-gen-kotlin:protoc-gen-kotlin-native') {

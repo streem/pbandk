@@ -1,0 +1,79 @@
+buildscript {
+    ext.kotlin_version = '1.3.11'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.6'
+    }
+}
+
+allprojects {
+    apply plugin: 'kotlin'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url = 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
+    }
+}
+
+project(':application') {
+    apply plugin: 'application'
+    apply plugin: 'com.google.protobuf'
+
+    mainClassName = 'pbandk.examples.greeter.MainKt'
+    applicationName = 'greeter'
+
+    dependencies {
+        compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.3.0-SNAPSHOT'
+        compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+    }
+
+    compileJava.enabled = false
+
+    protobuf {
+        generatedFilesBaseDir = "$projectDir/src"
+        protoc {
+            artifact = 'com.google.protobuf:protoc:3.6.1'
+        }
+        /*
+        // This must be set to the batch file on Windows
+        plugins {
+            kotlin {
+                path = 'c:\\path\\to\\protoc-gen-kotlin.bat'
+            }
+        }
+        */
+        generateProtoTasks {
+            all().each { task ->
+                task.dependsOn ':generator:jar'
+                task.builtins {
+                    remove java
+                }
+                task.plugins {
+                    kotlin {
+                        option 'log=debug'
+                        option 'kotlin_package=pbandk.examples.greeter.pb'
+                        option 'kotlin_service_gen=generator/build/libs/generator.jar|pbandk.examples.greeter.Generator'
+                    }
+                }
+            }
+        }
+    }
+}
+
+project(':generator') {
+    repositories {
+        flatDir {
+            dirs '../../../protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/libs'
+        }
+    }
+
+    dependencies {
+        compileOnly 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.3.0-SNAPSHOT'
+        compileOnly name: 'protoc-gen-kotlin-jvm-0.3.0-SNAPSHOT'
+    }
+}

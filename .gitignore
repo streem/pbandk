@@ -1,4 +1,4 @@
-/pb-and-k.iml
+*.iml
 /gradle*
 .gradle
 .idea

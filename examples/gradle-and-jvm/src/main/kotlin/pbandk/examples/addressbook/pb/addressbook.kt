@@ -67,7 +67,7 @@ private fun Person.protoSizeImpl(): Int {
     if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (id != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(id)
     if (email.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(email)
-    if (phones.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.packedRepeatedSize(phones, pbandk.Sizer::messageSize)
+    if (phones.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(4) * phones.size) + phones.sumBy(pbandk.Sizer::messageSize)
     if (lastUpdated != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(lastUpdated)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -77,7 +77,7 @@ private fun Person.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (id != 0) protoMarshal.writeTag(16).writeInt32(id)
     if (email.isNotEmpty()) protoMarshal.writeTag(26).writeString(email)
-    if (phones.isNotEmpty()) protoMarshal.writeTag(34).writePackedRepeated(phones, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (phones.isNotEmpty()) phones.forEach { protoMarshal.writeTag(34).writeMessage(it) }
     if (lastUpdated != null) protoMarshal.writeTag(42).writeMessage(lastUpdated)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -94,7 +94,7 @@ private fun Person.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
         10 -> name = protoUnmarshal.readString()
         16 -> id = protoUnmarshal.readInt32()
         26 -> email = protoUnmarshal.readString()
-        34 -> phones = protoUnmarshal.readRepeatedMessage(phones, pbandk.examples.addressbook.pb.Person.PhoneNumber.Companion, false)
+        34 -> phones = protoUnmarshal.readRepeatedMessage(phones, pbandk.examples.addressbook.pb.Person.PhoneNumber.Companion, true)
         42 -> lastUpdated = protoUnmarshal.readMessage(pbandk.wkt.Timestamp.Companion)
         else -> protoUnmarshal.unknownField()
     }
@@ -136,13 +136,13 @@ private fun AddressBook.protoMergeImpl(plus: AddressBook?): AddressBook = plus?.
 
 private fun AddressBook.protoSizeImpl(): Int {
     var protoSize = 0
-    if (people.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.packedRepeatedSize(people, pbandk.Sizer::messageSize)
+    if (people.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * people.size) + people.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun AddressBook.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (people.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(people, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (people.isNotEmpty()) people.forEach { protoMarshal.writeTag(10).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
@@ -150,7 +150,7 @@ private fun AddressBook.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
     var people: pbandk.ListWithSize.Builder<pbandk.examples.addressbook.pb.Person>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return AddressBook(pbandk.ListWithSize.Builder.fixed(people), protoUnmarshal.unknownFields())
-        10 -> people = protoUnmarshal.readRepeatedMessage(people, pbandk.examples.addressbook.pb.Person.Companion, false)
+        10 -> people = protoUnmarshal.readRepeatedMessage(people, pbandk.examples.addressbook.pb.Person.Companion, true)
         else -> protoUnmarshal.unknownField()
     }
 }
