@@ -13,7 +13,7 @@ data class File(
             val protobufTypeName = when {
                 parentProtobufTypeName != null -> "$parentProtobufTypeName."
                 packageName != null -> ".$packageName."
-                else -> ""
+                else -> "."
             } + t.name
             val kotlinTypeName = when {
                 parentKotlinTypeName != null -> "$parentKotlinTypeName."
