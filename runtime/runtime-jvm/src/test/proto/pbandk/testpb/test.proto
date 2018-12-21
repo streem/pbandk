@@ -1,10 +1,16 @@
 syntax = "proto3";
 package testpb;
 
+option java_package = "pbandk.testpb.java";
+
 message Foo {
     string val = 1;
 }
 
 message Bar {
     repeated Foo foos = 1;
+}
+
+message MessageWithMap {
+    map<string, string> map = 1;
 }

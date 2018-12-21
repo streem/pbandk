@@ -24,6 +24,31 @@ data class Bar(
     }
 }
 
+data class MessageWithMap(
+    val map: Map<String, String> = emptyMap(),
+    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message<MessageWithMap> {
+    override operator fun plus(other: MessageWithMap?) = protoMergeImpl(other)
+    override val protoSize by lazy { protoSizeImpl() }
+    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    companion object : pbandk.Message.Companion<MessageWithMap> {
+        override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageWithMap.protoUnmarshalImpl(u)
+    }
+
+    data class MapEntry(
+        override val key: String = "",
+        override val value: String = "",
+        val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message<MapEntry>, Map.Entry<String, String> {
+        override operator fun plus(other: MapEntry?) = protoMergeImpl(other)
+        override val protoSize by lazy { protoSizeImpl() }
+        override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        companion object : pbandk.Message.Companion<MapEntry> {
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapEntry.protoUnmarshalImpl(u)
+        }
+    }
+}
+
 private fun Foo.protoMergeImpl(plus: Foo?): Foo = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -71,6 +96,61 @@ private fun Bar.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return Bar(pbandk.ListWithSize.Builder.fixed(foos), protoUnmarshal.unknownFields())
         10 -> foos = protoUnmarshal.readRepeatedMessage(foos, pbandk.testpb.Foo.Companion, true)
+        else -> protoUnmarshal.unknownField()
+    }
+}
+
+private fun MessageWithMap.protoMergeImpl(plus: MessageWithMap?): MessageWithMap = plus?.copy(
+    map = map + plus.map,
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+private fun MessageWithMap.protoSizeImpl(): Int {
+    var protoSize = 0
+    if (map.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(1, map, pbandk.testpb.MessageWithMap::MapEntry)
+    protoSize += unknownFields.entries.sumBy { it.value.size() }
+    return protoSize
+}
+
+private fun MessageWithMap.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
+    if (map.isNotEmpty()) protoMarshal.writeMap(10, map, pbandk.testpb.MessageWithMap::MapEntry)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
+}
+
+private fun MessageWithMap.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MessageWithMap {
+    var map: pbandk.MessageMap.Builder<String, String>? = null
+    while (true) when (protoUnmarshal.readTag()) {
+        0 -> return MessageWithMap(pbandk.MessageMap.Builder.fixed(map), protoUnmarshal.unknownFields())
+        10 -> map = protoUnmarshal.readMap(map, pbandk.testpb.MessageWithMap.MapEntry.Companion, true)
+        else -> protoUnmarshal.unknownField()
+    }
+}
+
+private fun MessageWithMap.MapEntry.protoMergeImpl(plus: MessageWithMap.MapEntry?): MessageWithMap.MapEntry = plus?.copy(
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+private fun MessageWithMap.MapEntry.protoSizeImpl(): Int {
+    var protoSize = 0
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(value)
+    protoSize += unknownFields.entries.sumBy { it.value.size() }
+    return protoSize
+}
+
+private fun MessageWithMap.MapEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
+    if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
+    if (value.isNotEmpty()) protoMarshal.writeTag(18).writeString(value)
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
+}
+
+private fun MessageWithMap.MapEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): MessageWithMap.MapEntry {
+    var key = ""
+    var value = ""
+    while (true) when (protoUnmarshal.readTag()) {
+        0 -> return MessageWithMap.MapEntry(key, value, protoUnmarshal.unknownFields())
+        10 -> key = protoUnmarshal.readString()
+        18 -> value = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
 }

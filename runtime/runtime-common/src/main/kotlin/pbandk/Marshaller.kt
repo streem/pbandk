@@ -23,6 +23,7 @@ expect class Marshaller {
     fun writeUnknownFields(fields: Map<Int, UnknownField>)
     fun <T> writePackedRepeated(list: List<T>, sizeFn: (T) -> Int, writeFn: (T) -> Unit)
     fun <K, V, T : Message<T>> writeMap(
+        tag: Int,
         map: Map<K, V>,
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
     )

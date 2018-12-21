@@ -292,14 +292,14 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected val File.Field.Standard.unmarshalVarDecl get() = when {
         repeated -> mapEntry().let { mapEntry ->
             if (mapEntry == null) "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
-            else "var $kotlinFieldName: pbandk.MapWithSize.Builder<" +
+            else "var $kotlinFieldName: pbandk.MessageMap.Builder<" +
                 "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
         }
         requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
         else -> "var $kotlinFieldName = $defaultValue"
     }
     protected val File.Field.Standard.unmarshalVarDone get() =
-        if (map) "pbandk.MapWithSize.Builder.fixed($kotlinFieldName)"
+        if (map) "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
         else if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
         else kotlinFieldName
     protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean): String = when {
@@ -322,7 +322,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
     protected fun File.Field.Standard.sizeExpr(ref: String = fieldRef) = when {
         map ->
-            "pbandk.Sizer.tagSize($number) + pbandk.Sizer.mapSize($ref, $kotlinQualifiedTypeConstructorRef)"
+            "pbandk.Sizer.mapSize($number, $ref, $kotlinQualifiedTypeConstructorRef)"
         repeated && packed ->
             "pbandk.Sizer.tagSize($number) + pbandk.Sizer.packedRepeatedSize($ref, pbandk.Sizer::${type.sizeMethod})"
         repeated ->
@@ -332,7 +332,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
     protected fun File.Field.Standard.writeExpr(ref: String = fieldRef) = when {
         map ->
-            "protoMarshal.writeTag($tag).writeMap($ref, $kotlinQualifiedTypeConstructorRef)"
+            "protoMarshal.writeMap($tag, $ref, $kotlinQualifiedTypeConstructorRef)"
         repeated && packed ->
             "protoMarshal.writeTag($tag).writePackedRepeated(" +
                 "$ref, pbandk.Sizer::${type.sizeMethod}, protoMarshal::${type.writeMethod})"

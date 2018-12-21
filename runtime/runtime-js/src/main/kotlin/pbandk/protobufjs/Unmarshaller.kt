@@ -66,16 +66,15 @@ class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false) {
         neverPacked: Boolean
     ) = readRepeated(appendTo, { readMessage(s) }, neverPacked)
     fun <K, V, T> readMap(
-        appendTo: MapWithSize.Builder<K, V>?,
+        appendTo: MessageMap.Builder<K, V>?,
         s: Message.Companion<T>,
         neverPacked: Boolean
-    ): MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
-        (appendTo ?: MapWithSize.Builder()).also { bld ->
+    ): MessageMap.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
+        (appendTo ?: MessageMap.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (neverPacked || tagWireType(lastTag) != 2) {
-                bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }.let { it.key to it }
+                bld.entries += readMessage(s).let { it.key to it }
             } else readInt32().also { len ->
-                bld.protoSize += len
                 val endPos = r.pos + len
                 while (r.pos < endPos) bld.entries += readMessage(s).let { it.key to it }
             }

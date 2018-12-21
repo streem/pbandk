@@ -3,6 +3,7 @@ package pbandk.impl
 import pbandk.*
 
 abstract class Marshaller {
+    abstract fun writeTag(tag: Int): Marshaller
     abstract fun writeUInt32(value: Int)
     abstract fun writeInt32(value: Int)
     abstract fun writeUInt64(value: Long)
@@ -36,15 +37,12 @@ abstract class Marshaller {
         list.forEach(writeFn)
     }
     fun <K, V, T : Message<T>> writeMap(
+        tag: Int,
         map: Map<K, V>,
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
     ) {
-        if (map is MapWithSize) {
-            writeUInt32(map.protoSize)
-            map.entries.forEach { e -> writeMessage(e as? Message<*> ?: createEntry(e.key, e.value, emptyMap())) }
-        } else {
-            writePackedRepeated(
-                map.map { (k, v) -> createEntry(k, v, emptyMap()) }, pbandk.Sizer::messageSize, ::writeMessage)
+        map.entries.forEach { e ->
+            writeTag(tag).writeMessage(e as? Message<*> ?: createEntry(e.key, e.value, emptyMap()))
         }
     }
 }

@@ -2,10 +2,10 @@ package pbandk.impl
 
 import pbandk.ByteArr
 import pbandk.ListWithSize
-import pbandk.MapWithSize
 import pbandk.Message
 
 abstract class Sizer {
+    abstract fun tagSize(value: Int): Int
     abstract fun int32Size(value: Int): Int
     abstract fun uInt32Size(value: Int): Int
 
@@ -15,14 +15,18 @@ abstract class Sizer {
         if (list is ListWithSize && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
         else list.sumBy(sizeFn).let { it + uInt32Size(it) }
     fun <K, V, T : Message<T>> mapSize(
+        fieldNumber: Int,
         map: Map<K, V>,
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
-    ) =
-        if (map is MapWithSize) map.protoSize + uInt32Size(map.protoSize)
-        else map.entries.sumBy { (k, v) -> createEntry(k, v, emptyMap()).protoSize }.let { it + uInt32Size(it) }
+    ) = tagSize(fieldNumber).let { tagSize ->
+        map.entries.sumBy { e ->
+            val msg = e as? Message<*> ?: createEntry(e.key, e.value, emptyMap())
+            tagSize + msg.protoSize.let { it + uInt32Size(it) }
+        }
+    }
 
     abstract class Simple : Sizer() {
-        fun tagSize(fieldNum: Int) = uInt32Size(fieldNum shl 3)
+        override fun tagSize(fieldNum: Int) = uInt32Size(fieldNum shl 3)
         fun doubleSize(@Suppress("UNUSED_PARAMETER") value: Double) = 8
         fun floatSize(@Suppress("UNUSED_PARAMETER") value: Float) = 4
         override fun int32Size(value: Int) = if (value >= 0) uInt32Size(value) else 10

@@ -58,17 +58,16 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         neverPacked: Boolean
     ) = readRepeated(appendTo, { readMessage(s) }, neverPacked)
     actual fun <K, V, T> readMap(
-        appendTo: MapWithSize.Builder<K, V>?,
+        appendTo: MessageMap.Builder<K, V>?,
         s: Message.Companion<T>,
         neverPacked: Boolean
-    ): MapWithSize.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
-        (appendTo ?: MapWithSize.Builder()).also { bld ->
+    ): MessageMap.Builder<K, V> where T : Message<T>, T : Map.Entry<K, V> =
+        (appendTo ?: MessageMap.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (neverPacked || WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
                 // Unlike lists, since this only reads messages, we can use the message's size to always set it for maps
-                bld.entries += readMessage(s).also { bld.protoSize += it.protoSize }.let { it.key to it }
+                bld.entries += readMessage(s).let { it.key to it }
             } else stream.readRawVarint32().also { len ->
-                bld.protoSize += len
                 val oldLimit = stream.pushLimit(len)
                 while (!stream.isAtEnd) bld.entries += readMessage(s).let { it.key to it }
                 stream.popLimit(oldLimit)

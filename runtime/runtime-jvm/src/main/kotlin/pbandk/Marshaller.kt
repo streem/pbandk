@@ -3,7 +3,7 @@ package pbandk
 import com.google.protobuf.CodedOutputStream
 
 actual class Marshaller(val stream: CodedOutputStream, val backingBytes: ByteArray? = null) : pbandk.impl.Marshaller() {
-    actual fun writeTag(tag: Int) = also { stream.writeUInt32NoTag(tag) }
+    actual override fun writeTag(tag: Int) = also { stream.writeUInt32NoTag(tag) }
     actual fun writeDouble(value: Double) = stream.writeDoubleNoTag(value)
     actual fun writeFloat(value: Float) = stream.writeFloatNoTag(value)
     actual override fun writeInt32(value: Int) = stream.writeInt32NoTag(value)

@@ -21,6 +21,7 @@ expect object Sizer {
     fun messageSize(value: Message<*>): Int
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int): Int
     fun <K, V, T : Message<T>> mapSize(
+        fieldNumber: Int,
         map: Map<K, V>,
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
     ): Int

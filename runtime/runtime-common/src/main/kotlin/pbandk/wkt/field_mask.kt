@@ -19,13 +19,13 @@ private fun FieldMask.protoMergeImpl(plus: FieldMask?): FieldMask = plus?.copy(
 
 private fun FieldMask.protoSizeImpl(): Int {
     var protoSize = 0
-    if (paths.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.packedRepeatedSize(paths, pbandk.Sizer::stringSize)
+    if (paths.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * paths.size) + paths.sumBy(pbandk.Sizer::stringSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun FieldMask.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (paths.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(paths, pbandk.Sizer::stringSize, protoMarshal::writeString)
+    if (paths.isNotEmpty()) paths.forEach { protoMarshal.writeTag(10).writeString(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
@@ -33,7 +33,7 @@ private fun FieldMask.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
     var paths: pbandk.ListWithSize.Builder<String>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), protoUnmarshal.unknownFields())
-        10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString, false)
+        10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString, true)
         else -> protoUnmarshal.unknownField()
     }
 }

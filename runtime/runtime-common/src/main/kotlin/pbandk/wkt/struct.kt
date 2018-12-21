@@ -76,21 +76,21 @@ private fun Struct.protoMergeImpl(plus: Struct?): Struct = plus?.copy(
 
 private fun Struct.protoSizeImpl(): Int {
     var protoSize = 0
-    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.mapSize(fields, pbandk.wkt.Struct::FieldsEntry)
+    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(1, fields, pbandk.wkt.Struct::FieldsEntry)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun Struct.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (fields.isNotEmpty()) protoMarshal.writeTag(10).writeMap(fields, pbandk.wkt.Struct::FieldsEntry)
+    if (fields.isNotEmpty()) protoMarshal.writeMap(10, fields, pbandk.wkt.Struct::FieldsEntry)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Struct.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Struct {
-    var fields: pbandk.MapWithSize.Builder<String, pbandk.wkt.Value?>? = null
+    var fields: pbandk.MessageMap.Builder<String, pbandk.wkt.Value?>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Struct(pbandk.MapWithSize.Builder.fixed(fields), protoUnmarshal.unknownFields())
-        10 -> fields = protoUnmarshal.readMap(fields, pbandk.wkt.Struct.FieldsEntry.Companion, false)
+        0 -> return Struct(pbandk.MessageMap.Builder.fixed(fields), protoUnmarshal.unknownFields())
+        10 -> fields = protoUnmarshal.readMap(fields, pbandk.wkt.Struct.FieldsEntry.Companion, true)
         else -> protoUnmarshal.unknownField()
     }
 }
@@ -182,13 +182,13 @@ private fun ListValue.protoMergeImpl(plus: ListValue?): ListValue = plus?.copy(
 
 private fun ListValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (values.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.packedRepeatedSize(values, pbandk.Sizer::messageSize)
+    if (values.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * values.size) + values.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun ListValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (values.isNotEmpty()) protoMarshal.writeTag(10).writePackedRepeated(values, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (values.isNotEmpty()) values.forEach { protoMarshal.writeTag(10).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
@@ -196,7 +196,7 @@ private fun ListValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
     var values: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return ListValue(pbandk.ListWithSize.Builder.fixed(values), protoUnmarshal.unknownFields())
-        10 -> values = protoUnmarshal.readRepeatedMessage(values, pbandk.wkt.Value.Companion, false)
+        10 -> values = protoUnmarshal.readRepeatedMessage(values, pbandk.wkt.Value.Companion, true)
         else -> protoUnmarshal.unknownField()
     }
 }

@@ -282,6 +282,8 @@ data class FileOptions(
     val swiftPrefix: String? = null,
     val phpClassPrefix: String? = null,
     val phpNamespace: String? = null,
+    val phpMetadataNamespace: String? = null,
+    val rubyPackage: String? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FileOptions> {
@@ -1139,6 +1141,8 @@ private fun FileOptions.protoMergeImpl(plus: FileOptions?): FileOptions = plus?.
     swiftPrefix = plus.swiftPrefix ?: swiftPrefix,
     phpClassPrefix = plus.phpClassPrefix ?: phpClassPrefix,
     phpNamespace = plus.phpNamespace ?: phpNamespace,
+    phpMetadataNamespace = plus.phpMetadataNamespace ?: phpMetadataNamespace,
+    rubyPackage = plus.rubyPackage ?: rubyPackage,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -1163,6 +1167,8 @@ private fun FileOptions.protoSizeImpl(): Int {
     if (swiftPrefix != null) protoSize += pbandk.Sizer.tagSize(39) + pbandk.Sizer.stringSize(swiftPrefix)
     if (phpClassPrefix != null) protoSize += pbandk.Sizer.tagSize(40) + pbandk.Sizer.stringSize(phpClassPrefix)
     if (phpNamespace != null) protoSize += pbandk.Sizer.tagSize(41) + pbandk.Sizer.stringSize(phpNamespace)
+    if (phpMetadataNamespace != null) protoSize += pbandk.Sizer.tagSize(44) + pbandk.Sizer.stringSize(phpMetadataNamespace)
+    if (rubyPackage != null) protoSize += pbandk.Sizer.tagSize(45) + pbandk.Sizer.stringSize(rubyPackage)
     if (uninterpretedOption.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(999) * uninterpretedOption.size) + uninterpretedOption.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -1187,6 +1193,8 @@ private fun FileOptions.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (phpClassPrefix != null) protoMarshal.writeTag(322).writeString(phpClassPrefix)
     if (phpNamespace != null) protoMarshal.writeTag(330).writeString(phpNamespace)
     if (phpGenericServices != null) protoMarshal.writeTag(336).writeBool(phpGenericServices)
+    if (phpMetadataNamespace != null) protoMarshal.writeTag(354).writeString(phpMetadataNamespace)
+    if (rubyPackage != null) protoMarshal.writeTag(362).writeString(rubyPackage)
     if (uninterpretedOption.isNotEmpty()) uninterpretedOption.forEach { protoMarshal.writeTag(7994).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
@@ -1210,13 +1218,16 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
     var swiftPrefix: String? = null
     var phpClassPrefix: String? = null
     var phpNamespace: String? = null
+    var phpMetadataNamespace: String? = null
+    var rubyPackage: String? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
             javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices,
             javaGenericServices, pyGenericServices, phpGenericServices, deprecated,
             ccEnableArenas, objcClassPrefix, csharpNamespace, swiftPrefix,
-            phpClassPrefix, phpNamespace, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
+            phpClassPrefix, phpNamespace, phpMetadataNamespace, rubyPackage,
+            pbandk.ListWithSize.Builder.fixed(uninterpretedOption), protoUnmarshal.unknownFields())
         10 -> javaPackage = protoUnmarshal.readString()
         66 -> javaOuterClassname = protoUnmarshal.readString()
         72 -> optimizeFor = protoUnmarshal.readEnum(pbandk.wkt.FileOptions.OptimizeMode.Companion)
@@ -1235,6 +1246,8 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
         322 -> phpClassPrefix = protoUnmarshal.readString()
         330 -> phpNamespace = protoUnmarshal.readString()
         336 -> phpGenericServices = protoUnmarshal.readBool()
+        354 -> phpMetadataNamespace = protoUnmarshal.readString()
+        362 -> rubyPackage = protoUnmarshal.readString()
         7994 -> uninterpretedOption = protoUnmarshal.readRepeatedMessage(uninterpretedOption, pbandk.wkt.UninterpretedOption.Companion, true)
         else -> protoUnmarshal.unknownField()
     }

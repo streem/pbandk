@@ -5,7 +5,7 @@ import pbandk.asByteArray
 import pbandk.asUint8Array
 
 class Marshaller(val w: Writer, val expectedSize: Int) : pbandk.impl.Marshaller() {
-    fun writeTag(tag: Int) = also { w.uint32(tag) }
+    override fun writeTag(tag: Int) = also { w.uint32(tag) }
     fun writeDouble(value: Double) { w.double(value) }
     fun writeFloat(value: Float) { w.float(value) }
     override fun writeInt32(value: Int) { w.int32(value) }

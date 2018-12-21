@@ -169,9 +169,9 @@ private fun Type.protoMergeImpl(plus: Type?): Type = plus?.copy(
 private fun Type.protoSizeImpl(): Int {
     var protoSize = 0
     if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.packedRepeatedSize(fields, pbandk.Sizer::messageSize)
-    if (oneofs.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.packedRepeatedSize(oneofs, pbandk.Sizer::stringSize)
-    if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
+    if (fields.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * fields.size) + fields.sumBy(pbandk.Sizer::messageSize)
+    if (oneofs.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * oneofs.size) + oneofs.sumBy(pbandk.Sizer::stringSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(4) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
     if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(sourceContext)
     if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
@@ -180,9 +180,9 @@ private fun Type.protoSizeImpl(): Int {
 
 private fun Type.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (fields.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(fields, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (oneofs.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(oneofs, pbandk.Sizer::stringSize, protoMarshal::writeString)
-    if (options.isNotEmpty()) protoMarshal.writeTag(34).writePackedRepeated(options, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (fields.isNotEmpty()) fields.forEach { protoMarshal.writeTag(18).writeMessage(it) }
+    if (oneofs.isNotEmpty()) oneofs.forEach { protoMarshal.writeTag(26).writeString(it) }
+    if (options.isNotEmpty()) options.forEach { protoMarshal.writeTag(34).writeMessage(it) }
     if (sourceContext != null) protoMarshal.writeTag(42).writeMessage(sourceContext)
     if (syntax.value != 0) protoMarshal.writeTag(48).writeEnum(syntax)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
@@ -199,9 +199,9 @@ private fun Type.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         0 -> return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
             sourceContext, syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> fields = protoUnmarshal.readRepeatedMessage(fields, pbandk.wkt.Field.Companion, false)
-        26 -> oneofs = protoUnmarshal.readRepeated(oneofs, protoUnmarshal::readString, false)
-        34 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
+        18 -> fields = protoUnmarshal.readRepeatedMessage(fields, pbandk.wkt.Field.Companion, true)
+        26 -> oneofs = protoUnmarshal.readRepeated(oneofs, protoUnmarshal::readString, true)
+        34 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, true)
         42 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
         48 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
@@ -222,7 +222,7 @@ private fun Field.protoSizeImpl(): Int {
     if (typeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(typeUrl)
     if (oneofIndex != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.int32Size(oneofIndex)
     if (packed) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.boolSize(packed)
-    if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(9) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
     if (jsonName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.stringSize(jsonName)
     if (defaultValue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(11) + pbandk.Sizer.stringSize(defaultValue)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
@@ -237,7 +237,7 @@ private fun Field.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (typeUrl.isNotEmpty()) protoMarshal.writeTag(50).writeString(typeUrl)
     if (oneofIndex != 0) protoMarshal.writeTag(56).writeInt32(oneofIndex)
     if (packed) protoMarshal.writeTag(64).writeBool(packed)
-    if (options.isNotEmpty()) protoMarshal.writeTag(74).writePackedRepeated(options, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (options.isNotEmpty()) options.forEach { protoMarshal.writeTag(74).writeMessage(it) }
     if (jsonName.isNotEmpty()) protoMarshal.writeTag(82).writeString(jsonName)
     if (defaultValue.isNotEmpty()) protoMarshal.writeTag(90).writeString(defaultValue)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
@@ -265,7 +265,7 @@ private fun Field.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
         50 -> typeUrl = protoUnmarshal.readString()
         56 -> oneofIndex = protoUnmarshal.readInt32()
         64 -> packed = protoUnmarshal.readBool()
-        74 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
+        74 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, true)
         82 -> jsonName = protoUnmarshal.readString()
         90 -> defaultValue = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
@@ -282,8 +282,8 @@ private fun Enum.protoMergeImpl(plus: Enum?): Enum = plus?.copy(
 private fun Enum.protoSizeImpl(): Int {
     var protoSize = 0
     if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (enumvalue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.packedRepeatedSize(enumvalue, pbandk.Sizer::messageSize)
-    if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
+    if (enumvalue.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * enumvalue.size) + enumvalue.sumBy(pbandk.Sizer::messageSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
     if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.messageSize(sourceContext)
     if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
@@ -292,8 +292,8 @@ private fun Enum.protoSizeImpl(): Int {
 
 private fun Enum.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (enumvalue.isNotEmpty()) protoMarshal.writeTag(18).writePackedRepeated(enumvalue, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
-    if (options.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(options, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (enumvalue.isNotEmpty()) enumvalue.forEach { protoMarshal.writeTag(18).writeMessage(it) }
+    if (options.isNotEmpty()) options.forEach { protoMarshal.writeTag(26).writeMessage(it) }
     if (sourceContext != null) protoMarshal.writeTag(34).writeMessage(sourceContext)
     if (syntax.value != 0) protoMarshal.writeTag(40).writeEnum(syntax)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
@@ -309,8 +309,8 @@ private fun Enum.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         0 -> return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
             syntax, protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
-        18 -> enumvalue = protoUnmarshal.readRepeatedMessage(enumvalue, pbandk.wkt.EnumValue.Companion, false)
-        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
+        18 -> enumvalue = protoUnmarshal.readRepeatedMessage(enumvalue, pbandk.wkt.EnumValue.Companion, true)
+        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, true)
         34 -> sourceContext = protoUnmarshal.readMessage(pbandk.wkt.SourceContext.Companion)
         40 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
@@ -326,7 +326,7 @@ private fun EnumValue.protoSizeImpl(): Int {
     var protoSize = 0
     if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
     if (number != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(number)
-    if (options.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.packedRepeatedSize(options, pbandk.Sizer::messageSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -334,7 +334,7 @@ private fun EnumValue.protoSizeImpl(): Int {
 private fun EnumValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
     if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
     if (number != 0) protoMarshal.writeTag(16).writeInt32(number)
-    if (options.isNotEmpty()) protoMarshal.writeTag(26).writePackedRepeated(options, pbandk.Sizer::messageSize, protoMarshal::writeMessage)
+    if (options.isNotEmpty()) options.forEach { protoMarshal.writeTag(26).writeMessage(it) }
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
@@ -346,7 +346,7 @@ private fun EnumValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
         0 -> return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), protoUnmarshal.unknownFields())
         10 -> name = protoUnmarshal.readString()
         16 -> number = protoUnmarshal.readInt32()
-        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, false)
+        26 -> options = protoUnmarshal.readRepeatedMessage(options, pbandk.wkt.Option.Companion, true)
         else -> protoUnmarshal.unknownField()
     }
 }

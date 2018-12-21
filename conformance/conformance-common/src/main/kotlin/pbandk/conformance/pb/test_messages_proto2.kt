@@ -780,25 +780,25 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var repeatedForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignEnumProto2>? = null
     var repeatedStringPiece: pbandk.ListWithSize.Builder<String>? = null
     var repeatedCord: pbandk.ListWithSize.Builder<String>? = null
-    var mapInt32Int32: pbandk.MapWithSize.Builder<Int?, Int?>? = null
-    var mapInt64Int64: pbandk.MapWithSize.Builder<Long?, Long?>? = null
-    var mapUint32Uint32: pbandk.MapWithSize.Builder<Int?, Int?>? = null
-    var mapUint64Uint64: pbandk.MapWithSize.Builder<Long?, Long?>? = null
-    var mapSint32Sint32: pbandk.MapWithSize.Builder<Int?, Int?>? = null
-    var mapSint64Sint64: pbandk.MapWithSize.Builder<Long?, Long?>? = null
-    var mapFixed32Fixed32: pbandk.MapWithSize.Builder<Int?, Int?>? = null
-    var mapFixed64Fixed64: pbandk.MapWithSize.Builder<Long?, Long?>? = null
-    var mapSfixed32Sfixed32: pbandk.MapWithSize.Builder<Int?, Int?>? = null
-    var mapSfixed64Sfixed64: pbandk.MapWithSize.Builder<Long?, Long?>? = null
-    var mapInt32Float: pbandk.MapWithSize.Builder<Int?, Float?>? = null
-    var mapInt32Double: pbandk.MapWithSize.Builder<Int?, Double?>? = null
-    var mapBoolBool: pbandk.MapWithSize.Builder<Boolean?, Boolean?>? = null
-    var mapStringString: pbandk.MapWithSize.Builder<String?, String?>? = null
-    var mapStringBytes: pbandk.MapWithSize.Builder<String?, pbandk.ByteArr?>? = null
-    var mapStringNestedMessage: pbandk.MapWithSize.Builder<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>? = null
-    var mapStringForeignMessage: pbandk.MapWithSize.Builder<String?, pbandk.conformance.pb.ForeignMessageProto2?>? = null
-    var mapStringNestedEnum: pbandk.MapWithSize.Builder<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>? = null
-    var mapStringForeignEnum: pbandk.MapWithSize.Builder<String?, pbandk.conformance.pb.ForeignEnumProto2?>? = null
+    var mapInt32Int32: pbandk.MessageMap.Builder<Int?, Int?>? = null
+    var mapInt64Int64: pbandk.MessageMap.Builder<Long?, Long?>? = null
+    var mapUint32Uint32: pbandk.MessageMap.Builder<Int?, Int?>? = null
+    var mapUint64Uint64: pbandk.MessageMap.Builder<Long?, Long?>? = null
+    var mapSint32Sint32: pbandk.MessageMap.Builder<Int?, Int?>? = null
+    var mapSint64Sint64: pbandk.MessageMap.Builder<Long?, Long?>? = null
+    var mapFixed32Fixed32: pbandk.MessageMap.Builder<Int?, Int?>? = null
+    var mapFixed64Fixed64: pbandk.MessageMap.Builder<Long?, Long?>? = null
+    var mapSfixed32Sfixed32: pbandk.MessageMap.Builder<Int?, Int?>? = null
+    var mapSfixed64Sfixed64: pbandk.MessageMap.Builder<Long?, Long?>? = null
+    var mapInt32Float: pbandk.MessageMap.Builder<Int?, Float?>? = null
+    var mapInt32Double: pbandk.MessageMap.Builder<Int?, Double?>? = null
+    var mapBoolBool: pbandk.MessageMap.Builder<Boolean?, Boolean?>? = null
+    var mapStringString: pbandk.MessageMap.Builder<String?, String?>? = null
+    var mapStringBytes: pbandk.MessageMap.Builder<String?, pbandk.ByteArr?>? = null
+    var mapStringNestedMessage: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>? = null
+    var mapStringForeignMessage: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.ForeignMessageProto2?>? = null
+    var mapStringNestedEnum: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>? = null
+    var mapStringForeignEnum: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.ForeignEnumProto2?>? = null
     var oneofField: TestAllTypesProto2.OneofField? = null
     var fieldname1: Int? = null
     var fieldName2: Int? = null
@@ -829,12 +829,12 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
             pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32), pbandk.ListWithSize.Builder.fixed(repeatedSfixed64),
             pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool), pbandk.ListWithSize.Builder.fixed(repeatedString),
             pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage), pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum),
-            pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.MapWithSize.Builder.fixed(mapInt32Int32),
-            pbandk.MapWithSize.Builder.fixed(mapInt64Int64), pbandk.MapWithSize.Builder.fixed(mapUint32Uint32), pbandk.MapWithSize.Builder.fixed(mapUint64Uint64), pbandk.MapWithSize.Builder.fixed(mapSint32Sint32),
-            pbandk.MapWithSize.Builder.fixed(mapSint64Sint64), pbandk.MapWithSize.Builder.fixed(mapFixed32Fixed32), pbandk.MapWithSize.Builder.fixed(mapFixed64Fixed64), pbandk.MapWithSize.Builder.fixed(mapSfixed32Sfixed32),
-            pbandk.MapWithSize.Builder.fixed(mapSfixed64Sfixed64), pbandk.MapWithSize.Builder.fixed(mapInt32Float), pbandk.MapWithSize.Builder.fixed(mapInt32Double), pbandk.MapWithSize.Builder.fixed(mapBoolBool),
-            pbandk.MapWithSize.Builder.fixed(mapStringString), pbandk.MapWithSize.Builder.fixed(mapStringBytes), pbandk.MapWithSize.Builder.fixed(mapStringNestedMessage), pbandk.MapWithSize.Builder.fixed(mapStringForeignMessage),
-            pbandk.MapWithSize.Builder.fixed(mapStringNestedEnum), pbandk.MapWithSize.Builder.fixed(mapStringForeignEnum), oneofField, fieldname1,
+            pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.MessageMap.Builder.fixed(mapInt32Int32),
+            pbandk.MessageMap.Builder.fixed(mapInt64Int64), pbandk.MessageMap.Builder.fixed(mapUint32Uint32), pbandk.MessageMap.Builder.fixed(mapUint64Uint64), pbandk.MessageMap.Builder.fixed(mapSint32Sint32),
+            pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64), pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32),
+            pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double), pbandk.MessageMap.Builder.fixed(mapBoolBool),
+            pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage), pbandk.MessageMap.Builder.fixed(mapStringForeignMessage),
+            pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), oneofField, fieldname1,
             fieldName2, fieldName3, field_name4, field0name5,
             field0Name6, fieldName7, fieldName8, fieldName9,
             fieldName10, fIELDNAME11, fIELDName12, _fieldName13,
