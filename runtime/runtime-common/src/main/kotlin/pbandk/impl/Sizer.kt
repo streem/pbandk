@@ -5,7 +5,7 @@ import pbandk.ListWithSize
 import pbandk.Message
 
 abstract class Sizer {
-    abstract fun tagSize(value: Int): Int
+    abstract fun tagSize(fieldNum: Int): Int
     abstract fun int32Size(value: Int): Int
     abstract fun uInt32Size(value: Int): Int
 
@@ -40,6 +40,7 @@ abstract class Sizer {
         }
         fun uInt64Size(value: Long): Int {
             // Taken from CodedOutputStream.java's computeUInt64SizeNoTag
+            @Suppress("NAME_SHADOWING")
             var value = value
             if (value and (0L.inv() shl 7) == 0L) return 1
             if (value < 0L) return 10

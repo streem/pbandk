@@ -1,5 +1,5 @@
 {
-  "name": "pbandk-runtime-js",
+  "name": "runtime-js",
   "version": "0.1.0",
   "description": "",
   "main": "build/classes/kotlin/main/runtime-js.js",
