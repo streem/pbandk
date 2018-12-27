@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.6'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.7'
         classpath 'org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.44'
     }
 }
@@ -18,12 +18,11 @@ apply plugin: 'com.google.protobuf'
 
 repositories {
     mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    compile 'com.github.cretz.pbandk:pbandk-runtime-js:0.3.0-SNAPSHOT'
+    compile 'com.github.cretz.pbandk:pbandk-runtime-js:0.3.0'
     // This is needed for includes, ref: https://github.com/google/protobuf-gradle-plugin/issues/41#issuecomment-143884188
     compileOnly 'com.google.protobuf:protobuf-java:3.6.1'
 }

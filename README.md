@@ -170,7 +170,7 @@ and assuming `mavenCentral()` is one of the `repositories`, the dependency can b
 
 ```
 dependencies {
-    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.2.0'
+    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.3.0'
 }
 ```
 
@@ -185,11 +185,11 @@ PBAndK does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGener
 that can be implemented to generate the code.
 
 To do this, first depend on the project but it will only be needed at compile time because it's already there at
-runtime (note, only in Sonatype snapshot repo until 0.3.0 released):
+runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.cretz.pbandk:protoc-gen-kotlin-jvm:0.3.0-SNAPSHOT'
+    compileOnly 'com.github.cretz.pbandk:protoc-gen-kotlin-jvm:0.3.0'
 }
 ```
 

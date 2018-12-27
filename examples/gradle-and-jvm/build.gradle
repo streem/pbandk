@@ -5,15 +5,12 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.6'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.7'
     }
 }
 
 repositories {
     mavenCentral()
-    maven {
-        url = 'https://oss.sonatype.org/content/repositories/snapshots'
-    }
 }
 
 apply plugin: 'kotlin'
@@ -24,7 +21,7 @@ mainClassName = 'pbandk.examples.addressbook.MainKt'
 applicationName = 'addressbook'
 
 dependencies {
-    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.3.0-SNAPSHOT'
+    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.3.0'
 }
 
 compileJava.enabled = false
