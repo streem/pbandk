@@ -1,5 +1,5 @@
 {
-  "name": "runtime-js",
+  "name": "pbandk-runtime-js",
   "version": "0.1.0",
   "description": "",
   "main": "build/classes/kotlin/main/runtime-js.js",
@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "kotlin": "^1.2.41",
-    "protobufjs": "^6.8.6"
+    "kotlin": "^1.3.11",
+    "protobufjs": "^6.8.8"
   }
 }

@@ -1,0 +1,78 @@
+buildscript {
+    ext.kotlin_version = '1.3.11'
+    repositories {
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.6'
+        classpath 'org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.44'
+    }
+}
+
+apply plugin: 'kotlin2js'
+apply plugin: 'kotlin-dce-js'
+apply plugin: 'org.jetbrains.kotlin.frontend'
+apply plugin: 'com.google.protobuf'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile 'com.github.cretz.pbandk:pbandk-runtime-js:0.3.0-SNAPSHOT'
+    // This is needed for includes, ref: https://github.com/google/protobuf-gradle-plugin/issues/41#issuecomment-143884188
+    compileOnly 'com.google.protobuf:protobuf-java:3.6.1'
+}
+
+compileJava.enabled = false
+
+compileKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.sourceMap = true
+    kotlinOptions.moduleKind = 'commonjs'
+}
+
+kotlinFrontend {
+    downloadNodeJsVersion = 'latest'
+
+    npm {
+        dependency('protobufjs', '^6.8.8')
+    }
+
+    webpackBundle {
+        bundleName = 'main'
+        contentPath = file('src/main/web')
+        mode = 'production'
+    }
+}
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.6.1'
+    }
+    /*
+    // This must be set to the batch file on Windows
+    plugins {
+        kotlin {
+            path = 'c:\\path\\to\\protoc-gen-kotlin.bat'
+        }
+    }
+    */
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.plugins {
+                kotlin {
+                    option 'kotlin_package=pbandk.examples.browserjs.pb'
+                }
+            }
+        }
+    }
+}
