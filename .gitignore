@@ -5,3 +5,4 @@
 build
 node_modules
 package-lock.json
+/examples/browser-js/src/main/kotlin/pbandk/examples/browserjs/pb

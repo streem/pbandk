@@ -30,6 +30,8 @@ dependencies {
 compileJava.enabled = false
 
 compileKotlin2Js {
+    // Generate the protobuf files before compilation
+    dependsOn 'generateProto'
     kotlinOptions.metaInfo = true
     kotlinOptions.sourceMap = true
     kotlinOptions.moduleKind = 'commonjs'
@@ -54,14 +56,12 @@ protobuf {
     protoc {
         artifact = 'com.google.protobuf:protoc:3.6.1'
     }
-    /*
     // This must be set to the batch file on Windows
     plugins {
         kotlin {
             path = 'c:\\path\\to\\protoc-gen-kotlin.bat'
         }
     }
-    */
     generateProtoTasks {
         all().each { task ->
             task.builtins {
