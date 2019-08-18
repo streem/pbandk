@@ -34,7 +34,7 @@ actual object Platform {
             // Load up all the JARs
             var loader = javaClass.classLoader
             if (serviceJarList.isNotEmpty()) loader = URLClassLoader(
-                serviceJarList.split(File.pathSeparatorChar).map { File(it).toURI().toURL() }.toTypedArray(),
+                serviceJarList.split(';').map { File(it).toURI().toURL() }.toTypedArray(),
                 loader
             )
             // Create the given name if present
