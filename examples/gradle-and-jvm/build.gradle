@@ -31,14 +31,11 @@ protobuf {
     protoc {
         artifact = 'com.google.protobuf:protoc:3.6.1'
     }
-    /*
-    // This must be set to the batch file on Windows
     plugins {
         kotlin {
-            path = 'c:\\path\\to\\protoc-gen-kotlin.bat'
+            artifact = 'com.github.cretz.pbandk:protoc-gen-kotlin-jvm:0.3.0:jvm8@jar'
         }
     }
-    */
     generateProtoTasks {
         all().each { task ->
             task.builtins {

@@ -5,10 +5,14 @@ buildscript {
         maven {
             url 'https://dl.bintray.com/jetbrains/kotlin-native-dependencies'
         }
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:$kotlin_version"
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.1.7.RELEASE'
     }
 }
 
@@ -129,6 +133,8 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-common') {
 project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
     apply plugin: 'kotlin-platform-jvm'
     apply plugin: 'application'
+    apply plugin: 'org.springframework.boot'
+
     sourceCompatibility = '1.8'
     compileKotlin {
         kotlinOptions.jvmTarget = '1.8'
@@ -153,6 +159,17 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
             exceptionFormat = 'full'
             events 'passed', 'skipped', 'failed'
         }
+    }
+    jar {
+        enabled = true
+    }
+    bootJar {
+        classifier = 'jvm8'
+        launchScript()
+    }
+    configurations.archives.artifacts.removeIf { it.archiveTask.name ==~ /bootDist(Zip|Tar)/ }
+    artifacts {
+        archives bootJar
     }
 
     publishSettings(project, 'protoc-gen-kotlin-jvm', 'JVM library for PBAndK Protobuf code generator')

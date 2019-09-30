@@ -7,12 +7,9 @@ For this example the generated code has been committed to show what it looks lik
 
 ### Building
 
-To build the code for most platforms with `protoc-gen-kotlin` on the `PATH`, simply run:
+To build the code simply run:
 
     path/to/gradle installDist
-
-On Windows however, since `protoc-gen-kotlin.bat` is not properly read by protoc, you have to uncomment the section in
-`build.gradle` where the path is explicitly set.
 
 ### Running
 

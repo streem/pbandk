@@ -5,9 +5,8 @@ adjacent `gradle-and-jvm` example, this also uses the Protobuf Gradle plugin.
 
 ## Building
 
-Building the `application` project automatically generates the service code. Like the `gradle-and-jvm` example, this
-requires `protoc-gen-kotlin` on the `PATH` (and Windows does require custom `build.gradle` work, see example). To build
-the application with generated source, run:
+Building the `application` project automatically generates the service code. To build the application with generated
+source, run:
 
     path/to/gradle :application:installDist
 
