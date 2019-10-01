@@ -165,12 +165,19 @@ In addition to running `protoc` manually, the
 #### Runtime Library
 
 PBAndK's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
-present on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.cretz.pbandk%22). Using Gradle
-and assuming `mavenCentral()` is one of the `repositories`, the dependency can be added for JVM libraries:
+present on [JitPack](https://jitpack.io/#streem/pb-and-k). Using Gradle, add the JitPack repository:
+
+```
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+```
+
+Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    compile 'com.github.cretz.pbandk:pbandk-runtime-jvm:0.3.0'
+    compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.4.0'
 }
 ```
 
@@ -189,7 +196,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.cretz.pbandk:protoc-gen-kotlin-jvm:0.3.0'
+    compileOnly 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.4.0'
 }
 ```
 
