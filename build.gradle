@@ -17,7 +17,7 @@ buildscript {
 }
 
 allprojects {
-    group 'com.github.cretz.pbandk'
+    group 'com.github.streem.pb-and-k'
     version '0.3.0'
 
     repositories {
@@ -42,7 +42,8 @@ project(':runtime:runtime-common') {
         }
     }
 
-    publishSettings(project, 'pbandk-runtime-common', 'Common library for PBAndK Protobuf code')
+    archivesBaseName = 'pbandk-runtime-common'
+    publishSettings(project, archivesBaseName, 'Common library for PBAndK Protobuf code')
 }
 
 project(':runtime:runtime-js') {
@@ -55,7 +56,8 @@ project(':runtime:runtime-js') {
     compileKotlin2Js {
         kotlinOptions.moduleKind = 'commonjs'
     }
-    publishSettings(project, 'pbandk-runtime-js', 'JS library for PBAndK Protobuf code')
+    archivesBaseName = 'pbandk-runtime-js'
+    publishSettings(project, archivesBaseName, 'JS library for PBAndK Protobuf code')
 }
 
 project(':runtime:runtime-jvm') {
@@ -70,7 +72,7 @@ project(':runtime:runtime-jvm') {
     dependencies {
         expectedBy project(':runtime:runtime-common')
         compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-        compile 'com.google.protobuf:protobuf-java:3.6.1'
+        compile 'com.google.protobuf:protobuf-java:3.9.2'
         testCompile 'junit:junit:4.12'
         testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
@@ -96,7 +98,8 @@ project(':runtime:runtime-jvm') {
         }
     }
 
-    publishSettings(project, 'pbandk-runtime-jvm', 'JVM library for PBAndK Protobuf code')
+    archivesBaseName = 'pbandk-runtime-jvm'
+    publishSettings(project, archivesBaseName, 'JVM library for PBAndK Protobuf code')
 }
 
 project(':runtime:runtime-native') {
@@ -127,7 +130,8 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-common') {
         }
     }
 
-    publishSettings(project, 'protoc-gen-kotlin-common', 'Common library for PBAndK Protobuf code generator')
+    archivesBaseName = 'protoc-gen-kotlin-common'
+    publishSettings(project, archivesBaseName, 'Common library for PBAndK Protobuf code generator')
 }
 
 project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
@@ -172,7 +176,8 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
         archives bootJar
     }
 
-    publishSettings(project, 'protoc-gen-kotlin-jvm', 'JVM library for PBAndK Protobuf code generator')
+    archivesBaseName = 'protoc-gen-kotlin-jvm'
+    publishSettings(project, archivesBaseName, 'JVM library for PBAndK Protobuf code generator')
 }
 
 project(':protoc-gen-kotlin:protoc-gen-kotlin-native') {
@@ -294,8 +299,6 @@ def publishSettings(project, projectName, projectDescription) {
         if (!project.hasProperty('ossrhUsername')) return
         apply plugin: 'maven'
         apply plugin: 'signing'
-
-        archivesBaseName = projectName
 
         task packageSources(type: Jar) {
             classifier = 'sources'
