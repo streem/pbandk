@@ -25,7 +25,7 @@ project(':application') {
     applicationName = 'greeter'
 
     dependencies {
-        compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.3.0'
+        compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.4.0'
         compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
     }
 
@@ -38,7 +38,7 @@ project(':application') {
         }
         plugins {
             kotlin {
-                artifact = 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.3.0:jvm8@jar'
+                artifact = 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.4.0:jvm8@jar'
             }
         }
         generateProtoTasks {
@@ -61,7 +61,7 @@ project(':application') {
 
 project(':generator') {
     dependencies {
-        compileOnly 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.3.0'
-        compileOnly 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.3.0'
+        compileOnly 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.4.0'
+        compileOnly 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.4.0'
     }
 }
