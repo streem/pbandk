@@ -12,7 +12,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() },
         kotlinPackageName = packageName(ctx),
         version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
-        types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType)
+        types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType, mutableSetOf())
     )
 
     protected fun packageName(ctx: Context) =
@@ -23,60 +23,94 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
     protected fun typesFromProto(
         ctx: Context,
         enumTypes: List<EnumDescriptorProto>,
-        msgTypes: List<DescriptorProto>
-    ) = mutableSetOf<String>().let { usedTypeNames ->
-        enumTypes.map { fromProto(it, usedTypeNames) } + msgTypes.map { fromProto(ctx, it, usedTypeNames) }
-    }
+        msgTypes: List<DescriptorProto>,
+        usedTypeNames: MutableSet<String>
+    ) = enumTypes.map { fromProto(it, usedTypeNames) } + msgTypes.map { fromProto(ctx, it, usedTypeNames) }
 
     protected fun fromProto(enumDesc: EnumDescriptorProto, usedTypeNames: MutableSet<String>) = File.Type.Enum(
         name = enumDesc.name!!,
-        values = mutableSetOf<String>().let { usedValueNames ->
-            enumDesc.value.map {
-                File.Type.Enum.Value(it.number!!, it.name!!, namer.newEnumValueName(it.name!!, usedValueNames))
-            }
+        values = enumDesc.value.fold(listOf()) { values, value ->
+            values + File.Type.Enum.Value(
+                number = value.number!!,
+                name = value.name!!,
+                kotlinValueName = namer.newEnumValueName(
+                    value.name!!,
+                    values.map { it.kotlinValueName })
+            )
         },
-        kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames)
+        kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {
+            usedTypeNames += it
+        }
     )
 
     protected fun fromProto(
         ctx: Context,
         msgDesc: DescriptorProto,
         usedTypeNames: MutableSet<String>
-    ): File.Type.Message = File.Type.Message(
-        name = msgDesc.name!!,
-        fields = fieldsFromProto(ctx, msgDesc, usedTypeNames),
-        nestedTypes = typesFromProto(ctx, msgDesc.enumType, msgDesc.nestedType),
-        mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
-        kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames)
-    )
+    ): File.Type.Message {
+        val usedNestedTypeNames = mutableSetOf<String>()
+        return File.Type.Message(
+            name = msgDesc.name!!,
+            fields = fieldsFromProto(ctx, msgDesc, usedNestedTypeNames),
+            nestedTypes = typesFromProto(
+                ctx,
+                msgDesc.enumType,
+                msgDesc.nestedType,
+                usedNestedTypeNames
+            ),
+            mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
+            kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
+                usedTypeNames += it
+            }
+        )
+    }
 
-    protected fun fieldsFromProto(ctx: Context, msgDesc: DescriptorProto, usedTypeNames: MutableSet<String>) =
-        mutableSetOf<Int>().let { seenOneOfIndexes ->
-            val usedFieldNames = mutableSetOf<String>()
-            msgDesc.field.mapNotNull { field ->
-                // Exclude any group fields
-                if (field.type == FieldDescriptorProto.Type.TYPE_GROUP) null else field.oneofIndex.let { oneOfIndex ->
-                    if (oneOfIndex == null) fromProto(ctx, field, usedFieldNames)
-                    else if (seenOneOfIndexes.add(oneOfIndex)) msgDesc.oneofDecl[oneOfIndex].name?.let { name ->
-                        val fieldTypeNames = mutableMapOf<String, String>()
-                        File.Field.OneOf(
-                            name = name,
-                            fields = mutableSetOf<String>().let { usedFieldTypeNames ->
-                                msgDesc.field.filter { it.oneofIndex == field.oneofIndex }.map {
-                                    fieldTypeNames += it.name!! to namer.newTypeName(it.name!!, usedFieldTypeNames)
-                                    fromProto(ctx, it, mutableSetOf(), true)
-                                }
-                            },
-                            kotlinFieldTypeNames = fieldTypeNames,
-                            kotlinFieldName = namer.newFieldName(name, usedFieldNames),
-                            kotlinTypeName = namer.newTypeName(name, usedTypeNames)
-                        )
-                    } else null
+    protected fun fieldsFromProto(ctx: Context, msgDesc: DescriptorProto, usedTypeNames: MutableSet<String>): List<File.Field> {
+        val usedFieldNames = mutableSetOf<String>()
+        return msgDesc.field
+            // Exclude any group fields
+            .filterNot { it.type == FieldDescriptorProto.Type.TYPE_GROUP}
+            // Handle fields that are part of a oneof specially
+            .partition { it.oneofIndex == null }
+            .let { (standardFields, oneofFields) ->
+                standardFields.map {
+                    standardFieldFromProto(ctx, it, usedFieldNames)
+                } + oneofFields.groupBy {
+                    it.oneofIndex!!
+                }.mapNotNull { (oneofIndex, fields) ->
+                    msgDesc.oneofDecl[oneofIndex].name?.let { oneofName ->
+                        oneofFieldFromProto(ctx, oneofName, fields, usedFieldNames, usedTypeNames)
+                    }
                 }
             }
-        }
+    }
 
-    protected fun fromProto(
+    protected fun oneofFieldFromProto(
+        ctx: Context,
+        oneofName: String,
+        oneofFields: List<FieldDescriptorProto>,
+        usedFieldNames: MutableSet<String>,
+        usedTypeNames: MutableSet<String>
+    ): File.Field.OneOf {
+        val fields = oneofFields.map {
+            standardFieldFromProto(ctx, it, mutableSetOf(), true)
+        }
+        return File.Field.OneOf(
+            name = oneofName,
+            fields = fields,
+            kotlinFieldTypeNames = fields.fold(mapOf()) { typeNames, field ->
+                typeNames + (field.name to namer.newTypeName(field.name, typeNames.values))
+            },
+            kotlinFieldName = namer.newFieldName(oneofName, usedFieldNames).also {
+                usedFieldNames += it
+            },
+            kotlinTypeName = namer.newTypeName(oneofName, usedTypeNames).also {
+                usedTypeNames += it
+            }
+        )
+    }
+
+    protected fun standardFieldFromProto(
         ctx: Context,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
@@ -94,10 +128,12 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                 fieldDesc.label == FieldDescriptorProto.Label.LABEL_REPEATED &&
                 fieldDesc.type == FieldDescriptorProto.Type.TYPE_MESSAGE &&
                 ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
-            kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames),
+            kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
+                usedFieldNames += it
+            },
             kotlinLocalTypeName =
                 if (fieldDesc.typeName == null || fieldDesc.typeName!!.startsWith('.')) null
-                else namer.newTypeName(fieldDesc.typeName!!, mutableSetOf())
+                else namer.newTypeName(fieldDesc.typeName!!, setOf())
         )
     }
 

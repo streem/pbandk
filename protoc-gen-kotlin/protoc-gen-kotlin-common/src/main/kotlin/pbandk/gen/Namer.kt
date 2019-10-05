@@ -1,9 +1,9 @@
 package pbandk.gen
 
 interface Namer {
-    fun newTypeName(preferred: String, nameSet: MutableSet<String>): String
-    fun newFieldName(preferred: String, nameSet: MutableSet<String>): String
-    fun newEnumValueName(preferred: String, nameSet: MutableSet<String>): String
+    fun newTypeName(preferred: String, nameSet: Collection<String>): String
+    fun newFieldName(preferred: String, nameSet: Collection<String>): String
+    fun newEnumValueName(preferred: String, nameSet: Collection<String>): String
 
     open class Standard : Namer {
         val disallowedTypeNames = setOf(
@@ -27,23 +27,23 @@ interface Namer {
             }
         }
 
-        override fun newTypeName(preferred: String, nameSet: MutableSet<String>): String {
+        override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).capitalize()
             while (nameSet.contains(name) || disallowedTypeNames.contains(name)) name += '_'
-            return name.also { nameSet += name }
+            return name
         }
 
-        override fun newFieldName(preferred: String, nameSet: MutableSet<String>): String {
+        override fun newFieldName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).decapitalize()
             while (nameSet.contains(name) || disallowedFieldNames.contains(name)) name += '_'
             if (kotlinKeywords.contains(name)) name = "`$name`"
-            return name.also { nameSet += name }
+            return name
         }
 
-        override fun newEnumValueName(preferred: String, nameSet: MutableSet<String>): String {
+        override fun newEnumValueName(preferred: String, nameSet: Collection<String>): String {
             var name = preferred.toUpperCase()
             while (nameSet.contains(name)) name += '_'
-            return name.also { nameSet += name }
+            return name
         }
 
         companion object : Standard()
