@@ -16,9 +16,12 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
     )
 
     protected fun packageName(ctx: Context) =
-        ctx.params["kotlin_package"] ?: ctx.fileDesc.options?.uninterpretedOption?.find {
-            it.name.singleOrNull()?.namePart == "kotlin_package"
-        }?.stringValue?.array?.let(Util::utf8ToString) ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
+        ctx.params["kotlin_package"]
+            ?: ctx.fileDesc.options?.uninterpretedOption?.find {
+                it.name.singleOrNull()?.namePart == "kotlin_package"
+            }?.stringValue?.array?.let(Util::utf8ToString)
+            ?: ctx.fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
+            ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
     protected fun typesFromProto(
         ctx: Context,
