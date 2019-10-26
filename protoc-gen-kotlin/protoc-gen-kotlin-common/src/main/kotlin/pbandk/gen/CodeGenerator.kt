@@ -48,7 +48,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             type.fields.forEach { field ->
                 when (field) {
                     is File.Field.Standard -> lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
-                    is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}? = null,")
+                    is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
                 }
             }
             // The unknown fields
@@ -77,13 +77,23 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
-        line("sealed class ${oneOf.kotlinTypeName} {").indented {
+        line("sealed class ${oneOf.kotlinTypeName}<V>(val value: V) {").indented {
             oneOf.fields.forEach { field ->
-                lineBegin("data class ${oneOf.kotlinFieldTypeNames[field.name]}(")
-                writeConstructorField(field, false)
-                lineEnd(") : ${oneOf.kotlinTypeName}()")
+                lineBegin("class ${oneOf.kotlinFieldTypeNames[field.name]}(")
+                lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
+                if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue}")
+                lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
             }
         }.line("}").line()
+
+        oneOf.fields.forEach { field ->
+            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+                lineBegin("get() = ")
+                lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
+                lineEnd("?.value")
+            }
+        }
+        line()
     }
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
@@ -123,8 +133,8 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                                 "${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[subField.name]}"
                         line("${oneOf.kotlinFieldName} is $subTypeName && " +
                                 "plus.${oneOf.kotlinFieldName} is $subTypeName ->").indented {
-                            line("$subTypeName(${oneOf.kotlinFieldName}.${subField.kotlinFieldName} + " +
-                                "plus.${oneOf.kotlinFieldName}.${subField.kotlinFieldName})")
+                            line("$subTypeName(${oneOf.kotlinFieldName}.value + " +
+                                "plus.${oneOf.kotlinFieldName}.value)")
                         }
                     }
                     line("else ->").indented {
@@ -159,7 +169,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                             field.fields.forEach { subField ->
                                 val subFieldTypeName = field.kotlinFieldTypeNames[subField.name]
                                 line("is $fullTypeName.${field.kotlinTypeName}.$subFieldTypeName -> protoSize += " +
-                                    subField.sizeExpr("${field.kotlinFieldName}.${subField.fieldRef}"))
+                                    subField.sizeExpr("${field.kotlinFieldName}.value"))
                             }
                         }.line("}")
                     }
@@ -182,7 +192,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                     // in order and keep the code simple.
                     val subClassName = "$fullTypeName.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
                     line("if (${oneOf.kotlinFieldName} is $subClassName) " +
-                        field.writeExpr("${oneOf.kotlinFieldName}.${field.fieldRef}"))
+                        field.writeExpr("${oneOf.kotlinFieldName}.value"))
                 }
             }
             // Also persist unknown fields
@@ -202,7 +212,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                         it.unmarshalVarDone
                     }
                     is File.Field.OneOf -> {
-                        line("var ${it.kotlinFieldName}: $fullTypeName.${it.kotlinTypeName}? = null")
+                        line("var ${it.kotlinFieldName}: $fullTypeName.${it.kotlinTypeName}<*>? = null")
                         it.kotlinFieldName
                     }
                 }
