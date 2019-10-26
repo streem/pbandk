@@ -19,3 +19,5 @@ interface Message<T : Message<T>> {
         }
     }
 }
+
+operator fun <T : Message<T>> Message<T>?.plus(other: T?) = this?.plus(other) ?: other
