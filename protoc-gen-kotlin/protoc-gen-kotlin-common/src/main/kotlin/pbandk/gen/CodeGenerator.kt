@@ -85,6 +85,15 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                 lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
             }
         }.line("}").line()
+
+        oneOf.fields.forEach { field ->
+            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+                lineBegin("get() = ")
+                lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
+                lineEnd("?.value")
+            }
+        }
+        line()
     }
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
