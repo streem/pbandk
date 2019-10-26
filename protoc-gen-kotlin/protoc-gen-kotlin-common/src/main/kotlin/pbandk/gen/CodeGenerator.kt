@@ -61,6 +61,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             line("override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
             line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
+                line("val defaultInstance by lazy { ${type.kotlinTypeName}() }")
                 line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = " +
                     "${type.kotlinTypeName}.protoUnmarshalImpl(u)")
             }.line("}")
@@ -87,11 +88,17 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
         val fullTypeName = if (parentType == null) type.kotlinTypeName else "$parentType.${type.kotlinTypeName}"
+        writeMessageOrDefaultExtension(type, fullTypeName)
         writeMessageMergeExtension(type, fullTypeName)
         writeMessageSizeExtension(type, fullTypeName)
         writeMessageMarshalExtension(type, fullTypeName)
         writeMessageUnmarshalExtension(type, fullTypeName)
         type.nestedTypes.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it, fullTypeName) }
+    }
+
+    protected fun writeMessageOrDefaultExtension(type: File.Type.Message, fullTypeName: String) {
+        line()
+        line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
     }
 
     protected fun writeMessageMergeExtension(type: File.Type.Message, fullTypeName: String) {
@@ -379,7 +386,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         File.Field.Type.FLOAT -> "Float"
         File.Field.Type.INT32 -> "Int"
         File.Field.Type.INT64 -> "Long"
-        File.Field.Type.MESSAGE -> error("No standard type name for enums")
+        File.Field.Type.MESSAGE -> error("No standard type name for messages")
         File.Field.Type.SFIXED32 -> "Int"
         File.Field.Type.SFIXED64 -> "Long"
         File.Field.Type.SINT32 -> "Int"
