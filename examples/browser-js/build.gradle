@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    compile 'com.github.streem.pb-and-k:pbandk-runtime-js:0.4.1'
+    compile 'com.github.streem.pb-and-k:pbandk-runtime-js:0.5.0'
     // This is needed for includes, ref: https://github.com/google/protobuf-gradle-plugin/issues/41#issuecomment-143884188
     compileOnly 'com.google.protobuf:protobuf-java:3.6.1'
 }
@@ -58,7 +58,7 @@ protobuf {
     }
     plugins {
         kotlin {
-            artifact = 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.4.1:jvm8@jar'
+            artifact = 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.5.0:jvm8@jar'
         }
     }
     generateProtoTasks {
