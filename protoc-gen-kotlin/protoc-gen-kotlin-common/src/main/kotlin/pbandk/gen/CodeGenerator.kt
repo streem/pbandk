@@ -379,7 +379,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         File.Field.Type.FLOAT -> "Float"
         File.Field.Type.INT32 -> "Int"
         File.Field.Type.INT64 -> "Long"
-        File.Field.Type.MESSAGE -> error("No standard type name for enums")
+        File.Field.Type.MESSAGE -> error("No standard type name for messages")
         File.Field.Type.SFIXED32 -> "Int"
         File.Field.Type.SFIXED64 -> "Long"
         File.Field.Type.SINT32 -> "Int"
