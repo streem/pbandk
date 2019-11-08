@@ -58,7 +58,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             type.fields.mapNotNull { it as? File.Field.OneOf }.forEach(::writeOneOfType)
             // IO helpers
             line("override operator fun plus(other: ${type.kotlinTypeName}?) = protoMergeImpl(other)")
-            line("override val protoSize by lazy { protoSizeImpl() }")
+            line("@delegate:Transient override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
             line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
                 line("val defaultInstance by lazy { ${type.kotlinTypeName}() }")
