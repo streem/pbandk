@@ -86,18 +86,20 @@ data class Person(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.protoUnmarshalImpl(u)
     }
 
-    data class PhoneType(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<PhoneType> {
-            val MOBILE = PhoneType(0)
-            val HOME = PhoneType(1)
-            val WORK = PhoneType(2)
+    sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+        override fun equals(other: kotlin.Any?) = other is PhoneType && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                0 -> MOBILE
-                1 -> HOME
-                2 -> WORK
-                else -> PhoneType(value)
-            }
+        object Mobile : PhoneType(0, "MOBILE")
+        object Home : PhoneType(1, "HOME")
+        object Work : PhoneType(2, "WORK")
+        class Unrecognized(value: Int) : PhoneType(value)
+
+        companion object : pbandk.Message.NamedEnum.Companion<PhoneType> {
+            override val values = listOf(Mobile, Home, Work)
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
     }
 
