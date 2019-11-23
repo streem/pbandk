@@ -27,14 +27,18 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
 
     protected fun writeEnumType(type: File.Type.Enum) {
-        // Enums are data classes w/ a single value and a companion object with known values
-        line().line("data class ${type.kotlinTypeName}(override val value: Int) : pbandk.Message.Enum {").indented {
-            line("companion object : pbandk.Message.Enum.Companion<${type.kotlinTypeName}> {").indented {
-                type.values.forEach { line("val ${it.kotlinValueName} = ${type.kotlinTypeName}(${it.number})") }
+        // Enums are data classes w/ a value and a name, and a companion object with known values
+        line().line("data class ${type.kotlinTypeName}(override val value: Int, override val name: String) : pbandk.Message.NamedEnum {").indented {
+            line("companion object : pbandk.Message.NamedEnum.Companion<${type.kotlinTypeName}> {").indented {
+                type.values.forEach { line("val ${it.kotlinValueName} = ${type.kotlinTypeName}(${it.number}, \"${it.kotlinValueName}\")") }
                 line()
                 line("override fun fromValue(value: Int) = when (value) {").indented {
                     type.values.forEach { line("${it.number} -> ${it.kotlinValueName}") }
-                    line("else -> ${type.kotlinTypeName}(value)")
+                    line("else -> ${type.kotlinTypeName}(value, \"UNRECOGNIZED\")")
+                }.line("}")
+                line("override fun fromName(name: String) = when (name) {").indented {
+                    type.values.forEach { line("\"${it.kotlinValueName}\" -> ${it.kotlinValueName}") }
+                    line("else -> throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
                 }.line("}")
             }.line("}")
         }.line("}")
