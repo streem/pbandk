@@ -18,6 +18,14 @@ interface Message<T : Message<T>> {
             fun fromValue(value: Int): T
         }
     }
+
+    interface NamedEnum : Enum {
+        val name: String?
+
+        interface Companion<T : Enum> : Enum.Companion<T> {
+            fun fromName(name: String): T
+        }
+    }
 }
 
 operator fun <T : Message<T>> Message<T>?.plus(other: T?) = this?.plus(other) ?: other
