@@ -20,6 +20,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
             ?: ctx.fileDesc.options?.uninterpretedOption?.find {
                 it.name.singleOrNull()?.namePart == "kotlin_package"
             }?.stringValue?.array?.let(Util::utf8ToString)
+            ?: ctx.packageMappings[ctx.fileDesc.`package`]
             ?: ctx.fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
             ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
@@ -164,6 +165,13 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
     }
 
     data class Context(val fileDesc: FileDescriptorProto, val params: Map<String, String>) {
+        // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
+        val packageMappings = params["kotlin_package_mapping"]
+            ?.split(";")
+            ?.map { it.substringBefore("->") to it.substringAfter("->", "") }
+            ?.toMap()
+            ?: emptyMap()
+
         fun findLocalMessage(name: String, parent: DescriptorProto? = null): DescriptorProto? {
             // Get the set to look in and the type name
             val (lookIn, typeName) =
