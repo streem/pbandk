@@ -3,7 +3,7 @@ package pbandk.gen
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 
-var logDebug = false
+var logDebug = true
 inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
 fun main(args: Array<String>) {
@@ -31,6 +31,8 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
             if (needToGenerate || (protoFile.`package` != "google.protobuf" && protoFile.`package` != "google.api")) it
             else if (protoFile.`package` == "google.api") it + ("kotlin_package" to "pbandk.google.api")
             else it + ("kotlin_package" to "pbandk.wkt")
+        }.also {
+            debug { "Params $it" }
         }))
         // Update the type mappings
         kotlinTypeMappings += file.kotlinTypeMappings()
