@@ -3,7 +3,7 @@ package pbandk.gen
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 
-var logDebug = true
+var logDebug = false
 inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
 fun main(args: Array<String>) {
@@ -16,7 +16,7 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     val params =
         if (request.parameter == null || request.parameter.isEmpty()) emptyMap()
         else request.parameter.split(',').map { it.substringBefore('=') to it.substringAfter('=', "") }.toMap()
-    logDebug = params["log"] == "debug"
+    logDebug = true//params["log"] == "debug"
     debug { "Running generator with params: $params" }
     // Load service generator if it exists
     val serviceGen = Platform.serviceGenerator(params)
