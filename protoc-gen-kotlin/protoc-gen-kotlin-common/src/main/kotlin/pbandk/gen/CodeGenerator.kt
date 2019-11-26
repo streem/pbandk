@@ -34,7 +34,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             line("override fun toString() = \"${type.kotlinTypeName}.\$name(value=\$value)\"")
             line()
             type.values.forEach { line("object ${it.kotlinValueClassName} : ${type.kotlinTypeName}(${it.number}, \"${it.kotlinValueStringName}\")") }
-            line("object Unrecognized(value: Int) : ${type.kotlinTypeName}(value, \"UNRECOGNIZED\")")
+            line("class Unrecognized(value: Int) : ${type.kotlinTypeName}(value, \"UNRECOGNIZED\")")
             line()
             line("companion object : pbandk.Message.NamedEnum.Companion<${type.kotlinTypeName}> {").indented {
                 line("val values = listOf(${type.values.joinToString(", ") { it.kotlinValueClassName }})")

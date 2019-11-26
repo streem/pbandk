@@ -13,6 +13,12 @@ interface Namer {
         val disallowedFieldNames = setOf(
             "emptyList", "pbandk", "plus", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
         )
+        val disallowedValueClassNames = setOf(
+            "Unrecognized"
+        )
+        val disallowedValueStringNames = setOf(
+            "UNRECOGNIZED"
+        )
         val kotlinKeywords = setOf(
             "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",
             "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
@@ -28,6 +34,9 @@ interface Namer {
             }
         }
 
+        protected fun camelCaseToUnderscore(str: String) =
+            str.replace(Regex("(?<=.)([A-Z])"), "_$2").toLowerCase()
+
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).capitalize()
             while (nameSet.contains(name) || disallowedTypeNames.contains(name)) name += '_'
@@ -42,14 +51,17 @@ interface Namer {
         }
 
         override fun newEnumValueClassName(typeName: String, preferred: String, nameSet: Collection<String>): String {
-            val name = newEnumValueStringName(typeName, preferred, nameSet)
-            return underscoreToCamelCase(name).capitalize()
+            val typePrefix = camelCaseToUnderscore(typeName) + '_'
+            var name = camelCaseToUnderscore(preferred).substringAfter(typePrefix)
+            name = underscoreToCamelCase(name).capitalize()
+            while (nameSet.contains(name) || disallowedValueClassNames.contains(name)) name += '_'
+            return name
         }
 
         override fun newEnumValueStringName(typeName: String, preferred: String, nameSet: Collection<String>): String {
-            val typePrefix = typeName.toUpperCase() + '_'
-            var name = preferred.toUpperCase().substringAfter(typePrefix)
-            while (nameSet.contains(name)) name += '_'
+            val typePrefix = camelCaseToUnderscore(typeName) + '_'
+            var name = camelCaseToUnderscore(preferred).substringAfter(typePrefix).toUpperCase()
+            while (nameSet.contains(name) || disallowedValueStringNames.contains(name)) name += '_'
             return name
         }
 
