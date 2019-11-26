@@ -28,7 +28,7 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
 //        ?.toMap()
 //        ?: emptyMap()
     val packageMappings = mapOf(
-        "com.google.api" to "pbandk.google.api"
+        "google.api" to "pbandk.google.api"
     )
 
     // Convert to file model and generate the code only for ones requested
