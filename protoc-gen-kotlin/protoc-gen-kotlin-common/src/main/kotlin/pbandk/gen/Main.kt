@@ -16,7 +16,7 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     val params =
         if (request.parameter == null || request.parameter.isEmpty()) emptyMap()
         else request.parameter.split(',').map { it.substringBefore('=') to it.substringAfter('=', "") }.toMap()
-    logDebug = true//params["log"] == "debug"
+    logDebug = params["log"] == "debug"
     debug { "Running generator with params: $params" }
     // Load service generator if it exists
     val serviceGen = Platform.serviceGenerator(params)
@@ -28,8 +28,7 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
         // Convert the file to our model
         val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params.let {
             // As a special case, if we're not generating it but it's a well-known type package, change it our known one
-            if (needToGenerate || (protoFile.`package` != "google.protobuf" && protoFile.`package` != "com.google.api")) it
-            else if (protoFile.`package` == "com.google.api") it + ("kotlin_package" to "pbandk.google.api")
+            if (needToGenerate || protoFile.`package` != "google.protobuf") it
             else it + ("kotlin_package" to "pbandk.wkt")
         }.also {
             debug { "Params $it" }

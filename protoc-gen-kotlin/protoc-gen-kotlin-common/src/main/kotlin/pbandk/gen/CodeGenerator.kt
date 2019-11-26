@@ -5,7 +5,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected var indent = ""
 
     fun generate(): String {
-        file.kotlinPackageName?.let { line("package $it\n// sean1") }
+        file.kotlinPackageName?.let { line("package $it\n// sean2") }
         file.types.forEach(::writeType)
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
         return bld.toString()
