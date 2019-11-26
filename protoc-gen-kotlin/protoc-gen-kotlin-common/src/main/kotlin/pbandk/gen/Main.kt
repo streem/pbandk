@@ -20,14 +20,6 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     debug { "Running generator with params: $params" }
     // Load service generator if it exists
     val serviceGen = Platform.serviceGenerator(params)
-
-    // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
-    val packageMappings = params["kotlin_package_mapping"]
-        ?.split(";")
-        ?.map { it.substringBefore("->") to it.substringAfter("->", "") }
-        ?.toMap()
-        ?: emptyMap()
-
     // Convert to file model and generate the code only for ones requested
     val kotlinTypeMappings = mutableMapOf<String, String>()
     return CodeGeneratorResponse(file = request.protoFile.flatMap { protoFile ->
@@ -37,19 +29,8 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
         // Convert the file to our model
         val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params.let {
             // As a special case, if we're not generating it but it's a well-known type package, change it our known one
-            if (needToGenerate || packageName != "google.protobuf") {
-                val mappedPackage = packageMappings[packageName]
-                if (mappedPackage != null) {
-                    debug { "Mapping $packageName to: $mappedPackage" }
-                    it + ("kotlin_package" to mappedPackage)
-                }
-                else {
-                    it
-                }
-            }
+            if (needToGenerate || packageName != "google.protobuf") it
             else it + ("kotlin_package" to "pbandk.wkt")
-        }.also {
-            debug { "Params $it" }
         }))
         // Update the type mappings
         kotlinTypeMappings += file.kotlinTypeMappings()
