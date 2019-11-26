@@ -37,9 +37,14 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
             values + File.Type.Enum.Value(
                 number = value.number!!,
                 name = value.name!!,
-                kotlinValueName = namer.newEnumValueName(
+                kotlinValueClassName = namer.newEnumValueClassName(
+                    enumDesc.name!!,
                     value.name!!,
-                    values.map { it.kotlinValueName })
+                    values.map { it.kotlinValueClassName }),
+                kotlinValueStringName = namer.newEnumValueStringName(
+                    enumDesc.name!!,
+                    value.name!!,
+                    values.map { it.kotlinValueStringName })
             )
         },
         kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {

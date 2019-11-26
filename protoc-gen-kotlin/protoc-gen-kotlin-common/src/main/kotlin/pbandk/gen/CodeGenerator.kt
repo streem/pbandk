@@ -28,18 +28,18 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
 
     protected fun writeEnumType(type: File.Type.Enum) {
         // Enums are data classes w/ a value and a name, and a companion object with known values
-        line().line("data class ${type.kotlinTypeName}(override val value: Int, override val name: String) : pbandk.Message.NamedEnum {").indented {
+        line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String) : pbandk.Message.NamedEnum {").indented {
+            line("override fun equals(other: Any?) = other is ${type.kotlinTypeName} && other.value == value")
+            line("override fun hashCode() = value.hashCode()")
+            line("override fun toString() = \"${type.kotlinTypeName}.\$name(value=\$value)\"")
+            line()
+            type.values.forEach { line("object ${it.kotlinValueClassName} : ${type.kotlinTypeName}(${it.number}, \"${it.kotlinValueStringName}\")") }
+            line("object Unrecognized(value: Int) : ${type.kotlinTypeName}(value, \"UNRECOGNIZED\")")
+            line()
             line("companion object : pbandk.Message.NamedEnum.Companion<${type.kotlinTypeName}> {").indented {
-                type.values.forEach { line("val ${it.kotlinValueName} = ${type.kotlinTypeName}(${it.number}, \"${it.kotlinValueName}\")") }
-                line()
-                line("override fun fromValue(value: Int) = when (value) {").indented {
-                    type.values.forEach { line("${it.number} -> ${it.kotlinValueName}") }
-                    line("else -> ${type.kotlinTypeName}(value, \"UNRECOGNIZED\")")
-                }.line("}")
-                line("override fun fromName(name: String) = when (name) {").indented {
-                    type.values.forEach { line("\"${it.kotlinValueName}\" -> ${it.kotlinValueName}") }
-                    line("else -> throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
-                }.line("}")
+                line("val values = listOf(${type.values.joinToString(", ") { it.kotlinValueClassName }})")
+                line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)")
+                line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
             }.line("}")
         }.line("}")
     }

@@ -3,7 +3,8 @@ package pbandk.gen
 interface Namer {
     fun newTypeName(preferred: String, nameSet: Collection<String>): String
     fun newFieldName(preferred: String, nameSet: Collection<String>): String
-    fun newEnumValueName(preferred: String, nameSet: Collection<String>): String
+    fun newEnumValueClassName(typeName: String, preferred: String, nameSet: Collection<String>): String
+    fun newEnumValueStringName(typeName: String, preferred: String, nameSet: Collection<String>): String
 
     open class Standard : Namer {
         val disallowedTypeNames = setOf(
@@ -40,8 +41,14 @@ interface Namer {
             return name
         }
 
-        override fun newEnumValueName(preferred: String, nameSet: Collection<String>): String {
-            var name = preferred.toUpperCase()
+        override fun newEnumValueClassName(typeName: String, preferred: String, nameSet: Collection<String>): String {
+            val name = newEnumValueStringName(typeName, preferred, nameSet)
+            return underscoreToCamelCase(name).capitalize()
+        }
+
+        override fun newEnumValueStringName(typeName: String, preferred: String, nameSet: Collection<String>): String {
+            val typePrefix = typeName.toUpperCase() + '_'
+            var name = preferred.toUpperCase().substringAfter(typePrefix)
             while (nameSet.contains(name)) name += '_'
             return name
         }
