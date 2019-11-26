@@ -35,8 +35,7 @@ interface Namer {
         }
 
         protected fun splitWordsToSnakeCase(str: String) =
-            str.split("_")
-                .flatMap { it.split(Regex("(?<=[a-z])([A-Z0-9])")) }
+            str.replace(Regex("(?<=[a-z])([A-Z0-9])"), "_$1").split("_")
                 .joinToString("_") { it.toLowerCase() }
 
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
