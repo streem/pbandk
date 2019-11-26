@@ -21,15 +21,12 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     // Load service generator if it exists
     val serviceGen = Platform.serviceGenerator(params)
 
-    // Support option kotlin_package_mapping=from.package1->to.package1:from.package2->to.package2
+    // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
     val packageMappings = params["kotlin_package_mapping"]
-        ?.split(":")
+        ?.split(";")
         ?.map { it.substringBefore("->") to it.substringAfter("->", "") }
         ?.toMap()
         ?: emptyMap()
-//    val packageMappings = mapOf(
-//        "google.api" to "pbandk.google.api"
-//    )
 
     // Convert to file model and generate the code only for ones requested
     val kotlinTypeMappings = mutableMapOf<String, String>()
