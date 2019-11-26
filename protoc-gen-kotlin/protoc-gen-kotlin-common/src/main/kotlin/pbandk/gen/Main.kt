@@ -23,13 +23,13 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     // Convert to file model and generate the code only for ones requested
     val kotlinTypeMappings = mutableMapOf<String, String>()
     return CodeGeneratorResponse(file = request.protoFile.flatMap { protoFile ->
-        debug { "Reading ${protoFile.name}" }
+        debug { "Reading ${protoFile.name}, package: ${protoFile.`package`}" }
         val needToGenerate = request.fileToGenerate.contains(protoFile.name)
         // Convert the file to our model
         val file = FileBuilder.buildFile(FileBuilder.Context(protoFile, params.let {
             // As a special case, if we're not generating it but it's a well-known type package, change it our known one
-            if (needToGenerate || (protoFile.`package` != "google.protobuf" && protoFile.`package` != "google.api")) it
-            else if (protoFile.`package` == "google.api") it + ("kotlin_package" to "pbandk.google.api")
+            if (needToGenerate || (protoFile.`package` != "google.protobuf" && protoFile.`package` != "com.google.api")) it
+            else if (protoFile.`package` == "com.google.api") it + ("kotlin_package" to "pbandk.google.api")
             else it + ("kotlin_package" to "pbandk.wkt")
         }.also {
             debug { "Params $it" }
