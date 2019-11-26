@@ -29,7 +29,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected fun writeEnumType(type: File.Type.Enum) {
         // Enums are data classes w/ a value and a name, and a companion object with known values
         line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String) : pbandk.Message.NamedEnum {").indented {
-            line("override fun equals(other: Any?) = other is ${type.kotlinTypeName} && other.value == value")
+            line("override fun equals(other: kotlin.Any?) = other is ${type.kotlinTypeName} && other.value == value")
             line("override fun hashCode() = value.hashCode()")
             line("override fun toString() = \"${type.kotlinTypeName}.\$name(value=\$value)\"")
             line()
