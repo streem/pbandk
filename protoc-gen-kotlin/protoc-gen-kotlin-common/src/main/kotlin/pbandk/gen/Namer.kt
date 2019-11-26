@@ -35,7 +35,7 @@ interface Namer {
         }
 
         protected fun camelCaseToUnderscore(str: String) =
-            str.replace(Regex("(?<=.)([A-Z])"), "_$2").toLowerCase()
+            str.replace(Regex("(?<=.)([A-Z])"), "_$1").toLowerCase()
 
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).capitalize()
