@@ -34,8 +34,10 @@ interface Namer {
             }
         }
 
-        protected fun camelCaseToUnderscore(str: String) =
-            str.replace(Regex("(?<=.)([A-Z])"), "_$1").toLowerCase()
+        protected fun splitWordsToSnakeCase(str: String) =
+            str.split("_")
+                .flatMap { it.split(Regex("(?<=[a-z])([A-Z0-9])")) }
+                .joinToString("_") { it.toLowerCase() }
 
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).capitalize()
@@ -51,16 +53,18 @@ interface Namer {
         }
 
         override fun newEnumValueClassName(typeName: String, preferred: String, nameSet: Collection<String>): String {
-            val typePrefix = camelCaseToUnderscore(typeName) + '_'
-            var name = camelCaseToUnderscore(preferred).substringAfter(typePrefix)
+            val typePrefix = splitWordsToSnakeCase(typeName) + '_'
+            var name = splitWordsToSnakeCase(preferred).substringAfter(typePrefix)
             name = underscoreToCamelCase(name).capitalize()
+
             while (nameSet.contains(name) || disallowedValueClassNames.contains(name)) name += '_'
             return name
         }
 
         override fun newEnumValueStringName(typeName: String, preferred: String, nameSet: Collection<String>): String {
-            val typePrefix = camelCaseToUnderscore(typeName) + '_'
-            var name = camelCaseToUnderscore(preferred).substringAfter(typePrefix).toUpperCase()
+            val typePrefix = splitWordsToSnakeCase(typeName) + '_'
+            var name = splitWordsToSnakeCase(preferred).substringAfter(typePrefix).toUpperCase()
+
             while (nameSet.contains(name) || disallowedValueStringNames.contains(name)) name += '_'
             return name
         }
