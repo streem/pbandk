@@ -184,7 +184,7 @@ Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.5.1'
+    compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.6.0'
 }
 ```
 
@@ -203,7 +203,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.5.1'
+    compileOnly 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.6.0'
 }
 ```
 
