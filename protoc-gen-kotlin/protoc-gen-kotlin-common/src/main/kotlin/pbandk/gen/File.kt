@@ -43,7 +43,7 @@ data class File(
             val values: List<Value>,
             override val kotlinTypeName: String
         ) : Type() {
-            data class Value(val number: Int, val name: String, val kotlinValueName: String)
+            data class Value(val number: Int, val name: String, val kotlinValueTypeName: String)
         }
     }
 
