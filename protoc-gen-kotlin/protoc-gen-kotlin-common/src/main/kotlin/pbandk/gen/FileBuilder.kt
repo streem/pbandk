@@ -74,7 +74,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         val usedFieldNames = mutableSetOf<String>()
         return msgDesc.field
             // Exclude any group fields
-            .filterNot { it.type == FieldDescriptorProto.Type.Group}
+            .filterNot { it.type == FieldDescriptorProto.Type.GROUP}
             // Handle fields that are part of a oneof specially
             .partition { it.oneofIndex == null }
             .let { (standardFields, oneofFields) ->
@@ -126,12 +126,12 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
             name = fieldDesc.name!!,
             type = type,
             localTypeName = fieldDesc.typeName,
-            repeated = fieldDesc.label == FieldDescriptorProto.Label.Repeated,
-            optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.Optional,
+            repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
+            optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL,
             packed = !type.neverPacked && (ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true),
             map = supportMaps &&
-                fieldDesc.label == FieldDescriptorProto.Label.Repeated &&
-                fieldDesc.type == FieldDescriptorProto.Type.Message &&
+                fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
+                fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&
                 ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
             kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
                 usedFieldNames += it
@@ -143,24 +143,24 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
     }
 
     protected fun fromProto(type: FieldDescriptorProto.Type) = when (type) {
-        FieldDescriptorProto.Type.Bool -> File.Field.Type.BOOL
-        FieldDescriptorProto.Type.Bytes -> File.Field.Type.BYTES
-        FieldDescriptorProto.Type.Double_ -> File.Field.Type.DOUBLE
-        FieldDescriptorProto.Type.Enum -> File.Field.Type.ENUM
-        FieldDescriptorProto.Type.Fixed32 -> File.Field.Type.FIXED32
-        FieldDescriptorProto.Type.Fixed64 -> File.Field.Type.FIXED64
-        FieldDescriptorProto.Type.Float_ -> File.Field.Type.FLOAT
-        FieldDescriptorProto.Type.Group -> TODO("Group types not supported")
-        FieldDescriptorProto.Type.Int32 -> File.Field.Type.INT32
-        FieldDescriptorProto.Type.Int64 -> File.Field.Type.INT64
-        FieldDescriptorProto.Type.Message -> File.Field.Type.MESSAGE
-        FieldDescriptorProto.Type.Sfixed32 -> File.Field.Type.SFIXED32
-        FieldDescriptorProto.Type.Sfixed64 -> File.Field.Type.SFIXED64
-        FieldDescriptorProto.Type.Sint32 -> File.Field.Type.SINT32
-        FieldDescriptorProto.Type.Sint64 -> File.Field.Type.SINT64
-        FieldDescriptorProto.Type.String_ -> File.Field.Type.STRING
-        FieldDescriptorProto.Type.Uint32 -> File.Field.Type.UINT32
-        FieldDescriptorProto.Type.Uint64 -> File.Field.Type.UINT64
+        FieldDescriptorProto.Type.BOOL -> File.Field.Type.BOOL
+        FieldDescriptorProto.Type.BYTES -> File.Field.Type.BYTES
+        FieldDescriptorProto.Type.DOUBLE -> File.Field.Type.DOUBLE
+        FieldDescriptorProto.Type.ENUM -> File.Field.Type.ENUM
+        FieldDescriptorProto.Type.FIXED32 -> File.Field.Type.FIXED32
+        FieldDescriptorProto.Type.FIXED64 -> File.Field.Type.FIXED64
+        FieldDescriptorProto.Type.FLOAT -> File.Field.Type.FLOAT
+        FieldDescriptorProto.Type.GROUP -> TODO("Group types not supported")
+        FieldDescriptorProto.Type.INT32 -> File.Field.Type.INT32
+        FieldDescriptorProto.Type.INT64 -> File.Field.Type.INT64
+        FieldDescriptorProto.Type.MESSAGE -> File.Field.Type.MESSAGE
+        FieldDescriptorProto.Type.SFIXED32 -> File.Field.Type.SFIXED32
+        FieldDescriptorProto.Type.SFIXED64 -> File.Field.Type.SFIXED64
+        FieldDescriptorProto.Type.SINT32 -> File.Field.Type.SINT32
+        FieldDescriptorProto.Type.SINT64 -> File.Field.Type.SINT64
+        FieldDescriptorProto.Type.STRING -> File.Field.Type.STRING
+        FieldDescriptorProto.Type.UINT32 -> File.Field.Type.UINT32
+        FieldDescriptorProto.Type.UINT64 -> File.Field.Type.UINT64
         else -> error("Unknown type: $type")
     }
 

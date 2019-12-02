@@ -2,7 +2,7 @@
   "name": "runtime-js",
   "version": "0.1.0",
   "description": "",
-  "main": "build/classes/kotlin/main/runtime-js.js",
+  "main": "build/classes/kotlin/main/pbandk-runtime-js.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

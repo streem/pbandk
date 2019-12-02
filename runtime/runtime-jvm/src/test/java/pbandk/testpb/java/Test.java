@@ -19,11 +19,13 @@ public final class Test {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string val = 1;</code>
+     * <code>string val = 1;</code>
+     * @return The val.
      */
     java.lang.String getVal();
     /**
-     * <code>optional string val = 1;</code>
+     * <code>string val = 1;</code>
+     * @return The bytes for val.
      */
     com.google.protobuf.ByteString
         getValBytes();
@@ -35,6 +37,7 @@ public final class Test {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.Foo)
       FooOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Foo.newBuilder() to construct.
     private Foo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -44,16 +47,27 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Foo();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Foo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      int mutable_bitField0_ = 0;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -62,16 +76,17 @@ public final class Test {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               val_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -82,6 +97,7 @@ public final class Test {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -90,6 +106,7 @@ public final class Test {
       return pbandk.testpb.java.Test.internal_static_testpb_Foo_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return pbandk.testpb.java.Test.internal_static_testpb_Foo_fieldAccessorTable
@@ -100,7 +117,8 @@ public final class Test {
     public static final int VAL_FIELD_NUMBER = 1;
     private volatile java.lang.Object val_;
     /**
-     * <code>optional string val = 1;</code>
+     * <code>string val = 1;</code>
+     * @return The val.
      */
     public java.lang.String getVal() {
       java.lang.Object ref = val_;
@@ -115,7 +133,8 @@ public final class Test {
       }
     }
     /**
-     * <code>optional string val = 1;</code>
+     * <code>string val = 1;</code>
+     * @return The bytes for val.
      */
     public com.google.protobuf.ByteString
         getValBytes() {
@@ -132,6 +151,7 @@ public final class Test {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -141,13 +161,16 @@ public final class Test {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getValBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, val_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -156,11 +179,11 @@ public final class Test {
       if (!getValBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, val_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -171,10 +194,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.Foo other = (pbandk.testpb.java.Test.Foo) obj;
 
-      boolean result = true;
-      result = result && getVal()
-          .equals(other.getVal());
-      return result;
+      if (!getVal()
+          .equals(other.getVal())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -183,7 +206,7 @@ public final class Test {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VAL_FIELD_NUMBER;
       hash = (53 * hash) + getVal().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -191,6 +214,17 @@ public final class Test {
       return hash;
     }
 
+    public static pbandk.testpb.java.Test.Foo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.Foo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static pbandk.testpb.java.Test.Foo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -250,6 +284,7 @@ public final class Test {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -257,6 +292,7 @@ public final class Test {
     public static Builder newBuilder(pbandk.testpb.java.Test.Foo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -280,6 +316,7 @@ public final class Test {
         return pbandk.testpb.java.Test.internal_static_testpb_Foo_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return pbandk.testpb.java.Test.internal_static_testpb_Foo_fieldAccessorTable
@@ -302,6 +339,7 @@ public final class Test {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         val_ = "";
@@ -309,15 +347,18 @@ public final class Test {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return pbandk.testpb.java.Test.internal_static_testpb_Foo_descriptor;
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.Foo getDefaultInstanceForType() {
         return pbandk.testpb.java.Test.Foo.getDefaultInstance();
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.Foo build() {
         pbandk.testpb.java.Test.Foo result = buildPartial();
         if (!result.isInitialized()) {
@@ -326,6 +367,7 @@ public final class Test {
         return result;
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.Foo buildPartial() {
         pbandk.testpb.java.Test.Foo result = new pbandk.testpb.java.Test.Foo(this);
         result.val_ = val_;
@@ -333,32 +375,39 @@ public final class Test {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
+          java.lang.Object value) {
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pbandk.testpb.java.Test.Foo) {
           return mergeFrom((pbandk.testpb.java.Test.Foo)other);
@@ -374,14 +423,17 @@ public final class Test {
           val_ = other.val_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -402,7 +454,8 @@ public final class Test {
 
       private java.lang.Object val_ = "";
       /**
-       * <code>optional string val = 1;</code>
+       * <code>string val = 1;</code>
+       * @return The val.
        */
       public java.lang.String getVal() {
         java.lang.Object ref = val_;
@@ -417,7 +470,8 @@ public final class Test {
         }
       }
       /**
-       * <code>optional string val = 1;</code>
+       * <code>string val = 1;</code>
+       * @return The bytes for val.
        */
       public com.google.protobuf.ByteString
           getValBytes() {
@@ -433,7 +487,9 @@ public final class Test {
         }
       }
       /**
-       * <code>optional string val = 1;</code>
+       * <code>string val = 1;</code>
+       * @param value The val to set.
+       * @return This builder for chaining.
        */
       public Builder setVal(
           java.lang.String value) {
@@ -446,7 +502,8 @@ public final class Test {
         return this;
       }
       /**
-       * <code>optional string val = 1;</code>
+       * <code>string val = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVal() {
         
@@ -455,7 +512,9 @@ public final class Test {
         return this;
       }
       /**
-       * <code>optional string val = 1;</code>
+       * <code>string val = 1;</code>
+       * @param value The bytes for val to set.
+       * @return This builder for chaining.
        */
       public Builder setValBytes(
           com.google.protobuf.ByteString value) {
@@ -468,14 +527,16 @@ public final class Test {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -494,11 +555,12 @@ public final class Test {
 
     private static final com.google.protobuf.Parser<Foo>
         PARSER = new com.google.protobuf.AbstractParser<Foo>() {
+      @java.lang.Override
       public Foo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Foo(input, extensionRegistry);
+        return new Foo(input, extensionRegistry);
       }
     };
 
@@ -511,6 +573,7 @@ public final class Test {
       return PARSER;
     }
 
+    @java.lang.Override
     public pbandk.testpb.java.Test.Foo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -552,6 +615,7 @@ public final class Test {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.Bar)
       BarOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Bar.newBuilder() to construct.
     private Bar(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -561,16 +625,28 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Bar();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Bar(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -579,19 +655,20 @@ public final class Test {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 foos_ = new java.util.ArrayList<pbandk.testpb.java.Test.Foo>();
                 mutable_bitField0_ |= 0x00000001;
               }
               foos_.add(
                   input.readMessage(pbandk.testpb.java.Test.Foo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -602,9 +679,10 @@ public final class Test {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           foos_ = java.util.Collections.unmodifiableList(foos_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -613,6 +691,7 @@ public final class Test {
       return pbandk.testpb.java.Test.internal_static_testpb_Bar_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return pbandk.testpb.java.Test.internal_static_testpb_Bar_fieldAccessorTable
@@ -656,6 +735,7 @@ public final class Test {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -665,13 +745,16 @@ public final class Test {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < foos_.size(); i++) {
         output.writeMessage(1, foos_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -681,11 +764,11 @@ public final class Test {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, foos_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -696,10 +779,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.Bar other = (pbandk.testpb.java.Test.Bar) obj;
 
-      boolean result = true;
-      result = result && getFoosList()
-          .equals(other.getFoosList());
-      return result;
+      if (!getFoosList()
+          .equals(other.getFoosList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -708,7 +791,7 @@ public final class Test {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getFoosCount() > 0) {
         hash = (37 * hash) + FOOS_FIELD_NUMBER;
         hash = (53 * hash) + getFoosList().hashCode();
@@ -718,6 +801,17 @@ public final class Test {
       return hash;
     }
 
+    public static pbandk.testpb.java.Test.Bar parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.Bar parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static pbandk.testpb.java.Test.Bar parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -777,6 +871,7 @@ public final class Test {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -784,6 +879,7 @@ public final class Test {
     public static Builder newBuilder(pbandk.testpb.java.Test.Bar prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -807,6 +903,7 @@ public final class Test {
         return pbandk.testpb.java.Test.internal_static_testpb_Bar_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return pbandk.testpb.java.Test.internal_static_testpb_Bar_fieldAccessorTable
@@ -830,6 +927,7 @@ public final class Test {
           getFoosFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (foosBuilder_ == null) {
@@ -841,15 +939,18 @@ public final class Test {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return pbandk.testpb.java.Test.internal_static_testpb_Bar_descriptor;
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.Bar getDefaultInstanceForType() {
         return pbandk.testpb.java.Test.Bar.getDefaultInstance();
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.Bar build() {
         pbandk.testpb.java.Test.Bar result = buildPartial();
         if (!result.isInitialized()) {
@@ -858,11 +959,12 @@ public final class Test {
         return result;
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.Bar buildPartial() {
         pbandk.testpb.java.Test.Bar result = new pbandk.testpb.java.Test.Bar(this);
         int from_bitField0_ = bitField0_;
         if (foosBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             foos_ = java.util.Collections.unmodifiableList(foos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -874,32 +976,39 @@ public final class Test {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
+          java.lang.Object value) {
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pbandk.testpb.java.Test.Bar) {
           return mergeFrom((pbandk.testpb.java.Test.Bar)other);
@@ -937,14 +1046,17 @@ public final class Test {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -967,7 +1079,7 @@ public final class Test {
       private java.util.List<pbandk.testpb.java.Test.Foo> foos_ =
         java.util.Collections.emptyList();
       private void ensureFoosIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           foos_ = new java.util.ArrayList<pbandk.testpb.java.Test.Foo>(foos_);
           bitField0_ |= 0x00000001;
          }
@@ -1196,21 +1308,23 @@ public final class Test {
           foosBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder>(
                   foos_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           foos_ = null;
         }
         return foosBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -1229,11 +1343,12 @@ public final class Test {
 
     private static final com.google.protobuf.Parser<Bar>
         PARSER = new com.google.protobuf.AbstractParser<Bar>() {
+      @java.lang.Override
       public Bar parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Bar(input, extensionRegistry);
+        return new Bar(input, extensionRegistry);
       }
     };
 
@@ -1246,6 +1361,7 @@ public final class Test {
       return PARSER;
     }
 
+    @java.lang.Override
     public pbandk.testpb.java.Test.Bar getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1297,6 +1413,7 @@ public final class Test {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.MessageWithMap)
       MessageWithMapOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use MessageWithMap.newBuilder() to construct.
     private MessageWithMap(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1305,16 +1422,28 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageWithMap();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private MessageWithMap(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1323,22 +1452,24 @@ public final class Test {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 map_ = com.google.protobuf.MapField.newMapField(
                     MapDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              map = input.readMessage(
+              map__ = input.readMessage(
                   MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              map_.getMutableMap().put(map.getKey(), map.getValue());
+              map_.getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1349,6 +1480,7 @@ public final class Test {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1358,6 +1490,7 @@ public final class Test {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -1368,6 +1501,7 @@ public final class Test {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return pbandk.testpb.java.Test.internal_static_testpb_MessageWithMap_fieldAccessorTable
@@ -1452,6 +1586,7 @@ public final class Test {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1461,19 +1596,19 @@ public final class Test {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetMap().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        map = MapDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        output.writeMessage(1, map);
-      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetMap(),
+          MapDefaultEntryHolder.defaultEntry,
+          1);
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1482,18 +1617,18 @@ public final class Test {
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetMap().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        map = MapDefaultEntryHolder.defaultEntry.newBuilderForType()
+        map__ = MapDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, map);
+            .computeMessageSize(1, map__);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1504,10 +1639,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.MessageWithMap other = (pbandk.testpb.java.Test.MessageWithMap) obj;
 
-      boolean result = true;
-      result = result && internalGetMap().equals(
-          other.internalGetMap());
-      return result;
+      if (!internalGetMap().equals(
+          other.internalGetMap())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1516,7 +1651,7 @@ public final class Test {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (!internalGetMap().getMap().isEmpty()) {
         hash = (37 * hash) + MAP_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMap().hashCode();
@@ -1526,6 +1661,17 @@ public final class Test {
       return hash;
     }
 
+    public static pbandk.testpb.java.Test.MessageWithMap parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.MessageWithMap parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static pbandk.testpb.java.Test.MessageWithMap parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1585,6 +1731,7 @@ public final class Test {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1592,6 +1739,7 @@ public final class Test {
     public static Builder newBuilder(pbandk.testpb.java.Test.MessageWithMap prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1637,6 +1785,7 @@ public final class Test {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return pbandk.testpb.java.Test.internal_static_testpb_MessageWithMap_fieldAccessorTable
@@ -1659,21 +1808,25 @@ public final class Test {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         internalGetMutableMap().clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return pbandk.testpb.java.Test.internal_static_testpb_MessageWithMap_descriptor;
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.MessageWithMap getDefaultInstanceForType() {
         return pbandk.testpb.java.Test.MessageWithMap.getDefaultInstance();
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.MessageWithMap build() {
         pbandk.testpb.java.Test.MessageWithMap result = buildPartial();
         if (!result.isInitialized()) {
@@ -1682,6 +1835,7 @@ public final class Test {
         return result;
       }
 
+      @java.lang.Override
       public pbandk.testpb.java.Test.MessageWithMap buildPartial() {
         pbandk.testpb.java.Test.MessageWithMap result = new pbandk.testpb.java.Test.MessageWithMap(this);
         int from_bitField0_ = bitField0_;
@@ -1691,32 +1845,39 @@ public final class Test {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
+          java.lang.Object value) {
+        return super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof pbandk.testpb.java.Test.MessageWithMap) {
           return mergeFrom((pbandk.testpb.java.Test.MessageWithMap)other);
@@ -1730,14 +1891,17 @@ public final class Test {
         if (other == pbandk.testpb.java.Test.MessageWithMap.getDefaultInstance()) return this;
         internalGetMutableMap().mergeFrom(
             other.internalGetMap());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1834,7 +1998,8 @@ public final class Test {
       }
 
       public Builder clearMap() {
-        getMutableMap().clear();
+        internalGetMutableMap().getMutableMap()
+            .clear();
         return this;
       }
       /**
@@ -1844,7 +2009,8 @@ public final class Test {
       public Builder removeMap(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        getMutableMap().remove(key);
+        internalGetMutableMap().getMutableMap()
+            .remove(key);
         return this;
       }
       /**
@@ -1863,7 +2029,8 @@ public final class Test {
           java.lang.String value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        getMutableMap().put(key, value);
+        internalGetMutableMap().getMutableMap()
+            .put(key, value);
         return this;
       }
       /**
@@ -1872,17 +2039,20 @@ public final class Test {
 
       public Builder putAllMap(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        getMutableMap().putAll(values);
+        internalGetMutableMap().getMutableMap()
+            .putAll(values);
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -1901,11 +2071,12 @@ public final class Test {
 
     private static final com.google.protobuf.Parser<MessageWithMap>
         PARSER = new com.google.protobuf.AbstractParser<MessageWithMap>() {
+      @java.lang.Override
       public MessageWithMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MessageWithMap(input, extensionRegistry);
+        return new MessageWithMap(input, extensionRegistry);
       }
     };
 
@@ -1918,6 +2089,7 @@ public final class Test {
       return PARSER;
     }
 
+    @java.lang.Override
     public pbandk.testpb.java.Test.MessageWithMap getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1960,18 +2132,10 @@ public final class Test {
       "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\024\n\022" +
       "pbandk.testpb.javab\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_testpb_Foo_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_testpb_Foo_fieldAccessorTable = new
