@@ -2,7 +2,7 @@ package pbandk.conformance.pb
 
 import kotlin.jvm.Transient
 
-sealed class ForeignEnumProto2(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+sealed class ForeignEnumProto2(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is ForeignEnumProto2 && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "ForeignEnumProto2.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -12,7 +12,7 @@ sealed class ForeignEnumProto2(override val value: Int, override val name: Strin
     object ForeignBaz : ForeignEnumProto2(2, "FOREIGN_BAZ")
     class Unrecognized(value: Int) : ForeignEnumProto2(value)
 
-    companion object : pbandk.Message.NamedEnum.Companion<ForeignEnumProto2> {
+    companion object : pbandk.Message.Enum.Companion<ForeignEnumProto2> {
         val values: List<ForeignEnumProto2> by lazy { listOf(ForeignFoo, ForeignBar, ForeignBaz) }
         override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnumProto2 with name: $name")
@@ -142,7 +142,7 @@ data class TestAllTypesProto2(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto2.protoUnmarshalImpl(u)
     }
 
-    sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is NestedEnum && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -153,7 +153,7 @@ data class TestAllTypesProto2(
         object Neg : NestedEnum(-1, "NEG")
         class Unrecognized(value: Int) : NestedEnum(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<NestedEnum> {
+        companion object : pbandk.Message.Enum.Companion<NestedEnum> {
             val values: List<NestedEnum> by lazy { listOf(Foo, Bar, Baz, Neg) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")

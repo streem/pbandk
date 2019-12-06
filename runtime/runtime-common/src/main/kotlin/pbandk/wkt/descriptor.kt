@@ -124,7 +124,7 @@ data class FieldDescriptorProto(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldDescriptorProto.protoUnmarshalImpl(u)
     }
 
-    sealed class Type(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class Type(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is Type && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "Type.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -149,14 +149,14 @@ data class FieldDescriptorProto(
         object Sint64 : Type(18, "TYPE_SINT64")
         class Unrecognized(value: Int) : Type(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<Type> {
+        companion object : pbandk.Message.Enum.Companion<Type> {
             val values: List<Type> by lazy { listOf(Double_, Float_, Int64, Uint64, Int32, Fixed64, Fixed32, Bool, String_, Group, Message, Bytes, Uint32, Enum, Sfixed32, Sfixed64, Sint32, Sint64) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Type with name: $name")
         }
     }
 
-    sealed class Label(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class Label(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is Label && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "Label.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -166,7 +166,7 @@ data class FieldDescriptorProto(
         object Repeated : Label(3, "LABEL_REPEATED")
         class Unrecognized(value: Int) : Label(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<Label> {
+        companion object : pbandk.Message.Enum.Companion<Label> {
             val values: List<Label> by lazy { listOf(Optional, Required, Repeated) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Label with name: $name")
@@ -299,7 +299,7 @@ data class FileOptions(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FileOptions.protoUnmarshalImpl(u)
     }
 
-    sealed class OptimizeMode(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class OptimizeMode(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is OptimizeMode && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "OptimizeMode.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -309,7 +309,7 @@ data class FileOptions(
         object LiteRuntime : OptimizeMode(3, "LITE_RUNTIME")
         class Unrecognized(value: Int) : OptimizeMode(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<OptimizeMode> {
+        companion object : pbandk.Message.Enum.Companion<OptimizeMode> {
             val values: List<OptimizeMode> by lazy { listOf(Speed, CodeSize, LiteRuntime) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No OptimizeMode with name: $name")
@@ -352,7 +352,7 @@ data class FieldOptions(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldOptions.protoUnmarshalImpl(u)
     }
 
-    sealed class CType(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class CType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is CType && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "CType.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -362,14 +362,14 @@ data class FieldOptions(
         object StringPiece : CType(2, "STRING_PIECE")
         class Unrecognized(value: Int) : CType(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<CType> {
+        companion object : pbandk.Message.Enum.Companion<CType> {
             val values: List<CType> by lazy { listOf(String_, Cord, StringPiece) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No CType with name: $name")
         }
     }
 
-    sealed class JSType(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class JSType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is JSType && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "JSType.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -379,7 +379,7 @@ data class FieldOptions(
         object JsNumber : JSType(2, "JS_NUMBER")
         class Unrecognized(value: Int) : JSType(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<JSType> {
+        companion object : pbandk.Message.Enum.Companion<JSType> {
             val values: List<JSType> by lazy { listOf(JsNormal, JsString, JsNumber) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No JSType with name: $name")
@@ -457,7 +457,7 @@ data class MethodOptions(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MethodOptions.protoUnmarshalImpl(u)
     }
 
-    sealed class IdempotencyLevel(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class IdempotencyLevel(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is IdempotencyLevel && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "IdempotencyLevel.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -467,7 +467,7 @@ data class MethodOptions(
         object Idempotent : IdempotencyLevel(2, "IDEMPOTENT")
         class Unrecognized(value: Int) : IdempotencyLevel(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<IdempotencyLevel> {
+        companion object : pbandk.Message.Enum.Companion<IdempotencyLevel> {
             val values: List<IdempotencyLevel> by lazy { listOf(IdempotencyUnknown, NoSideEffects, Idempotent) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No IdempotencyLevel with name: $name")

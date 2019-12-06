@@ -2,7 +2,7 @@ package pbandk.wkt
 
 import kotlin.jvm.Transient
 
-sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is Syntax && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "Syntax.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -11,7 +11,7 @@ sealed class Syntax(override val value: Int, override val name: String? = null) 
     object Proto3 : Syntax(1, "SYNTAX_PROTO3")
     class Unrecognized(value: Int) : Syntax(value)
 
-    companion object : pbandk.Message.NamedEnum.Companion<Syntax> {
+    companion object : pbandk.Message.Enum.Companion<Syntax> {
         val values: List<Syntax> by lazy { listOf(Proto2, Proto3) }
         override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
@@ -57,7 +57,7 @@ data class Field(
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Field.protoUnmarshalImpl(u)
     }
 
-    sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is Kind && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -83,14 +83,14 @@ data class Field(
         object TypeSint64 : Kind(18, "TYPE_SINT64")
         class Unrecognized(value: Int) : Kind(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<Kind> {
+        companion object : pbandk.Message.Enum.Companion<Kind> {
             val values: List<Kind> by lazy { listOf(TypeUnknown, TypeDouble, TypeFloat, TypeInt64, TypeUint64, TypeInt32, TypeFixed64, TypeFixed32, TypeBool, TypeString, TypeGroup, TypeMessage, TypeBytes, TypeUint32, TypeEnum, TypeSfixed32, TypeSfixed64, TypeSint32, TypeSint64) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
         }
     }
 
-    sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is Cardinality && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -101,7 +101,7 @@ data class Field(
         object Repeated : Cardinality(3, "CARDINALITY_REPEATED")
         class Unrecognized(value: Int) : Cardinality(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<Cardinality> {
+        companion object : pbandk.Message.Enum.Companion<Cardinality> {
             val values: List<Cardinality> by lazy { listOf(Unknown, Optional, Required, Repeated) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")

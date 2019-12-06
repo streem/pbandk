@@ -29,7 +29,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
 
     protected fun writeEnumType(type: File.Type.Enum) {
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
-        line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {").indented {
+        line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {").indented {
             line("override fun equals(other: kotlin.Any?) = other is ${type.kotlinTypeName} && other.value == value")
             line("override fun hashCode() = value.hashCode()")
             line("override fun toString() = \"${type.kotlinTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
@@ -37,7 +37,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             type.values.forEach { line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
             line("class Unrecognized(value: Int) : ${type.kotlinTypeName}(value)")
             line()
-            line("companion object : pbandk.Message.NamedEnum.Companion<${type.kotlinTypeName}> {").indented {
+            line("companion object : pbandk.Message.Enum.Companion<${type.kotlinTypeName}> {").indented {
                 line("val values: List<${type.kotlinTypeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                 line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)")
                 line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")

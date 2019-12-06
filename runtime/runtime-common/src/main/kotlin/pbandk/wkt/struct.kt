@@ -2,7 +2,7 @@ package pbandk.wkt
 
 import kotlin.jvm.Transient
 
-sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is NullValue && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "NullValue.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -10,7 +10,7 @@ sealed class NullValue(override val value: Int, override val name: String? = nul
     object NullValue_ : NullValue(0, "NULL_VALUE")
     class Unrecognized(value: Int) : NullValue(value)
 
-    companion object : pbandk.Message.NamedEnum.Companion<NullValue> {
+    companion object : pbandk.Message.Enum.Companion<NullValue> {
         val values: List<NullValue> by lazy { listOf(NullValue_) }
         override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")

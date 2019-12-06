@@ -2,7 +2,7 @@ package pbandk.conformance.pb
 
 import kotlin.jvm.Transient
 
-sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is WireFormat && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "WireFormat.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -12,7 +12,7 @@ sealed class WireFormat(override val value: Int, override val name: String? = nu
     object Json : WireFormat(2, "JSON")
     class Unrecognized(value: Int) : WireFormat(value)
 
-    companion object : pbandk.Message.NamedEnum.Companion<WireFormat> {
+    companion object : pbandk.Message.Enum.Companion<WireFormat> {
         val values: List<WireFormat> by lazy { listOf(Unspecified, Protobuf, Json) }
         override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No WireFormat with name: $name")
