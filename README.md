@@ -71,6 +71,8 @@ The following file will be generated at `tutorial/addressbook.kt`:
 ```kotlin
 package tutorial
 
+import kotlin.jvm.Transient
+
 data class Person(
     val name: String = "",
     val id: Int = 0,
@@ -80,13 +82,14 @@ data class Person(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Person> {
     override operator fun plus(other: Person?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Person> {
+        val defaultInstance by lazy { Person() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.protoUnmarshalImpl(u)
     }
 
-    sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is PhoneType && other.value == value
         override fun hashCode() = value.hashCode()
         override fun toString() = "PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
@@ -96,8 +99,8 @@ data class Person(
         object Work : PhoneType(2, "WORK")
         class Unrecognized(value: Int) : PhoneType(value)
 
-        companion object : pbandk.Message.NamedEnum.Companion<PhoneType> {
-            override val values = listOf(Mobile, Home, Work)
+        companion object : pbandk.Message.Enum.Companion<PhoneType> {
+            val values: List<PhoneType> by lazy { listOf(Mobile, Home, Work) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
@@ -109,9 +112,10 @@ data class Person(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<PhoneNumber> {
         override operator fun plus(other: PhoneNumber?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<PhoneNumber> {
+            val defaultInstance by lazy { PhoneNumber() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = PhoneNumber.protoUnmarshalImpl(u)
         }
     }
@@ -122,9 +126,10 @@ data class AddressBook(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<AddressBook> {
     override operator fun plus(other: AddressBook?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<AddressBook> {
+        val defaultInstance by lazy { AddressBook() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = AddressBook.protoUnmarshalImpl(u)
     }
 }
@@ -142,7 +147,7 @@ section below under "Usage" for more details.
 
 PBAndK's code generator leverages `protoc`. Download the
 [latest protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`. Then
-download the [latest protoc-gen-kotlin](https://github.com/cretz/pb-and-k/releases/latest) and make sure
+download the [latest protoc-gen-kotlin](https://github.com/streem/pb-and-k/releases/latest) and make sure
 `protoc-gen-kotlin` is on the `PATH`. To generate code from `sample.proto` and put in `src/main/kotlin`, run:
 
     protoc --kotlin_out=src/main/kotlin sample.proto
@@ -216,7 +221,7 @@ For more details, see the [custom-service-gen](examples/custom-service-gen) exam
 
 **Package**
 
-The package is either the `kotlin_package` plugin option or the package set in the message. If the `google.protobuf`
+The package is either the `kotlin_package` plugin option, the `java_package` plugin option or the package set in the message. If the `google.protobuf`
 package is referenced, it is assumed to be a well-known type and is changed to reference `pbandk.wkt`.
 
 **Message**
@@ -244,21 +249,28 @@ follows protobuf merge semantics.
 
 **Oneof**
 
-Oneof fields are generated as nested classes of a common sealed base class. Each oneof inner field is a data class that
+Oneof fields are generated as nested classes of a common sealed base class. Each oneof inner field is a class that
 wraps a single value.
+
+The parent message also contains a nullable field for every oneof inner field. This field
+resolves to the oneof inner field's value when the oneof is set to that inner field. Otherwise it
+resolves to null.
 
 **Enum**
 
-Enum fields are generated as single-integer-value immutable data classes with known values as vals on the companion
-object. This is preferred over traditional enum classes because enums in protobuf are open ended and may not be one of
-the specific known values. Traditional enum classes would not be able to capture this state and using data classes this
-way requires the user to do explicit checks for unknown ordinals during exhaustive when clauses. This does come at very
-negligible cost during equality checks. Although there is the normal single-integer-value constructor on the data class,
-developers should use the `fromValue` method present on the companion object. This will return an existing val if known.
-It is possible in future versions that the generated data class constructor will become private.
+Enum fields are generated as sealed classes with a nested `object` for each known enum value, and a
+`Unrecognized` nested class to hold unknown values. This is preferred over traditional enum classes
+because enums in protobuf are open ended and may not be one of the specific known values. Traditional
+enum classes would not be able to capture this state, and using sealed classes this way requires the
+user to do explicit checks for the `Unrecognized` value during exhaustive when clauses.
 
-Note, there is no reflection outside of normal Kotlin reflection. This means Kotlin reflection has to be used to get
-string values of the enums currently. This may change as the JSON format is developed which requires the string form.
+Each enum object contains a `value` field with the numeric value of that enum, and a `name` field
+with the string value of that enum. Developers should use the `fromValue` and `fromName` methods
+present on the companion object of the sealed class to map from a numeric or string value,
+respectively, to the corresponding enum object.
+
+The `values` field on the companion object of the sealed class contains a list of all known enum
+values.
 
 **Repeated and Map**
 
@@ -308,6 +320,24 @@ To build the runtime library for both JS and the JVM, run:
 
     path/to/gradle :runtime:runtime-js:assemble
     path/to/gradle :runtime:runtime-jvm:assemble
+
+#### Bundled Types
+
+If any changes are made to the generated code that is output by `protoc-gen-kotlin`, then the
+well-known types (and other proto types used by pb-and-k) need to be re-generated using the updated
+`protoc-gen-kotlin` binary. To do this, first download a recent [release of `protoc`](https://github.com/protocolbuffers/protobuf/releases),
+extract it to a local directory, and then run:
+
+    ./gradlew :runtime:runtime-common:generateWellKnownTypes -Dprotoc.path=path/to/protoc/directory
+    ./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto
+    ./gradlew :runtime:runtime-jvm:generateTestTypes
+    ./gradlew :conformance:conformance-common:generateProto
+
+Important: If making changes in both the `:protoc-gen-kotlin` _and_ `:runtime` projects at the
+same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work
+around this, stash the changes in the `:runtime` project, run the `generateWellKnownTypes` task
+with only the `:protoc-gen-kotlin` changes, and then unstash the `:runtime` changes and rerun the
+`generateWellKnownTypes` task.
 
 #### Conformance Tests
 
