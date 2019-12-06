@@ -6,6 +6,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
 
     fun generate(): String {
         file.kotlinPackageName?.let { line("package $it") }
+        line().line("import kotlin.jvm.Transient")
         file.types.forEach(::writeType)
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
         return bld.toString()
