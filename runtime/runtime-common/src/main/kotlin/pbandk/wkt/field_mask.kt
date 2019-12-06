@@ -1,16 +1,21 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class FieldMask(
     val paths: List<String> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FieldMask> {
     override operator fun plus(other: FieldMask?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FieldMask> {
+        val defaultInstance by lazy { FieldMask() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldMask.protoUnmarshalImpl(u)
     }
 }
+
+fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
 
 private fun FieldMask.protoMergeImpl(plus: FieldMask?): FieldMask = plus?.copy(
     paths = paths + plus.paths,

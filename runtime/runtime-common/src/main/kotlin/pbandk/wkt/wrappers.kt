@@ -1,13 +1,16 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class DoubleValue(
     val value: Double = 0.0,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<DoubleValue> {
     override operator fun plus(other: DoubleValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<DoubleValue> {
+        val defaultInstance by lazy { DoubleValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = DoubleValue.protoUnmarshalImpl(u)
     }
 }
@@ -17,9 +20,10 @@ data class FloatValue(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FloatValue> {
     override operator fun plus(other: FloatValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FloatValue> {
+        val defaultInstance by lazy { FloatValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FloatValue.protoUnmarshalImpl(u)
     }
 }
@@ -29,9 +33,10 @@ data class Int64Value(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Int64Value> {
     override operator fun plus(other: Int64Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Int64Value> {
+        val defaultInstance by lazy { Int64Value() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Int64Value.protoUnmarshalImpl(u)
     }
 }
@@ -41,9 +46,10 @@ data class UInt64Value(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<UInt64Value> {
     override operator fun plus(other: UInt64Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<UInt64Value> {
+        val defaultInstance by lazy { UInt64Value() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = UInt64Value.protoUnmarshalImpl(u)
     }
 }
@@ -53,9 +59,10 @@ data class Int32Value(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Int32Value> {
     override operator fun plus(other: Int32Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Int32Value> {
+        val defaultInstance by lazy { Int32Value() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Int32Value.protoUnmarshalImpl(u)
     }
 }
@@ -65,9 +72,10 @@ data class UInt32Value(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<UInt32Value> {
     override operator fun plus(other: UInt32Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<UInt32Value> {
+        val defaultInstance by lazy { UInt32Value() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = UInt32Value.protoUnmarshalImpl(u)
     }
 }
@@ -77,9 +85,10 @@ data class BoolValue(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<BoolValue> {
     override operator fun plus(other: BoolValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<BoolValue> {
+        val defaultInstance by lazy { BoolValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = BoolValue.protoUnmarshalImpl(u)
     }
 }
@@ -89,9 +98,10 @@ data class StringValue(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<StringValue> {
     override operator fun plus(other: StringValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<StringValue> {
+        val defaultInstance by lazy { StringValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = StringValue.protoUnmarshalImpl(u)
     }
 }
@@ -101,12 +111,15 @@ data class BytesValue(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<BytesValue> {
     override operator fun plus(other: BytesValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<BytesValue> {
+        val defaultInstance by lazy { BytesValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = BytesValue.protoUnmarshalImpl(u)
     }
 }
+
+fun DoubleValue?.orDefault() = this ?: DoubleValue.defaultInstance
 
 private fun DoubleValue.protoMergeImpl(plus: DoubleValue?): DoubleValue = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
@@ -133,6 +146,8 @@ private fun DoubleValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
     }
 }
 
+fun FloatValue?.orDefault() = this ?: FloatValue.defaultInstance
+
 private fun FloatValue.protoMergeImpl(plus: FloatValue?): FloatValue = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -157,6 +172,8 @@ private fun FloatValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmar
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun Int64Value?.orDefault() = this ?: Int64Value.defaultInstance
 
 private fun Int64Value.protoMergeImpl(plus: Int64Value?): Int64Value = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
@@ -183,6 +200,8 @@ private fun Int64Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmar
     }
 }
 
+fun UInt64Value?.orDefault() = this ?: UInt64Value.defaultInstance
+
 private fun UInt64Value.protoMergeImpl(plus: UInt64Value?): UInt64Value = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -207,6 +226,8 @@ private fun UInt64Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun Int32Value?.orDefault() = this ?: Int32Value.defaultInstance
 
 private fun Int32Value.protoMergeImpl(plus: Int32Value?): Int32Value = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
@@ -233,6 +254,8 @@ private fun Int32Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmar
     }
 }
 
+fun UInt32Value?.orDefault() = this ?: UInt32Value.defaultInstance
+
 private fun UInt32Value.protoMergeImpl(plus: UInt32Value?): UInt32Value = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -257,6 +280,8 @@ private fun UInt32Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun BoolValue?.orDefault() = this ?: BoolValue.defaultInstance
 
 private fun BoolValue.protoMergeImpl(plus: BoolValue?): BoolValue = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
@@ -283,6 +308,8 @@ private fun BoolValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
     }
 }
 
+fun StringValue?.orDefault() = this ?: StringValue.defaultInstance
+
 private fun StringValue.protoMergeImpl(plus: StringValue?): StringValue = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -307,6 +334,8 @@ private fun StringValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun BytesValue?.orDefault() = this ?: BytesValue.defaultInstance
 
 private fun BytesValue.protoMergeImpl(plus: BytesValue?): BytesValue = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

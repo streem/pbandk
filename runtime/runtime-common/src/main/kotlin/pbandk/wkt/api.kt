@@ -1,5 +1,7 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class Api(
     val name: String = "",
     val methods: List<pbandk.wkt.Method> = emptyList(),
@@ -11,9 +13,10 @@ data class Api(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Api> {
     override operator fun plus(other: Api?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Api> {
+        val defaultInstance by lazy { Api() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Api.protoUnmarshalImpl(u)
     }
 }
@@ -29,9 +32,10 @@ data class Method(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Method> {
     override operator fun plus(other: Method?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Method> {
+        val defaultInstance by lazy { Method() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Method.protoUnmarshalImpl(u)
     }
 }
@@ -42,12 +46,15 @@ data class Mixin(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Mixin> {
     override operator fun plus(other: Mixin?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Mixin> {
+        val defaultInstance by lazy { Mixin() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Mixin.protoUnmarshalImpl(u)
     }
 }
+
+fun Api?.orDefault() = this ?: Api.defaultInstance
 
 private fun Api.protoMergeImpl(plus: Api?): Api = plus?.copy(
     methods = methods + plus.methods,
@@ -103,6 +110,8 @@ private fun Api.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
     }
 }
 
+fun Method?.orDefault() = this ?: Method.defaultInstance
+
 private fun Method.protoMergeImpl(plus: Method?): Method = plus?.copy(
     options = options + plus.options,
     unknownFields = unknownFields + plus.unknownFields
@@ -153,6 +162,8 @@ private fun Method.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun Mixin?.orDefault() = this ?: Mixin.defaultInstance
 
 private fun Mixin.protoMergeImpl(plus: Mixin?): Mixin = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

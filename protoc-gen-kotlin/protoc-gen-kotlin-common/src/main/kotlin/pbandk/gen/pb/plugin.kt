@@ -1,5 +1,7 @@
 package pbandk.gen.pb
 
+import kotlin.jvm.Transient
+
 data class Version(
     val major: Int? = null,
     val minor: Int? = null,
@@ -8,9 +10,10 @@ data class Version(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Version> {
     override operator fun plus(other: Version?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Version> {
+        val defaultInstance by lazy { Version() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Version.protoUnmarshalImpl(u)
     }
 }
@@ -23,9 +26,10 @@ data class CodeGeneratorRequest(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<CodeGeneratorRequest> {
     override operator fun plus(other: CodeGeneratorRequest?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<CodeGeneratorRequest> {
+        val defaultInstance by lazy { CodeGeneratorRequest() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = CodeGeneratorRequest.protoUnmarshalImpl(u)
     }
 }
@@ -36,9 +40,10 @@ data class CodeGeneratorResponse(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<CodeGeneratorResponse> {
     override operator fun plus(other: CodeGeneratorResponse?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<CodeGeneratorResponse> {
+        val defaultInstance by lazy { CodeGeneratorResponse() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = CodeGeneratorResponse.protoUnmarshalImpl(u)
     }
 
@@ -49,13 +54,16 @@ data class CodeGeneratorResponse(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<File> {
         override operator fun plus(other: File?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<File> {
+            val defaultInstance by lazy { File() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = File.protoUnmarshalImpl(u)
         }
     }
 }
+
+fun Version?.orDefault() = this ?: Version.defaultInstance
 
 private fun Version.protoMergeImpl(plus: Version?): Version = plus?.copy(
     major = plus.major ?: major,
@@ -98,6 +106,8 @@ private fun Version.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarsha
     }
 }
 
+fun CodeGeneratorRequest?.orDefault() = this ?: CodeGeneratorRequest.defaultInstance
+
 private fun CodeGeneratorRequest.protoMergeImpl(plus: CodeGeneratorRequest?): CodeGeneratorRequest = plus?.copy(
     fileToGenerate = fileToGenerate + plus.fileToGenerate,
     parameter = plus.parameter ?: parameter,
@@ -139,6 +149,8 @@ private fun CodeGeneratorRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pb
     }
 }
 
+fun CodeGeneratorResponse?.orDefault() = this ?: CodeGeneratorResponse.defaultInstance
+
 private fun CodeGeneratorResponse.protoMergeImpl(plus: CodeGeneratorResponse?): CodeGeneratorResponse = plus?.copy(
     error = plus.error ?: error,
     file = file + plus.file,
@@ -169,6 +181,8 @@ private fun CodeGeneratorResponse.Companion.protoUnmarshalImpl(protoUnmarshal: p
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun CodeGeneratorResponse.File?.orDefault() = this ?: CodeGeneratorResponse.File.defaultInstance
 
 private fun CodeGeneratorResponse.File.protoMergeImpl(plus: CodeGeneratorResponse.File?): CodeGeneratorResponse.File = plus?.copy(
     name = plus.name ?: name,

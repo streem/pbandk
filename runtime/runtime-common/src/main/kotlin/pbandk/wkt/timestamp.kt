@@ -1,17 +1,22 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class Timestamp(
     val seconds: Long = 0L,
     val nanos: Int = 0,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Timestamp> {
     override operator fun plus(other: Timestamp?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Timestamp> {
+        val defaultInstance by lazy { Timestamp() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Timestamp.protoUnmarshalImpl(u)
     }
 }
+
+fun Timestamp?.orDefault() = this ?: Timestamp.defaultInstance
 
 private fun Timestamp.protoMergeImpl(plus: Timestamp?): Timestamp = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

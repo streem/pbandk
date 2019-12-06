@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     }
 }
 
-fun doTestIo(): ConformanceResponse.Result? {
+fun doTestIo(): ConformanceResponse.Result<*>? {
     // Read the request (starting with by size)
     val req = Platform.doTry({
         val size = Platform.stdinReadIntLE()?.also { debug { "Reading $it bytes" } } ?: return null
@@ -28,14 +28,14 @@ fun doTestIo(): ConformanceResponse.Result? {
     val parsed = Platform.doTry({
         if (req.payload !is ConformanceRequest.Payload.ProtobufPayload)
             return ConformanceResponse.Result.Skipped("Only protobuf input supported")
-        if (req.requestedOutputFormat != WireFormat.PROTOBUF)
+        if (req.requestedOutputFormat != WireFormat.Protobuf)
             return ConformanceResponse.Result.Skipped("Only protobuf output supported")
         val typeComp = when (req.messageType) {
             "protobuf_test_messages.proto2.TestAllTypesProto2" -> TestAllTypesProto2.Companion
             "protobuf_test_messages.proto3.TestAllTypesProto3" -> TestAllTypesProto3.Companion
             else -> return ConformanceResponse.Result.RuntimeError("Unrecognized message type ${req.messageType}")
         }
-        typeComp.protoUnmarshal(req.payload.protobufPayload.array).also { debug { "Parsed: $it" } }
+        typeComp.protoUnmarshal(req.payload.value.array).also { debug { "Parsed: $it" } }
     }) { err -> return ConformanceResponse.Result.ParseError("Parse error: $err") }
     // Serialize
     return Platform.doTry({

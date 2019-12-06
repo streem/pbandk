@@ -1,17 +1,22 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class Any(
     val typeUrl: String = "",
     val value: pbandk.ByteArr = pbandk.ByteArr.empty,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Any> {
     override operator fun plus(other: Any?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Any> {
+        val defaultInstance by lazy { Any() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Any.protoUnmarshalImpl(u)
     }
 }
+
+fun Any?.orDefault() = this ?: Any.defaultInstance
 
 private fun Any.protoMergeImpl(plus: Any?): Any = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

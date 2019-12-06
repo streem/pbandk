@@ -1,13 +1,19 @@
 package pbandk.wkt
 
-data class NullValue(override val value: Int) : pbandk.Message.Enum {
-    companion object : pbandk.Message.Enum.Companion<NullValue> {
-        val NULL_VALUE = NullValue(0)
+import kotlin.jvm.Transient
 
-        override fun fromValue(value: Int) = when (value) {
-            0 -> NULL_VALUE
-            else -> NullValue(value)
-        }
+sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.NamedEnum {
+    override fun equals(other: kotlin.Any?) = other is NullValue && other.value == value
+    override fun hashCode() = value.hashCode()
+    override fun toString() = "NullValue.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+    object NullValue_ : NullValue(0, "NULL_VALUE")
+    class Unrecognized(value: Int) : NullValue(value)
+
+    companion object : pbandk.Message.NamedEnum.Companion<NullValue> {
+        val values: List<NullValue> by lazy { listOf(NullValue_) }
+        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
     }
 }
 
@@ -16,9 +22,10 @@ data class Struct(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Struct> {
     override operator fun plus(other: Struct?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Struct> {
+        val defaultInstance by lazy { Struct() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Struct.protoUnmarshalImpl(u)
     }
 
@@ -28,31 +35,46 @@ data class Struct(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
         override operator fun plus(other: FieldsEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<FieldsEntry> {
+            val defaultInstance by lazy { FieldsEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldsEntry.protoUnmarshalImpl(u)
         }
     }
 }
 
 data class Value(
-    val kind: Kind? = null,
+    val kind: Kind<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Value> {
-    sealed class Kind {
-        data class NullValue(val nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : Kind()
-        data class NumberValue(val numberValue: Double = 0.0) : Kind()
-        data class StringValue(val stringValue: String = "") : Kind()
-        data class BoolValue(val boolValue: Boolean = false) : Kind()
-        data class StructValue(val structValue: pbandk.wkt.Struct) : Kind()
-        data class ListValue(val listValue: pbandk.wkt.ListValue) : Kind()
+    sealed class Kind<V>(val value: V) {
+        class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : Kind<pbandk.wkt.NullValue>(nullValue)
+        class NumberValue(numberValue: Double = 0.0) : Kind<Double>(numberValue)
+        class StringValue(stringValue: String = "") : Kind<String>(stringValue)
+        class BoolValue(boolValue: Boolean = false) : Kind<Boolean>(boolValue)
+        class StructValue(structValue: pbandk.wkt.Struct) : Kind<pbandk.wkt.Struct>(structValue)
+        class ListValue(listValue: pbandk.wkt.ListValue) : Kind<pbandk.wkt.ListValue>(listValue)
     }
 
+    val nullValue: pbandk.wkt.NullValue?
+        get() = (kind as? Kind.NullValue)?.value
+    val numberValue: Double?
+        get() = (kind as? Kind.NumberValue)?.value
+    val stringValue: String?
+        get() = (kind as? Kind.StringValue)?.value
+    val boolValue: Boolean?
+        get() = (kind as? Kind.BoolValue)?.value
+    val structValue: pbandk.wkt.Struct?
+        get() = (kind as? Kind.StructValue)?.value
+    val listValue: pbandk.wkt.ListValue?
+        get() = (kind as? Kind.ListValue)?.value
+
     override operator fun plus(other: Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Value> {
+        val defaultInstance by lazy { Value() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Value.protoUnmarshalImpl(u)
     }
 }
@@ -62,12 +84,15 @@ data class ListValue(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ListValue> {
     override operator fun plus(other: ListValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ListValue> {
+        val defaultInstance by lazy { ListValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ListValue.protoUnmarshalImpl(u)
     }
 }
+
+fun Struct?.orDefault() = this ?: Struct.defaultInstance
 
 private fun Struct.protoMergeImpl(plus: Struct?): Struct = plus?.copy(
     fields = fields + plus.fields,
@@ -94,6 +119,8 @@ private fun Struct.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun Struct.FieldsEntry?.orDefault() = this ?: Struct.FieldsEntry.defaultInstance
 
 private fun Struct.FieldsEntry.protoMergeImpl(plus: Struct.FieldsEntry?): Struct.FieldsEntry = plus?.copy(
     value = value?.plus(plus.value) ?: plus.value,
@@ -125,12 +152,14 @@ private fun Struct.FieldsEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     }
 }
 
+fun Value?.orDefault() = this ?: Value.defaultInstance
+
 private fun Value.protoMergeImpl(plus: Value?): Value = plus?.copy(
     kind = when {
         kind is Value.Kind.StructValue && plus.kind is Value.Kind.StructValue ->
-            Value.Kind.StructValue(kind.structValue + plus.kind.structValue)
+            Value.Kind.StructValue(kind.value + plus.kind.value)
         kind is Value.Kind.ListValue && plus.kind is Value.Kind.ListValue ->
-            Value.Kind.ListValue(kind.listValue + plus.kind.listValue)
+            Value.Kind.ListValue(kind.value + plus.kind.value)
         else ->
             plus.kind ?: kind
     },
@@ -140,29 +169,29 @@ private fun Value.protoMergeImpl(plus: Value?): Value = plus?.copy(
 private fun Value.protoSizeImpl(): Int {
     var protoSize = 0
     when (kind) {
-        is Value.Kind.NullValue -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.nullValue)
-        is Value.Kind.NumberValue -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.doubleSize(kind.numberValue)
-        is Value.Kind.StringValue -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(kind.stringValue)
-        is Value.Kind.BoolValue -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.boolSize(kind.boolValue)
-        is Value.Kind.StructValue -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(kind.structValue)
-        is Value.Kind.ListValue -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.messageSize(kind.listValue)
+        is Value.Kind.NullValue -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.value)
+        is Value.Kind.NumberValue -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.doubleSize(kind.value)
+        is Value.Kind.StringValue -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(kind.value)
+        is Value.Kind.BoolValue -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.boolSize(kind.value)
+        is Value.Kind.StructValue -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(kind.value)
+        is Value.Kind.ListValue -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.messageSize(kind.value)
     }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (kind is Value.Kind.NullValue) protoMarshal.writeTag(8).writeEnum(kind.nullValue)
-    if (kind is Value.Kind.NumberValue) protoMarshal.writeTag(17).writeDouble(kind.numberValue)
-    if (kind is Value.Kind.StringValue) protoMarshal.writeTag(26).writeString(kind.stringValue)
-    if (kind is Value.Kind.BoolValue) protoMarshal.writeTag(32).writeBool(kind.boolValue)
-    if (kind is Value.Kind.StructValue) protoMarshal.writeTag(42).writeMessage(kind.structValue)
-    if (kind is Value.Kind.ListValue) protoMarshal.writeTag(50).writeMessage(kind.listValue)
+    if (kind is Value.Kind.NullValue) protoMarshal.writeTag(8).writeEnum(kind.value)
+    if (kind is Value.Kind.NumberValue) protoMarshal.writeTag(17).writeDouble(kind.value)
+    if (kind is Value.Kind.StringValue) protoMarshal.writeTag(26).writeString(kind.value)
+    if (kind is Value.Kind.BoolValue) protoMarshal.writeTag(32).writeBool(kind.value)
+    if (kind is Value.Kind.StructValue) protoMarshal.writeTag(42).writeMessage(kind.value)
+    if (kind is Value.Kind.ListValue) protoMarshal.writeTag(50).writeMessage(kind.value)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Value {
-    var kind: Value.Kind? = null
+    var kind: Value.Kind<*>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return Value(kind, protoUnmarshal.unknownFields())
         8 -> kind = Value.Kind.NullValue(protoUnmarshal.readEnum(pbandk.wkt.NullValue.Companion))
@@ -174,6 +203,8 @@ private fun Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun ListValue?.orDefault() = this ?: ListValue.defaultInstance
 
 private fun ListValue.protoMergeImpl(plus: ListValue?): ListValue = plus?.copy(
     values = values + plus.values,
