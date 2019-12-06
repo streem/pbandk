@@ -1,13 +1,16 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class FileDescriptorSet(
     val file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FileDescriptorSet> {
     override operator fun plus(other: FileDescriptorSet?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FileDescriptorSet> {
+        val defaultInstance by lazy { FileDescriptorSet() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FileDescriptorSet.protoUnmarshalImpl(u)
     }
 }
@@ -28,9 +31,10 @@ data class FileDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FileDescriptorProto> {
     override operator fun plus(other: FileDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FileDescriptorProto> {
+        val defaultInstance by lazy { FileDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FileDescriptorProto.protoUnmarshalImpl(u)
     }
 }
@@ -49,9 +53,10 @@ data class DescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<DescriptorProto> {
     override operator fun plus(other: DescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<DescriptorProto> {
+        val defaultInstance by lazy { DescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = DescriptorProto.protoUnmarshalImpl(u)
     }
 
@@ -62,9 +67,10 @@ data class DescriptorProto(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<ExtensionRange> {
         override operator fun plus(other: ExtensionRange?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<ExtensionRange> {
+            val defaultInstance by lazy { ExtensionRange() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = ExtensionRange.protoUnmarshalImpl(u)
         }
     }
@@ -75,9 +81,10 @@ data class DescriptorProto(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<ReservedRange> {
         override operator fun plus(other: ReservedRange?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<ReservedRange> {
+            val defaultInstance by lazy { ReservedRange() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = ReservedRange.protoUnmarshalImpl(u)
         }
     }
@@ -88,9 +95,10 @@ data class ExtensionRangeOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ExtensionRangeOptions> {
     override operator fun plus(other: ExtensionRangeOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ExtensionRangeOptions> {
+        val defaultInstance by lazy { ExtensionRangeOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ExtensionRangeOptions.protoUnmarshalImpl(u)
     }
 }
@@ -109,69 +117,59 @@ data class FieldDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FieldDescriptorProto> {
     override operator fun plus(other: FieldDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FieldDescriptorProto> {
+        val defaultInstance by lazy { FieldDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldDescriptorProto.protoUnmarshalImpl(u)
     }
 
-    data class Type(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<Type> {
-            val TYPE_DOUBLE = Type(1)
-            val TYPE_FLOAT = Type(2)
-            val TYPE_INT64 = Type(3)
-            val TYPE_UINT64 = Type(4)
-            val TYPE_INT32 = Type(5)
-            val TYPE_FIXED64 = Type(6)
-            val TYPE_FIXED32 = Type(7)
-            val TYPE_BOOL = Type(8)
-            val TYPE_STRING = Type(9)
-            val TYPE_GROUP = Type(10)
-            val TYPE_MESSAGE = Type(11)
-            val TYPE_BYTES = Type(12)
-            val TYPE_UINT32 = Type(13)
-            val TYPE_ENUM = Type(14)
-            val TYPE_SFIXED32 = Type(15)
-            val TYPE_SFIXED64 = Type(16)
-            val TYPE_SINT32 = Type(17)
-            val TYPE_SINT64 = Type(18)
+    sealed class Type(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is Type && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "Type.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                1 -> TYPE_DOUBLE
-                2 -> TYPE_FLOAT
-                3 -> TYPE_INT64
-                4 -> TYPE_UINT64
-                5 -> TYPE_INT32
-                6 -> TYPE_FIXED64
-                7 -> TYPE_FIXED32
-                8 -> TYPE_BOOL
-                9 -> TYPE_STRING
-                10 -> TYPE_GROUP
-                11 -> TYPE_MESSAGE
-                12 -> TYPE_BYTES
-                13 -> TYPE_UINT32
-                14 -> TYPE_ENUM
-                15 -> TYPE_SFIXED32
-                16 -> TYPE_SFIXED64
-                17 -> TYPE_SINT32
-                18 -> TYPE_SINT64
-                else -> Type(value)
-            }
+        object Double_ : Type(1, "TYPE_DOUBLE")
+        object Float_ : Type(2, "TYPE_FLOAT")
+        object Int64 : Type(3, "TYPE_INT64")
+        object Uint64 : Type(4, "TYPE_UINT64")
+        object Int32 : Type(5, "TYPE_INT32")
+        object Fixed64 : Type(6, "TYPE_FIXED64")
+        object Fixed32 : Type(7, "TYPE_FIXED32")
+        object Bool : Type(8, "TYPE_BOOL")
+        object String_ : Type(9, "TYPE_STRING")
+        object Group : Type(10, "TYPE_GROUP")
+        object Message : Type(11, "TYPE_MESSAGE")
+        object Bytes : Type(12, "TYPE_BYTES")
+        object Uint32 : Type(13, "TYPE_UINT32")
+        object Enum : Type(14, "TYPE_ENUM")
+        object Sfixed32 : Type(15, "TYPE_SFIXED32")
+        object Sfixed64 : Type(16, "TYPE_SFIXED64")
+        object Sint32 : Type(17, "TYPE_SINT32")
+        object Sint64 : Type(18, "TYPE_SINT64")
+        class Unrecognized(value: Int) : Type(value)
+
+        companion object : pbandk.Message.Enum.Companion<Type> {
+            val values: List<Type> by lazy { listOf(Double_, Float_, Int64, Uint64, Int32, Fixed64, Fixed32, Bool, String_, Group, Message, Bytes, Uint32, Enum, Sfixed32, Sfixed64, Sint32, Sint64) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Type with name: $name")
         }
     }
 
-    data class Label(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<Label> {
-            val LABEL_OPTIONAL = Label(1)
-            val LABEL_REQUIRED = Label(2)
-            val LABEL_REPEATED = Label(3)
+    sealed class Label(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is Label && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "Label.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                1 -> LABEL_OPTIONAL
-                2 -> LABEL_REQUIRED
-                3 -> LABEL_REPEATED
-                else -> Label(value)
-            }
+        object Optional : Label(1, "LABEL_OPTIONAL")
+        object Required : Label(2, "LABEL_REQUIRED")
+        object Repeated : Label(3, "LABEL_REPEATED")
+        class Unrecognized(value: Int) : Label(value)
+
+        companion object : pbandk.Message.Enum.Companion<Label> {
+            val values: List<Label> by lazy { listOf(Optional, Required, Repeated) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Label with name: $name")
         }
     }
 }
@@ -182,9 +180,10 @@ data class OneofDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<OneofDescriptorProto> {
     override operator fun plus(other: OneofDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<OneofDescriptorProto> {
+        val defaultInstance by lazy { OneofDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = OneofDescriptorProto.protoUnmarshalImpl(u)
     }
 }
@@ -198,9 +197,10 @@ data class EnumDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumDescriptorProto> {
     override operator fun plus(other: EnumDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<EnumDescriptorProto> {
+        val defaultInstance by lazy { EnumDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumDescriptorProto.protoUnmarshalImpl(u)
     }
 
@@ -210,9 +210,10 @@ data class EnumDescriptorProto(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<EnumReservedRange> {
         override operator fun plus(other: EnumReservedRange?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<EnumReservedRange> {
+            val defaultInstance by lazy { EnumReservedRange() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumReservedRange.protoUnmarshalImpl(u)
         }
     }
@@ -225,9 +226,10 @@ data class EnumValueDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumValueDescriptorProto> {
     override operator fun plus(other: EnumValueDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<EnumValueDescriptorProto> {
+        val defaultInstance by lazy { EnumValueDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumValueDescriptorProto.protoUnmarshalImpl(u)
     }
 }
@@ -239,9 +241,10 @@ data class ServiceDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ServiceDescriptorProto> {
     override operator fun plus(other: ServiceDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ServiceDescriptorProto> {
+        val defaultInstance by lazy { ServiceDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ServiceDescriptorProto.protoUnmarshalImpl(u)
     }
 }
@@ -256,9 +259,10 @@ data class MethodDescriptorProto(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MethodDescriptorProto> {
     override operator fun plus(other: MethodDescriptorProto?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<MethodDescriptorProto> {
+        val defaultInstance by lazy { MethodDescriptorProto() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MethodDescriptorProto.protoUnmarshalImpl(u)
     }
 }
@@ -288,24 +292,27 @@ data class FileOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FileOptions> {
     override operator fun plus(other: FileOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FileOptions> {
+        val defaultInstance by lazy { FileOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FileOptions.protoUnmarshalImpl(u)
     }
 
-    data class OptimizeMode(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<OptimizeMode> {
-            val SPEED = OptimizeMode(1)
-            val CODE_SIZE = OptimizeMode(2)
-            val LITE_RUNTIME = OptimizeMode(3)
+    sealed class OptimizeMode(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is OptimizeMode && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "OptimizeMode.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                1 -> SPEED
-                2 -> CODE_SIZE
-                3 -> LITE_RUNTIME
-                else -> OptimizeMode(value)
-            }
+        object Speed : OptimizeMode(1, "SPEED")
+        object CodeSize : OptimizeMode(2, "CODE_SIZE")
+        object LiteRuntime : OptimizeMode(3, "LITE_RUNTIME")
+        class Unrecognized(value: Int) : OptimizeMode(value)
+
+        companion object : pbandk.Message.Enum.Companion<OptimizeMode> {
+            val values: List<OptimizeMode> by lazy { listOf(Speed, CodeSize, LiteRuntime) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No OptimizeMode with name: $name")
         }
     }
 }
@@ -319,9 +326,10 @@ data class MessageOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MessageOptions> {
     override operator fun plus(other: MessageOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<MessageOptions> {
+        val defaultInstance by lazy { MessageOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageOptions.protoUnmarshalImpl(u)
     }
 }
@@ -337,39 +345,44 @@ data class FieldOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FieldOptions> {
     override operator fun plus(other: FieldOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<FieldOptions> {
+        val defaultInstance by lazy { FieldOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldOptions.protoUnmarshalImpl(u)
     }
 
-    data class CType(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<CType> {
-            val STRING = CType(0)
-            val CORD = CType(1)
-            val STRING_PIECE = CType(2)
+    sealed class CType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is CType && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "CType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                0 -> STRING
-                1 -> CORD
-                2 -> STRING_PIECE
-                else -> CType(value)
-            }
+        object String_ : CType(0, "STRING")
+        object Cord : CType(1, "CORD")
+        object StringPiece : CType(2, "STRING_PIECE")
+        class Unrecognized(value: Int) : CType(value)
+
+        companion object : pbandk.Message.Enum.Companion<CType> {
+            val values: List<CType> by lazy { listOf(String_, Cord, StringPiece) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No CType with name: $name")
         }
     }
 
-    data class JSType(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<JSType> {
-            val JS_NORMAL = JSType(0)
-            val JS_STRING = JSType(1)
-            val JS_NUMBER = JSType(2)
+    sealed class JSType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is JSType && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "JSType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                0 -> JS_NORMAL
-                1 -> JS_STRING
-                2 -> JS_NUMBER
-                else -> JSType(value)
-            }
+        object JsNormal : JSType(0, "JS_NORMAL")
+        object JsString : JSType(1, "JS_STRING")
+        object JsNumber : JSType(2, "JS_NUMBER")
+        class Unrecognized(value: Int) : JSType(value)
+
+        companion object : pbandk.Message.Enum.Companion<JSType> {
+            val values: List<JSType> by lazy { listOf(JsNormal, JsString, JsNumber) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No JSType with name: $name")
         }
     }
 }
@@ -379,9 +392,10 @@ data class OneofOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<OneofOptions> {
     override operator fun plus(other: OneofOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<OneofOptions> {
+        val defaultInstance by lazy { OneofOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = OneofOptions.protoUnmarshalImpl(u)
     }
 }
@@ -393,9 +407,10 @@ data class EnumOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumOptions> {
     override operator fun plus(other: EnumOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<EnumOptions> {
+        val defaultInstance by lazy { EnumOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumOptions.protoUnmarshalImpl(u)
     }
 }
@@ -406,9 +421,10 @@ data class EnumValueOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumValueOptions> {
     override operator fun plus(other: EnumValueOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<EnumValueOptions> {
+        val defaultInstance by lazy { EnumValueOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumValueOptions.protoUnmarshalImpl(u)
     }
 }
@@ -419,9 +435,10 @@ data class ServiceOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ServiceOptions> {
     override operator fun plus(other: ServiceOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ServiceOptions> {
+        val defaultInstance by lazy { ServiceOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ServiceOptions.protoUnmarshalImpl(u)
     }
 }
@@ -433,24 +450,27 @@ data class MethodOptions(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MethodOptions> {
     override operator fun plus(other: MethodOptions?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<MethodOptions> {
+        val defaultInstance by lazy { MethodOptions() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MethodOptions.protoUnmarshalImpl(u)
     }
 
-    data class IdempotencyLevel(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<IdempotencyLevel> {
-            val IDEMPOTENCY_UNKNOWN = IdempotencyLevel(0)
-            val NO_SIDE_EFFECTS = IdempotencyLevel(1)
-            val IDEMPOTENT = IdempotencyLevel(2)
+    sealed class IdempotencyLevel(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is IdempotencyLevel && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "IdempotencyLevel.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                0 -> IDEMPOTENCY_UNKNOWN
-                1 -> NO_SIDE_EFFECTS
-                2 -> IDEMPOTENT
-                else -> IdempotencyLevel(value)
-            }
+        object IdempotencyUnknown : IdempotencyLevel(0, "IDEMPOTENCY_UNKNOWN")
+        object NoSideEffects : IdempotencyLevel(1, "NO_SIDE_EFFECTS")
+        object Idempotent : IdempotencyLevel(2, "IDEMPOTENT")
+        class Unrecognized(value: Int) : IdempotencyLevel(value)
+
+        companion object : pbandk.Message.Enum.Companion<IdempotencyLevel> {
+            val values: List<IdempotencyLevel> by lazy { listOf(IdempotencyUnknown, NoSideEffects, Idempotent) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No IdempotencyLevel with name: $name")
         }
     }
 }
@@ -466,9 +486,10 @@ data class UninterpretedOption(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<UninterpretedOption> {
     override operator fun plus(other: UninterpretedOption?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<UninterpretedOption> {
+        val defaultInstance by lazy { UninterpretedOption() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = UninterpretedOption.protoUnmarshalImpl(u)
     }
 
@@ -478,9 +499,10 @@ data class UninterpretedOption(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<NamePart> {
         override operator fun plus(other: NamePart?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<NamePart> {
+            val defaultInstance by lazy { NamePart() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = NamePart.protoUnmarshalImpl(u)
         }
     }
@@ -491,9 +513,10 @@ data class SourceCodeInfo(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<SourceCodeInfo> {
     override operator fun plus(other: SourceCodeInfo?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<SourceCodeInfo> {
+        val defaultInstance by lazy { SourceCodeInfo() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = SourceCodeInfo.protoUnmarshalImpl(u)
     }
 
@@ -506,9 +529,10 @@ data class SourceCodeInfo(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Location> {
         override operator fun plus(other: Location?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<Location> {
+            val defaultInstance by lazy { Location() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = Location.protoUnmarshalImpl(u)
         }
     }
@@ -519,9 +543,10 @@ data class GeneratedCodeInfo(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<GeneratedCodeInfo> {
     override operator fun plus(other: GeneratedCodeInfo?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<GeneratedCodeInfo> {
+        val defaultInstance by lazy { GeneratedCodeInfo() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = GeneratedCodeInfo.protoUnmarshalImpl(u)
     }
 
@@ -533,13 +558,16 @@ data class GeneratedCodeInfo(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Annotation> {
         override operator fun plus(other: Annotation?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<Annotation> {
+            val defaultInstance by lazy { Annotation() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = Annotation.protoUnmarshalImpl(u)
         }
     }
 }
+
+fun FileDescriptorSet?.orDefault() = this ?: FileDescriptorSet.defaultInstance
 
 private fun FileDescriptorSet.protoMergeImpl(plus: FileDescriptorSet?): FileDescriptorSet = plus?.copy(
     file = file + plus.file,
@@ -566,6 +594,8 @@ private fun FileDescriptorSet.Companion.protoUnmarshalImpl(protoUnmarshal: pband
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun FileDescriptorProto?.orDefault() = this ?: FileDescriptorProto.defaultInstance
 
 private fun FileDescriptorProto.protoMergeImpl(plus: FileDescriptorProto?): FileDescriptorProto = plus?.copy(
     name = plus.name ?: name,
@@ -650,6 +680,8 @@ private fun FileDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pba
     }
 }
 
+fun DescriptorProto?.orDefault() = this ?: DescriptorProto.defaultInstance
+
 private fun DescriptorProto.protoMergeImpl(plus: DescriptorProto?): DescriptorProto = plus?.copy(
     name = plus.name ?: name,
     field = field + plus.field,
@@ -723,6 +755,8 @@ private fun DescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.
     }
 }
 
+fun DescriptorProto.ExtensionRange?.orDefault() = this ?: DescriptorProto.ExtensionRange.defaultInstance
+
 private fun DescriptorProto.ExtensionRange.protoMergeImpl(plus: DescriptorProto.ExtensionRange?): DescriptorProto.ExtensionRange = plus?.copy(
     start = plus.start ?: start,
     end = plus.end ?: end,
@@ -759,6 +793,8 @@ private fun DescriptorProto.ExtensionRange.Companion.protoUnmarshalImpl(protoUnm
     }
 }
 
+fun DescriptorProto.ReservedRange?.orDefault() = this ?: DescriptorProto.ReservedRange.defaultInstance
+
 private fun DescriptorProto.ReservedRange.protoMergeImpl(plus: DescriptorProto.ReservedRange?): DescriptorProto.ReservedRange = plus?.copy(
     start = plus.start ?: start,
     end = plus.end ?: end,
@@ -790,6 +826,8 @@ private fun DescriptorProto.ReservedRange.Companion.protoUnmarshalImpl(protoUnma
     }
 }
 
+fun ExtensionRangeOptions?.orDefault() = this ?: ExtensionRangeOptions.defaultInstance
+
 private fun ExtensionRangeOptions.protoMergeImpl(plus: ExtensionRangeOptions?): ExtensionRangeOptions = plus?.copy(
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
@@ -815,6 +853,8 @@ private fun ExtensionRangeOptions.Companion.protoUnmarshalImpl(protoUnmarshal: p
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun FieldDescriptorProto?.orDefault() = this ?: FieldDescriptorProto.defaultInstance
 
 private fun FieldDescriptorProto.protoMergeImpl(plus: FieldDescriptorProto?): FieldDescriptorProto = plus?.copy(
     name = plus.name ?: name,
@@ -889,6 +929,8 @@ private fun FieldDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pb
     }
 }
 
+fun OneofDescriptorProto?.orDefault() = this ?: OneofDescriptorProto.defaultInstance
+
 private fun OneofDescriptorProto.protoMergeImpl(plus: OneofDescriptorProto?): OneofDescriptorProto = plus?.copy(
     name = plus.name ?: name,
     options = options?.plus(plus.options) ?: plus.options,
@@ -919,6 +961,8 @@ private fun OneofDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pb
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun EnumDescriptorProto?.orDefault() = this ?: EnumDescriptorProto.defaultInstance
 
 private fun EnumDescriptorProto.protoMergeImpl(plus: EnumDescriptorProto?): EnumDescriptorProto = plus?.copy(
     name = plus.name ?: name,
@@ -967,6 +1011,8 @@ private fun EnumDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: pba
     }
 }
 
+fun EnumDescriptorProto.EnumReservedRange?.orDefault() = this ?: EnumDescriptorProto.EnumReservedRange.defaultInstance
+
 private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(plus: EnumDescriptorProto.EnumReservedRange?): EnumDescriptorProto.EnumReservedRange = plus?.copy(
     start = plus.start ?: start,
     end = plus.end ?: end,
@@ -997,6 +1043,8 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.protoUnmarshalImpl(p
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun EnumValueDescriptorProto?.orDefault() = this ?: EnumValueDescriptorProto.defaultInstance
 
 private fun EnumValueDescriptorProto.protoMergeImpl(plus: EnumValueDescriptorProto?): EnumValueDescriptorProto = plus?.copy(
     name = plus.name ?: name,
@@ -1034,6 +1082,8 @@ private fun EnumValueDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal
     }
 }
 
+fun ServiceDescriptorProto?.orDefault() = this ?: ServiceDescriptorProto.defaultInstance
+
 private fun ServiceDescriptorProto.protoMergeImpl(plus: ServiceDescriptorProto?): ServiceDescriptorProto = plus?.copy(
     name = plus.name ?: name,
     method = method + plus.method,
@@ -1069,6 +1119,8 @@ private fun ServiceDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: 
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun MethodDescriptorProto?.orDefault() = this ?: MethodDescriptorProto.defaultInstance
 
 private fun MethodDescriptorProto.protoMergeImpl(plus: MethodDescriptorProto?): MethodDescriptorProto = plus?.copy(
     name = plus.name ?: name,
@@ -1121,6 +1173,8 @@ private fun MethodDescriptorProto.Companion.protoUnmarshalImpl(protoUnmarshal: p
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun FileOptions?.orDefault() = this ?: FileOptions.defaultInstance
 
 private fun FileOptions.protoMergeImpl(plus: FileOptions?): FileOptions = plus?.copy(
     javaPackage = plus.javaPackage ?: javaPackage,
@@ -1253,6 +1307,8 @@ private fun FileOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
     }
 }
 
+fun MessageOptions?.orDefault() = this ?: MessageOptions.defaultInstance
+
 private fun MessageOptions.protoMergeImpl(plus: MessageOptions?): MessageOptions = plus?.copy(
     messageSetWireFormat = plus.messageSetWireFormat ?: messageSetWireFormat,
     noStandardDescriptorAccessor = plus.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
@@ -1299,6 +1355,8 @@ private fun MessageOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun FieldOptions?.orDefault() = this ?: FieldOptions.defaultInstance
 
 private fun FieldOptions.protoMergeImpl(plus: FieldOptions?): FieldOptions = plus?.copy(
     ctype = plus.ctype ?: ctype,
@@ -1357,6 +1415,8 @@ private fun FieldOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unm
     }
 }
 
+fun OneofOptions?.orDefault() = this ?: OneofOptions.defaultInstance
+
 private fun OneofOptions.protoMergeImpl(plus: OneofOptions?): OneofOptions = plus?.copy(
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
     unknownFields = unknownFields + plus.unknownFields
@@ -1382,6 +1442,8 @@ private fun OneofOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unm
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun EnumOptions?.orDefault() = this ?: EnumOptions.defaultInstance
 
 private fun EnumOptions.protoMergeImpl(plus: EnumOptions?): EnumOptions = plus?.copy(
     allowAlias = plus.allowAlias ?: allowAlias,
@@ -1419,6 +1481,8 @@ private fun EnumOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unma
     }
 }
 
+fun EnumValueOptions?.orDefault() = this ?: EnumValueOptions.defaultInstance
+
 private fun EnumValueOptions.protoMergeImpl(plus: EnumValueOptions?): EnumValueOptions = plus?.copy(
     deprecated = plus.deprecated ?: deprecated,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
@@ -1450,6 +1514,8 @@ private fun EnumValueOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk
     }
 }
 
+fun ServiceOptions?.orDefault() = this ?: ServiceOptions.defaultInstance
+
 private fun ServiceOptions.protoMergeImpl(plus: ServiceOptions?): ServiceOptions = plus?.copy(
     deprecated = plus.deprecated ?: deprecated,
     uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
@@ -1480,6 +1546,8 @@ private fun ServiceOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun MethodOptions?.orDefault() = this ?: MethodOptions.defaultInstance
 
 private fun MethodOptions.protoMergeImpl(plus: MethodOptions?): MethodOptions = plus?.copy(
     deprecated = plus.deprecated ?: deprecated,
@@ -1516,6 +1584,8 @@ private fun MethodOptions.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Un
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun UninterpretedOption?.orDefault() = this ?: UninterpretedOption.defaultInstance
 
 private fun UninterpretedOption.protoMergeImpl(plus: UninterpretedOption?): UninterpretedOption = plus?.copy(
     name = name + plus.name,
@@ -1574,6 +1644,8 @@ private fun UninterpretedOption.Companion.protoUnmarshalImpl(protoUnmarshal: pba
     }
 }
 
+fun UninterpretedOption.NamePart?.orDefault() = this ?: UninterpretedOption.NamePart.defaultInstance
+
 private fun UninterpretedOption.NamePart.protoMergeImpl(plus: UninterpretedOption.NamePart?): UninterpretedOption.NamePart = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -1603,6 +1675,8 @@ private fun UninterpretedOption.NamePart.Companion.protoUnmarshalImpl(protoUnmar
     }
 }
 
+fun SourceCodeInfo?.orDefault() = this ?: SourceCodeInfo.defaultInstance
+
 private fun SourceCodeInfo.protoMergeImpl(plus: SourceCodeInfo?): SourceCodeInfo = plus?.copy(
     location = location + plus.location,
     unknownFields = unknownFields + plus.unknownFields
@@ -1628,6 +1702,8 @@ private fun SourceCodeInfo.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun SourceCodeInfo.Location?.orDefault() = this ?: SourceCodeInfo.Location.defaultInstance
 
 private fun SourceCodeInfo.Location.protoMergeImpl(plus: SourceCodeInfo.Location?): SourceCodeInfo.Location = plus?.copy(
     path = path + plus.path,
@@ -1676,6 +1752,8 @@ private fun SourceCodeInfo.Location.Companion.protoUnmarshalImpl(protoUnmarshal:
     }
 }
 
+fun GeneratedCodeInfo?.orDefault() = this ?: GeneratedCodeInfo.defaultInstance
+
 private fun GeneratedCodeInfo.protoMergeImpl(plus: GeneratedCodeInfo?): GeneratedCodeInfo = plus?.copy(
     annotation = annotation + plus.annotation,
     unknownFields = unknownFields + plus.unknownFields
@@ -1701,6 +1779,8 @@ private fun GeneratedCodeInfo.Companion.protoUnmarshalImpl(protoUnmarshal: pband
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun GeneratedCodeInfo.Annotation?.orDefault() = this ?: GeneratedCodeInfo.Annotation.defaultInstance
 
 private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: GeneratedCodeInfo.Annotation?): GeneratedCodeInfo.Annotation = plus?.copy(
     path = path + plus.path,

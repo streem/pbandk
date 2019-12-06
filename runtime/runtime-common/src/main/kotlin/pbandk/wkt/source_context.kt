@@ -1,16 +1,21 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class SourceContext(
     val fileName: String = "",
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<SourceContext> {
     override operator fun plus(other: SourceContext?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<SourceContext> {
+        val defaultInstance by lazy { SourceContext() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = SourceContext.protoUnmarshalImpl(u)
     }
 }
+
+fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
 
 private fun SourceContext.protoMergeImpl(plus: SourceContext?): SourceContext = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

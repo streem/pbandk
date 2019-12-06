@@ -12,7 +12,7 @@ interface Namer {
         val disallowedFieldNames = setOf(
             "emptyList", "pbandk", "plus", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
         )
-        val disallowedValueTypeNames = setOf(
+        val disallowedValueTypeNames = disallowedTypeNames + setOf(
             "Unrecognized"
         )
         val kotlinKeywords = setOf(
@@ -51,7 +51,11 @@ interface Namer {
             var name = splitWordsToSnakeCase(preferred).substringAfter(typePrefix)
             name = underscoreToCamelCase(name).capitalize()
 
-            while (nameSet.contains(name) || disallowedValueTypeNames.contains(name)) name += '_'
+            while (nameSet.contains(name) ||
+                    disallowedValueTypeNames.contains(name) ||
+                    enumTypeName == name) {
+                name += '_'
+            }
             return name
         }
 

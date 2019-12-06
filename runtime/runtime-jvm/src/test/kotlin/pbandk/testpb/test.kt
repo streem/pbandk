@@ -1,13 +1,16 @@
 package pbandk.testpb
 
+import kotlin.jvm.Transient
+
 data class Foo(
     val `val`: String = "",
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Foo> {
     override operator fun plus(other: Foo?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Foo> {
+        val defaultInstance by lazy { Foo() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Foo.protoUnmarshalImpl(u)
     }
 }
@@ -17,9 +20,10 @@ data class Bar(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Bar> {
     override operator fun plus(other: Bar?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Bar> {
+        val defaultInstance by lazy { Bar() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Bar.protoUnmarshalImpl(u)
     }
 }
@@ -29,9 +33,10 @@ data class MessageWithMap(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MessageWithMap> {
     override operator fun plus(other: MessageWithMap?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<MessageWithMap> {
+        val defaultInstance by lazy { MessageWithMap() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageWithMap.protoUnmarshalImpl(u)
     }
 
@@ -41,13 +46,16 @@ data class MessageWithMap(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapEntry>, Map.Entry<String, String> {
         override operator fun plus(other: MapEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapEntry> {
+            val defaultInstance by lazy { MapEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapEntry.protoUnmarshalImpl(u)
         }
     }
 }
+
+fun Foo?.orDefault() = this ?: Foo.defaultInstance
 
 private fun Foo.protoMergeImpl(plus: Foo?): Foo = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
@@ -73,6 +81,8 @@ private fun Foo.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun Bar?.orDefault() = this ?: Bar.defaultInstance
 
 private fun Bar.protoMergeImpl(plus: Bar?): Bar = plus?.copy(
     foos = foos + plus.foos,
@@ -100,6 +110,8 @@ private fun Bar.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
     }
 }
 
+fun MessageWithMap?.orDefault() = this ?: MessageWithMap.defaultInstance
+
 private fun MessageWithMap.protoMergeImpl(plus: MessageWithMap?): MessageWithMap = plus?.copy(
     map = map + plus.map,
     unknownFields = unknownFields + plus.unknownFields
@@ -125,6 +137,8 @@ private fun MessageWithMap.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun MessageWithMap.MapEntry?.orDefault() = this ?: MessageWithMap.MapEntry.defaultInstance
 
 private fun MessageWithMap.MapEntry.protoMergeImpl(plus: MessageWithMap.MapEntry?): MessageWithMap.MapEntry = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

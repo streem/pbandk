@@ -1,17 +1,21 @@
 package pbandk.conformance.pb
 
-data class ForeignEnumProto2(override val value: Int) : pbandk.Message.Enum {
-    companion object : pbandk.Message.Enum.Companion<ForeignEnumProto2> {
-        val FOREIGN_FOO = ForeignEnumProto2(0)
-        val FOREIGN_BAR = ForeignEnumProto2(1)
-        val FOREIGN_BAZ = ForeignEnumProto2(2)
+import kotlin.jvm.Transient
 
-        override fun fromValue(value: Int) = when (value) {
-            0 -> FOREIGN_FOO
-            1 -> FOREIGN_BAR
-            2 -> FOREIGN_BAZ
-            else -> ForeignEnumProto2(value)
-        }
+sealed class ForeignEnumProto2(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?) = other is ForeignEnumProto2 && other.value == value
+    override fun hashCode() = value.hashCode()
+    override fun toString() = "ForeignEnumProto2.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+    object ForeignFoo : ForeignEnumProto2(0, "FOREIGN_FOO")
+    object ForeignBar : ForeignEnumProto2(1, "FOREIGN_BAR")
+    object ForeignBaz : ForeignEnumProto2(2, "FOREIGN_BAZ")
+    class Unrecognized(value: Int) : ForeignEnumProto2(value)
+
+    companion object : pbandk.Message.Enum.Companion<ForeignEnumProto2> {
+        val values: List<ForeignEnumProto2> by lazy { listOf(ForeignFoo, ForeignBar, ForeignBaz) }
+        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnumProto2 with name: $name")
     }
 }
 
@@ -78,7 +82,6 @@ data class TestAllTypesProto2(
     val mapStringForeignMessage: Map<String?, pbandk.conformance.pb.ForeignMessageProto2?> = emptyMap(),
     val mapStringNestedEnum: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> = emptyMap(),
     val mapStringForeignEnum: Map<String?, pbandk.conformance.pb.ForeignEnumProto2?> = emptyMap(),
-    val oneofField: OneofField? = null,
     val fieldname1: Int? = null,
     val fieldName2: Int? = null,
     val fieldName3: Int? = null,
@@ -97,41 +100,63 @@ data class TestAllTypesProto2(
     val field_Name16: Int? = null,
     val fieldName17_: Int? = null,
     val fieldName18_: Int? = null,
+    val oneofField: OneofField<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<TestAllTypesProto2> {
-    sealed class OneofField {
-        data class OneofUint32(val oneofUint32: Int = 0) : OneofField()
-        data class OneofNestedMessage(val oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage) : OneofField()
-        data class OneofString(val oneofString: String = "") : OneofField()
-        data class OneofBytes(val oneofBytes: pbandk.ByteArr = pbandk.ByteArr.empty) : OneofField()
-        data class OneofBool(val oneofBool: Boolean = false) : OneofField()
-        data class OneofUint64(val oneofUint64: Long = 0L) : OneofField()
-        data class OneofFloat(val oneofFloat: Float = 0.0F) : OneofField()
-        data class OneofDouble(val oneofDouble: Double = 0.0) : OneofField()
-        data class OneofEnum(val oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.fromValue(0)) : OneofField()
+    sealed class OneofField<V>(val value: V) {
+        class OneofUint32(oneofUint32: Int = 0) : OneofField<Int>(oneofUint32)
+        class OneofNestedMessage(oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage) : OneofField<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>(oneofNestedMessage)
+        class OneofString(oneofString: String = "") : OneofField<String>(oneofString)
+        class OneofBytes(oneofBytes: pbandk.ByteArr = pbandk.ByteArr.empty) : OneofField<pbandk.ByteArr>(oneofBytes)
+        class OneofBool(oneofBool: Boolean = false) : OneofField<Boolean>(oneofBool)
+        class OneofUint64(oneofUint64: Long = 0L) : OneofField<Long>(oneofUint64)
+        class OneofFloat(oneofFloat: Float = 0.0F) : OneofField<Float>(oneofFloat)
+        class OneofDouble(oneofDouble: Double = 0.0) : OneofField<Double>(oneofDouble)
+        class OneofEnum(oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.fromValue(0)) : OneofField<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(oneofEnum)
     }
 
+    val oneofUint32: Int?
+        get() = (oneofField as? OneofField.OneofUint32)?.value
+    val oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
+        get() = (oneofField as? OneofField.OneofNestedMessage)?.value
+    val oneofString: String?
+        get() = (oneofField as? OneofField.OneofString)?.value
+    val oneofBytes: pbandk.ByteArr?
+        get() = (oneofField as? OneofField.OneofBytes)?.value
+    val oneofBool: Boolean?
+        get() = (oneofField as? OneofField.OneofBool)?.value
+    val oneofUint64: Long?
+        get() = (oneofField as? OneofField.OneofUint64)?.value
+    val oneofFloat: Float?
+        get() = (oneofField as? OneofField.OneofFloat)?.value
+    val oneofDouble: Double?
+        get() = (oneofField as? OneofField.OneofDouble)?.value
+    val oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
+        get() = (oneofField as? OneofField.OneofEnum)?.value
+
     override operator fun plus(other: TestAllTypesProto2?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<TestAllTypesProto2> {
+        val defaultInstance by lazy { TestAllTypesProto2() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto2.protoUnmarshalImpl(u)
     }
 
-    data class NestedEnum(override val value: Int) : pbandk.Message.Enum {
-        companion object : pbandk.Message.Enum.Companion<NestedEnum> {
-            val FOO = NestedEnum(0)
-            val BAR = NestedEnum(1)
-            val BAZ = NestedEnum(2)
-            val NEG = NestedEnum(-1)
+    sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is NestedEnum && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-            override fun fromValue(value: Int) = when (value) {
-                0 -> FOO
-                1 -> BAR
-                2 -> BAZ
-                -1 -> NEG
-                else -> NestedEnum(value)
-            }
+        object Foo : NestedEnum(0, "FOO")
+        object Bar : NestedEnum(1, "BAR")
+        object Baz : NestedEnum(2, "BAZ")
+        object Neg : NestedEnum(-1, "NEG")
+        class Unrecognized(value: Int) : NestedEnum(value)
+
+        companion object : pbandk.Message.Enum.Companion<NestedEnum> {
+            val values: List<NestedEnum> by lazy { listOf(Foo, Bar, Baz, Neg) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
     }
 
@@ -141,9 +166,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<NestedMessage> {
         override operator fun plus(other: NestedMessage?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<NestedMessage> {
+            val defaultInstance by lazy { NestedMessage() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = NestedMessage.protoUnmarshalImpl(u)
         }
     }
@@ -154,9 +180,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt32Int32Entry>, Map.Entry<Int?, Int?> {
         override operator fun plus(other: MapInt32Int32Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapInt32Int32Entry> {
+            val defaultInstance by lazy { MapInt32Int32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32Int32Entry.protoUnmarshalImpl(u)
         }
     }
@@ -167,9 +194,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt64Int64Entry>, Map.Entry<Long?, Long?> {
         override operator fun plus(other: MapInt64Int64Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapInt64Int64Entry> {
+            val defaultInstance by lazy { MapInt64Int64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt64Int64Entry.protoUnmarshalImpl(u)
         }
     }
@@ -180,9 +208,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapUint32Uint32Entry>, Map.Entry<Int?, Int?> {
         override operator fun plus(other: MapUint32Uint32Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapUint32Uint32Entry> {
+            val defaultInstance by lazy { MapUint32Uint32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapUint32Uint32Entry.protoUnmarshalImpl(u)
         }
     }
@@ -193,9 +222,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapUint64Uint64Entry>, Map.Entry<Long?, Long?> {
         override operator fun plus(other: MapUint64Uint64Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapUint64Uint64Entry> {
+            val defaultInstance by lazy { MapUint64Uint64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapUint64Uint64Entry.protoUnmarshalImpl(u)
         }
     }
@@ -206,9 +236,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSint32Sint32Entry>, Map.Entry<Int?, Int?> {
         override operator fun plus(other: MapSint32Sint32Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapSint32Sint32Entry> {
+            val defaultInstance by lazy { MapSint32Sint32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSint32Sint32Entry.protoUnmarshalImpl(u)
         }
     }
@@ -219,9 +250,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSint64Sint64Entry>, Map.Entry<Long?, Long?> {
         override operator fun plus(other: MapSint64Sint64Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapSint64Sint64Entry> {
+            val defaultInstance by lazy { MapSint64Sint64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSint64Sint64Entry.protoUnmarshalImpl(u)
         }
     }
@@ -232,9 +264,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapFixed32Fixed32Entry>, Map.Entry<Int?, Int?> {
         override operator fun plus(other: MapFixed32Fixed32Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapFixed32Fixed32Entry> {
+            val defaultInstance by lazy { MapFixed32Fixed32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapFixed32Fixed32Entry.protoUnmarshalImpl(u)
         }
     }
@@ -245,9 +278,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapFixed64Fixed64Entry>, Map.Entry<Long?, Long?> {
         override operator fun plus(other: MapFixed64Fixed64Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapFixed64Fixed64Entry> {
+            val defaultInstance by lazy { MapFixed64Fixed64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapFixed64Fixed64Entry.protoUnmarshalImpl(u)
         }
     }
@@ -258,9 +292,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSfixed32Sfixed32Entry>, Map.Entry<Int?, Int?> {
         override operator fun plus(other: MapSfixed32Sfixed32Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapSfixed32Sfixed32Entry> {
+            val defaultInstance by lazy { MapSfixed32Sfixed32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSfixed32Sfixed32Entry.protoUnmarshalImpl(u)
         }
     }
@@ -271,9 +306,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSfixed64Sfixed64Entry>, Map.Entry<Long?, Long?> {
         override operator fun plus(other: MapSfixed64Sfixed64Entry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapSfixed64Sfixed64Entry> {
+            val defaultInstance by lazy { MapSfixed64Sfixed64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSfixed64Sfixed64Entry.protoUnmarshalImpl(u)
         }
     }
@@ -284,9 +320,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt32FloatEntry>, Map.Entry<Int?, Float?> {
         override operator fun plus(other: MapInt32FloatEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapInt32FloatEntry> {
+            val defaultInstance by lazy { MapInt32FloatEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32FloatEntry.protoUnmarshalImpl(u)
         }
     }
@@ -297,9 +334,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt32DoubleEntry>, Map.Entry<Int?, Double?> {
         override operator fun plus(other: MapInt32DoubleEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapInt32DoubleEntry> {
+            val defaultInstance by lazy { MapInt32DoubleEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32DoubleEntry.protoUnmarshalImpl(u)
         }
     }
@@ -310,9 +348,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapBoolBoolEntry>, Map.Entry<Boolean?, Boolean?> {
         override operator fun plus(other: MapBoolBoolEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapBoolBoolEntry> {
+            val defaultInstance by lazy { MapBoolBoolEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapBoolBoolEntry.protoUnmarshalImpl(u)
         }
     }
@@ -323,9 +362,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringStringEntry>, Map.Entry<String?, String?> {
         override operator fun plus(other: MapStringStringEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapStringStringEntry> {
+            val defaultInstance by lazy { MapStringStringEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringStringEntry.protoUnmarshalImpl(u)
         }
     }
@@ -336,9 +376,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringBytesEntry>, Map.Entry<String?, pbandk.ByteArr?> {
         override operator fun plus(other: MapStringBytesEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapStringBytesEntry> {
+            val defaultInstance by lazy { MapStringBytesEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringBytesEntry.protoUnmarshalImpl(u)
         }
     }
@@ -349,9 +390,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringNestedMessageEntry>, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> {
         override operator fun plus(other: MapStringNestedMessageEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapStringNestedMessageEntry> {
+            val defaultInstance by lazy { MapStringNestedMessageEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringNestedMessageEntry.protoUnmarshalImpl(u)
         }
     }
@@ -362,9 +404,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringForeignMessageEntry>, Map.Entry<String?, pbandk.conformance.pb.ForeignMessageProto2?> {
         override operator fun plus(other: MapStringForeignMessageEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapStringForeignMessageEntry> {
+            val defaultInstance by lazy { MapStringForeignMessageEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringForeignMessageEntry.protoUnmarshalImpl(u)
         }
     }
@@ -375,9 +418,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringNestedEnumEntry>, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> {
         override operator fun plus(other: MapStringNestedEnumEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapStringNestedEnumEntry> {
+            val defaultInstance by lazy { MapStringNestedEnumEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringNestedEnumEntry.protoUnmarshalImpl(u)
         }
     }
@@ -388,9 +432,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringForeignEnumEntry>, Map.Entry<String?, pbandk.conformance.pb.ForeignEnumProto2?> {
         override operator fun plus(other: MapStringForeignEnumEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MapStringForeignEnumEntry> {
+            val defaultInstance by lazy { MapStringForeignEnumEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringForeignEnumEntry.protoUnmarshalImpl(u)
         }
     }
@@ -401,9 +446,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Data> {
         override operator fun plus(other: Data?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<Data> {
+            val defaultInstance by lazy { Data() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = Data.protoUnmarshalImpl(u)
         }
     }
@@ -412,9 +458,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MessageSetCorrect> {
         override operator fun plus(other: MessageSetCorrect?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MessageSetCorrect> {
+            val defaultInstance by lazy { MessageSetCorrect() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageSetCorrect.protoUnmarshalImpl(u)
         }
     }
@@ -424,9 +471,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MessageSetCorrectExtension1> {
         override operator fun plus(other: MessageSetCorrectExtension1?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MessageSetCorrectExtension1> {
+            val defaultInstance by lazy { MessageSetCorrectExtension1() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageSetCorrectExtension1.protoUnmarshalImpl(u)
         }
     }
@@ -436,9 +484,10 @@ data class TestAllTypesProto2(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MessageSetCorrectExtension2> {
         override operator fun plus(other: MessageSetCorrectExtension2?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
+        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         companion object : pbandk.Message.Companion<MessageSetCorrectExtension2> {
+            val defaultInstance by lazy { MessageSetCorrectExtension2() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageSetCorrectExtension2.protoUnmarshalImpl(u)
         }
     }
@@ -449,12 +498,15 @@ data class ForeignMessageProto2(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ForeignMessageProto2> {
     override operator fun plus(other: ForeignMessageProto2?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ForeignMessageProto2> {
+        val defaultInstance by lazy { ForeignMessageProto2() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ForeignMessageProto2.protoUnmarshalImpl(u)
     }
 }
+
+fun TestAllTypesProto2?.orDefault() = this ?: TestAllTypesProto2.defaultInstance
 
 private fun TestAllTypesProto2.protoMergeImpl(plus: TestAllTypesProto2?): TestAllTypesProto2 = plus?.copy(
     optionalInt32 = plus.optionalInt32 ?: optionalInt32,
@@ -519,12 +571,6 @@ private fun TestAllTypesProto2.protoMergeImpl(plus: TestAllTypesProto2?): TestAl
     mapStringForeignMessage = mapStringForeignMessage + plus.mapStringForeignMessage,
     mapStringNestedEnum = mapStringNestedEnum + plus.mapStringNestedEnum,
     mapStringForeignEnum = mapStringForeignEnum + plus.mapStringForeignEnum,
-    oneofField = when {
-        oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage && plus.oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage ->
-            TestAllTypesProto2.OneofField.OneofNestedMessage(oneofField.oneofNestedMessage + plus.oneofField.oneofNestedMessage)
-        else ->
-            plus.oneofField ?: oneofField
-    },
     fieldname1 = plus.fieldname1 ?: fieldname1,
     fieldName2 = plus.fieldName2 ?: fieldName2,
     fieldName3 = plus.fieldName3 ?: fieldName3,
@@ -543,6 +589,12 @@ private fun TestAllTypesProto2.protoMergeImpl(plus: TestAllTypesProto2?): TestAl
     field_Name16 = plus.field_Name16 ?: field_Name16,
     fieldName17_ = plus.fieldName17_ ?: fieldName17_,
     fieldName18_ = plus.fieldName18_ ?: fieldName18_,
+    oneofField = when {
+        oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage && plus.oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage ->
+            TestAllTypesProto2.OneofField.OneofNestedMessage(oneofField.value + plus.oneofField.value)
+        else ->
+            plus.oneofField ?: oneofField
+    },
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
@@ -610,17 +662,6 @@ private fun TestAllTypesProto2.protoSizeImpl(): Int {
     if (mapStringForeignMessage.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(72, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto2::MapStringForeignMessageEntry)
     if (mapStringNestedEnum.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(73, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto2::MapStringNestedEnumEntry)
     if (mapStringForeignEnum.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(74, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto2::MapStringForeignEnumEntry)
-    when (oneofField) {
-        is TestAllTypesProto2.OneofField.OneofUint32 -> protoSize += pbandk.Sizer.tagSize(111) + pbandk.Sizer.uInt32Size(oneofField.oneofUint32)
-        is TestAllTypesProto2.OneofField.OneofNestedMessage -> protoSize += pbandk.Sizer.tagSize(112) + pbandk.Sizer.messageSize(oneofField.oneofNestedMessage)
-        is TestAllTypesProto2.OneofField.OneofString -> protoSize += pbandk.Sizer.tagSize(113) + pbandk.Sizer.stringSize(oneofField.oneofString)
-        is TestAllTypesProto2.OneofField.OneofBytes -> protoSize += pbandk.Sizer.tagSize(114) + pbandk.Sizer.bytesSize(oneofField.oneofBytes)
-        is TestAllTypesProto2.OneofField.OneofBool -> protoSize += pbandk.Sizer.tagSize(115) + pbandk.Sizer.boolSize(oneofField.oneofBool)
-        is TestAllTypesProto2.OneofField.OneofUint64 -> protoSize += pbandk.Sizer.tagSize(116) + pbandk.Sizer.uInt64Size(oneofField.oneofUint64)
-        is TestAllTypesProto2.OneofField.OneofFloat -> protoSize += pbandk.Sizer.tagSize(117) + pbandk.Sizer.floatSize(oneofField.oneofFloat)
-        is TestAllTypesProto2.OneofField.OneofDouble -> protoSize += pbandk.Sizer.tagSize(118) + pbandk.Sizer.doubleSize(oneofField.oneofDouble)
-        is TestAllTypesProto2.OneofField.OneofEnum -> protoSize += pbandk.Sizer.tagSize(119) + pbandk.Sizer.enumSize(oneofField.oneofEnum)
-    }
     if (fieldname1 != null) protoSize += pbandk.Sizer.tagSize(401) + pbandk.Sizer.int32Size(fieldname1)
     if (fieldName2 != null) protoSize += pbandk.Sizer.tagSize(402) + pbandk.Sizer.int32Size(fieldName2)
     if (fieldName3 != null) protoSize += pbandk.Sizer.tagSize(403) + pbandk.Sizer.int32Size(fieldName3)
@@ -639,6 +680,17 @@ private fun TestAllTypesProto2.protoSizeImpl(): Int {
     if (field_Name16 != null) protoSize += pbandk.Sizer.tagSize(416) + pbandk.Sizer.int32Size(field_Name16)
     if (fieldName17_ != null) protoSize += pbandk.Sizer.tagSize(417) + pbandk.Sizer.int32Size(fieldName17_)
     if (fieldName18_ != null) protoSize += pbandk.Sizer.tagSize(418) + pbandk.Sizer.int32Size(fieldName18_)
+    when (oneofField) {
+        is TestAllTypesProto2.OneofField.OneofUint32 -> protoSize += pbandk.Sizer.tagSize(111) + pbandk.Sizer.uInt32Size(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofNestedMessage -> protoSize += pbandk.Sizer.tagSize(112) + pbandk.Sizer.messageSize(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofString -> protoSize += pbandk.Sizer.tagSize(113) + pbandk.Sizer.stringSize(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofBytes -> protoSize += pbandk.Sizer.tagSize(114) + pbandk.Sizer.bytesSize(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofBool -> protoSize += pbandk.Sizer.tagSize(115) + pbandk.Sizer.boolSize(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofUint64 -> protoSize += pbandk.Sizer.tagSize(116) + pbandk.Sizer.uInt64Size(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofFloat -> protoSize += pbandk.Sizer.tagSize(117) + pbandk.Sizer.floatSize(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofDouble -> protoSize += pbandk.Sizer.tagSize(118) + pbandk.Sizer.doubleSize(oneofField.value)
+        is TestAllTypesProto2.OneofField.OneofEnum -> protoSize += pbandk.Sizer.tagSize(119) + pbandk.Sizer.enumSize(oneofField.value)
+    }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -706,15 +758,15 @@ private fun TestAllTypesProto2.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeMap(578, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto2::MapStringForeignMessageEntry)
     if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeMap(586, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto2::MapStringNestedEnumEntry)
     if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeMap(594, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto2::MapStringForeignEnumEntry)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofUint32) protoMarshal.writeTag(888).writeUInt32(oneofField.oneofUint32)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage) protoMarshal.writeTag(898).writeMessage(oneofField.oneofNestedMessage)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofString) protoMarshal.writeTag(906).writeString(oneofField.oneofString)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofBytes) protoMarshal.writeTag(914).writeBytes(oneofField.oneofBytes)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofBool) protoMarshal.writeTag(920).writeBool(oneofField.oneofBool)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofUint64) protoMarshal.writeTag(928).writeUInt64(oneofField.oneofUint64)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofFloat) protoMarshal.writeTag(941).writeFloat(oneofField.oneofFloat)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofDouble) protoMarshal.writeTag(945).writeDouble(oneofField.oneofDouble)
-    if (oneofField is TestAllTypesProto2.OneofField.OneofEnum) protoMarshal.writeTag(952).writeEnum(oneofField.oneofEnum)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofUint32) protoMarshal.writeTag(888).writeUInt32(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage) protoMarshal.writeTag(898).writeMessage(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofString) protoMarshal.writeTag(906).writeString(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofBytes) protoMarshal.writeTag(914).writeBytes(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofBool) protoMarshal.writeTag(920).writeBool(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofUint64) protoMarshal.writeTag(928).writeUInt64(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofFloat) protoMarshal.writeTag(941).writeFloat(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofDouble) protoMarshal.writeTag(945).writeDouble(oneofField.value)
+    if (oneofField is TestAllTypesProto2.OneofField.OneofEnum) protoMarshal.writeTag(952).writeEnum(oneofField.value)
     if (fieldname1 != null) protoMarshal.writeTag(3208).writeInt32(fieldname1)
     if (fieldName2 != null) protoMarshal.writeTag(3216).writeInt32(fieldName2)
     if (fieldName3 != null) protoMarshal.writeTag(3224).writeInt32(fieldName3)
@@ -799,7 +851,6 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var mapStringForeignMessage: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.ForeignMessageProto2?>? = null
     var mapStringNestedEnum: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>? = null
     var mapStringForeignEnum: pbandk.MessageMap.Builder<String?, pbandk.conformance.pb.ForeignEnumProto2?>? = null
-    var oneofField: TestAllTypesProto2.OneofField? = null
     var fieldname1: Int? = null
     var fieldName2: Int? = null
     var fieldName3: Int? = null
@@ -818,6 +869,7 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var field_Name16: Int? = null
     var fieldName17_: Int? = null
     var fieldName18_: Int? = null
+    var oneofField: TestAllTypesProto2.OneofField<*>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return TestAllTypesProto2(optionalInt32, optionalInt64, optionalUint32, optionalUint64,
             optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
@@ -834,12 +886,12 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
             pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64), pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32),
             pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double), pbandk.MessageMap.Builder.fixed(mapBoolBool),
             pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage), pbandk.MessageMap.Builder.fixed(mapStringForeignMessage),
-            pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), oneofField, fieldname1,
-            fieldName2, fieldName3, field_name4, field0name5,
-            field0Name6, fieldName7, fieldName8, fieldName9,
-            fieldName10, fIELDNAME11, fIELDName12, _fieldName13,
-            _FieldName14, field_name15, field_Name16, fieldName17_,
-            fieldName18_, protoUnmarshal.unknownFields())
+            pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), fieldname1, fieldName2,
+            fieldName3, field_name4, field0name5, field0Name6,
+            fieldName7, fieldName8, fieldName9, fieldName10,
+            fIELDNAME11, fIELDName12, _fieldName13, _FieldName14,
+            field_name15, field_Name16, fieldName17_, fieldName18_,
+            oneofField, protoUnmarshal.unknownFields())
         8 -> optionalInt32 = protoUnmarshal.readInt32()
         16 -> optionalInt64 = protoUnmarshal.readInt64()
         24 -> optionalUint32 = protoUnmarshal.readUInt32()
@@ -933,6 +985,8 @@ private fun TestAllTypesProto2.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     }
 }
 
+fun TestAllTypesProto2.NestedMessage?.orDefault() = this ?: TestAllTypesProto2.NestedMessage.defaultInstance
+
 private fun TestAllTypesProto2.NestedMessage.protoMergeImpl(plus: TestAllTypesProto2.NestedMessage?): TestAllTypesProto2.NestedMessage = plus?.copy(
     a = plus.a ?: a,
     corecursive = corecursive?.plus(plus.corecursive) ?: plus.corecursive,
@@ -963,6 +1017,8 @@ private fun TestAllTypesProto2.NestedMessage.Companion.protoUnmarshalImpl(protoU
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapInt32Int32Entry?.orDefault() = this ?: TestAllTypesProto2.MapInt32Int32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapInt32Int32Entry.protoMergeImpl(plus: TestAllTypesProto2.MapInt32Int32Entry?): TestAllTypesProto2.MapInt32Int32Entry = plus?.copy(
     key = plus.key ?: key,
@@ -995,6 +1051,8 @@ private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.protoUnmarshalImpl(p
     }
 }
 
+fun TestAllTypesProto2.MapInt64Int64Entry?.orDefault() = this ?: TestAllTypesProto2.MapInt64Int64Entry.defaultInstance
+
 private fun TestAllTypesProto2.MapInt64Int64Entry.protoMergeImpl(plus: TestAllTypesProto2.MapInt64Int64Entry?): TestAllTypesProto2.MapInt64Int64Entry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1025,6 +1083,8 @@ private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.protoUnmarshalImpl(p
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapUint32Uint32Entry?.orDefault() = this ?: TestAllTypesProto2.MapUint32Uint32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapUint32Uint32Entry.protoMergeImpl(plus: TestAllTypesProto2.MapUint32Uint32Entry?): TestAllTypesProto2.MapUint32Uint32Entry = plus?.copy(
     key = plus.key ?: key,
@@ -1057,6 +1117,8 @@ private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.protoUnmarshalImpl
     }
 }
 
+fun TestAllTypesProto2.MapUint64Uint64Entry?.orDefault() = this ?: TestAllTypesProto2.MapUint64Uint64Entry.defaultInstance
+
 private fun TestAllTypesProto2.MapUint64Uint64Entry.protoMergeImpl(plus: TestAllTypesProto2.MapUint64Uint64Entry?): TestAllTypesProto2.MapUint64Uint64Entry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1087,6 +1149,8 @@ private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.protoUnmarshalImpl
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapSint32Sint32Entry?.orDefault() = this ?: TestAllTypesProto2.MapSint32Sint32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapSint32Sint32Entry.protoMergeImpl(plus: TestAllTypesProto2.MapSint32Sint32Entry?): TestAllTypesProto2.MapSint32Sint32Entry = plus?.copy(
     key = plus.key ?: key,
@@ -1119,6 +1183,8 @@ private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.protoUnmarshalImpl
     }
 }
 
+fun TestAllTypesProto2.MapSint64Sint64Entry?.orDefault() = this ?: TestAllTypesProto2.MapSint64Sint64Entry.defaultInstance
+
 private fun TestAllTypesProto2.MapSint64Sint64Entry.protoMergeImpl(plus: TestAllTypesProto2.MapSint64Sint64Entry?): TestAllTypesProto2.MapSint64Sint64Entry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1149,6 +1215,8 @@ private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.protoUnmarshalImpl
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapFixed32Fixed32Entry?.orDefault() = this ?: TestAllTypesProto2.MapFixed32Fixed32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapFixed32Fixed32Entry.protoMergeImpl(plus: TestAllTypesProto2.MapFixed32Fixed32Entry?): TestAllTypesProto2.MapFixed32Fixed32Entry = plus?.copy(
     key = plus.key ?: key,
@@ -1181,6 +1249,8 @@ private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.protoUnmarshalIm
     }
 }
 
+fun TestAllTypesProto2.MapFixed64Fixed64Entry?.orDefault() = this ?: TestAllTypesProto2.MapFixed64Fixed64Entry.defaultInstance
+
 private fun TestAllTypesProto2.MapFixed64Fixed64Entry.protoMergeImpl(plus: TestAllTypesProto2.MapFixed64Fixed64Entry?): TestAllTypesProto2.MapFixed64Fixed64Entry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1211,6 +1281,8 @@ private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.protoUnmarshalIm
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapSfixed32Sfixed32Entry?.orDefault() = this ?: TestAllTypesProto2.MapSfixed32Sfixed32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: TestAllTypesProto2.MapSfixed32Sfixed32Entry?): TestAllTypesProto2.MapSfixed32Sfixed32Entry = plus?.copy(
     key = plus.key ?: key,
@@ -1243,6 +1315,8 @@ private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.protoUnmarshal
     }
 }
 
+fun TestAllTypesProto2.MapSfixed64Sfixed64Entry?.orDefault() = this ?: TestAllTypesProto2.MapSfixed64Sfixed64Entry.defaultInstance
+
 private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.protoMergeImpl(plus: TestAllTypesProto2.MapSfixed64Sfixed64Entry?): TestAllTypesProto2.MapSfixed64Sfixed64Entry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1273,6 +1347,8 @@ private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.protoUnmarshal
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapInt32FloatEntry?.orDefault() = this ?: TestAllTypesProto2.MapInt32FloatEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapInt32FloatEntry.protoMergeImpl(plus: TestAllTypesProto2.MapInt32FloatEntry?): TestAllTypesProto2.MapInt32FloatEntry = plus?.copy(
     key = plus.key ?: key,
@@ -1305,6 +1381,8 @@ private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.protoUnmarshalImpl(p
     }
 }
 
+fun TestAllTypesProto2.MapInt32DoubleEntry?.orDefault() = this ?: TestAllTypesProto2.MapInt32DoubleEntry.defaultInstance
+
 private fun TestAllTypesProto2.MapInt32DoubleEntry.protoMergeImpl(plus: TestAllTypesProto2.MapInt32DoubleEntry?): TestAllTypesProto2.MapInt32DoubleEntry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1335,6 +1413,8 @@ private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.protoUnmarshalImpl(
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapBoolBoolEntry?.orDefault() = this ?: TestAllTypesProto2.MapBoolBoolEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapBoolBoolEntry.protoMergeImpl(plus: TestAllTypesProto2.MapBoolBoolEntry?): TestAllTypesProto2.MapBoolBoolEntry = plus?.copy(
     key = plus.key ?: key,
@@ -1367,6 +1447,8 @@ private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.protoUnmarshalImpl(pro
     }
 }
 
+fun TestAllTypesProto2.MapStringStringEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringStringEntry.defaultInstance
+
 private fun TestAllTypesProto2.MapStringStringEntry.protoMergeImpl(plus: TestAllTypesProto2.MapStringStringEntry?): TestAllTypesProto2.MapStringStringEntry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1397,6 +1479,8 @@ private fun TestAllTypesProto2.MapStringStringEntry.Companion.protoUnmarshalImpl
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapStringBytesEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringBytesEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringBytesEntry.protoMergeImpl(plus: TestAllTypesProto2.MapStringBytesEntry?): TestAllTypesProto2.MapStringBytesEntry = plus?.copy(
     key = plus.key ?: key,
@@ -1429,6 +1513,8 @@ private fun TestAllTypesProto2.MapStringBytesEntry.Companion.protoUnmarshalImpl(
     }
 }
 
+fun TestAllTypesProto2.MapStringNestedMessageEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringNestedMessageEntry.defaultInstance
+
 private fun TestAllTypesProto2.MapStringNestedMessageEntry.protoMergeImpl(plus: TestAllTypesProto2.MapStringNestedMessageEntry?): TestAllTypesProto2.MapStringNestedMessageEntry = plus?.copy(
     key = plus.key ?: key,
     value = value?.plus(plus.value) ?: plus.value,
@@ -1459,6 +1545,8 @@ private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.protoUnmars
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapStringForeignMessageEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringForeignMessageEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringForeignMessageEntry.protoMergeImpl(plus: TestAllTypesProto2.MapStringForeignMessageEntry?): TestAllTypesProto2.MapStringForeignMessageEntry = plus?.copy(
     key = plus.key ?: key,
@@ -1491,6 +1579,8 @@ private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.protoUnmar
     }
 }
 
+fun TestAllTypesProto2.MapStringNestedEnumEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringNestedEnumEntry.defaultInstance
+
 private fun TestAllTypesProto2.MapStringNestedEnumEntry.protoMergeImpl(plus: TestAllTypesProto2.MapStringNestedEnumEntry?): TestAllTypesProto2.MapStringNestedEnumEntry = plus?.copy(
     key = plus.key ?: key,
     value = plus.value ?: value,
@@ -1521,6 +1611,8 @@ private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.protoUnmarshal
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MapStringForeignEnumEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringForeignEnumEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringForeignEnumEntry.protoMergeImpl(plus: TestAllTypesProto2.MapStringForeignEnumEntry?): TestAllTypesProto2.MapStringForeignEnumEntry = plus?.copy(
     key = plus.key ?: key,
@@ -1553,6 +1645,8 @@ private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.protoUnmarsha
     }
 }
 
+fun TestAllTypesProto2.Data?.orDefault() = this ?: TestAllTypesProto2.Data.defaultInstance
+
 private fun TestAllTypesProto2.Data.protoMergeImpl(plus: TestAllTypesProto2.Data?): TestAllTypesProto2.Data = plus?.copy(
     groupInt32 = plus.groupInt32 ?: groupInt32,
     groupUint32 = plus.groupUint32 ?: groupUint32,
@@ -1584,6 +1678,8 @@ private fun TestAllTypesProto2.Data.Companion.protoUnmarshalImpl(protoUnmarshal:
     }
 }
 
+fun TestAllTypesProto2.MessageSetCorrect?.orDefault() = this ?: TestAllTypesProto2.MessageSetCorrect.defaultInstance
+
 private fun TestAllTypesProto2.MessageSetCorrect.protoMergeImpl(plus: TestAllTypesProto2.MessageSetCorrect?): TestAllTypesProto2.MessageSetCorrect = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -1604,6 +1700,8 @@ private fun TestAllTypesProto2.MessageSetCorrect.Companion.protoUnmarshalImpl(pr
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun TestAllTypesProto2.MessageSetCorrectExtension1?.orDefault() = this ?: TestAllTypesProto2.MessageSetCorrectExtension1.defaultInstance
 
 private fun TestAllTypesProto2.MessageSetCorrectExtension1.protoMergeImpl(plus: TestAllTypesProto2.MessageSetCorrectExtension1?): TestAllTypesProto2.MessageSetCorrectExtension1 = plus?.copy(
     str = plus.str ?: str,
@@ -1631,6 +1729,8 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.protoUnmars
     }
 }
 
+fun TestAllTypesProto2.MessageSetCorrectExtension2?.orDefault() = this ?: TestAllTypesProto2.MessageSetCorrectExtension2.defaultInstance
+
 private fun TestAllTypesProto2.MessageSetCorrectExtension2.protoMergeImpl(plus: TestAllTypesProto2.MessageSetCorrectExtension2?): TestAllTypesProto2.MessageSetCorrectExtension2 = plus?.copy(
     i = plus.i ?: i,
     unknownFields = unknownFields + plus.unknownFields
@@ -1656,6 +1756,8 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.protoUnmars
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun ForeignMessageProto2?.orDefault() = this ?: ForeignMessageProto2.defaultInstance
 
 private fun ForeignMessageProto2.protoMergeImpl(plus: ForeignMessageProto2?): ForeignMessageProto2 = plus?.copy(
     c = plus.c ?: c,

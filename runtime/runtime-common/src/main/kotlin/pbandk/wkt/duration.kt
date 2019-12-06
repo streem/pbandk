@@ -1,17 +1,22 @@
 package pbandk.wkt
 
+import kotlin.jvm.Transient
+
 data class Duration(
     val seconds: Long = 0L,
     val nanos: Int = 0,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Duration> {
     override operator fun plus(other: Duration?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<Duration> {
+        val defaultInstance by lazy { Duration() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Duration.protoUnmarshalImpl(u)
     }
 }
+
+fun Duration?.orDefault() = this ?: Duration.defaultInstance
 
 private fun Duration.protoMergeImpl(plus: Duration?): Duration = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields

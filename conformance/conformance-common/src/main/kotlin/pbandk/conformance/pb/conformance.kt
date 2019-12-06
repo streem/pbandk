@@ -1,59 +1,85 @@
 package pbandk.conformance.pb
 
-data class WireFormat(override val value: Int) : pbandk.Message.Enum {
-    companion object : pbandk.Message.Enum.Companion<WireFormat> {
-        val UNSPECIFIED = WireFormat(0)
-        val PROTOBUF = WireFormat(1)
-        val JSON = WireFormat(2)
+import kotlin.jvm.Transient
 
-        override fun fromValue(value: Int) = when (value) {
-            0 -> UNSPECIFIED
-            1 -> PROTOBUF
-            2 -> JSON
-            else -> WireFormat(value)
-        }
+sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?) = other is WireFormat && other.value == value
+    override fun hashCode() = value.hashCode()
+    override fun toString() = "WireFormat.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+    object Unspecified : WireFormat(0, "UNSPECIFIED")
+    object Protobuf : WireFormat(1, "PROTOBUF")
+    object Json : WireFormat(2, "JSON")
+    class Unrecognized(value: Int) : WireFormat(value)
+
+    companion object : pbandk.Message.Enum.Companion<WireFormat> {
+        val values: List<WireFormat> by lazy { listOf(Unspecified, Protobuf, Json) }
+        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No WireFormat with name: $name")
     }
 }
 
 data class ConformanceRequest(
-    val payload: Payload? = null,
     val requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
     val messageType: String = "",
+    val payload: Payload<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ConformanceRequest> {
-    sealed class Payload {
-        data class ProtobufPayload(val protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Payload()
-        data class JsonPayload(val jsonPayload: String = "") : Payload()
+    sealed class Payload<V>(val value: V) {
+        class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Payload<pbandk.ByteArr>(protobufPayload)
+        class JsonPayload(jsonPayload: String = "") : Payload<String>(jsonPayload)
     }
 
+    val protobufPayload: pbandk.ByteArr?
+        get() = (payload as? Payload.ProtobufPayload)?.value
+    val jsonPayload: String?
+        get() = (payload as? Payload.JsonPayload)?.value
+
     override operator fun plus(other: ConformanceRequest?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ConformanceRequest> {
+        val defaultInstance by lazy { ConformanceRequest() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ConformanceRequest.protoUnmarshalImpl(u)
     }
 }
 
 data class ConformanceResponse(
-    val result: Result? = null,
+    val result: Result<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ConformanceResponse> {
-    sealed class Result {
-        data class ParseError(val parseError: String = "") : Result()
-        data class SerializeError(val serializeError: String = "") : Result()
-        data class RuntimeError(val runtimeError: String = "") : Result()
-        data class ProtobufPayload(val protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Result()
-        data class JsonPayload(val jsonPayload: String = "") : Result()
-        data class Skipped(val skipped: String = "") : Result()
+    sealed class Result<V>(val value: V) {
+        class ParseError(parseError: String = "") : Result<String>(parseError)
+        class SerializeError(serializeError: String = "") : Result<String>(serializeError)
+        class RuntimeError(runtimeError: String = "") : Result<String>(runtimeError)
+        class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Result<pbandk.ByteArr>(protobufPayload)
+        class JsonPayload(jsonPayload: String = "") : Result<String>(jsonPayload)
+        class Skipped(skipped: String = "") : Result<String>(skipped)
     }
 
+    val parseError: String?
+        get() = (result as? Result.ParseError)?.value
+    val serializeError: String?
+        get() = (result as? Result.SerializeError)?.value
+    val runtimeError: String?
+        get() = (result as? Result.RuntimeError)?.value
+    val protobufPayload: pbandk.ByteArr?
+        get() = (result as? Result.ProtobufPayload)?.value
+    val jsonPayload: String?
+        get() = (result as? Result.JsonPayload)?.value
+    val skipped: String?
+        get() = (result as? Result.Skipped)?.value
+
     override operator fun plus(other: ConformanceResponse?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
+    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
     companion object : pbandk.Message.Companion<ConformanceResponse> {
+        val defaultInstance by lazy { ConformanceResponse() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ConformanceResponse.protoUnmarshalImpl(u)
     }
 }
+
+fun ConformanceRequest?.orDefault() = this ?: ConformanceRequest.defaultInstance
 
 private fun ConformanceRequest.protoMergeImpl(plus: ConformanceRequest?): ConformanceRequest = plus?.copy(
     payload = plus.payload ?: payload,
@@ -62,30 +88,30 @@ private fun ConformanceRequest.protoMergeImpl(plus: ConformanceRequest?): Confor
 
 private fun ConformanceRequest.protoSizeImpl(): Int {
     var protoSize = 0
-    when (payload) {
-        is ConformanceRequest.Payload.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.bytesSize(payload.protobufPayload)
-        is ConformanceRequest.Payload.JsonPayload -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(payload.jsonPayload)
-    }
     if (requestedOutputFormat.value != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.enumSize(requestedOutputFormat)
     if (messageType.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(messageType)
+    when (payload) {
+        is ConformanceRequest.Payload.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.bytesSize(payload.value)
+        is ConformanceRequest.Payload.JsonPayload -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(payload.value)
+    }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun ConformanceRequest.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (payload is ConformanceRequest.Payload.ProtobufPayload) protoMarshal.writeTag(10).writeBytes(payload.protobufPayload)
-    if (payload is ConformanceRequest.Payload.JsonPayload) protoMarshal.writeTag(18).writeString(payload.jsonPayload)
+    if (payload is ConformanceRequest.Payload.ProtobufPayload) protoMarshal.writeTag(10).writeBytes(payload.value)
+    if (payload is ConformanceRequest.Payload.JsonPayload) protoMarshal.writeTag(18).writeString(payload.value)
     if (requestedOutputFormat.value != 0) protoMarshal.writeTag(24).writeEnum(requestedOutputFormat)
     if (messageType.isNotEmpty()) protoMarshal.writeTag(34).writeString(messageType)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ConformanceRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ConformanceRequest {
-    var payload: ConformanceRequest.Payload? = null
     var requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0)
     var messageType = ""
+    var payload: ConformanceRequest.Payload<*>? = null
     while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ConformanceRequest(payload, requestedOutputFormat, messageType, protoUnmarshal.unknownFields())
+        0 -> return ConformanceRequest(requestedOutputFormat, messageType, payload, protoUnmarshal.unknownFields())
         10 -> payload = ConformanceRequest.Payload.ProtobufPayload(protoUnmarshal.readBytes())
         18 -> payload = ConformanceRequest.Payload.JsonPayload(protoUnmarshal.readString())
         24 -> requestedOutputFormat = protoUnmarshal.readEnum(pbandk.conformance.pb.WireFormat.Companion)
@@ -93,6 +119,8 @@ private fun ConformanceRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         else -> protoUnmarshal.unknownField()
     }
 }
+
+fun ConformanceResponse?.orDefault() = this ?: ConformanceResponse.defaultInstance
 
 private fun ConformanceResponse.protoMergeImpl(plus: ConformanceResponse?): ConformanceResponse = plus?.copy(
     result = plus.result ?: result,
@@ -102,29 +130,29 @@ private fun ConformanceResponse.protoMergeImpl(plus: ConformanceResponse?): Conf
 private fun ConformanceResponse.protoSizeImpl(): Int {
     var protoSize = 0
     when (result) {
-        is ConformanceResponse.Result.ParseError -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(result.parseError)
-        is ConformanceResponse.Result.SerializeError -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(result.serializeError)
-        is ConformanceResponse.Result.RuntimeError -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(result.runtimeError)
-        is ConformanceResponse.Result.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.bytesSize(result.protobufPayload)
-        is ConformanceResponse.Result.JsonPayload -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(result.jsonPayload)
-        is ConformanceResponse.Result.Skipped -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.stringSize(result.skipped)
+        is ConformanceResponse.Result.ParseError -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.SerializeError -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.RuntimeError -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.bytesSize(result.value)
+        is ConformanceResponse.Result.JsonPayload -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.Skipped -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.stringSize(result.value)
     }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
 
 private fun ConformanceResponse.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (result is ConformanceResponse.Result.ParseError) protoMarshal.writeTag(10).writeString(result.parseError)
-    if (result is ConformanceResponse.Result.RuntimeError) protoMarshal.writeTag(18).writeString(result.runtimeError)
-    if (result is ConformanceResponse.Result.ProtobufPayload) protoMarshal.writeTag(26).writeBytes(result.protobufPayload)
-    if (result is ConformanceResponse.Result.JsonPayload) protoMarshal.writeTag(34).writeString(result.jsonPayload)
-    if (result is ConformanceResponse.Result.Skipped) protoMarshal.writeTag(42).writeString(result.skipped)
-    if (result is ConformanceResponse.Result.SerializeError) protoMarshal.writeTag(50).writeString(result.serializeError)
+    if (result is ConformanceResponse.Result.ParseError) protoMarshal.writeTag(10).writeString(result.value)
+    if (result is ConformanceResponse.Result.RuntimeError) protoMarshal.writeTag(18).writeString(result.value)
+    if (result is ConformanceResponse.Result.ProtobufPayload) protoMarshal.writeTag(26).writeBytes(result.value)
+    if (result is ConformanceResponse.Result.JsonPayload) protoMarshal.writeTag(34).writeString(result.value)
+    if (result is ConformanceResponse.Result.Skipped) protoMarshal.writeTag(42).writeString(result.value)
+    if (result is ConformanceResponse.Result.SerializeError) protoMarshal.writeTag(50).writeString(result.value)
     if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
 }
 
 private fun ConformanceResponse.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ConformanceResponse {
-    var result: ConformanceResponse.Result? = null
+    var result: ConformanceResponse.Result<*>? = null
     while (true) when (protoUnmarshal.readTag()) {
         0 -> return ConformanceResponse(result, protoUnmarshal.unknownFields())
         10 -> result = ConformanceResponse.Result.ParseError(protoUnmarshal.readString())
