@@ -1,5 +1,14 @@
 package pbandk.gen
 
+fun underscoreToCamelCase(str: String): String {
+    var ret = str
+    var lastIndex = -1
+    while (true) {
+        lastIndex = ret.indexOf('_', lastIndex+1).also { if (it == -1) return ret }
+        ret = ret.substring(0, lastIndex) + ret.substring(lastIndex + 1).capitalize()
+    }
+}
+
 interface Namer {
     fun newTypeName(preferred: String, nameSet: Collection<String>): String
     fun newFieldName(preferred: String, nameSet: Collection<String>): String
@@ -13,22 +22,13 @@ interface Namer {
             "emptyList", "pbandk", "plus", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
         )
         val disallowedValueTypeNames = disallowedTypeNames + setOf(
-            "Unrecognized"
+            "UNRECOGNIZED"
         )
         val kotlinKeywords = setOf(
             "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",
             "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
             "true", "try", "typealias", "val", "var", "when", "while"
         )
-
-        protected fun underscoreToCamelCase(str: String): String {
-            var ret = str
-            var lastIndex = -1
-            while (true) {
-                lastIndex = ret.indexOf('_', lastIndex+1).also { if (it == -1) return ret }
-                ret = ret.substring(0, lastIndex) + ret.substring(lastIndex + 1).capitalize()
-            }
-        }
 
         protected fun splitWordsToSnakeCase(str: String) =
             str.replace(Regex("(?<=[a-z])([A-Z0-9])"), "_$1").toLowerCase()
@@ -49,7 +49,7 @@ interface Namer {
         override fun newEnumValueTypeName(enumTypeName: String, preferred: String, nameSet: Collection<String>): String {
             val typePrefix = splitWordsToSnakeCase(enumTypeName) + '_'
             var name = splitWordsToSnakeCase(preferred).substringAfter(typePrefix)
-            name = underscoreToCamelCase(name).capitalize()
+            name = name.toUpperCase()
 
             while (nameSet.contains(name) ||
                     disallowedValueTypeNames.contains(name) ||

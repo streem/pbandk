@@ -1,17 +1,30 @@
 package pbandk.wkt
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class FieldMask(
     val paths: List<String> = emptyList(),
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<FieldMask> {
     override operator fun plus(other: FieldMask?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<FieldMask> {
         val defaultInstance by lazy { FieldMask() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldMask.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = FieldMask.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("paths")
+        val paths: List<String> = emptyList()
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -41,4 +54,22 @@ private fun FieldMask.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
         10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString, true)
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun FieldMask.toJsonMapperImpl(): FieldMask.JsonMapper =
+    FieldMask.JsonMapper(
+        paths
+    )
+
+private fun FieldMask.JsonMapper.toMessageImpl(): FieldMask =
+    FieldMask(
+        paths = paths ?: emptyList()
+    )
+
+private fun FieldMask.jsonMarshalImpl(json: Json): String =
+    json.stringify(FieldMask.JsonMapper.serializer(), toJsonMapper())
+
+private fun FieldMask.Companion.jsonUnmarshalImpl(json: Json, data: String): FieldMask {
+    val mapper = json.parse(FieldMask.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

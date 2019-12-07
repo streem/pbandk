@@ -1,6 +1,8 @@
 package pbandk.gen.pb
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class Version(
     val major: Int? = null,
@@ -10,11 +12,28 @@ data class Version(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Version> {
     override operator fun plus(other: Version?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Version> {
         val defaultInstance by lazy { Version() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Version.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Version.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("major")
+        val major: Int? = null,
+        @SerialName("minor")
+        val minor: Int? = null,
+        @SerialName("patch")
+        val patch: Int? = null,
+        @SerialName("suffix")
+        val suffix: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -26,11 +45,28 @@ data class CodeGeneratorRequest(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<CodeGeneratorRequest> {
     override operator fun plus(other: CodeGeneratorRequest?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<CodeGeneratorRequest> {
         val defaultInstance by lazy { CodeGeneratorRequest() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = CodeGeneratorRequest.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = CodeGeneratorRequest.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("file_to_generate")
+        val fileToGenerate: List<String> = emptyList(),
+        @SerialName("parameter")
+        val parameter: String? = null,
+        @SerialName("compiler_version")
+        val compilerVersion: pbandk.gen.pb.Version.JsonMapper? = null,
+        @SerialName("proto_file")
+        val protoFile: List<pbandk.wkt.FileDescriptorProto.JsonMapper> = emptyList()
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -40,11 +76,24 @@ data class CodeGeneratorResponse(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<CodeGeneratorResponse> {
     override operator fun plus(other: CodeGeneratorResponse?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<CodeGeneratorResponse> {
         val defaultInstance by lazy { CodeGeneratorResponse() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = CodeGeneratorResponse.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = CodeGeneratorResponse.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("error")
+        val error: String? = null,
+        @SerialName("file")
+        val file: List<pbandk.gen.pb.CodeGeneratorResponse.File.JsonMapper> = emptyList()
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 
     data class File(
@@ -54,11 +103,26 @@ data class CodeGeneratorResponse(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<File> {
         override operator fun plus(other: File?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<File> {
             val defaultInstance by lazy { File() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = File.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = File.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("name")
+            val name: String? = null,
+            @SerialName("insertion_point")
+            val insertionPoint: String? = null,
+            @SerialName("content")
+            val content: String? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 }
@@ -106,6 +170,30 @@ private fun Version.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarsha
     }
 }
 
+private fun Version.toJsonMapperImpl(): Version.JsonMapper =
+    Version.JsonMapper(
+        major,
+        minor,
+        patch,
+        suffix
+    )
+
+private fun Version.JsonMapper.toMessageImpl(): Version =
+    Version(
+        major = major ?: null,
+        minor = minor ?: null,
+        patch = patch ?: null,
+        suffix = suffix ?: null
+    )
+
+private fun Version.jsonMarshalImpl(json: Json): String =
+    json.stringify(Version.JsonMapper.serializer(), toJsonMapper())
+
+private fun Version.Companion.jsonUnmarshalImpl(json: Json, data: String): Version {
+    val mapper = json.parse(Version.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun CodeGeneratorRequest?.orDefault() = this ?: CodeGeneratorRequest.defaultInstance
 
 private fun CodeGeneratorRequest.protoMergeImpl(plus: CodeGeneratorRequest?): CodeGeneratorRequest = plus?.copy(
@@ -149,6 +237,30 @@ private fun CodeGeneratorRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pb
     }
 }
 
+private fun CodeGeneratorRequest.toJsonMapperImpl(): CodeGeneratorRequest.JsonMapper =
+    CodeGeneratorRequest.JsonMapper(
+        fileToGenerate,
+        parameter,
+        compilerVersion?.toJsonMapper(),
+        protoFile.map { it.toJsonMapper() }
+    )
+
+private fun CodeGeneratorRequest.JsonMapper.toMessageImpl(): CodeGeneratorRequest =
+    CodeGeneratorRequest(
+        fileToGenerate = fileToGenerate ?: emptyList(),
+        parameter = parameter ?: null,
+        protoFile = protoFile.map { it.toMessage() },
+        compilerVersion = compilerVersion?.toMessage()
+    )
+
+private fun CodeGeneratorRequest.jsonMarshalImpl(json: Json): String =
+    json.stringify(CodeGeneratorRequest.JsonMapper.serializer(), toJsonMapper())
+
+private fun CodeGeneratorRequest.Companion.jsonUnmarshalImpl(json: Json, data: String): CodeGeneratorRequest {
+    val mapper = json.parse(CodeGeneratorRequest.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun CodeGeneratorResponse?.orDefault() = this ?: CodeGeneratorResponse.defaultInstance
 
 private fun CodeGeneratorResponse.protoMergeImpl(plus: CodeGeneratorResponse?): CodeGeneratorResponse = plus?.copy(
@@ -180,6 +292,26 @@ private fun CodeGeneratorResponse.Companion.protoUnmarshalImpl(protoUnmarshal: p
         122 -> file = protoUnmarshal.readRepeatedMessage(file, pbandk.gen.pb.CodeGeneratorResponse.File.Companion, true)
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun CodeGeneratorResponse.toJsonMapperImpl(): CodeGeneratorResponse.JsonMapper =
+    CodeGeneratorResponse.JsonMapper(
+        error,
+        file.map { it.toJsonMapper() }
+    )
+
+private fun CodeGeneratorResponse.JsonMapper.toMessageImpl(): CodeGeneratorResponse =
+    CodeGeneratorResponse(
+        error = error ?: null,
+        file = file.map { it.toMessage() }
+    )
+
+private fun CodeGeneratorResponse.jsonMarshalImpl(json: Json): String =
+    json.stringify(CodeGeneratorResponse.JsonMapper.serializer(), toJsonMapper())
+
+private fun CodeGeneratorResponse.Companion.jsonUnmarshalImpl(json: Json, data: String): CodeGeneratorResponse {
+    val mapper = json.parse(CodeGeneratorResponse.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun CodeGeneratorResponse.File?.orDefault() = this ?: CodeGeneratorResponse.File.defaultInstance
@@ -218,4 +350,26 @@ private fun CodeGeneratorResponse.File.Companion.protoUnmarshalImpl(protoUnmarsh
         122 -> content = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun CodeGeneratorResponse.File.toJsonMapperImpl(): CodeGeneratorResponse.File.JsonMapper =
+    CodeGeneratorResponse.File.JsonMapper(
+        name,
+        insertionPoint,
+        content
+    )
+
+private fun CodeGeneratorResponse.File.JsonMapper.toMessageImpl(): CodeGeneratorResponse.File =
+    CodeGeneratorResponse.File(
+        name = name ?: null,
+        insertionPoint = insertionPoint ?: null,
+        content = content ?: null
+    )
+
+private fun CodeGeneratorResponse.File.jsonMarshalImpl(json: Json): String =
+    json.stringify(CodeGeneratorResponse.File.JsonMapper.serializer(), toJsonMapper())
+
+private fun CodeGeneratorResponse.File.Companion.jsonUnmarshalImpl(json: Json, data: String): CodeGeneratorResponse.File {
+    val mapper = json.parse(CodeGeneratorResponse.File.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

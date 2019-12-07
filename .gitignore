@@ -7,3 +7,5 @@ local.properties
 node_modules
 package-lock.json
 /examples/browser-js/src/main/kotlin/pbandk/examples/browserjs/pb
+/failing_tests.txt
+/nonexistent_tests.txt

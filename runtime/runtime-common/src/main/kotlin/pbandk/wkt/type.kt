@@ -1,19 +1,21 @@
 package pbandk.wkt
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is Syntax && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "Syntax.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-    object Proto2 : Syntax(0, "SYNTAX_PROTO2")
-    object Proto3 : Syntax(1, "SYNTAX_PROTO3")
-    class Unrecognized(value: Int) : Syntax(value)
+    object PROTO2 : Syntax(0, "SYNTAX_PROTO2")
+    object PROTO3 : Syntax(1, "SYNTAX_PROTO3")
+    class UNRECOGNIZED(value: Int) : Syntax(value)
 
     companion object : pbandk.Message.Enum.Companion<Syntax> {
-        val values: List<Syntax> by lazy { listOf(Proto2, Proto3) }
-        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+        val values: List<Syntax> by lazy { listOf(PROTO2, PROTO3) }
+        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
     }
 }
@@ -28,11 +30,32 @@ data class Type(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Type> {
     override operator fun plus(other: Type?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Type> {
         val defaultInstance by lazy { Type() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Type.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Type.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("fields")
+        val fields: List<pbandk.wkt.Field.JsonMapper> = emptyList(),
+        @SerialName("oneofs")
+        val oneofs: List<String> = emptyList(),
+        @SerialName("options")
+        val options: List<pbandk.wkt.Option.JsonMapper> = emptyList(),
+        @SerialName("source_context")
+        val sourceContext: pbandk.wkt.SourceContext.JsonMapper? = null,
+        @SerialName("syntax")
+        val syntax: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -50,11 +73,40 @@ data class Field(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Field> {
     override operator fun plus(other: Field?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Field> {
         val defaultInstance by lazy { Field() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Field.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Field.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("kind")
+        val kind: String? = null,
+        @SerialName("cardinality")
+        val cardinality: String? = null,
+        @SerialName("number")
+        val number: Int? = null,
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("type_url")
+        val typeUrl: String? = null,
+        @SerialName("oneof_index")
+        val oneofIndex: Int? = null,
+        @SerialName("packed")
+        val packed: Boolean? = null,
+        @SerialName("options")
+        val options: List<pbandk.wkt.Option.JsonMapper> = emptyList(),
+        @SerialName("json_name")
+        val jsonName: String? = null,
+        @SerialName("default_value")
+        val defaultValue: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 
     sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -62,30 +114,30 @@ data class Field(
         override fun hashCode() = value.hashCode()
         override fun toString() = "Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-        object TypeUnknown : Kind(0, "TYPE_UNKNOWN")
-        object TypeDouble : Kind(1, "TYPE_DOUBLE")
-        object TypeFloat : Kind(2, "TYPE_FLOAT")
-        object TypeInt64 : Kind(3, "TYPE_INT64")
-        object TypeUint64 : Kind(4, "TYPE_UINT64")
-        object TypeInt32 : Kind(5, "TYPE_INT32")
-        object TypeFixed64 : Kind(6, "TYPE_FIXED64")
-        object TypeFixed32 : Kind(7, "TYPE_FIXED32")
-        object TypeBool : Kind(8, "TYPE_BOOL")
-        object TypeString : Kind(9, "TYPE_STRING")
-        object TypeGroup : Kind(10, "TYPE_GROUP")
-        object TypeMessage : Kind(11, "TYPE_MESSAGE")
-        object TypeBytes : Kind(12, "TYPE_BYTES")
-        object TypeUint32 : Kind(13, "TYPE_UINT32")
-        object TypeEnum : Kind(14, "TYPE_ENUM")
-        object TypeSfixed32 : Kind(15, "TYPE_SFIXED32")
-        object TypeSfixed64 : Kind(16, "TYPE_SFIXED64")
-        object TypeSint32 : Kind(17, "TYPE_SINT32")
-        object TypeSint64 : Kind(18, "TYPE_SINT64")
-        class Unrecognized(value: Int) : Kind(value)
+        object TYPE_UNKNOWN : Kind(0, "TYPE_UNKNOWN")
+        object TYPE_DOUBLE : Kind(1, "TYPE_DOUBLE")
+        object TYPE_FLOAT : Kind(2, "TYPE_FLOAT")
+        object TYPE_INT64 : Kind(3, "TYPE_INT64")
+        object TYPE_UINT64 : Kind(4, "TYPE_UINT64")
+        object TYPE_INT32 : Kind(5, "TYPE_INT32")
+        object TYPE_FIXED64 : Kind(6, "TYPE_FIXED64")
+        object TYPE_FIXED32 : Kind(7, "TYPE_FIXED32")
+        object TYPE_BOOL : Kind(8, "TYPE_BOOL")
+        object TYPE_STRING : Kind(9, "TYPE_STRING")
+        object TYPE_GROUP : Kind(10, "TYPE_GROUP")
+        object TYPE_MESSAGE : Kind(11, "TYPE_MESSAGE")
+        object TYPE_BYTES : Kind(12, "TYPE_BYTES")
+        object TYPE_UINT32 : Kind(13, "TYPE_UINT32")
+        object TYPE_ENUM : Kind(14, "TYPE_ENUM")
+        object TYPE_SFIXED32 : Kind(15, "TYPE_SFIXED32")
+        object TYPE_SFIXED64 : Kind(16, "TYPE_SFIXED64")
+        object TYPE_SINT32 : Kind(17, "TYPE_SINT32")
+        object TYPE_SINT64 : Kind(18, "TYPE_SINT64")
+        class UNRECOGNIZED(value: Int) : Kind(value)
 
         companion object : pbandk.Message.Enum.Companion<Kind> {
-            val values: List<Kind> by lazy { listOf(TypeUnknown, TypeDouble, TypeFloat, TypeInt64, TypeUint64, TypeInt32, TypeFixed64, TypeFixed32, TypeBool, TypeString, TypeGroup, TypeMessage, TypeBytes, TypeUint32, TypeEnum, TypeSfixed32, TypeSfixed64, TypeSint32, TypeSint64) }
-            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            val values: List<Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
         }
     }
@@ -95,15 +147,15 @@ data class Field(
         override fun hashCode() = value.hashCode()
         override fun toString() = "Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-        object Unknown : Cardinality(0, "CARDINALITY_UNKNOWN")
-        object Optional : Cardinality(1, "CARDINALITY_OPTIONAL")
-        object Required : Cardinality(2, "CARDINALITY_REQUIRED")
-        object Repeated : Cardinality(3, "CARDINALITY_REPEATED")
-        class Unrecognized(value: Int) : Cardinality(value)
+        object UNKNOWN : Cardinality(0, "CARDINALITY_UNKNOWN")
+        object OPTIONAL : Cardinality(1, "CARDINALITY_OPTIONAL")
+        object REQUIRED : Cardinality(2, "CARDINALITY_REQUIRED")
+        object REPEATED : Cardinality(3, "CARDINALITY_REPEATED")
+        class UNRECOGNIZED(value: Int) : Cardinality(value)
 
         companion object : pbandk.Message.Enum.Companion<Cardinality> {
-            val values: List<Cardinality> by lazy { listOf(Unknown, Optional, Required, Repeated) }
-            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            val values: List<Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")
         }
     }
@@ -118,11 +170,30 @@ data class Enum(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Enum> {
     override operator fun plus(other: Enum?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Enum> {
         val defaultInstance by lazy { Enum() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Enum.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Enum.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("enumvalue")
+        val enumvalue: List<pbandk.wkt.EnumValue.JsonMapper> = emptyList(),
+        @SerialName("options")
+        val options: List<pbandk.wkt.Option.JsonMapper> = emptyList(),
+        @SerialName("source_context")
+        val sourceContext: pbandk.wkt.SourceContext.JsonMapper? = null,
+        @SerialName("syntax")
+        val syntax: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -133,11 +204,26 @@ data class EnumValue(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<EnumValue> {
     override operator fun plus(other: EnumValue?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<EnumValue> {
         val defaultInstance by lazy { EnumValue() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumValue.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = EnumValue.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("number")
+        val number: Int? = null,
+        @SerialName("options")
+        val options: List<pbandk.wkt.Option.JsonMapper> = emptyList()
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -147,11 +233,24 @@ data class Option(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Option> {
     override operator fun plus(other: Option?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Option> {
         val defaultInstance by lazy { Option() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Option.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Option.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("value")
+        val value: pbandk.wkt.Any.JsonMapper? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -205,6 +304,34 @@ private fun Type.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
         48 -> syntax = protoUnmarshal.readEnum(pbandk.wkt.Syntax.Companion)
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun Type.toJsonMapperImpl(): Type.JsonMapper =
+    Type.JsonMapper(
+        name.takeIf { it != "" },
+        fields.map { it.toJsonMapper() },
+        oneofs,
+        options.map { it.toJsonMapper() },
+        sourceContext?.toJsonMapper(),
+        syntax?.name
+    )
+
+private fun Type.JsonMapper.toMessageImpl(): Type =
+    Type(
+        name = name ?: "",
+        fields = fields.map { it.toMessage() },
+        oneofs = oneofs ?: emptyList(),
+        options = options.map { it.toMessage() },
+        sourceContext = sourceContext?.toMessage(),
+        syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
+    )
+
+private fun Type.jsonMarshalImpl(json: Json): String =
+    json.stringify(Type.JsonMapper.serializer(), toJsonMapper())
+
+private fun Type.Companion.jsonUnmarshalImpl(json: Json, data: String): Type {
+    val mapper = json.parse(Type.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun Field?.orDefault() = this ?: Field.defaultInstance
@@ -273,6 +400,42 @@ private fun Field.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
     }
 }
 
+private fun Field.toJsonMapperImpl(): Field.JsonMapper =
+    Field.JsonMapper(
+        kind?.name,
+        cardinality?.name,
+        number,
+        name.takeIf { it != "" },
+        typeUrl.takeIf { it != "" },
+        oneofIndex,
+        packed,
+        options.map { it.toJsonMapper() },
+        jsonName.takeIf { it != "" },
+        defaultValue.takeIf { it != "" }
+    )
+
+private fun Field.JsonMapper.toMessageImpl(): Field =
+    Field(
+        kind = kind?.let { pbandk.wkt.Field.Kind.fromName(it) } ?: pbandk.wkt.Field.Kind.fromValue(0),
+        cardinality = cardinality?.let { pbandk.wkt.Field.Cardinality.fromName(it) } ?: pbandk.wkt.Field.Cardinality.fromValue(0),
+        number = number ?: 0,
+        name = name ?: "",
+        typeUrl = typeUrl ?: "",
+        oneofIndex = oneofIndex ?: 0,
+        packed = packed ?: false,
+        options = options.map { it.toMessage() },
+        jsonName = jsonName ?: "",
+        defaultValue = defaultValue ?: ""
+    )
+
+private fun Field.jsonMarshalImpl(json: Json): String =
+    json.stringify(Field.JsonMapper.serializer(), toJsonMapper())
+
+private fun Field.Companion.jsonUnmarshalImpl(json: Json, data: String): Field {
+    val mapper = json.parse(Field.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun Enum?.orDefault() = this ?: Enum.defaultInstance
 
 private fun Enum.protoMergeImpl(plus: Enum?): Enum = plus?.copy(
@@ -320,6 +483,32 @@ private fun Enum.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshalle
     }
 }
 
+private fun Enum.toJsonMapperImpl(): Enum.JsonMapper =
+    Enum.JsonMapper(
+        name.takeIf { it != "" },
+        enumvalue.map { it.toJsonMapper() },
+        options.map { it.toJsonMapper() },
+        sourceContext?.toJsonMapper(),
+        syntax?.name
+    )
+
+private fun Enum.JsonMapper.toMessageImpl(): Enum =
+    Enum(
+        name = name ?: "",
+        enumvalue = enumvalue.map { it.toMessage() },
+        options = options.map { it.toMessage() },
+        sourceContext = sourceContext?.toMessage(),
+        syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
+    )
+
+private fun Enum.jsonMarshalImpl(json: Json): String =
+    json.stringify(Enum.JsonMapper.serializer(), toJsonMapper())
+
+private fun Enum.Companion.jsonUnmarshalImpl(json: Json, data: String): Enum {
+    val mapper = json.parse(Enum.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun EnumValue?.orDefault() = this ?: EnumValue.defaultInstance
 
 private fun EnumValue.protoMergeImpl(plus: EnumValue?): EnumValue = plus?.copy(
@@ -356,6 +545,28 @@ private fun EnumValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
     }
 }
 
+private fun EnumValue.toJsonMapperImpl(): EnumValue.JsonMapper =
+    EnumValue.JsonMapper(
+        name.takeIf { it != "" },
+        number,
+        options.map { it.toJsonMapper() }
+    )
+
+private fun EnumValue.JsonMapper.toMessageImpl(): EnumValue =
+    EnumValue(
+        name = name ?: "",
+        number = number ?: 0,
+        options = options.map { it.toMessage() }
+    )
+
+private fun EnumValue.jsonMarshalImpl(json: Json): String =
+    json.stringify(EnumValue.JsonMapper.serializer(), toJsonMapper())
+
+private fun EnumValue.Companion.jsonUnmarshalImpl(json: Json, data: String): EnumValue {
+    val mapper = json.parse(EnumValue.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun Option?.orDefault() = this ?: Option.defaultInstance
 
 private fun Option.protoMergeImpl(plus: Option?): Option = plus?.copy(
@@ -386,4 +597,24 @@ private fun Option.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
         18 -> value = protoUnmarshal.readMessage(pbandk.wkt.Any.Companion)
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun Option.toJsonMapperImpl(): Option.JsonMapper =
+    Option.JsonMapper(
+        name.takeIf { it != "" },
+        value?.toJsonMapper()
+    )
+
+private fun Option.JsonMapper.toMessageImpl(): Option =
+    Option(
+        name = name ?: "",
+        value = value?.toMessage()
+    )
+
+private fun Option.jsonMarshalImpl(json: Json): String =
+    json.stringify(Option.JsonMapper.serializer(), toJsonMapper())
+
+private fun Option.Companion.jsonUnmarshalImpl(json: Json, data: String): Option {
+    val mapper = json.parse(Option.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

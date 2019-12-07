@@ -1,6 +1,8 @@
 package pbandk.wkt
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class Api(
     val name: String = "",
@@ -13,11 +15,34 @@ data class Api(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Api> {
     override operator fun plus(other: Api?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Api> {
         val defaultInstance by lazy { Api() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Api.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Api.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("methods")
+        val methods: List<pbandk.wkt.Method.JsonMapper> = emptyList(),
+        @SerialName("options")
+        val options: List<pbandk.wkt.Option.JsonMapper> = emptyList(),
+        @SerialName("version")
+        val version: String? = null,
+        @SerialName("source_context")
+        val sourceContext: pbandk.wkt.SourceContext.JsonMapper? = null,
+        @SerialName("mixins")
+        val mixins: List<pbandk.wkt.Mixin.JsonMapper> = emptyList(),
+        @SerialName("syntax")
+        val syntax: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -32,11 +57,34 @@ data class Method(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Method> {
     override operator fun plus(other: Method?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Method> {
         val defaultInstance by lazy { Method() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Method.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Method.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("request_type_url")
+        val requestTypeUrl: String? = null,
+        @SerialName("request_streaming")
+        val requestStreaming: Boolean? = null,
+        @SerialName("response_type_url")
+        val responseTypeUrl: String? = null,
+        @SerialName("response_streaming")
+        val responseStreaming: Boolean? = null,
+        @SerialName("options")
+        val options: List<pbandk.wkt.Option.JsonMapper> = emptyList(),
+        @SerialName("syntax")
+        val syntax: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -46,11 +94,24 @@ data class Mixin(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Mixin> {
     override operator fun plus(other: Mixin?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Mixin> {
         val defaultInstance by lazy { Mixin() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Mixin.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Mixin.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null,
+        @SerialName("root")
+        val root: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -110,6 +171,36 @@ private fun Api.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
     }
 }
 
+private fun Api.toJsonMapperImpl(): Api.JsonMapper =
+    Api.JsonMapper(
+        name.takeIf { it != "" },
+        methods.map { it.toJsonMapper() },
+        options.map { it.toJsonMapper() },
+        version.takeIf { it != "" },
+        sourceContext?.toJsonMapper(),
+        mixins.map { it.toJsonMapper() },
+        syntax?.name
+    )
+
+private fun Api.JsonMapper.toMessageImpl(): Api =
+    Api(
+        name = name ?: "",
+        methods = methods.map { it.toMessage() },
+        options = options.map { it.toMessage() },
+        version = version ?: "",
+        sourceContext = sourceContext?.toMessage(),
+        mixins = mixins.map { it.toMessage() },
+        syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
+    )
+
+private fun Api.jsonMarshalImpl(json: Json): String =
+    json.stringify(Api.JsonMapper.serializer(), toJsonMapper())
+
+private fun Api.Companion.jsonUnmarshalImpl(json: Json, data: String): Api {
+    val mapper = json.parse(Api.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun Method?.orDefault() = this ?: Method.defaultInstance
 
 private fun Method.protoMergeImpl(plus: Method?): Method = plus?.copy(
@@ -163,6 +254,36 @@ private fun Method.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshal
     }
 }
 
+private fun Method.toJsonMapperImpl(): Method.JsonMapper =
+    Method.JsonMapper(
+        name.takeIf { it != "" },
+        requestTypeUrl.takeIf { it != "" },
+        requestStreaming,
+        responseTypeUrl.takeIf { it != "" },
+        responseStreaming,
+        options.map { it.toJsonMapper() },
+        syntax?.name
+    )
+
+private fun Method.JsonMapper.toMessageImpl(): Method =
+    Method(
+        name = name ?: "",
+        requestTypeUrl = requestTypeUrl ?: "",
+        requestStreaming = requestStreaming ?: false,
+        responseTypeUrl = responseTypeUrl ?: "",
+        responseStreaming = responseStreaming ?: false,
+        options = options.map { it.toMessage() },
+        syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
+    )
+
+private fun Method.jsonMarshalImpl(json: Json): String =
+    json.stringify(Method.JsonMapper.serializer(), toJsonMapper())
+
+private fun Method.Companion.jsonUnmarshalImpl(json: Json, data: String): Method {
+    val mapper = json.parse(Method.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun Mixin?.orDefault() = this ?: Mixin.defaultInstance
 
 private fun Mixin.protoMergeImpl(plus: Mixin?): Mixin = plus?.copy(
@@ -192,4 +313,24 @@ private fun Mixin.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshall
         18 -> root = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun Mixin.toJsonMapperImpl(): Mixin.JsonMapper =
+    Mixin.JsonMapper(
+        name.takeIf { it != "" },
+        root.takeIf { it != "" }
+    )
+
+private fun Mixin.JsonMapper.toMessageImpl(): Mixin =
+    Mixin(
+        name = name ?: "",
+        root = root ?: ""
+    )
+
+private fun Mixin.jsonMarshalImpl(json: Json): String =
+    json.stringify(Mixin.JsonMapper.serializer(), toJsonMapper())
+
+private fun Mixin.Companion.jsonUnmarshalImpl(json: Json, data: String): Mixin {
+    val mapper = json.parse(Mixin.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

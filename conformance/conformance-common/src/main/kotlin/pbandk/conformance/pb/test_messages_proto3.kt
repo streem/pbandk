@@ -1,20 +1,22 @@
 package pbandk.conformance.pb
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 sealed class ForeignEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is ForeignEnum && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "ForeignEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-    object ForeignFoo : ForeignEnum(0, "FOREIGN_FOO")
-    object ForeignBar : ForeignEnum(1, "FOREIGN_BAR")
-    object ForeignBaz : ForeignEnum(2, "FOREIGN_BAZ")
-    class Unrecognized(value: Int) : ForeignEnum(value)
+    object FOREIGN_FOO : ForeignEnum(0, "FOREIGN_FOO")
+    object FOREIGN_BAR : ForeignEnum(1, "FOREIGN_BAR")
+    object FOREIGN_BAZ : ForeignEnum(2, "FOREIGN_BAZ")
+    class UNRECOGNIZED(value: Int) : ForeignEnum(value)
 
     companion object : pbandk.Message.Enum.Companion<ForeignEnum> {
-        val values: List<ForeignEnum> by lazy { listOf(ForeignFoo, ForeignBar, ForeignBaz) }
-        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+        val values: List<ForeignEnum> by lazy { listOf(FOREIGN_FOO, FOREIGN_BAR, FOREIGN_BAZ) }
+        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No ForeignEnum with name: $name")
     }
 }
@@ -39,6 +41,7 @@ data class TestAllTypesProto3(
     val optionalForeignMessage: pbandk.conformance.pb.ForeignMessage? = null,
     val optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0),
     val optionalForeignEnum: pbandk.conformance.pb.ForeignEnum = pbandk.conformance.pb.ForeignEnum.fromValue(0),
+    val optionalAliasedEnum: pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum = pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.fromValue(0),
     val optionalStringPiece: String = "",
     val optionalCord: String = "",
     val recursiveMessage: pbandk.conformance.pb.TestAllTypesProto3? = null,
@@ -63,6 +66,34 @@ data class TestAllTypesProto3(
     val repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnum> = emptyList(),
     val repeatedStringPiece: List<String> = emptyList(),
     val repeatedCord: List<String> = emptyList(),
+    val packedInt32: List<Int> = emptyList(),
+    val packedInt64: List<Long> = emptyList(),
+    val packedUint32: List<Int> = emptyList(),
+    val packedUint64: List<Long> = emptyList(),
+    val packedSint32: List<Int> = emptyList(),
+    val packedSint64: List<Long> = emptyList(),
+    val packedFixed32: List<Int> = emptyList(),
+    val packedFixed64: List<Long> = emptyList(),
+    val packedSfixed32: List<Int> = emptyList(),
+    val packedSfixed64: List<Long> = emptyList(),
+    val packedFloat: List<Float> = emptyList(),
+    val packedDouble: List<Double> = emptyList(),
+    val packedBool: List<Boolean> = emptyList(),
+    val packedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> = emptyList(),
+    val unpackedInt32: List<Int> = emptyList(),
+    val unpackedInt64: List<Long> = emptyList(),
+    val unpackedUint32: List<Int> = emptyList(),
+    val unpackedUint64: List<Long> = emptyList(),
+    val unpackedSint32: List<Int> = emptyList(),
+    val unpackedSint64: List<Long> = emptyList(),
+    val unpackedFixed32: List<Int> = emptyList(),
+    val unpackedFixed64: List<Long> = emptyList(),
+    val unpackedSfixed32: List<Int> = emptyList(),
+    val unpackedSfixed64: List<Long> = emptyList(),
+    val unpackedFloat: List<Float> = emptyList(),
+    val unpackedDouble: List<Double> = emptyList(),
+    val unpackedBool: List<Boolean> = emptyList(),
+    val unpackedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> = emptyList(),
     val mapInt32Int32: Map<Int, Int> = emptyMap(),
     val mapInt64Int64: Map<Long, Long> = emptyMap(),
     val mapUint32Uint32: Map<Int, Int> = emptyMap(),
@@ -112,6 +143,7 @@ data class TestAllTypesProto3(
     val repeatedStruct: List<pbandk.wkt.Struct> = emptyList(),
     val repeatedAny: List<pbandk.wkt.Any> = emptyList(),
     val repeatedValue: List<pbandk.wkt.Value> = emptyList(),
+    val repeatedListValue: List<pbandk.wkt.ListValue> = emptyList(),
     val fieldname1: Int = 0,
     val fieldName2: Int = 0,
     val fieldName3: Int = 0,
@@ -165,11 +197,318 @@ data class TestAllTypesProto3(
         get() = (oneofField as? OneofField.OneofEnum)?.value
 
     override operator fun plus(other: TestAllTypesProto3?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<TestAllTypesProto3> {
         val defaultInstance by lazy { TestAllTypesProto3() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("optional_int32")
+        val optionalInt32: Int? = null,
+        @SerialName("optional_int64")
+        val optionalInt64: Long? = null,
+        @SerialName("optional_uint32")
+        val optionalUint32: Int? = null,
+        @SerialName("optional_uint64")
+        val optionalUint64: Long? = null,
+        @SerialName("optional_sint32")
+        val optionalSint32: Int? = null,
+        @SerialName("optional_sint64")
+        val optionalSint64: Long? = null,
+        @SerialName("optional_fixed32")
+        val optionalFixed32: Int? = null,
+        @SerialName("optional_fixed64")
+        val optionalFixed64: Long? = null,
+        @SerialName("optional_sfixed32")
+        val optionalSfixed32: Int? = null,
+        @SerialName("optional_sfixed64")
+        val optionalSfixed64: Long? = null,
+        @SerialName("optional_float")
+        val optionalFloat: Float? = null,
+        @SerialName("optional_double")
+        val optionalDouble: Double? = null,
+        @SerialName("optional_bool")
+        val optionalBool: Boolean? = null,
+        @SerialName("optional_string")
+        val optionalString: String? = null,
+        @SerialName("optional_bytes")
+        val optionalBytes: pbandk.ByteArr? = null,
+        @SerialName("optional_nested_message")
+        val optionalNestedMessage: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.JsonMapper? = null,
+        @SerialName("optional_foreign_message")
+        val optionalForeignMessage: pbandk.conformance.pb.ForeignMessage.JsonMapper? = null,
+        @SerialName("optional_nested_enum")
+        val optionalNestedEnum: String? = null,
+        @SerialName("optional_foreign_enum")
+        val optionalForeignEnum: String? = null,
+        @SerialName("optional_aliased_enum")
+        val optionalAliasedEnum: String? = null,
+        @SerialName("optional_string_piece")
+        val optionalStringPiece: String? = null,
+        @SerialName("optional_cord")
+        val optionalCord: String? = null,
+        @SerialName("recursive_message")
+        val recursiveMessage: pbandk.conformance.pb.TestAllTypesProto3.JsonMapper? = null,
+        @SerialName("repeated_int32")
+        val repeatedInt32: List<Int> = emptyList(),
+        @SerialName("repeated_int64")
+        val repeatedInt64: List<Long> = emptyList(),
+        @SerialName("repeated_uint32")
+        val repeatedUint32: List<Int> = emptyList(),
+        @SerialName("repeated_uint64")
+        val repeatedUint64: List<Long> = emptyList(),
+        @SerialName("repeated_sint32")
+        val repeatedSint32: List<Int> = emptyList(),
+        @SerialName("repeated_sint64")
+        val repeatedSint64: List<Long> = emptyList(),
+        @SerialName("repeated_fixed32")
+        val repeatedFixed32: List<Int> = emptyList(),
+        @SerialName("repeated_fixed64")
+        val repeatedFixed64: List<Long> = emptyList(),
+        @SerialName("repeated_sfixed32")
+        val repeatedSfixed32: List<Int> = emptyList(),
+        @SerialName("repeated_sfixed64")
+        val repeatedSfixed64: List<Long> = emptyList(),
+        @SerialName("repeated_float")
+        val repeatedFloat: List<Float> = emptyList(),
+        @SerialName("repeated_double")
+        val repeatedDouble: List<Double> = emptyList(),
+        @SerialName("repeated_bool")
+        val repeatedBool: List<Boolean> = emptyList(),
+        @SerialName("repeated_string")
+        val repeatedString: List<String> = emptyList(),
+        @SerialName("repeated_bytes")
+        val repeatedBytes: List<pbandk.ByteArr> = emptyList(),
+        @SerialName("repeated_nested_message")
+        val repeatedNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.JsonMapper> = emptyList(),
+        @SerialName("repeated_foreign_message")
+        val repeatedForeignMessage: List<pbandk.conformance.pb.ForeignMessage.JsonMapper> = emptyList(),
+        @SerialName("repeated_nested_enum")
+        val repeatedNestedEnum: List<String> = emptyList(),
+        @SerialName("repeated_foreign_enum")
+        val repeatedForeignEnum: List<String> = emptyList(),
+        @SerialName("repeated_string_piece")
+        val repeatedStringPiece: List<String> = emptyList(),
+        @SerialName("repeated_cord")
+        val repeatedCord: List<String> = emptyList(),
+        @SerialName("map_int32_int32")
+        val mapInt32Int32: Map<Int, Int?> = emptyMap(),
+        @SerialName("map_int64_int64")
+        val mapInt64Int64: Map<Long, Long?> = emptyMap(),
+        @SerialName("map_uint32_uint32")
+        val mapUint32Uint32: Map<Int, Int?> = emptyMap(),
+        @SerialName("map_uint64_uint64")
+        val mapUint64Uint64: Map<Long, Long?> = emptyMap(),
+        @SerialName("map_sint32_sint32")
+        val mapSint32Sint32: Map<Int, Int?> = emptyMap(),
+        @SerialName("map_sint64_sint64")
+        val mapSint64Sint64: Map<Long, Long?> = emptyMap(),
+        @SerialName("map_fixed32_fixed32")
+        val mapFixed32Fixed32: Map<Int, Int?> = emptyMap(),
+        @SerialName("map_fixed64_fixed64")
+        val mapFixed64Fixed64: Map<Long, Long?> = emptyMap(),
+        @SerialName("map_sfixed32_sfixed32")
+        val mapSfixed32Sfixed32: Map<Int, Int?> = emptyMap(),
+        @SerialName("map_sfixed64_sfixed64")
+        val mapSfixed64Sfixed64: Map<Long, Long?> = emptyMap(),
+        @SerialName("map_int32_float")
+        val mapInt32Float: Map<Int, Float?> = emptyMap(),
+        @SerialName("map_int32_double")
+        val mapInt32Double: Map<Int, Double?> = emptyMap(),
+        @SerialName("map_bool_bool")
+        val mapBoolBool: Map<Boolean, Boolean?> = emptyMap(),
+        @SerialName("map_string_string")
+        val mapStringString: Map<String, String?> = emptyMap(),
+        @SerialName("map_string_bytes")
+        val mapStringBytes: Map<String, pbandk.ByteArr?> = emptyMap(),
+        @SerialName("map_string_nested_message")
+        val mapStringNestedMessage: Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.JsonMapper?> = emptyMap(),
+        @SerialName("map_string_foreign_message")
+        val mapStringForeignMessage: Map<String, pbandk.conformance.pb.ForeignMessage.JsonMapper?> = emptyMap(),
+        @SerialName("map_string_nested_enum")
+        val mapStringNestedEnum: Map<String, String?> = emptyMap(),
+        @SerialName("map_string_foreign_enum")
+        val mapStringForeignEnum: Map<String, String?> = emptyMap(),
+        @SerialName("packed_int32")
+        val packedInt32: List<Int> = emptyList(),
+        @SerialName("packed_int64")
+        val packedInt64: List<Long> = emptyList(),
+        @SerialName("packed_uint32")
+        val packedUint32: List<Int> = emptyList(),
+        @SerialName("packed_uint64")
+        val packedUint64: List<Long> = emptyList(),
+        @SerialName("packed_sint32")
+        val packedSint32: List<Int> = emptyList(),
+        @SerialName("packed_sint64")
+        val packedSint64: List<Long> = emptyList(),
+        @SerialName("packed_fixed32")
+        val packedFixed32: List<Int> = emptyList(),
+        @SerialName("packed_fixed64")
+        val packedFixed64: List<Long> = emptyList(),
+        @SerialName("packed_sfixed32")
+        val packedSfixed32: List<Int> = emptyList(),
+        @SerialName("packed_sfixed64")
+        val packedSfixed64: List<Long> = emptyList(),
+        @SerialName("packed_float")
+        val packedFloat: List<Float> = emptyList(),
+        @SerialName("packed_double")
+        val packedDouble: List<Double> = emptyList(),
+        @SerialName("packed_bool")
+        val packedBool: List<Boolean> = emptyList(),
+        @SerialName("packed_nested_enum")
+        val packedNestedEnum: List<String> = emptyList(),
+        @SerialName("unpacked_int32")
+        val unpackedInt32: List<Int> = emptyList(),
+        @SerialName("unpacked_int64")
+        val unpackedInt64: List<Long> = emptyList(),
+        @SerialName("unpacked_uint32")
+        val unpackedUint32: List<Int> = emptyList(),
+        @SerialName("unpacked_uint64")
+        val unpackedUint64: List<Long> = emptyList(),
+        @SerialName("unpacked_sint32")
+        val unpackedSint32: List<Int> = emptyList(),
+        @SerialName("unpacked_sint64")
+        val unpackedSint64: List<Long> = emptyList(),
+        @SerialName("unpacked_fixed32")
+        val unpackedFixed32: List<Int> = emptyList(),
+        @SerialName("unpacked_fixed64")
+        val unpackedFixed64: List<Long> = emptyList(),
+        @SerialName("unpacked_sfixed32")
+        val unpackedSfixed32: List<Int> = emptyList(),
+        @SerialName("unpacked_sfixed64")
+        val unpackedSfixed64: List<Long> = emptyList(),
+        @SerialName("unpacked_float")
+        val unpackedFloat: List<Float> = emptyList(),
+        @SerialName("unpacked_double")
+        val unpackedDouble: List<Double> = emptyList(),
+        @SerialName("unpacked_bool")
+        val unpackedBool: List<Boolean> = emptyList(),
+        @SerialName("unpacked_nested_enum")
+        val unpackedNestedEnum: List<String> = emptyList(),
+        @SerialName("oneof_uint32")
+        val oneofUint32: Int? = null,
+        @SerialName("oneof_nested_message")
+        val oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.JsonMapper? = null,
+        @SerialName("oneof_string")
+        val oneofString: String? = null,
+        @SerialName("oneof_bytes")
+        val oneofBytes: pbandk.ByteArr? = null,
+        @SerialName("oneof_bool")
+        val oneofBool: Boolean? = null,
+        @SerialName("oneof_uint64")
+        val oneofUint64: Long? = null,
+        @SerialName("oneof_float")
+        val oneofFloat: Float? = null,
+        @SerialName("oneof_double")
+        val oneofDouble: Double? = null,
+        @SerialName("oneof_enum")
+        val oneofEnum: String? = null,
+        @SerialName("optional_bool_wrapper")
+        val optionalBoolWrapper: pbandk.wkt.BoolValue.JsonMapper? = null,
+        @SerialName("optional_int32_wrapper")
+        val optionalInt32Wrapper: pbandk.wkt.Int32Value.JsonMapper? = null,
+        @SerialName("optional_int64_wrapper")
+        val optionalInt64Wrapper: pbandk.wkt.Int64Value.JsonMapper? = null,
+        @SerialName("optional_uint32_wrapper")
+        val optionalUint32Wrapper: pbandk.wkt.UInt32Value.JsonMapper? = null,
+        @SerialName("optional_uint64_wrapper")
+        val optionalUint64Wrapper: pbandk.wkt.UInt64Value.JsonMapper? = null,
+        @SerialName("optional_float_wrapper")
+        val optionalFloatWrapper: pbandk.wkt.FloatValue.JsonMapper? = null,
+        @SerialName("optional_double_wrapper")
+        val optionalDoubleWrapper: pbandk.wkt.DoubleValue.JsonMapper? = null,
+        @SerialName("optional_string_wrapper")
+        val optionalStringWrapper: pbandk.wkt.StringValue.JsonMapper? = null,
+        @SerialName("optional_bytes_wrapper")
+        val optionalBytesWrapper: pbandk.wkt.BytesValue.JsonMapper? = null,
+        @SerialName("repeated_bool_wrapper")
+        val repeatedBoolWrapper: List<pbandk.wkt.BoolValue.JsonMapper> = emptyList(),
+        @SerialName("repeated_int32_wrapper")
+        val repeatedInt32Wrapper: List<pbandk.wkt.Int32Value.JsonMapper> = emptyList(),
+        @SerialName("repeated_int64_wrapper")
+        val repeatedInt64Wrapper: List<pbandk.wkt.Int64Value.JsonMapper> = emptyList(),
+        @SerialName("repeated_uint32_wrapper")
+        val repeatedUint32Wrapper: List<pbandk.wkt.UInt32Value.JsonMapper> = emptyList(),
+        @SerialName("repeated_uint64_wrapper")
+        val repeatedUint64Wrapper: List<pbandk.wkt.UInt64Value.JsonMapper> = emptyList(),
+        @SerialName("repeated_float_wrapper")
+        val repeatedFloatWrapper: List<pbandk.wkt.FloatValue.JsonMapper> = emptyList(),
+        @SerialName("repeated_double_wrapper")
+        val repeatedDoubleWrapper: List<pbandk.wkt.DoubleValue.JsonMapper> = emptyList(),
+        @SerialName("repeated_string_wrapper")
+        val repeatedStringWrapper: List<pbandk.wkt.StringValue.JsonMapper> = emptyList(),
+        @SerialName("repeated_bytes_wrapper")
+        val repeatedBytesWrapper: List<pbandk.wkt.BytesValue.JsonMapper> = emptyList(),
+        @SerialName("optional_duration")
+        val optionalDuration: pbandk.wkt.Duration.JsonMapper? = null,
+        @SerialName("optional_timestamp")
+        val optionalTimestamp: pbandk.wkt.Timestamp.JsonMapper? = null,
+        @SerialName("optional_field_mask")
+        val optionalFieldMask: pbandk.wkt.FieldMask.JsonMapper? = null,
+        @SerialName("optional_struct")
+        val optionalStruct: pbandk.wkt.Struct.JsonMapper? = null,
+        @SerialName("optional_any")
+        val optionalAny: pbandk.wkt.Any.JsonMapper? = null,
+        @SerialName("optional_value")
+        val optionalValue: pbandk.wkt.Value.JsonMapper? = null,
+        @SerialName("repeated_duration")
+        val repeatedDuration: List<pbandk.wkt.Duration.JsonMapper> = emptyList(),
+        @SerialName("repeated_timestamp")
+        val repeatedTimestamp: List<pbandk.wkt.Timestamp.JsonMapper> = emptyList(),
+        @SerialName("repeated_fieldmask")
+        val repeatedFieldmask: List<pbandk.wkt.FieldMask.JsonMapper> = emptyList(),
+        @SerialName("repeated_any")
+        val repeatedAny: List<pbandk.wkt.Any.JsonMapper> = emptyList(),
+        @SerialName("repeated_value")
+        val repeatedValue: List<pbandk.wkt.Value.JsonMapper> = emptyList(),
+        @SerialName("repeated_list_value")
+        val repeatedListValue: List<pbandk.wkt.ListValue.JsonMapper> = emptyList(),
+        @SerialName("repeated_struct")
+        val repeatedStruct: List<pbandk.wkt.Struct.JsonMapper> = emptyList(),
+        @SerialName("fieldname1")
+        val fieldname1: Int? = null,
+        @SerialName("field_name2")
+        val fieldName2: Int? = null,
+        @SerialName("_field_name3")
+        val fieldName3: Int? = null,
+        @SerialName("field__name4_")
+        val field_name4: Int? = null,
+        @SerialName("field0name5")
+        val field0name5: Int? = null,
+        @SerialName("field_0_name6")
+        val field0Name6: Int? = null,
+        @SerialName("fieldName7")
+        val fieldName7: Int? = null,
+        @SerialName("FieldName8")
+        val fieldName8: Int? = null,
+        @SerialName("field_Name9")
+        val fieldName9: Int? = null,
+        @SerialName("Field_Name10")
+        val fieldName10: Int? = null,
+        @SerialName("FIELD_NAME11")
+        val fIELDNAME11: Int? = null,
+        @SerialName("FIELD_name12")
+        val fIELDName12: Int? = null,
+        @SerialName("__field_name13")
+        val _fieldName13: Int? = null,
+        @SerialName("__Field_name14")
+        val _FieldName14: Int? = null,
+        @SerialName("field__name15")
+        val field_name15: Int? = null,
+        @SerialName("field__Name16")
+        val field_Name16: Int? = null,
+        @SerialName("field_name17__")
+        val fieldName17_: Int? = null,
+        @SerialName("Field_name18__")
+        val fieldName18_: Int? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 
     sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -177,16 +516,36 @@ data class TestAllTypesProto3(
         override fun hashCode() = value.hashCode()
         override fun toString() = "NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-        object Foo : NestedEnum(0, "FOO")
-        object Bar : NestedEnum(1, "BAR")
-        object Baz : NestedEnum(2, "BAZ")
-        object Neg : NestedEnum(-1, "NEG")
-        class Unrecognized(value: Int) : NestedEnum(value)
+        object FOO : NestedEnum(0, "FOO")
+        object BAR : NestedEnum(1, "BAR")
+        object BAZ : NestedEnum(2, "BAZ")
+        object NEG : NestedEnum(-1, "NEG")
+        class UNRECOGNIZED(value: Int) : NestedEnum(value)
 
         companion object : pbandk.Message.Enum.Companion<NestedEnum> {
-            val values: List<NestedEnum> by lazy { listOf(Foo, Bar, Baz, Neg) }
-            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+            val values: List<NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
+        }
+    }
+
+    sealed class AliasedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is AliasedEnum && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        object ALIAS_FOO : AliasedEnum(0, "ALIAS_FOO")
+        object ALIAS_BAR : AliasedEnum(1, "ALIAS_BAR")
+        object ALIAS_BAZ : AliasedEnum(2, "ALIAS_BAZ")
+        object QUX : AliasedEnum(2, "QUX")
+        object QUX_ : AliasedEnum(2, "qux")
+        object B_AZ : AliasedEnum(2, "bAz")
+        class UNRECOGNIZED(value: Int) : AliasedEnum(value)
+
+        companion object : pbandk.Message.Enum.Companion<AliasedEnum> {
+            val values: List<AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No AliasedEnum with name: $name")
         }
     }
 
@@ -196,11 +555,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<NestedMessage> {
         override operator fun plus(other: NestedMessage?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<NestedMessage> {
             val defaultInstance by lazy { NestedMessage() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = NestedMessage.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = NestedMessage.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("a")
+            val a: Int? = null,
+            @SerialName("corecursive")
+            val corecursive: pbandk.conformance.pb.TestAllTypesProto3.JsonMapper? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -210,11 +582,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt32Int32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: MapInt32Int32Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapInt32Int32Entry> {
             val defaultInstance by lazy { MapInt32Int32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32Int32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapInt32Int32Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Int? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -224,11 +609,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt64Int64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: MapInt64Int64Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapInt64Int64Entry> {
             val defaultInstance by lazy { MapInt64Int64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt64Int64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapInt64Int64Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Long? = null,
+            @SerialName("value")
+            val value: Long? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -238,11 +636,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapUint32Uint32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: MapUint32Uint32Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapUint32Uint32Entry> {
             val defaultInstance by lazy { MapUint32Uint32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapUint32Uint32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapUint32Uint32Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Int? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -252,11 +663,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapUint64Uint64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: MapUint64Uint64Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapUint64Uint64Entry> {
             val defaultInstance by lazy { MapUint64Uint64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapUint64Uint64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapUint64Uint64Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Long? = null,
+            @SerialName("value")
+            val value: Long? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -266,11 +690,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSint32Sint32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: MapSint32Sint32Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapSint32Sint32Entry> {
             val defaultInstance by lazy { MapSint32Sint32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSint32Sint32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapSint32Sint32Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Int? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -280,11 +717,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSint64Sint64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: MapSint64Sint64Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapSint64Sint64Entry> {
             val defaultInstance by lazy { MapSint64Sint64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSint64Sint64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapSint64Sint64Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Long? = null,
+            @SerialName("value")
+            val value: Long? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -294,11 +744,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapFixed32Fixed32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: MapFixed32Fixed32Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapFixed32Fixed32Entry> {
             val defaultInstance by lazy { MapFixed32Fixed32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapFixed32Fixed32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapFixed32Fixed32Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Int? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -308,11 +771,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapFixed64Fixed64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: MapFixed64Fixed64Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapFixed64Fixed64Entry> {
             val defaultInstance by lazy { MapFixed64Fixed64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapFixed64Fixed64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapFixed64Fixed64Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Long? = null,
+            @SerialName("value")
+            val value: Long? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -322,11 +798,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSfixed32Sfixed32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: MapSfixed32Sfixed32Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapSfixed32Sfixed32Entry> {
             val defaultInstance by lazy { MapSfixed32Sfixed32Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSfixed32Sfixed32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapSfixed32Sfixed32Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Int? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -336,11 +825,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapSfixed64Sfixed64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: MapSfixed64Sfixed64Entry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapSfixed64Sfixed64Entry> {
             val defaultInstance by lazy { MapSfixed64Sfixed64Entry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSfixed64Sfixed64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapSfixed64Sfixed64Entry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Long? = null,
+            @SerialName("value")
+            val value: Long? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -350,11 +852,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt32FloatEntry>, Map.Entry<Int, Float> {
         override operator fun plus(other: MapInt32FloatEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapInt32FloatEntry> {
             val defaultInstance by lazy { MapInt32FloatEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32FloatEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapInt32FloatEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Float? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -364,11 +879,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapInt32DoubleEntry>, Map.Entry<Int, Double> {
         override operator fun plus(other: MapInt32DoubleEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapInt32DoubleEntry> {
             val defaultInstance by lazy { MapInt32DoubleEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32DoubleEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapInt32DoubleEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Int? = null,
+            @SerialName("value")
+            val value: Double? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -378,11 +906,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapBoolBoolEntry>, Map.Entry<Boolean, Boolean> {
         override operator fun plus(other: MapBoolBoolEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapBoolBoolEntry> {
             val defaultInstance by lazy { MapBoolBoolEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapBoolBoolEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapBoolBoolEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: Boolean? = null,
+            @SerialName("value")
+            val value: Boolean? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -392,11 +933,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringStringEntry>, Map.Entry<String, String> {
         override operator fun plus(other: MapStringStringEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapStringStringEntry> {
             val defaultInstance by lazy { MapStringStringEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringStringEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapStringStringEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: String? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -406,11 +960,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringBytesEntry>, Map.Entry<String, pbandk.ByteArr> {
         override operator fun plus(other: MapStringBytesEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapStringBytesEntry> {
             val defaultInstance by lazy { MapStringBytesEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringBytesEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapStringBytesEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: pbandk.ByteArr? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -420,11 +987,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringNestedMessageEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?> {
         override operator fun plus(other: MapStringNestedMessageEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapStringNestedMessageEntry> {
             val defaultInstance by lazy { MapStringNestedMessageEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringNestedMessageEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapStringNestedMessageEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.JsonMapper? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -434,11 +1014,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringForeignMessageEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignMessage?> {
         override operator fun plus(other: MapStringForeignMessageEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapStringForeignMessageEntry> {
             val defaultInstance by lazy { MapStringForeignMessageEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringForeignMessageEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapStringForeignMessageEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: pbandk.conformance.pb.ForeignMessage.JsonMapper? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -448,11 +1041,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringNestedEnumEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> {
         override operator fun plus(other: MapStringNestedEnumEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapStringNestedEnumEntry> {
             val defaultInstance by lazy { MapStringNestedEnumEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringNestedEnumEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapStringNestedEnumEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: String? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 
@@ -462,11 +1068,24 @@ data class TestAllTypesProto3(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapStringForeignEnumEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignEnum> {
         override operator fun plus(other: MapStringForeignEnumEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapStringForeignEnumEntry> {
             val defaultInstance by lazy { MapStringForeignEnumEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringForeignEnumEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapStringForeignEnumEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: String? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 }
@@ -476,11 +1095,22 @@ data class ForeignMessage(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ForeignMessage> {
     override operator fun plus(other: ForeignMessage?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<ForeignMessage> {
         val defaultInstance by lazy { ForeignMessage() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = ForeignMessage.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = ForeignMessage.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("c")
+        val c: Int? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -511,6 +1141,34 @@ private fun TestAllTypesProto3.protoMergeImpl(plus: TestAllTypesProto3?): TestAl
     repeatedForeignEnum = repeatedForeignEnum + plus.repeatedForeignEnum,
     repeatedStringPiece = repeatedStringPiece + plus.repeatedStringPiece,
     repeatedCord = repeatedCord + plus.repeatedCord,
+    packedInt32 = packedInt32 + plus.packedInt32,
+    packedInt64 = packedInt64 + plus.packedInt64,
+    packedUint32 = packedUint32 + plus.packedUint32,
+    packedUint64 = packedUint64 + plus.packedUint64,
+    packedSint32 = packedSint32 + plus.packedSint32,
+    packedSint64 = packedSint64 + plus.packedSint64,
+    packedFixed32 = packedFixed32 + plus.packedFixed32,
+    packedFixed64 = packedFixed64 + plus.packedFixed64,
+    packedSfixed32 = packedSfixed32 + plus.packedSfixed32,
+    packedSfixed64 = packedSfixed64 + plus.packedSfixed64,
+    packedFloat = packedFloat + plus.packedFloat,
+    packedDouble = packedDouble + plus.packedDouble,
+    packedBool = packedBool + plus.packedBool,
+    packedNestedEnum = packedNestedEnum + plus.packedNestedEnum,
+    unpackedInt32 = unpackedInt32 + plus.unpackedInt32,
+    unpackedInt64 = unpackedInt64 + plus.unpackedInt64,
+    unpackedUint32 = unpackedUint32 + plus.unpackedUint32,
+    unpackedUint64 = unpackedUint64 + plus.unpackedUint64,
+    unpackedSint32 = unpackedSint32 + plus.unpackedSint32,
+    unpackedSint64 = unpackedSint64 + plus.unpackedSint64,
+    unpackedFixed32 = unpackedFixed32 + plus.unpackedFixed32,
+    unpackedFixed64 = unpackedFixed64 + plus.unpackedFixed64,
+    unpackedSfixed32 = unpackedSfixed32 + plus.unpackedSfixed32,
+    unpackedSfixed64 = unpackedSfixed64 + plus.unpackedSfixed64,
+    unpackedFloat = unpackedFloat + plus.unpackedFloat,
+    unpackedDouble = unpackedDouble + plus.unpackedDouble,
+    unpackedBool = unpackedBool + plus.unpackedBool,
+    unpackedNestedEnum = unpackedNestedEnum + plus.unpackedNestedEnum,
     mapInt32Int32 = mapInt32Int32 + plus.mapInt32Int32,
     mapInt64Int64 = mapInt64Int64 + plus.mapInt64Int64,
     mapUint32Uint32 = mapUint32Uint32 + plus.mapUint32Uint32,
@@ -560,6 +1218,7 @@ private fun TestAllTypesProto3.protoMergeImpl(plus: TestAllTypesProto3?): TestAl
     repeatedStruct = repeatedStruct + plus.repeatedStruct,
     repeatedAny = repeatedAny + plus.repeatedAny,
     repeatedValue = repeatedValue + plus.repeatedValue,
+    repeatedListValue = repeatedListValue + plus.repeatedListValue,
     oneofField = when {
         oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage && plus.oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage ->
             TestAllTypesProto3.OneofField.OneofNestedMessage(oneofField.value + plus.oneofField.value)
@@ -590,6 +1249,7 @@ private fun TestAllTypesProto3.protoSizeImpl(): Int {
     if (optionalForeignMessage != null) protoSize += pbandk.Sizer.tagSize(19) + pbandk.Sizer.messageSize(optionalForeignMessage)
     if (optionalNestedEnum.value != 0) protoSize += pbandk.Sizer.tagSize(21) + pbandk.Sizer.enumSize(optionalNestedEnum)
     if (optionalForeignEnum.value != 0) protoSize += pbandk.Sizer.tagSize(22) + pbandk.Sizer.enumSize(optionalForeignEnum)
+    if (optionalAliasedEnum.value != 0) protoSize += pbandk.Sizer.tagSize(23) + pbandk.Sizer.enumSize(optionalAliasedEnum)
     if (optionalStringPiece.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(24) + pbandk.Sizer.stringSize(optionalStringPiece)
     if (optionalCord.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(25) + pbandk.Sizer.stringSize(optionalCord)
     if (recursiveMessage != null) protoSize += pbandk.Sizer.tagSize(27) + pbandk.Sizer.messageSize(recursiveMessage)
@@ -614,6 +1274,34 @@ private fun TestAllTypesProto3.protoSizeImpl(): Int {
     if (repeatedForeignEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(52) * repeatedForeignEnum.size) + repeatedForeignEnum.sumBy(pbandk.Sizer::enumSize)
     if (repeatedStringPiece.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(54) * repeatedStringPiece.size) + repeatedStringPiece.sumBy(pbandk.Sizer::stringSize)
     if (repeatedCord.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(55) * repeatedCord.size) + repeatedCord.sumBy(pbandk.Sizer::stringSize)
+    if (packedInt32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(75) + pbandk.Sizer.packedRepeatedSize(packedInt32, pbandk.Sizer::int32Size)
+    if (packedInt64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(76) + pbandk.Sizer.packedRepeatedSize(packedInt64, pbandk.Sizer::int64Size)
+    if (packedUint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(77) + pbandk.Sizer.packedRepeatedSize(packedUint32, pbandk.Sizer::uInt32Size)
+    if (packedUint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(78) + pbandk.Sizer.packedRepeatedSize(packedUint64, pbandk.Sizer::uInt64Size)
+    if (packedSint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(79) + pbandk.Sizer.packedRepeatedSize(packedSint32, pbandk.Sizer::sInt32Size)
+    if (packedSint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(80) + pbandk.Sizer.packedRepeatedSize(packedSint64, pbandk.Sizer::sInt64Size)
+    if (packedFixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(81) + pbandk.Sizer.packedRepeatedSize(packedFixed32, pbandk.Sizer::fixed32Size)
+    if (packedFixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(82) + pbandk.Sizer.packedRepeatedSize(packedFixed64, pbandk.Sizer::fixed64Size)
+    if (packedSfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(83) + pbandk.Sizer.packedRepeatedSize(packedSfixed32, pbandk.Sizer::sFixed32Size)
+    if (packedSfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(84) + pbandk.Sizer.packedRepeatedSize(packedSfixed64, pbandk.Sizer::sFixed64Size)
+    if (packedFloat.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(85) + pbandk.Sizer.packedRepeatedSize(packedFloat, pbandk.Sizer::floatSize)
+    if (packedDouble.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(86) + pbandk.Sizer.packedRepeatedSize(packedDouble, pbandk.Sizer::doubleSize)
+    if (packedBool.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(87) * packedBool.size) + packedBool.sumBy(pbandk.Sizer::boolSize)
+    if (packedNestedEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(88) * packedNestedEnum.size) + packedNestedEnum.sumBy(pbandk.Sizer::enumSize)
+    if (unpackedInt32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(89) + pbandk.Sizer.packedRepeatedSize(unpackedInt32, pbandk.Sizer::int32Size)
+    if (unpackedInt64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(90) + pbandk.Sizer.packedRepeatedSize(unpackedInt64, pbandk.Sizer::int64Size)
+    if (unpackedUint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(91) + pbandk.Sizer.packedRepeatedSize(unpackedUint32, pbandk.Sizer::uInt32Size)
+    if (unpackedUint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(92) + pbandk.Sizer.packedRepeatedSize(unpackedUint64, pbandk.Sizer::uInt64Size)
+    if (unpackedSint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(93) + pbandk.Sizer.packedRepeatedSize(unpackedSint32, pbandk.Sizer::sInt32Size)
+    if (unpackedSint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(94) + pbandk.Sizer.packedRepeatedSize(unpackedSint64, pbandk.Sizer::sInt64Size)
+    if (unpackedFixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(95) + pbandk.Sizer.packedRepeatedSize(unpackedFixed32, pbandk.Sizer::fixed32Size)
+    if (unpackedFixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(96) + pbandk.Sizer.packedRepeatedSize(unpackedFixed64, pbandk.Sizer::fixed64Size)
+    if (unpackedSfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(97) + pbandk.Sizer.packedRepeatedSize(unpackedSfixed32, pbandk.Sizer::sFixed32Size)
+    if (unpackedSfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(98) + pbandk.Sizer.packedRepeatedSize(unpackedSfixed64, pbandk.Sizer::sFixed64Size)
+    if (unpackedFloat.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(99) + pbandk.Sizer.packedRepeatedSize(unpackedFloat, pbandk.Sizer::floatSize)
+    if (unpackedDouble.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(100) + pbandk.Sizer.packedRepeatedSize(unpackedDouble, pbandk.Sizer::doubleSize)
+    if (unpackedBool.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(101) * unpackedBool.size) + unpackedBool.sumBy(pbandk.Sizer::boolSize)
+    if (unpackedNestedEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(102) * unpackedNestedEnum.size) + unpackedNestedEnum.sumBy(pbandk.Sizer::enumSize)
     if (mapInt32Int32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(56, mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3::MapInt32Int32Entry)
     if (mapInt64Int64.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(57, mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3::MapInt64Int64Entry)
     if (mapUint32Uint32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(58, mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3::MapUint32Uint32Entry)
@@ -663,6 +1351,7 @@ private fun TestAllTypesProto3.protoSizeImpl(): Int {
     if (repeatedStruct.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(324) * repeatedStruct.size) + repeatedStruct.sumBy(pbandk.Sizer::messageSize)
     if (repeatedAny.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(315) * repeatedAny.size) + repeatedAny.sumBy(pbandk.Sizer::messageSize)
     if (repeatedValue.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(316) * repeatedValue.size) + repeatedValue.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedListValue.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(317) * repeatedListValue.size) + repeatedListValue.sumBy(pbandk.Sizer::messageSize)
     if (fieldname1 != 0) protoSize += pbandk.Sizer.tagSize(401) + pbandk.Sizer.int32Size(fieldname1)
     if (fieldName2 != 0) protoSize += pbandk.Sizer.tagSize(402) + pbandk.Sizer.int32Size(fieldName2)
     if (fieldName3 != 0) protoSize += pbandk.Sizer.tagSize(403) + pbandk.Sizer.int32Size(fieldName3)
@@ -716,6 +1405,7 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (optionalForeignMessage != null) protoMarshal.writeTag(154).writeMessage(optionalForeignMessage)
     if (optionalNestedEnum.value != 0) protoMarshal.writeTag(168).writeEnum(optionalNestedEnum)
     if (optionalForeignEnum.value != 0) protoMarshal.writeTag(176).writeEnum(optionalForeignEnum)
+    if (optionalAliasedEnum.value != 0) protoMarshal.writeTag(184).writeEnum(optionalAliasedEnum)
     if (optionalStringPiece.isNotEmpty()) protoMarshal.writeTag(194).writeString(optionalStringPiece)
     if (optionalCord.isNotEmpty()) protoMarshal.writeTag(202).writeString(optionalCord)
     if (recursiveMessage != null) protoMarshal.writeTag(218).writeMessage(recursiveMessage)
@@ -759,6 +1449,34 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeMap(578, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
     if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeMap(586, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
     if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeMap(594, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
+    if (packedInt32.isNotEmpty()) protoMarshal.writeTag(602).writePackedRepeated(packedInt32, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (packedInt64.isNotEmpty()) protoMarshal.writeTag(610).writePackedRepeated(packedInt64, pbandk.Sizer::int64Size, protoMarshal::writeInt64)
+    if (packedUint32.isNotEmpty()) protoMarshal.writeTag(618).writePackedRepeated(packedUint32, pbandk.Sizer::uInt32Size, protoMarshal::writeUInt32)
+    if (packedUint64.isNotEmpty()) protoMarshal.writeTag(626).writePackedRepeated(packedUint64, pbandk.Sizer::uInt64Size, protoMarshal::writeUInt64)
+    if (packedSint32.isNotEmpty()) protoMarshal.writeTag(634).writePackedRepeated(packedSint32, pbandk.Sizer::sInt32Size, protoMarshal::writeSInt32)
+    if (packedSint64.isNotEmpty()) protoMarshal.writeTag(642).writePackedRepeated(packedSint64, pbandk.Sizer::sInt64Size, protoMarshal::writeSInt64)
+    if (packedFixed32.isNotEmpty()) protoMarshal.writeTag(650).writePackedRepeated(packedFixed32, pbandk.Sizer::fixed32Size, protoMarshal::writeFixed32)
+    if (packedFixed64.isNotEmpty()) protoMarshal.writeTag(658).writePackedRepeated(packedFixed64, pbandk.Sizer::fixed64Size, protoMarshal::writeFixed64)
+    if (packedSfixed32.isNotEmpty()) protoMarshal.writeTag(666).writePackedRepeated(packedSfixed32, pbandk.Sizer::sFixed32Size, protoMarshal::writeSFixed32)
+    if (packedSfixed64.isNotEmpty()) protoMarshal.writeTag(674).writePackedRepeated(packedSfixed64, pbandk.Sizer::sFixed64Size, protoMarshal::writeSFixed64)
+    if (packedFloat.isNotEmpty()) protoMarshal.writeTag(682).writePackedRepeated(packedFloat, pbandk.Sizer::floatSize, protoMarshal::writeFloat)
+    if (packedDouble.isNotEmpty()) protoMarshal.writeTag(690).writePackedRepeated(packedDouble, pbandk.Sizer::doubleSize, protoMarshal::writeDouble)
+    if (packedBool.isNotEmpty()) packedBool.forEach { protoMarshal.writeTag(696).writeBool(it) }
+    if (packedNestedEnum.isNotEmpty()) packedNestedEnum.forEach { protoMarshal.writeTag(704).writeEnum(it) }
+    if (unpackedInt32.isNotEmpty()) protoMarshal.writeTag(714).writePackedRepeated(unpackedInt32, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (unpackedInt64.isNotEmpty()) protoMarshal.writeTag(722).writePackedRepeated(unpackedInt64, pbandk.Sizer::int64Size, protoMarshal::writeInt64)
+    if (unpackedUint32.isNotEmpty()) protoMarshal.writeTag(730).writePackedRepeated(unpackedUint32, pbandk.Sizer::uInt32Size, protoMarshal::writeUInt32)
+    if (unpackedUint64.isNotEmpty()) protoMarshal.writeTag(738).writePackedRepeated(unpackedUint64, pbandk.Sizer::uInt64Size, protoMarshal::writeUInt64)
+    if (unpackedSint32.isNotEmpty()) protoMarshal.writeTag(746).writePackedRepeated(unpackedSint32, pbandk.Sizer::sInt32Size, protoMarshal::writeSInt32)
+    if (unpackedSint64.isNotEmpty()) protoMarshal.writeTag(754).writePackedRepeated(unpackedSint64, pbandk.Sizer::sInt64Size, protoMarshal::writeSInt64)
+    if (unpackedFixed32.isNotEmpty()) protoMarshal.writeTag(762).writePackedRepeated(unpackedFixed32, pbandk.Sizer::fixed32Size, protoMarshal::writeFixed32)
+    if (unpackedFixed64.isNotEmpty()) protoMarshal.writeTag(770).writePackedRepeated(unpackedFixed64, pbandk.Sizer::fixed64Size, protoMarshal::writeFixed64)
+    if (unpackedSfixed32.isNotEmpty()) protoMarshal.writeTag(778).writePackedRepeated(unpackedSfixed32, pbandk.Sizer::sFixed32Size, protoMarshal::writeSFixed32)
+    if (unpackedSfixed64.isNotEmpty()) protoMarshal.writeTag(786).writePackedRepeated(unpackedSfixed64, pbandk.Sizer::sFixed64Size, protoMarshal::writeSFixed64)
+    if (unpackedFloat.isNotEmpty()) protoMarshal.writeTag(794).writePackedRepeated(unpackedFloat, pbandk.Sizer::floatSize, protoMarshal::writeFloat)
+    if (unpackedDouble.isNotEmpty()) protoMarshal.writeTag(802).writePackedRepeated(unpackedDouble, pbandk.Sizer::doubleSize, protoMarshal::writeDouble)
+    if (unpackedBool.isNotEmpty()) unpackedBool.forEach { protoMarshal.writeTag(808).writeBool(it) }
+    if (unpackedNestedEnum.isNotEmpty()) unpackedNestedEnum.forEach { protoMarshal.writeTag(816).writeEnum(it) }
     if (oneofField is TestAllTypesProto3.OneofField.OneofUint32) protoMarshal.writeTag(888).writeUInt32(oneofField.value)
     if (oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage) protoMarshal.writeTag(898).writeMessage(oneofField.value)
     if (oneofField is TestAllTypesProto3.OneofField.OneofString) protoMarshal.writeTag(906).writeString(oneofField.value)
@@ -797,6 +1515,7 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (repeatedFieldmask.isNotEmpty()) repeatedFieldmask.forEach { protoMarshal.writeTag(2506).writeMessage(it) }
     if (repeatedAny.isNotEmpty()) repeatedAny.forEach { protoMarshal.writeTag(2522).writeMessage(it) }
     if (repeatedValue.isNotEmpty()) repeatedValue.forEach { protoMarshal.writeTag(2530).writeMessage(it) }
+    if (repeatedListValue.isNotEmpty()) repeatedListValue.forEach { protoMarshal.writeTag(2538).writeMessage(it) }
     if (repeatedStruct.isNotEmpty()) repeatedStruct.forEach { protoMarshal.writeTag(2594).writeMessage(it) }
     if (fieldname1 != 0) protoMarshal.writeTag(3208).writeInt32(fieldname1)
     if (fieldName2 != 0) protoMarshal.writeTag(3216).writeInt32(fieldName2)
@@ -839,6 +1558,7 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var optionalForeignMessage: pbandk.conformance.pb.ForeignMessage? = null
     var optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0)
     var optionalForeignEnum: pbandk.conformance.pb.ForeignEnum = pbandk.conformance.pb.ForeignEnum.fromValue(0)
+    var optionalAliasedEnum: pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum = pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.fromValue(0)
     var optionalStringPiece = ""
     var optionalCord = ""
     var recursiveMessage: pbandk.conformance.pb.TestAllTypesProto3? = null
@@ -863,6 +1583,34 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var repeatedForeignEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.ForeignEnum>? = null
     var repeatedStringPiece: pbandk.ListWithSize.Builder<String>? = null
     var repeatedCord: pbandk.ListWithSize.Builder<String>? = null
+    var packedInt32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedInt64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedUint32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedUint64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedSint32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedSint64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedFixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedFixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedFloat: pbandk.ListWithSize.Builder<Float>? = null
+    var packedDouble: pbandk.ListWithSize.Builder<Double>? = null
+    var packedBool: pbandk.ListWithSize.Builder<Boolean>? = null
+    var packedNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
+    var unpackedInt32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedInt64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedUint32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedUint64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedSint32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedSint64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedFixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedFixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedFloat: pbandk.ListWithSize.Builder<Float>? = null
+    var unpackedDouble: pbandk.ListWithSize.Builder<Double>? = null
+    var unpackedBool: pbandk.ListWithSize.Builder<Boolean>? = null
+    var unpackedNestedEnum: pbandk.ListWithSize.Builder<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>? = null
     var mapInt32Int32: pbandk.MessageMap.Builder<Int, Int>? = null
     var mapInt64Int64: pbandk.MessageMap.Builder<Long, Long>? = null
     var mapUint32Uint32: pbandk.MessageMap.Builder<Int, Int>? = null
@@ -912,6 +1660,7 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var repeatedStruct: pbandk.ListWithSize.Builder<pbandk.wkt.Struct>? = null
     var repeatedAny: pbandk.ListWithSize.Builder<pbandk.wkt.Any>? = null
     var repeatedValue: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
+    var repeatedListValue: pbandk.ListWithSize.Builder<pbandk.wkt.ListValue>? = null
     var fieldname1 = 0
     var fieldName2 = 0
     var fieldName3 = 0
@@ -936,30 +1685,38 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
             optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
             optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble,
             optionalBool, optionalString, optionalBytes, optionalNestedMessage,
-            optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalStringPiece,
-            optionalCord, recursiveMessage, pbandk.ListWithSize.Builder.fixed(repeatedInt32), pbandk.ListWithSize.Builder.fixed(repeatedInt64),
-            pbandk.ListWithSize.Builder.fixed(repeatedUint32), pbandk.ListWithSize.Builder.fixed(repeatedUint64), pbandk.ListWithSize.Builder.fixed(repeatedSint32), pbandk.ListWithSize.Builder.fixed(repeatedSint64),
-            pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32), pbandk.ListWithSize.Builder.fixed(repeatedSfixed64),
-            pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool), pbandk.ListWithSize.Builder.fixed(repeatedString),
-            pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage), pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum),
-            pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.MessageMap.Builder.fixed(mapInt32Int32),
-            pbandk.MessageMap.Builder.fixed(mapInt64Int64), pbandk.MessageMap.Builder.fixed(mapUint32Uint32), pbandk.MessageMap.Builder.fixed(mapUint64Uint64), pbandk.MessageMap.Builder.fixed(mapSint32Sint32),
-            pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64), pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32),
-            pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double), pbandk.MessageMap.Builder.fixed(mapBoolBool),
-            pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage), pbandk.MessageMap.Builder.fixed(mapStringForeignMessage),
-            pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), optionalBoolWrapper, optionalInt32Wrapper,
-            optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper, optionalFloatWrapper,
-            optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper, pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper),
-            pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper),
-            pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper), pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper),
-            optionalDuration, optionalTimestamp, optionalFieldMask, optionalStruct,
-            optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration), pbandk.ListWithSize.Builder.fixed(repeatedTimestamp),
-            pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny), pbandk.ListWithSize.Builder.fixed(repeatedValue),
-            fieldname1, fieldName2, fieldName3, field_name4,
-            field0name5, field0Name6, fieldName7, fieldName8,
-            fieldName9, fieldName10, fIELDNAME11, fIELDName12,
-            _fieldName13, _FieldName14, field_name15, field_Name16,
-            fieldName17_, fieldName18_, oneofField, protoUnmarshal.unknownFields())
+            optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalAliasedEnum,
+            optionalStringPiece, optionalCord, recursiveMessage, pbandk.ListWithSize.Builder.fixed(repeatedInt32),
+            pbandk.ListWithSize.Builder.fixed(repeatedInt64), pbandk.ListWithSize.Builder.fixed(repeatedUint32), pbandk.ListWithSize.Builder.fixed(repeatedUint64), pbandk.ListWithSize.Builder.fixed(repeatedSint32),
+            pbandk.ListWithSize.Builder.fixed(repeatedSint64), pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32),
+            pbandk.ListWithSize.Builder.fixed(repeatedSfixed64), pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool),
+            pbandk.ListWithSize.Builder.fixed(repeatedString), pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage),
+            pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum), pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord),
+            pbandk.ListWithSize.Builder.fixed(packedInt32), pbandk.ListWithSize.Builder.fixed(packedInt64), pbandk.ListWithSize.Builder.fixed(packedUint32), pbandk.ListWithSize.Builder.fixed(packedUint64),
+            pbandk.ListWithSize.Builder.fixed(packedSint32), pbandk.ListWithSize.Builder.fixed(packedSint64), pbandk.ListWithSize.Builder.fixed(packedFixed32), pbandk.ListWithSize.Builder.fixed(packedFixed64),
+            pbandk.ListWithSize.Builder.fixed(packedSfixed32), pbandk.ListWithSize.Builder.fixed(packedSfixed64), pbandk.ListWithSize.Builder.fixed(packedFloat), pbandk.ListWithSize.Builder.fixed(packedDouble),
+            pbandk.ListWithSize.Builder.fixed(packedBool), pbandk.ListWithSize.Builder.fixed(packedNestedEnum), pbandk.ListWithSize.Builder.fixed(unpackedInt32), pbandk.ListWithSize.Builder.fixed(unpackedInt64),
+            pbandk.ListWithSize.Builder.fixed(unpackedUint32), pbandk.ListWithSize.Builder.fixed(unpackedUint64), pbandk.ListWithSize.Builder.fixed(unpackedSint32), pbandk.ListWithSize.Builder.fixed(unpackedSint64),
+            pbandk.ListWithSize.Builder.fixed(unpackedFixed32), pbandk.ListWithSize.Builder.fixed(unpackedFixed64), pbandk.ListWithSize.Builder.fixed(unpackedSfixed32), pbandk.ListWithSize.Builder.fixed(unpackedSfixed64),
+            pbandk.ListWithSize.Builder.fixed(unpackedFloat), pbandk.ListWithSize.Builder.fixed(unpackedDouble), pbandk.ListWithSize.Builder.fixed(unpackedBool), pbandk.ListWithSize.Builder.fixed(unpackedNestedEnum),
+            pbandk.MessageMap.Builder.fixed(mapInt32Int32), pbandk.MessageMap.Builder.fixed(mapInt64Int64), pbandk.MessageMap.Builder.fixed(mapUint32Uint32), pbandk.MessageMap.Builder.fixed(mapUint64Uint64),
+            pbandk.MessageMap.Builder.fixed(mapSint32Sint32), pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64),
+            pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32), pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double),
+            pbandk.MessageMap.Builder.fixed(mapBoolBool), pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage),
+            pbandk.MessageMap.Builder.fixed(mapStringForeignMessage), pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), optionalBoolWrapper,
+            optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper,
+            optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper,
+            pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
+            pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper),
+            pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper), optionalDuration, optionalTimestamp, optionalFieldMask,
+            optionalStruct, optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration),
+            pbandk.ListWithSize.Builder.fixed(repeatedTimestamp), pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny),
+            pbandk.ListWithSize.Builder.fixed(repeatedValue), pbandk.ListWithSize.Builder.fixed(repeatedListValue), fieldname1, fieldName2,
+            fieldName3, field_name4, field0name5, field0Name6,
+            fieldName7, fieldName8, fieldName9, fieldName10,
+            fIELDNAME11, fIELDName12, _fieldName13, _FieldName14,
+            field_name15, field_Name16, fieldName17_, fieldName18_,
+            oneofField, protoUnmarshal.unknownFields())
         8 -> optionalInt32 = protoUnmarshal.readInt32()
         16 -> optionalInt64 = protoUnmarshal.readInt64()
         24 -> optionalUint32 = protoUnmarshal.readUInt32()
@@ -979,6 +1736,7 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         154 -> optionalForeignMessage = protoUnmarshal.readMessage(pbandk.conformance.pb.ForeignMessage.Companion)
         168 -> optionalNestedEnum = protoUnmarshal.readEnum(pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)
         176 -> optionalForeignEnum = protoUnmarshal.readEnum(pbandk.conformance.pb.ForeignEnum.Companion)
+        184 -> optionalAliasedEnum = protoUnmarshal.readEnum(pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.Companion)
         194 -> optionalStringPiece = protoUnmarshal.readString()
         202 -> optionalCord = protoUnmarshal.readString()
         218 -> recursiveMessage = protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.Companion)
@@ -1022,6 +1780,34 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         578 -> mapStringForeignMessage = protoUnmarshal.readMap(mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignMessageEntry.Companion, true)
         586 -> mapStringNestedEnum = protoUnmarshal.readMap(mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringNestedEnumEntry.Companion, true)
         594 -> mapStringForeignEnum = protoUnmarshal.readMap(mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3.MapStringForeignEnumEntry.Companion, true)
+        602, 600 -> packedInt32 = protoUnmarshal.readRepeated(packedInt32, protoUnmarshal::readInt32, false)
+        610, 608 -> packedInt64 = protoUnmarshal.readRepeated(packedInt64, protoUnmarshal::readInt64, false)
+        618, 616 -> packedUint32 = protoUnmarshal.readRepeated(packedUint32, protoUnmarshal::readUInt32, false)
+        626, 624 -> packedUint64 = protoUnmarshal.readRepeated(packedUint64, protoUnmarshal::readUInt64, false)
+        634, 632 -> packedSint32 = protoUnmarshal.readRepeated(packedSint32, protoUnmarshal::readSInt32, false)
+        642, 640 -> packedSint64 = protoUnmarshal.readRepeated(packedSint64, protoUnmarshal::readSInt64, false)
+        650, 653 -> packedFixed32 = protoUnmarshal.readRepeated(packedFixed32, protoUnmarshal::readFixed32, false)
+        658, 657 -> packedFixed64 = protoUnmarshal.readRepeated(packedFixed64, protoUnmarshal::readFixed64, false)
+        666, 669 -> packedSfixed32 = protoUnmarshal.readRepeated(packedSfixed32, protoUnmarshal::readSFixed32, false)
+        674, 673 -> packedSfixed64 = protoUnmarshal.readRepeated(packedSfixed64, protoUnmarshal::readSFixed64, false)
+        682, 685 -> packedFloat = protoUnmarshal.readRepeated(packedFloat, protoUnmarshal::readFloat, false)
+        690, 689 -> packedDouble = protoUnmarshal.readRepeated(packedDouble, protoUnmarshal::readDouble, false)
+        696, 698 -> packedBool = protoUnmarshal.readRepeated(packedBool, protoUnmarshal::readBool, true)
+        704, 706 -> packedNestedEnum = protoUnmarshal.readRepeatedEnum(packedNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)
+        714, 712 -> unpackedInt32 = protoUnmarshal.readRepeated(unpackedInt32, protoUnmarshal::readInt32, false)
+        722, 720 -> unpackedInt64 = protoUnmarshal.readRepeated(unpackedInt64, protoUnmarshal::readInt64, false)
+        730, 728 -> unpackedUint32 = protoUnmarshal.readRepeated(unpackedUint32, protoUnmarshal::readUInt32, false)
+        738, 736 -> unpackedUint64 = protoUnmarshal.readRepeated(unpackedUint64, protoUnmarshal::readUInt64, false)
+        746, 744 -> unpackedSint32 = protoUnmarshal.readRepeated(unpackedSint32, protoUnmarshal::readSInt32, false)
+        754, 752 -> unpackedSint64 = protoUnmarshal.readRepeated(unpackedSint64, protoUnmarshal::readSInt64, false)
+        762, 765 -> unpackedFixed32 = protoUnmarshal.readRepeated(unpackedFixed32, protoUnmarshal::readFixed32, false)
+        770, 769 -> unpackedFixed64 = protoUnmarshal.readRepeated(unpackedFixed64, protoUnmarshal::readFixed64, false)
+        778, 781 -> unpackedSfixed32 = protoUnmarshal.readRepeated(unpackedSfixed32, protoUnmarshal::readSFixed32, false)
+        786, 785 -> unpackedSfixed64 = protoUnmarshal.readRepeated(unpackedSfixed64, protoUnmarshal::readSFixed64, false)
+        794, 797 -> unpackedFloat = protoUnmarshal.readRepeated(unpackedFloat, protoUnmarshal::readFloat, false)
+        802, 801 -> unpackedDouble = protoUnmarshal.readRepeated(unpackedDouble, protoUnmarshal::readDouble, false)
+        808, 810 -> unpackedBool = protoUnmarshal.readRepeated(unpackedBool, protoUnmarshal::readBool, true)
+        816, 818 -> unpackedNestedEnum = protoUnmarshal.readRepeatedEnum(unpackedNestedEnum, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)
         888 -> oneofField = TestAllTypesProto3.OneofField.OneofUint32(protoUnmarshal.readUInt32())
         898 -> oneofField = TestAllTypesProto3.OneofField.OneofNestedMessage(protoUnmarshal.readMessage(pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion))
         906 -> oneofField = TestAllTypesProto3.OneofField.OneofString(protoUnmarshal.readString())
@@ -1060,6 +1846,7 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         2506 -> repeatedFieldmask = protoUnmarshal.readRepeatedMessage(repeatedFieldmask, pbandk.wkt.FieldMask.Companion, true)
         2522 -> repeatedAny = protoUnmarshal.readRepeatedMessage(repeatedAny, pbandk.wkt.Any.Companion, true)
         2530 -> repeatedValue = protoUnmarshal.readRepeatedMessage(repeatedValue, pbandk.wkt.Value.Companion, true)
+        2538 -> repeatedListValue = protoUnmarshal.readRepeatedMessage(repeatedListValue, pbandk.wkt.ListValue.Companion, true)
         2594 -> repeatedStruct = protoUnmarshal.readRepeatedMessage(repeatedStruct, pbandk.wkt.Struct.Companion, true)
         3208 -> fieldname1 = protoUnmarshal.readInt32()
         3216 -> fieldName2 = protoUnmarshal.readInt32()
@@ -1081,6 +1868,321 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         3344 -> fieldName18_ = protoUnmarshal.readInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.toJsonMapperImpl(): TestAllTypesProto3.JsonMapper =
+    TestAllTypesProto3.JsonMapper(
+        optionalInt32,
+        optionalInt64,
+        optionalUint32,
+        optionalUint64,
+        optionalSint32,
+        optionalSint64,
+        optionalFixed32,
+        optionalFixed64,
+        optionalSfixed32,
+        optionalSfixed64,
+        optionalFloat,
+        optionalDouble,
+        optionalBool,
+        optionalString.takeIf { it != "" },
+        optionalBytes,
+        optionalNestedMessage?.toJsonMapper(),
+        optionalForeignMessage?.toJsonMapper(),
+        optionalNestedEnum?.name,
+        optionalForeignEnum?.name,
+        optionalAliasedEnum?.name,
+        optionalStringPiece.takeIf { it != "" },
+        optionalCord.takeIf { it != "" },
+        recursiveMessage?.toJsonMapper(),
+        repeatedInt32,
+        repeatedInt64,
+        repeatedUint32,
+        repeatedUint64,
+        repeatedSint32,
+        repeatedSint64,
+        repeatedFixed32,
+        repeatedFixed64,
+        repeatedSfixed32,
+        repeatedSfixed64,
+        repeatedFloat,
+        repeatedDouble,
+        repeatedBool,
+        repeatedString,
+        repeatedBytes,
+        repeatedNestedMessage.map { it.toJsonMapper() },
+        repeatedForeignMessage.map { it.toJsonMapper() },
+        repeatedNestedEnum.mapNotNull { it.name },
+        repeatedForeignEnum.mapNotNull { it.name },
+        repeatedStringPiece,
+        repeatedCord,
+        mapInt32Int32,
+        mapInt64Int64,
+        mapUint32Uint32,
+        mapUint64Uint64,
+        mapSint32Sint32,
+        mapSint64Sint64,
+        mapFixed32Fixed32,
+        mapFixed64Fixed64,
+        mapSfixed32Sfixed32,
+        mapSfixed64Sfixed64,
+        mapInt32Float,
+        mapInt32Double,
+        mapBoolBool,
+        mapStringString,
+        mapStringBytes,
+        mapStringNestedMessage.mapValues { it.value?.toJsonMapper() },
+        mapStringForeignMessage.mapValues { it.value?.toJsonMapper() },
+        mapStringNestedEnum.mapValues { it.value?.name },
+        mapStringForeignEnum.mapValues { it.value?.name },
+        packedInt32,
+        packedInt64,
+        packedUint32,
+        packedUint64,
+        packedSint32,
+        packedSint64,
+        packedFixed32,
+        packedFixed64,
+        packedSfixed32,
+        packedSfixed64,
+        packedFloat,
+        packedDouble,
+        packedBool,
+        packedNestedEnum.mapNotNull { it.name },
+        unpackedInt32,
+        unpackedInt64,
+        unpackedUint32,
+        unpackedUint64,
+        unpackedSint32,
+        unpackedSint64,
+        unpackedFixed32,
+        unpackedFixed64,
+        unpackedSfixed32,
+        unpackedSfixed64,
+        unpackedFloat,
+        unpackedDouble,
+        unpackedBool,
+        unpackedNestedEnum.mapNotNull { it.name },
+        oneofUint32,
+        oneofNestedMessage?.toJsonMapper(),
+        oneofString.takeIf { it != "" },
+        oneofBytes,
+        oneofBool,
+        oneofUint64,
+        oneofFloat,
+        oneofDouble,
+        oneofEnum?.name,
+        optionalBoolWrapper?.toJsonMapper(),
+        optionalInt32Wrapper?.toJsonMapper(),
+        optionalInt64Wrapper?.toJsonMapper(),
+        optionalUint32Wrapper?.toJsonMapper(),
+        optionalUint64Wrapper?.toJsonMapper(),
+        optionalFloatWrapper?.toJsonMapper(),
+        optionalDoubleWrapper?.toJsonMapper(),
+        optionalStringWrapper?.toJsonMapper(),
+        optionalBytesWrapper?.toJsonMapper(),
+        repeatedBoolWrapper.map { it.toJsonMapper() },
+        repeatedInt32Wrapper.map { it.toJsonMapper() },
+        repeatedInt64Wrapper.map { it.toJsonMapper() },
+        repeatedUint32Wrapper.map { it.toJsonMapper() },
+        repeatedUint64Wrapper.map { it.toJsonMapper() },
+        repeatedFloatWrapper.map { it.toJsonMapper() },
+        repeatedDoubleWrapper.map { it.toJsonMapper() },
+        repeatedStringWrapper.map { it.toJsonMapper() },
+        repeatedBytesWrapper.map { it.toJsonMapper() },
+        optionalDuration?.toJsonMapper(),
+        optionalTimestamp?.toJsonMapper(),
+        optionalFieldMask?.toJsonMapper(),
+        optionalStruct?.toJsonMapper(),
+        optionalAny?.toJsonMapper(),
+        optionalValue?.toJsonMapper(),
+        repeatedDuration.map { it.toJsonMapper() },
+        repeatedTimestamp.map { it.toJsonMapper() },
+        repeatedFieldmask.map { it.toJsonMapper() },
+        repeatedAny.map { it.toJsonMapper() },
+        repeatedValue.map { it.toJsonMapper() },
+        repeatedListValue.map { it.toJsonMapper() },
+        repeatedStruct.map { it.toJsonMapper() },
+        fieldname1,
+        fieldName2,
+        fieldName3,
+        field_name4,
+        field0name5,
+        field0Name6,
+        fieldName7,
+        fieldName8,
+        fieldName9,
+        fieldName10,
+        fIELDNAME11,
+        fIELDName12,
+        _fieldName13,
+        _FieldName14,
+        field_name15,
+        field_Name16,
+        fieldName17_,
+        fieldName18_
+    )
+
+private fun TestAllTypesProto3.JsonMapper.toMessageImpl(): TestAllTypesProto3 =
+    TestAllTypesProto3(
+        optionalInt32 = optionalInt32 ?: 0,
+        optionalInt64 = optionalInt64 ?: 0L,
+        optionalUint32 = optionalUint32 ?: 0,
+        optionalUint64 = optionalUint64 ?: 0L,
+        optionalSint32 = optionalSint32 ?: 0,
+        optionalSint64 = optionalSint64 ?: 0L,
+        optionalFixed32 = optionalFixed32 ?: 0,
+        optionalFixed64 = optionalFixed64 ?: 0L,
+        optionalSfixed32 = optionalSfixed32 ?: 0,
+        optionalSfixed64 = optionalSfixed64 ?: 0L,
+        optionalFloat = optionalFloat ?: 0.0F,
+        optionalDouble = optionalDouble ?: 0.0,
+        optionalBool = optionalBool ?: false,
+        optionalString = optionalString ?: "",
+        optionalBytes = optionalBytes ?: pbandk.ByteArr.empty,
+        optionalNestedMessage = optionalNestedMessage?.toMessage(),
+        optionalForeignMessage = optionalForeignMessage?.toMessage(),
+        optionalNestedEnum = optionalNestedEnum?.let { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) } ?: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0),
+        optionalForeignEnum = optionalForeignEnum?.let { pbandk.conformance.pb.ForeignEnum.fromName(it) } ?: pbandk.conformance.pb.ForeignEnum.fromValue(0),
+        optionalAliasedEnum = optionalAliasedEnum?.let { pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.fromName(it) } ?: pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.fromValue(0),
+        optionalStringPiece = optionalStringPiece ?: "",
+        optionalCord = optionalCord ?: "",
+        recursiveMessage = recursiveMessage?.toMessage(),
+        repeatedInt32 = repeatedInt32 ?: emptyList(),
+        repeatedInt64 = repeatedInt64 ?: emptyList(),
+        repeatedUint32 = repeatedUint32 ?: emptyList(),
+        repeatedUint64 = repeatedUint64 ?: emptyList(),
+        repeatedSint32 = repeatedSint32 ?: emptyList(),
+        repeatedSint64 = repeatedSint64 ?: emptyList(),
+        repeatedFixed32 = repeatedFixed32 ?: emptyList(),
+        repeatedFixed64 = repeatedFixed64 ?: emptyList(),
+        repeatedSfixed32 = repeatedSfixed32 ?: emptyList(),
+        repeatedSfixed64 = repeatedSfixed64 ?: emptyList(),
+        repeatedFloat = repeatedFloat ?: emptyList(),
+        repeatedDouble = repeatedDouble ?: emptyList(),
+        repeatedBool = repeatedBool ?: emptyList(),
+        repeatedString = repeatedString ?: emptyList(),
+        repeatedBytes = repeatedBytes ?: emptyList(),
+        repeatedNestedMessage = repeatedNestedMessage.map { it.toMessage() },
+        repeatedForeignMessage = repeatedForeignMessage.map { it.toMessage() },
+        repeatedNestedEnum = repeatedNestedEnum.map { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) },
+        repeatedForeignEnum = repeatedForeignEnum.map { pbandk.conformance.pb.ForeignEnum.fromName(it) },
+        repeatedStringPiece = repeatedStringPiece ?: emptyList(),
+        repeatedCord = repeatedCord ?: emptyList(),
+        packedInt32 = packedInt32 ?: emptyList(),
+        packedInt64 = packedInt64 ?: emptyList(),
+        packedUint32 = packedUint32 ?: emptyList(),
+        packedUint64 = packedUint64 ?: emptyList(),
+        packedSint32 = packedSint32 ?: emptyList(),
+        packedSint64 = packedSint64 ?: emptyList(),
+        packedFixed32 = packedFixed32 ?: emptyList(),
+        packedFixed64 = packedFixed64 ?: emptyList(),
+        packedSfixed32 = packedSfixed32 ?: emptyList(),
+        packedSfixed64 = packedSfixed64 ?: emptyList(),
+        packedFloat = packedFloat ?: emptyList(),
+        packedDouble = packedDouble ?: emptyList(),
+        packedBool = packedBool ?: emptyList(),
+        packedNestedEnum = packedNestedEnum.map { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) },
+        unpackedInt32 = unpackedInt32 ?: emptyList(),
+        unpackedInt64 = unpackedInt64 ?: emptyList(),
+        unpackedUint32 = unpackedUint32 ?: emptyList(),
+        unpackedUint64 = unpackedUint64 ?: emptyList(),
+        unpackedSint32 = unpackedSint32 ?: emptyList(),
+        unpackedSint64 = unpackedSint64 ?: emptyList(),
+        unpackedFixed32 = unpackedFixed32 ?: emptyList(),
+        unpackedFixed64 = unpackedFixed64 ?: emptyList(),
+        unpackedSfixed32 = unpackedSfixed32 ?: emptyList(),
+        unpackedSfixed64 = unpackedSfixed64 ?: emptyList(),
+        unpackedFloat = unpackedFloat ?: emptyList(),
+        unpackedDouble = unpackedDouble ?: emptyList(),
+        unpackedBool = unpackedBool ?: emptyList(),
+        unpackedNestedEnum = unpackedNestedEnum.map { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) },
+        mapInt32Int32 = mapInt32Int32.mapValues { it.value ?: 0 },
+        mapInt64Int64 = mapInt64Int64.mapValues { it.value ?: 0L },
+        mapUint32Uint32 = mapUint32Uint32.mapValues { it.value ?: 0 },
+        mapUint64Uint64 = mapUint64Uint64.mapValues { it.value ?: 0L },
+        mapSint32Sint32 = mapSint32Sint32.mapValues { it.value ?: 0 },
+        mapSint64Sint64 = mapSint64Sint64.mapValues { it.value ?: 0L },
+        mapFixed32Fixed32 = mapFixed32Fixed32.mapValues { it.value ?: 0 },
+        mapFixed64Fixed64 = mapFixed64Fixed64.mapValues { it.value ?: 0L },
+        mapSfixed32Sfixed32 = mapSfixed32Sfixed32.mapValues { it.value ?: 0 },
+        mapSfixed64Sfixed64 = mapSfixed64Sfixed64.mapValues { it.value ?: 0L },
+        mapInt32Float = mapInt32Float.mapValues { it.value ?: 0.0F },
+        mapInt32Double = mapInt32Double.mapValues { it.value ?: 0.0 },
+        mapBoolBool = mapBoolBool.mapValues { it.value ?: false },
+        mapStringString = mapStringString.mapValues { it.value ?: "" },
+        mapStringBytes = mapStringBytes.mapValues { it.value ?: pbandk.ByteArr.empty },
+        mapStringNestedMessage = mapStringNestedMessage.mapValues { it.value?.toMessage() },
+        mapStringForeignMessage = mapStringForeignMessage.mapValues { it.value?.toMessage() },
+        mapStringNestedEnum = mapStringNestedEnum.mapValues { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it.value!!) },
+        mapStringForeignEnum = mapStringForeignEnum.mapValues { pbandk.conformance.pb.ForeignEnum.fromName(it.value!!) },
+        optionalBoolWrapper = optionalBoolWrapper?.toMessage(),
+        optionalInt32Wrapper = optionalInt32Wrapper?.toMessage(),
+        optionalInt64Wrapper = optionalInt64Wrapper?.toMessage(),
+        optionalUint32Wrapper = optionalUint32Wrapper?.toMessage(),
+        optionalUint64Wrapper = optionalUint64Wrapper?.toMessage(),
+        optionalFloatWrapper = optionalFloatWrapper?.toMessage(),
+        optionalDoubleWrapper = optionalDoubleWrapper?.toMessage(),
+        optionalStringWrapper = optionalStringWrapper?.toMessage(),
+        optionalBytesWrapper = optionalBytesWrapper?.toMessage(),
+        repeatedBoolWrapper = repeatedBoolWrapper.map { it.toMessage() },
+        repeatedInt32Wrapper = repeatedInt32Wrapper.map { it.toMessage() },
+        repeatedInt64Wrapper = repeatedInt64Wrapper.map { it.toMessage() },
+        repeatedUint32Wrapper = repeatedUint32Wrapper.map { it.toMessage() },
+        repeatedUint64Wrapper = repeatedUint64Wrapper.map { it.toMessage() },
+        repeatedFloatWrapper = repeatedFloatWrapper.map { it.toMessage() },
+        repeatedDoubleWrapper = repeatedDoubleWrapper.map { it.toMessage() },
+        repeatedStringWrapper = repeatedStringWrapper.map { it.toMessage() },
+        repeatedBytesWrapper = repeatedBytesWrapper.map { it.toMessage() },
+        optionalDuration = optionalDuration?.toMessage(),
+        optionalTimestamp = optionalTimestamp?.toMessage(),
+        optionalFieldMask = optionalFieldMask?.toMessage(),
+        optionalStruct = optionalStruct?.toMessage(),
+        optionalAny = optionalAny?.toMessage(),
+        optionalValue = optionalValue?.toMessage(),
+        repeatedDuration = repeatedDuration.map { it.toMessage() },
+        repeatedTimestamp = repeatedTimestamp.map { it.toMessage() },
+        repeatedFieldmask = repeatedFieldmask.map { it.toMessage() },
+        repeatedStruct = repeatedStruct.map { it.toMessage() },
+        repeatedAny = repeatedAny.map { it.toMessage() },
+        repeatedValue = repeatedValue.map { it.toMessage() },
+        repeatedListValue = repeatedListValue.map { it.toMessage() },
+        fieldname1 = fieldname1 ?: 0,
+        fieldName2 = fieldName2 ?: 0,
+        fieldName3 = fieldName3 ?: 0,
+        field_name4 = field_name4 ?: 0,
+        field0name5 = field0name5 ?: 0,
+        field0Name6 = field0Name6 ?: 0,
+        fieldName7 = fieldName7 ?: 0,
+        fieldName8 = fieldName8 ?: 0,
+        fieldName9 = fieldName9 ?: 0,
+        fieldName10 = fieldName10 ?: 0,
+        fIELDNAME11 = fIELDNAME11 ?: 0,
+        fIELDName12 = fIELDName12 ?: 0,
+        _fieldName13 = _fieldName13 ?: 0,
+        _FieldName14 = _FieldName14 ?: 0,
+        field_name15 = field_name15 ?: 0,
+        field_Name16 = field_Name16 ?: 0,
+        fieldName17_ = fieldName17_ ?: 0,
+        fieldName18_ = fieldName18_ ?: 0,
+        oneofField = 
+            oneofUint32?.let { value -> TestAllTypesProto3.OneofField.OneofUint32(value) }
+             ?: oneofNestedMessage?.let { value -> TestAllTypesProto3.OneofField.OneofNestedMessage(value.toMessage()) }
+             ?: oneofString?.let { value -> TestAllTypesProto3.OneofField.OneofString(value) }
+             ?: oneofBytes?.let { value -> TestAllTypesProto3.OneofField.OneofBytes(value) }
+             ?: oneofBool?.let { value -> TestAllTypesProto3.OneofField.OneofBool(value) }
+             ?: oneofUint64?.let { value -> TestAllTypesProto3.OneofField.OneofUint64(value) }
+             ?: oneofFloat?.let { value -> TestAllTypesProto3.OneofField.OneofFloat(value) }
+             ?: oneofDouble?.let { value -> TestAllTypesProto3.OneofField.OneofDouble(value) }
+             ?: oneofEnum?.let { value -> TestAllTypesProto3.OneofField.OneofEnum(value.let { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) }) }
+    )
+
+private fun TestAllTypesProto3.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3 {
+    val mapper = json.parse(TestAllTypesProto3.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.NestedMessage?.orDefault() = this ?: TestAllTypesProto3.NestedMessage.defaultInstance
@@ -1115,6 +2217,26 @@ private fun TestAllTypesProto3.NestedMessage.Companion.protoUnmarshalImpl(protoU
     }
 }
 
+private fun TestAllTypesProto3.NestedMessage.toJsonMapperImpl(): TestAllTypesProto3.NestedMessage.JsonMapper =
+    TestAllTypesProto3.NestedMessage.JsonMapper(
+        a,
+        corecursive?.toJsonMapper()
+    )
+
+private fun TestAllTypesProto3.NestedMessage.JsonMapper.toMessageImpl(): TestAllTypesProto3.NestedMessage =
+    TestAllTypesProto3.NestedMessage(
+        a = a ?: 0,
+        corecursive = corecursive?.toMessage()
+    )
+
+private fun TestAllTypesProto3.NestedMessage.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.NestedMessage.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.NestedMessage.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.NestedMessage {
+    val mapper = json.parse(TestAllTypesProto3.NestedMessage.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapInt32Int32Entry?.orDefault() = this ?: TestAllTypesProto3.MapInt32Int32Entry.defaultInstance
 
 private fun TestAllTypesProto3.MapInt32Int32Entry.protoMergeImpl(plus: TestAllTypesProto3.MapInt32Int32Entry?): TestAllTypesProto3.MapInt32Int32Entry = plus?.copy(
@@ -1144,6 +2266,26 @@ private fun TestAllTypesProto3.MapInt32Int32Entry.Companion.protoUnmarshalImpl(p
         16 -> value = protoUnmarshal.readInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapInt32Int32Entry.toJsonMapperImpl(): TestAllTypesProto3.MapInt32Int32Entry.JsonMapper =
+    TestAllTypesProto3.MapInt32Int32Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapInt32Int32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32Int32Entry =
+    TestAllTypesProto3.MapInt32Int32Entry(
+        key = key ?: 0,
+        value = value ?: 0
+    )
+
+private fun TestAllTypesProto3.MapInt32Int32Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapInt32Int32Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapInt32Int32Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapInt32Int32Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapInt32Int32Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapInt64Int64Entry?.orDefault() = this ?: TestAllTypesProto3.MapInt64Int64Entry.defaultInstance
@@ -1177,6 +2319,26 @@ private fun TestAllTypesProto3.MapInt64Int64Entry.Companion.protoUnmarshalImpl(p
     }
 }
 
+private fun TestAllTypesProto3.MapInt64Int64Entry.toJsonMapperImpl(): TestAllTypesProto3.MapInt64Int64Entry.JsonMapper =
+    TestAllTypesProto3.MapInt64Int64Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapInt64Int64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt64Int64Entry =
+    TestAllTypesProto3.MapInt64Int64Entry(
+        key = key ?: 0L,
+        value = value ?: 0L
+    )
+
+private fun TestAllTypesProto3.MapInt64Int64Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapInt64Int64Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapInt64Int64Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapInt64Int64Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapInt64Int64Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapUint32Uint32Entry?.orDefault() = this ?: TestAllTypesProto3.MapUint32Uint32Entry.defaultInstance
 
 private fun TestAllTypesProto3.MapUint32Uint32Entry.protoMergeImpl(plus: TestAllTypesProto3.MapUint32Uint32Entry?): TestAllTypesProto3.MapUint32Uint32Entry = plus?.copy(
@@ -1206,6 +2368,26 @@ private fun TestAllTypesProto3.MapUint32Uint32Entry.Companion.protoUnmarshalImpl
         16 -> value = protoUnmarshal.readUInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapUint32Uint32Entry.toJsonMapperImpl(): TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper =
+    TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapUint32Uint32Entry =
+    TestAllTypesProto3.MapUint32Uint32Entry(
+        key = key ?: 0,
+        value = value ?: 0
+    )
+
+private fun TestAllTypesProto3.MapUint32Uint32Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapUint32Uint32Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapUint32Uint32Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapUint64Uint64Entry?.orDefault() = this ?: TestAllTypesProto3.MapUint64Uint64Entry.defaultInstance
@@ -1239,6 +2421,26 @@ private fun TestAllTypesProto3.MapUint64Uint64Entry.Companion.protoUnmarshalImpl
     }
 }
 
+private fun TestAllTypesProto3.MapUint64Uint64Entry.toJsonMapperImpl(): TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper =
+    TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapUint64Uint64Entry =
+    TestAllTypesProto3.MapUint64Uint64Entry(
+        key = key ?: 0L,
+        value = value ?: 0L
+    )
+
+private fun TestAllTypesProto3.MapUint64Uint64Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapUint64Uint64Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapUint64Uint64Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapSint32Sint32Entry?.orDefault() = this ?: TestAllTypesProto3.MapSint32Sint32Entry.defaultInstance
 
 private fun TestAllTypesProto3.MapSint32Sint32Entry.protoMergeImpl(plus: TestAllTypesProto3.MapSint32Sint32Entry?): TestAllTypesProto3.MapSint32Sint32Entry = plus?.copy(
@@ -1268,6 +2470,26 @@ private fun TestAllTypesProto3.MapSint32Sint32Entry.Companion.protoUnmarshalImpl
         16 -> value = protoUnmarshal.readSInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapSint32Sint32Entry.toJsonMapperImpl(): TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper =
+    TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSint32Sint32Entry =
+    TestAllTypesProto3.MapSint32Sint32Entry(
+        key = key ?: 0,
+        value = value ?: 0
+    )
+
+private fun TestAllTypesProto3.MapSint32Sint32Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapSint32Sint32Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapSint32Sint32Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapSint64Sint64Entry?.orDefault() = this ?: TestAllTypesProto3.MapSint64Sint64Entry.defaultInstance
@@ -1301,6 +2523,26 @@ private fun TestAllTypesProto3.MapSint64Sint64Entry.Companion.protoUnmarshalImpl
     }
 }
 
+private fun TestAllTypesProto3.MapSint64Sint64Entry.toJsonMapperImpl(): TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper =
+    TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSint64Sint64Entry =
+    TestAllTypesProto3.MapSint64Sint64Entry(
+        key = key ?: 0L,
+        value = value ?: 0L
+    )
+
+private fun TestAllTypesProto3.MapSint64Sint64Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapSint64Sint64Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapSint64Sint64Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapFixed32Fixed32Entry?.orDefault() = this ?: TestAllTypesProto3.MapFixed32Fixed32Entry.defaultInstance
 
 private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoMergeImpl(plus: TestAllTypesProto3.MapFixed32Fixed32Entry?): TestAllTypesProto3.MapFixed32Fixed32Entry = plus?.copy(
@@ -1330,6 +2572,26 @@ private fun TestAllTypesProto3.MapFixed32Fixed32Entry.Companion.protoUnmarshalIm
         21 -> value = protoUnmarshal.readFixed32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapFixed32Fixed32Entry.toJsonMapperImpl(): TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper =
+    TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapFixed32Fixed32Entry =
+    TestAllTypesProto3.MapFixed32Fixed32Entry(
+        key = key ?: 0,
+        value = value ?: 0
+    )
+
+private fun TestAllTypesProto3.MapFixed32Fixed32Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapFixed32Fixed32Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapFixed32Fixed32Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapFixed64Fixed64Entry?.orDefault() = this ?: TestAllTypesProto3.MapFixed64Fixed64Entry.defaultInstance
@@ -1363,6 +2625,26 @@ private fun TestAllTypesProto3.MapFixed64Fixed64Entry.Companion.protoUnmarshalIm
     }
 }
 
+private fun TestAllTypesProto3.MapFixed64Fixed64Entry.toJsonMapperImpl(): TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper =
+    TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapFixed64Fixed64Entry =
+    TestAllTypesProto3.MapFixed64Fixed64Entry(
+        key = key ?: 0L,
+        value = value ?: 0L
+    )
+
+private fun TestAllTypesProto3.MapFixed64Fixed64Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapFixed64Fixed64Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapFixed64Fixed64Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapSfixed32Sfixed32Entry?.orDefault() = this ?: TestAllTypesProto3.MapSfixed32Sfixed32Entry.defaultInstance
 
 private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: TestAllTypesProto3.MapSfixed32Sfixed32Entry?): TestAllTypesProto3.MapSfixed32Sfixed32Entry = plus?.copy(
@@ -1392,6 +2674,26 @@ private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion.protoUnmarshal
         21 -> value = protoUnmarshal.readSFixed32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.toJsonMapperImpl(): TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper =
+    TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSfixed32Sfixed32Entry =
+    TestAllTypesProto3.MapSfixed32Sfixed32Entry(
+        key = key ?: 0,
+        value = value ?: 0
+    )
+
+private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapSfixed32Sfixed32Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapSfixed64Sfixed64Entry?.orDefault() = this ?: TestAllTypesProto3.MapSfixed64Sfixed64Entry.defaultInstance
@@ -1425,6 +2727,26 @@ private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion.protoUnmarshal
     }
 }
 
+private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.toJsonMapperImpl(): TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper =
+    TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSfixed64Sfixed64Entry =
+    TestAllTypesProto3.MapSfixed64Sfixed64Entry(
+        key = key ?: 0L,
+        value = value ?: 0L
+    )
+
+private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapSfixed64Sfixed64Entry {
+    val mapper = json.parse(TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapInt32FloatEntry?.orDefault() = this ?: TestAllTypesProto3.MapInt32FloatEntry.defaultInstance
 
 private fun TestAllTypesProto3.MapInt32FloatEntry.protoMergeImpl(plus: TestAllTypesProto3.MapInt32FloatEntry?): TestAllTypesProto3.MapInt32FloatEntry = plus?.copy(
@@ -1454,6 +2776,26 @@ private fun TestAllTypesProto3.MapInt32FloatEntry.Companion.protoUnmarshalImpl(p
         21 -> value = protoUnmarshal.readFloat()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapInt32FloatEntry.toJsonMapperImpl(): TestAllTypesProto3.MapInt32FloatEntry.JsonMapper =
+    TestAllTypesProto3.MapInt32FloatEntry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapInt32FloatEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32FloatEntry =
+    TestAllTypesProto3.MapInt32FloatEntry(
+        key = key ?: 0,
+        value = value ?: 0.0F
+    )
+
+private fun TestAllTypesProto3.MapInt32FloatEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapInt32FloatEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapInt32FloatEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapInt32FloatEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapInt32FloatEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapInt32DoubleEntry?.orDefault() = this ?: TestAllTypesProto3.MapInt32DoubleEntry.defaultInstance
@@ -1487,6 +2829,26 @@ private fun TestAllTypesProto3.MapInt32DoubleEntry.Companion.protoUnmarshalImpl(
     }
 }
 
+private fun TestAllTypesProto3.MapInt32DoubleEntry.toJsonMapperImpl(): TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper =
+    TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32DoubleEntry =
+    TestAllTypesProto3.MapInt32DoubleEntry(
+        key = key ?: 0,
+        value = value ?: 0.0
+    )
+
+private fun TestAllTypesProto3.MapInt32DoubleEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapInt32DoubleEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapInt32DoubleEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapBoolBoolEntry?.orDefault() = this ?: TestAllTypesProto3.MapBoolBoolEntry.defaultInstance
 
 private fun TestAllTypesProto3.MapBoolBoolEntry.protoMergeImpl(plus: TestAllTypesProto3.MapBoolBoolEntry?): TestAllTypesProto3.MapBoolBoolEntry = plus?.copy(
@@ -1516,6 +2878,26 @@ private fun TestAllTypesProto3.MapBoolBoolEntry.Companion.protoUnmarshalImpl(pro
         16 -> value = protoUnmarshal.readBool()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapBoolBoolEntry.toJsonMapperImpl(): TestAllTypesProto3.MapBoolBoolEntry.JsonMapper =
+    TestAllTypesProto3.MapBoolBoolEntry.JsonMapper(
+        key,
+        value
+    )
+
+private fun TestAllTypesProto3.MapBoolBoolEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapBoolBoolEntry =
+    TestAllTypesProto3.MapBoolBoolEntry(
+        key = key ?: false,
+        value = value ?: false
+    )
+
+private fun TestAllTypesProto3.MapBoolBoolEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapBoolBoolEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapBoolBoolEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapBoolBoolEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapBoolBoolEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapStringStringEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringStringEntry.defaultInstance
@@ -1549,6 +2931,26 @@ private fun TestAllTypesProto3.MapStringStringEntry.Companion.protoUnmarshalImpl
     }
 }
 
+private fun TestAllTypesProto3.MapStringStringEntry.toJsonMapperImpl(): TestAllTypesProto3.MapStringStringEntry.JsonMapper =
+    TestAllTypesProto3.MapStringStringEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value.takeIf { it != "" }
+    )
+
+private fun TestAllTypesProto3.MapStringStringEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringStringEntry =
+    TestAllTypesProto3.MapStringStringEntry(
+        key = key ?: "",
+        value = value ?: ""
+    )
+
+private fun TestAllTypesProto3.MapStringStringEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapStringStringEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapStringStringEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapStringStringEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapStringStringEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapStringBytesEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringBytesEntry.defaultInstance
 
 private fun TestAllTypesProto3.MapStringBytesEntry.protoMergeImpl(plus: TestAllTypesProto3.MapStringBytesEntry?): TestAllTypesProto3.MapStringBytesEntry = plus?.copy(
@@ -1578,6 +2980,26 @@ private fun TestAllTypesProto3.MapStringBytesEntry.Companion.protoUnmarshalImpl(
         18 -> value = protoUnmarshal.readBytes()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapStringBytesEntry.toJsonMapperImpl(): TestAllTypesProto3.MapStringBytesEntry.JsonMapper =
+    TestAllTypesProto3.MapStringBytesEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value
+    )
+
+private fun TestAllTypesProto3.MapStringBytesEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringBytesEntry =
+    TestAllTypesProto3.MapStringBytesEntry(
+        key = key ?: "",
+        value = value ?: pbandk.ByteArr.empty
+    )
+
+private fun TestAllTypesProto3.MapStringBytesEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapStringBytesEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapStringBytesEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapStringBytesEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapStringBytesEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapStringNestedMessageEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringNestedMessageEntry.defaultInstance
@@ -1612,6 +3034,26 @@ private fun TestAllTypesProto3.MapStringNestedMessageEntry.Companion.protoUnmars
     }
 }
 
+private fun TestAllTypesProto3.MapStringNestedMessageEntry.toJsonMapperImpl(): TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper =
+    TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value?.toJsonMapper()
+    )
+
+private fun TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringNestedMessageEntry =
+    TestAllTypesProto3.MapStringNestedMessageEntry(
+        key = key ?: "",
+        value = value?.toMessage()
+    )
+
+private fun TestAllTypesProto3.MapStringNestedMessageEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapStringNestedMessageEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapStringNestedMessageEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapStringForeignMessageEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringForeignMessageEntry.defaultInstance
 
 private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoMergeImpl(plus: TestAllTypesProto3.MapStringForeignMessageEntry?): TestAllTypesProto3.MapStringForeignMessageEntry = plus?.copy(
@@ -1642,6 +3084,26 @@ private fun TestAllTypesProto3.MapStringForeignMessageEntry.Companion.protoUnmar
         18 -> value = protoUnmarshal.readMessage(pbandk.conformance.pb.ForeignMessage.Companion)
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun TestAllTypesProto3.MapStringForeignMessageEntry.toJsonMapperImpl(): TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper =
+    TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value?.toJsonMapper()
+    )
+
+private fun TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringForeignMessageEntry =
+    TestAllTypesProto3.MapStringForeignMessageEntry(
+        key = key ?: "",
+        value = value?.toMessage()
+    )
+
+private fun TestAllTypesProto3.MapStringForeignMessageEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapStringForeignMessageEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapStringForeignMessageEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun TestAllTypesProto3.MapStringNestedEnumEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringNestedEnumEntry.defaultInstance
@@ -1675,6 +3137,26 @@ private fun TestAllTypesProto3.MapStringNestedEnumEntry.Companion.protoUnmarshal
     }
 }
 
+private fun TestAllTypesProto3.MapStringNestedEnumEntry.toJsonMapperImpl(): TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper =
+    TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value?.name
+    )
+
+private fun TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringNestedEnumEntry =
+    TestAllTypesProto3.MapStringNestedEnumEntry(
+        key = key ?: "",
+        value = value?.let { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) } ?: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0)
+    )
+
+private fun TestAllTypesProto3.MapStringNestedEnumEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapStringNestedEnumEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapStringNestedEnumEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun TestAllTypesProto3.MapStringForeignEnumEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringForeignEnumEntry.defaultInstance
 
 private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoMergeImpl(plus: TestAllTypesProto3.MapStringForeignEnumEntry?): TestAllTypesProto3.MapStringForeignEnumEntry = plus?.copy(
@@ -1706,6 +3188,26 @@ private fun TestAllTypesProto3.MapStringForeignEnumEntry.Companion.protoUnmarsha
     }
 }
 
+private fun TestAllTypesProto3.MapStringForeignEnumEntry.toJsonMapperImpl(): TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper =
+    TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value?.name
+    )
+
+private fun TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringForeignEnumEntry =
+    TestAllTypesProto3.MapStringForeignEnumEntry(
+        key = key ?: "",
+        value = value?.let { pbandk.conformance.pb.ForeignEnum.fromName(it) } ?: pbandk.conformance.pb.ForeignEnum.fromValue(0)
+    )
+
+private fun TestAllTypesProto3.MapStringForeignEnumEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun TestAllTypesProto3.MapStringForeignEnumEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): TestAllTypesProto3.MapStringForeignEnumEntry {
+    val mapper = json.parse(TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun ForeignMessage?.orDefault() = this ?: ForeignMessage.defaultInstance
 
 private fun ForeignMessage.protoMergeImpl(plus: ForeignMessage?): ForeignMessage = plus?.copy(
@@ -1731,4 +3233,22 @@ private fun ForeignMessage.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
         8 -> c = protoUnmarshal.readInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun ForeignMessage.toJsonMapperImpl(): ForeignMessage.JsonMapper =
+    ForeignMessage.JsonMapper(
+        c
+    )
+
+private fun ForeignMessage.JsonMapper.toMessageImpl(): ForeignMessage =
+    ForeignMessage(
+        c = c ?: 0
+    )
+
+private fun ForeignMessage.jsonMarshalImpl(json: Json): String =
+    json.stringify(ForeignMessage.JsonMapper.serializer(), toJsonMapper())
+
+private fun ForeignMessage.Companion.jsonUnmarshalImpl(json: Json, data: String): ForeignMessage {
+    val mapper = json.parse(ForeignMessage.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

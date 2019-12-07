@@ -1,17 +1,30 @@
 package pbandk.testpb
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class Foo(
     val `val`: String = "",
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Foo> {
     override operator fun plus(other: Foo?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Foo> {
         val defaultInstance by lazy { Foo() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Foo.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Foo.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("val")
+        val `val`: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -20,11 +33,22 @@ data class Bar(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Bar> {
     override operator fun plus(other: Bar?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Bar> {
         val defaultInstance by lazy { Bar() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Bar.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Bar.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("foos")
+        val foos: List<pbandk.testpb.Foo.JsonMapper> = emptyList()
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -33,11 +57,22 @@ data class MessageWithMap(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<MessageWithMap> {
     override operator fun plus(other: MessageWithMap?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<MessageWithMap> {
         val defaultInstance by lazy { MessageWithMap() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = MessageWithMap.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = MessageWithMap.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("map")
+        val map: Map<String, String?> = emptyMap()
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 
     data class MapEntry(
@@ -46,11 +81,24 @@ data class MessageWithMap(
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<MapEntry>, Map.Entry<String, String> {
         override operator fun plus(other: MapEntry?) = protoMergeImpl(other)
-        @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+        override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        fun toJsonMapper() = toJsonMapperImpl()
         companion object : pbandk.Message.Companion<MapEntry> {
             val defaultInstance by lazy { MapEntry() }
             override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = MapEntry.jsonUnmarshalImpl(json, data)
+        }
+
+        @Serializable
+        data class JsonMapper (
+            @SerialName("key")
+            val key: String? = null,
+            @SerialName("value")
+            val value: String? = null
+        ) {
+            fun toMessage() = toMessageImpl()
         }
     }
 }
@@ -82,6 +130,24 @@ private fun Foo.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
     }
 }
 
+private fun Foo.toJsonMapperImpl(): Foo.JsonMapper =
+    Foo.JsonMapper(
+        `val`.takeIf { it != "" }
+    )
+
+private fun Foo.JsonMapper.toMessageImpl(): Foo =
+    Foo(
+        `val` = `val` ?: ""
+    )
+
+private fun Foo.jsonMarshalImpl(json: Json): String =
+    json.stringify(Foo.JsonMapper.serializer(), toJsonMapper())
+
+private fun Foo.Companion.jsonUnmarshalImpl(json: Json, data: String): Foo {
+    val mapper = json.parse(Foo.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun Bar?.orDefault() = this ?: Bar.defaultInstance
 
 private fun Bar.protoMergeImpl(plus: Bar?): Bar = plus?.copy(
@@ -110,6 +176,24 @@ private fun Bar.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
     }
 }
 
+private fun Bar.toJsonMapperImpl(): Bar.JsonMapper =
+    Bar.JsonMapper(
+        foos.map { it.toJsonMapper() }
+    )
+
+private fun Bar.JsonMapper.toMessageImpl(): Bar =
+    Bar(
+        foos = foos.map { it.toMessage() }
+    )
+
+private fun Bar.jsonMarshalImpl(json: Json): String =
+    json.stringify(Bar.JsonMapper.serializer(), toJsonMapper())
+
+private fun Bar.Companion.jsonUnmarshalImpl(json: Json, data: String): Bar {
+    val mapper = json.parse(Bar.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
 fun MessageWithMap?.orDefault() = this ?: MessageWithMap.defaultInstance
 
 private fun MessageWithMap.protoMergeImpl(plus: MessageWithMap?): MessageWithMap = plus?.copy(
@@ -136,6 +220,24 @@ private fun MessageWithMap.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.U
         10 -> map = protoUnmarshal.readMap(map, pbandk.testpb.MessageWithMap.MapEntry.Companion, true)
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun MessageWithMap.toJsonMapperImpl(): MessageWithMap.JsonMapper =
+    MessageWithMap.JsonMapper(
+        map
+    )
+
+private fun MessageWithMap.JsonMapper.toMessageImpl(): MessageWithMap =
+    MessageWithMap(
+        map = map.mapValues { it.value ?: "" }
+    )
+
+private fun MessageWithMap.jsonMarshalImpl(json: Json): String =
+    json.stringify(MessageWithMap.JsonMapper.serializer(), toJsonMapper())
+
+private fun MessageWithMap.Companion.jsonUnmarshalImpl(json: Json, data: String): MessageWithMap {
+    val mapper = json.parse(MessageWithMap.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
 
 fun MessageWithMap.MapEntry?.orDefault() = this ?: MessageWithMap.MapEntry.defaultInstance
@@ -167,4 +269,24 @@ private fun MessageWithMap.MapEntry.Companion.protoUnmarshalImpl(protoUnmarshal:
         18 -> value = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun MessageWithMap.MapEntry.toJsonMapperImpl(): MessageWithMap.MapEntry.JsonMapper =
+    MessageWithMap.MapEntry.JsonMapper(
+        key.takeIf { it != "" },
+        value.takeIf { it != "" }
+    )
+
+private fun MessageWithMap.MapEntry.JsonMapper.toMessageImpl(): MessageWithMap.MapEntry =
+    MessageWithMap.MapEntry(
+        key = key ?: "",
+        value = value ?: ""
+    )
+
+private fun MessageWithMap.MapEntry.jsonMarshalImpl(json: Json): String =
+    json.stringify(MessageWithMap.MapEntry.JsonMapper.serializer(), toJsonMapper())
+
+private fun MessageWithMap.MapEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): MessageWithMap.MapEntry {
+    val mapper = json.parse(MessageWithMap.MapEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

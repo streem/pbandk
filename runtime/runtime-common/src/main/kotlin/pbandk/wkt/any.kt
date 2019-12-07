@@ -1,6 +1,8 @@
 package pbandk.wkt
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class Any(
     val typeUrl: String = "",
@@ -8,11 +10,24 @@ data class Any(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Any> {
     override operator fun plus(other: Any?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Any> {
         val defaultInstance by lazy { Any() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Any.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Any.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("type_url")
+        val typeUrl: String? = null,
+        @SerialName("value")
+        val value: pbandk.ByteArr? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -45,4 +60,24 @@ private fun Any.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller
         18 -> value = protoUnmarshal.readBytes()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun Any.toJsonMapperImpl(): Any.JsonMapper =
+    Any.JsonMapper(
+        typeUrl.takeIf { it != "" },
+        value
+    )
+
+private fun Any.JsonMapper.toMessageImpl(): Any =
+    Any(
+        typeUrl = typeUrl ?: "",
+        value = value ?: pbandk.ByteArr.empty
+    )
+
+private fun Any.jsonMarshalImpl(json: Json): String =
+    json.stringify(Any.JsonMapper.serializer(), toJsonMapper())
+
+private fun Any.Companion.jsonUnmarshalImpl(json: Json, data: String): Any {
+    val mapper = json.parse(Any.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

@@ -1,6 +1,8 @@
 package pbandk.wkt
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class Duration(
     val seconds: Long = 0L,
@@ -8,11 +10,24 @@ data class Duration(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Duration> {
     override operator fun plus(other: Duration?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Duration> {
         val defaultInstance by lazy { Duration() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Duration.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Duration.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("seconds")
+        val seconds: Long? = null,
+        @SerialName("nanos")
+        val nanos: Int? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -45,4 +60,24 @@ private fun Duration.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarsh
         16 -> nanos = protoUnmarshal.readInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun Duration.toJsonMapperImpl(): Duration.JsonMapper =
+    Duration.JsonMapper(
+        seconds,
+        nanos
+    )
+
+private fun Duration.JsonMapper.toMessageImpl(): Duration =
+    Duration(
+        seconds = seconds ?: 0L,
+        nanos = nanos ?: 0
+    )
+
+private fun Duration.jsonMarshalImpl(json: Json): String =
+    json.stringify(Duration.JsonMapper.serializer(), toJsonMapper())
+
+private fun Duration.Companion.jsonUnmarshalImpl(json: Json, data: String): Duration {
+    val mapper = json.parse(Duration.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

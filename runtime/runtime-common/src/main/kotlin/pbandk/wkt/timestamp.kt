@@ -1,6 +1,8 @@
 package pbandk.wkt
 
-import kotlin.jvm.Transient
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+
 
 data class Timestamp(
     val seconds: Long = 0L,
@@ -8,11 +10,24 @@ data class Timestamp(
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Timestamp> {
     override operator fun plus(other: Timestamp?) = protoMergeImpl(other)
-    @delegate:Transient override val protoSize by lazy { protoSizeImpl() }
+    override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<Timestamp> {
         val defaultInstance by lazy { Timestamp() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Timestamp.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Timestamp.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("seconds")
+        val seconds: Long? = null,
+        @SerialName("nanos")
+        val nanos: Int? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -45,4 +60,24 @@ private fun Timestamp.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmars
         16 -> nanos = protoUnmarshal.readInt32()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun Timestamp.toJsonMapperImpl(): Timestamp.JsonMapper =
+    Timestamp.JsonMapper(
+        seconds,
+        nanos
+    )
+
+private fun Timestamp.JsonMapper.toMessageImpl(): Timestamp =
+    Timestamp(
+        seconds = seconds ?: 0L,
+        nanos = nanos ?: 0
+    )
+
+private fun Timestamp.jsonMarshalImpl(json: Json): String =
+    json.stringify(Timestamp.JsonMapper.serializer(), toJsonMapper())
+
+private fun Timestamp.Companion.jsonUnmarshalImpl(json: Json, data: String): Timestamp {
+    val mapper = json.parse(Timestamp.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }
