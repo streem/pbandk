@@ -1,8 +1,9 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.wkt
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-
 
 data class FieldMask(
     val paths: List<String> = emptyList(),

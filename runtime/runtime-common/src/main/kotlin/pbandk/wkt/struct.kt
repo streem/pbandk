@@ -1,8 +1,9 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.wkt
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-
 
 sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is NullValue && other.value == value

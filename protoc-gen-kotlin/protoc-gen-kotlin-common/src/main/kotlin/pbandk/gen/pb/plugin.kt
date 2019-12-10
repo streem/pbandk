@@ -1,8 +1,9 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.gen.pb
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-
 
 data class Version(
     val major: Int? = null,
