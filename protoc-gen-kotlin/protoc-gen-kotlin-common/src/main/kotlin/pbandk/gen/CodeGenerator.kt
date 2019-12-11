@@ -7,11 +7,12 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected val jsonUseProtoNames = params["json_use_proto_names"]?.toBoolean() ?: false
 
     fun generate(): String {
+        line("@file:UseSerializers(pbandk.ser.TimestampSerializer::class)")
+        line()
         file.kotlinPackageName?.let { line("package $it") }
         line()
         line("import kotlinx.serialization.*")
         line("import kotlinx.serialization.json.*")
-        line()
         file.types.forEach(::writeType)
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
         return bld.toString()

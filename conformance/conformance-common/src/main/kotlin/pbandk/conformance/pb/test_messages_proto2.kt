@@ -1,8 +1,9 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.conformance.pb
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-
 
 sealed class ForeignEnumProto2(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is ForeignEnumProto2 && other.value == value

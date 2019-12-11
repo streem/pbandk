@@ -1,8 +1,11 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.wkt
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
+import kotlinx.serialization.json.Json
 
 data class DoubleValue(
     val value: Double = 0.0,

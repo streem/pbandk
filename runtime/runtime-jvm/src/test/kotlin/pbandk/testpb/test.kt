@@ -1,8 +1,9 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.testpb
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-
 
 data class Foo(
     val `val`: String = "",
