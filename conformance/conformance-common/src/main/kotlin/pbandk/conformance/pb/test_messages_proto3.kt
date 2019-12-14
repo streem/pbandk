@@ -166,7 +166,7 @@ data class TestAllTypesProto3(
     val oneofField: OneofField<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<TestAllTypesProto3> {
-    sealed class OneofField<V>(val value: V) {
+    sealed class OneofField<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class OneofUint32(oneofUint32: Int = 0) : OneofField<Int>(oneofUint32)
         class OneofNestedMessage(oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage) : OneofField<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>(oneofNestedMessage)
         class OneofString(oneofString: String = "") : OneofField<String>(oneofString)

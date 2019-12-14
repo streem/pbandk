@@ -77,7 +77,7 @@ data class ConformanceRequest(
     val payload: Payload<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ConformanceRequest> {
-    sealed class Payload<V>(val value: V) {
+    sealed class Payload<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Payload<pbandk.ByteArr>(protobufPayload)
         class JsonPayload(jsonPayload: String = "") : Payload<String>(jsonPayload)
         class JspbPayload(jspbPayload: String = "") : Payload<String>(jspbPayload)
@@ -133,7 +133,7 @@ data class ConformanceResponse(
     val result: Result<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<ConformanceResponse> {
-    sealed class Result<V>(val value: V) {
+    sealed class Result<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class ParseError(parseError: String = "") : Result<String>(parseError)
         class SerializeError(serializeError: String = "") : Result<String>(serializeError)
         class RuntimeError(runtimeError: String = "") : Result<String>(runtimeError)

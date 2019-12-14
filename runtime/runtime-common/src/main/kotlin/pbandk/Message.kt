@@ -28,6 +28,12 @@ interface Message<T : Message<T>> {
         }
     }
 
+    abstract class OneOf<T>(val value: T) {
+        override fun equals(other: Any?) = this::class.isInstance(other) && value == (other as OneOf<*>).value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "OneOf.${this::class.simpleName}($value)"
+    }
+
 }
 
 operator fun <T : Message<T>> Message<T>?.plus(other: T?) = this?.plus(other) ?: other

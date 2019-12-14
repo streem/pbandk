@@ -102,7 +102,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
-        line("sealed class ${oneOf.kotlinTypeName}<V>(val value: V) {").indented {
+        line("sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
                 lineBegin("class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
