@@ -75,7 +75,7 @@ data class Value(
     val kind: Kind<*>? = null,
     val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message<Value> {
-    sealed class Kind<V>(val value: V) {
+    sealed class Kind<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : Kind<pbandk.wkt.NullValue>(nullValue)
         class NumberValue(numberValue: Double = 0.0) : Kind<Double>(numberValue)
         class StringValue(stringValue: String = "") : Kind<String>(stringValue)
