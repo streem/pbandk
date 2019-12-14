@@ -21,7 +21,7 @@ mainClassName = 'pbandk.examples.addressbook.MainKt'
 applicationName = 'addressbook'
 
 dependencies {
-    compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.7.1'
+    compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.7.2'
 }
 
 compileJava.enabled = false
@@ -33,7 +33,7 @@ protobuf {
     }
     plugins {
         kotlin {
-            artifact = 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.7.1:jvm8@jar'
+            artifact = 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.7.2:jvm8@jar'
         }
     }
     generateProtoTasks {
