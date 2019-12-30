@@ -1,6 +1,6 @@
 There were some issues when compared to other languages, so there is a test.proto here, a Go file that generates some
-bytes for it, and a test that uses it. This expects the pb-and-k repo checked out at
-`GOPATH/src/github.com/cretz/pb-and-k`:
+bytes for it, and a test that uses it. This expects the pbandk repo checked out at
+`GOPATH/src/github.com/streem/pbandk`:
 
 To generate the proto code for Kotlin:
 
@@ -8,7 +8,7 @@ To generate the proto code for Kotlin:
 
 If on Windows, add the following arg after the `--kotlin_out` arg:
 
-    --plugin=protoc-gen-kotlin=%GOPATH%/src/github.com/cretz/pb-and-k/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin.bat
+    --plugin=protoc-gen-kotlin=%GOPATH%/src/github.com/streem/pbandk/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin.bat
 
 To generate the proto code for Go (assuming GOPATH/bin is on the PATH and protoc-gen-go is in there):
 

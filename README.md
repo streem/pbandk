@@ -1,6 +1,6 @@
-# PBAndK
+# Pbandk
 
-PBAndK is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
+Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
 **Features**
@@ -154,9 +154,9 @@ section below under "Usage" for more details.
 
 #### Generating Code
 
-PBAndK's code generator leverages `protoc`. Download the
+Pbandk's code generator leverages `protoc`. Download the
 [latest protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`. Then
-download the [latest protoc-gen-kotlin](https://github.com/streem/pb-and-k/releases/latest) and make sure
+download the [latest protoc-gen-kotlin](https://github.com/streem/pbandk/releases/latest) and make sure
 `protoc-gen-kotlin` is on the `PATH`. To generate code from `sample.proto` and put in `src/main/kotlin`, run:
 
 ```
@@ -186,8 +186,8 @@ In addition to running `protoc` manually, the
 
 #### Runtime Library
 
-PBAndK's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
-present on [JitPack](https://jitpack.io/#streem/pb-and-k). Using Gradle, add the JitPack repository:
+Pbandk's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
+present on [JitPack](https://jitpack.io/#streem/pbandk). Using Gradle, add the JitPack repository:
 
 ```
 repositories {
@@ -199,7 +199,7 @@ Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    compile 'com.github.streem.pb-and-k:pbandk-runtime-jvm:0.7.2'
+    compile 'com.github.streem.pbandk:pbandk-runtime-jvm:0.7.2'
 }
 ```
 
@@ -209,7 +209,7 @@ JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatf
 
 #### Service Code Generation
 
-PBAndK does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in the
+Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in the
 `protoc-gen-kotlin-jvm` project (really in the `protoc-gen-kotlin-common` project and inherited) with a single method
 that can be implemented to generate the code.
 
@@ -218,7 +218,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pb-and-k:protoc-gen-kotlin-jvm:0.7.2'
+    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.7.2'
 }
 ```
 
@@ -345,7 +345,7 @@ For example:
 
 ```
     $ protoc \
-        --plugin=protoc-gen-kotlin=/path/to/pb-and-k/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
+        --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
         --kotlin_out=src/main/kotlin \
         src/main/proto/*.proto
 ```
@@ -364,7 +364,7 @@ To build the runtime library for both JS and the JVM, run:
 #### Bundled Types
 
 If any changes are made to the generated code that is output by `protoc-gen-kotlin`, then the
-well-known types (and other proto types used by pb-and-k) need to be re-generated using the updated
+well-known types (and other proto types used by pbandk) need to be re-generated using the updated
 `protoc-gen-kotlin` binary. To do this, first download a recent [release of `protoc`](https://github.com/protocolbuffers/protobuf/releases),
 extract it to a local directory, and then run:
 
@@ -403,7 +403,7 @@ Set the `CONF_TEST_PATH` environment variable (used to run the tests below) with
     $ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 ```
 
-Now, back in `pb-and-k`, build both the JS and JVM projects via:
+Now, back in `pbandk`, build both the JS and JVM projects via:
 
 ```
     $ ./gradlew :conformance:conformance-js:assemble
