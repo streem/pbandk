@@ -27,13 +27,21 @@ It is built to work across multiple Kotlin platforms.
 
 Read below for more information and see the [examples](examples).
 
-### Beta
+## Beta
 
 This project is currently in beta yet has the features needed to solve the author's original goals. The "Not Yet
 Implemented" features above will be implemented only if this project garners reasonable interest. If the features are
 implemented, it is possible they may be done in a backwards incompatible way.
 
-### Generated Code
+## Summary
+
+- [**Generated Code Sample**](#generated-code-sample)
+- [**Usage**](#usage)
+- [**Generated Code**](#generated-code)
+- [**Building**](#building)
+- [**Credits**](#credits)
+
+## Generated Code Sample
 
 For the following `addressbook.proto` file:
 
@@ -73,8 +81,6 @@ The following file will be generated at `tutorial/addressbook.kt`:
 
 ```kotlin
 package tutorial
-
-import kotlin.jvm.Transient
 
 data class Person(
     val name: String = "",
@@ -150,9 +156,9 @@ To see a full version of the file, see
 [here](examples/gradle-and-jvm/src/main/kotlin/pbandk/examples/addressbook/pb/addressbook.kt). See the "Generated Code"
 section below under "Usage" for more details.
 
-### Usage
+## Usage
 
-#### Generating Code
+### Generating Code
 
 Pbandk's code generator leverages `protoc`. Download the
 [latest protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`. Then
@@ -160,14 +166,14 @@ download the [latest protoc-gen-kotlin](https://github.com/streem/pbandk/release
 `protoc-gen-kotlin` is on the `PATH`. To generate code from `sample.proto` and put in `src/main/kotlin`, run:
 
 ```
-    protoc --kotlin_out=src/main/kotlin sample.proto
+protoc --kotlin_out=src/main/kotlin sample.proto
 ```
 
 For Windows however, `protoc` doesn't support finding `protoc-gen-kotlin.bat` on the `PATH`. So it has to be specified
 explicitly as a plugin:
 
 ```
-    protoc --kotlin_out=src/main/kotlin --plugin=protoc-gen-kotlin=path/to/protoc-gen-kotlin.bat sample.proto
+protoc --kotlin_out=src/main/kotlin --plugin=protoc-gen-kotlin=path/to/protoc-gen-kotlin.bat sample.proto
 ```
 
 The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
@@ -175,7 +181,7 @@ comma-separated options can be added to `--kotlin_out` before the colon and out 
 package to `my.pkg`, use the `kotlin_package` option like so:
 
 ```
-    protoc --kotlin_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
+protoc --kotlin_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
 ```
 
 To log debug logs during generation, `log=debug` can be set as well.
@@ -184,7 +190,7 @@ In addition to running `protoc` manually, the
 [Protobuf Plugin for Gradle](https://github.com/google/protobuf-gradle-plugin) can be used. See
 [this example](examples/gradle-and-jvm) to see how.
 
-#### Runtime Library
+### Runtime Library
 
 Pbandk's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
 present on [JitPack](https://jitpack.io/#streem/pbandk). Using Gradle, add the JitPack repository:
@@ -207,7 +213,7 @@ It has a dependency on the Google Protobuf Java library. The code targets Java 1
 JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatform code, change `pbandk-runtime-jvm` to
 `pbandk-runtime-common`.
 
-#### Service Code Generation
+### Service Code Generation
 
 Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in the
 `protoc-gen-kotlin-jvm` project (really in the `protoc-gen-kotlin-common` project and inherited) with a single method
@@ -229,19 +235,19 @@ class name of the implementation of the `ServiceGenerator` to use. If the last p
 `gen.jar`, it might look like:
 
 ```
-    protoc --kotlin_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
+protoc --kotlin_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
 ```
  
 For more details, see the [custom-service-gen](examples/custom-service-gen) example.
 
-#### Generated Code
+## Generated Code
 
-**Package**
+### Package
 
 The package is either the `kotlin_package` plugin option, the `java_package` plugin option or the package set in the message. If the `google.protobuf`
 package is referenced, it is assumed to be a well-known type and is changed to reference `pbandk.wkt`.
 
-**Message**
+### Message
 
 Each Protobuf message extends `pbandk.Message` and has two overloaded `protoMarshal` methods, the most useful of which
 marshals to a byte array. The companion object of every message has two overloaded `protoUnmarshal` methods, the most
@@ -264,7 +270,7 @@ Regardless of `optimize_for` options, the generated code is always the same. Eac
 lazily calculates the size of the message when first invoked. Also, each message has the `plus` operator defined which
 follows protobuf merge semantics.
 
-**Oneof**
+### Oneof
 
 Oneof fields are generated as nested classes of a common sealed base class. Each oneof inner field is a class that
 wraps a single value.
@@ -273,7 +279,7 @@ The parent message also contains a nullable field for every oneof inner field. T
 resolves to the oneof inner field's value when the oneof is set to that inner field. Otherwise it
 resolves to null.
 
-**Enum**
+### Enum
 
 Enum fields are generated as sealed classes with a nested `object` for each known enum value, and a
 `Unrecognized` nested class to hold unknown values. This is preferred over traditional enum classes
@@ -289,23 +295,23 @@ respectively, to the corresponding enum object.
 The `values` field on the companion object of the sealed class contains a list of all known enum
 values.
 
-**Repeated and Map**
+### Repeated and Map
 
 Repeated fields are normal lists. Developers should make no assumptions about which list implementation is used. Maps
 are represented by Kotlin maps. In proto2, due to how map entries are serialized, both the key and the value are
 considered nullable.
 
-**Well-Known Types**
+### Well-Known Types
 
 Well known types (i.e. those in the `google/protobuf` imports) are shipped with the runtime. At this early stage,
 specialized support (e.g. using Kotlin `Any` for `google.protobuf.Any`) is not implemented.
 
-**Services**
+### Services
 
 Services can be handled with a custom service generator. See the "Service Code Generation" section above and the 
 [custom-service-gen](examples/custom-service-gen) example.
 
-### Building
+## Building
 
 The project is built with Gradle and has several sub projects. In alphabetical order, they are:
 
@@ -323,45 +329,45 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 
 Due to current issues, Gradle must be version 4.7 in the steps below.
 
-#### Code Generator
+### Code Generator
 
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-    $ ./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:assembleDist
+./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:assembleDist
 ```
 
-###### Testing Changes Locally in External Project
+#### Testing Changes Locally in External Project
 
 If you want to make changes to `pbandk`, and immediately test these changes in your separate project,
 first install the generator locally:
 
 ```
-    $ ./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
+./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
 For example:
 
 ```
-    $ protoc \
-        --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
-        --kotlin_out=src/main/kotlin \
-        src/main/proto/*.proto
+protoc \
+    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
+    --kotlin_out=src/main/kotlin \
+    src/main/proto/*.proto
 ```
 
 This will generate kotlin files for the specified `*.proto` files, without needing to publish first.
 
-#### Runtime Library
+### Runtime Library
 
 To build the runtime library for both JS and the JVM, run:
 
 ```
-    $ ./gradlew :runtime:runtime-js:assemble
-    $ ./gradlew :runtime:runtime-jvm:assemble
+./gradlew :runtime:runtime-js:assemble
+./gradlew :runtime:runtime-jvm:assemble
 ```
 
-#### Bundled Types
+### Bundled Types
 
 If any changes are made to the generated code that is output by `protoc-gen-kotlin`, then the
 well-known types (and other proto types used by pbandk) need to be re-generated using the updated
@@ -369,10 +375,10 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 extract it to a local directory, and then run:
 
 ```
-    $ ./gradlew :runtime:runtime-common:generateWellKnownTypes -Dprotoc.path=path/to/protoc/directory
-    $ ./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto
-    $ ./gradlew :runtime:runtime-jvm:generateTestTypes
-    $ ./gradlew :conformance:conformance-common:generateProto
+./gradlew :runtime:runtime-common:generateWellKnownTypes -Dprotoc.path=path/to/protoc/directory
+./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto
+./gradlew :runtime:runtime-jvm:generateTestTypes
+./gradlew :conformance:conformance-common:generateProto
 ```
 
 Important: If making changes in both the `:protoc-gen-kotlin` _and_ `:runtime` projects at the
@@ -381,18 +387,18 @@ around this, stash the changes in the `:runtime` project, run the `generateWellK
 with only the `:protoc-gen-kotlin` changes, and then unstash the `:runtime` changes and rerun the
 `generateWellKnownTypes` task.
 
-#### Conformance Tests
+### Conformance Tests
 
 To run conformance tests, the [conformance-test-runner](https://github.com/google/protobuf/tree/master/conformance) must
 be built (does not work on Windows).
 
 ```
-    $ git clone git@github.com:protocolbuffers/protobuf.git
-    $ cd protobuf
-    $ git checkout 3.10.x # Or another release branch
-    $ ./autogen.sh
-    $ cd conformance
-    $ make
+git clone git@github.com:protocolbuffers/protobuf.git
+cd protobuf
+git checkout 3.10.x # Or another release branch
+./autogen.sh
+cd conformance
+make
 ```
 
 You should now have a `conformance-test-runner` available in this directory.  Test it by running `./conformance-test-runner --help`
@@ -400,21 +406,21 @@ You should now have a `conformance-test-runner` available in this directory.  Te
 Set the `CONF_TEST_PATH` environment variable (used to run the tests below) with:
 
 ```
-    $ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
+export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 ```
 
 Now, back in `pbandk`, build both the JS and JVM projects via:
 
 ```
-    $ ./gradlew :conformance:conformance-js:assemble
-    $ ./gradlew :conformance:conformance-jvm:installDist
+./gradlew :conformance:conformance-js:assemble
+./gradlew :conformance:conformance-jvm:installDist
 ```
 
 Bring in javascript dependencies:
 
 ```
-    $ cd conformance/conformance-js
-    $ yarn
+cd conformance/conformance-js
+yarn
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).
@@ -422,5 +428,9 @@ You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` envi
 Then, from the root directory:
 
 ```
-    $ ./conformance/test-conformance.sh
+./conformance/test-conformance.sh
 ```
+
+## Credits
+
+This repository was originally forked from https://github.com/cretz/pb-and-k. Many thanks to https://github.com/cretz for creating this library and building the initial feature set.
