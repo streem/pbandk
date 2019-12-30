@@ -5,7 +5,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/cretz/pb-and-k/runtime/runtime-jvm/src/test/go/testpb"
+	"github.com/streem/pbandk/runtime/runtime-jvm/src/test/go/testpb"
 	"github.com/golang/protobuf/proto"
 )
 

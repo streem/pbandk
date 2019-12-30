@@ -22,7 +22,7 @@ buildscript {
 }
 
 allprojects {
-    group 'com.github.streem.pb-and-k'
+    group 'com.github.streem.pbandk'
     version '0.7.2'
 
     repositories {
@@ -50,7 +50,7 @@ project(':runtime:runtime-common') {
     }
 
     archivesBaseName = 'pbandk-runtime-common'
-    publishSettings(project, archivesBaseName, 'Common library for PBAndK Protobuf code')
+    publishSettings(project, archivesBaseName, 'Common library for pbandk protobuf code')
 }
 
 project(':runtime:runtime-js') {
@@ -66,7 +66,7 @@ project(':runtime:runtime-js') {
         kotlinOptions.moduleKind = 'commonjs'
     }
     archivesBaseName = 'pbandk-runtime-js'
-    publishSettings(project, archivesBaseName, 'JS library for PBAndK Protobuf code')
+    publishSettings(project, archivesBaseName, 'JS library for pbandk protobuf code')
 }
 
 project(':runtime:runtime-jvm') {
@@ -110,7 +110,7 @@ project(':runtime:runtime-jvm') {
     }
 
     archivesBaseName = 'pbandk-runtime-jvm'
-    publishSettings(project, archivesBaseName, 'JVM library for PBAndK Protobuf code')
+    publishSettings(project, archivesBaseName, 'JVM library for pbandk protobuf code')
 }
 
 /*
@@ -146,7 +146,7 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-common') {
     }
 
     archivesBaseName = 'protoc-gen-kotlin-common'
-    publishSettings(project, archivesBaseName, 'Common library for PBAndK Protobuf code generator')
+    publishSettings(project, archivesBaseName, 'Common library for pbandk protobuf code generator')
 }
 
 project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
@@ -194,7 +194,7 @@ project(':protoc-gen-kotlin:protoc-gen-kotlin-jvm') {
     }
 
     archivesBaseName = 'protoc-gen-kotlin-jvm'
-    publishSettings(project, archivesBaseName, 'JVM library for PBAndK Protobuf code generator')
+    publishSettings(project, archivesBaseName, 'JVM library for pbandk protobuf code generator')
 }
 
 /*
@@ -365,11 +365,11 @@ def publishSettings(project, projectName, projectDescription) {
                         name projectName
                         packaging 'jar'
                         description projectDescription
-                        url 'https://github.com/cretz/pbandk'
+                        url 'https://github.com/streem/pbandk'
                         scm {
-                            connection 'scm:git:git@github.com:cretz/pbandk.git'
-                            developerConnection 'scm:git:git@github.com:cretz/pbandk.git'
-                            url 'git@github.com:cretz/pbandk.git'
+                            connection 'scm:git:git@github.com:streem/pbandk.git'
+                            developerConnection 'scm:git:git@github.com:streem/pbandk.git'
+                            url 'git@github.com:streem/pbandk.git'
                         }
                         licenses {
                             license {
@@ -379,9 +379,9 @@ def publishSettings(project, projectName, projectDescription) {
                         }
                         developers {
                             developer {
-                                id 'cretz'
-                                name 'Chad Retz'
-                                url 'https://github.com/cretz'
+                                id 'streem'
+                                name 'Streem, Inc.'
+                                url 'https://github.com/streem'
                             }
                         }
                     }
