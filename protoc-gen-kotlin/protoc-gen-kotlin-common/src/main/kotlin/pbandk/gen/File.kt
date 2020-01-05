@@ -80,7 +80,7 @@ data class File(
             SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64;
 
             val neverPacked get() =
-                this == File.Field.Type.BOOL  || this == File.Field.Type.BYTES || this == File.Field.Type.ENUM ||
+                this == File.Field.Type.BYTES || this == File.Field.Type.ENUM ||
                 this == File.Field.Type.MESSAGE || this == File.Field.Type.STRING
         }
     }
