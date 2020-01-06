@@ -375,7 +375,7 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 extract it to a local directory, and then run:
 
 ```
-./gradlew :runtime:runtime-common:generateWellKnownTypes -Dprotoc.path=path/to/protoc/directory
+./gradlew :runtime:runtime-common:generateWellKnownTypes -Dprotoc.path=path/to/protobuf/install/directory
 ./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto
 ./gradlew :runtime:runtime-jvm:generateTestTypes
 ./gradlew :conformance:conformance-common:generateProto
@@ -393,10 +393,11 @@ To run conformance tests, the [conformance-test-runner](https://github.com/googl
 be built (does not work on Windows).
 
 ```
-git clone git@github.com:protocolbuffers/protobuf.git
-cd protobuf
-git checkout 3.10.x # Or another release branch
-./autogen.sh
+curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
+tar xzvf protobuf-all-3.10.1.tar.gz
+cd protobuf-3.10.1
+./configure
+make
 cd conformance
 make
 ```
