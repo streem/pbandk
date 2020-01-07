@@ -58,7 +58,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Standard -> lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
+                    is File.Field.Numbered -> lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
                     is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
                 }
             }
@@ -85,16 +85,16 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         }.line("}")
     }
 
-    protected fun writeConstructorField(field: File.Field.Standard, nullableIfMessage: Boolean): CodeGenerator {
+    protected fun writeConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
         lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
         if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
         return this
     }
 
-    protected fun writeJsonMapperConstructorField(field: File.Field.Standard, nullableIfMessage: Boolean): CodeGenerator {
+    protected fun writeJsonMapperConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
         lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage, true)}")
         when {
-            field.map -> lineMid(" = emptyMap()")
+            field is File.Field.Numbered.Standard && field.map -> lineMid(" = emptyMap()")
             field.repeated -> lineMid(" = emptyList()")
             else -> lineMid(" = null")
         }
@@ -164,13 +164,20 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
 
     protected fun writeMessageMergeExtension(type: File.Type.Message, fullTypeName: String) {
-        fun mergeStandard(field: File.Field.Standard) {
+        fun mergeStandard(field: File.Field.Numbered.Standard) {
             if (field.repeated) {
                 line("${field.kotlinFieldName} = ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
             } else if (field.type == File.Field.Type.MESSAGE) {
                 line("${field.kotlinFieldName} = " +
                     "${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},")
             } else if (file.version == 2 && field.optional) {
+                line("${field.kotlinFieldName} = plus.${field.kotlinFieldName} ?: ${field.kotlinFieldName},")
+            }
+        }
+        fun mergeWrapper(field: File.Field.Numbered.Wrapper) {
+            if (field.repeated) {
+                line("${field.kotlinFieldName} = ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
+            } else {
                 line("${field.kotlinFieldName} = plus.${field.kotlinFieldName} ?: ${field.kotlinFieldName},")
             }
         }
@@ -200,7 +207,8 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         line("private fun $fullTypeName.protoMergeImpl(plus: $fullTypeName?): $fullTypeName = plus?.copy(").indented {
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Standard -> mergeStandard(field)
+                    is File.Field.Numbered.Standard -> mergeStandard(field)
+                    is File.Field.Numbered.Wrapper -> mergeWrapper(field)
                     is File.Field.OneOf -> mergeOneOf(field)
                 }
             }
@@ -214,7 +222,9 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             // Go over each field doing size check
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Standard ->
+                    is File.Field.Numbered.Standard ->
+                        line("if (${field.nonDefaultCheckExpr}) protoSize += ${field.sizeExpr()}")
+                    is File.Field.Numbered.Wrapper ->
                         line("if (${field.nonDefaultCheckExpr}) protoSize += ${field.sizeExpr()}")
                     is File.Field.OneOf -> {
                         line("when (${field.kotlinFieldName}) {").indented {
@@ -259,7 +269,11 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             // A bunch of locals for each field, initialized with defaults
             val doneKotlinFields = type.fields.map {
                 when (it) {
-                    is File.Field.Standard -> {
+                    is File.Field.Numbered.Standard -> {
+                        line(it.unmarshalVarDecl)
+                        it.unmarshalVarDone
+                    }
+                    is File.Field.Numbered.Wrapper -> {
                         line(it.unmarshalVarDecl)
                         it.unmarshalVarDone
                     }
@@ -285,17 +299,21 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
                 lineEnd("protoUnmarshal.unknownFields())")
                 // Each field tag
                 type.sortedStandardFieldsWithOneOfs().forEach { (field, oneOf) ->
-                    var tags = listOf(field.tag)
+                    val tags = mutableListOf(field.tag)
                     // As a special case for repeateds, we have to also catch the other (packed or non-packed) versions.
-                    if (field.repeated) ((field.number shl 3) or if (field.packed) field.type.wireFormat else 2).also {
-                        if (field.tag != it) tags += it
+                    if (field is File.Field.Numbered.Standard && field.repeated) {
+                        val tag = ((field.number shl 3) or if (field.packed) field.type.wireFormat else 2)
+                        if (field.tag != tag) tags += tag
                     }
                     lineBegin(tags.joinToString(", ") + " -> ")
                     if (oneOf == null) {
-                        lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
+                        when (field) {
+                            is File.Field.Numbered.Standard -> lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
+                            is File.Field.Numbered.Wrapper -> lineEnd("${field.kotlinFieldName} = ${field.unmarshalReadExpr}")
+                        }
                     } else {
                         val oneOfTyp = "$fullTypeName.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
-                        require(!field.repeated)
+                        require(field is File.Field.Numbered.Standard && !field.repeated)
                         lineEnd("${oneOf.kotlinFieldName} = $oneOfTyp(${field.unmarshalReadExpr})")
                     }
                 }
@@ -310,34 +328,37 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             line("$fullTypeName.JsonMapper(").indented {
                 val allFields = type.sortedStandardFieldsWithOneOfs()
                 allFields.forEachIndexed { i, (field, _) ->
-                    when (field.type) {
-                        File.Field.Type.ENUM -> {
-                            when {
-                                field.repeated -> lineBegin("${field.kotlinFieldName}.mapNotNull { it.name }")
-                                else -> lineBegin("${field.kotlinFieldName}?.name")
-                            }
-                        }
-                        File.Field.Type.MESSAGE -> {
-                            when {
-                                field.map -> {
-                                    when {
-                                        field.mapEntry()!!.mapEntryValueIsMessage -> lineBegin("${field.kotlinFieldName}.mapValues { it.value?.toJsonMapper() }")
-                                        field.mapEntry()!!.mapEntryValueIsEnum -> lineBegin("${field.kotlinFieldName}.mapValues { it.value?.name }")
-                                        else -> lineBegin(field.kotlinFieldName)
-                                    }
+                    when (field) {
+                        is File.Field.Numbered.Standard -> when (field.type) {
+                            File.Field.Type.ENUM -> {
+                                when {
+                                    field.repeated -> lineBegin("${field.kotlinFieldName}.mapNotNull { it.name }")
+                                    else -> lineBegin("${field.kotlinFieldName}?.name")
                                 }
-                                field.repeated -> lineBegin("${field.kotlinFieldName}.map { it.toJsonMapper() }")
-                                else -> lineBegin("${field.kotlinFieldName}?.toJsonMapper()")
+                            }
+                            File.Field.Type.MESSAGE -> {
+                                when {
+                                    field.map -> {
+                                        when {
+                                            field.mapEntry()!!.mapEntryValueIsMessage -> lineBegin("${field.kotlinFieldName}.mapValues { it.value?.toJsonMapper() }")
+                                            field.mapEntry()!!.mapEntryValueIsEnum -> lineBegin("${field.kotlinFieldName}.mapValues { it.value?.name }")
+                                            else -> lineBegin(field.kotlinFieldName)
+                                        }
+                                    }
+                                    field.repeated -> lineBegin("${field.kotlinFieldName}.map { it.toJsonMapper() }")
+                                    else -> lineBegin("${field.kotlinFieldName}?.toJsonMapper()")
+                                }
+                            }
+                            else -> {
+                                when {
+                                    field.map || field.repeated -> lineBegin(field.kotlinFieldName)
+                                    file.version == 2 && field.optional -> lineBegin(field.kotlinFieldName)
+                                    field.type != File.Field.Type.STRING -> lineBegin(field.kotlinFieldName)
+                                    else -> lineBegin("${field.kotlinFieldName}.takeIf { it != ${field.defaultValue} }")
+                                }
                             }
                         }
-                        else -> {
-                            when {
-                                field.map || field.repeated -> lineBegin(field.kotlinFieldName)
-                                file.version == 2 && field.optional -> lineBegin(field.kotlinFieldName)
-                                field.type != File.Field.Type.STRING -> lineBegin(field.kotlinFieldName)
-                                else -> lineBegin("${field.kotlinFieldName}.takeIf { it != ${field.defaultValue} }")
-                            }
-                        }
+                        is File.Field.Numbered.Wrapper -> lineBegin(field.kotlinFieldName)
                     }
                     lineEnd(if (i == allFields.lastIndex) "" else ",")
                 }
@@ -384,16 +405,16 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             }
         }
 
-        fun standardFieldToMessage(i: Int, field: File.Field.Standard) {
+        fun standardFieldToMessage(i: Int, field: File.Field.Numbered.Standard) {
             lineBegin("${field.kotlinFieldName} = ")
-            when {
-                (field.type == File.Field.Type.ENUM) -> {
+            when (field.type) {
+                File.Field.Type.ENUM -> {
                     when {
                         field.repeated -> lineMid("${field.kotlinFieldName}.map { ${field.kotlinQualifiedTypeName}.fromName(it) }")
                         else -> lineMid("${field.kotlinFieldName}?.let { ${field.kotlinQualifiedTypeName}.fromName(it) } ?: ${field.defaultValue}")
                     }
                 }
-                (field.type == File.Field.Type.MESSAGE) -> {
+                File.Field.Type.MESSAGE -> {
                     when {
                         field.map -> {
                             when {
@@ -411,12 +432,18 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             lineEnd(if (i == type.fields.lastIndex) "" else ",")
         }
 
+        fun wrapperFieldToMessage(i: Int, field: File.Field.Numbered.Wrapper) {
+            lineBegin("${field.kotlinFieldName} = ${field.kotlinFieldName}")
+            lineEnd(if (i == type.fields.lastIndex) "" else ",")
+        }
+
         line().line("private fun $fullTypeName.JsonMapper.toMessageImpl(): $fullTypeName =").indented {
             line("$fullTypeName(").indented {
                 type.fields.forEachIndexed { i, field ->
                     when (field) {
                         is File.Field.OneOf -> oneOfFieldToMessage(i, field)
-                        is File.Field.Standard -> standardFieldToMessage(i, field)
+                        is File.Field.Numbered.Standard -> standardFieldToMessage(i, field)
+                        is File.Field.Numbered.Wrapper -> wrapperFieldToMessage(i, field)
                     }
                 }
             }.line(")")
@@ -453,41 +480,62 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected fun File.Type.Message.sortedStandardFieldsWithOneOfs() =
         fields.flatMap {
             when (it) {
-                is File.Field.Standard -> listOf(it to null)
+                is File.Field.Numbered.Standard -> listOf(it to null)
+                is File.Field.Numbered.Wrapper -> listOf(it to null)
                 is File.Field.OneOf -> it.fields.map { f -> f to it }
             }
         }.sortedBy { it.first.number }
     protected val File.Type.Message.mapEntryKeyKotlinType get() =
-        if (!mapEntry) null else (fields[0] as File.Field.Standard).kotlinValueType(false)
+        if (!mapEntry) null else (fields[0] as File.Field.Numbered.Standard).kotlinValueType(false)
     protected val File.Type.Message.mapEntryValueKotlinType get() =
-        if (!mapEntry) null else (fields[1] as File.Field.Standard).kotlinValueType(true)
+        if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard).kotlinValueType(true)
     protected val File.Type.Message.mapEntryValueKotlinJsonType get() =
-        if (!mapEntry) null else (fields[1] as File.Field.Standard).kotlinValueType(true, true)
+        if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard).kotlinValueType(true, true)
     protected val File.Type.Message.mapEntryValueIsMessage get() =
-        if (!mapEntry) false else (fields[1] as File.Field.Standard).type == File.Field.Type.MESSAGE
+        if (!mapEntry) false else (fields[1] as File.Field.Numbered.Standard).type == File.Field.Type.MESSAGE
     protected val File.Type.Message.mapEntryValueIsEnum get() =
-        if (!mapEntry) false else (fields[1] as File.Field.Standard).type == File.Field.Type.ENUM
+        if (!mapEntry) false else (fields[1] as File.Field.Numbered.Standard).type == File.Field.Type.ENUM
     protected val File.Type.Message.mapEntryValueDefaultValue get() =
-        if (!mapEntry) false else (fields[1] as File.Field.Standard).defaultValue
+        if (!mapEntry) false else (fields[1] as File.Field.Numbered.Standard).defaultValue
 
-    protected val File.Field.Standard.fieldRef get() = kotlinFieldName
-    protected fun File.Field.Standard.mapEntry() =
+    protected fun File.Field.Numbered.kotlinValueType(nullableIfMessage: Boolean, forJson: Boolean = false) = when (this) {
+        is File.Field.Numbered.Standard -> kotlinValueType(nullableIfMessage, forJson)
+        is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage, forJson)
+    }
+    protected val File.Field.Numbered.defaultValue get() = when (this) {
+        is File.Field.Numbered.Standard -> defaultValue
+        is File.Field.Numbered.Wrapper -> defaultValue
+    }
+    protected val File.Field.Numbered.tag get() = when (this) {
+        is File.Field.Numbered.Standard -> tag
+        is File.Field.Numbered.Wrapper -> tag
+    }
+    protected fun File.Field.Numbered.writeExpr(ref: String = kotlinFieldName) = when (this) {
+        is File.Field.Numbered.Standard -> writeExpr(ref)
+        is File.Field.Numbered.Wrapper -> writeExpr(ref)
+    }
+    protected val File.Field.Numbered.nonDefaultCheckExpr get() = when (this) {
+        is File.Field.Numbered.Standard -> nonDefaultCheckExpr
+        is File.Field.Numbered.Wrapper -> nonDefaultCheckExpr
+    }
+
+    protected fun File.Field.Numbered.Standard.mapEntry() =
         if (!map) null else (localType as? File.Type.Message)?.takeIf { it.mapEntry }
-    protected val File.Field.Standard.localType get() = localTypeName?.let { findLocalType(it) }
-    protected val File.Field.Standard.kotlinQualifiedTypeConstructorRef get() = kotlinQualifiedTypeName.let { type ->
+    protected val File.Field.Numbered.Standard.localType get() = localTypeName?.let { findLocalType(it) }
+    protected val File.Field.Numbered.Standard.kotlinQualifiedTypeConstructorRef get() = kotlinQualifiedTypeName.let { type ->
         type.lastIndexOf('.').let { if (it == -1) "::$type" else type.substring(0, it) + "::" + type.substring(it + 1) }
     }
-    protected val File.Field.Standard.kotlinQualifiedTypeName get() =
+    protected val File.Field.Numbered.Standard.kotlinQualifiedTypeName get() =
         kotlinLocalTypeName ?:
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
             type.standardTypeName
-    protected val File.Field.Standard.kotlinQualifiedJsonTypeName get() =
+    protected val File.Field.Numbered.Standard.kotlinQualifiedJsonTypeName get() =
         kotlinLocalTypeName ?:
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find json mapping for $it") } }?.let {
                 if (type == File.Field.Type.ENUM) it else "$it.JsonMapper"
             } ?:
             type.standardTypeName
-    protected val File.Field.Standard.unmarshalReadExpr get() = type.neverPacked.let { neverPacked ->
+    protected val File.Field.Numbered.Standard.unmarshalReadExpr get() = type.neverPacked.let { neverPacked ->
         val repEnd = if (neverPacked) ", true" else ", false"
         when (type) {
             File.Field.Type.ENUM ->
@@ -503,20 +551,20 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             }
         }
     }
-    protected val File.Field.Standard.unmarshalVarDecl get() = when {
+    protected val File.Field.Numbered.Standard.unmarshalVarDecl get() = when {
         repeated -> mapEntry().let { mapEntry ->
             if (mapEntry == null) "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
             else "var $kotlinFieldName: pbandk.MessageMap.Builder<" +
-                "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
+                    "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
         }
         requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
         else -> "var $kotlinFieldName = $defaultValue"
     }
-    protected val File.Field.Standard.unmarshalVarDone get() =
+    protected val File.Field.Numbered.Standard.unmarshalVarDone get() =
         if (map) "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
         else if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
         else kotlinFieldName
-    protected fun File.Field.Standard.kotlinValueType(nullableIfMessage: Boolean, forJson: Boolean = false): String {
+    protected fun File.Field.Numbered.Standard.kotlinValueType(nullableIfMessage: Boolean, forJson: Boolean = false): String {
         val typeName = when {
             forJson && type == File.Field.Type.ENUM -> "String"
             forJson -> kotlinQualifiedJsonTypeName
@@ -530,18 +578,18 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             else -> typeName + if (forJson) "?" else ""
         }
     }
-    protected val File.Field.Standard.defaultValue get() = when {
+    protected val File.Field.Numbered.Standard.defaultValue get() = when {
         map -> "emptyMap()"
         repeated -> "emptyList()"
         file.version == 2 && optional -> "null"
         type == File.Field.Type.ENUM -> "$kotlinQualifiedTypeName.fromValue(0)"
         else -> type.defaultValue
     }
-    protected val File.Field.Standard.tag get() = (number shl 3) or when {
+    protected val File.Field.Numbered.Standard.tag get() = (number shl 3) or when {
         repeated && packed -> 2
         else -> type.wireFormat
     }
-    protected fun File.Field.Standard.sizeExpr(ref: String = fieldRef) = when {
+    protected fun File.Field.Numbered.Standard.sizeExpr(ref: String = kotlinFieldName) = when {
         map ->
             "pbandk.Sizer.mapSize($number, $ref, $kotlinQualifiedTypeConstructorRef)"
         repeated && packed ->
@@ -551,7 +599,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         else ->
             "pbandk.Sizer.tagSize($number) + pbandk.Sizer.${type.sizeMethod}($ref)"
     }
-    protected fun File.Field.Standard.writeExpr(ref: String = fieldRef) = when {
+    protected fun File.Field.Numbered.Standard.writeExpr(ref: String = kotlinFieldName) = when {
         map ->
             "protoMarshal.writeMap($tag, $ref, $kotlinQualifiedTypeConstructorRef)"
         repeated && packed ->
@@ -560,13 +608,47 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         repeated -> "$ref.forEach { protoMarshal.writeTag($tag).${type.writeMethod}(it) }"
         else -> "protoMarshal.writeTag($tag).${type.writeMethod}($ref)"
     }
-    protected val File.Field.Standard.nonDefaultCheckExpr get() = when {
-        repeated -> "$fieldRef.isNotEmpty()"
-        file.version == 2 && optional -> "$fieldRef != null"
-        else -> type.nonDefaultCheck(fieldRef)
+    protected val File.Field.Numbered.Standard.nonDefaultCheckExpr get() = when {
+        repeated -> "$kotlinFieldName.isNotEmpty()"
+        file.version == 2 && optional -> "$kotlinFieldName != null"
+        else -> type.nonDefaultCheck(kotlinFieldName)
     }
-    protected val File.Field.Standard.requiresExplicitTypeWithVal get() =
+    protected val File.Field.Numbered.Standard.requiresExplicitTypeWithVal get() =
         repeated || (file.version == 2 && optional) || type.requiresExplicitTypeWithVal
+
+    protected val File.Field.Numbered.Wrapper.unmarshalReadExpr get() = when {
+        repeated -> "protoUnmarshal.readRepeated($kotlinFieldName, { protoUnmarshal.readMessage(${wrappedType.wrapperKotlinTypeName}.Companion).value }, true)"
+        else -> "protoUnmarshal.readMessage(${wrappedType.wrapperKotlinTypeName}.Companion)"
+    }
+    protected val File.Field.Numbered.Wrapper.unmarshalVarDecl get() = when {
+        repeated -> "var $kotlinFieldName: pbandk.ListWithSize.Builder<${wrappedType.standardTypeName}>? = null"
+        else -> "var $kotlinFieldName: ${wrappedType.wrapperKotlinTypeName}? = $defaultValue"
+    }
+    protected val File.Field.Numbered.Wrapper.unmarshalVarDone get() = when {
+        repeated -> "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
+        else -> "$kotlinFieldName?.value"
+    }
+    protected fun File.Field.Numbered.Wrapper.kotlinValueType(nullableIfMessage: Boolean, forJson: Boolean = false) = when {
+        repeated -> "List<${wrappedType.standardTypeName}>"
+        else -> wrappedType.standardTypeName + if (nullableIfMessage || forJson) "?" else ""
+    }
+    protected val File.Field.Numbered.Wrapper.defaultValue get() = when {
+        repeated -> "emptyList()"
+        else -> "null"
+    }
+    protected val File.Field.Numbered.Wrapper.tag get() = (number shl 3) or type.wireFormat
+    protected fun File.Field.Numbered.Wrapper.sizeExpr(ref: String = kotlinFieldName) = when {
+        repeated -> "(pbandk.Sizer.tagSize($number) * $ref.size) + $ref.sumBy { pbandk.Sizer.${type.sizeMethod}(${wrappedType.wrapperKotlinTypeName}(it)) }"
+        else -> "pbandk.Sizer.tagSize($number) + pbandk.Sizer.${type.sizeMethod}(${wrappedType.wrapperKotlinTypeName}($ref))"
+    }
+    protected fun File.Field.Numbered.Wrapper.writeExpr(ref: String = kotlinFieldName) = when {
+        repeated -> "$ref.forEach { protoMarshal.writeTag($tag).${type.writeMethod}(${wrappedType.wrapperKotlinTypeName}(it)) }"
+        else -> "protoMarshal.writeTag($tag).${type.writeMethod}(${wrappedType.wrapperKotlinTypeName}($ref))"
+    }
+    protected val File.Field.Numbered.Wrapper.nonDefaultCheckExpr get() = when {
+        repeated -> "$kotlinFieldName.isNotEmpty()"
+        else -> "$kotlinFieldName != $defaultValue"
+    }
 
     protected val File.Field.Type.string get() = when (this) {
         File.Field.Type.BOOL -> "bool"
@@ -638,4 +720,6 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         File.Field.Type.STRING -> "$varName.isNotEmpty()"
         else -> "$varName != $defaultValue"
     }
+    protected val File.Field.Type.wrapperKotlinTypeName get() =
+        kotlinTypeMappings[wrapperTypeName] ?: error("No Kotlin type found for wrapper")
 }

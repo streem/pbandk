@@ -2096,6 +2096,994 @@ public final class Test {
 
   }
 
+  public interface WrappersOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:testpb.Wrappers)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return Whether the stringValue field is set.
+     */
+    boolean hasStringValue();
+    /**
+     * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return The stringValue.
+     */
+    com.google.protobuf.StringValue getStringValue();
+    /**
+     * <code>.google.protobuf.StringValue string_value = 1;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getStringValueOrBuilder();
+
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    java.util.List<com.google.protobuf.UInt64Value> 
+        getUint64ValuesList();
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    com.google.protobuf.UInt64Value getUint64Values(int index);
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    int getUint64ValuesCount();
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    java.util.List<? extends com.google.protobuf.UInt64ValueOrBuilder> 
+        getUint64ValuesOrBuilderList();
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    com.google.protobuf.UInt64ValueOrBuilder getUint64ValuesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code testpb.Wrappers}
+   */
+  public  static final class Wrappers extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:testpb.Wrappers)
+      WrappersOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Wrappers.newBuilder() to construct.
+    private Wrappers(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Wrappers() {
+      uint64Values_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Wrappers();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Wrappers(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (stringValue_ != null) {
+                subBuilder = stringValue_.toBuilder();
+              }
+              stringValue_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stringValue_);
+                stringValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                uint64Values_ = new java.util.ArrayList<com.google.protobuf.UInt64Value>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              uint64Values_.add(
+                  input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          uint64Values_ = java.util.Collections.unmodifiableList(uint64Values_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pbandk.testpb.java.Test.internal_static_testpb_Wrappers_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pbandk.testpb.java.Test.internal_static_testpb_Wrappers_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pbandk.testpb.java.Test.Wrappers.class, pbandk.testpb.java.Test.Wrappers.Builder.class);
+    }
+
+    public static final int STRING_VALUE_FIELD_NUMBER = 1;
+    private com.google.protobuf.StringValue stringValue_;
+    /**
+     * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return Whether the stringValue field is set.
+     */
+    public boolean hasStringValue() {
+      return stringValue_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return The stringValue.
+     */
+    public com.google.protobuf.StringValue getStringValue() {
+      return stringValue_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : stringValue_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue string_value = 1;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getStringValueOrBuilder() {
+      return getStringValue();
+    }
+
+    public static final int UINT64_VALUES_FIELD_NUMBER = 2;
+    private java.util.List<com.google.protobuf.UInt64Value> uint64Values_;
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    public java.util.List<com.google.protobuf.UInt64Value> getUint64ValuesList() {
+      return uint64Values_;
+    }
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    public java.util.List<? extends com.google.protobuf.UInt64ValueOrBuilder> 
+        getUint64ValuesOrBuilderList() {
+      return uint64Values_;
+    }
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    public int getUint64ValuesCount() {
+      return uint64Values_.size();
+    }
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    public com.google.protobuf.UInt64Value getUint64Values(int index) {
+      return uint64Values_.get(index);
+    }
+    /**
+     * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+     */
+    public com.google.protobuf.UInt64ValueOrBuilder getUint64ValuesOrBuilder(
+        int index) {
+      return uint64Values_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (stringValue_ != null) {
+        output.writeMessage(1, getStringValue());
+      }
+      for (int i = 0; i < uint64Values_.size(); i++) {
+        output.writeMessage(2, uint64Values_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (stringValue_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getStringValue());
+      }
+      for (int i = 0; i < uint64Values_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, uint64Values_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pbandk.testpb.java.Test.Wrappers)) {
+        return super.equals(obj);
+      }
+      pbandk.testpb.java.Test.Wrappers other = (pbandk.testpb.java.Test.Wrappers) obj;
+
+      if (hasStringValue() != other.hasStringValue()) return false;
+      if (hasStringValue()) {
+        if (!getStringValue()
+            .equals(other.getStringValue())) return false;
+      }
+      if (!getUint64ValuesList()
+          .equals(other.getUint64ValuesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasStringValue()) {
+        hash = (37 * hash) + STRING_VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getStringValue().hashCode();
+      }
+      if (getUint64ValuesCount() > 0) {
+        hash = (37 * hash) + UINT64_VALUES_FIELD_NUMBER;
+        hash = (53 * hash) + getUint64ValuesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.Wrappers parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pbandk.testpb.java.Test.Wrappers prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code testpb.Wrappers}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:testpb.Wrappers)
+        pbandk.testpb.java.Test.WrappersOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pbandk.testpb.java.Test.internal_static_testpb_Wrappers_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pbandk.testpb.java.Test.internal_static_testpb_Wrappers_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pbandk.testpb.java.Test.Wrappers.class, pbandk.testpb.java.Test.Wrappers.Builder.class);
+      }
+
+      // Construct using pbandk.testpb.java.Test.Wrappers.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getUint64ValuesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (stringValueBuilder_ == null) {
+          stringValue_ = null;
+        } else {
+          stringValue_ = null;
+          stringValueBuilder_ = null;
+        }
+        if (uint64ValuesBuilder_ == null) {
+          uint64Values_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          uint64ValuesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pbandk.testpb.java.Test.internal_static_testpb_Wrappers_descriptor;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.Wrappers getDefaultInstanceForType() {
+        return pbandk.testpb.java.Test.Wrappers.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.Wrappers build() {
+        pbandk.testpb.java.Test.Wrappers result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.Wrappers buildPartial() {
+        pbandk.testpb.java.Test.Wrappers result = new pbandk.testpb.java.Test.Wrappers(this);
+        int from_bitField0_ = bitField0_;
+        if (stringValueBuilder_ == null) {
+          result.stringValue_ = stringValue_;
+        } else {
+          result.stringValue_ = stringValueBuilder_.build();
+        }
+        if (uint64ValuesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            uint64Values_ = java.util.Collections.unmodifiableList(uint64Values_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.uint64Values_ = uint64Values_;
+        } else {
+          result.uint64Values_ = uint64ValuesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pbandk.testpb.java.Test.Wrappers) {
+          return mergeFrom((pbandk.testpb.java.Test.Wrappers)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pbandk.testpb.java.Test.Wrappers other) {
+        if (other == pbandk.testpb.java.Test.Wrappers.getDefaultInstance()) return this;
+        if (other.hasStringValue()) {
+          mergeStringValue(other.getStringValue());
+        }
+        if (uint64ValuesBuilder_ == null) {
+          if (!other.uint64Values_.isEmpty()) {
+            if (uint64Values_.isEmpty()) {
+              uint64Values_ = other.uint64Values_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureUint64ValuesIsMutable();
+              uint64Values_.addAll(other.uint64Values_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.uint64Values_.isEmpty()) {
+            if (uint64ValuesBuilder_.isEmpty()) {
+              uint64ValuesBuilder_.dispose();
+              uint64ValuesBuilder_ = null;
+              uint64Values_ = other.uint64Values_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              uint64ValuesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getUint64ValuesFieldBuilder() : null;
+            } else {
+              uint64ValuesBuilder_.addAllMessages(other.uint64Values_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        pbandk.testpb.java.Test.Wrappers parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pbandk.testpb.java.Test.Wrappers) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.StringValue stringValue_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringValueBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       * @return Whether the stringValue field is set.
+       */
+      public boolean hasStringValue() {
+        return stringValueBuilder_ != null || stringValue_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       * @return The stringValue.
+       */
+      public com.google.protobuf.StringValue getStringValue() {
+        if (stringValueBuilder_ == null) {
+          return stringValue_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : stringValue_;
+        } else {
+          return stringValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      public Builder setStringValue(com.google.protobuf.StringValue value) {
+        if (stringValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stringValue_ = value;
+          onChanged();
+        } else {
+          stringValueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      public Builder setStringValue(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (stringValueBuilder_ == null) {
+          stringValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          stringValueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      public Builder mergeStringValue(com.google.protobuf.StringValue value) {
+        if (stringValueBuilder_ == null) {
+          if (stringValue_ != null) {
+            stringValue_ =
+              com.google.protobuf.StringValue.newBuilder(stringValue_).mergeFrom(value).buildPartial();
+          } else {
+            stringValue_ = value;
+          }
+          onChanged();
+        } else {
+          stringValueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      public Builder clearStringValue() {
+        if (stringValueBuilder_ == null) {
+          stringValue_ = null;
+          onChanged();
+        } else {
+          stringValue_ = null;
+          stringValueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getStringValueBuilder() {
+        
+        onChanged();
+        return getStringValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getStringValueOrBuilder() {
+        if (stringValueBuilder_ != null) {
+          return stringValueBuilder_.getMessageOrBuilder();
+        } else {
+          return stringValue_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : stringValue_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue string_value = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getStringValueFieldBuilder() {
+        if (stringValueBuilder_ == null) {
+          stringValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getStringValue(),
+                  getParentForChildren(),
+                  isClean());
+          stringValue_ = null;
+        }
+        return stringValueBuilder_;
+      }
+
+      private java.util.List<com.google.protobuf.UInt64Value> uint64Values_ =
+        java.util.Collections.emptyList();
+      private void ensureUint64ValuesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          uint64Values_ = new java.util.ArrayList<com.google.protobuf.UInt64Value>(uint64Values_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64ValuesBuilder_;
+
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public java.util.List<com.google.protobuf.UInt64Value> getUint64ValuesList() {
+        if (uint64ValuesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(uint64Values_);
+        } else {
+          return uint64ValuesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public int getUint64ValuesCount() {
+        if (uint64ValuesBuilder_ == null) {
+          return uint64Values_.size();
+        } else {
+          return uint64ValuesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public com.google.protobuf.UInt64Value getUint64Values(int index) {
+        if (uint64ValuesBuilder_ == null) {
+          return uint64Values_.get(index);
+        } else {
+          return uint64ValuesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder setUint64Values(
+          int index, com.google.protobuf.UInt64Value value) {
+        if (uint64ValuesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUint64ValuesIsMutable();
+          uint64Values_.set(index, value);
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder setUint64Values(
+          int index, com.google.protobuf.UInt64Value.Builder builderForValue) {
+        if (uint64ValuesBuilder_ == null) {
+          ensureUint64ValuesIsMutable();
+          uint64Values_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder addUint64Values(com.google.protobuf.UInt64Value value) {
+        if (uint64ValuesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUint64ValuesIsMutable();
+          uint64Values_.add(value);
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder addUint64Values(
+          int index, com.google.protobuf.UInt64Value value) {
+        if (uint64ValuesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUint64ValuesIsMutable();
+          uint64Values_.add(index, value);
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder addUint64Values(
+          com.google.protobuf.UInt64Value.Builder builderForValue) {
+        if (uint64ValuesBuilder_ == null) {
+          ensureUint64ValuesIsMutable();
+          uint64Values_.add(builderForValue.build());
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder addUint64Values(
+          int index, com.google.protobuf.UInt64Value.Builder builderForValue) {
+        if (uint64ValuesBuilder_ == null) {
+          ensureUint64ValuesIsMutable();
+          uint64Values_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder addAllUint64Values(
+          java.lang.Iterable<? extends com.google.protobuf.UInt64Value> values) {
+        if (uint64ValuesBuilder_ == null) {
+          ensureUint64ValuesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uint64Values_);
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder clearUint64Values() {
+        if (uint64ValuesBuilder_ == null) {
+          uint64Values_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public Builder removeUint64Values(int index) {
+        if (uint64ValuesBuilder_ == null) {
+          ensureUint64ValuesIsMutable();
+          uint64Values_.remove(index);
+          onChanged();
+        } else {
+          uint64ValuesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public com.google.protobuf.UInt64Value.Builder getUint64ValuesBuilder(
+          int index) {
+        return getUint64ValuesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public com.google.protobuf.UInt64ValueOrBuilder getUint64ValuesOrBuilder(
+          int index) {
+        if (uint64ValuesBuilder_ == null) {
+          return uint64Values_.get(index);  } else {
+          return uint64ValuesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public java.util.List<? extends com.google.protobuf.UInt64ValueOrBuilder> 
+           getUint64ValuesOrBuilderList() {
+        if (uint64ValuesBuilder_ != null) {
+          return uint64ValuesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(uint64Values_);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public com.google.protobuf.UInt64Value.Builder addUint64ValuesBuilder() {
+        return getUint64ValuesFieldBuilder().addBuilder(
+            com.google.protobuf.UInt64Value.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public com.google.protobuf.UInt64Value.Builder addUint64ValuesBuilder(
+          int index) {
+        return getUint64ValuesFieldBuilder().addBuilder(
+            index, com.google.protobuf.UInt64Value.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
+       */
+      public java.util.List<com.google.protobuf.UInt64Value.Builder> 
+           getUint64ValuesBuilderList() {
+        return getUint64ValuesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> 
+          getUint64ValuesFieldBuilder() {
+        if (uint64ValuesBuilder_ == null) {
+          uint64ValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
+                  uint64Values_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          uint64Values_ = null;
+        }
+        return uint64ValuesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:testpb.Wrappers)
+    }
+
+    // @@protoc_insertion_point(class_scope:testpb.Wrappers)
+    private static final pbandk.testpb.java.Test.Wrappers DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pbandk.testpb.java.Test.Wrappers();
+    }
+
+    public static pbandk.testpb.java.Test.Wrappers getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Wrappers>
+        PARSER = new com.google.protobuf.AbstractParser<Wrappers>() {
+      @java.lang.Override
+      public Wrappers parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Wrappers(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Wrappers> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Wrappers> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pbandk.testpb.java.Test.Wrappers getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_testpb_Foo_descriptor;
   private static final 
@@ -2116,6 +3104,11 @@ public final class Test {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_testpb_MessageWithMap_MapEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_testpb_Wrappers_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_testpb_Wrappers_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2125,16 +3118,21 @@ public final class Test {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030pbandk/testpb/test.proto\022\006testpb\"\022\n\003Fo" +
-      "o\022\013\n\003val\030\001 \001(\t\" \n\003Bar\022\031\n\004foos\030\001 \003(\0132\013.te" +
-      "stpb.Foo\"j\n\016MessageWithMap\022,\n\003map\030\001 \003(\0132" +
-      "\037.testpb.MessageWithMap.MapEntry\032*\n\010MapE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\024\n\022" +
-      "pbandk.testpb.javab\006proto3"
+      "\n\030pbandk/testpb/test.proto\022\006testpb\032\036goog" +
+      "le/protobuf/wrappers.proto\"\022\n\003Foo\022\013\n\003val" +
+      "\030\001 \001(\t\" \n\003Bar\022\031\n\004foos\030\001 \003(\0132\013.testpb.Foo" +
+      "\"j\n\016MessageWithMap\022,\n\003map\030\001 \003(\0132\037.testpb" +
+      ".MessageWithMap.MapEntry\032*\n\010MapEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"s\n\010Wrappers" +
+      "\0222\n\014string_value\030\001 \001(\0132\034.google.protobuf" +
+      ".StringValue\0223\n\ruint64_values\030\002 \003(\0132\034.go" +
+      "ogle.protobuf.UInt64ValueB\024\n\022pbandk.test" +
+      "pb.javab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
         });
     internal_static_testpb_Foo_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2160,6 +3158,13 @@ public final class Test {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_testpb_MessageWithMap_MapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_testpb_Wrappers_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_testpb_Wrappers_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_testpb_Wrappers_descriptor,
+        new java.lang.String[] { "StringValue", "Uint64Values", });
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

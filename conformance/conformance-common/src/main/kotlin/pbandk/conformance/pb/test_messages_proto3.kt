@@ -114,24 +114,24 @@ data class TestAllTypesProto3(
     val mapStringForeignMessage: Map<String, pbandk.conformance.pb.ForeignMessage?> = emptyMap(),
     val mapStringNestedEnum: Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> = emptyMap(),
     val mapStringForeignEnum: Map<String, pbandk.conformance.pb.ForeignEnum> = emptyMap(),
-    val optionalBoolWrapper: pbandk.wkt.BoolValue? = null,
-    val optionalInt32Wrapper: pbandk.wkt.Int32Value? = null,
-    val optionalInt64Wrapper: pbandk.wkt.Int64Value? = null,
-    val optionalUint32Wrapper: pbandk.wkt.UInt32Value? = null,
-    val optionalUint64Wrapper: pbandk.wkt.UInt64Value? = null,
-    val optionalFloatWrapper: pbandk.wkt.FloatValue? = null,
-    val optionalDoubleWrapper: pbandk.wkt.DoubleValue? = null,
-    val optionalStringWrapper: pbandk.wkt.StringValue? = null,
-    val optionalBytesWrapper: pbandk.wkt.BytesValue? = null,
-    val repeatedBoolWrapper: List<pbandk.wkt.BoolValue> = emptyList(),
-    val repeatedInt32Wrapper: List<pbandk.wkt.Int32Value> = emptyList(),
-    val repeatedInt64Wrapper: List<pbandk.wkt.Int64Value> = emptyList(),
-    val repeatedUint32Wrapper: List<pbandk.wkt.UInt32Value> = emptyList(),
-    val repeatedUint64Wrapper: List<pbandk.wkt.UInt64Value> = emptyList(),
-    val repeatedFloatWrapper: List<pbandk.wkt.FloatValue> = emptyList(),
-    val repeatedDoubleWrapper: List<pbandk.wkt.DoubleValue> = emptyList(),
-    val repeatedStringWrapper: List<pbandk.wkt.StringValue> = emptyList(),
-    val repeatedBytesWrapper: List<pbandk.wkt.BytesValue> = emptyList(),
+    val optionalBoolWrapper: Boolean? = null,
+    val optionalInt32Wrapper: Int? = null,
+    val optionalInt64Wrapper: Long? = null,
+    val optionalUint32Wrapper: Int? = null,
+    val optionalUint64Wrapper: Long? = null,
+    val optionalFloatWrapper: Float? = null,
+    val optionalDoubleWrapper: Double? = null,
+    val optionalStringWrapper: String? = null,
+    val optionalBytesWrapper: pbandk.ByteArr? = null,
+    val repeatedBoolWrapper: List<Boolean> = emptyList(),
+    val repeatedInt32Wrapper: List<Int> = emptyList(),
+    val repeatedInt64Wrapper: List<Long> = emptyList(),
+    val repeatedUint32Wrapper: List<Int> = emptyList(),
+    val repeatedUint64Wrapper: List<Long> = emptyList(),
+    val repeatedFloatWrapper: List<Float> = emptyList(),
+    val repeatedDoubleWrapper: List<Double> = emptyList(),
+    val repeatedStringWrapper: List<String> = emptyList(),
+    val repeatedBytesWrapper: List<pbandk.ByteArr> = emptyList(),
     val optionalDuration: pbandk.wkt.Duration? = null,
     val optionalTimestamp: pbandk.wkt.Timestamp? = null,
     val optionalFieldMask: pbandk.wkt.FieldMask? = null,
@@ -411,41 +411,41 @@ data class TestAllTypesProto3(
         @SerialName("oneof_enum")
         val oneofEnum: String? = null,
         @SerialName("optional_bool_wrapper")
-        val optionalBoolWrapper: pbandk.wkt.BoolValue.JsonMapper? = null,
+        val optionalBoolWrapper: Boolean? = null,
         @SerialName("optional_int32_wrapper")
-        val optionalInt32Wrapper: pbandk.wkt.Int32Value.JsonMapper? = null,
+        val optionalInt32Wrapper: Int? = null,
         @SerialName("optional_int64_wrapper")
-        val optionalInt64Wrapper: pbandk.wkt.Int64Value.JsonMapper? = null,
+        val optionalInt64Wrapper: Long? = null,
         @SerialName("optional_uint32_wrapper")
-        val optionalUint32Wrapper: pbandk.wkt.UInt32Value.JsonMapper? = null,
+        val optionalUint32Wrapper: Int? = null,
         @SerialName("optional_uint64_wrapper")
-        val optionalUint64Wrapper: pbandk.wkt.UInt64Value.JsonMapper? = null,
+        val optionalUint64Wrapper: Long? = null,
         @SerialName("optional_float_wrapper")
-        val optionalFloatWrapper: pbandk.wkt.FloatValue.JsonMapper? = null,
+        val optionalFloatWrapper: Float? = null,
         @SerialName("optional_double_wrapper")
-        val optionalDoubleWrapper: pbandk.wkt.DoubleValue.JsonMapper? = null,
+        val optionalDoubleWrapper: Double? = null,
         @SerialName("optional_string_wrapper")
-        val optionalStringWrapper: pbandk.wkt.StringValue.JsonMapper? = null,
+        val optionalStringWrapper: String? = null,
         @SerialName("optional_bytes_wrapper")
-        val optionalBytesWrapper: pbandk.wkt.BytesValue.JsonMapper? = null,
+        val optionalBytesWrapper: pbandk.ByteArr? = null,
         @SerialName("repeated_bool_wrapper")
-        val repeatedBoolWrapper: List<pbandk.wkt.BoolValue.JsonMapper> = emptyList(),
+        val repeatedBoolWrapper: List<Boolean> = emptyList(),
         @SerialName("repeated_int32_wrapper")
-        val repeatedInt32Wrapper: List<pbandk.wkt.Int32Value.JsonMapper> = emptyList(),
+        val repeatedInt32Wrapper: List<Int> = emptyList(),
         @SerialName("repeated_int64_wrapper")
-        val repeatedInt64Wrapper: List<pbandk.wkt.Int64Value.JsonMapper> = emptyList(),
+        val repeatedInt64Wrapper: List<Long> = emptyList(),
         @SerialName("repeated_uint32_wrapper")
-        val repeatedUint32Wrapper: List<pbandk.wkt.UInt32Value.JsonMapper> = emptyList(),
+        val repeatedUint32Wrapper: List<Int> = emptyList(),
         @SerialName("repeated_uint64_wrapper")
-        val repeatedUint64Wrapper: List<pbandk.wkt.UInt64Value.JsonMapper> = emptyList(),
+        val repeatedUint64Wrapper: List<Long> = emptyList(),
         @SerialName("repeated_float_wrapper")
-        val repeatedFloatWrapper: List<pbandk.wkt.FloatValue.JsonMapper> = emptyList(),
+        val repeatedFloatWrapper: List<Float> = emptyList(),
         @SerialName("repeated_double_wrapper")
-        val repeatedDoubleWrapper: List<pbandk.wkt.DoubleValue.JsonMapper> = emptyList(),
+        val repeatedDoubleWrapper: List<Double> = emptyList(),
         @SerialName("repeated_string_wrapper")
-        val repeatedStringWrapper: List<pbandk.wkt.StringValue.JsonMapper> = emptyList(),
+        val repeatedStringWrapper: List<String> = emptyList(),
         @SerialName("repeated_bytes_wrapper")
-        val repeatedBytesWrapper: List<pbandk.wkt.BytesValue.JsonMapper> = emptyList(),
+        val repeatedBytesWrapper: List<pbandk.ByteArr> = emptyList(),
         @SerialName("optional_duration")
         val optionalDuration: pbandk.wkt.Duration.JsonMapper? = null,
         @SerialName("optional_timestamp")
@@ -1189,15 +1189,15 @@ private fun TestAllTypesProto3.protoMergeImpl(plus: TestAllTypesProto3?): TestAl
     mapStringForeignMessage = mapStringForeignMessage + plus.mapStringForeignMessage,
     mapStringNestedEnum = mapStringNestedEnum + plus.mapStringNestedEnum,
     mapStringForeignEnum = mapStringForeignEnum + plus.mapStringForeignEnum,
-    optionalBoolWrapper = optionalBoolWrapper?.plus(plus.optionalBoolWrapper) ?: plus.optionalBoolWrapper,
-    optionalInt32Wrapper = optionalInt32Wrapper?.plus(plus.optionalInt32Wrapper) ?: plus.optionalInt32Wrapper,
-    optionalInt64Wrapper = optionalInt64Wrapper?.plus(plus.optionalInt64Wrapper) ?: plus.optionalInt64Wrapper,
-    optionalUint32Wrapper = optionalUint32Wrapper?.plus(plus.optionalUint32Wrapper) ?: plus.optionalUint32Wrapper,
-    optionalUint64Wrapper = optionalUint64Wrapper?.plus(plus.optionalUint64Wrapper) ?: plus.optionalUint64Wrapper,
-    optionalFloatWrapper = optionalFloatWrapper?.plus(plus.optionalFloatWrapper) ?: plus.optionalFloatWrapper,
-    optionalDoubleWrapper = optionalDoubleWrapper?.plus(plus.optionalDoubleWrapper) ?: plus.optionalDoubleWrapper,
-    optionalStringWrapper = optionalStringWrapper?.plus(plus.optionalStringWrapper) ?: plus.optionalStringWrapper,
-    optionalBytesWrapper = optionalBytesWrapper?.plus(plus.optionalBytesWrapper) ?: plus.optionalBytesWrapper,
+    optionalBoolWrapper = plus.optionalBoolWrapper ?: optionalBoolWrapper,
+    optionalInt32Wrapper = plus.optionalInt32Wrapper ?: optionalInt32Wrapper,
+    optionalInt64Wrapper = plus.optionalInt64Wrapper ?: optionalInt64Wrapper,
+    optionalUint32Wrapper = plus.optionalUint32Wrapper ?: optionalUint32Wrapper,
+    optionalUint64Wrapper = plus.optionalUint64Wrapper ?: optionalUint64Wrapper,
+    optionalFloatWrapper = plus.optionalFloatWrapper ?: optionalFloatWrapper,
+    optionalDoubleWrapper = plus.optionalDoubleWrapper ?: optionalDoubleWrapper,
+    optionalStringWrapper = plus.optionalStringWrapper ?: optionalStringWrapper,
+    optionalBytesWrapper = plus.optionalBytesWrapper ?: optionalBytesWrapper,
     repeatedBoolWrapper = repeatedBoolWrapper + plus.repeatedBoolWrapper,
     repeatedInt32Wrapper = repeatedInt32Wrapper + plus.repeatedInt32Wrapper,
     repeatedInt64Wrapper = repeatedInt64Wrapper + plus.repeatedInt64Wrapper,
@@ -1322,24 +1322,24 @@ private fun TestAllTypesProto3.protoSizeImpl(): Int {
     if (mapStringForeignMessage.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(72, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
     if (mapStringNestedEnum.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(73, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
     if (mapStringForeignEnum.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(74, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
-    if (optionalBoolWrapper != null) protoSize += pbandk.Sizer.tagSize(201) + pbandk.Sizer.messageSize(optionalBoolWrapper)
-    if (optionalInt32Wrapper != null) protoSize += pbandk.Sizer.tagSize(202) + pbandk.Sizer.messageSize(optionalInt32Wrapper)
-    if (optionalInt64Wrapper != null) protoSize += pbandk.Sizer.tagSize(203) + pbandk.Sizer.messageSize(optionalInt64Wrapper)
-    if (optionalUint32Wrapper != null) protoSize += pbandk.Sizer.tagSize(204) + pbandk.Sizer.messageSize(optionalUint32Wrapper)
-    if (optionalUint64Wrapper != null) protoSize += pbandk.Sizer.tagSize(205) + pbandk.Sizer.messageSize(optionalUint64Wrapper)
-    if (optionalFloatWrapper != null) protoSize += pbandk.Sizer.tagSize(206) + pbandk.Sizer.messageSize(optionalFloatWrapper)
-    if (optionalDoubleWrapper != null) protoSize += pbandk.Sizer.tagSize(207) + pbandk.Sizer.messageSize(optionalDoubleWrapper)
-    if (optionalStringWrapper != null) protoSize += pbandk.Sizer.tagSize(208) + pbandk.Sizer.messageSize(optionalStringWrapper)
-    if (optionalBytesWrapper != null) protoSize += pbandk.Sizer.tagSize(209) + pbandk.Sizer.messageSize(optionalBytesWrapper)
-    if (repeatedBoolWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(211) * repeatedBoolWrapper.size) + repeatedBoolWrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedInt32Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(212) * repeatedInt32Wrapper.size) + repeatedInt32Wrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedInt64Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(213) * repeatedInt64Wrapper.size) + repeatedInt64Wrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedUint32Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(214) * repeatedUint32Wrapper.size) + repeatedUint32Wrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedUint64Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(215) * repeatedUint64Wrapper.size) + repeatedUint64Wrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedFloatWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(216) * repeatedFloatWrapper.size) + repeatedFloatWrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedDoubleWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(217) * repeatedDoubleWrapper.size) + repeatedDoubleWrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedStringWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(218) * repeatedStringWrapper.size) + repeatedStringWrapper.sumBy(pbandk.Sizer::messageSize)
-    if (repeatedBytesWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(219) * repeatedBytesWrapper.size) + repeatedBytesWrapper.sumBy(pbandk.Sizer::messageSize)
+    if (optionalBoolWrapper != null) protoSize += pbandk.Sizer.tagSize(201) + pbandk.Sizer.messageSize(pbandk.wkt.BoolValue(optionalBoolWrapper))
+    if (optionalInt32Wrapper != null) protoSize += pbandk.Sizer.tagSize(202) + pbandk.Sizer.messageSize(pbandk.wkt.Int32Value(optionalInt32Wrapper))
+    if (optionalInt64Wrapper != null) protoSize += pbandk.Sizer.tagSize(203) + pbandk.Sizer.messageSize(pbandk.wkt.Int64Value(optionalInt64Wrapper))
+    if (optionalUint32Wrapper != null) protoSize += pbandk.Sizer.tagSize(204) + pbandk.Sizer.messageSize(pbandk.wkt.UInt32Value(optionalUint32Wrapper))
+    if (optionalUint64Wrapper != null) protoSize += pbandk.Sizer.tagSize(205) + pbandk.Sizer.messageSize(pbandk.wkt.UInt64Value(optionalUint64Wrapper))
+    if (optionalFloatWrapper != null) protoSize += pbandk.Sizer.tagSize(206) + pbandk.Sizer.messageSize(pbandk.wkt.FloatValue(optionalFloatWrapper))
+    if (optionalDoubleWrapper != null) protoSize += pbandk.Sizer.tagSize(207) + pbandk.Sizer.messageSize(pbandk.wkt.DoubleValue(optionalDoubleWrapper))
+    if (optionalStringWrapper != null) protoSize += pbandk.Sizer.tagSize(208) + pbandk.Sizer.messageSize(pbandk.wkt.StringValue(optionalStringWrapper))
+    if (optionalBytesWrapper != null) protoSize += pbandk.Sizer.tagSize(209) + pbandk.Sizer.messageSize(pbandk.wkt.BytesValue(optionalBytesWrapper))
+    if (repeatedBoolWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(211) * repeatedBoolWrapper.size) + repeatedBoolWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.BoolValue(it)) }
+    if (repeatedInt32Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(212) * repeatedInt32Wrapper.size) + repeatedInt32Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.Int32Value(it)) }
+    if (repeatedInt64Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(213) * repeatedInt64Wrapper.size) + repeatedInt64Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.Int64Value(it)) }
+    if (repeatedUint32Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(214) * repeatedUint32Wrapper.size) + repeatedUint32Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.UInt32Value(it)) }
+    if (repeatedUint64Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(215) * repeatedUint64Wrapper.size) + repeatedUint64Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.UInt64Value(it)) }
+    if (repeatedFloatWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(216) * repeatedFloatWrapper.size) + repeatedFloatWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.FloatValue(it)) }
+    if (repeatedDoubleWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(217) * repeatedDoubleWrapper.size) + repeatedDoubleWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.DoubleValue(it)) }
+    if (repeatedStringWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(218) * repeatedStringWrapper.size) + repeatedStringWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.StringValue(it)) }
+    if (repeatedBytesWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(219) * repeatedBytesWrapper.size) + repeatedBytesWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.BytesValue(it)) }
     if (optionalDuration != null) protoSize += pbandk.Sizer.tagSize(301) + pbandk.Sizer.messageSize(optionalDuration)
     if (optionalTimestamp != null) protoSize += pbandk.Sizer.tagSize(302) + pbandk.Sizer.messageSize(optionalTimestamp)
     if (optionalFieldMask != null) protoSize += pbandk.Sizer.tagSize(303) + pbandk.Sizer.messageSize(optionalFieldMask)
@@ -1487,24 +1487,24 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (oneofField is TestAllTypesProto3.OneofField.OneofFloat) protoMarshal.writeTag(941).writeFloat(oneofField.value)
     if (oneofField is TestAllTypesProto3.OneofField.OneofDouble) protoMarshal.writeTag(945).writeDouble(oneofField.value)
     if (oneofField is TestAllTypesProto3.OneofField.OneofEnum) protoMarshal.writeTag(952).writeEnum(oneofField.value)
-    if (optionalBoolWrapper != null) protoMarshal.writeTag(1610).writeMessage(optionalBoolWrapper)
-    if (optionalInt32Wrapper != null) protoMarshal.writeTag(1618).writeMessage(optionalInt32Wrapper)
-    if (optionalInt64Wrapper != null) protoMarshal.writeTag(1626).writeMessage(optionalInt64Wrapper)
-    if (optionalUint32Wrapper != null) protoMarshal.writeTag(1634).writeMessage(optionalUint32Wrapper)
-    if (optionalUint64Wrapper != null) protoMarshal.writeTag(1642).writeMessage(optionalUint64Wrapper)
-    if (optionalFloatWrapper != null) protoMarshal.writeTag(1650).writeMessage(optionalFloatWrapper)
-    if (optionalDoubleWrapper != null) protoMarshal.writeTag(1658).writeMessage(optionalDoubleWrapper)
-    if (optionalStringWrapper != null) protoMarshal.writeTag(1666).writeMessage(optionalStringWrapper)
-    if (optionalBytesWrapper != null) protoMarshal.writeTag(1674).writeMessage(optionalBytesWrapper)
-    if (repeatedBoolWrapper.isNotEmpty()) repeatedBoolWrapper.forEach { protoMarshal.writeTag(1690).writeMessage(it) }
-    if (repeatedInt32Wrapper.isNotEmpty()) repeatedInt32Wrapper.forEach { protoMarshal.writeTag(1698).writeMessage(it) }
-    if (repeatedInt64Wrapper.isNotEmpty()) repeatedInt64Wrapper.forEach { protoMarshal.writeTag(1706).writeMessage(it) }
-    if (repeatedUint32Wrapper.isNotEmpty()) repeatedUint32Wrapper.forEach { protoMarshal.writeTag(1714).writeMessage(it) }
-    if (repeatedUint64Wrapper.isNotEmpty()) repeatedUint64Wrapper.forEach { protoMarshal.writeTag(1722).writeMessage(it) }
-    if (repeatedFloatWrapper.isNotEmpty()) repeatedFloatWrapper.forEach { protoMarshal.writeTag(1730).writeMessage(it) }
-    if (repeatedDoubleWrapper.isNotEmpty()) repeatedDoubleWrapper.forEach { protoMarshal.writeTag(1738).writeMessage(it) }
-    if (repeatedStringWrapper.isNotEmpty()) repeatedStringWrapper.forEach { protoMarshal.writeTag(1746).writeMessage(it) }
-    if (repeatedBytesWrapper.isNotEmpty()) repeatedBytesWrapper.forEach { protoMarshal.writeTag(1754).writeMessage(it) }
+    if (optionalBoolWrapper != null) protoMarshal.writeTag(1610).writeMessage(pbandk.wkt.BoolValue(optionalBoolWrapper))
+    if (optionalInt32Wrapper != null) protoMarshal.writeTag(1618).writeMessage(pbandk.wkt.Int32Value(optionalInt32Wrapper))
+    if (optionalInt64Wrapper != null) protoMarshal.writeTag(1626).writeMessage(pbandk.wkt.Int64Value(optionalInt64Wrapper))
+    if (optionalUint32Wrapper != null) protoMarshal.writeTag(1634).writeMessage(pbandk.wkt.UInt32Value(optionalUint32Wrapper))
+    if (optionalUint64Wrapper != null) protoMarshal.writeTag(1642).writeMessage(pbandk.wkt.UInt64Value(optionalUint64Wrapper))
+    if (optionalFloatWrapper != null) protoMarshal.writeTag(1650).writeMessage(pbandk.wkt.FloatValue(optionalFloatWrapper))
+    if (optionalDoubleWrapper != null) protoMarshal.writeTag(1658).writeMessage(pbandk.wkt.DoubleValue(optionalDoubleWrapper))
+    if (optionalStringWrapper != null) protoMarshal.writeTag(1666).writeMessage(pbandk.wkt.StringValue(optionalStringWrapper))
+    if (optionalBytesWrapper != null) protoMarshal.writeTag(1674).writeMessage(pbandk.wkt.BytesValue(optionalBytesWrapper))
+    if (repeatedBoolWrapper.isNotEmpty()) repeatedBoolWrapper.forEach { protoMarshal.writeTag(1690).writeMessage(pbandk.wkt.BoolValue(it)) }
+    if (repeatedInt32Wrapper.isNotEmpty()) repeatedInt32Wrapper.forEach { protoMarshal.writeTag(1698).writeMessage(pbandk.wkt.Int32Value(it)) }
+    if (repeatedInt64Wrapper.isNotEmpty()) repeatedInt64Wrapper.forEach { protoMarshal.writeTag(1706).writeMessage(pbandk.wkt.Int64Value(it)) }
+    if (repeatedUint32Wrapper.isNotEmpty()) repeatedUint32Wrapper.forEach { protoMarshal.writeTag(1714).writeMessage(pbandk.wkt.UInt32Value(it)) }
+    if (repeatedUint64Wrapper.isNotEmpty()) repeatedUint64Wrapper.forEach { protoMarshal.writeTag(1722).writeMessage(pbandk.wkt.UInt64Value(it)) }
+    if (repeatedFloatWrapper.isNotEmpty()) repeatedFloatWrapper.forEach { protoMarshal.writeTag(1730).writeMessage(pbandk.wkt.FloatValue(it)) }
+    if (repeatedDoubleWrapper.isNotEmpty()) repeatedDoubleWrapper.forEach { protoMarshal.writeTag(1738).writeMessage(pbandk.wkt.DoubleValue(it)) }
+    if (repeatedStringWrapper.isNotEmpty()) repeatedStringWrapper.forEach { protoMarshal.writeTag(1746).writeMessage(pbandk.wkt.StringValue(it)) }
+    if (repeatedBytesWrapper.isNotEmpty()) repeatedBytesWrapper.forEach { protoMarshal.writeTag(1754).writeMessage(pbandk.wkt.BytesValue(it)) }
     if (optionalDuration != null) protoMarshal.writeTag(2410).writeMessage(optionalDuration)
     if (optionalTimestamp != null) protoMarshal.writeTag(2418).writeMessage(optionalTimestamp)
     if (optionalFieldMask != null) protoMarshal.writeTag(2426).writeMessage(optionalFieldMask)
@@ -1640,15 +1640,15 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
     var optionalDoubleWrapper: pbandk.wkt.DoubleValue? = null
     var optionalStringWrapper: pbandk.wkt.StringValue? = null
     var optionalBytesWrapper: pbandk.wkt.BytesValue? = null
-    var repeatedBoolWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.BoolValue>? = null
-    var repeatedInt32Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.Int32Value>? = null
-    var repeatedInt64Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.Int64Value>? = null
-    var repeatedUint32Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.UInt32Value>? = null
-    var repeatedUint64Wrapper: pbandk.ListWithSize.Builder<pbandk.wkt.UInt64Value>? = null
-    var repeatedFloatWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.FloatValue>? = null
-    var repeatedDoubleWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.DoubleValue>? = null
-    var repeatedStringWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.StringValue>? = null
-    var repeatedBytesWrapper: pbandk.ListWithSize.Builder<pbandk.wkt.BytesValue>? = null
+    var repeatedBoolWrapper: pbandk.ListWithSize.Builder<Boolean>? = null
+    var repeatedInt32Wrapper: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedInt64Wrapper: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedUint32Wrapper: pbandk.ListWithSize.Builder<Int>? = null
+    var repeatedUint64Wrapper: pbandk.ListWithSize.Builder<Long>? = null
+    var repeatedFloatWrapper: pbandk.ListWithSize.Builder<Float>? = null
+    var repeatedDoubleWrapper: pbandk.ListWithSize.Builder<Double>? = null
+    var repeatedStringWrapper: pbandk.ListWithSize.Builder<String>? = null
+    var repeatedBytesWrapper: pbandk.ListWithSize.Builder<pbandk.ByteArr>? = null
     var optionalDuration: pbandk.wkt.Duration? = null
     var optionalTimestamp: pbandk.wkt.Timestamp? = null
     var optionalFieldMask: pbandk.wkt.FieldMask? = null
@@ -1704,9 +1704,9 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
             pbandk.MessageMap.Builder.fixed(mapSint32Sint32), pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64),
             pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32), pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double),
             pbandk.MessageMap.Builder.fixed(mapBoolBool), pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage),
-            pbandk.MessageMap.Builder.fixed(mapStringForeignMessage), pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), optionalBoolWrapper,
-            optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper,
-            optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper,
+            pbandk.MessageMap.Builder.fixed(mapStringForeignMessage), pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), optionalBoolWrapper?.value,
+            optionalInt32Wrapper?.value, optionalInt64Wrapper?.value, optionalUint32Wrapper?.value, optionalUint64Wrapper?.value,
+            optionalFloatWrapper?.value, optionalDoubleWrapper?.value, optionalStringWrapper?.value, optionalBytesWrapper?.value,
             pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
             pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper),
             pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper), optionalDuration, optionalTimestamp, optionalFieldMask,
@@ -1827,15 +1827,15 @@ private fun TestAllTypesProto3.Companion.protoUnmarshalImpl(protoUnmarshal: pban
         1658 -> optionalDoubleWrapper = protoUnmarshal.readMessage(pbandk.wkt.DoubleValue.Companion)
         1666 -> optionalStringWrapper = protoUnmarshal.readMessage(pbandk.wkt.StringValue.Companion)
         1674 -> optionalBytesWrapper = protoUnmarshal.readMessage(pbandk.wkt.BytesValue.Companion)
-        1690 -> repeatedBoolWrapper = protoUnmarshal.readRepeatedMessage(repeatedBoolWrapper, pbandk.wkt.BoolValue.Companion, true)
-        1698 -> repeatedInt32Wrapper = protoUnmarshal.readRepeatedMessage(repeatedInt32Wrapper, pbandk.wkt.Int32Value.Companion, true)
-        1706 -> repeatedInt64Wrapper = protoUnmarshal.readRepeatedMessage(repeatedInt64Wrapper, pbandk.wkt.Int64Value.Companion, true)
-        1714 -> repeatedUint32Wrapper = protoUnmarshal.readRepeatedMessage(repeatedUint32Wrapper, pbandk.wkt.UInt32Value.Companion, true)
-        1722 -> repeatedUint64Wrapper = protoUnmarshal.readRepeatedMessage(repeatedUint64Wrapper, pbandk.wkt.UInt64Value.Companion, true)
-        1730 -> repeatedFloatWrapper = protoUnmarshal.readRepeatedMessage(repeatedFloatWrapper, pbandk.wkt.FloatValue.Companion, true)
-        1738 -> repeatedDoubleWrapper = protoUnmarshal.readRepeatedMessage(repeatedDoubleWrapper, pbandk.wkt.DoubleValue.Companion, true)
-        1746 -> repeatedStringWrapper = protoUnmarshal.readRepeatedMessage(repeatedStringWrapper, pbandk.wkt.StringValue.Companion, true)
-        1754 -> repeatedBytesWrapper = protoUnmarshal.readRepeatedMessage(repeatedBytesWrapper, pbandk.wkt.BytesValue.Companion, true)
+        1690 -> repeatedBoolWrapper = protoUnmarshal.readRepeated(repeatedBoolWrapper, { protoUnmarshal.readMessage(pbandk.wkt.BoolValue.Companion).value }, true)
+        1698 -> repeatedInt32Wrapper = protoUnmarshal.readRepeated(repeatedInt32Wrapper, { protoUnmarshal.readMessage(pbandk.wkt.Int32Value.Companion).value }, true)
+        1706 -> repeatedInt64Wrapper = protoUnmarshal.readRepeated(repeatedInt64Wrapper, { protoUnmarshal.readMessage(pbandk.wkt.Int64Value.Companion).value }, true)
+        1714 -> repeatedUint32Wrapper = protoUnmarshal.readRepeated(repeatedUint32Wrapper, { protoUnmarshal.readMessage(pbandk.wkt.UInt32Value.Companion).value }, true)
+        1722 -> repeatedUint64Wrapper = protoUnmarshal.readRepeated(repeatedUint64Wrapper, { protoUnmarshal.readMessage(pbandk.wkt.UInt64Value.Companion).value }, true)
+        1730 -> repeatedFloatWrapper = protoUnmarshal.readRepeated(repeatedFloatWrapper, { protoUnmarshal.readMessage(pbandk.wkt.FloatValue.Companion).value }, true)
+        1738 -> repeatedDoubleWrapper = protoUnmarshal.readRepeated(repeatedDoubleWrapper, { protoUnmarshal.readMessage(pbandk.wkt.DoubleValue.Companion).value }, true)
+        1746 -> repeatedStringWrapper = protoUnmarshal.readRepeated(repeatedStringWrapper, { protoUnmarshal.readMessage(pbandk.wkt.StringValue.Companion).value }, true)
+        1754 -> repeatedBytesWrapper = protoUnmarshal.readRepeated(repeatedBytesWrapper, { protoUnmarshal.readMessage(pbandk.wkt.BytesValue.Companion).value }, true)
         2410 -> optionalDuration = protoUnmarshal.readMessage(pbandk.wkt.Duration.Companion)
         2418 -> optionalTimestamp = protoUnmarshal.readMessage(pbandk.wkt.Timestamp.Companion)
         2426 -> optionalFieldMask = protoUnmarshal.readMessage(pbandk.wkt.FieldMask.Companion)
@@ -1973,24 +1973,24 @@ private fun TestAllTypesProto3.toJsonMapperImpl(): TestAllTypesProto3.JsonMapper
         oneofFloat,
         oneofDouble,
         oneofEnum?.name,
-        optionalBoolWrapper?.toJsonMapper(),
-        optionalInt32Wrapper?.toJsonMapper(),
-        optionalInt64Wrapper?.toJsonMapper(),
-        optionalUint32Wrapper?.toJsonMapper(),
-        optionalUint64Wrapper?.toJsonMapper(),
-        optionalFloatWrapper?.toJsonMapper(),
-        optionalDoubleWrapper?.toJsonMapper(),
-        optionalStringWrapper?.toJsonMapper(),
-        optionalBytesWrapper?.toJsonMapper(),
-        repeatedBoolWrapper.map { it.toJsonMapper() },
-        repeatedInt32Wrapper.map { it.toJsonMapper() },
-        repeatedInt64Wrapper.map { it.toJsonMapper() },
-        repeatedUint32Wrapper.map { it.toJsonMapper() },
-        repeatedUint64Wrapper.map { it.toJsonMapper() },
-        repeatedFloatWrapper.map { it.toJsonMapper() },
-        repeatedDoubleWrapper.map { it.toJsonMapper() },
-        repeatedStringWrapper.map { it.toJsonMapper() },
-        repeatedBytesWrapper.map { it.toJsonMapper() },
+        optionalBoolWrapper,
+        optionalInt32Wrapper,
+        optionalInt64Wrapper,
+        optionalUint32Wrapper,
+        optionalUint64Wrapper,
+        optionalFloatWrapper,
+        optionalDoubleWrapper,
+        optionalStringWrapper,
+        optionalBytesWrapper,
+        repeatedBoolWrapper,
+        repeatedInt32Wrapper,
+        repeatedInt64Wrapper,
+        repeatedUint32Wrapper,
+        repeatedUint64Wrapper,
+        repeatedFloatWrapper,
+        repeatedDoubleWrapper,
+        repeatedStringWrapper,
+        repeatedBytesWrapper,
         optionalDuration?.toJsonMapper(),
         optionalTimestamp?.toJsonMapper(),
         optionalFieldMask?.toJsonMapper(),
@@ -2117,24 +2117,24 @@ private fun TestAllTypesProto3.JsonMapper.toMessageImpl(): TestAllTypesProto3 =
         mapStringForeignMessage = mapStringForeignMessage.mapValues { it.value?.toMessage() },
         mapStringNestedEnum = mapStringNestedEnum.mapValues { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it.value!!) },
         mapStringForeignEnum = mapStringForeignEnum.mapValues { pbandk.conformance.pb.ForeignEnum.fromName(it.value!!) },
-        optionalBoolWrapper = optionalBoolWrapper?.toMessage(),
-        optionalInt32Wrapper = optionalInt32Wrapper?.toMessage(),
-        optionalInt64Wrapper = optionalInt64Wrapper?.toMessage(),
-        optionalUint32Wrapper = optionalUint32Wrapper?.toMessage(),
-        optionalUint64Wrapper = optionalUint64Wrapper?.toMessage(),
-        optionalFloatWrapper = optionalFloatWrapper?.toMessage(),
-        optionalDoubleWrapper = optionalDoubleWrapper?.toMessage(),
-        optionalStringWrapper = optionalStringWrapper?.toMessage(),
-        optionalBytesWrapper = optionalBytesWrapper?.toMessage(),
-        repeatedBoolWrapper = repeatedBoolWrapper.map { it.toMessage() },
-        repeatedInt32Wrapper = repeatedInt32Wrapper.map { it.toMessage() },
-        repeatedInt64Wrapper = repeatedInt64Wrapper.map { it.toMessage() },
-        repeatedUint32Wrapper = repeatedUint32Wrapper.map { it.toMessage() },
-        repeatedUint64Wrapper = repeatedUint64Wrapper.map { it.toMessage() },
-        repeatedFloatWrapper = repeatedFloatWrapper.map { it.toMessage() },
-        repeatedDoubleWrapper = repeatedDoubleWrapper.map { it.toMessage() },
-        repeatedStringWrapper = repeatedStringWrapper.map { it.toMessage() },
-        repeatedBytesWrapper = repeatedBytesWrapper.map { it.toMessage() },
+        optionalBoolWrapper = optionalBoolWrapper,
+        optionalInt32Wrapper = optionalInt32Wrapper,
+        optionalInt64Wrapper = optionalInt64Wrapper,
+        optionalUint32Wrapper = optionalUint32Wrapper,
+        optionalUint64Wrapper = optionalUint64Wrapper,
+        optionalFloatWrapper = optionalFloatWrapper,
+        optionalDoubleWrapper = optionalDoubleWrapper,
+        optionalStringWrapper = optionalStringWrapper,
+        optionalBytesWrapper = optionalBytesWrapper,
+        repeatedBoolWrapper = repeatedBoolWrapper,
+        repeatedInt32Wrapper = repeatedInt32Wrapper,
+        repeatedInt64Wrapper = repeatedInt64Wrapper,
+        repeatedUint32Wrapper = repeatedUint32Wrapper,
+        repeatedUint64Wrapper = repeatedUint64Wrapper,
+        repeatedFloatWrapper = repeatedFloatWrapper,
+        repeatedDoubleWrapper = repeatedDoubleWrapper,
+        repeatedStringWrapper = repeatedStringWrapper,
+        repeatedBytesWrapper = repeatedBytesWrapper,
         optionalDuration = optionalDuration?.toMessage(),
         optionalTimestamp = optionalTimestamp?.toMessage(),
         optionalFieldMask = optionalFieldMask?.toMessage(),
