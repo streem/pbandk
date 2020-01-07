@@ -3,6 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2
+
 jobs:
   build:
     docker:
@@ -18,18 +19,74 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
+          name: Restore dependencies cache
           keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v2-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: ./gradlew dependencies
-
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+            - v2-dependencies-
 
       - run: ./gradlew build
+
+      - restore_cache:
+          name: Restore protobuf cache
+          keys:
+            - v3-protobuf-3.10.1
+
+      - run:
+          name: Build protoc and protobuf conformance-test-runner
+          command: |
+            cd ~
+            if [ -e ./protobuf/install/bin/protoc -a -e ./protobuf/conformance/conformance-test-runner ]; then
+              exit
+            fi
+            curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
+            tar xzvf protobuf-all-3.10.1.tar.gz
+            mv protobuf-3.10.1 protobuf
+            cd protobuf
+            ./configure --prefix="$(pwd)/install"
+            make
+            make install
+            cd conformance
+            make
+
+      - save_cache:
+          name: Save protobuf cache
+          paths:
+            - ~/protobuf
+          key: v3-protobuf-3.10.1
+
+      - run:
+          name: Ensure bundled types are up-to-date
+          command: |
+            export PATH="$PATH:$HOME/protobuf/install/bin"
+            # need to stop the gradle daemon from the earlier step so it can pick up the new PATH value
+            ./gradlew --stop
+            ./gradlew -Dprotoc.path=$HOME/protobuf/install \
+              :runtime:runtime-common:generateWellKnownTypes \
+              :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto \
+              :runtime:runtime-jvm:generateTestTypes \
+              :conformance:conformance-common:generateProto
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "*** Found uncommitted changes to bundled types: ***"
+              git status
+              exit 1
+            else
+              exit 0
+            fi
+
+      - run:
+          name: Run conformance tests
+          environment:
+          command: |
+            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+            # TODO: build and run JS conformance tests too
+            ./gradlew :conformance:conformance-jvm:installDist
+            ./conformance/test-conformance.sh
+
+      - save_cache:
+          name: Save dependencies cache
+          paths:
+            - ~/.gradle
+          key: v2-dependencies-{{ checksum "build.gradle" }}
+          when: always
