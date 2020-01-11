@@ -6,6 +6,7 @@ import com.google.protobuf.UnknownFieldSet
 import pbandk.ByteArr
 import pbandk.Message
 import pbandk.UnknownField
+import pbandk.testpb.Wrappers
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -15,39 +16,83 @@ class WellKnownTypesTest {
     fun <T : Message<T>> Message.Companion<T>.assertMessageEquals(msg: T, pbMsg: MessageLite) {
         // First a simple check of their byte arrays
         val pbBytes = pbMsg.toByteArray()
-        assertTrue(pbBytes.contentEquals(msg.protoMarshal()))
+        assertTrue(pbBytes!!.contentEquals(msg.protoMarshal()))
         // Now unmarshal and check the two messages equal each other
         assertEquals(msg, protoUnmarshal(pbBytes))
     }
 
     @Test
     fun testAny() {
-        pbandk.wkt.Any.assertMessageEquals(
-                pbandk.wkt.Any(
+        Any.assertMessageEquals(
+                Any(
                     typeUrl = "foo",
                     value = ByteArr("bar".toByteArray())
                 ),
-                com.google.protobuf.Any.newBuilder().
-                    setTypeUrl("foo").
-                    setValue(ByteString.copyFromUtf8("bar")).
-                    build()
+                com.google.protobuf.Any.newBuilder()
+                    .setTypeUrl("foo")
+                    .setValue(ByteString.copyFromUtf8("bar"))
+                    .build()
         )
-        pbandk.wkt.Any.assertMessageEquals(
-                pbandk.wkt.Any(
+        Any.assertMessageEquals(
+                Any(
                     typeUrl = "foo",
                     value = ByteArr("bar".toByteArray()),
                     unknownFields = kotlinUnknownFields(35, "baz")
                 ),
-                com.google.protobuf.Any.newBuilder().
-                    setTypeUrl("foo").
-                    setValue(ByteString.copyFromUtf8("bar")).
-                    setUnknownFields(javaUnknownFields(35, "baz")).
-                    build()
+                com.google.protobuf.Any.newBuilder()
+                    .setTypeUrl("foo")
+                    .setValue(ByteString.copyFromUtf8("bar"))
+                    .setUnknownFields(javaUnknownFields(35, "baz"))
+                    .build()
         )
     }
 
-    fun kotlinUnknownFields(fieldNum: Int, value: String) =
-        mapOf(fieldNum to UnknownField(fieldNum, value))
-    fun javaUnknownFields(fieldNum: Int, value: String) =
-        UnknownFieldSet.newBuilder().mergeLengthDelimitedField(fieldNum, ByteString.copyFromUtf8(value)).build()
+    @Test
+    fun testWrappers() {
+        Wrappers.assertMessageEquals(
+            Wrappers(stringValue = "test string"),
+            pbandk.testpb.java.Test.Wrappers.newBuilder()
+                .setStringValue(com.google.protobuf.StringValue.newBuilder().setValue("test string"))
+                .build()
+        )
+
+        Wrappers.assertMessageEquals(
+            Wrappers(),
+            pbandk.testpb.java.Test.Wrappers.getDefaultInstance()
+        )
+
+        Wrappers.assertMessageEquals(
+            Wrappers(stringValue = ""),
+            pbandk.testpb.java.Test.Wrappers.newBuilder()
+                .setStringValue(com.google.protobuf.StringValue.getDefaultInstance())
+                .build()
+        )
+    }
+
+    @Test
+    fun testRepeatedWrappers() {
+        Wrappers.assertMessageEquals(
+            Wrappers(uint64Values = listOf(1, 2, 1234567890123456789)),
+            pbandk.testpb.java.Test.Wrappers.newBuilder()
+                .addAllUint64Values(listOf(1, 2, 1234567890123456789).map {
+                    com.google.protobuf.UInt64Value.newBuilder().setValue(it).build()
+                })
+                .build()
+        )
+
+        Wrappers.assertMessageEquals(
+            Wrappers(uint64Values = listOf(0)),
+            pbandk.testpb.java.Test.Wrappers.newBuilder()
+                .addUint64Values(com.google.protobuf.UInt64Value.getDefaultInstance())
+                .build()
+        )
+    }
+
+    companion object {
+        private fun kotlinUnknownFields(fieldNum: Int, value: String) =
+            mapOf(fieldNum to UnknownField(fieldNum, value))
+
+        private fun javaUnknownFields(fieldNum: Int, value: String) =
+            UnknownFieldSet.newBuilder().mergeLengthDelimitedField(fieldNum, ByteString.copyFromUtf8(value)).build()
+    }
 }

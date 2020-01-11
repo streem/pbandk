@@ -70,16 +70,20 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         )
     }
 
-    protected fun fieldsFromProto(ctx: Context, msgDesc: DescriptorProto, usedTypeNames: MutableSet<String>): List<File.Field> {
+    protected fun fieldsFromProto(
+        ctx: Context,
+        msgDesc: DescriptorProto,
+        usedTypeNames: MutableSet<String>
+    ): List<File.Field> {
         val usedFieldNames = mutableSetOf<String>()
         return msgDesc.field
             // Exclude any group fields
-            .filterNot { it.type == FieldDescriptorProto.Type.GROUP}
+            .filterNot { it.type == FieldDescriptorProto.Type.GROUP }
             // Handle fields that are part of a oneof specially
             .partition { it.oneofIndex == null }
             .let { (standardFields, oneofFields) ->
                 standardFields.map {
-                    standardFieldFromProto(ctx, it, usedFieldNames)
+                    numberedFieldFromProto(ctx, it, usedFieldNames)
                 } + oneofFields.groupBy {
                     it.oneofIndex!!
                 }.mapNotNull { (oneofIndex, fields) ->
@@ -98,7 +102,8 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         usedTypeNames: MutableSet<String>
     ): File.Field.OneOf {
         val fields = oneofFields.map {
-            standardFieldFromProto(ctx, it, mutableSetOf(), true)
+            // wrapper fields are not supposed to be used inside of oneof's
+            numberedFieldFromProto(ctx, it, mutableSetOf(), true) as File.Field.Numbered.Standard
         }
         return File.Field.OneOf(
             name = oneofName,
@@ -115,31 +120,48 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         )
     }
 
-    protected fun standardFieldFromProto(
+    protected fun numberedFieldFromProto(
         ctx: Context,
         fieldDesc: FieldDescriptorProto,
         usedFieldNames: MutableSet<String>,
         alwaysRequired: Boolean = false
-    ) = fromProto(fieldDesc.type ?: error("Missing field type")).let { type ->
-        File.Field.Standard(
-            number = fieldDesc.number!!,
-            name = fieldDesc.name!!,
-            type = type,
-            localTypeName = fieldDesc.typeName,
-            repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
-            optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL,
-            packed = !type.neverPacked && (ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true),
-            map = supportMaps &&
-                fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
-                fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&
-                ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
-            kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
-                usedFieldNames += it
-            },
-            kotlinLocalTypeName =
-                if (fieldDesc.typeName == null || fieldDesc.typeName!!.startsWith('.')) null
-                else namer.newTypeName(fieldDesc.typeName!!, setOf())
-        )
+    ): File.Field.Numbered {
+        val type = fromProto(fieldDesc.type ?: error("Missing field type"))
+        val wrappedType = fieldDesc.typeName
+            ?.takeIf { type == File.Field.Type.MESSAGE }
+            ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[it] }
+
+        return if (wrappedType != null) {
+            File.Field.Numbered.Wrapper(
+                number = fieldDesc.number!!,
+                name = fieldDesc.name!!,
+                kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
+                    usedFieldNames += it
+                },
+                repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
+                wrappedType = wrappedType
+            )
+        } else {
+            File.Field.Numbered.Standard(
+                number = fieldDesc.number!!,
+                name = fieldDesc.name!!,
+                type = type,
+                localTypeName = fieldDesc.typeName,
+                repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
+                optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL,
+                packed = !type.neverPacked && (ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true),
+                map = supportMaps &&
+                        fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
+                        fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&
+                        ctx.findLocalMessage(fieldDesc.typeName!!)?.options?.mapEntry == true,
+                kotlinFieldName = namer.newFieldName(fieldDesc.name!!, usedFieldNames).also {
+                    usedFieldNames += it
+                },
+                kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
+                    namer.newTypeName(it, emptySet())
+                }
+            )
+        }
     }
 
     protected fun fromProto(type: FieldDescriptorProto.Type) = when (type) {

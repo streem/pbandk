@@ -104,6 +104,33 @@ data class MessageWithMap(
     }
 }
 
+data class Wrappers(
+    val stringValue: String? = null,
+    val uint64Values: List<Long> = emptyList(),
+    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message<Wrappers> {
+    override operator fun plus(other: Wrappers?) = protoMergeImpl(other)
+    override val protoSize by lazy { protoSizeImpl() }
+    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
+    companion object : pbandk.Message.Companion<Wrappers> {
+        val defaultInstance by lazy { Wrappers() }
+        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Wrappers.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = Wrappers.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("string_value")
+        val stringValue: String? = null,
+        @SerialName("uint64_values")
+        val uint64Values: List<Long> = emptyList()
+    ) {
+        fun toMessage() = toMessageImpl()
+    }
+}
+
 fun Foo?.orDefault() = this ?: Foo.defaultInstance
 
 private fun Foo.protoMergeImpl(plus: Foo?): Foo = plus?.copy(
@@ -289,5 +316,58 @@ private fun MessageWithMap.MapEntry.jsonMarshalImpl(json: Json): String =
 
 private fun MessageWithMap.MapEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): MessageWithMap.MapEntry {
     val mapper = json.parse(MessageWithMap.MapEntry.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
+fun Wrappers?.orDefault() = this ?: Wrappers.defaultInstance
+
+private fun Wrappers.protoMergeImpl(plus: Wrappers?): Wrappers = plus?.copy(
+    stringValue = plus.stringValue ?: stringValue,
+    uint64Values = uint64Values + plus.uint64Values,
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+private fun Wrappers.protoSizeImpl(): Int {
+    var protoSize = 0
+    if (stringValue != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.messageSize(pbandk.wkt.StringValue(stringValue))
+    if (uint64Values.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * uint64Values.size) + uint64Values.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.UInt64Value(it)) }
+    protoSize += unknownFields.entries.sumBy { it.value.size() }
+    return protoSize
+}
+
+private fun Wrappers.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
+    if (stringValue != null) protoMarshal.writeTag(10).writeMessage(pbandk.wkt.StringValue(stringValue))
+    if (uint64Values.isNotEmpty()) uint64Values.forEach { protoMarshal.writeTag(18).writeMessage(pbandk.wkt.UInt64Value(it)) }
+    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
+}
+
+private fun Wrappers.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Wrappers {
+    var stringValue: pbandk.wkt.StringValue? = null
+    var uint64Values: pbandk.ListWithSize.Builder<Long>? = null
+    while (true) when (protoUnmarshal.readTag()) {
+        0 -> return Wrappers(stringValue?.value, pbandk.ListWithSize.Builder.fixed(uint64Values), protoUnmarshal.unknownFields())
+        10 -> stringValue = protoUnmarshal.readMessage(pbandk.wkt.StringValue.Companion)
+        18 -> uint64Values = protoUnmarshal.readRepeated(uint64Values, { protoUnmarshal.readMessage(pbandk.wkt.UInt64Value.Companion).value }, true)
+        else -> protoUnmarshal.unknownField()
+    }
+}
+
+private fun Wrappers.toJsonMapperImpl(): Wrappers.JsonMapper =
+    Wrappers.JsonMapper(
+        stringValue,
+        uint64Values
+    )
+
+private fun Wrappers.JsonMapper.toMessageImpl(): Wrappers =
+    Wrappers(
+        stringValue = stringValue,
+        uint64Values = uint64Values
+    )
+
+private fun Wrappers.jsonMarshalImpl(json: Json): String =
+    json.stringify(Wrappers.JsonMapper.serializer(), toJsonMapper())
+
+private fun Wrappers.Companion.jsonUnmarshalImpl(json: Json, data: String): Wrappers {
+    val mapper = json.parse(Wrappers.JsonMapper.serializer(), data)
     return mapper.toMessage()
 }

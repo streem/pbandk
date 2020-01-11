@@ -9,6 +9,7 @@ It is built to work across multiple Kotlin platforms.
 * Works for JVM and JS
 * Support for proto2 and proto3 syntaxes
 * Oneof's are properly handled as sealed classes
+* Specialized support to handle wrappers from the well-known types (e.g. `StringValue`, `BoolValue`) as nullable primitives (`String?`, `Boolean?`, etc.)
 * JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for
   best performance
 * JS platform leverages [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) for best performance
@@ -16,22 +17,25 @@ It is built to work across multiple Kotlin platforms.
 
 **Experimental**
 
-* JSON support
+* JSON support (the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) is only partially supported)
 
 **Not Yet Implemented**
 
 * Kotlin Native runtime support
 * Protobuf code generator in Kotlin Native for easier importing
-* Specialized support for well known types instead of just referencing them
+* Specialized support for more of the well known types (e.g. `Any`)
+* Support for protobuf annotations
+* Access to the protobuf descriptor from generated code
 * Code comments on generated code
+* Specialized support for the `deprecated` annotation
 
 Read below for more information and see the [examples](examples).
 
-## Beta
+## Status
 
-This project is currently in beta yet has the features needed to solve the author's original goals. The "Not Yet
-Implemented" features above will be implemented only if this project garners reasonable interest. If the features are
-implemented, it is possible they may be done in a backwards incompatible way.
+This project is currently in beta. It has the core set of protobuf features implemented and is being used in production. But it is still under active development and new versions might introduce backwards-incompatible changes to support new features or to improve the library's usability in Kotlin. Pull requests are welcome for any of the "Not Yet Implemented" features above.
+
+This project follows semantic versioning. After v1.0.0 is released (mid-2020 at the earliest), future versions will preserve backwards compatibility.
 
 ## Summary
 
@@ -244,7 +248,7 @@ For more details, see the [custom-service-gen](examples/custom-service-gen) exam
 
 ### Package
 
-The package is either the `kotlin_package` plugin option, the `java_package` plugin option or the package set in the message. If the `google.protobuf`
+The package is either the `kotlin_package` plugin option, the `java_package` protobuf option or the package set in the message. If the `google.protobuf`
 package is referenced, it is assumed to be a well-known type and is changed to reference `pbandk.wkt`.
 
 ### Message
@@ -303,8 +307,9 @@ considered nullable.
 
 ### Well-Known Types
 
-Well known types (i.e. those in the `google/protobuf` imports) are shipped with the runtime. At this early stage,
-specialized support (e.g. using Kotlin `Any` for `google.protobuf.Any`) is not implemented.
+Well known types (i.e. those in the `google/protobuf` imports) are shipped with the runtime under the `pbandk.wkt` package.
+
+Specialized support is provided to map the types defined in `google/protobuf/wrappers.proto` into Kotlin nullable primitives (e.g. `String?` for `google.protobuf.StringValue`, `Int?` for `google.protobuf.Int32Value`, etc.). Specialized support for other well-known types (e.g. using Kotlin `Any` for `google.protobuf.Any`) is not yet implemented.
 
 ### Services
 
