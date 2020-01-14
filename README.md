@@ -209,7 +209,7 @@ Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    compile 'com.github.streem.pbandk:pbandk-runtime-jvm:0.7.2'
+    compile 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.0'
 }
 ```
 
@@ -228,7 +228,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.7.2'
+    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.8.0'
 }
 ```
 
