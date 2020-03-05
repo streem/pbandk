@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
@@ -16,13 +18,33 @@ kotlin {
         nodejs {}
     }
 
+    iosArm64()
+    iosX64()
+
     // For ARM, should be changed to iosArm32 or iosArm64
     // For Linux, should be changed to e.g. linuxX64
     // For MacOS, should be changed to e.g. macosX64
     // For Windows, should be changed to e.g. mingwX64
-    // macosX64("macos")
+    macosX64()
+    linuxX64()
+
+    targets.withType<KotlinNativeTarget> {
+        val main by compilations.getting {
+            defaultSourceSet {
+                kotlin.srcDir("src/nativeMain/kotlin")
+            }
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
+            }
+        }
+    }
+
 
     sourceSets {
+        all {
+            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+        }
+
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
@@ -66,11 +88,6 @@ kotlin {
                 implementation(kotlin("test-js"))
             }
         }
-
-        //    sourceSets["macosMain"].dependencies {
-        //    }
-        //    sourceSets["macosTest"].dependencies {
-        //    }
     }
 }
 

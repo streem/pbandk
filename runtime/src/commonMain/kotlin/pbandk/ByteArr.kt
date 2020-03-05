@@ -15,6 +15,7 @@ class ByteArr(val array: ByteArray) {
         override fun serialize(encoder: Encoder, obj: ByteArr) =
             encoder.encodeString(Util.bytesToBase64(obj.array))
 
+        @UseExperimental(ExperimentalStdlibApi::class)
         override fun deserialize(decoder: Decoder) =
             ByteArr(Util.base64ToBytes(decoder.decodeString()))
     }

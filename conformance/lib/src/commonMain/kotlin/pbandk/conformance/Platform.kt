@@ -1,5 +1,7 @@
 package pbandk.conformance
 
+import kotlinx.coroutines.CoroutineScope
+
 expect object Platform {
     fun stderrPrintln(str: String)
 
@@ -10,4 +12,6 @@ expect object Platform {
     fun stdoutWriteFull(arr: ByteArray)
 
     inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T): T
+
+    fun runBlockingMain(block: suspend CoroutineScope.() -> Unit)
 }

@@ -17,3 +17,9 @@ fi
 if [ -z "$1" ] || [ "$1" = "js" ]; then
     $CONF_TEST_PATH --failure_list $DIR/js/failing_tests.txt $DIR/js/run.sh
 fi
+if [ -z "$1" ] || [ "$1" = "linux" ]; then
+    $CONF_TEST_PATH --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/linux/conformanceReleaseExecutable/conformance.kexe
+fi
+if [ "$1" = "macos" ]; then
+    $CONF_TEST_PATH --failure_list $DIR/native/failing_tests.txt $DIR/native/build/bin/macos/conformanceReleaseExecutable/conformance.kexe
+fi

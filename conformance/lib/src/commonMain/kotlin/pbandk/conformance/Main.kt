@@ -1,15 +1,20 @@
 package pbandk.conformance
 
 import pbandk.ByteArr
+import pbandk.conformance.Platform.runBlockingMain
 import pbandk.conformance.pb.*
 
 var logDebug = false
-inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
-suspend fun main(args: Array<String>) {
+inline fun debug(fn: () -> String) {
+    if (logDebug) Platform.stderrPrintln(fn())
+}
+
+fun main(args: Array<String>) = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
-        val res = doTestIo().also { debug { "Result: $it" } } ?: return
+        val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
+
         ConformanceResponse(res).protoMarshal().also { bytes ->
             Platform.stdoutWriteIntLE(bytes.size)
             Platform.stdoutWriteFull(bytes)

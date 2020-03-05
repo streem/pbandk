@@ -6,7 +6,7 @@ import kotlinx.serialization.json.JsonConfiguration
 interface Message<T : Message<T>> {
     operator fun plus(other: T?): T
     val protoSize: Int
-    fun protoMarshal() = Marshaller.allocate(protoSize).also(::protoMarshal).complete()!!
+    fun protoMarshal() = Marshaller.allocate(protoSize).also(::protoMarshal).complete()
     fun protoMarshal(m: Marshaller)
     fun jsonMarshal() = jsonMarshal(Json(JsonConfiguration.Stable.copy(ignoreUnknownKeys = true, isLenient = true, serializeSpecialFloatingPointValues = true)))
     fun jsonMarshal(json: Json): String

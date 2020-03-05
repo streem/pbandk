@@ -10,3 +10,4 @@ include ":protoc-gen-kotlin:jvm"
 
 include ":conformance:lib"
 include ":conformance:jvm"
+include ":conformance:native"
