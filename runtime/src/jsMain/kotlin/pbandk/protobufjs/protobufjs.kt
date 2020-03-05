@@ -48,6 +48,8 @@ external class Writer {
     fun string(value: String): Writer
     fun uint32(value: Int): Writer
     fun uint64(value: dynamic): Writer
+    fun <T>_push(func: (value: T, buf: ByteArray, pos: Int) -> Unit, len: Int, value: T)
+
 
     fun finish(): Uint8Array
 

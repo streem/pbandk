@@ -2,7 +2,7 @@ package pbandk
 
 import pbandk.wkt.Timestamp
 
-expect object Util {
+interface UtilInterface {
     fun stringToUtf8(str: String): ByteArray
     fun utf8ToString(bytes: ByteArray): String
 
@@ -12,3 +12,5 @@ expect object Util {
     fun timestampToString(ts: Timestamp.JsonMapper): String
     fun stringToTimestamp(str: String): Timestamp.JsonMapper
 }
+
+expect object Util : UtilInterface

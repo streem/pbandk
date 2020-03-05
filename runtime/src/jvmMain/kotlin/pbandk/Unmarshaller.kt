@@ -3,27 +3,29 @@ package pbandk
 import com.google.protobuf.CodedInputStream
 import com.google.protobuf.WireFormat
 
-actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields: Boolean = false) {
+class CodedStreamUnmarshaller(val stream: CodedInputStream,
+                              val discardUnknownFields: Boolean = false): Unmarshaller {
     var currentUnknownFields = if (discardUnknownFields) null else mutableMapOf<Int, UnknownField>()
 
-    actual fun readTag() = stream.readTag()
-    actual fun readDouble() = stream.readDouble()
-    actual fun readFloat() = stream.readFloat()
-    actual fun readInt32() = stream.readInt32()
-    actual fun readInt64() = stream.readInt64()
-    actual fun readUInt32() = stream.readUInt32()
-    actual fun readUInt64() = stream.readUInt64()
-    actual fun readSInt32() = stream.readSInt32()
-    actual fun readSInt64() = stream.readSInt64()
-    actual fun readFixed32() = stream.readFixed32()
-    actual fun readFixed64() = stream.readFixed64()
-    actual fun readSFixed32() = stream.readSFixed32()
-    actual fun readSFixed64() = stream.readSFixed64()
-    actual fun readBool() = stream.readBool()
-    actual fun readString() = stream.readString()
-    actual fun readBytes() = ByteArr(stream.readByteArray())
-    actual fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>) = s.fromValue(stream.readEnum())
-    actual fun <T : Message<T>> readMessage(s: Message.Companion<T>): T {
+    override fun getTotalBytesRead(): Int = stream.totalBytesRead
+    override fun readTag() = stream.readTag()
+    override fun readDouble() = stream.readDouble()
+    override fun readFloat() = stream.readFloat()
+    override fun readInt32() = stream.readInt32()
+    override fun readInt64() = stream.readInt64()
+    override fun readUInt32() = stream.readUInt32()
+    override fun readUInt64() = stream.readUInt64()
+    override fun readSInt32() = stream.readSInt32()
+    override fun readSInt64() = stream.readSInt64()
+    override fun readFixed32() = stream.readFixed32()
+    override fun readFixed64() = stream.readFixed64()
+    override fun readSFixed32() = stream.readSFixed32()
+    override fun readSFixed64() = stream.readSFixed64()
+    override fun readBool() = stream.readBool()
+    override fun readString() = stream.readString()
+    override fun readBytes() = ByteArr(stream.readByteArray())
+    override fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>) = s.fromValue(stream.readEnum())
+    override fun <T : Message<T>> readMessage(s: Message.Companion<T>): T {
         val oldLimit = stream.pushLimit(stream.readRawVarint32())
         val oldUnknownFields = currentUnknownFields
         if (!discardUnknownFields) currentUnknownFields = mutableMapOf()
@@ -33,7 +35,7 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         currentUnknownFields = oldUnknownFields
         return ret
     }
-    actual fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T, neverPacked: Boolean) =
+    override fun <T> readRepeated(appendTo: ListWithSize.Builder<T>?, readFn: () -> T, neverPacked: Boolean) =
         (appendTo ?: ListWithSize.Builder()).also { bld ->
             // If it's not length delimited, it's just a single-item to append
             if (neverPacked || WireFormat.getTagWireType(stream.lastTag) != WireFormat.WIRETYPE_LENGTH_DELIMITED) {
@@ -50,14 +52,14 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
                 stream.popLimit(oldLimit)
             }
         }
-    actual fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
+    override fun <T : Message.Enum> readRepeatedEnum(appendTo: ListWithSize.Builder<T>?, s: Message.Enum.Companion<T>) =
         readRepeated(appendTo, { readEnum(s) }, false)
-    actual fun <T : Message<T>> readRepeatedMessage(
+    override fun <T : Message<T>> readRepeatedMessage(
         appendTo: ListWithSize.Builder<T>?,
         s: Message.Companion<T>,
         neverPacked: Boolean
     ) = readRepeated(appendTo, { readMessage(s) }, neverPacked)
-    actual fun <K, V, T> readMap(
+    override fun <K, V, T> readMap(
         appendTo: MessageMap.Builder<K, V>?,
         s: Message.Companion<T>,
         neverPacked: Boolean
@@ -74,7 +76,7 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
             }
         }
 
-    actual fun unknownField() {
+    override fun unknownField() {
         val tag = stream.lastTag
         val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         val value = when (WireFormat.getTagWireType(tag)) {
@@ -97,9 +99,14 @@ actual class Unmarshaller(val stream: CodedInputStream, val discardUnknownFields
         }
     }
 
-    actual fun unknownFields() = currentUnknownFields?.toMap() ?: emptyMap()
+    override fun unknownFields() = currentUnknownFields?.toMap() ?: emptyMap()
 
-    actual companion object {
-        actual fun fromByteArray(arr: ByteArray) = Unmarshaller(CodedInputStream.newInstance(arr))
+    companion object {
+        fun fromByteArray(arr: ByteArray): Unmarshaller = CodedStreamUnmarshaller(CodedInputStream.newInstance(arr))
     }
 }
+
+internal actual fun unmarshallerByteArray(arr: ByteArray): Unmarshaller = CodedStreamUnmarshaller.fromByteArray(arr)
+
+fun Unmarshaller(stream: CodedInputStream, discardUnknownFields: Boolean = false) =
+        CodedStreamUnmarshaller(stream = stream, discardUnknownFields = discardUnknownFields)
