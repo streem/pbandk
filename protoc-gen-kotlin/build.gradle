@@ -1,0 +1,211 @@
+import org.jetbrains.kotlin.gradle.plugin.*
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_gradle_plugin_version"
+    }
+}
+
+plugins {
+    id "org.jetbrains.kotlin.multiplatform" version "$kotlin_version"
+    id "org.jetbrains.kotlin.plugin.serialization" version "$kotlin_version"
+}
+
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+kotlin {
+    jvm()
+
+    // For ARM, should be changed to iosArm32 or iosArm64
+    // For Linux, should be changed to e.g. linuxX64
+    // For MacOS, should be changed to e.g. macosX64
+    // For Windows, should be changed to e.g. mingwX64
+    // macosX64("macos")
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation project(":runtime")
+                implementation kotlin("stdlib-common")
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlin_serialization_version"
+            }
+
+            archivesBaseName = 'protoc-gen-kotlin-common'
+            publishSettings(project, archivesBaseName, 'Common library for pbandk protobuf code generator')
+        }
+        commonTest {
+            dependencies {
+                implementation kotlin("test-common")
+                implementation kotlin("test-annotations-common")
+            }
+        }
+
+        jvmMain {
+            dependencies {
+                implementation project(":runtime")
+                implementation kotlin("stdlib")
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization_version"
+                implementation "com.google.protobuf:protobuf-java:$protobuf_version"
+            }
+
+            sourceCompatibility = "1.8"
+            tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+                kotlinOptions {
+                    jvmTarget = "1.8"
+                }
+            }
+
+            applicationName = "protoc-gen-kotlin"
+            mainClassName = "pbandk.gen.MainKt"
+
+            jar {
+                enabled = true
+            }
+            bootJar {
+                classifier = "jvm8"
+                launchScript()
+            }
+
+            configurations.archives.artifacts.removeIf { it.name ==~ /.*-boot/ && it.type ==~ /zip|tar/ }
+            artifacts {
+                archives bootJar
+            }
+
+            archivesBaseName = 'protoc-gen-kotlin-jvm'
+            publishSettings(project, archivesBaseName, 'JVM library for pbandk protobuf code generator')
+        }
+        jvmTest {
+            dependencies {
+                implementation kotlin("test")
+                implementation kotlin("test-junit")
+                implementation "junit:junit:4.12"
+            }
+        }
+
+        /*
+        macosMain {
+        }
+        macosTest {
+        }
+        */
+    }
+}
+
+task generateProto {
+    dependsOn ':protoc-gen-kotlin:installDist'
+    doFirst {
+        runProtoGen('src/commonMain/proto', 'src/commonMain/kotlin', 'pbandk.gen.pb', 'debug')
+    }
+}
+
+task generateWellKnownTypes {
+    dependsOn ':protoc-gen-kotlin:installDist'
+    doFirst {
+        def protocPath = System.getProperty('protoc.path')
+        if (protocPath == null) throw new InvalidUserDataException('System property protoc.path must be set')
+        runProtoGen(Paths.get(protocPath, 'include').toString(), 'src/commonMain/kotlin', 'pbandk.wkt', 'debug', 'google/protobuf')
+    }
+}
+
+import java.nio.file.Paths
+allprojects {
+    ext.runProtoGen = { inPath, outPath, kotlinPackage = null, logLevel = null, inSubPath = null ->
+        // Build CLI args
+        def args = ['protoc']
+        args << '--kotlin_out='
+        if (kotlinPackage != null) args[-1] += "kotlin_package=$kotlinPackage,"
+        if (logLevel != null) args[-1] += "log=$logLevel,"
+        args[-1] += 'json_use_proto_names=true,'
+        args[-1] += 'empty_arg:' + Paths.get(outPath)
+        args << '--plugin=protoc-gen-kotlin=' +
+                Paths.get(project.rootDir.toString(), 'protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin')
+        if (System.properties['os.name'].toLowerCase().contains('windows')) args[-1] += '.bat'
+        def includePath = Paths.get(inPath)
+        if (!includePath.absolute) includePath = Paths.get(project.projectDir.toString(), inPath)
+        args << '-I' << includePath
+        def filePath = includePath
+        if (inSubPath != null) filePath = includePath.resolve(inSubPath)
+        args += filePath.toFile().listFiles().findAll {
+            it.isFile() && it.toString().endsWith('.proto')
+        }
+        // Run it
+        exec { commandLine(*args) }
+    }
+}
+
+def publishSettings(project, projectName, projectDescription) {
+    project.with {
+        if (!project.hasProperty('ossrhUsername')) return
+        apply plugin: 'maven'
+        apply plugin: 'signing'
+
+        task packageSources(type: Jar) {
+            classifier = 'sources'
+            from sourceSets.main.allSource
+            if (project.name.endsWith('-jvm') || project.name.endsWith('-js')) {
+                duplicatesStrategy = 'exclude'
+                def commonProject = project.parent.subprojects.find { it.name.endsWith('-common') }
+                from(sourceSets.main.allSource + commonProject.sourceSets.main.allSource)
+            }
+        }
+
+        task packageJavadoc(type: Jar) {
+            // Empty to satisfy Sonatype's javadoc.jar requirement
+            classifier 'javadoc'
+        }
+
+        artifacts {
+            archives packageSources, packageJavadoc
+        }
+
+        signing {
+            sign configurations.archives
+        }
+
+        uploadArchives {
+            repositories {
+                mavenDeployer {
+                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                    repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
+                        authentication(userName: ossrhUsername, password: ossrhPassword)
+                    }
+                    snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
+                        authentication(userName: ossrhUsername, password: ossrhPassword)
+                    }
+                    pom.project {
+                        name projectName
+                        packaging 'jar'
+                        description projectDescription
+                        url 'https://github.com/streem/pbandk'
+                        scm {
+                            connection 'scm:git:git@github.com:streem/pbandk.git'
+                            developerConnection 'scm:git:git@github.com:streem/pbandk.git'
+                            url 'git@github.com:streem/pbandk.git'
+                        }
+                        licenses {
+                            license {
+                                name 'MIT License'
+                                url 'https://opensource.org/licenses/MIT'
+                            }
+                        }
+                        developers {
+                            developer {
+                                id 'streem'
+                                name 'Streem, Inc.'
+                                url 'https://github.com/streem'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
