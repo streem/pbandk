@@ -12,6 +12,10 @@ buildscript {
         jcenter()
         maven { url "https://kotlin.bintray.com/kotlinx" }
     }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+    }
 }
 
 plugins {

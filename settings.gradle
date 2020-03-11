@@ -3,11 +3,9 @@ rootProject.name = "pbandk"
 
 enableFeaturePreview("GRADLE_METADATA")
 
-include(
-        ":runtime",
-        ":protoc-gen-kotlin",
-        ":conformance"
-)
+include ":runtime"
+include ":protoc-gen-kotlin"
+include ":conformance"
 
 /*
 include ':conformance:conformance-common',

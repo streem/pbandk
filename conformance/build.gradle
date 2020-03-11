@@ -1,22 +1,12 @@
 import org.jetbrains.kotlin.gradle.plugin.*
 
-buildscript {
-    repositories {
-        jcenter()
-        maven { url "https://kotlin.bintray.com/kotlinx" }
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
-    }
-}
-
 plugins {
-    id "org.jetbrains.kotlin.plugin.serialization" version "$kotlin_version"
+    id "org.jetbrains.kotlin.plugin.serialization"
 }
 
-apply plugin: 'kotlinx-serialization'
-apply plugin: 'application'
+apply plugin: "kotlinx-serialization"
+apply plugin: "org.jetbrains.kotlin.multiplatform"
+apply plugin: "application"
 
 kotlin {
     jvm()
