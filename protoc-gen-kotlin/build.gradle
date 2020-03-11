@@ -37,8 +37,8 @@ kotlin {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlin_serialization_version"
             }
 
-            archivesBaseName = 'protoc-gen-kotlin-common'
-            publishSettings(project, archivesBaseName, 'Common library for pbandk protobuf code generator')
+            archivesBaseName = "protoc-gen-kotlin-common"
+            publishSettings(project, archivesBaseName, "Common library for pbandk protobuf code generator")
         }
         commonTest {
             dependencies {
