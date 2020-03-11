@@ -49,7 +49,6 @@ kotlin {
 
         jvmMain {
             dependencies {
-                implementation project(":runtime")
                 implementation kotlin("stdlib")
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization_version"
                 implementation "com.google.protobuf:protobuf-java:$protobuf_version"
