@@ -27,6 +27,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation kotlin("stdlib-common")
+                implementation project(":runtime")
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlin_serialization_version"
             }
         }
@@ -39,8 +40,8 @@ kotlin {
 
         jvmMain {
             dependencies {
-                implementation project(":runtime")
                 implementation kotlin("stdlib")
+                implementation project(":runtime")
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization_version"
                 implementation "com.google.protobuf:protobuf-java:$protobuf_version"
             }
@@ -73,6 +74,7 @@ kotlin {
 
         jsMain {
             dependencies {
+                implementation project(":runtime")
                 implementation kotlin("stdlib-js")
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$kotlin_serialization_version"
             }
