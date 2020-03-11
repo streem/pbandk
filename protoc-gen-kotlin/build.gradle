@@ -48,6 +48,11 @@ kotlin {
         }
 
         jvmMain {
+            application {
+                mainClassName = "pbandk.gen.MainKt"
+                applicationName = "protoc-gen-kotlin"
+            }
+
             dependencies {
                 implementation kotlin("stdlib")
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization_version"
@@ -60,9 +65,6 @@ kotlin {
                     jvmTarget = "1.8"
                 }
             }
-
-            applicationName = "protoc-gen-kotlin"
-            mainClassName = "pbandk.gen.MainKt"
 
             jar {
                 enabled = true
