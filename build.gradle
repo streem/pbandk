@@ -14,6 +14,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.jetbrains.kotlin.multiplatform" version "$kotlin_version"
+}
+
 allprojects {
     group = "com.github.streem.pbandk"
     version = "0.8.0"
