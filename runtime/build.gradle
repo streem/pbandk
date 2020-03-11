@@ -20,7 +20,9 @@ apply plugin: 'kotlinx-serialization'
 
 kotlin {
 
-    jvm()
+    jvm {
+        withJava()
+    }
     js {
         browser {
             useCommonJs()
