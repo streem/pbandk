@@ -99,13 +99,6 @@ kotlin {
     }
 }
 
-task generateProto {
-    dependsOn ':protoc-gen-kotlin:installDist'
-    doFirst {
-        runProtoGen('src/commonMain/proto', 'src/commonMain/kotlin', 'pbandk.gen.pb', 'debug')
-    }
-}
-
 task generateWellKnownTypes {
     dependsOn ':protoc-gen-kotlin:installDist'
     doFirst {
