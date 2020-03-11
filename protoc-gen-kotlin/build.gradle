@@ -77,7 +77,7 @@ kotlin {
                 archives bootJar
             }
 
-            archivesBaseName = 'protoc-gen-kotlin-jvm'
+            archivesBaseName = 'protoc-gen-kotlin'
             publishSettings(project, archivesBaseName, 'JVM library for pbandk protobuf code generator')
         }
         jvmTest {
