@@ -65,7 +65,6 @@ kotlin {
                 enabled = true
             }
             bootJar {
-                classifier = "jvm8"
                 launchScript()
             }
 
