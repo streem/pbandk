@@ -90,11 +90,25 @@ afterEvaluate {
 }
 
 tasks.register("generateWellKnownTypes") {
-    dependsOn(":protoc-gen-kotlin:jvmJar")
+    dependsOn(":protoc-gen-kotlin:packagePlugin")
+
     doFirst {
         val protocPath = System.getProperty("protoc.path")
         if (protocPath == null) throw InvalidUserDataException("System property protoc.path must be set")
         runProtoGen(Paths.get(protocPath, "include").toString(), "src/commonMain/kotlin", "pbandk.wkt", "debug", "google/protobuf")
+    }
+}
+
+tasks.register("packagePlugin") {
+    dependsOn(":protoc-gen-kotlin:jvmJar")
+    dependsOn(":protoc-gen-kotlin:installDist")
+
+    doLast {
+        copy {
+            from("$buildDir/libs/protoc-gen-kotlin-jvm-${project.version}.jar")
+            into("$buildDir/install/protoc-gen-kotlin/lib/")
+            rename { "protoc-gen-kotlin-${project.version}.jar" }
+        }
     }
 }
 
