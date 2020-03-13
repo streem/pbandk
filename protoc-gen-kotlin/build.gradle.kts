@@ -1,6 +1,3 @@
-import java.nio.file.Paths
-import org.gradle.internal.os.OperatingSystem
-import java.nio.file.Path
 
 buildscript {
     dependencies {
@@ -32,7 +29,7 @@ kotlin {
     sourceSets["commonMain"].dependencies {
             implementation(project(":runtime"))
             implementation(kotlin("stdlib-common"))
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.14.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlin_serialization}")
         }
 
         //archivesBaseName("protoc-gen-kotlin-common")
@@ -46,7 +43,7 @@ kotlin {
     sourceSets["jvmMain"].dependencies {
         implementation(kotlin("stdlib"))
         implementation(project(":runtime"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlin_serialization}")
         implementation("com.google.protobuf:protobuf-java:3.11.1")
     }
     //publishSettings(project, archivesBaseName, "JVM library for pbandk protobuf code generator")
@@ -114,28 +111,7 @@ tasks.register("packagePlugin") {
 
 //allprojects {
 //    ext["runProtoGen"] = fun(inPath: String, outPath: String, kotlinPackage: String?, logLevel: String?, inSubPath: String?) {
-fun runProtoGen(inPath: String, outPath: String, kotlinPackage: String?, logLevel: String?, inSubPath: String?) {
-        // Build CLI args
-        var args = mutableListOf("protoc")
-        args.add("--kotlin_out=")
-        if (kotlinPackage != null) args[-1] += "kotlin_package=$kotlinPackage,"
-        if (logLevel != null) args[-1] += "log=$logLevel,"
-        args[-1] += "json_use_proto_names=true,"
-        args[-1] += "empty_arg:" + Paths.get(outPath)
-        args.add("--plugin=protoc-gen-kotlin=" +
-                Paths.get(project.rootDir.toString(), "protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"))
-        if (OperatingSystem.current().isWindows) args[-1] += ".bat"
-        var includePath = Paths.get(inPath)
-        if (!includePath.isAbsolute) includePath = Paths.get(project.projectDir.toString(), inPath)
-        args.add("-I$includePath")
-        var filePath = includePath
-        if (inSubPath != null) filePath = includePath.resolve(inSubPath)
-        args.addAll(filePath.toFile().listFiles().filter {
-            it.isFile() && it.toString().endsWith(".proto")
-        }.map { it.absolutePath })
-        // Run itz
-        exec { commandLine(args) }
-    }
+
 //}
 
 /*
