@@ -1,5 +1,9 @@
 import org.jetbrains.kotlin.gradle.plugin.*
 
+// This build.gradle file is still using groovy because of a bug
+// with Kotlin DSL and the npm plugin
+// https://youtrack.jetbrains.com/issue/KT-34389
+
 plugins {
     id "org.jetbrains.kotlin.plugin.serialization"
 }
