@@ -101,6 +101,15 @@ afterEvaluate {
     }
 }
 
+tasks.register("generateProto") {
+    dependsOn(":protoc-gen-kotlin:packagePlugin")
+
+    doFirst {
+        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
+        runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.gen.pb", "debug", null)
+    }
+}
+
 tasks.register("package") {
     dependsOn(":conformance:jvmJar")
     dependsOn(":conformance:installDist")

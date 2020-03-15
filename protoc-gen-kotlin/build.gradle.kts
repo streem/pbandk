@@ -98,6 +98,15 @@ tasks.register("generateWellKnownTypes") {
     }
 }
 
+tasks.register("generateProto") {
+    dependsOn(":protoc-gen-kotlin:packagePlugin")
+
+    doFirst {
+        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
+        runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.gen.pb", "debug", null)
+    }
+}
+
 tasks.register("packagePlugin") {
     dependsOn(":protoc-gen-kotlin:jvmJar")
     dependsOn(":protoc-gen-kotlin:installDist")
