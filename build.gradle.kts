@@ -40,22 +40,30 @@ allprojects {
     this.ext["runProtoGen"] = { inPath: String, outPath: String, kotlinPackage: String?, logLevel: String?, inSubPath: String? ->
         // Build CLI args
         var args = mutableListOf("protoc")
-        args.add("--kotlin_out=")
-        if (kotlinPackage != null) args[-1] += "kotlin_package=$kotlinPackage,"
-        if (logLevel != null) args[-1] += "log=$logLevel,"
-        args[-1] += "json_use_proto_names=true,"
-        args[-1] += "empty_arg:" + Paths.get(outPath)
+
+        var kotlinOut = "--kotlin_out="
+
+        if (kotlinPackage != null) kotlinOut += "kotlin_package=$kotlinPackage,"
+        if (logLevel != null) kotlinOut += "log=$logLevel,"
+        kotlinOut += "json_use_proto_names=true,"
+        kotlinOut += "empty_arg:" + Paths.get(outPath)
+
+        args.add(kotlinOut)
+
         args.add("--plugin=protoc-gen-kotlin=" +
                 Paths.get(project.rootDir.toString(), "protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"))
-        if (OperatingSystem.current().isWindows) args[-1] += ".bat"
+        if (OperatingSystem.current().isWindows) args[args.count() - 1] += ".bat"
+
         var includePath = Paths.get(inPath)
         if (!includePath.isAbsolute) includePath = Paths.get(project.projectDir.toString(), inPath)
         args.add("-I$includePath")
+
         var filePath = includePath
         if (inSubPath != null) filePath = includePath.resolve(inSubPath)
         args.addAll(filePath.toFile().listFiles().filter {
             it.isFile() && it.toString().endsWith(".proto")
         }.map { it.absolutePath })
+
         // Run itz
         exec { commandLine(args) }
     }
