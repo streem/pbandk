@@ -1,3 +1,4 @@
+import java.nio.file.Paths
 
 buildscript {
     dependencies {
@@ -32,7 +33,6 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlin_serialization}")
         }
 
-        //archivesBaseName("protoc-gen-kotlin-common")
         //publishSettings(project, archivesBaseName, "Common library for pbandk protobuf code generator")
 
     sourceSets["commonTest"].dependencies {
@@ -92,6 +92,8 @@ tasks.register("generateWellKnownTypes") {
     doFirst {
         val protocPath = System.getProperty("protoc.path")
         if (protocPath == null) throw InvalidUserDataException("System property protoc.path must be set")
+
+        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
         runProtoGen(Paths.get(protocPath, "include").toString(), "src/commonMain/kotlin", "pbandk.wkt", "debug", "google/protobuf")
     }
 }
@@ -108,11 +110,6 @@ tasks.register("packagePlugin") {
         }
     }
 }
-
-//allprojects {
-//    ext["runProtoGen"] = fun(inPath: String, outPath: String, kotlinPackage: String?, logLevel: String?, inSubPath: String?) {
-
-//}
 
 /*
 fun publishSettings(project: String, projectName: String, projectDescription: String) {
