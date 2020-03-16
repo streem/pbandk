@@ -75,7 +75,7 @@ long@^4.0.0:
   resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
-"pbandk-runtime-js@file:../../runtime/runtime-js":
+"pbandk-runtime-js@file:../../../runtime":
   version "0.1.0"
   dependencies:
     kotlin "^1.3.11"
