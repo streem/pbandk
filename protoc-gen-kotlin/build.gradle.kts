@@ -1,16 +1,9 @@
 import java.nio.file.Paths
 
-buildscript {
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.7.RELEASE")
-    }
-}
-
 plugins {
     kotlin("multiplatform")
     id("kotlinx-serialization")
     application
-    //id("org.springframework.boot")
 }
 
 application {
