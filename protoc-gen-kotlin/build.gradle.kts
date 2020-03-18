@@ -4,6 +4,7 @@ plugins {
     kotlin("multiplatform")
     id("kotlinx-serialization")
     application
+    id("maven-publish")
 }
 
 application {
@@ -42,10 +43,10 @@ kotlin {
     //publishSettings(project, archivesBaseName, "JVM library for pbandk protobuf code generator")
 
     sourceSets["jvmTest"].dependencies {
-            implementation(kotlin("test"))
-            implementation(kotlin("test-junit"))
-            implementation("junit:junit:4.12")
-        }
+        implementation(kotlin("test"))
+        implementation(kotlin("test-junit"))
+        implementation("junit:junit:4.12")
+    }
 
 //    /*
 //    sourceSets["macosMain"].dependencies {
@@ -53,6 +54,56 @@ kotlin {
 //    sourceSets["macosTest"].dependencies {
 //    }
 //    */
+}
+
+apply("../gradle/pom.gradle")
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            pom {
+                groupId = project.group as String
+                artifactId = project.name
+                version = project.version as String
+
+                name.set(project.name)
+                description.set("Library for pbandk protobuf code generator")
+                url.set("https://github.com/streem/pbandk")
+
+                licenses {
+                    license {
+                        val licenseName = project.ext["licenseName"] as String
+                        val licenseUrl = project.ext["licenseUrl"] as String
+
+                        name.set(licenseName)
+                        url.set(licenseUrl)
+                    }
+                }
+
+                developers {
+                    developer {
+                        val developerId = project.ext["developerId"] as String
+                        val developerName = project.ext["developerName"] as String
+                        val developerUrl = project.ext["developerUrl"] as String
+
+                        id.set(developerId)
+                        name.set(developerName)
+                        url.set(developerUrl)
+                    }
+                }
+
+                scm {
+                    val scmConnection = project.ext["scmConnection"] as String
+                    val scmDevConnection = project.ext["scmDeveloperConnection"] as String
+                    val scmUrl = project.ext["developerUrl"] as String
+
+                    connection.set(scmConnection)
+                    developerConnection.set(scmDevConnection)
+                    url.set(scmUrl)
+                }
+            }
+        }
+    }
 }
 
 // This is a workaround because kotlin multiplatform plugin does not work well with application plugin
@@ -112,74 +163,3 @@ tasks.register("packagePlugin") {
         }
     }
 }
-
-/*
-fun publishSettings(project: String, projectName: String, projectDescription: String) {
-    project.with {
-        if (!project.hasProperty('ossrhUsername')) return
-        apply plugin: 'maven'
-        apply plugin: 'signing'
-
-        task packageSources(type: Jar) {
-            classifier = 'sources'
-            from sourceSets.main.allSource
-            if (project.name.endsWith('-jvm') || project.name.endsWith('-js')) {
-                duplicatesStrategy = 'exclude'
-                def commonProject = project.parent.subprojects.find { it.name.endsWith('-common') }
-                from(sourceSets.main.allSource + commonProject.sourceSets.main.allSource)
-            }
-        }
-
-        task packageJavadoc(type: Jar) {
-            // Empty to satisfy Sonatype's javadoc.jar requirement
-            classifier 'javadoc'
-        }
-
-        artifacts {
-            archives packageSources, packageJavadoc
-        }
-
-        signing {
-            sign configurations.archives
-        }
-
-        uploadArchives {
-            repositories {
-                mavenDeployer {
-                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-                    repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
-                        authentication(userName: ossrhUsername, password: ossrhPassword)
-                    }
-                    snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
-                        authentication(userName: ossrhUsername, password: ossrhPassword)
-                    }
-                    pom.project {
-                        name projectName
-                        packaging 'jar'
-                        description projectDescription
-                        url 'https://github.com/streem/pbandk'
-                        scm {
-                            connection 'scm:git:git@github.com:streem/pbandk.git'
-                            developerConnection 'scm:git:git@github.com:streem/pbandk.git'
-                            url 'git@github.com:streem/pbandk.git'
-                        }
-                        licenses {
-                            license {
-                                name 'MIT License'
-                                url 'https://opensource.org/licenses/MIT'
-                            }
-                        }
-                        developers {
-                            developer {
-                                id 'streem'
-                                name 'Streem, Inc.'
-                                url 'https://github.com/streem'
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-*/

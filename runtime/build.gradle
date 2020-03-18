@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
     id "org.jetbrains.kotlin.plugin.serialization"
+    id "maven-publish"
 }
 
 apply plugin: "org.jetbrains.kotlin.multiplatform"
@@ -77,5 +78,29 @@ kotlin {
         macosTest {
         }
         */
+    }
+}
+
+apply from: rootProject.file('gradle/pom.gradle')
+
+def withPom = { pom ->
+    pom.withXml {
+        def root = asNode()
+        root.appendNode('name', project.name)
+        root.appendNode('description', "Library for pbandk runtime protobuf code")
+        root.appendNode('url', "https://github.com/streem/pbandk")
+        root.children().last() + pomConfig
+    }
+}
+
+publishing {
+    publications {
+        mavenProject(MavenPublication) {
+            groupId project.group
+            artifactId project.name
+            version project.version
+
+            withPom(pom)
+        }
     }
 }

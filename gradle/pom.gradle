@@ -1,0 +1,24 @@
+def pomConfig = {
+    licenses {
+        license {
+            name ext.licenseName
+            url ext.licenseUrl
+        }
+    }
+
+    developers {
+        developer {
+            id ext.developerId
+            name ext.developerName
+            url ext.developerUrl
+        }
+    }
+
+    scm {
+        connection ext.scmConnection
+        developerConnection ext.scmDeveloperConnection
+        url ext.scmUrl
+    }
+}
+
+ext.pomConfig = pomConfig
