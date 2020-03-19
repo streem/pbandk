@@ -1,21 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
-buildscript {
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${Versions.spring_boot_gradle_plugin}")
-    }
-}
-
 plugins {
-    id("maven-publish")
-    id("org.jetbrains.kotlin.jvm")
-    id("application")
-    id("org.springframework.boot") version "${Versions.spring_boot_gradle_plugin}"
+    kotlin("jvm")
+    application
+    `maven-publish`
+    id("org.springframework.boot")
 }
-
-project.ext["projectDescription"] = "Executable for pbandk protoc plugin"
-apply(from = "../gradle/publish.gradle")
 
 application {
     mainClassName = "pbandk.gen.MainKt"
@@ -26,19 +17,24 @@ dependencies {
     implementation(project(":protoc-gen-kotlin-lib"))
 }
 
-tasks.withType(KotlinCompile::class.java).all {
+tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
 tasks.getByName<BootJar>("bootJar") {
-    classifier = "jvm8"
+    archiveClassifier.set("jvm8")
     launchScript()
 }
 
 publishing {
     publications {
-        create<MavenPublication>("bootJava") {
+        create<MavenPublication>("bootJar") {
             artifact(tasks.getByName("bootJar"))
+
+            description = "Executable for pbandk protoc plugin"
+            pom {
+                configureForPbandk()
+            }
         }
     }
 }

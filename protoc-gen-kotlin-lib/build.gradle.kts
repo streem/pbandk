@@ -1,12 +1,7 @@
-
 plugins {
     kotlin("multiplatform")
-    id("kotlinx-serialization")
-    id("maven-publish")
+    kotlin("plugin.serialization")
 }
-
-project.ext["projectDescription"] = "Library for pbandk protobuf code generator"
-apply(from = "../gradle/publish.gradle")
 
 kotlin {
     jvm {
@@ -24,9 +19,9 @@ kotlin {
     // macosX64("macos")
 
     sourceSets["commonMain"].dependencies {
-        implementation(project(":runtime"))
         implementation(kotlin("stdlib-common"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlin_serialization}")
+        implementation(project(":runtime"))
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
     }
 
     sourceSets["commonTest"].dependencies {
@@ -35,10 +30,8 @@ kotlin {
     }
 
     sourceSets["jvmMain"].dependencies {
-        implementation(kotlin("stdlib"))
-        api(project(":runtime"))
-        api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlin_serialization}")
-        api("com.google.protobuf:protobuf-java:3.11.1")
+        implementation(kotlin("stdlib-jdk8"))
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
     }
 
     sourceSets["jvmTest"].dependencies {
@@ -47,19 +40,18 @@ kotlin {
         implementation("junit:junit:4.12")
     }
 
-//    /*
 //    sourceSets["macosMain"].dependencies {
 //    }
 //    sourceSets["macosTest"].dependencies {
 //    }
-//    */
 }
 
-tasks.register("generateProto") {
-    dependsOn(":protoc-gen-kotlin:installDist")
+tasks {
+    val generateProto by registering {
+        dependsOn(project(":protoc-gen-kotlin").tasks.named("installDist"))
 
-    doFirst {
-        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
-        runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.gen.pb", "debug", null)
+        doFirst {
+            runProtoGen(project, "src/commonMain/proto", "src/commonMain/kotlin", "pbandk.gen.pb", "debug")
+        }
     }
 }

@@ -1,10 +1,6 @@
-import org.jetbrains.kotlin.gradle.plugin.*
-import org.gradle.api.tasks.testing.logging.*
-
 plugins {
-    id("org.jetbrains.kotlin.plugin.serialization")
-    id("kotlinx-serialization")
-    id("org.jetbrains.kotlin.multiplatform")
+    kotlin("multiplatform")
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -17,9 +13,8 @@ kotlin {
     }
 
     js {
-        browser {
-            useCommonJs()
-        }
+        useCommonJs()
+        browser {}
         nodejs {}
     }
 
@@ -32,7 +27,7 @@ kotlin {
     sourceSets["commonMain"].dependencies {
         implementation(kotlin("stdlib-common"))
         implementation(project(":runtime"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlin_serialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
     }
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))
@@ -40,9 +35,8 @@ kotlin {
     }
 
     sourceSets["jvmMain"].dependencies {
-        implementation(kotlin("stdlib"))
-        api(project(":runtime"))
-        api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlin_serialization}")
+        implementation(kotlin("stdlib-jdk8"))
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
     }
 
     sourceSets["jvmTest"].dependencies {
@@ -52,9 +46,8 @@ kotlin {
     }
 
     sourceSets["jsMain"].dependencies {
-        implementation(project(":runtime"))
         implementation(kotlin("stdlib-js"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlin_serialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
     }
     sourceSets["jsTest"].dependencies {
         implementation(kotlin("test-js"))
@@ -66,22 +59,12 @@ kotlin {
 //    }
 }
 
-tasks.withType<AbstractTestTask> {
-    testLogging {
-        outputs.upToDateWhen {false}
-        showStandardStreams = true
-        exceptionFormat = TestExceptionFormat.FULL
-        events = setOf(TestLogEvent.PASSED,
-                        TestLogEvent.SKIPPED,
-                        TestLogEvent.FAILED)
-    }
-}
+tasks {
+    val generateProto by registering {
+        dependsOn(project(":protoc-gen-kotlin").tasks.named("installDist"))
 
-tasks.register("generateProto") {
-    dependsOn(":protoc-gen-kotlin:installDist")
-
-    doFirst {
-        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
-        runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.conformance.pb", "debug", null)
+        doFirst {
+            runProtoGen(project, "src/commonMain/proto", "src/commonMain/kotlin", "pbandk.conformance.pb", "debug")
+        }
     }
 }

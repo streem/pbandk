@@ -423,7 +423,7 @@ You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` envi
 Then, from the root directory:
 
 ```
-./conformance/test-conformance.sh
+./conformance-lib/test-conformance.sh
 ```
 
 ## Credits
