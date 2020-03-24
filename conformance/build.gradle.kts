@@ -14,7 +14,14 @@ application {
 }
 
 kotlin {
-    jvm()
+    jvm {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
+
     js {
         browser {
             useCommonJs()
