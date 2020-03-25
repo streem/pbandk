@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.*
 plugins {
     id("maven-publish")
     kotlin("multiplatform")
-    id("kotlinx-serialization")
+    kotlin("plugin.serialization")
 }
 
 project.ext["projectDescription"] = "Library for pbandk runtime protobuf code"
