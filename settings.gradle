@@ -6,17 +6,3 @@ enableFeaturePreview("GRADLE_METADATA")
 include ":runtime"
 include ":protoc-gen-kotlin"
 include ":conformance"
-
-/*
-include ':conformance:conformance-common',
-        ':conformance:conformance-js',
-        ':conformance:conformance-jvm',
-        //':conformance:conformance-native',
-        ':protoc-gen-kotlin:protoc-gen-kotlin-common',
-        ':protoc-gen-kotlin:protoc-gen-kotlin-jvm',
-        //':protoc-gen-kotlin:protoc-gen-kotlin-native',
-        ':runtime:runtime-common',
-        ':runtime:runtime-js',
-        ':runtime:runtime-jvm'
-        //':runtime:runtime-native'
-*/
