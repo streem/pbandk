@@ -1,0 +1,34 @@
+def pomConfig = {
+    licenses {
+        license {
+            name "MIT License"
+            url "https://opensource.org/licenses/MIT"
+        }
+    }
+
+    developers {
+        developer {
+            id "streem"
+            name "Streem, Inc."
+            url "https://github.com/streem"
+        }
+    }
+
+    scm {
+        connection "scm:git:git@github.com:streem/pbandk.git"
+        developerConnection "scm:git:git@github.com:streem/pbandk.git"
+        url "git@github.com:streem/pbandk.git"
+    }
+}
+
+afterEvaluate {
+    project.publishing.publications.forEach { publication ->
+        publication.pom.withXml {
+            def root = asNode()
+            root.appendNode('name', project.name)
+            root.appendNode('description', project.ext.projectDescription)
+            root.appendNode("url", "https://github.com/streem/pbandk")
+            root.children().last() + pomConfig
+        }
+    }
+}

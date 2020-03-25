@@ -42,17 +42,6 @@ allprojects {
     this.ext["mavenRepositoryUrl"] = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
     this.ext["snapshotRepositoryUrl"] = "https://oss.sonatype.org/content/repositories/snapshots/"
 
-    this.ext["scmConnection"] = "scm:git:git@github.com:streem/pbandk.git"
-    this.ext["scmDeveloperConnection"] = "scm:git:git@github.com:streem/pbandk.git"
-    this.ext["scmUrl"] = "git@github.com:streem/pbandk.git"
-
-    this.ext["licenseName"] = "MIT License"
-    this.ext["licenseUrl"] = "https://opensource.org/licenses/MIT"
-
-    this.ext["developerId"] = "streem"
-    this.ext["developerName"] = "Streem, Inc."
-    this.ext["developerUrl"] = "https://github.com/streem"
-
     this.ext["runProtoGen"] = { inPath: String, outPath: String, kotlinPackage: String?, logLevel: String?, inSubPath: String? ->
         // Build CLI args
         var args = mutableListOf("protoc")

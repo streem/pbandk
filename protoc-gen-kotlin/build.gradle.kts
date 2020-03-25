@@ -7,6 +7,9 @@ plugins {
     id("maven-publish")
 }
 
+project.ext["projectDescription"] = "Library for pbandk protobuf code generator"
+apply(from = "../gradle/publish.gradle")
+
 application {
     mainClassName = "pbandk.gen.MainKt"
     applicationName = "protoc-gen-kotlin"
@@ -60,56 +63,6 @@ kotlin {
 //    sourceSets["macosTest"].dependencies {
 //    }
 //    */
-}
-
-apply("../gradle/pom.gradle")
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            pom {
-                groupId = project.group as String
-                artifactId = project.name
-                version = project.version as String
-
-                name.set(project.name)
-                description.set("Library for pbandk protobuf code generator")
-                url.set("https://github.com/streem/pbandk")
-
-                licenses {
-                    license {
-                        val licenseName = project.ext["licenseName"] as String
-                        val licenseUrl = project.ext["licenseUrl"] as String
-
-                        name.set(licenseName)
-                        url.set(licenseUrl)
-                    }
-                }
-
-                developers {
-                    developer {
-                        val developerId = project.ext["developerId"] as String
-                        val developerName = project.ext["developerName"] as String
-                        val developerUrl = project.ext["developerUrl"] as String
-
-                        id.set(developerId)
-                        name.set(developerName)
-                        url.set(developerUrl)
-                    }
-                }
-
-                scm {
-                    val scmConnection = project.ext["scmConnection"] as String
-                    val scmDevConnection = project.ext["scmDeveloperConnection"] as String
-                    val scmUrl = project.ext["developerUrl"] as String
-
-                    connection.set(scmConnection)
-                    developerConnection.set(scmDevConnection)
-                    url.set(scmUrl)
-                }
-            }
-        }
-    }
 }
 
 // This is a workaround because kotlin multiplatform plugin does not work well with application plugin
