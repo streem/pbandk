@@ -39,7 +39,7 @@ kotlin {
     sourceSets["jvmMain"].dependencies {
         implementation(kotlin("stdlib"))
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlin_serialization}")
-        implementation("com.google.protobuf:protobuf-java:3.11.1")
+        api("com.google.protobuf:protobuf-java:${Versions.protobuf}")
     }
     sourceSets["jvmTest"].dependencies {
         implementation(kotlin("test"))
