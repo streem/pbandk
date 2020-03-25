@@ -74,3 +74,16 @@ tasks.register("generateWellKnownTypes") {
         runProtoGen(Paths.get(protocPath, "include").toString(), "src/commonMain/kotlin", "pbandk.wkt", "debug", "google/protobuf")
     }
 }
+
+tasks.register("generateTestTypes") {
+    dependsOn(":protoc-gen-kotlin:packagePlugin")
+    doFirst {
+        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
+        runProtoGen("src/jvmTest/proto", "src/jvmTest/kotlin", "pbandk.testpb", "debug", "pbandk/testpb")
+    }
+    doFirst {
+        exec {
+            commandLine("protoc", "-Isrc/jvmTest/proto", "--java_out=src/test/java", "src/jvmTest/proto/pbandk/testpb/test.proto")
+        }
+    }
+}
