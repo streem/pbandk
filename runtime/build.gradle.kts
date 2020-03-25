@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.*
+import java.nio.file.Paths
 
 plugins {
     id("maven-publish")
@@ -60,4 +61,16 @@ kotlin {
     //    }
     //    sourceSets["macosTest"].dependencies {
     //    }
+}
+
+tasks.register("generateWellKnownTypes") {
+    dependsOn(":protoc-gen-kotlin:packagePlugin")
+
+    doFirst {
+        val protocPath = System.getProperty("protoc.path")
+        if (protocPath == null) throw InvalidUserDataException("System property protoc.path must be set")
+
+        val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
+        runProtoGen(Paths.get(protocPath, "include").toString(), "src/commonMain/kotlin", "pbandk.wkt", "debug", "google/protobuf")
+    }
 }
