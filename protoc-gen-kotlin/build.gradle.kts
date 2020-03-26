@@ -1,4 +1,3 @@
-import java.nio.file.Paths
 
 plugins {
     kotlin("multiplatform")
@@ -9,11 +8,6 @@ plugins {
 
 project.ext["projectDescription"] = "Library for pbandk protobuf code generator"
 apply(from = "../gradle/publish.gradle")
-
-application {
-    mainClassName = "pbandk.gen.MainKt"
-    applicationName = "protoc-gen-kotlin"
-}
 
 kotlin {
     jvm {
@@ -65,7 +59,7 @@ kotlin {
 //    */
 }
 
-// This is a workaround because kotlin multiplatform plugin does not work well with application plugin
+/*// This is a workaround because kotlin multiplatform plugin does not work well with application plugin
 afterEvaluate {
     tasks {
         val compileKotlinJvm by getting(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class)
@@ -87,10 +81,10 @@ afterEvaluate {
             from(kotlin.jvm().compilations.getByName("main").compileDependencyFiles.map { if (it.isDirectory) it else zipTree(it) })
         }
     }
-}
+}*/
 
 tasks.register("generateProto") {
-    dependsOn(":protoc-gen-kotlin:packagePlugin")
+    dependsOn(":protoc-gen-kotlin:installDist")
 
     doFirst {
         val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
@@ -98,7 +92,7 @@ tasks.register("generateProto") {
     }
 }
 
-tasks.register("packagePlugin") {
+/*tasks.register("packagePlugin") {
     dependsOn(":protoc-gen-kotlin:jvmJar")
     dependsOn(":protoc-gen-kotlin:installDist")
 
@@ -109,4 +103,4 @@ tasks.register("packagePlugin") {
             rename { "protoc-gen-kotlin-${project.version}.jar" }
         }
     }
-}
+}*/

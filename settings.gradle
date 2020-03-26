@@ -5,4 +5,5 @@ enableFeaturePreview("GRADLE_METADATA")
 
 include ":runtime"
 include ":protoc-gen-kotlin"
+include ":protoc-gen-kotlin-exe"
 include ":conformance"
