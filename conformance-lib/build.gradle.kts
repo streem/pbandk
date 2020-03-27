@@ -82,6 +82,6 @@ tasks.register("generateProto") {
 
     doFirst {
         val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
-        runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.gen.pb", "debug", null)
+        runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.conformance.pb", "debug", null)
     }
 }
