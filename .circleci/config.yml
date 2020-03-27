@@ -71,7 +71,7 @@ jobs:
             ./gradlew --stop
             ./gradlew -Dprotoc.path=$HOME/protobuf/install \
               :runtime:generateWellKnownTypes \
-              :protoc-gen-kotlin:generateProto \
+              :protoc-gen-kotlin-lib:generateProto \
               :runtime:generateTestTypes \
               :conformance:generateProto
             if [ -n "$(git status --porcelain)" ]; then
