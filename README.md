@@ -329,7 +329,7 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:packagePlugin
+./gradlew :protoc-gen-kotlin:installDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -338,7 +338,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:packagePlugin
+./gradlew :protoc-gen-kotlin:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -358,8 +358,7 @@ This will generate kotlin files for the specified `*.proto` files, without needi
 To build the runtime library for both JS and the JVM, run:
 
 ```
-./gradlew :runtime:runtime-js:assemble
-./gradlew :runtime:runtime-jvm:assemble
+./gradlew :runtime:assemble
 ```
 
 ### Bundled Types
@@ -409,7 +408,7 @@ Now, back in `pbandk`, build both the JS and JVM projects via:
 
 ```
 ./gradlew :conformance:assemble
-./gradlew :conformance:package
+./gradlew :conformance:installDist
 ```
 
 Bring in javascript dependencies:

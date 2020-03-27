@@ -64,7 +64,7 @@ kotlin {
 }
 
 tasks.register("generateWellKnownTypes") {
-    dependsOn(":protoc-gen-kotlin:packagePlugin")
+    dependsOn(":protoc-gen-kotlin:installDist")
 
     doFirst {
         val protocPath = System.getProperty("protoc.path")
@@ -76,7 +76,7 @@ tasks.register("generateWellKnownTypes") {
 }
 
 tasks.register("generateTestTypes") {
-    dependsOn(":protoc-gen-kotlin:packagePlugin")
+    dependsOn(":protoc-gen-kotlin:installDist")
     doFirst {
         val runProtoGen = project.ext["runProtoGen"] as (String, String, String?, String?, String?) -> Unit
         runProtoGen("src/jvmTest/proto", "src/jvmTest/kotlin", "pbandk.testpb", "debug", "pbandk/testpb")
