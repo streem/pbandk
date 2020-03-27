@@ -25,14 +25,6 @@ dependencies {
     implementation(project(":protoc-gen-kotlin-lib"))
 }
 
-/*
-sourceCompatibility = 1.8
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
- */
-
 tasks.withType(KotlinCompile::class.java).all {
     kotlinOptions.jvmTarget = "1.8"
     kotlinOptions.freeCompilerArgs =
@@ -40,6 +32,6 @@ tasks.withType(KotlinCompile::class.java).all {
 }
 
 tasks.getByName<BootJar>("bootJar") {
-    classifier = "jvm8"
+    classifier = "boot"
     launchScript()
 }

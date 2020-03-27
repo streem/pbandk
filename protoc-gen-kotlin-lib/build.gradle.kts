@@ -24,12 +24,10 @@ kotlin {
     // macosX64("macos")
 
     sourceSets["commonMain"].dependencies {
-            implementation(project(":runtime"))
-            implementation(kotlin("stdlib-common"))
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlin_serialization}")
-        }
-
-        //publishSettings(project, archivesBaseName, "Common library for pbandk protobuf code generator")
+        implementation(project(":runtime"))
+        implementation(kotlin("stdlib-common"))
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlin_serialization}")
+    }
 
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))
@@ -42,7 +40,6 @@ kotlin {
         api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlin_serialization}")
         api("com.google.protobuf:protobuf-java:3.11.1")
     }
-    //publishSettings(project, archivesBaseName, "JVM library for pbandk protobuf code generator")
 
     sourceSets["jvmTest"].dependencies {
         implementation(kotlin("test"))
@@ -58,30 +55,6 @@ kotlin {
 //    */
 }
 
-/*// This is a workaround because kotlin multiplatform plugin does not work well with application plugin
-afterEvaluate {
-    tasks {
-        val compileKotlinJvm by getting(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class)
-        val jvmProcessResources by getting(Copy::class)
-        val jvmRun by creating(JavaExec::class) {
-            dependsOn(compileKotlinJvm, jvmProcessResources)
-            group = "run"
-            main = "pbandk.gen.MainKt"
-            classpath = configurations["jvmRuntimeClasspath"] + compileKotlinJvm.outputs.files +
-                    jvmProcessResources.outputs.files
-            workingDir = buildDir
-            args = System.getProperty("exec.args", "").split(" ")
-        }
-        val jvmJar by getting(Jar::class) {
-            manifest {
-                attributes["Main-Class"] = jvmRun.main
-                attributes["Version"] = project.version
-            }
-            from(kotlin.jvm().compilations.getByName("main").compileDependencyFiles.map { if (it.isDirectory) it else zipTree(it) })
-        }
-    }
-}*/
-
 tasks.register("generateProto") {
     dependsOn(":protoc-gen-kotlin:installDist")
 
@@ -90,16 +63,3 @@ tasks.register("generateProto") {
         runProtoGen("src/commonMain/proto", "src/commonMain/kotlin", "pbandk.gen.pb", "debug", null)
     }
 }
-
-/*tasks.register("packagePlugin") {
-    dependsOn(":protoc-gen-kotlin:jvmJar")
-    dependsOn(":protoc-gen-kotlin:installDist")
-
-    doLast {
-        copy {
-            from("$buildDir/libs/protoc-gen-kotlin-jvm-${project.version}.jar")
-            into("$buildDir/install/protoc-gen-kotlin/lib/")
-            rename { "protoc-gen-kotlin-${project.version}.jar" }
-        }
-    }
-}*/
