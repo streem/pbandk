@@ -86,7 +86,7 @@ jobs:
           name: Run conformance tests
           command: |
             export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./gradlew :conformance:package
+            ./gradlew :conformance:installDist
             ./conformance/test-conformance.sh
 
       - save_cache:
