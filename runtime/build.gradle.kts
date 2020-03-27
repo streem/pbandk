@@ -83,7 +83,7 @@ tasks.register("generateTestTypes") {
     }
     doFirst {
         exec {
-            commandLine("protoc", "-Isrc/jvmTest/proto", "--java_out=src/test/java", "src/jvmTest/proto/pbandk/testpb/test.proto")
+            commandLine("protoc", "-Isrc/jvmTest/proto", "--java_out=src/jvmTest/java", "src/jvmTest/proto/pbandk/testpb/test.proto")
         }
     }
 }
