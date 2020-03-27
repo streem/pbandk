@@ -87,7 +87,7 @@ jobs:
           command: |
             export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
             ./gradlew :conformance:installDist
-            ./conformance/test-conformance.sh
+            ./conformance-lib/test-conformance.sh
 
       - save_cache:
           name: Save dependencies cache
