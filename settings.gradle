@@ -9,3 +9,4 @@ include ":protoc-gen-kotlin"
 include ":protoc-gen-kotlin-lib"
 
 include ":conformance"
+include ":conformance-lib"
