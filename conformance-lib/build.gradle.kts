@@ -5,7 +5,6 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
     id("kotlinx-serialization")
     id("org.jetbrains.kotlin.multiplatform")
-    id("application")
 }
 
 kotlin {
