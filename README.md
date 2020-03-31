@@ -329,7 +329,7 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:installDist
+./gradlew :protoc-gen-kotlin:jvm:assembleDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -338,7 +338,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:assembleDist
+./gradlew :protoc-gen-kotlin:jvm:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -346,7 +346,7 @@ For example:
 
 ```
 protoc \
-    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
+    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
     --kotlin_out=src/main/kotlin \
     src/main/proto/*.proto
 ```
@@ -370,9 +370,9 @@ extract it to a local directory, and then run:
 
 ```
 ./gradlew :runtime:generateWellKnownTypes -Dprotoc.path=path/to/protobuf/install/directory
-./gradlew :protoc-gen-kotlin-lib:generateProto
 ./gradlew :runtime:generateTestTypes
-./gradlew :conformance-lib:generateProto
+./gradlew :protoc-gen-kotlin:lib:generateProto
+./gradlew :conformance:lib:generateProto
 ```
 
 Important: If making changes in both the `:protoc-gen-kotlin` _and_ `:runtime` projects at the
@@ -407,14 +407,14 @@ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 Now, back in `pbandk`, build both the JS and JVM projects via:
 
 ```
-./gradlew :conformance:assemble
-./gradlew :conformance:installDist
+./gradlew :conformance:jvm:assemble
+./gradlew :conformance:jvm:installDist
 ```
 
 Bring in javascript dependencies:
 
 ```
-cd conformance/src/jsMain
+cd conformance/lib/src/jsMain
 yarn
 ```
 
@@ -423,7 +423,7 @@ You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` envi
 Then, from the root directory:
 
 ```
-./conformance-lib/test-conformance.sh
+./conformance/test-conformance.sh
 ```
 
 ## Credits

@@ -24,7 +24,7 @@ fun runProtoGen(
 
     args += "--plugin=protoc-gen-kotlin=${Paths.get(
         project.rootDir.toString(),
-        "protoc-gen-kotlin/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
+        "protoc-gen-kotlin/jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
     )}"
     if (OperatingSystem.current().isWindows) args[args.count() - 1] += ".bat"
 

@@ -61,7 +61,7 @@ kotlin {
 
 tasks {
     val generateWellKnownTypes by registering {
-        dependsOn(project(":protoc-gen-kotlin").tasks.named("installDist"))
+        dependsOn(project(":protoc-gen-kotlin:jvm").tasks.named("installDist"))
 
         doFirst {
             val protocPath = System.getProperty("protoc.path")
@@ -79,7 +79,7 @@ tasks {
     }
 
     val generateTestTypes by registering {
-        dependsOn(project(":protoc-gen-kotlin").tasks.named("installDist"))
+        dependsOn(project(":protoc-gen-kotlin:jvm").tasks.named("installDist"))
 
         doFirst {
             runProtoGen(project, "src/jvmTest/proto", "src/jvmTest/kotlin", "pbandk.testpb", "debug", "pbandk/testpb")

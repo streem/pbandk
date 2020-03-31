@@ -8,7 +8,7 @@ fi
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # TODO: Reenable full test suite when things are working by adding --enforce_recommended flag to both commands below
-$CONF_TEST_PATH --failure_list $DIR/src/jvmMain/failing_tests.txt $DIR/../conformance/build/install/conformance/bin/conformance
+$CONF_TEST_PATH --failure_list $DIR/jvm/failing_tests.txt $DIR/jvm/build/install/conformance/bin/conformance
 # TODO: js tests currently fail to run with a `Error: Cannot find module 'kotlinx-serialization-kotlinx-serialization-runtime'` error.
 # Reenable these tests once the error has been fixed.
-# $CONF_TEST_PATH --failure_list $DIR/src/jsMain/failing_tests.txt $DIR/conformance-js/run.sh
+# $CONF_TEST_PATH --failure_list $DIR/js/failing_tests.txt $DIR/lib/src/jsMain/run.sh
