@@ -28,6 +28,7 @@ kotlin {
         implementation(kotlin("stdlib-common"))
         implementation(project(":runtime"))
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Versions.kotlinCoroutines}")
     }
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))
@@ -37,6 +38,7 @@ kotlin {
     sourceSets["jvmMain"].dependencies {
         implementation(kotlin("stdlib-jdk8"))
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}")
     }
 
     sourceSets["jvmTest"].dependencies {
@@ -48,6 +50,7 @@ kotlin {
     sourceSets["jsMain"].dependencies {
         implementation(kotlin("stdlib-js"))
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${Versions.kotlinCoroutines}")
     }
     sourceSets["jsTest"].dependencies {
         implementation(kotlin("test-js"))

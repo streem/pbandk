@@ -6,7 +6,7 @@ import pbandk.conformance.pb.*
 var logDebug = false
 inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
-fun main(args: Array<String>) {
+suspend fun main(args: Array<String>) {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return
@@ -17,12 +17,11 @@ fun main(args: Array<String>) {
     }
 }
 
-fun doTestIo(): ConformanceResponse.Result<*>? {
+suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     // Read the request (starting with by size)
     val req = Platform.doTry({
         val size = Platform.stdinReadIntLE()?.also { debug { "Reading $it bytes" } } ?: return null
-        ConformanceRequest.protoUnmarshal(
-            ByteArray(size).also(Platform::stdinReadFull)).also { debug { "Request: $it" } }
+        ConformanceRequest.protoUnmarshal(Platform.stdinReadFull(size)).also { debug { "Request: $it" } }
     }) { err -> return ConformanceResponse.Result.RuntimeError("Failed reading request: $err") }
     // Parse
     val parsed = Platform.doTry({

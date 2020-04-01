@@ -119,8 +119,10 @@ Required.Proto3.JsonInput.ValueAcceptString.ProtobufOutput
 ##
 ## These failures need to be investigated
 ##
+## See https://github.com/streem/pbandk/issues/22
 Required.Proto2.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput
 Required.Proto3.ProtobufInput.RepeatedScalarMessageMerge.ProtobufOutput
+## and https://github.com/streem/pbandk/issues/23
 Required.Proto3.ProtobufInput.ValidDataRepeated.BOOL.PackedInput.ProtobufOutput
 Required.Proto3.ProtobufInput.ValidDataRepeated.INT32.PackedInput.ProtobufOutput
 Required.Proto3.ProtobufInput.ValidDataRepeated.UINT32.PackedInput.ProtobufOutput

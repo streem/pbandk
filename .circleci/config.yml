@@ -1,20 +1,28 @@
-# Java Gradle CircleCI 2.0 configuration file
 #
-# Check https://circleci.com/docs/2.0/language-java/ for more details
+# Check https://circleci.com/docs/2.0/ for more details
 #
-version: 2
+version: 2.1
 
-jobs:
-  build:
+
+executors:
+  jvm:
     docker:
       - image: circleci/openjdk:8-jdk
-
-    working_directory: ~/repo
-
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
+
+  nodejs:
+    docker:
+      - image: circleci/node:lts
+
+
+jobs:
+
+  build:
+    executor:
+      name: jvm
 
     steps:
       - checkout
@@ -26,6 +34,7 @@ jobs:
             | sort -z \
             | xargs -0 cat \
             > /tmp/circleci_cache_key
+
       - restore_cache:
           name: Restore dependencies cache
           keys:
@@ -83,11 +92,21 @@ jobs:
             fi
 
       - run:
-          name: Run conformance tests
-          command: |
-            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./gradlew :conformance:jvm:installDist
-            ./conformance/test-conformance.sh
+          name: Build conformance test suite
+          command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist
+
+      # persist files necessary to run conformance tests
+      - persist_to_workspace:
+          root: .
+          paths:
+            - conformance/test-conformance.sh
+            # jvm
+            - conformance/jvm/build/install/conformance
+            - conformance/jvm/failing_tests.txt
+            # js
+            - build/js
+            - conformance/js/failing_tests.txt
+            - conformance/js/run.sh
 
       - save_cache:
           name: Save dependencies cache
@@ -95,3 +114,56 @@ jobs:
             - ~/.gradle
           key: v2-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
           when: always
+
+
+  conformance_jvm:
+    executor:
+      name: jvm
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - restore_cache:
+          name: Restore protobuf cache
+          keys:
+            - v3-protobuf-3.10.1
+
+      - run:
+          name: Run JVM conformance tests
+          command: |
+            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+            ./conformance/test-conformance.sh jvm
+
+
+  conformance_js:
+    executor:
+      name: nodejs
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - restore_cache:
+          name: Restore protobuf cache
+          keys:
+            - v3-protobuf-3.10.1
+
+      - run:
+          name: Run JS conformance tests
+          command: |
+            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+            ./conformance/test-conformance.sh js
+
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build
+      - conformance_jvm:
+          requires:
+            - build
+      - conformance_js:
+          requires:
+            - build
