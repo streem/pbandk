@@ -19,10 +19,17 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Collect files for dependencies cache key
+          command: |
+            find . -path ./examples -prune -o -name '*.gradle*' -type f -print0 \
+            | sort -z \
+            | xargs -0 cat \
+            > /tmp/circleci_cache_key
       - restore_cache:
           name: Restore dependencies cache
           keys:
-            - v2-dependencies-{{ checksum "build.gradle" }}
+            - v2-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
             # fallback to using the latest cache if no exact match is found
             - v2-dependencies-
 
@@ -63,10 +70,10 @@ jobs:
             # need to stop the gradle daemon from the earlier step so it can pick up the new PATH value
             ./gradlew --stop
             ./gradlew -Dprotoc.path=$HOME/protobuf/install \
-              :runtime:runtime-common:generateWellKnownTypes \
-              :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto \
-              :runtime:runtime-jvm:generateTestTypes \
-              :conformance:conformance-common:generateProto
+              :runtime:generateWellKnownTypes \
+              :protoc-gen-kotlin-lib:generateProto \
+              :runtime:generateTestTypes \
+              :conformance-lib:generateProto
             if [ -n "$(git status --porcelain)" ]; then
               echo "*** Found uncommitted changes to bundled types: ***"
               git status
@@ -79,13 +86,12 @@ jobs:
           name: Run conformance tests
           command: |
             export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            # TODO: build and run JS conformance tests too
-            ./gradlew :conformance:conformance-jvm:installDist
-            ./conformance/test-conformance.sh
+            ./gradlew :conformance:installDist
+            ./conformance-lib/test-conformance.sh
 
       - save_cache:
           name: Save dependencies cache
           paths:
             - ~/.gradle
-          key: v2-dependencies-{{ checksum "build.gradle" }}
+          key: v2-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
           when: always

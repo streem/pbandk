@@ -1,8 +1,8 @@
 {
-  "name": "runtime-js",
+  "name": "conformance-jsMain",
   "version": "0.1.0",
   "description": "",
-  "main": "build/classes/kotlin/main/pbandk-runtime-js.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "kotlin": "^1.3.11",
-    "protobufjs": "^6.8.8"
+    "protobufjs": "^6.8.8",
+    "pbandk-runtime-js": "file:../../../runtime"
   }
 }
