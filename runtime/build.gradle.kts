@@ -6,6 +6,9 @@ plugins {
     `maven-publish`
 }
 
+project.ext["projectDescription"] = "Library for pbandk runtime protobuf code"
+apply(from = "../gradle/publish.gradle")
+
 kotlin {
 
     jvm {
@@ -16,6 +19,13 @@ kotlin {
         useCommonJs()
         browser {}
         nodejs {}
+    }
+
+    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos")?:false
+    if(onPhone){
+        iosArm64("ios")
+    }else{
+        iosX64("ios")
     }
 
     // For ARM, should be changed to iosArm32 or iosArm64
@@ -53,10 +63,11 @@ kotlin {
         implementation(kotlin("test-js"))
     }
 
-    //    sourceSets["macosMain"].dependencies {
-    //    }
-    //    sourceSets["macosTest"].dependencies {
-    //    }
+    sourceSets["iosMain"].dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlin_serialization}")
+    }
+    //sourceSets["macosTest"].dependencies {
+    //}
 }
 
 tasks {
