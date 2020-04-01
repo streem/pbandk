@@ -60,35 +60,38 @@ kotlin {
 }
 
 tasks {
-    val generateWellKnownTypes by registering {
-        dependsOn(project(":protoc-gen-kotlin:jvm").tasks.named("installDist"))
-
-        doFirst {
-            val protocPath = System.getProperty("protoc.path")
+    val generateWellKnownTypes by registering(ProtocTask::class) {
+        val protocPath = provider {
+            System.getProperty("protoc.path")
                 ?: throw InvalidUserDataException("System property protoc.path must be set")
+        }.map { rootProject.layout.projectDirectory.dir(it) }
 
-            runProtoGen(
-                project,
-                Paths.get(protocPath, "include").toString(),
-                "src/commonMain/kotlin",
-                "pbandk.wkt",
-                "debug",
-                "google/protobuf"
-            )
-        }
+        includeDir.set(protocPath.map { it.dir("include") })
+        outputDir.set(project.file("src/commonMain/kotlin"))
+        kotlinPackage.set("pbandk.wkt")
+        logLevel.set("debug")
+        protoFileSubdir("google/protobuf")
+    }
+
+    val generateKotlinTestTypes by registering(ProtocTask::class) {
+        includeDir.set(project.file("src/jvmTest/proto"))
+        outputDir.set(project.file("src/jvmTest/kotlin"))
+        kotlinPackage.set("pbandk.testpb")
+        logLevel.set("debug")
+        protoFileSubdir("pbandk/testpb")
+    }
+
+    val generateJavaTestTypes by registering(Exec::class) {
+        commandLine(
+            "protoc",
+            "-Isrc/jvmTest/proto",
+            "--java_out=src/jvmTest/java",
+            "src/jvmTest/proto/pbandk/testpb/test.proto"
+        )
     }
 
     val generateTestTypes by registering {
-        dependsOn(project(":protoc-gen-kotlin:jvm").tasks.named("installDist"))
-
-        doFirst {
-            runProtoGen(project, "src/jvmTest/proto", "src/jvmTest/kotlin", "pbandk.testpb", "debug", "pbandk/testpb")
-        }
-        doFirst {
-            exec {
-                commandLine("protoc", "-Isrc/jvmTest/proto", "--java_out=src/jvmTest/java", "src/jvmTest/proto/pbandk/testpb/test.proto")
-            }
-        }
+        dependsOn(generateKotlinTestTypes, generateJavaTestTypes)
     }
 }
 

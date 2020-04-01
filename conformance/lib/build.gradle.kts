@@ -60,11 +60,10 @@ kotlin {
 }
 
 tasks {
-    val generateProto by registering {
-        dependsOn(project(":protoc-gen-kotlin:jvm").tasks.named("installDist"))
-
-        doFirst {
-            runProtoGen(project, "src/commonMain/proto", "src/commonMain/kotlin", "pbandk.conformance.pb", "debug")
-        }
+    val generateProto by registering(ProtocTask::class) {
+        includeDir.set(project.file("src/commonMain/proto"))
+        outputDir.set(project.file("src/commonMain/kotlin"))
+        kotlinPackage.set("pbandk.conformance.pb")
+        logLevel.set("debug")
     }
 }
