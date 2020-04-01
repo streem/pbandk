@@ -27,8 +27,6 @@ dependencies {
 
 tasks.withType(KotlinCompile::class.java).all {
     kotlinOptions.jvmTarget = "1.8"
-    kotlinOptions.freeCompilerArgs =
-        listOf(*kotlinOptions.freeCompilerArgs.toTypedArray(), "-Xjsr305=strict")
 }
 
 tasks.getByName<BootJar>("bootJar") {
