@@ -320,26 +320,16 @@ Services can be handled with a custom service generator. See the "Service Code G
 
 The project is built with Gradle and has several sub projects. In alphabetical order, they are:
 
-* `conformance/conformance-common` - Multiplatform common code for conformance tests
-* `conformance/conformance-js` - JS code for conformance tests
-* `conformance/conformance-jvm` - JVM code for conformance tests
-* `conformance/conformance-native` - Native code for conformance tests (not built yet)
-* `protoc-gen-kotlin/protoc-gen-kotlin-common` - Multiplatform common code for the code generator
-* `protoc-gen-kotlin/protoc-gen-kotlin-jvm` - JVM code for the code generator
-* `protoc-gen-kotlin/protoc-gen-kotlin-native` - Native code for the code generator (not built yet)
-* `runtime/runtime-common` - Multiplatform common code for runtime Protobuf support
-* `runtime/runtime-js` - JS code for runtime Protobuf support
-* `runtime/runtime-jvm` - JVM code for runtime Protobuf support
-* `runtime/runtime-native` - Native code for runtime Protobuf support
-
-Due to current issues, Gradle must be version 4.7 in the steps below.
+* `conformance` - Multiplatform code for conformance tests
+* `protoc-gen-kotlin` - Multiplatform code for the code generator
+* `runtime` - Multiplatform code for runtime Protobuf support
 
 ### Code Generator
 
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:assembleDist
+./gradlew :protoc-gen-kotlin:jvm:assembleDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -348,7 +338,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
+./gradlew :protoc-gen-kotlin:jvm:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -356,7 +346,7 @@ For example:
 
 ```
 protoc \
-    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
+    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
     --kotlin_out=src/main/kotlin \
     src/main/proto/*.proto
 ```
@@ -368,8 +358,7 @@ This will generate kotlin files for the specified `*.proto` files, without needi
 To build the runtime library for both JS and the JVM, run:
 
 ```
-./gradlew :runtime:runtime-js:assemble
-./gradlew :runtime:runtime-jvm:assemble
+./gradlew :runtime:assemble
 ```
 
 ### Bundled Types
@@ -380,10 +369,10 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 extract it to a local directory, and then run:
 
 ```
-./gradlew :runtime:runtime-common:generateWellKnownTypes -Dprotoc.path=path/to/protobuf/install/directory
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-common:generateProto
-./gradlew :runtime:runtime-jvm:generateTestTypes
-./gradlew :conformance:conformance-common:generateProto
+./gradlew :runtime:generateWellKnownTypes -Dprotoc.path=path/to/protobuf/install/directory
+./gradlew :runtime:generateTestTypes
+./gradlew :protoc-gen-kotlin:lib:generateProto
+./gradlew :conformance:lib:generateProto
 ```
 
 Important: If making changes in both the `:protoc-gen-kotlin` _and_ `:runtime` projects at the
@@ -418,15 +407,8 @@ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 Now, back in `pbandk`, build both the JS and JVM projects via:
 
 ```
-./gradlew :conformance:conformance-js:assemble
-./gradlew :conformance:conformance-jvm:installDist
-```
-
-Bring in javascript dependencies:
-
-```
-cd conformance/conformance-js
-yarn
+./gradlew :conformance:lib:assemble
+./gradlew :conformance:jvm:installDist
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).

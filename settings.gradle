@@ -1,13 +1,12 @@
-rootProject.name = 'pbandk'
 
-include ':conformance:conformance-common',
-        ':conformance:conformance-js',
-        ':conformance:conformance-jvm',
-        //':conformance:conformance-native',
-        ':protoc-gen-kotlin:protoc-gen-kotlin-common',
-        ':protoc-gen-kotlin:protoc-gen-kotlin-jvm',
-        //':protoc-gen-kotlin:protoc-gen-kotlin-native',
-        ':runtime:runtime-common',
-        ':runtime:runtime-js',
-        ':runtime:runtime-jvm'
-        //':runtime:runtime-native'
+rootProject.name = "pbandk"
+
+enableFeaturePreview("GRADLE_METADATA")
+
+include ":runtime"
+
+include ":protoc-gen-kotlin:lib"
+include ":protoc-gen-kotlin:jvm"
+
+include ":conformance:lib"
+include ":conformance:jvm"
