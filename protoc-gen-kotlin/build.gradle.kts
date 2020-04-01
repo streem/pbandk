@@ -8,6 +8,7 @@ buildscript {
 }
 
 plugins {
+    id("maven-publish")
     id("org.jetbrains.kotlin.jvm")
     id("application")
     id("org.springframework.boot") version "${Versions.spring_boot_gradle_plugin}"
@@ -32,4 +33,12 @@ tasks.withType(KotlinCompile::class.java).all {
 tasks.getByName<BootJar>("bootJar") {
     classifier = "jvm8"
     launchScript()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("bootJava") {
+            artifact(tasks.getByName("bootJar"))
+        }
+    }
 }
