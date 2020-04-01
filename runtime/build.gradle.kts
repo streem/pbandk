@@ -87,3 +87,9 @@ tasks.register("generateTestTypes") {
         }
     }
 }
+
+publishing {
+    publications.withType<MavenPublication>().configureEach {
+        artifactId = "pbandk-${artifactId}"
+    }
+}
