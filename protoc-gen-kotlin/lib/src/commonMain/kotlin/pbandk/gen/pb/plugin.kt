@@ -103,15 +103,15 @@ data class CodeGeneratorResponse(
         val content: String? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<File> {
-        override operator fun plus(other: File?) = protoMergeImpl(other)
+        override operator fun plus(other: CodeGeneratorResponse.File?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<File> {
-            val defaultInstance by lazy { File() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = File.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = File.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<CodeGeneratorResponse.File> {
+            val defaultInstance by lazy { CodeGeneratorResponse.File() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = CodeGeneratorResponse.File.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = CodeGeneratorResponse.File.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
