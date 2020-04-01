@@ -32,6 +32,6 @@ tasks.withType(KotlinCompile::class.java).all {
 }
 
 tasks.getByName<BootJar>("bootJar") {
-    classifier = "boot"
+    classifier = "jvm8"
     launchScript()
 }
