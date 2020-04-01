@@ -13,7 +13,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         line()
         line("import kotlinx.serialization.*")
         line("import kotlinx.serialization.json.*")
-        file.types.forEach(::writeType)
+        file.types.forEach { writeType(it) }
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
         return bld.toString()
     }
@@ -28,9 +28,9 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         fn().also { indent = indent.dropLast(4) }
     }
 
-    protected fun writeType(type: File.Type) = when (type) {
+    protected fun writeType(type: File.Type, outerClassName: String? = null) = when (type) {
         is File.Type.Enum -> writeEnumType(type)
-        is File.Type.Message -> writeMessageType(type)
+        is File.Type.Message -> writeMessageType(type, outerClassName)
     }
 
     protected fun writeEnumType(type: File.Type.Enum) {
@@ -51,7 +51,9 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         }.line("}")
     }
 
-    protected fun writeMessageType(type: File.Type.Message) {
+    protected fun writeMessageType(type: File.Type.Message, outerClassName: String? = null) {
+        val outerPrefix = outerClassName?.let { "${outerClassName}."} ?: ""
+        val typeName = "${outerPrefix}${type.kotlinTypeName}"
         var extends = "pbandk.Message<${type.kotlinTypeName}>"
         if (type.mapEntry) extends += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
         line().line("data class ${type.kotlinTypeName}(").indented {
@@ -68,20 +70,20 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             // One-ofs as sealed class hierarchies
             type.fields.mapNotNull { it as? File.Field.OneOf }.forEach(::writeOneOfType)
             // IO helpers
-            line("override operator fun plus(other: ${type.kotlinTypeName}?) = protoMergeImpl(other)")
+            line("override operator fun plus(other: ${typeName}?) = protoMergeImpl(other)")
             line("override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
             line("override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)")
             line("fun toJsonMapper() = toJsonMapperImpl()")
-            line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
-                line("val defaultInstance by lazy { ${type.kotlinTypeName}() }")
-                line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = ${type.kotlinTypeName}.protoUnmarshalImpl(u)")
-                line("override fun jsonUnmarshal(json: Json, data: String) = ${type.kotlinTypeName}.jsonUnmarshalImpl(json, data)")
+            line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
+                line("val defaultInstance by lazy { ${typeName}() }")
+                line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = ${typeName}.protoUnmarshalImpl(u)")
+                line("override fun jsonUnmarshal(json: Json, data: String) = ${typeName}.jsonUnmarshalImpl(json, data)")
             }.line("}")
             line()
             writeJsonMapperClass(type)
             // Nested enums and types
-            type.nestedTypes.forEach(::writeType)
+            type.nestedTypes.forEach { writeType(it,typeName) }
         }.line("}")
     }
 
