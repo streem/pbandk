@@ -338,7 +338,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:installDist
+./gradlew :protoc-gen-kotlin:assembleDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -370,9 +370,9 @@ extract it to a local directory, and then run:
 
 ```
 ./gradlew :runtime:generateWellKnownTypes -Dprotoc.path=path/to/protobuf/install/directory
-./gradlew :protoc-gen-kotlin:generateProto
+./gradlew :protoc-gen-kotlin-lib:generateProto
 ./gradlew :runtime:generateTestTypes
-./gradlew :conformance:generateProto
+./gradlew :conformance-lib:generateProto
 ```
 
 Important: If making changes in both the `:protoc-gen-kotlin` _and_ `:runtime` projects at the
