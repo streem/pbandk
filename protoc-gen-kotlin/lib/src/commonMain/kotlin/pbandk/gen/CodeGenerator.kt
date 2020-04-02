@@ -28,12 +28,12 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         fn().also { indent = indent.dropLast(4) }
     }
 
-    protected fun writeType(type: File.Type, outerClassName: String? = null) = when (type) {
+    protected fun writeType(type: File.Type, parentType: String? = null) = when (type) {
         is File.Type.Enum -> writeEnumType(type)
-        is File.Type.Message -> writeMessageType(type, outerClassName)
+        is File.Type.Message -> writeMessageType(type, parentType)
     }
 
-    protected fun writeEnumType(type: File.Type.Enum) {
+    protected fun writeEnumType(type: File.Type.Enum, parentType: String? = null) {
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {").indented {
             line("override fun equals(other: kotlin.Any?) = other is ${type.kotlinTypeName} && other.value == value")
@@ -51,9 +51,9 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         }.line("}")
     }
 
-    protected fun writeMessageType(type: File.Type.Message, outerClassName: String? = null) {
-        val outerPrefix = outerClassName?.let { "${outerClassName}."} ?: ""
-        val typeName = "${outerPrefix}${type.kotlinTypeName}"
+    protected fun writeMessageType(type: File.Type.Message, parentType: String? = null) {
+        val parentPrefix = parentType?.let { "${it}." }.orEmpty()
+        val typeName = "${parentPrefix}${type.kotlinTypeName}"
         var extends = "pbandk.Message<${type.kotlinTypeName}>"
         if (type.mapEntry) extends += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
         line().line("data class ${type.kotlinTypeName}(").indented {
