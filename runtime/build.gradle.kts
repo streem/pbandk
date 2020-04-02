@@ -6,9 +6,6 @@ plugins {
     `maven-publish`
 }
 
-project.ext["projectDescription"] = "Library for pbandk runtime protobuf code"
-apply(from = "../gradle/publish.gradle")
-
 kotlin {
 
     jvm {
@@ -64,7 +61,7 @@ kotlin {
     }
 
     sourceSets["iosMain"].dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlin_serialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
     }
     //sourceSets["macosTest"].dependencies {
     //}
