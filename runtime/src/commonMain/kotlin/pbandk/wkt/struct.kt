@@ -47,7 +47,7 @@ data class Struct(
         override val key: String = "",
         override val value: pbandk.wkt.Value? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
+    ) : pbandk.Message<Struct.FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
         override operator fun plus(other: Struct.FieldsEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)

@@ -513,27 +513,27 @@ data class TestAllTypesProto3(
     }
 
     sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is NestedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.NestedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto3.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object FOO : NestedEnum(0, "FOO")
         object BAR : NestedEnum(1, "BAR")
         object BAZ : NestedEnum(2, "BAZ")
         object NEG : NestedEnum(-1, "NEG")
-        class UNRECOGNIZED(value: Int) : NestedEnum(value)
+        class UNRECOGNIZED(value: Int) : TestAllTypesProto3.NestedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<NestedEnum> {
-            val values: List<NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.NestedEnum> {
+            val values: List<TestAllTypesProto3.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
     }
 
     sealed class AliasedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is AliasedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.AliasedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto3.AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object ALIAS_FOO : AliasedEnum(0, "ALIAS_FOO")
         object ALIAS_BAR : AliasedEnum(1, "ALIAS_BAR")
@@ -541,10 +541,10 @@ data class TestAllTypesProto3(
         object QUX : AliasedEnum(2, "QUX")
         object QUX_ : AliasedEnum(2, "qux")
         object B_AZ : AliasedEnum(2, "bAz")
-        class UNRECOGNIZED(value: Int) : AliasedEnum(value)
+        class UNRECOGNIZED(value: Int) : TestAllTypesProto3.AliasedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<AliasedEnum> {
-            val values: List<AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.AliasedEnum> {
+            val values: List<TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No AliasedEnum with name: $name")
         }
@@ -554,7 +554,7 @@ data class TestAllTypesProto3(
         val a: Int = 0,
         val corecursive: pbandk.conformance.pb.TestAllTypesProto3? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<NestedMessage> {
+    ) : pbandk.Message<TestAllTypesProto3.NestedMessage> {
         override operator fun plus(other: TestAllTypesProto3.NestedMessage?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -581,7 +581,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt32Int32Entry>, Map.Entry<Int, Int> {
+    ) : pbandk.Message<TestAllTypesProto3.MapInt32Int32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: TestAllTypesProto3.MapInt32Int32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -608,7 +608,7 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt64Int64Entry>, Map.Entry<Long, Long> {
+    ) : pbandk.Message<TestAllTypesProto3.MapInt64Int64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: TestAllTypesProto3.MapInt64Int64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -635,7 +635,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapUint32Uint32Entry>, Map.Entry<Int, Int> {
+    ) : pbandk.Message<TestAllTypesProto3.MapUint32Uint32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: TestAllTypesProto3.MapUint32Uint32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -662,7 +662,7 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapUint64Uint64Entry>, Map.Entry<Long, Long> {
+    ) : pbandk.Message<TestAllTypesProto3.MapUint64Uint64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: TestAllTypesProto3.MapUint64Uint64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -689,7 +689,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSint32Sint32Entry>, Map.Entry<Int, Int> {
+    ) : pbandk.Message<TestAllTypesProto3.MapSint32Sint32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: TestAllTypesProto3.MapSint32Sint32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -716,7 +716,7 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSint64Sint64Entry>, Map.Entry<Long, Long> {
+    ) : pbandk.Message<TestAllTypesProto3.MapSint64Sint64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: TestAllTypesProto3.MapSint64Sint64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -743,7 +743,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapFixed32Fixed32Entry>, Map.Entry<Int, Int> {
+    ) : pbandk.Message<TestAllTypesProto3.MapFixed32Fixed32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: TestAllTypesProto3.MapFixed32Fixed32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -770,7 +770,7 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapFixed64Fixed64Entry>, Map.Entry<Long, Long> {
+    ) : pbandk.Message<TestAllTypesProto3.MapFixed64Fixed64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: TestAllTypesProto3.MapFixed64Fixed64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -797,7 +797,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSfixed32Sfixed32Entry>, Map.Entry<Int, Int> {
+    ) : pbandk.Message<TestAllTypesProto3.MapSfixed32Sfixed32Entry>, Map.Entry<Int, Int> {
         override operator fun plus(other: TestAllTypesProto3.MapSfixed32Sfixed32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -824,7 +824,7 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSfixed64Sfixed64Entry>, Map.Entry<Long, Long> {
+    ) : pbandk.Message<TestAllTypesProto3.MapSfixed64Sfixed64Entry>, Map.Entry<Long, Long> {
         override operator fun plus(other: TestAllTypesProto3.MapSfixed64Sfixed64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -851,7 +851,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Float = 0.0F,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt32FloatEntry>, Map.Entry<Int, Float> {
+    ) : pbandk.Message<TestAllTypesProto3.MapInt32FloatEntry>, Map.Entry<Int, Float> {
         override operator fun plus(other: TestAllTypesProto3.MapInt32FloatEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -878,7 +878,7 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Double = 0.0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt32DoubleEntry>, Map.Entry<Int, Double> {
+    ) : pbandk.Message<TestAllTypesProto3.MapInt32DoubleEntry>, Map.Entry<Int, Double> {
         override operator fun plus(other: TestAllTypesProto3.MapInt32DoubleEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -905,7 +905,7 @@ data class TestAllTypesProto3(
         override val key: Boolean = false,
         override val value: Boolean = false,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapBoolBoolEntry>, Map.Entry<Boolean, Boolean> {
+    ) : pbandk.Message<TestAllTypesProto3.MapBoolBoolEntry>, Map.Entry<Boolean, Boolean> {
         override operator fun plus(other: TestAllTypesProto3.MapBoolBoolEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -932,7 +932,7 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: String = "",
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringStringEntry>, Map.Entry<String, String> {
+    ) : pbandk.Message<TestAllTypesProto3.MapStringStringEntry>, Map.Entry<String, String> {
         override operator fun plus(other: TestAllTypesProto3.MapStringStringEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -959,7 +959,7 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.ByteArr = pbandk.ByteArr.empty,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringBytesEntry>, Map.Entry<String, pbandk.ByteArr> {
+    ) : pbandk.Message<TestAllTypesProto3.MapStringBytesEntry>, Map.Entry<String, pbandk.ByteArr> {
         override operator fun plus(other: TestAllTypesProto3.MapStringBytesEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -986,7 +986,7 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringNestedMessageEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?> {
+    ) : pbandk.Message<TestAllTypesProto3.MapStringNestedMessageEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?> {
         override operator fun plus(other: TestAllTypesProto3.MapStringNestedMessageEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -1013,7 +1013,7 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.ForeignMessage? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringForeignMessageEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignMessage?> {
+    ) : pbandk.Message<TestAllTypesProto3.MapStringForeignMessageEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignMessage?> {
         override operator fun plus(other: TestAllTypesProto3.MapStringForeignMessageEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -1040,7 +1040,7 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringNestedEnumEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> {
+    ) : pbandk.Message<TestAllTypesProto3.MapStringNestedEnumEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> {
         override operator fun plus(other: TestAllTypesProto3.MapStringNestedEnumEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -1067,7 +1067,7 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.ForeignEnum = pbandk.conformance.pb.ForeignEnum.fromValue(0),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringForeignEnumEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignEnum> {
+    ) : pbandk.Message<TestAllTypesProto3.MapStringForeignEnumEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignEnum> {
         override operator fun plus(other: TestAllTypesProto3.MapStringForeignEnumEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)

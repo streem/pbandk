@@ -80,7 +80,7 @@ data class MessageWithMap(
         override val key: String = "",
         override val value: String = "",
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapEntry>, Map.Entry<String, String> {
+    ) : pbandk.Message<MessageWithMap.MapEntry>, Map.Entry<String, String> {
         override operator fun plus(other: MessageWithMap.MapEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)

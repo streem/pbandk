@@ -102,7 +102,7 @@ data class CodeGeneratorResponse(
         val insertionPoint: String? = null,
         val content: String? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<File> {
+    ) : pbandk.Message<CodeGeneratorResponse.File> {
         override operator fun plus(other: CodeGeneratorResponse.File?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)

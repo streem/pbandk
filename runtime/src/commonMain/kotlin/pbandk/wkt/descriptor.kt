@@ -141,7 +141,7 @@ data class DescriptorProto(
         val end: Int? = null,
         val options: pbandk.wkt.ExtensionRangeOptions? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<ExtensionRange> {
+    ) : pbandk.Message<DescriptorProto.ExtensionRange> {
         override operator fun plus(other: DescriptorProto.ExtensionRange?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -170,7 +170,7 @@ data class DescriptorProto(
         val start: Int? = null,
         val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<ReservedRange> {
+    ) : pbandk.Message<DescriptorProto.ReservedRange> {
         override operator fun plus(other: DescriptorProto.ReservedRange?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -269,9 +269,9 @@ data class FieldDescriptorProto(
     }
 
     sealed class Type(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is Type && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldDescriptorProto.Type && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "Type.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldDescriptorProto.Type.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object DOUBLE : Type(1, "TYPE_DOUBLE")
         object FLOAT : Type(2, "TYPE_FLOAT")
@@ -291,27 +291,27 @@ data class FieldDescriptorProto(
         object SFIXED64 : Type(16, "TYPE_SFIXED64")
         object SINT32 : Type(17, "TYPE_SINT32")
         object SINT64 : Type(18, "TYPE_SINT64")
-        class UNRECOGNIZED(value: Int) : Type(value)
+        class UNRECOGNIZED(value: Int) : FieldDescriptorProto.Type(value)
 
-        companion object : pbandk.Message.Enum.Companion<Type> {
-            val values: List<Type> by lazy { listOf(DOUBLE, FLOAT, INT64, UINT64, INT32, FIXED64, FIXED32, BOOL, STRING, GROUP, MESSAGE, BYTES, UINT32, ENUM, SFIXED32, SFIXED64, SINT32, SINT64) }
+        companion object : pbandk.Message.Enum.Companion<FieldDescriptorProto.Type> {
+            val values: List<FieldDescriptorProto.Type> by lazy { listOf(DOUBLE, FLOAT, INT64, UINT64, INT32, FIXED64, FIXED32, BOOL, STRING, GROUP, MESSAGE, BYTES, UINT32, ENUM, SFIXED32, SFIXED64, SINT32, SINT64) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Type with name: $name")
         }
     }
 
     sealed class Label(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is Label && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldDescriptorProto.Label && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "Label.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldDescriptorProto.Label.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object OPTIONAL : Label(1, "LABEL_OPTIONAL")
         object REQUIRED : Label(2, "LABEL_REQUIRED")
         object REPEATED : Label(3, "LABEL_REPEATED")
-        class UNRECOGNIZED(value: Int) : Label(value)
+        class UNRECOGNIZED(value: Int) : FieldDescriptorProto.Label(value)
 
-        companion object : pbandk.Message.Enum.Companion<Label> {
-            val values: List<Label> by lazy { listOf(OPTIONAL, REQUIRED, REPEATED) }
+        companion object : pbandk.Message.Enum.Companion<FieldDescriptorProto.Label> {
+            val values: List<FieldDescriptorProto.Label> by lazy { listOf(OPTIONAL, REQUIRED, REPEATED) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Label with name: $name")
         }
@@ -384,7 +384,7 @@ data class EnumDescriptorProto(
         val start: Int? = null,
         val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<EnumReservedRange> {
+    ) : pbandk.Message<EnumDescriptorProto.EnumReservedRange> {
         override operator fun plus(other: EnumDescriptorProto.EnumReservedRange?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -591,17 +591,17 @@ data class FileOptions(
     }
 
     sealed class OptimizeMode(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is OptimizeMode && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FileOptions.OptimizeMode && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "OptimizeMode.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FileOptions.OptimizeMode.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object SPEED : OptimizeMode(1, "SPEED")
         object CODE_SIZE : OptimizeMode(2, "CODE_SIZE")
         object LITE_RUNTIME : OptimizeMode(3, "LITE_RUNTIME")
-        class UNRECOGNIZED(value: Int) : OptimizeMode(value)
+        class UNRECOGNIZED(value: Int) : FileOptions.OptimizeMode(value)
 
-        companion object : pbandk.Message.Enum.Companion<OptimizeMode> {
-            val values: List<OptimizeMode> by lazy { listOf(SPEED, CODE_SIZE, LITE_RUNTIME) }
+        companion object : pbandk.Message.Enum.Companion<FileOptions.OptimizeMode> {
+            val values: List<FileOptions.OptimizeMode> by lazy { listOf(SPEED, CODE_SIZE, LITE_RUNTIME) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No OptimizeMode with name: $name")
         }
@@ -686,34 +686,34 @@ data class FieldOptions(
     }
 
     sealed class CType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is CType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldOptions.CType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "CType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldOptions.CType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object STRING : CType(0, "STRING")
         object CORD : CType(1, "CORD")
         object STRING_PIECE : CType(2, "STRING_PIECE")
-        class UNRECOGNIZED(value: Int) : CType(value)
+        class UNRECOGNIZED(value: Int) : FieldOptions.CType(value)
 
-        companion object : pbandk.Message.Enum.Companion<CType> {
-            val values: List<CType> by lazy { listOf(STRING, CORD, STRING_PIECE) }
+        companion object : pbandk.Message.Enum.Companion<FieldOptions.CType> {
+            val values: List<FieldOptions.CType> by lazy { listOf(STRING, CORD, STRING_PIECE) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No CType with name: $name")
         }
     }
 
     sealed class JSType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is JSType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldOptions.JSType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "JSType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldOptions.JSType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object JS_NORMAL : JSType(0, "JS_NORMAL")
         object JS_STRING : JSType(1, "JS_STRING")
         object JS_NUMBER : JSType(2, "JS_NUMBER")
-        class UNRECOGNIZED(value: Int) : JSType(value)
+        class UNRECOGNIZED(value: Int) : FieldOptions.JSType(value)
 
-        companion object : pbandk.Message.Enum.Companion<JSType> {
-            val values: List<JSType> by lazy { listOf(JS_NORMAL, JS_STRING, JS_NUMBER) }
+        companion object : pbandk.Message.Enum.Companion<FieldOptions.JSType> {
+            val values: List<FieldOptions.JSType> by lazy { listOf(JS_NORMAL, JS_STRING, JS_NUMBER) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No JSType with name: $name")
         }
@@ -858,17 +858,17 @@ data class MethodOptions(
     }
 
     sealed class IdempotencyLevel(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is IdempotencyLevel && other.value == value
+        override fun equals(other: kotlin.Any?) = other is MethodOptions.IdempotencyLevel && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "IdempotencyLevel.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "MethodOptions.IdempotencyLevel.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object IDEMPOTENCY_UNKNOWN : IdempotencyLevel(0, "IDEMPOTENCY_UNKNOWN")
         object NO_SIDE_EFFECTS : IdempotencyLevel(1, "NO_SIDE_EFFECTS")
         object IDEMPOTENT : IdempotencyLevel(2, "IDEMPOTENT")
-        class UNRECOGNIZED(value: Int) : IdempotencyLevel(value)
+        class UNRECOGNIZED(value: Int) : MethodOptions.IdempotencyLevel(value)
 
-        companion object : pbandk.Message.Enum.Companion<IdempotencyLevel> {
-            val values: List<IdempotencyLevel> by lazy { listOf(IDEMPOTENCY_UNKNOWN, NO_SIDE_EFFECTS, IDEMPOTENT) }
+        companion object : pbandk.Message.Enum.Companion<MethodOptions.IdempotencyLevel> {
+            val values: List<MethodOptions.IdempotencyLevel> by lazy { listOf(IDEMPOTENCY_UNKNOWN, NO_SIDE_EFFECTS, IDEMPOTENT) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No IdempotencyLevel with name: $name")
         }
@@ -920,7 +920,7 @@ data class UninterpretedOption(
         val namePart: String = "",
         val isExtension: Boolean = false,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<NamePart> {
+    ) : pbandk.Message<UninterpretedOption.NamePart> {
         override operator fun plus(other: UninterpretedOption.NamePart?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -974,7 +974,7 @@ data class SourceCodeInfo(
         val trailingComments: String? = null,
         val leadingDetachedComments: List<String> = emptyList(),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<Location> {
+    ) : pbandk.Message<SourceCodeInfo.Location> {
         override operator fun plus(other: SourceCodeInfo.Location?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
@@ -1033,7 +1033,7 @@ data class GeneratedCodeInfo(
         val begin: Int? = null,
         val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<Annotation> {
+    ) : pbandk.Message<GeneratedCodeInfo.Annotation> {
         override operator fun plus(other: GeneratedCodeInfo.Annotation?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
