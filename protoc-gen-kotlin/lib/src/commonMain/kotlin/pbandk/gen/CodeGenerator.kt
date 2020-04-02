@@ -54,7 +54,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     protected fun writeMessageType(type: File.Type.Message, parentType: String? = null) {
         val parentPrefix = parentType?.let { "${it}." }.orEmpty()
         val typeName = "${parentPrefix}${type.kotlinTypeName}"
-        var extends = "pbandk.Message<${type.kotlinTypeName}>"
+        var extends = "pbandk.Message<${typeName}>"
         if (type.mapEntry) extends += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
         line().line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
