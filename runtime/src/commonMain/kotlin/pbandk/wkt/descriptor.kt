@@ -142,15 +142,15 @@ data class DescriptorProto(
         val options: pbandk.wkt.ExtensionRangeOptions? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<ExtensionRange> {
-        override operator fun plus(other: ExtensionRange?) = protoMergeImpl(other)
+        override operator fun plus(other: DescriptorProto.ExtensionRange?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<ExtensionRange> {
-            val defaultInstance by lazy { ExtensionRange() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = ExtensionRange.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = ExtensionRange.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<DescriptorProto.ExtensionRange> {
+            val defaultInstance by lazy { DescriptorProto.ExtensionRange() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = DescriptorProto.ExtensionRange.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = DescriptorProto.ExtensionRange.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -171,15 +171,15 @@ data class DescriptorProto(
         val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<ReservedRange> {
-        override operator fun plus(other: ReservedRange?) = protoMergeImpl(other)
+        override operator fun plus(other: DescriptorProto.ReservedRange?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<ReservedRange> {
-            val defaultInstance by lazy { ReservedRange() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = ReservedRange.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = ReservedRange.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<DescriptorProto.ReservedRange> {
+            val defaultInstance by lazy { DescriptorProto.ReservedRange() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = DescriptorProto.ReservedRange.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = DescriptorProto.ReservedRange.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -385,15 +385,15 @@ data class EnumDescriptorProto(
         val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<EnumReservedRange> {
-        override operator fun plus(other: EnumReservedRange?) = protoMergeImpl(other)
+        override operator fun plus(other: EnumDescriptorProto.EnumReservedRange?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<EnumReservedRange> {
-            val defaultInstance by lazy { EnumReservedRange() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumReservedRange.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = EnumReservedRange.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<EnumDescriptorProto.EnumReservedRange> {
+            val defaultInstance by lazy { EnumDescriptorProto.EnumReservedRange() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = EnumDescriptorProto.EnumReservedRange.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = EnumDescriptorProto.EnumReservedRange.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -921,15 +921,15 @@ data class UninterpretedOption(
         val isExtension: Boolean = false,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<NamePart> {
-        override operator fun plus(other: NamePart?) = protoMergeImpl(other)
+        override operator fun plus(other: UninterpretedOption.NamePart?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<NamePart> {
-            val defaultInstance by lazy { NamePart() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = NamePart.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = NamePart.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<UninterpretedOption.NamePart> {
+            val defaultInstance by lazy { UninterpretedOption.NamePart() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = UninterpretedOption.NamePart.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = UninterpretedOption.NamePart.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -975,15 +975,15 @@ data class SourceCodeInfo(
         val leadingDetachedComments: List<String> = emptyList(),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Location> {
-        override operator fun plus(other: Location?) = protoMergeImpl(other)
+        override operator fun plus(other: SourceCodeInfo.Location?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<Location> {
-            val defaultInstance by lazy { Location() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Location.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = Location.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<SourceCodeInfo.Location> {
+            val defaultInstance by lazy { SourceCodeInfo.Location() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = SourceCodeInfo.Location.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = SourceCodeInfo.Location.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -1034,15 +1034,15 @@ data class GeneratedCodeInfo(
         val end: Int? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<Annotation> {
-        override operator fun plus(other: Annotation?) = protoMergeImpl(other)
+        override operator fun plus(other: GeneratedCodeInfo.Annotation?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<Annotation> {
-            val defaultInstance by lazy { Annotation() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Annotation.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = Annotation.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<GeneratedCodeInfo.Annotation> {
+            val defaultInstance by lazy { GeneratedCodeInfo.Annotation() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = GeneratedCodeInfo.Annotation.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = GeneratedCodeInfo.Annotation.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
