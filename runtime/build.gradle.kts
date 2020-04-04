@@ -29,42 +29,69 @@ kotlin {
     // For Linux, should be changed to e.g. linuxX64
     // For MacOS, should be changed to e.g. macosX64
     // For Windows, should be changed to e.g. mingwX64
-    // macosX64("macos")
+    macosX64()
 
-    sourceSets["commonMain"].dependencies {
-        implementation(kotlin("stdlib-common"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
-    }
-    sourceSets["commonTest"].dependencies {
-        implementation(kotlin("test-common"))
-        implementation(kotlin("test-annotations-common"))
-    }
+    sourceSets.create("nativeMain")
+    
+    sourceSets {
+        val commonMain by getting {
+            this.dependencies {
+                implementation(kotlin("stdlib-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
+            }
+        }
 
-    sourceSets["jvmMain"].dependencies {
-        implementation(kotlin("stdlib"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
-        api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
-    }
-    sourceSets["jvmTest"].dependencies {
-        implementation(kotlin("test"))
-        implementation(kotlin("test-junit"))
-        implementation("junit:junit:4.12")
-    }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
 
-    sourceSets["jsMain"].dependencies {
-        implementation(kotlin("stdlib-js"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
-        implementation(npm("protobufjs", "^${Versions.protobufJs}"))
-    }
-    sourceSets["jsTest"].dependencies {
-        implementation(kotlin("test-js"))
-    }
+        val jvmMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
+                api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+            }
+        }
 
-    sourceSets["iosMain"].dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.12")
+            }
+        }
+
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
+                implementation(npm("protobufjs", "^${Versions.protobufJs}"))
+            }
+        }
+
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
+            }
+        }
+
+        val nativeMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
+            }
+        }
+
+        val iosMain by getting {
+            dependsOn(nativeMain)
+        }
+
+        val macosX64Main by getting {
+            dependsOn(nativeMain)
+        }
     }
-    //sourceSets["macosTest"].dependencies {
-    //}
 }
 
 tasks {
