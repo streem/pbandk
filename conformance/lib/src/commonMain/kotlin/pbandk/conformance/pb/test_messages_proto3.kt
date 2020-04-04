@@ -513,27 +513,27 @@ data class TestAllTypesProto3(
     }
 
     sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is NestedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.NestedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto3.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object FOO : NestedEnum(0, "FOO")
         object BAR : NestedEnum(1, "BAR")
         object BAZ : NestedEnum(2, "BAZ")
         object NEG : NestedEnum(-1, "NEG")
-        class UNRECOGNIZED(value: Int) : NestedEnum(value)
+        class UNRECOGNIZED(value: Int) : TestAllTypesProto3.NestedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<NestedEnum> {
-            val values: List<NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.NestedEnum> {
+            val values: List<TestAllTypesProto3.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
     }
 
     sealed class AliasedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is AliasedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.AliasedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto3.AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object ALIAS_FOO : AliasedEnum(0, "ALIAS_FOO")
         object ALIAS_BAR : AliasedEnum(1, "ALIAS_BAR")
@@ -541,10 +541,10 @@ data class TestAllTypesProto3(
         object QUX : AliasedEnum(2, "QUX")
         object QUX_ : AliasedEnum(2, "qux")
         object B_AZ : AliasedEnum(2, "bAz")
-        class UNRECOGNIZED(value: Int) : AliasedEnum(value)
+        class UNRECOGNIZED(value: Int) : TestAllTypesProto3.AliasedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<AliasedEnum> {
-            val values: List<AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.AliasedEnum> {
+            val values: List<TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No AliasedEnum with name: $name")
         }
@@ -554,16 +554,16 @@ data class TestAllTypesProto3(
         val a: Int = 0,
         val corecursive: pbandk.conformance.pb.TestAllTypesProto3? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<NestedMessage> {
-        override operator fun plus(other: NestedMessage?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.NestedMessage> {
+        override operator fun plus(other: TestAllTypesProto3.NestedMessage?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<NestedMessage> {
-            val defaultInstance by lazy { NestedMessage() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = NestedMessage.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = NestedMessage.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.NestedMessage> {
+            val defaultInstance by lazy { TestAllTypesProto3.NestedMessage() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.NestedMessage.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.NestedMessage.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -581,16 +581,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt32Int32Entry>, Map.Entry<Int, Int> {
-        override operator fun plus(other: MapInt32Int32Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapInt32Int32Entry>, Map.Entry<Int, Int> {
+        override operator fun plus(other: TestAllTypesProto3.MapInt32Int32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapInt32Int32Entry> {
-            val defaultInstance by lazy { MapInt32Int32Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32Int32Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapInt32Int32Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapInt32Int32Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapInt32Int32Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapInt32Int32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapInt32Int32Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -608,16 +608,16 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt64Int64Entry>, Map.Entry<Long, Long> {
-        override operator fun plus(other: MapInt64Int64Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapInt64Int64Entry>, Map.Entry<Long, Long> {
+        override operator fun plus(other: TestAllTypesProto3.MapInt64Int64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapInt64Int64Entry> {
-            val defaultInstance by lazy { MapInt64Int64Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt64Int64Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapInt64Int64Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapInt64Int64Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapInt64Int64Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapInt64Int64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapInt64Int64Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -635,16 +635,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapUint32Uint32Entry>, Map.Entry<Int, Int> {
-        override operator fun plus(other: MapUint32Uint32Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapUint32Uint32Entry>, Map.Entry<Int, Int> {
+        override operator fun plus(other: TestAllTypesProto3.MapUint32Uint32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapUint32Uint32Entry> {
-            val defaultInstance by lazy { MapUint32Uint32Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapUint32Uint32Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapUint32Uint32Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapUint32Uint32Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapUint32Uint32Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapUint32Uint32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapUint32Uint32Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -662,16 +662,16 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapUint64Uint64Entry>, Map.Entry<Long, Long> {
-        override operator fun plus(other: MapUint64Uint64Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapUint64Uint64Entry>, Map.Entry<Long, Long> {
+        override operator fun plus(other: TestAllTypesProto3.MapUint64Uint64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapUint64Uint64Entry> {
-            val defaultInstance by lazy { MapUint64Uint64Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapUint64Uint64Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapUint64Uint64Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapUint64Uint64Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapUint64Uint64Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapUint64Uint64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapUint64Uint64Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -689,16 +689,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSint32Sint32Entry>, Map.Entry<Int, Int> {
-        override operator fun plus(other: MapSint32Sint32Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapSint32Sint32Entry>, Map.Entry<Int, Int> {
+        override operator fun plus(other: TestAllTypesProto3.MapSint32Sint32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapSint32Sint32Entry> {
-            val defaultInstance by lazy { MapSint32Sint32Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSint32Sint32Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapSint32Sint32Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapSint32Sint32Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapSint32Sint32Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapSint32Sint32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapSint32Sint32Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -716,16 +716,16 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSint64Sint64Entry>, Map.Entry<Long, Long> {
-        override operator fun plus(other: MapSint64Sint64Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapSint64Sint64Entry>, Map.Entry<Long, Long> {
+        override operator fun plus(other: TestAllTypesProto3.MapSint64Sint64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapSint64Sint64Entry> {
-            val defaultInstance by lazy { MapSint64Sint64Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSint64Sint64Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapSint64Sint64Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapSint64Sint64Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapSint64Sint64Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapSint64Sint64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapSint64Sint64Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -743,16 +743,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapFixed32Fixed32Entry>, Map.Entry<Int, Int> {
-        override operator fun plus(other: MapFixed32Fixed32Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapFixed32Fixed32Entry>, Map.Entry<Int, Int> {
+        override operator fun plus(other: TestAllTypesProto3.MapFixed32Fixed32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapFixed32Fixed32Entry> {
-            val defaultInstance by lazy { MapFixed32Fixed32Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapFixed32Fixed32Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapFixed32Fixed32Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapFixed32Fixed32Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapFixed32Fixed32Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapFixed32Fixed32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapFixed32Fixed32Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -770,16 +770,16 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapFixed64Fixed64Entry>, Map.Entry<Long, Long> {
-        override operator fun plus(other: MapFixed64Fixed64Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapFixed64Fixed64Entry>, Map.Entry<Long, Long> {
+        override operator fun plus(other: TestAllTypesProto3.MapFixed64Fixed64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapFixed64Fixed64Entry> {
-            val defaultInstance by lazy { MapFixed64Fixed64Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapFixed64Fixed64Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapFixed64Fixed64Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapFixed64Fixed64Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapFixed64Fixed64Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapFixed64Fixed64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapFixed64Fixed64Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -797,16 +797,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Int = 0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSfixed32Sfixed32Entry>, Map.Entry<Int, Int> {
-        override operator fun plus(other: MapSfixed32Sfixed32Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapSfixed32Sfixed32Entry>, Map.Entry<Int, Int> {
+        override operator fun plus(other: TestAllTypesProto3.MapSfixed32Sfixed32Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapSfixed32Sfixed32Entry> {
-            val defaultInstance by lazy { MapSfixed32Sfixed32Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSfixed32Sfixed32Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapSfixed32Sfixed32Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapSfixed32Sfixed32Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapSfixed32Sfixed32Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapSfixed32Sfixed32Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -824,16 +824,16 @@ data class TestAllTypesProto3(
         override val key: Long = 0L,
         override val value: Long = 0L,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapSfixed64Sfixed64Entry>, Map.Entry<Long, Long> {
-        override operator fun plus(other: MapSfixed64Sfixed64Entry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapSfixed64Sfixed64Entry>, Map.Entry<Long, Long> {
+        override operator fun plus(other: TestAllTypesProto3.MapSfixed64Sfixed64Entry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapSfixed64Sfixed64Entry> {
-            val defaultInstance by lazy { MapSfixed64Sfixed64Entry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapSfixed64Sfixed64Entry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapSfixed64Sfixed64Entry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapSfixed64Sfixed64Entry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapSfixed64Sfixed64Entry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapSfixed64Sfixed64Entry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -851,16 +851,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Float = 0.0F,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt32FloatEntry>, Map.Entry<Int, Float> {
-        override operator fun plus(other: MapInt32FloatEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapInt32FloatEntry>, Map.Entry<Int, Float> {
+        override operator fun plus(other: TestAllTypesProto3.MapInt32FloatEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapInt32FloatEntry> {
-            val defaultInstance by lazy { MapInt32FloatEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32FloatEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapInt32FloatEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapInt32FloatEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapInt32FloatEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapInt32FloatEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapInt32FloatEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -878,16 +878,16 @@ data class TestAllTypesProto3(
         override val key: Int = 0,
         override val value: Double = 0.0,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapInt32DoubleEntry>, Map.Entry<Int, Double> {
-        override operator fun plus(other: MapInt32DoubleEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapInt32DoubleEntry>, Map.Entry<Int, Double> {
+        override operator fun plus(other: TestAllTypesProto3.MapInt32DoubleEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapInt32DoubleEntry> {
-            val defaultInstance by lazy { MapInt32DoubleEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapInt32DoubleEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapInt32DoubleEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapInt32DoubleEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapInt32DoubleEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapInt32DoubleEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapInt32DoubleEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -905,16 +905,16 @@ data class TestAllTypesProto3(
         override val key: Boolean = false,
         override val value: Boolean = false,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapBoolBoolEntry>, Map.Entry<Boolean, Boolean> {
-        override operator fun plus(other: MapBoolBoolEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapBoolBoolEntry>, Map.Entry<Boolean, Boolean> {
+        override operator fun plus(other: TestAllTypesProto3.MapBoolBoolEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapBoolBoolEntry> {
-            val defaultInstance by lazy { MapBoolBoolEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapBoolBoolEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapBoolBoolEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapBoolBoolEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapBoolBoolEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapBoolBoolEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapBoolBoolEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -932,16 +932,16 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: String = "",
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringStringEntry>, Map.Entry<String, String> {
-        override operator fun plus(other: MapStringStringEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapStringStringEntry>, Map.Entry<String, String> {
+        override operator fun plus(other: TestAllTypesProto3.MapStringStringEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapStringStringEntry> {
-            val defaultInstance by lazy { MapStringStringEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringStringEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapStringStringEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapStringStringEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapStringStringEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapStringStringEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapStringStringEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -959,16 +959,16 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.ByteArr = pbandk.ByteArr.empty,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringBytesEntry>, Map.Entry<String, pbandk.ByteArr> {
-        override operator fun plus(other: MapStringBytesEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapStringBytesEntry>, Map.Entry<String, pbandk.ByteArr> {
+        override operator fun plus(other: TestAllTypesProto3.MapStringBytesEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapStringBytesEntry> {
-            val defaultInstance by lazy { MapStringBytesEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringBytesEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapStringBytesEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapStringBytesEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapStringBytesEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapStringBytesEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapStringBytesEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -986,16 +986,16 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.TestAllTypesProto3.NestedMessage? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringNestedMessageEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?> {
-        override operator fun plus(other: MapStringNestedMessageEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapStringNestedMessageEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?> {
+        override operator fun plus(other: TestAllTypesProto3.MapStringNestedMessageEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapStringNestedMessageEntry> {
-            val defaultInstance by lazy { MapStringNestedMessageEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringNestedMessageEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapStringNestedMessageEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapStringNestedMessageEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapStringNestedMessageEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapStringNestedMessageEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapStringNestedMessageEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -1013,16 +1013,16 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.ForeignMessage? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringForeignMessageEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignMessage?> {
-        override operator fun plus(other: MapStringForeignMessageEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapStringForeignMessageEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignMessage?> {
+        override operator fun plus(other: TestAllTypesProto3.MapStringForeignMessageEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapStringForeignMessageEntry> {
-            val defaultInstance by lazy { MapStringForeignMessageEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringForeignMessageEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapStringForeignMessageEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapStringForeignMessageEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapStringForeignMessageEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapStringForeignMessageEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapStringForeignMessageEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -1040,16 +1040,16 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringNestedEnumEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> {
-        override operator fun plus(other: MapStringNestedEnumEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapStringNestedEnumEntry>, Map.Entry<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum> {
+        override operator fun plus(other: TestAllTypesProto3.MapStringNestedEnumEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapStringNestedEnumEntry> {
-            val defaultInstance by lazy { MapStringNestedEnumEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringNestedEnumEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapStringNestedEnumEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapStringNestedEnumEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapStringNestedEnumEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapStringNestedEnumEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapStringNestedEnumEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable
@@ -1067,16 +1067,16 @@ data class TestAllTypesProto3(
         override val key: String = "",
         override val value: pbandk.conformance.pb.ForeignEnum = pbandk.conformance.pb.ForeignEnum.fromValue(0),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<MapStringForeignEnumEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignEnum> {
-        override operator fun plus(other: MapStringForeignEnumEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<TestAllTypesProto3.MapStringForeignEnumEntry>, Map.Entry<String, pbandk.conformance.pb.ForeignEnum> {
+        override operator fun plus(other: TestAllTypesProto3.MapStringForeignEnumEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<MapStringForeignEnumEntry> {
-            val defaultInstance by lazy { MapStringForeignEnumEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = MapStringForeignEnumEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = MapStringForeignEnumEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<TestAllTypesProto3.MapStringForeignEnumEntry> {
+            val defaultInstance by lazy { TestAllTypesProto3.MapStringForeignEnumEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = TestAllTypesProto3.MapStringForeignEnumEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = TestAllTypesProto3.MapStringForeignEnumEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable

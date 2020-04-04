@@ -47,16 +47,16 @@ data class Struct(
         override val key: String = "",
         override val value: pbandk.wkt.Value? = null,
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
-        override operator fun plus(other: FieldsEntry?) = protoMergeImpl(other)
+    ) : pbandk.Message<Struct.FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
+        override operator fun plus(other: Struct.FieldsEntry?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
         fun toJsonMapper() = toJsonMapperImpl()
-        companion object : pbandk.Message.Companion<FieldsEntry> {
-            val defaultInstance by lazy { FieldsEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldsEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = FieldsEntry.jsonUnmarshalImpl(json, data)
+        companion object : pbandk.Message.Companion<Struct.FieldsEntry> {
+            val defaultInstance by lazy { Struct.FieldsEntry() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Struct.FieldsEntry.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = Struct.FieldsEntry.jsonUnmarshalImpl(json, data)
         }
 
         @Serializable

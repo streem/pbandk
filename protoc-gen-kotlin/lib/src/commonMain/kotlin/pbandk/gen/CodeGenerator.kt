@@ -13,7 +13,7 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         line()
         line("import kotlinx.serialization.*")
         line("import kotlinx.serialization.json.*")
-        file.types.forEach(::writeType)
+        file.types.forEach { writeType(it) }
         file.types.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it) }
         return bld.toString()
     }
@@ -28,31 +28,35 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         fn().also { indent = indent.dropLast(4) }
     }
 
-    protected fun writeType(type: File.Type) = when (type) {
-        is File.Type.Enum -> writeEnumType(type)
-        is File.Type.Message -> writeMessageType(type)
+    protected fun writeType(type: File.Type, parentType: String? = null) = when (type) {
+        is File.Type.Enum -> writeEnumType(type, parentType)
+        is File.Type.Message -> writeMessageType(type, parentType)
     }
 
-    protected fun writeEnumType(type: File.Type.Enum) {
+    protected fun writeEnumType(type: File.Type.Enum, parentType: String? = null) {
+        val parentPrefix = parentType?.let { "${it}." }.orEmpty()
+        val typeName = "${parentPrefix}${type.kotlinTypeName}"
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {").indented {
-            line("override fun equals(other: kotlin.Any?) = other is ${type.kotlinTypeName} && other.value == value")
+            line("override fun equals(other: kotlin.Any?) = other is ${typeName} && other.value == value")
             line("override fun hashCode() = value.hashCode()")
-            line("override fun toString() = \"${type.kotlinTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
+            line("override fun toString() = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
             line()
             type.values.forEach { line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
-            line("class UNRECOGNIZED(value: Int) : ${type.kotlinTypeName}(value)")
+            line("class UNRECOGNIZED(value: Int) : ${typeName}(value)")
             line()
-            line("companion object : pbandk.Message.Enum.Companion<${type.kotlinTypeName}> {").indented {
-                line("val values: List<${type.kotlinTypeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
+            line("companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
+                line("val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                 line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
                 line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
             }.line("}")
         }.line("}")
     }
 
-    protected fun writeMessageType(type: File.Type.Message) {
-        var extends = "pbandk.Message<${type.kotlinTypeName}>"
+    protected fun writeMessageType(type: File.Type.Message, parentType: String? = null) {
+        val parentPrefix = parentType?.let { "${it}." }.orEmpty()
+        val typeName = "${parentPrefix}${type.kotlinTypeName}"
+        var extends = "pbandk.Message<${typeName}>"
         if (type.mapEntry) extends += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
         line().line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
@@ -68,20 +72,20 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             // One-ofs as sealed class hierarchies
             type.fields.mapNotNull { it as? File.Field.OneOf }.forEach(::writeOneOfType)
             // IO helpers
-            line("override operator fun plus(other: ${type.kotlinTypeName}?) = protoMergeImpl(other)")
+            line("override operator fun plus(other: ${typeName}?) = protoMergeImpl(other)")
             line("override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
             line("override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)")
             line("fun toJsonMapper() = toJsonMapperImpl()")
-            line("companion object : pbandk.Message.Companion<${type.kotlinTypeName}> {").indented {
-                line("val defaultInstance by lazy { ${type.kotlinTypeName}() }")
-                line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = ${type.kotlinTypeName}.protoUnmarshalImpl(u)")
-                line("override fun jsonUnmarshal(json: Json, data: String) = ${type.kotlinTypeName}.jsonUnmarshalImpl(json, data)")
+            line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
+                line("val defaultInstance by lazy { ${typeName}() }")
+                line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = ${typeName}.protoUnmarshalImpl(u)")
+                line("override fun jsonUnmarshal(json: Json, data: String) = ${typeName}.jsonUnmarshalImpl(json, data)")
             }.line("}")
             line()
             writeJsonMapperClass(type)
             // Nested enums and types
-            type.nestedTypes.forEach(::writeType)
+            type.nestedTypes.forEach { writeType(it,typeName) }
         }.line("}")
     }
 
