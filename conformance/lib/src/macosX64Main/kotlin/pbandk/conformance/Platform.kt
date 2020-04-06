@@ -33,6 +33,8 @@ import platform.posix.*
 import kotlinx.cinterop.cstr
 import kotlinx.cinterop.usePinned
 import kotlinx.cinterop.addressOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 actual object Platform {
     actual fun stderrPrintln(str: String) {
@@ -41,11 +43,14 @@ actual object Platform {
         write(2, cstr, cstr.size.toULong())
     }
 
-    actual fun stdinReadIntLE() = ByteArray(4).let {
-        if (readBytes(0, it) != 4) null else
-            it.foldRight(0) { byte, acc ->
-                (acc shl 8) or (byte.toInt() and 0xff)
+    actual suspend fun stdinReadIntLE() = withContext(Dispatchers.Main) {
+        ByteArray(4).let {
+            if (readBytes(0, it) != 4) null else {
+                it.foldRight(0) { byte, acc ->
+                    (acc shl 8) or (byte.toInt() and 0xff)
+                }
             }
+        }
     }
 
     private fun readBytes(fd: Int, arr: ByteArray): Int {
@@ -54,8 +59,11 @@ actual object Platform {
         }
     }
 
-    actual fun stdinReadFull(arr: ByteArray) =
-            require(readBytes(0, arr) == arr.size) { "Unable to read full byte array" }
+    actual suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.Main) {
+        ByteArray(size).also {
+            require(readBytes(0, it) == it.size) { "Unable to read full byte array"}
+        }
+    }
 
     actual fun stdoutWriteIntLE(v: Int) =
             stdoutWriteFull (ByteArray(4) { (v shr (8 * it)).toByte() })
