@@ -22,7 +22,11 @@ kotlin {
     // For Linux, should be changed to e.g. linuxX64
     // For MacOS, should be changed to e.g. macosX64
     // For Windows, should be changed to e.g. mingwX64
-    // macosX64("macos")
+    iosArm64()
+    iosX64()
+    macosX64()
+
+    sourceSets.create("nativeMain")
 
     sourceSets {
         val commonMain by getting {
@@ -70,12 +74,26 @@ kotlin {
                 implementation(kotlin("test-js"))
             }
         }
-    }
 
-//    sourceSets["macosMain"].dependencies {
-//    }
-//    sourceSets["macosTest"].dependencies {
-//    }
+        val nativeMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.kotlinCoroutines}")
+            }
+        }
+
+        val iosArm64Main by getting {
+            dependsOn(nativeMain)
+        }
+
+        val iosX64Main by getting {
+            dependsOn(nativeMain)
+        }
+
+        val macosX64Main by getting {
+            dependsOn(nativeMain)
+        }
+    }
 }
 
 tasks {
