@@ -1,5 +1,3 @@
-import java.nio.file.Paths
-
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
