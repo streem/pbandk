@@ -15,3 +15,6 @@ fi
 if [ -z "$1" ] || [ "$1" = "js" ]; then
     $CONF_TEST_PATH --failure_list $DIR/js/failing_tests.txt $DIR/js/run.sh
 fi
+if [ -z "$1" ] || [ "$1" = "native" ]; then
+    $CONF_TEST_PATH --failure_list $DIR/native/failing_tests.txt $DIR/native/build/install/conformance/bin/conformance
+fi
