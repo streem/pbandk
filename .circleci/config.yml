@@ -93,7 +93,7 @@ jobs:
 
       - run:
           name: Build conformance test suite
-          command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist
+          command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:installDist
 
       # persist files necessary to run conformance tests
       - persist_to_workspace:
@@ -107,6 +107,9 @@ jobs:
             - build/js
             - conformance/js/failing_tests.txt
             - conformance/js/run.sh
+            # native
+            - conformance/native/build/install/conformance
+            - conformance/native/failing_tests.txt
 
       - save_cache:
           name: Save dependencies cache
@@ -156,6 +159,26 @@ jobs:
             ./conformance/test-conformance.sh js
 
 
+  conformance_native:
+    executor:
+      name: native
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - restore_cache:
+        name: Restore protobuf cache
+        keys:
+          - v3-protobuf-3.10.1
+
+      - run:
+        name: Run Native conformance tests
+        command: |
+          export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+          ./conformance/test-conformance.sh native
+
+
 workflows:
   version: 2.1
   build:
@@ -165,5 +188,8 @@ workflows:
           requires:
             - build
       - conformance_js:
+          requires:
+            - build
+      - conformance_native:
           requires:
             - build
