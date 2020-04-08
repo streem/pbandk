@@ -7,6 +7,7 @@ include ":runtime"
 
 include ":protoc-gen-kotlin:lib"
 include ":protoc-gen-kotlin:jvm"
+include ":protoc-gen-kotlin:macos"
 
 include ":conformance:lib"
 include ":conformance:jvm"
