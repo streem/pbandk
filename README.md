@@ -6,7 +6,7 @@ It is built to work across multiple Kotlin platforms.
 **Features**
 
 * Clean data class generation
-* Works for JVM and JS
+* Works for JVM, JS and Native
 * Support for proto2 and proto3 syntaxes
 * Oneof's are properly handled as sealed classes
 * Specialized support to handle wrappers from the well-known types (e.g. `StringValue`, `BoolValue`) as nullable primitives (`String?`, `Boolean?`, etc.)
@@ -21,8 +21,6 @@ It is built to work across multiple Kotlin platforms.
 
 **Not Yet Implemented**
 
-* Kotlin Native runtime support
-* Protobuf code generator in Kotlin Native for easier importing
 * Specialized support for more of the well known types (e.g. `Any`)
 * Support for protobuf annotations
 * Access to the protobuf descriptor from generated code
@@ -105,17 +103,17 @@ data class Person(
     }
 
     sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is PhoneType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Person.PhoneType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object MOBILE : PhoneType(0, "MOBILE")
         object HOME : PhoneType(1, "HOME")
         object WORK : PhoneType(2, "WORK")
         class UNRECOGNIZED(value: Int) : PhoneType(value)
 
-        companion object : pbandk.Message.Enum.Companion<PhoneType> {
-            val values: List<PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
+        companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
+            val values: List<Persone.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
@@ -126,14 +124,14 @@ data class Person(
         val type: tutorial.Person.PhoneType = tutorial.Person.PhoneType.fromValue(0),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message<PhoneNumber> {
-        override operator fun plus(other: PhoneNumber?) = protoMergeImpl(other)
+        override operator fun plus(other: Person.PhoneNumber?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
         override fun jsonMarshal() = jsonMarshalImpl()
-        companion object : pbandk.Message.Companion<PhoneNumber> {
+        companion object : pbandk.Message.Companion<Person.PhoneNumber> {
             val defaultInstance by lazy { PhoneNumber() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = PhoneNumber.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(data: String) = PhoneNumber.jsonUnmarshalImpl(data)
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.PhoneNumber.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(data: String) = Person.PhoneNumber.jsonUnmarshalImpl(data)
         }
     }
 }
@@ -209,7 +207,15 @@ Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    compile 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.0'
+    implementation 'com.github.streem.pbandk:pbandk-runtime-jvm:0.9.0-SNAPSHOT'
+}
+```
+
+or for the Native libraries:
+
+```
+dependencies {
+    implementation "com.github.streem.pbandk:pbandk-runtime-native:0.9.0-SNAPSHOT
 }
 ```
 
@@ -228,7 +234,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.8.0'
+    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.9.0-SNAPSHOT'
 }
 ```
 
@@ -329,7 +335,7 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:assembleDist
+./gradlew :protoc-gen-kotlin:jvm:assembleDist :protoc-gen-kotlin:macos:installDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -338,7 +344,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:installDist
+./gradlew :protoc-gen-kotlin:jvm:installDist :protoc-gen-kotlin:macos:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -404,11 +410,10 @@ Set the `CONF_TEST_PATH` environment variable (used to run the tests below) with
 export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 ```
 
-Now, back in `pbandk`, build both the JS and JVM projects via:
+Now, back in `pbandk`, build all JS. JVM and native projects via:
 
 ```
-./gradlew :conformance:lib:assemble
-./gradlew :conformance:jvm:installDist
+./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:installDist
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).
