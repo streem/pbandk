@@ -26,7 +26,7 @@ kotlin {
 
     sourceSets["commonMain"].dependencies {
         implementation(kotlin("stdlib-common"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
+        api("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
     }
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))
@@ -35,7 +35,7 @@ kotlin {
 
     sourceSets["jvmMain"].dependencies {
         implementation(kotlin("stdlib"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
+        api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
         api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
     }
     sourceSets["jvmTest"].dependencies {
@@ -46,7 +46,7 @@ kotlin {
 
     sourceSets["jsMain"].dependencies {
         implementation(kotlin("stdlib-js"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
+        api("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
         implementation(npm("protobufjs", "^${Versions.protobufJs}"))
     }
     sourceSets["jsTest"].dependencies {
