@@ -4,8 +4,8 @@
 version: 2.1
 
 machine:
-    environment:
-      GRADLE_OPTS: '-Dorg.gradle.daemon=false'
+  environment:
+    GRADLE_OPTS: '-Dorg.gradle.daemon=false'
 
 executors:
   jvm:
