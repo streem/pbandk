@@ -17,6 +17,10 @@ executors:
     docker:
       - image: circleci/node:lts
 
+  native:
+    docker:
+      - image: circleci/openjdk:8-jdk
+
 
 jobs:
 
