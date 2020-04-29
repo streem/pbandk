@@ -3,10 +3,6 @@
 #
 version: 2.1
 
-machine:
-  environment:
-    GRADLE_OPTS: '-Dorg.gradle.daemon=false'
-
 executors:
   jvm:
     docker:
@@ -22,7 +18,7 @@ executors:
 
   native:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: cimg/base:2020.01
 
 
 jobs:
