@@ -16,12 +16,8 @@ kotlin {
         nodejs {}
     }
 
-    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos")?:false
-    if(onPhone){
-        iosArm64("ios")
-    }else{
-        iosX64("ios")
-    }
+    iosArm64()
+    iosX64()
 
     // For ARM, should be changed to iosArm32 or iosArm64
     // For Linux, should be changed to e.g. linuxX64
@@ -82,7 +78,11 @@ kotlin {
             }
         }
 
-        val iosMain by getting {
+        val iosArm64Main by getting {
+            dependsOn(nativeMain)
+        }
+
+        val iosX64Main by getting {
             dependsOn(nativeMain)
         }
 
