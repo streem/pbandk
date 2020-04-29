@@ -24,8 +24,6 @@ kotlin {
     // For MacOS, should be changed to e.g. macosX64
     // For Windows, should be changed to e.g. mingwX64
     macosX64()
-
-    sourceSets.create("nativeMain")
     
     sourceSets {
         val commonMain by getting {
@@ -72,7 +70,7 @@ kotlin {
             }
         }
 
-        val nativeMain by getting {
+        val nativeMain by creating {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
             }
