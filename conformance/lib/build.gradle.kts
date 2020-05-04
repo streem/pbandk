@@ -18,13 +18,10 @@ kotlin {
         nodejs {}
     }
 
-    // For ARM, should be changed to iosArm32 or iosArm64
-    // For Linux, should be changed to e.g. linuxX64
-    // For MacOS, should be changed to e.g. macosX64
-    // For Windows, should be changed to e.g. mingwX64
-    macosX64()
-
-    sourceSets.create("nativeMain")
+    macosX64("macos")
+    linuxX64("linux")
+    // Uncomment to enable Windows
+    // mingwX64("windows")
 
     sourceSets {
         val commonMain by getting {
@@ -73,12 +70,25 @@ kotlin {
             }
         }
 
-        val macosX64Main by getting {
+        val nativeMain by creating {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.kotlinCoroutines}")
             }
         }
+
+        val linuxMain by getting {
+            dependsOn(nativeMain)
+        }
+
+        val macosMain by getting {
+            dependsOn(nativeMain)
+        }
+
+        // Uncomment to enable Windows
+        //val windowsMain by getting {
+        //    dependsOn(nativeMain)
+        //}
     }
 }
 

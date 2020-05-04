@@ -33,8 +33,10 @@ import platform.posix.*
 import kotlinx.cinterop.cstr
 import kotlinx.cinterop.usePinned
 import kotlinx.cinterop.addressOf
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.runBlocking
 
 actual object Platform {
     actual fun stderrPrintln(str: String) {
@@ -74,5 +76,13 @@ actual object Platform {
         }
     }
 
-    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try { fn() } catch (e: Exception) { errFn(e) }
+    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try {
+        fn()
+    } catch (e: Exception) {
+        errFn(e)
+    }
+
+    actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
+        kotlinx.coroutines.runBlocking(block = block)
+    }
 }
