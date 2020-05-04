@@ -24,6 +24,7 @@ kotlin {
     // For MacOS, should be changed to e.g. macosX64
     // For Windows, should be changed to e.g. mingwX64
     macosX64()
+    linuxX64()
     
     sourceSets {
         val commonMain by getting {
@@ -85,6 +86,10 @@ kotlin {
         }
 
         val macosX64Main by getting {
+            dependsOn(nativeMain)
+        }
+
+        val linuxX64Main by getting {
             dependsOn(nativeMain)
         }
     }
