@@ -96,7 +96,7 @@ jobs:
 
       - run:
           name: Build conformance test suite
-          command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:installDist
+          command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:build
 
       # persist files necessary to run conformance tests
       - persist_to_workspace:
