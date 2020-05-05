@@ -111,7 +111,7 @@ jobs:
             - conformance/js/failing_tests.txt
             - conformance/js/run.sh
             # native
-            - conformance/native/build/install/conformance
+            - conformance/native/build/bin/linux/debugExecutable/conformance.kexe
             - conformance/native/failing_tests.txt
 
       - save_cache:
@@ -178,7 +178,7 @@ jobs:
           name: Run Native conformance tests
           command: |
             export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./conformance/test-conformance.sh native
+            ./conformance/test-conformance.sh linux
 
 workflows:
   version: 2.1
