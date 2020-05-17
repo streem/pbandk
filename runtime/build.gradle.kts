@@ -24,39 +24,56 @@ kotlin {
     // For Windows, should be changed to e.g. mingwX64
     // macosX64("macos")
 
-    sourceSets["commonMain"].dependencies {
-        implementation(kotlin("stdlib-common"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
-    }
-    sourceSets["commonTest"].dependencies {
-        implementation(kotlin("test-common"))
-        implementation(kotlin("test-annotations-common"))
-    }
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
+            }
+        }
 
-    sourceSets["jvmMain"].dependencies {
-        implementation(kotlin("stdlib"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
-        api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
-    }
-    sourceSets["jvmTest"].dependencies {
-        implementation(kotlin("test"))
-        implementation(kotlin("test-junit"))
-        implementation("junit:junit:4.12")
-    }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
 
-    sourceSets["jsMain"].dependencies {
-        implementation(kotlin("stdlib-js"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
-        implementation(npm("protobufjs", "^${Versions.protobufJs}"))
-    }
-    sourceSets["jsTest"].dependencies {
-        implementation(kotlin("test-js"))
-    }
+        val jvmMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
+                api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+            }
+        }
 
-    //    sourceSets["macosMain"].dependencies {
-    //    }
-    //    sourceSets["macosTest"].dependencies {
-    //    }
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.12")
+            }
+        }
+
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
+                implementation(npm("protobufjs", "^${Versions.protobufJs}"))
+            }
+        }
+
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
+            }
+        }
+
+        //    sourceSets["macosMain"].dependencies {
+        //    }
+        //    sourceSets["macosTest"].dependencies {
+        //    }
+    }
 }
 
 tasks {
@@ -93,6 +110,14 @@ tasks {
     val generateTestTypes by registering {
         dependsOn(generateKotlinTestTypes, generateJavaTestTypes)
     }
+
+     // DCE is now enable by default in Kotlin 1.3.7x
+     // and it doesn't work well with commonJS modules
+     // Use of commonJs could be removed since default module is now UMD
+     // but would require some code change
+     val processDceJsKotlinJs by getting {
+         enabled = false
+     }
 }
 
 publishing {

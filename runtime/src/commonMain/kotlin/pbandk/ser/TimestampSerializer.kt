@@ -9,7 +9,7 @@ import pbandk.wkt.Timestamp
 object TimestampSerializer: KSerializer<Timestamp.JsonMapper> {
 
     override val descriptor: SerialDescriptor =
-        StringDescriptor.withName("Timestamp.JsonMapper")
+        PrimitiveDescriptor("Timestamp.JsonMapper", PrimitiveKind.STRING)
 
     override fun serialize(encoder: Encoder, obj: Timestamp.JsonMapper) =
         encoder.encodeString(Util.timestampToString(obj))
