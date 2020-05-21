@@ -1,23 +1,39 @@
 buildscript {
-    ext.kotlin_version = '1.3.11'
+    ext.kotlin_serialization_version = '0.20.0'
+    ext.pbandk_version = 'master-SNAPSHOT'
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.7'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72'
+        classpath 'org.jetbrains.kotlin:kotlin-serialization:1.3.72'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.12'
     }
 }
+
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 allprojects {
     apply plugin: 'kotlin'
 
     repositories {
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    }
+
+    tasks.withType(KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
     }
 }
 
 project(':application') {
+    apply plugin: 'kotlinx-serialization'
     apply plugin: 'application'
     apply plugin: 'com.google.protobuf'
 
@@ -25,8 +41,9 @@ project(':application') {
     applicationName = 'greeter'
 
     dependencies {
-        compile 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.0'
-        compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+        implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization_version"
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.6'
+        implementation "com.github.streem.pbandk:pbandk-runtime-jvm:$pbandk_version"
     }
 
     compileJava.enabled = false
@@ -34,11 +51,11 @@ project(':application') {
     protobuf {
         generatedFilesBaseDir = "$projectDir/src"
         protoc {
-            artifact = 'com.google.protobuf:protoc:3.6.1'
+            artifact = 'com.google.protobuf:protoc:3.11.1'
         }
         plugins {
             kotlin {
-                artifact = 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.8.0:jvm8@jar'
+                artifact = "com.github.streem.pbandk:protoc-gen-kotlin-jvm:$pbandk_version:jvm8@jar"
             }
         }
         generateProtoTasks {
@@ -57,11 +74,19 @@ project(':application') {
             }
         }
     }
+
+    // Workaround the Gradle bug resolving multiplatform dependencies.
+    // Fix courtesy of https://github.com/square/okio/issues/647
+    configurations.all { configuration ->
+        if (name.toLowerCase().contains('kapt') || name.toLowerCase().contains('proto')) {
+            attributes.attribute(Usage.USAGE_ATTRIBUTE, project.objects.named(Usage.class, Usage.JAVA_RUNTIME))
+        }
+    }
 }
 
 project(':generator') {
     dependencies {
-        compileOnly 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.0'
-        compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.8.0'
+        compileOnly "com.github.streem.pbandk:pbandk-runtime-jvm:$pbandk_version"
+        compileOnly "com.github.streem.pbandk:protoc-gen-kotlin-lib-jvm:$pbandk_version"
     }
 }
