@@ -1,0 +1,30 @@
+apply plugin: 'java-library'
+apply plugin: 'com.google.protobuf'
+
+dependencies {
+    // This is needed for includes, ref: https://github.com/google/protobuf-gradle-plugin/issues/41#issuecomment-143884188
+    compileOnly "com.google.protobuf:protobuf-java:$protobuf_version"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:$protobuf_version"
+    }
+    plugins {
+        kotlin {
+            artifact = "com.github.streem.pbandk:protoc-gen-kotlin-jvm:$pbandk_version:jvm8@jar"
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.plugins {
+                kotlin {
+                    option 'kotlin_package=pbandk.examples.browserjs.pb'
+                }
+            }
+        }
+    }
+}

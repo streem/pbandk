@@ -1,0 +1,31 @@
+apply plugin: 'org.jetbrains.kotlin.js'
+apply plugin: 'kotlinx-serialization'
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$kotlin_serialization_version"
+    implementation "com.github.streem.pbandk:pbandk-runtime-js:$pbandk_version"
+    implementation npm('protobufjs', '^6.8.8')
+}
+
+kotlin {
+    target.browser {}
+
+    sourceSets {
+        main.kotlin.srcDirs += new File(project(':lib-proto').buildDir, 'generated/source/proto/main/kotlin')
+    }
+}
+
+compileKotlinJs {
+    kotlinOptions{
+        sourceMap = true
+        moduleKind = 'commonjs'
+    }
+}
+
+// Generate the protobuf files before compilation
+project(':lib-proto').tasks.all { task ->
+    if (task.name == 'generateProto') {
+        compileKotlinJs.dependsOn task
+    }
+}
