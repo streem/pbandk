@@ -1,4 +1,9 @@
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package pbandk.examples.greeter.pb
+
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
 
 data class HelloRequest(
     val name: String = "",
@@ -7,8 +12,20 @@ data class HelloRequest(
     override operator fun plus(other: HelloRequest?) = protoMergeImpl(other)
     override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<HelloRequest> {
+        val defaultInstance by lazy { HelloRequest() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = HelloRequest.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = HelloRequest.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("name")
+        val name: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
 
@@ -19,10 +36,24 @@ data class HelloReply(
     override operator fun plus(other: HelloReply?) = protoMergeImpl(other)
     override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    fun toJsonMapper() = toJsonMapperImpl()
     companion object : pbandk.Message.Companion<HelloReply> {
+        val defaultInstance by lazy { HelloReply() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = HelloReply.protoUnmarshalImpl(u)
+        override fun jsonUnmarshal(json: Json, data: String) = HelloReply.jsonUnmarshalImpl(json, data)
+    }
+
+    @Serializable
+    data class JsonMapper (
+        @SerialName("message")
+        val message: String? = null
+    ) {
+        fun toMessage() = toMessageImpl()
     }
 }
+
+fun HelloRequest?.orDefault() = this ?: HelloRequest.defaultInstance
 
 private fun HelloRequest.protoMergeImpl(plus: HelloRequest?): HelloRequest = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
@@ -49,6 +80,26 @@ private fun HelloRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unm
     }
 }
 
+private fun HelloRequest.toJsonMapperImpl(): HelloRequest.JsonMapper =
+    HelloRequest.JsonMapper(
+        name.takeIf { it != "" }
+    )
+
+private fun HelloRequest.JsonMapper.toMessageImpl(): HelloRequest =
+    HelloRequest(
+        name = name ?: ""
+    )
+
+private fun HelloRequest.jsonMarshalImpl(json: Json): String =
+    json.stringify(HelloRequest.JsonMapper.serializer(), toJsonMapper())
+
+private fun HelloRequest.Companion.jsonUnmarshalImpl(json: Json, data: String): HelloRequest {
+    val mapper = json.parse(HelloRequest.JsonMapper.serializer(), data)
+    return mapper.toMessage()
+}
+
+fun HelloReply?.orDefault() = this ?: HelloReply.defaultInstance
+
 private fun HelloReply.protoMergeImpl(plus: HelloReply?): HelloReply = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
@@ -72,4 +123,22 @@ private fun HelloReply.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmar
         10 -> message = protoUnmarshal.readString()
         else -> protoUnmarshal.unknownField()
     }
+}
+
+private fun HelloReply.toJsonMapperImpl(): HelloReply.JsonMapper =
+    HelloReply.JsonMapper(
+        message.takeIf { it != "" }
+    )
+
+private fun HelloReply.JsonMapper.toMessageImpl(): HelloReply =
+    HelloReply(
+        message = message ?: ""
+    )
+
+private fun HelloReply.jsonMarshalImpl(json: Json): String =
+    json.stringify(HelloReply.JsonMapper.serializer(), toJsonMapper())
+
+private fun HelloReply.Companion.jsonUnmarshalImpl(json: Json, data: String): HelloReply {
+    val mapper = json.parse(HelloReply.JsonMapper.serializer(), data)
+    return mapper.toMessage()
 }

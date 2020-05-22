@@ -1,0 +1,66 @@
+import com.google.protobuf.gradle.*
+
+plugins {
+    kotlin("jvm")
+    kotlin("plugin.serialization")
+    application
+    id("com.google.protobuf")
+}
+
+val pbandkVersion: String by rootProject.extra
+val kotlinxSerializationVersion by extra("0.20.0")
+val kotlinxCoroutinesVersion by extra("1.3.6")
+val protobufVersion by extra("3.11.1")
+
+application {
+    mainClassName = "pbandk.examples.greeter.MainKt"
+    applicationName = "greeter"
+}
+
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinxSerializationVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    implementation("com.github.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
+}
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+    protoc {
+        artifact = "com.google.protobuf:protoc:$protobufVersion"
+    }
+    plugins {
+        id("kotlin") {
+            artifact = "com.github.streem.pbandk:protoc-gen-kotlin-jvm:$pbandkVersion:jvm8@jar"
+        }
+    }
+    generateProtoTasks {
+        ofSourceSet("main").forEach { task ->
+            task.dependsOn(":generator:jar")
+            task.builtins {
+                remove("java")
+            }
+            task.plugins {
+                id("kotlin") {
+                    option("log=debug")
+                    option("kotlin_package=pbandk.examples.greeter.pb")
+                    option("kotlin_service_gen=${project(":generator").buildDir}/libs/generator.jar|pbandk.examples.greeter.Generator")
+                }
+            }
+        }
+    }
+}
+
+tasks {
+    compileJava {
+        enabled = false
+    }
+}
+
+// Workaround the Gradle bug resolving multi-platform dependencies.
+// Fix courtesy of https://github.com/square/okio/issues/647
+configurations.forEach {
+    if (it.name.toLowerCase().contains("kapt") || it.name.toLowerCase().contains("proto")) {
+        it.attributes.attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
+    }
+}
