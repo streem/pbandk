@@ -35,3 +35,9 @@ protobuf {
         }
     }
 }
+
+tasks {
+    compileJava {
+        enabled = false
+    }
+}

@@ -11,7 +11,9 @@ val pbandkVersion by extra("0.9.0-SNAPSHOT")
 subprojects {
     repositories {
         jcenter()
-        mavenLocal()
+        if (System.getenv("CI") == "true") {
+            mavenLocal()
+        }
         maven("https://jitpack.io")
     }
 

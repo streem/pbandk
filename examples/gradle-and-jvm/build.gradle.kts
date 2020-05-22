@@ -10,10 +10,13 @@ plugins {
 
 val kotlinxSerializationVersion by extra("0.20.0")
 val protobufVersion by extra("3.11.1")
-val pbandkVersion by extra("master-SNAPSHOT")
+val pbandkVersion by extra("0.9.0-SNAPSHOT")
 
 repositories {
     jcenter()
+    if (System.getenv("CI") == "true") {
+        mavenLocal()
+    }
     maven("https://jitpack.io")
 }
 
