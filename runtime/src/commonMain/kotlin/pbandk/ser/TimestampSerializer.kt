@@ -1,7 +1,6 @@
 package pbandk.ser
 
 import kotlinx.serialization.*
-import kotlinx.serialization.internal.StringDescriptor
 import pbandk.Util
 import pbandk.wkt.Timestamp
 

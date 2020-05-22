@@ -6,6 +6,10 @@ a protobuf-based address book inside local storage. Many shortcuts were taken to
 however, this example does not commit the generated file, instead the generation is set as a dependency of
 `compileKotlin2Js` task.
 
+This example contains two sub-projects: `:lib-proto` runs the protobuf pbandk plugin on the protobuf files, and `:app`
+contains the actual Kotlin/JS project. This is needed because the Protobuf Gradle Plugin requires the `java-library`
+plugin, but the `java-library` plugin can't be applied to a project using the Kotlin/JS gradle plugin.
+
 To run it, simply:
 
     path/to/gradle run
