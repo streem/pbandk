@@ -11,7 +11,7 @@ plugins {
 
 allprojects {
     group = "com.github.streem.pbandk"
-    version = "0.8.1"
+    version = "0.8.2-SNAPSHOT"
 
     repositories {
         jcenter()
