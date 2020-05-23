@@ -84,7 +84,12 @@ message AddressBook {
 The following file will be generated at `tutorial/addressbook.kt`:
 
 ```kotlin
+@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+
 package tutorial
+
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
 
 data class Person(
     val name: String = "",
@@ -97,26 +102,26 @@ data class Person(
     override operator fun plus(other: Person?) = protoMergeImpl(other)
     override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal() = jsonMarshalImpl()
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
     companion object : pbandk.Message.Companion<Person> {
         val defaultInstance by lazy { Person() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(data: String) = Person.jsonUnmarshalImpl(data)
+        override fun jsonUnmarshal(json: Json, data: String) = Person.jsonUnmarshalImpl(json, data)
     }
 
     sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is PhoneType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Person.PhoneType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object MOBILE : PhoneType(0, "MOBILE")
         object HOME : PhoneType(1, "HOME")
         object WORK : PhoneType(2, "WORK")
-        class UNRECOGNIZED(value: Int) : PhoneType(value)
+        class UNRECOGNIZED(value: Int) : Person.PhoneType(value)
 
-        companion object : pbandk.Message.Enum.Companion<PhoneType> {
-            val values: List<PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
-            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: Unrecognized(value)
+        companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
+            val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
     }
@@ -125,15 +130,15 @@ data class Person(
         val number: String = "",
         val type: tutorial.Person.PhoneType = tutorial.Person.PhoneType.fromValue(0),
         val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<PhoneNumber> {
-        override operator fun plus(other: PhoneNumber?) = protoMergeImpl(other)
+    ) : pbandk.Message<Person.PhoneNumber> {
+        override operator fun plus(other: Person.PhoneNumber?) = protoMergeImpl(other)
         override val protoSize by lazy { protoSizeImpl() }
         override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-        override fun jsonMarshal() = jsonMarshalImpl()
-        companion object : pbandk.Message.Companion<PhoneNumber> {
-            val defaultInstance by lazy { PhoneNumber() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = PhoneNumber.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(data: String) = PhoneNumber.jsonUnmarshalImpl(data)
+        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        companion object : pbandk.Message.Companion<Person.PhoneNumber> {
+            val defaultInstance by lazy { Person.PhoneNumber() }
+            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.PhoneNumber.protoUnmarshalImpl(u)
+            override fun jsonUnmarshal(json: Json, data: String) = Person.PhoneNumber.jsonUnmarshalImpl(json, data)
         }
     }
 }
@@ -145,13 +150,19 @@ data class AddressBook(
     override operator fun plus(other: AddressBook?) = protoMergeImpl(other)
     override val protoSize by lazy { protoSizeImpl() }
     override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal() = jsonMarshalImpl(m)
+    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
     companion object : pbandk.Message.Companion<AddressBook> {
         val defaultInstance by lazy { AddressBook() }
         override fun protoUnmarshal(u: pbandk.Unmarshaller) = AddressBook.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(data: String) = AddressBook.jsonUnmarshalImpl(data)
+        override fun jsonUnmarshal(json: Json, data: String) = AddressBook.jsonUnmarshalImpl(json, data)
     }
 }
+
+fun Person?.orDefault() = this ?: Person.defaultInstance
+
+fun Person.PhoneNumber?.orDefault() = this ?: Person.PhoneNumber.defaultInstance
+
+fun AddressBook?.orDefault() = this ?: AddressBook.defaultInstance
 
 // Omitted multiple supporting private extension methods
 ```
@@ -164,20 +175,15 @@ section below under "Usage" for more details.
 
 ### Generating Code
 
-Pbandk's code generator leverages `protoc`. Download the
-[latest protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`. Then
-download the [latest protoc-gen-kotlin](https://github.com/streem/pbandk/releases/latest) and make sure
-`protoc-gen-kotlin` is on the `PATH`. To generate code from `sample.proto` and put in `src/main/kotlin`, run:
+Pbandk's code generator leverages `protoc`. Download the [latest
+protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
+Then download the [latest protoc-gen-kotlin self-executing jar
+file](https://jitpack.io/com/github/streem/pbandk/protoc-gen-kotlin-jvm/0.8.0/protoc-gen-kotlin-jvm-0.8.0-jvm8.jar),
+rename it to `protoc-gen-kotlin` and make sure it is on the `PATH`. To generate code from
+`sample.proto` and put the generated code in `src/main/kotlin`, run:
 
 ```
 protoc --kotlin_out=src/main/kotlin sample.proto
-```
-
-For Windows however, `protoc` doesn't support finding `protoc-gen-kotlin.bat` on the `PATH`. So it has to be specified
-explicitly as a plugin:
-
-```
-protoc --kotlin_out=src/main/kotlin --plugin=protoc-gen-kotlin=path/to/protoc-gen-kotlin.bat sample.proto
 ```
 
 The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
@@ -194,6 +200,25 @@ In addition to running `protoc` manually, the
 [Protobuf Plugin for Gradle](https://github.com/google/protobuf-gradle-plugin) can be used. See
 [this example](examples/gradle-and-jvm) to see how.
 
+#### Windows
+
+The self-executing jar file doesn't work on Windows. Also `protoc` doesn't support finding
+`protoc-gen-kotlin.bat` on the `PATH`. So it has to be specified explicitly as a plugin. Thus on
+Windows you will first need to build `protoc-gen-kotlin` locally:
+
+```
+./gradlew :protoc-gen-kotlin:jvm:installDist
+```
+
+And then provide the full path to `protoc`:
+
+```
+protoc \
+    --kotlin_out=src/main/kotlin \
+    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin.bat \
+    sample.proto
+```
+
 ### Runtime Library
 
 Pbandk's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
@@ -209,7 +234,7 @@ Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    compile 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.0'
+    implementation 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.1'
 }
 ```
 
@@ -219,16 +244,16 @@ JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatf
 
 ### Service Code Generation
 
-Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in the
-`protoc-gen-kotlin-jvm` project (really in the `protoc-gen-kotlin-common` project and inherited) with a single method
-that can be implemented to generate the code.
+Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in
+the `protoc-gen-kotlin-lib-jvm` project with a single method that can be implemented to generate the
+code.
 
 To do this, first depend on the project but it will only be needed at compile time because it's already there at
 runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.8.0'
+    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.8.1'
 }
 ```
 
@@ -320,9 +345,12 @@ Services can be handled with a custom service generator. See the "Service Code G
 
 The project is built with Gradle and has several sub projects. In alphabetical order, they are:
 
-* `conformance` - Multiplatform code for conformance tests
-* `protoc-gen-kotlin` - Multiplatform code for the code generator
-* `runtime` - Multiplatform code for runtime Protobuf support
+* `conformance/js` - Conformance test runner for Kotlin/JS
+* `conformance/jvm` - Conformance test runner for Kotlin/JVM
+* `conformance/lib` - Common multiplatform code for conformance tests
+* `protoc-gen-kotlin/jvm` - Kotlin/JVM implementation of the code generator (can generate code for any platform, but requires JVM to run)
+* `protoc-gen-kotlin/lib` - Multiplatform code (only Kotlin/JVM supported at the moment) for the code generator and `ServiceGenerator` library
+* `runtime` - Multiplatform library for runtime Protobuf support
 
 ### Code Generator
 
@@ -369,16 +397,17 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 extract it to a local directory, and then run:
 
 ```
-./gradlew :runtime:generateWellKnownTypes -Dprotoc.path=path/to/protobuf/install/directory
-./gradlew :runtime:generateTestTypes
-./gradlew :protoc-gen-kotlin:lib:generateProto
-./gradlew :conformance:lib:generateProto
+./gradlew -Dprotoc.path=path/to/protobuf/install/directory \
+    :runtime:generateWellKnownTypes 
+    :runtime:generateTestTypes
+    :protoc-gen-kotlin:lib:generateProto
+    :conformance:lib:generateProto
 ```
 
-Important: If making changes in both the `:protoc-gen-kotlin` _and_ `:runtime` projects at the
+Important: If making changes in both the `:protoc-gen-kotlin:lib` _and_ `:runtime` projects at the
 same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work
 around this, stash the changes in the `:runtime` project, run the `generateWellKnownTypes` task
-with only the `:protoc-gen-kotlin` changes, and then unstash the `:runtime` changes and rerun the
+with only the `:protoc-gen-kotlin:lib` changes, and then unstash the `:runtime` changes and rerun the
 `generateWellKnownTypes` task.
 
 ### Conformance Tests
@@ -407,8 +436,9 @@ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 Now, back in `pbandk`, build both the JS and JVM projects via:
 
 ```
-./gradlew :conformance:lib:assemble
-./gradlew :conformance:jvm:installDist
+./gradlew \
+    :conformance:lib:assemble
+    :conformance:jvm:installDist
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).
