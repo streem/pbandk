@@ -179,7 +179,7 @@ Pbandk's code generator leverages `protoc`. Download the [latest
 protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
 Then download the [latest protoc-gen-kotlin self-executing jar
 file](https://jitpack.io/com/github/streem/pbandk/protoc-gen-kotlin-jvm/0.8.1/protoc-gen-kotlin-jvm-0.8.1-jvm8.jar),
-rename it to `protoc-gen-kotlin` and make sure it is on the `PATH`. To generate code from
+rename it to `protoc-gen-kotlin`, make the file executable (`chmod +x protoc-gen-kotlin`), and make sure it is on the `PATH`. To generate code from
 `sample.proto` and put the generated code in `src/main/kotlin`, run:
 
 ```
