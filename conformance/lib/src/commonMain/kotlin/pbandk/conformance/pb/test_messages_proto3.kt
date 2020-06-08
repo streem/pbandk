@@ -2024,8 +2024,18 @@ private fun TestAllTypesProto3.toJsonMapperImpl(): TestAllTypesProto3.JsonMapper
         fieldName18_
     )
 
-private fun TestAllTypesProto3.JsonMapper.toMessageImpl(): TestAllTypesProto3 =
-    TestAllTypesProto3(
+private fun TestAllTypesProto3.JsonMapper.toMessageImpl(): TestAllTypesProto3 {
+    var oneofField: TestAllTypesProto3.OneofField<*>? = null
+    if (oneofField == null && oneofUint32 != null) { oneofField = TestAllTypesProto3.OneofField.OneofUint32(oneofUint32) }
+    if (oneofField == null && oneofNestedMessage != null) { oneofField = TestAllTypesProto3.OneofField.OneofNestedMessage(oneofNestedMessage.toMessage()) }
+    if (oneofField == null && oneofString != null) { oneofField = TestAllTypesProto3.OneofField.OneofString(oneofString) }
+    if (oneofField == null && oneofBytes != null) { oneofField = TestAllTypesProto3.OneofField.OneofBytes(oneofBytes) }
+    if (oneofField == null && oneofBool != null) { oneofField = TestAllTypesProto3.OneofField.OneofBool(oneofBool) }
+    if (oneofField == null && oneofUint64 != null) { oneofField = TestAllTypesProto3.OneofField.OneofUint64(oneofUint64) }
+    if (oneofField == null && oneofFloat != null) { oneofField = TestAllTypesProto3.OneofField.OneofFloat(oneofFloat) }
+    if (oneofField == null && oneofDouble != null) { oneofField = TestAllTypesProto3.OneofField.OneofDouble(oneofDouble) }
+    if (oneofField == null && oneofEnum != null) { oneofField = TestAllTypesProto3.OneofField.OneofEnum(oneofEnum.let { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) }) }
+    return TestAllTypesProto3(
         optionalInt32 = optionalInt32 ?: 0,
         optionalInt64 = optionalInt64 ?: 0L,
         optionalUint32 = optionalUint32 ?: 0,
@@ -2166,17 +2176,9 @@ private fun TestAllTypesProto3.JsonMapper.toMessageImpl(): TestAllTypesProto3 =
         field_Name16 = field_Name16 ?: 0,
         fieldName17_ = fieldName17_ ?: 0,
         fieldName18_ = fieldName18_ ?: 0,
-        oneofField = 
-            oneofUint32?.let { value -> TestAllTypesProto3.OneofField.OneofUint32(value) }
-             ?: oneofNestedMessage?.let { value -> TestAllTypesProto3.OneofField.OneofNestedMessage(value.toMessage()) }
-             ?: oneofString?.let { value -> TestAllTypesProto3.OneofField.OneofString(value) }
-             ?: oneofBytes?.let { value -> TestAllTypesProto3.OneofField.OneofBytes(value) }
-             ?: oneofBool?.let { value -> TestAllTypesProto3.OneofField.OneofBool(value) }
-             ?: oneofUint64?.let { value -> TestAllTypesProto3.OneofField.OneofUint64(value) }
-             ?: oneofFloat?.let { value -> TestAllTypesProto3.OneofField.OneofFloat(value) }
-             ?: oneofDouble?.let { value -> TestAllTypesProto3.OneofField.OneofDouble(value) }
-             ?: oneofEnum?.let { value -> TestAllTypesProto3.OneofField.OneofEnum(value.let { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) }) }
+        oneofField = oneofField
     )
+}
 
 private fun TestAllTypesProto3.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.JsonMapper.serializer(), toJsonMapper())
@@ -2224,11 +2226,12 @@ private fun TestAllTypesProto3.NestedMessage.toJsonMapperImpl(): TestAllTypesPro
         corecursive?.toJsonMapper()
     )
 
-private fun TestAllTypesProto3.NestedMessage.JsonMapper.toMessageImpl(): TestAllTypesProto3.NestedMessage =
-    TestAllTypesProto3.NestedMessage(
+private fun TestAllTypesProto3.NestedMessage.JsonMapper.toMessageImpl(): TestAllTypesProto3.NestedMessage {
+    return TestAllTypesProto3.NestedMessage(
         a = a ?: 0,
         corecursive = corecursive?.toMessage()
     )
+}
 
 private fun TestAllTypesProto3.NestedMessage.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.NestedMessage.JsonMapper.serializer(), toJsonMapper())
@@ -2275,11 +2278,12 @@ private fun TestAllTypesProto3.MapInt32Int32Entry.toJsonMapperImpl(): TestAllTyp
         value
     )
 
-private fun TestAllTypesProto3.MapInt32Int32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32Int32Entry =
-    TestAllTypesProto3.MapInt32Int32Entry(
+private fun TestAllTypesProto3.MapInt32Int32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32Int32Entry {
+    return TestAllTypesProto3.MapInt32Int32Entry(
         key = key ?: 0,
         value = value ?: 0
     )
+}
 
 private fun TestAllTypesProto3.MapInt32Int32Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapInt32Int32Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2326,11 +2330,12 @@ private fun TestAllTypesProto3.MapInt64Int64Entry.toJsonMapperImpl(): TestAllTyp
         value
     )
 
-private fun TestAllTypesProto3.MapInt64Int64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt64Int64Entry =
-    TestAllTypesProto3.MapInt64Int64Entry(
+private fun TestAllTypesProto3.MapInt64Int64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt64Int64Entry {
+    return TestAllTypesProto3.MapInt64Int64Entry(
         key = key ?: 0L,
         value = value ?: 0L
     )
+}
 
 private fun TestAllTypesProto3.MapInt64Int64Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapInt64Int64Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2377,11 +2382,12 @@ private fun TestAllTypesProto3.MapUint32Uint32Entry.toJsonMapperImpl(): TestAllT
         value
     )
 
-private fun TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapUint32Uint32Entry =
-    TestAllTypesProto3.MapUint32Uint32Entry(
+private fun TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapUint32Uint32Entry {
+    return TestAllTypesProto3.MapUint32Uint32Entry(
         key = key ?: 0,
         value = value ?: 0
     )
+}
 
 private fun TestAllTypesProto3.MapUint32Uint32Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapUint32Uint32Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2428,11 +2434,12 @@ private fun TestAllTypesProto3.MapUint64Uint64Entry.toJsonMapperImpl(): TestAllT
         value
     )
 
-private fun TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapUint64Uint64Entry =
-    TestAllTypesProto3.MapUint64Uint64Entry(
+private fun TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapUint64Uint64Entry {
+    return TestAllTypesProto3.MapUint64Uint64Entry(
         key = key ?: 0L,
         value = value ?: 0L
     )
+}
 
 private fun TestAllTypesProto3.MapUint64Uint64Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapUint64Uint64Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2479,11 +2486,12 @@ private fun TestAllTypesProto3.MapSint32Sint32Entry.toJsonMapperImpl(): TestAllT
         value
     )
 
-private fun TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSint32Sint32Entry =
-    TestAllTypesProto3.MapSint32Sint32Entry(
+private fun TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSint32Sint32Entry {
+    return TestAllTypesProto3.MapSint32Sint32Entry(
         key = key ?: 0,
         value = value ?: 0
     )
+}
 
 private fun TestAllTypesProto3.MapSint32Sint32Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapSint32Sint32Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2530,11 +2538,12 @@ private fun TestAllTypesProto3.MapSint64Sint64Entry.toJsonMapperImpl(): TestAllT
         value
     )
 
-private fun TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSint64Sint64Entry =
-    TestAllTypesProto3.MapSint64Sint64Entry(
+private fun TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSint64Sint64Entry {
+    return TestAllTypesProto3.MapSint64Sint64Entry(
         key = key ?: 0L,
         value = value ?: 0L
     )
+}
 
 private fun TestAllTypesProto3.MapSint64Sint64Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapSint64Sint64Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2581,11 +2590,12 @@ private fun TestAllTypesProto3.MapFixed32Fixed32Entry.toJsonMapperImpl(): TestAl
         value
     )
 
-private fun TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapFixed32Fixed32Entry =
-    TestAllTypesProto3.MapFixed32Fixed32Entry(
+private fun TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapFixed32Fixed32Entry {
+    return TestAllTypesProto3.MapFixed32Fixed32Entry(
         key = key ?: 0,
         value = value ?: 0
     )
+}
 
 private fun TestAllTypesProto3.MapFixed32Fixed32Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapFixed32Fixed32Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2632,11 +2642,12 @@ private fun TestAllTypesProto3.MapFixed64Fixed64Entry.toJsonMapperImpl(): TestAl
         value
     )
 
-private fun TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapFixed64Fixed64Entry =
-    TestAllTypesProto3.MapFixed64Fixed64Entry(
+private fun TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapFixed64Fixed64Entry {
+    return TestAllTypesProto3.MapFixed64Fixed64Entry(
         key = key ?: 0L,
         value = value ?: 0L
     )
+}
 
 private fun TestAllTypesProto3.MapFixed64Fixed64Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapFixed64Fixed64Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2683,11 +2694,12 @@ private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.toJsonMapperImpl(): Test
         value
     )
 
-private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSfixed32Sfixed32Entry =
-    TestAllTypesProto3.MapSfixed32Sfixed32Entry(
+private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSfixed32Sfixed32Entry {
+    return TestAllTypesProto3.MapSfixed32Sfixed32Entry(
         key = key ?: 0,
         value = value ?: 0
     )
+}
 
 private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapSfixed32Sfixed32Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2734,11 +2746,12 @@ private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.toJsonMapperImpl(): Test
         value
     )
 
-private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSfixed64Sfixed64Entry =
-    TestAllTypesProto3.MapSfixed64Sfixed64Entry(
+private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapSfixed64Sfixed64Entry {
+    return TestAllTypesProto3.MapSfixed64Sfixed64Entry(
         key = key ?: 0L,
         value = value ?: 0L
     )
+}
 
 private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapSfixed64Sfixed64Entry.JsonMapper.serializer(), toJsonMapper())
@@ -2785,11 +2798,12 @@ private fun TestAllTypesProto3.MapInt32FloatEntry.toJsonMapperImpl(): TestAllTyp
         value
     )
 
-private fun TestAllTypesProto3.MapInt32FloatEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32FloatEntry =
-    TestAllTypesProto3.MapInt32FloatEntry(
+private fun TestAllTypesProto3.MapInt32FloatEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32FloatEntry {
+    return TestAllTypesProto3.MapInt32FloatEntry(
         key = key ?: 0,
         value = value ?: 0.0F
     )
+}
 
 private fun TestAllTypesProto3.MapInt32FloatEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapInt32FloatEntry.JsonMapper.serializer(), toJsonMapper())
@@ -2836,11 +2850,12 @@ private fun TestAllTypesProto3.MapInt32DoubleEntry.toJsonMapperImpl(): TestAllTy
         value
     )
 
-private fun TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32DoubleEntry =
-    TestAllTypesProto3.MapInt32DoubleEntry(
+private fun TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapInt32DoubleEntry {
+    return TestAllTypesProto3.MapInt32DoubleEntry(
         key = key ?: 0,
         value = value ?: 0.0
     )
+}
 
 private fun TestAllTypesProto3.MapInt32DoubleEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapInt32DoubleEntry.JsonMapper.serializer(), toJsonMapper())
@@ -2887,11 +2902,12 @@ private fun TestAllTypesProto3.MapBoolBoolEntry.toJsonMapperImpl(): TestAllTypes
         value
     )
 
-private fun TestAllTypesProto3.MapBoolBoolEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapBoolBoolEntry =
-    TestAllTypesProto3.MapBoolBoolEntry(
+private fun TestAllTypesProto3.MapBoolBoolEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapBoolBoolEntry {
+    return TestAllTypesProto3.MapBoolBoolEntry(
         key = key ?: false,
         value = value ?: false
     )
+}
 
 private fun TestAllTypesProto3.MapBoolBoolEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapBoolBoolEntry.JsonMapper.serializer(), toJsonMapper())
@@ -2938,11 +2954,12 @@ private fun TestAllTypesProto3.MapStringStringEntry.toJsonMapperImpl(): TestAllT
         value.takeIf { it != "" }
     )
 
-private fun TestAllTypesProto3.MapStringStringEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringStringEntry =
-    TestAllTypesProto3.MapStringStringEntry(
+private fun TestAllTypesProto3.MapStringStringEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringStringEntry {
+    return TestAllTypesProto3.MapStringStringEntry(
         key = key ?: "",
         value = value ?: ""
     )
+}
 
 private fun TestAllTypesProto3.MapStringStringEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapStringStringEntry.JsonMapper.serializer(), toJsonMapper())
@@ -2989,11 +3006,12 @@ private fun TestAllTypesProto3.MapStringBytesEntry.toJsonMapperImpl(): TestAllTy
         value
     )
 
-private fun TestAllTypesProto3.MapStringBytesEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringBytesEntry =
-    TestAllTypesProto3.MapStringBytesEntry(
+private fun TestAllTypesProto3.MapStringBytesEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringBytesEntry {
+    return TestAllTypesProto3.MapStringBytesEntry(
         key = key ?: "",
         value = value ?: pbandk.ByteArr.empty
     )
+}
 
 private fun TestAllTypesProto3.MapStringBytesEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapStringBytesEntry.JsonMapper.serializer(), toJsonMapper())
@@ -3041,11 +3059,12 @@ private fun TestAllTypesProto3.MapStringNestedMessageEntry.toJsonMapperImpl(): T
         value?.toJsonMapper()
     )
 
-private fun TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringNestedMessageEntry =
-    TestAllTypesProto3.MapStringNestedMessageEntry(
+private fun TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringNestedMessageEntry {
+    return TestAllTypesProto3.MapStringNestedMessageEntry(
         key = key ?: "",
         value = value?.toMessage()
     )
+}
 
 private fun TestAllTypesProto3.MapStringNestedMessageEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapStringNestedMessageEntry.JsonMapper.serializer(), toJsonMapper())
@@ -3093,11 +3112,12 @@ private fun TestAllTypesProto3.MapStringForeignMessageEntry.toJsonMapperImpl(): 
         value?.toJsonMapper()
     )
 
-private fun TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringForeignMessageEntry =
-    TestAllTypesProto3.MapStringForeignMessageEntry(
+private fun TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringForeignMessageEntry {
+    return TestAllTypesProto3.MapStringForeignMessageEntry(
         key = key ?: "",
         value = value?.toMessage()
     )
+}
 
 private fun TestAllTypesProto3.MapStringForeignMessageEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapStringForeignMessageEntry.JsonMapper.serializer(), toJsonMapper())
@@ -3144,11 +3164,12 @@ private fun TestAllTypesProto3.MapStringNestedEnumEntry.toJsonMapperImpl(): Test
         value?.name
     )
 
-private fun TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringNestedEnumEntry =
-    TestAllTypesProto3.MapStringNestedEnumEntry(
+private fun TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringNestedEnumEntry {
+    return TestAllTypesProto3.MapStringNestedEnumEntry(
         key = key ?: "",
         value = value?.let { pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromName(it) } ?: pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.fromValue(0)
     )
+}
 
 private fun TestAllTypesProto3.MapStringNestedEnumEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapStringNestedEnumEntry.JsonMapper.serializer(), toJsonMapper())
@@ -3195,11 +3216,12 @@ private fun TestAllTypesProto3.MapStringForeignEnumEntry.toJsonMapperImpl(): Tes
         value?.name
     )
 
-private fun TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringForeignEnumEntry =
-    TestAllTypesProto3.MapStringForeignEnumEntry(
+private fun TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper.toMessageImpl(): TestAllTypesProto3.MapStringForeignEnumEntry {
+    return TestAllTypesProto3.MapStringForeignEnumEntry(
         key = key ?: "",
         value = value?.let { pbandk.conformance.pb.ForeignEnum.fromName(it) } ?: pbandk.conformance.pb.ForeignEnum.fromValue(0)
     )
+}
 
 private fun TestAllTypesProto3.MapStringForeignEnumEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(TestAllTypesProto3.MapStringForeignEnumEntry.JsonMapper.serializer(), toJsonMapper())
@@ -3241,10 +3263,11 @@ private fun ForeignMessage.toJsonMapperImpl(): ForeignMessage.JsonMapper =
         c
     )
 
-private fun ForeignMessage.JsonMapper.toMessageImpl(): ForeignMessage =
-    ForeignMessage(
+private fun ForeignMessage.JsonMapper.toMessageImpl(): ForeignMessage {
+    return ForeignMessage(
         c = c ?: 0
     )
+}
 
 private fun ForeignMessage.jsonMarshalImpl(json: Json): String =
     json.stringify(ForeignMessage.JsonMapper.serializer(), toJsonMapper())

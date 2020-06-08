@@ -6,7 +6,7 @@ plugins {
 }
 
 val pbandkVersion: String by rootProject.extra
-val protobufVersion = "3.11.1"
+val protobufVersion = val protobufVersion = "3.11.1"
 
 dependencies {
     // This is needed for includes, ref: https://github.com/google/protobuf-gradle-plugin/issues/41#issuecomment-143884188

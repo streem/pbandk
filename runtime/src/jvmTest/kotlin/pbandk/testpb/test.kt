@@ -163,10 +163,11 @@ private fun Foo.toJsonMapperImpl(): Foo.JsonMapper =
         `val`.takeIf { it != "" }
     )
 
-private fun Foo.JsonMapper.toMessageImpl(): Foo =
-    Foo(
+private fun Foo.JsonMapper.toMessageImpl(): Foo {
+    return Foo(
         `val` = `val` ?: ""
     )
+}
 
 private fun Foo.jsonMarshalImpl(json: Json): String =
     json.stringify(Foo.JsonMapper.serializer(), toJsonMapper())
@@ -209,10 +210,11 @@ private fun Bar.toJsonMapperImpl(): Bar.JsonMapper =
         foos.map { it.toJsonMapper() }
     )
 
-private fun Bar.JsonMapper.toMessageImpl(): Bar =
-    Bar(
+private fun Bar.JsonMapper.toMessageImpl(): Bar {
+    return Bar(
         foos = foos.map { it.toMessage() }
     )
+}
 
 private fun Bar.jsonMarshalImpl(json: Json): String =
     json.stringify(Bar.JsonMapper.serializer(), toJsonMapper())
@@ -255,10 +257,11 @@ private fun MessageWithMap.toJsonMapperImpl(): MessageWithMap.JsonMapper =
         map
     )
 
-private fun MessageWithMap.JsonMapper.toMessageImpl(): MessageWithMap =
-    MessageWithMap(
+private fun MessageWithMap.JsonMapper.toMessageImpl(): MessageWithMap {
+    return MessageWithMap(
         map = map.mapValues { it.value ?: "" }
     )
+}
 
 private fun MessageWithMap.jsonMarshalImpl(json: Json): String =
     json.stringify(MessageWithMap.JsonMapper.serializer(), toJsonMapper())
@@ -305,11 +308,12 @@ private fun MessageWithMap.MapEntry.toJsonMapperImpl(): MessageWithMap.MapEntry.
         value.takeIf { it != "" }
     )
 
-private fun MessageWithMap.MapEntry.JsonMapper.toMessageImpl(): MessageWithMap.MapEntry =
-    MessageWithMap.MapEntry(
+private fun MessageWithMap.MapEntry.JsonMapper.toMessageImpl(): MessageWithMap.MapEntry {
+    return MessageWithMap.MapEntry(
         key = key ?: "",
         value = value ?: ""
     )
+}
 
 private fun MessageWithMap.MapEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(MessageWithMap.MapEntry.JsonMapper.serializer(), toJsonMapper())
@@ -358,11 +362,12 @@ private fun Wrappers.toJsonMapperImpl(): Wrappers.JsonMapper =
         uint64Values
     )
 
-private fun Wrappers.JsonMapper.toMessageImpl(): Wrappers =
-    Wrappers(
+private fun Wrappers.JsonMapper.toMessageImpl(): Wrappers {
+    return Wrappers(
         stringValue = stringValue,
         uint64Values = uint64Values
     )
+}
 
 private fun Wrappers.jsonMarshalImpl(json: Json): String =
     json.stringify(Wrappers.JsonMapper.serializer(), toJsonMapper())

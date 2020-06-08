@@ -179,13 +179,14 @@ private fun Version.toJsonMapperImpl(): Version.JsonMapper =
         suffix
     )
 
-private fun Version.JsonMapper.toMessageImpl(): Version =
-    Version(
+private fun Version.JsonMapper.toMessageImpl(): Version {
+    return Version(
         major = major ?: null,
         minor = minor ?: null,
         patch = patch ?: null,
         suffix = suffix ?: null
     )
+}
 
 private fun Version.jsonMarshalImpl(json: Json): String =
     json.stringify(Version.JsonMapper.serializer(), toJsonMapper())
@@ -246,13 +247,14 @@ private fun CodeGeneratorRequest.toJsonMapperImpl(): CodeGeneratorRequest.JsonMa
         protoFile.map { it.toJsonMapper() }
     )
 
-private fun CodeGeneratorRequest.JsonMapper.toMessageImpl(): CodeGeneratorRequest =
-    CodeGeneratorRequest(
+private fun CodeGeneratorRequest.JsonMapper.toMessageImpl(): CodeGeneratorRequest {
+    return CodeGeneratorRequest(
         fileToGenerate = fileToGenerate ?: emptyList(),
         parameter = parameter ?: null,
         protoFile = protoFile.map { it.toMessage() },
         compilerVersion = compilerVersion?.toMessage()
     )
+}
 
 private fun CodeGeneratorRequest.jsonMarshalImpl(json: Json): String =
     json.stringify(CodeGeneratorRequest.JsonMapper.serializer(), toJsonMapper())
@@ -301,11 +303,12 @@ private fun CodeGeneratorResponse.toJsonMapperImpl(): CodeGeneratorResponse.Json
         file.map { it.toJsonMapper() }
     )
 
-private fun CodeGeneratorResponse.JsonMapper.toMessageImpl(): CodeGeneratorResponse =
-    CodeGeneratorResponse(
+private fun CodeGeneratorResponse.JsonMapper.toMessageImpl(): CodeGeneratorResponse {
+    return CodeGeneratorResponse(
         error = error ?: null,
         file = file.map { it.toMessage() }
     )
+}
 
 private fun CodeGeneratorResponse.jsonMarshalImpl(json: Json): String =
     json.stringify(CodeGeneratorResponse.JsonMapper.serializer(), toJsonMapper())
@@ -360,12 +363,13 @@ private fun CodeGeneratorResponse.File.toJsonMapperImpl(): CodeGeneratorResponse
         content
     )
 
-private fun CodeGeneratorResponse.File.JsonMapper.toMessageImpl(): CodeGeneratorResponse.File =
-    CodeGeneratorResponse.File(
+private fun CodeGeneratorResponse.File.JsonMapper.toMessageImpl(): CodeGeneratorResponse.File {
+    return CodeGeneratorResponse.File(
         name = name ?: null,
         insertionPoint = insertionPoint ?: null,
         content = content ?: null
     )
+}
 
 private fun CodeGeneratorResponse.File.jsonMarshalImpl(json: Json): String =
     json.stringify(CodeGeneratorResponse.File.JsonMapper.serializer(), toJsonMapper())

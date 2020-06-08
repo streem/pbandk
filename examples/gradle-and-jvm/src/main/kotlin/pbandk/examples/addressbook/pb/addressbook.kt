@@ -164,14 +164,15 @@ private fun Person.toJsonMapperImpl(): Person.JsonMapper =
         lastUpdated?.toJsonMapper()
     )
 
-private fun Person.JsonMapper.toMessageImpl(): Person =
-    Person(
+private fun Person.JsonMapper.toMessageImpl(): Person {
+    return Person(
         name = name ?: "",
         id = id ?: 0,
         email = email ?: "",
         phones = phones.map { it.toMessage() },
         lastUpdated = lastUpdated?.toMessage()
     )
+}
 
 private fun Person.jsonMarshalImpl(json: Json): String =
     json.stringify(Person.JsonMapper.serializer(), toJsonMapper())
@@ -218,11 +219,12 @@ private fun Person.PhoneNumber.toJsonMapperImpl(): Person.PhoneNumber.JsonMapper
         type?.name
     )
 
-private fun Person.PhoneNumber.JsonMapper.toMessageImpl(): Person.PhoneNumber =
-    Person.PhoneNumber(
+private fun Person.PhoneNumber.JsonMapper.toMessageImpl(): Person.PhoneNumber {
+    return Person.PhoneNumber(
         number = number ?: "",
         type = type?.let { pbandk.examples.addressbook.pb.Person.PhoneType.fromName(it) } ?: pbandk.examples.addressbook.pb.Person.PhoneType.fromValue(0)
     )
+}
 
 private fun Person.PhoneNumber.jsonMarshalImpl(json: Json): String =
     json.stringify(Person.PhoneNumber.JsonMapper.serializer(), toJsonMapper())
@@ -265,10 +267,11 @@ private fun AddressBook.toJsonMapperImpl(): AddressBook.JsonMapper =
         people.map { it.toJsonMapper() }
     )
 
-private fun AddressBook.JsonMapper.toMessageImpl(): AddressBook =
-    AddressBook(
+private fun AddressBook.JsonMapper.toMessageImpl(): AddressBook {
+    return AddressBook(
         people = people.map { it.toMessage() }
     )
+}
 
 private fun AddressBook.jsonMarshalImpl(json: Json): String =
     json.stringify(AddressBook.JsonMapper.serializer(), toJsonMapper())

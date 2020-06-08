@@ -371,41 +371,37 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
     }
 
     protected fun writeJsonMapperToMessageExtension(type: File.Type.Message, fullTypeName: String) {
-        fun oneOfFieldToMessage(i: Int, field: File.Field.OneOf) {
-            line("${field.kotlinFieldName} = ").indented {
-                field.fields.forEachIndexed { j, oneOfField ->
-                    val prefix = if (j == 0) "" else " ?: "
-                    val suffix = if (j == field.fields.lastIndex && i != type.fields.lastIndex) "," else ""
-                    line(prefix +
-                            "${oneOfField.kotlinFieldName}?.let { value -> " +
-                            "$fullTypeName.${field.kotlinTypeName}.${field.kotlinFieldTypeNames[oneOfField.name]}(" +
-                            when (oneOfField.type) {
-                                File.Field.Type.ENUM -> {
+        fun oneOfFieldToVar(field: File.Field.OneOf) {
+            line("var ${field.kotlinFieldName}: $fullTypeName.${field.kotlinTypeName}<*>? = null")
+            field.fields.forEachIndexed { j, oneOfField ->
+                val fieldName = oneOfField.kotlinFieldName
+                line("if (${field.kotlinFieldName} == null && $fieldName != null) { " +
+                    "${field.kotlinFieldName} = $fullTypeName.${field.kotlinTypeName}.${field.kotlinFieldTypeNames[oneOfField.name]}(" +
+                    when (oneOfField.type) {
+                        File.Field.Type.ENUM -> {
+                            when {
+                                oneOfField.repeated -> "$fieldName.map { ${oneOfField.kotlinQualifiedTypeName}.fromName(it) }"
+                                else -> "$fieldName.let { ${oneOfField.kotlinQualifiedTypeName}.fromName(it) }"
+                            }
+                        }
+                        File.Field.Type.MESSAGE -> {
+                            when {
+                                oneOfField.map -> {
                                     when {
-                                        oneOfField.repeated -> "value.map { ${oneOfField.kotlinQualifiedTypeName}.fromName(it) }"
-                                        else -> "value.let { ${oneOfField.kotlinQualifiedTypeName}.fromName(it) }"
+                                        oneOfField.mapEntry()!!.mapEntryValueIsMessage -> "$fieldName.mapValues { it.value?.toMessage() }"
+                                        oneOfField.mapEntry()!!.mapEntryValueIsEnum -> "$fieldName.mapValues { ${oneOfField.mapEntry()!!.mapEntryValueKotlinType}.fromName(it.value!!) }"
+                                        else -> "$fieldName.mapValues { it.value }"
                                     }
                                 }
-                                File.Field.Type.MESSAGE -> {
-                                    when {
-                                        oneOfField.map -> {
-                                            when {
-                                                oneOfField.mapEntry()!!.mapEntryValueIsMessage -> "value.mapValues { it.value?.toMessage() }"
-                                                oneOfField.mapEntry()!!.mapEntryValueIsEnum -> "value.mapValues { ${oneOfField.mapEntry()!!.mapEntryValueKotlinType}.fromName(it.value!!) }"
-                                                else -> "value.mapValues { it.value }"
-                                            }
-                                        }
-                                        oneOfField.repeated -> "value.map { it.toMessage() }"
-                                        else -> "value.toMessage()"
-                                    }
-                                }
-                                else -> "value"
-                            } +
-                            ") " +
-                            "}" +
-                            suffix
-                    )
-                }
+                                oneOfField.repeated -> "$fieldName.map { it.toMessage() }"
+                                else -> "$fieldName.toMessage()"
+                            }
+                        }
+                        else -> oneOfField.kotlinFieldName
+                    } +
+                    ") " +
+                    "}"
+                )
             }
         }
 
@@ -441,17 +437,27 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             lineEnd(if (i == type.fields.lastIndex) "" else ",")
         }
 
-        line().line("private fun $fullTypeName.JsonMapper.toMessageImpl(): $fullTypeName =").indented {
-            line("$fullTypeName(").indented {
+        fun oneOfFieldAssign(i: Int, field: File.Field.OneOf) {
+            lineBegin("${field.kotlinFieldName} = ${field.kotlinFieldName}")
+            lineEnd(if (i == type.fields.lastIndex) "" else ",")
+        }
+
+        line().line("private fun $fullTypeName.JsonMapper.toMessageImpl(): $fullTypeName {").indented {
+            type.fields
+                .filterIsInstance<File.Field.OneOf>()
+                .forEach { oneOfFieldToVar(field = it) }
+
+            line("return $fullTypeName(").indented {
                 type.fields.forEachIndexed { i, field ->
                     when (field) {
-                        is File.Field.OneOf -> oneOfFieldToMessage(i, field)
+                        is File.Field.OneOf -> oneOfFieldAssign(i, field)
                         is File.Field.Numbered.Standard -> standardFieldToMessage(i, field)
                         is File.Field.Numbered.Wrapper -> wrapperFieldToMessage(i, field)
                     }
                 }
             }.line(")")
         }
+        line("}")
     }
 
     protected fun writeMessageJsonMarshalExtension(type: File.Type.Message, fullTypeName: String) {
