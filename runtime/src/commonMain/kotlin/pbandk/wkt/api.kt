@@ -183,8 +183,8 @@ private fun Api.toJsonMapperImpl(): Api.JsonMapper =
         syntax?.name
     )
 
-private fun Api.JsonMapper.toMessageImpl(): Api =
-    Api(
+private fun Api.JsonMapper.toMessageImpl(): Api {
+    return Api(
         name = name ?: "",
         methods = methods.map { it.toMessage() },
         options = options.map { it.toMessage() },
@@ -193,6 +193,7 @@ private fun Api.JsonMapper.toMessageImpl(): Api =
         mixins = mixins.map { it.toMessage() },
         syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
     )
+}
 
 private fun Api.jsonMarshalImpl(json: Json): String =
     json.stringify(Api.JsonMapper.serializer(), toJsonMapper())
@@ -266,8 +267,8 @@ private fun Method.toJsonMapperImpl(): Method.JsonMapper =
         syntax?.name
     )
 
-private fun Method.JsonMapper.toMessageImpl(): Method =
-    Method(
+private fun Method.JsonMapper.toMessageImpl(): Method {
+    return Method(
         name = name ?: "",
         requestTypeUrl = requestTypeUrl ?: "",
         requestStreaming = requestStreaming ?: false,
@@ -276,6 +277,7 @@ private fun Method.JsonMapper.toMessageImpl(): Method =
         options = options.map { it.toMessage() },
         syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
     )
+}
 
 private fun Method.jsonMarshalImpl(json: Json): String =
     json.stringify(Method.JsonMapper.serializer(), toJsonMapper())
@@ -322,11 +324,12 @@ private fun Mixin.toJsonMapperImpl(): Mixin.JsonMapper =
         root.takeIf { it != "" }
     )
 
-private fun Mixin.JsonMapper.toMessageImpl(): Mixin =
-    Mixin(
+private fun Mixin.JsonMapper.toMessageImpl(): Mixin {
+    return Mixin(
         name = name ?: "",
         root = root ?: ""
     )
+}
 
 private fun Mixin.jsonMarshalImpl(json: Json): String =
     json.stringify(Mixin.JsonMapper.serializer(), toJsonMapper())

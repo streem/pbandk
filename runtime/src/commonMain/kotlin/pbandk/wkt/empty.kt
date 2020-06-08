@@ -52,9 +52,10 @@ private fun Empty.toJsonMapperImpl(): Empty.JsonMapper =
     Empty.JsonMapper(
     )
 
-private fun Empty.JsonMapper.toMessageImpl(): Empty =
-    Empty(
+private fun Empty.JsonMapper.toMessageImpl(): Empty {
+    return Empty(
     )
+}
 
 private fun Empty.jsonMarshalImpl(json: Json): String =
     json.stringify(Empty.JsonMapper.serializer(), toJsonMapper())

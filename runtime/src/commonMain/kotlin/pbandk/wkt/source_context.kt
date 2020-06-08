@@ -61,10 +61,11 @@ private fun SourceContext.toJsonMapperImpl(): SourceContext.JsonMapper =
         fileName.takeIf { it != "" }
     )
 
-private fun SourceContext.JsonMapper.toMessageImpl(): SourceContext =
-    SourceContext(
+private fun SourceContext.JsonMapper.toMessageImpl(): SourceContext {
+    return SourceContext(
         fileName = fileName ?: ""
     )
+}
 
 private fun SourceContext.jsonMarshalImpl(json: Json): String =
     json.stringify(SourceContext.JsonMapper.serializer(), toJsonMapper())

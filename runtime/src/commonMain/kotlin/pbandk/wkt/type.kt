@@ -317,8 +317,8 @@ private fun Type.toJsonMapperImpl(): Type.JsonMapper =
         syntax?.name
     )
 
-private fun Type.JsonMapper.toMessageImpl(): Type =
-    Type(
+private fun Type.JsonMapper.toMessageImpl(): Type {
+    return Type(
         name = name ?: "",
         fields = fields.map { it.toMessage() },
         oneofs = oneofs ?: emptyList(),
@@ -326,6 +326,7 @@ private fun Type.JsonMapper.toMessageImpl(): Type =
         sourceContext = sourceContext?.toMessage(),
         syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
     )
+}
 
 private fun Type.jsonMarshalImpl(json: Json): String =
     json.stringify(Type.JsonMapper.serializer(), toJsonMapper())
@@ -415,8 +416,8 @@ private fun Field.toJsonMapperImpl(): Field.JsonMapper =
         defaultValue.takeIf { it != "" }
     )
 
-private fun Field.JsonMapper.toMessageImpl(): Field =
-    Field(
+private fun Field.JsonMapper.toMessageImpl(): Field {
+    return Field(
         kind = kind?.let { pbandk.wkt.Field.Kind.fromName(it) } ?: pbandk.wkt.Field.Kind.fromValue(0),
         cardinality = cardinality?.let { pbandk.wkt.Field.Cardinality.fromName(it) } ?: pbandk.wkt.Field.Cardinality.fromValue(0),
         number = number ?: 0,
@@ -428,6 +429,7 @@ private fun Field.JsonMapper.toMessageImpl(): Field =
         jsonName = jsonName ?: "",
         defaultValue = defaultValue ?: ""
     )
+}
 
 private fun Field.jsonMarshalImpl(json: Json): String =
     json.stringify(Field.JsonMapper.serializer(), toJsonMapper())
@@ -493,14 +495,15 @@ private fun Enum.toJsonMapperImpl(): Enum.JsonMapper =
         syntax?.name
     )
 
-private fun Enum.JsonMapper.toMessageImpl(): Enum =
-    Enum(
+private fun Enum.JsonMapper.toMessageImpl(): Enum {
+    return Enum(
         name = name ?: "",
         enumvalue = enumvalue.map { it.toMessage() },
         options = options.map { it.toMessage() },
         sourceContext = sourceContext?.toMessage(),
         syntax = syntax?.let { pbandk.wkt.Syntax.fromName(it) } ?: pbandk.wkt.Syntax.fromValue(0)
     )
+}
 
 private fun Enum.jsonMarshalImpl(json: Json): String =
     json.stringify(Enum.JsonMapper.serializer(), toJsonMapper())
@@ -553,12 +556,13 @@ private fun EnumValue.toJsonMapperImpl(): EnumValue.JsonMapper =
         options.map { it.toJsonMapper() }
     )
 
-private fun EnumValue.JsonMapper.toMessageImpl(): EnumValue =
-    EnumValue(
+private fun EnumValue.JsonMapper.toMessageImpl(): EnumValue {
+    return EnumValue(
         name = name ?: "",
         number = number ?: 0,
         options = options.map { it.toMessage() }
     )
+}
 
 private fun EnumValue.jsonMarshalImpl(json: Json): String =
     json.stringify(EnumValue.JsonMapper.serializer(), toJsonMapper())
@@ -606,11 +610,12 @@ private fun Option.toJsonMapperImpl(): Option.JsonMapper =
         value?.toJsonMapper()
     )
 
-private fun Option.JsonMapper.toMessageImpl(): Option =
-    Option(
+private fun Option.JsonMapper.toMessageImpl(): Option {
+    return Option(
         name = name ?: "",
         value = value?.toMessage()
     )
+}
 
 private fun Option.jsonMarshalImpl(json: Json): String =
     json.stringify(Option.JsonMapper.serializer(), toJsonMapper())

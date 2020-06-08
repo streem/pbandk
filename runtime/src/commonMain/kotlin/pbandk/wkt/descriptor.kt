@@ -1094,10 +1094,11 @@ private fun FileDescriptorSet.toJsonMapperImpl(): FileDescriptorSet.JsonMapper =
         file.map { it.toJsonMapper() }
     )
 
-private fun FileDescriptorSet.JsonMapper.toMessageImpl(): FileDescriptorSet =
-    FileDescriptorSet(
+private fun FileDescriptorSet.JsonMapper.toMessageImpl(): FileDescriptorSet {
+    return FileDescriptorSet(
         file = file.map { it.toMessage() }
     )
+}
 
 private fun FileDescriptorSet.jsonMarshalImpl(json: Json): String =
     json.stringify(FileDescriptorSet.JsonMapper.serializer(), toJsonMapper())
@@ -1208,8 +1209,8 @@ private fun FileDescriptorProto.toJsonMapperImpl(): FileDescriptorProto.JsonMapp
         syntax
     )
 
-private fun FileDescriptorProto.JsonMapper.toMessageImpl(): FileDescriptorProto =
-    FileDescriptorProto(
+private fun FileDescriptorProto.JsonMapper.toMessageImpl(): FileDescriptorProto {
+    return FileDescriptorProto(
         name = name ?: null,
         `package` = `package` ?: null,
         dependency = dependency ?: emptyList(),
@@ -1223,6 +1224,7 @@ private fun FileDescriptorProto.JsonMapper.toMessageImpl(): FileDescriptorProto 
         sourceCodeInfo = sourceCodeInfo?.toMessage(),
         syntax = syntax ?: null
     )
+}
 
 private fun FileDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(FileDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1321,8 +1323,8 @@ private fun DescriptorProto.toJsonMapperImpl(): DescriptorProto.JsonMapper =
         reservedName
     )
 
-private fun DescriptorProto.JsonMapper.toMessageImpl(): DescriptorProto =
-    DescriptorProto(
+private fun DescriptorProto.JsonMapper.toMessageImpl(): DescriptorProto {
+    return DescriptorProto(
         name = name ?: null,
         field = field.map { it.toMessage() },
         extension = extension.map { it.toMessage() },
@@ -1334,6 +1336,7 @@ private fun DescriptorProto.JsonMapper.toMessageImpl(): DescriptorProto =
         reservedRange = reservedRange.map { it.toMessage() },
         reservedName = reservedName ?: emptyList()
     )
+}
 
 private fun DescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(DescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1388,12 +1391,13 @@ private fun DescriptorProto.ExtensionRange.toJsonMapperImpl(): DescriptorProto.E
         options?.toJsonMapper()
     )
 
-private fun DescriptorProto.ExtensionRange.JsonMapper.toMessageImpl(): DescriptorProto.ExtensionRange =
-    DescriptorProto.ExtensionRange(
+private fun DescriptorProto.ExtensionRange.JsonMapper.toMessageImpl(): DescriptorProto.ExtensionRange {
+    return DescriptorProto.ExtensionRange(
         start = start ?: null,
         end = end ?: null,
         options = options?.toMessage()
     )
+}
 
 private fun DescriptorProto.ExtensionRange.jsonMarshalImpl(json: Json): String =
     json.stringify(DescriptorProto.ExtensionRange.JsonMapper.serializer(), toJsonMapper())
@@ -1442,11 +1446,12 @@ private fun DescriptorProto.ReservedRange.toJsonMapperImpl(): DescriptorProto.Re
         end
     )
 
-private fun DescriptorProto.ReservedRange.JsonMapper.toMessageImpl(): DescriptorProto.ReservedRange =
-    DescriptorProto.ReservedRange(
+private fun DescriptorProto.ReservedRange.JsonMapper.toMessageImpl(): DescriptorProto.ReservedRange {
+    return DescriptorProto.ReservedRange(
         start = start ?: null,
         end = end ?: null
     )
+}
 
 private fun DescriptorProto.ReservedRange.jsonMarshalImpl(json: Json): String =
     json.stringify(DescriptorProto.ReservedRange.JsonMapper.serializer(), toJsonMapper())
@@ -1489,10 +1494,11 @@ private fun ExtensionRangeOptions.toJsonMapperImpl(): ExtensionRangeOptions.Json
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun ExtensionRangeOptions.JsonMapper.toMessageImpl(): ExtensionRangeOptions =
-    ExtensionRangeOptions(
+private fun ExtensionRangeOptions.JsonMapper.toMessageImpl(): ExtensionRangeOptions {
+    return ExtensionRangeOptions(
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun ExtensionRangeOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(ExtensionRangeOptions.JsonMapper.serializer(), toJsonMapper())
@@ -1591,8 +1597,8 @@ private fun FieldDescriptorProto.toJsonMapperImpl(): FieldDescriptorProto.JsonMa
         jsonName
     )
 
-private fun FieldDescriptorProto.JsonMapper.toMessageImpl(): FieldDescriptorProto =
-    FieldDescriptorProto(
+private fun FieldDescriptorProto.JsonMapper.toMessageImpl(): FieldDescriptorProto {
+    return FieldDescriptorProto(
         name = name ?: null,
         number = number ?: null,
         label = label?.let { pbandk.wkt.FieldDescriptorProto.Label.fromName(it) } ?: null,
@@ -1604,6 +1610,7 @@ private fun FieldDescriptorProto.JsonMapper.toMessageImpl(): FieldDescriptorProt
         jsonName = jsonName ?: null,
         options = options?.toMessage()
     )
+}
 
 private fun FieldDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(FieldDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1652,11 +1659,12 @@ private fun OneofDescriptorProto.toJsonMapperImpl(): OneofDescriptorProto.JsonMa
         options?.toJsonMapper()
     )
 
-private fun OneofDescriptorProto.JsonMapper.toMessageImpl(): OneofDescriptorProto =
-    OneofDescriptorProto(
+private fun OneofDescriptorProto.JsonMapper.toMessageImpl(): OneofDescriptorProto {
+    return OneofDescriptorProto(
         name = name ?: null,
         options = options?.toMessage()
     )
+}
 
 private fun OneofDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(OneofDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1724,14 +1732,15 @@ private fun EnumDescriptorProto.toJsonMapperImpl(): EnumDescriptorProto.JsonMapp
         reservedName
     )
 
-private fun EnumDescriptorProto.JsonMapper.toMessageImpl(): EnumDescriptorProto =
-    EnumDescriptorProto(
+private fun EnumDescriptorProto.JsonMapper.toMessageImpl(): EnumDescriptorProto {
+    return EnumDescriptorProto(
         name = name ?: null,
         value = value.map { it.toMessage() },
         options = options?.toMessage(),
         reservedRange = reservedRange.map { it.toMessage() },
         reservedName = reservedName ?: emptyList()
     )
+}
 
 private fun EnumDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(EnumDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1780,11 +1789,12 @@ private fun EnumDescriptorProto.EnumReservedRange.toJsonMapperImpl(): EnumDescri
         end
     )
 
-private fun EnumDescriptorProto.EnumReservedRange.JsonMapper.toMessageImpl(): EnumDescriptorProto.EnumReservedRange =
-    EnumDescriptorProto.EnumReservedRange(
+private fun EnumDescriptorProto.EnumReservedRange.JsonMapper.toMessageImpl(): EnumDescriptorProto.EnumReservedRange {
+    return EnumDescriptorProto.EnumReservedRange(
         start = start ?: null,
         end = end ?: null
     )
+}
 
 private fun EnumDescriptorProto.EnumReservedRange.jsonMarshalImpl(json: Json): String =
     json.stringify(EnumDescriptorProto.EnumReservedRange.JsonMapper.serializer(), toJsonMapper())
@@ -1839,12 +1849,13 @@ private fun EnumValueDescriptorProto.toJsonMapperImpl(): EnumValueDescriptorProt
         options?.toJsonMapper()
     )
 
-private fun EnumValueDescriptorProto.JsonMapper.toMessageImpl(): EnumValueDescriptorProto =
-    EnumValueDescriptorProto(
+private fun EnumValueDescriptorProto.JsonMapper.toMessageImpl(): EnumValueDescriptorProto {
+    return EnumValueDescriptorProto(
         name = name ?: null,
         number = number ?: null,
         options = options?.toMessage()
     )
+}
 
 private fun EnumValueDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(EnumValueDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1899,12 +1910,13 @@ private fun ServiceDescriptorProto.toJsonMapperImpl(): ServiceDescriptorProto.Js
         options?.toJsonMapper()
     )
 
-private fun ServiceDescriptorProto.JsonMapper.toMessageImpl(): ServiceDescriptorProto =
-    ServiceDescriptorProto(
+private fun ServiceDescriptorProto.JsonMapper.toMessageImpl(): ServiceDescriptorProto {
+    return ServiceDescriptorProto(
         name = name ?: null,
         method = method.map { it.toMessage() },
         options = options?.toMessage()
     )
+}
 
 private fun ServiceDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(ServiceDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -1978,8 +1990,8 @@ private fun MethodDescriptorProto.toJsonMapperImpl(): MethodDescriptorProto.Json
         serverStreaming
     )
 
-private fun MethodDescriptorProto.JsonMapper.toMessageImpl(): MethodDescriptorProto =
-    MethodDescriptorProto(
+private fun MethodDescriptorProto.JsonMapper.toMessageImpl(): MethodDescriptorProto {
+    return MethodDescriptorProto(
         name = name ?: null,
         inputType = inputType ?: null,
         outputType = outputType ?: null,
@@ -1987,6 +1999,7 @@ private fun MethodDescriptorProto.JsonMapper.toMessageImpl(): MethodDescriptorPr
         clientStreaming = clientStreaming ?: null,
         serverStreaming = serverStreaming ?: null
     )
+}
 
 private fun MethodDescriptorProto.jsonMarshalImpl(json: Json): String =
     json.stringify(MethodDescriptorProto.JsonMapper.serializer(), toJsonMapper())
@@ -2154,8 +2167,8 @@ private fun FileOptions.toJsonMapperImpl(): FileOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun FileOptions.JsonMapper.toMessageImpl(): FileOptions =
-    FileOptions(
+private fun FileOptions.JsonMapper.toMessageImpl(): FileOptions {
+    return FileOptions(
         javaPackage = javaPackage ?: null,
         javaOuterClassname = javaOuterClassname ?: null,
         javaMultipleFiles = javaMultipleFiles ?: null,
@@ -2178,6 +2191,7 @@ private fun FileOptions.JsonMapper.toMessageImpl(): FileOptions =
         rubyPackage = rubyPackage ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun FileOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(FileOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2245,14 +2259,15 @@ private fun MessageOptions.toJsonMapperImpl(): MessageOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun MessageOptions.JsonMapper.toMessageImpl(): MessageOptions =
-    MessageOptions(
+private fun MessageOptions.JsonMapper.toMessageImpl(): MessageOptions {
+    return MessageOptions(
         messageSetWireFormat = messageSetWireFormat ?: null,
         noStandardDescriptorAccessor = noStandardDescriptorAccessor ?: null,
         deprecated = deprecated ?: null,
         mapEntry = mapEntry ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun MessageOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(MessageOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2332,8 +2347,8 @@ private fun FieldOptions.toJsonMapperImpl(): FieldOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun FieldOptions.JsonMapper.toMessageImpl(): FieldOptions =
-    FieldOptions(
+private fun FieldOptions.JsonMapper.toMessageImpl(): FieldOptions {
+    return FieldOptions(
         ctype = ctype?.let { pbandk.wkt.FieldOptions.CType.fromName(it) } ?: null,
         packed = packed ?: null,
         jstype = jstype?.let { pbandk.wkt.FieldOptions.JSType.fromName(it) } ?: null,
@@ -2342,6 +2357,7 @@ private fun FieldOptions.JsonMapper.toMessageImpl(): FieldOptions =
         weak = weak ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun FieldOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(FieldOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2384,10 +2400,11 @@ private fun OneofOptions.toJsonMapperImpl(): OneofOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun OneofOptions.JsonMapper.toMessageImpl(): OneofOptions =
-    OneofOptions(
+private fun OneofOptions.JsonMapper.toMessageImpl(): OneofOptions {
+    return OneofOptions(
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun OneofOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(OneofOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2442,12 +2459,13 @@ private fun EnumOptions.toJsonMapperImpl(): EnumOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun EnumOptions.JsonMapper.toMessageImpl(): EnumOptions =
-    EnumOptions(
+private fun EnumOptions.JsonMapper.toMessageImpl(): EnumOptions {
+    return EnumOptions(
         allowAlias = allowAlias ?: null,
         deprecated = deprecated ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun EnumOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(EnumOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2496,11 +2514,12 @@ private fun EnumValueOptions.toJsonMapperImpl(): EnumValueOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun EnumValueOptions.JsonMapper.toMessageImpl(): EnumValueOptions =
-    EnumValueOptions(
+private fun EnumValueOptions.JsonMapper.toMessageImpl(): EnumValueOptions {
+    return EnumValueOptions(
         deprecated = deprecated ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun EnumValueOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(EnumValueOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2549,11 +2568,12 @@ private fun ServiceOptions.toJsonMapperImpl(): ServiceOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun ServiceOptions.JsonMapper.toMessageImpl(): ServiceOptions =
-    ServiceOptions(
+private fun ServiceOptions.JsonMapper.toMessageImpl(): ServiceOptions {
+    return ServiceOptions(
         deprecated = deprecated ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun ServiceOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(ServiceOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2608,12 +2628,13 @@ private fun MethodOptions.toJsonMapperImpl(): MethodOptions.JsonMapper =
         uninterpretedOption.map { it.toJsonMapper() }
     )
 
-private fun MethodOptions.JsonMapper.toMessageImpl(): MethodOptions =
-    MethodOptions(
+private fun MethodOptions.JsonMapper.toMessageImpl(): MethodOptions {
+    return MethodOptions(
         deprecated = deprecated ?: null,
         idempotencyLevel = idempotencyLevel?.let { pbandk.wkt.MethodOptions.IdempotencyLevel.fromName(it) } ?: null,
         uninterpretedOption = uninterpretedOption.map { it.toMessage() }
     )
+}
 
 private fun MethodOptions.jsonMarshalImpl(json: Json): String =
     json.stringify(MethodOptions.JsonMapper.serializer(), toJsonMapper())
@@ -2693,8 +2714,8 @@ private fun UninterpretedOption.toJsonMapperImpl(): UninterpretedOption.JsonMapp
         aggregateValue
     )
 
-private fun UninterpretedOption.JsonMapper.toMessageImpl(): UninterpretedOption =
-    UninterpretedOption(
+private fun UninterpretedOption.JsonMapper.toMessageImpl(): UninterpretedOption {
+    return UninterpretedOption(
         name = name.map { it.toMessage() },
         identifierValue = identifierValue ?: null,
         positiveIntValue = positiveIntValue ?: null,
@@ -2703,6 +2724,7 @@ private fun UninterpretedOption.JsonMapper.toMessageImpl(): UninterpretedOption 
         stringValue = stringValue ?: null,
         aggregateValue = aggregateValue ?: null
     )
+}
 
 private fun UninterpretedOption.jsonMarshalImpl(json: Json): String =
     json.stringify(UninterpretedOption.JsonMapper.serializer(), toJsonMapper())
@@ -2749,11 +2771,12 @@ private fun UninterpretedOption.NamePart.toJsonMapperImpl(): UninterpretedOption
         isExtension
     )
 
-private fun UninterpretedOption.NamePart.JsonMapper.toMessageImpl(): UninterpretedOption.NamePart =
-    UninterpretedOption.NamePart(
+private fun UninterpretedOption.NamePart.JsonMapper.toMessageImpl(): UninterpretedOption.NamePart {
+    return UninterpretedOption.NamePart(
         namePart = namePart ?: "",
         isExtension = isExtension ?: false
     )
+}
 
 private fun UninterpretedOption.NamePart.jsonMarshalImpl(json: Json): String =
     json.stringify(UninterpretedOption.NamePart.JsonMapper.serializer(), toJsonMapper())
@@ -2796,10 +2819,11 @@ private fun SourceCodeInfo.toJsonMapperImpl(): SourceCodeInfo.JsonMapper =
         location.map { it.toJsonMapper() }
     )
 
-private fun SourceCodeInfo.JsonMapper.toMessageImpl(): SourceCodeInfo =
-    SourceCodeInfo(
+private fun SourceCodeInfo.JsonMapper.toMessageImpl(): SourceCodeInfo {
+    return SourceCodeInfo(
         location = location.map { it.toMessage() }
     )
+}
 
 private fun SourceCodeInfo.jsonMarshalImpl(json: Json): String =
     json.stringify(SourceCodeInfo.JsonMapper.serializer(), toJsonMapper())
@@ -2867,14 +2891,15 @@ private fun SourceCodeInfo.Location.toJsonMapperImpl(): SourceCodeInfo.Location.
         leadingDetachedComments
     )
 
-private fun SourceCodeInfo.Location.JsonMapper.toMessageImpl(): SourceCodeInfo.Location =
-    SourceCodeInfo.Location(
+private fun SourceCodeInfo.Location.JsonMapper.toMessageImpl(): SourceCodeInfo.Location {
+    return SourceCodeInfo.Location(
         path = path ?: emptyList(),
         span = span ?: emptyList(),
         leadingComments = leadingComments ?: null,
         trailingComments = trailingComments ?: null,
         leadingDetachedComments = leadingDetachedComments ?: emptyList()
     )
+}
 
 private fun SourceCodeInfo.Location.jsonMarshalImpl(json: Json): String =
     json.stringify(SourceCodeInfo.Location.JsonMapper.serializer(), toJsonMapper())
@@ -2917,10 +2942,11 @@ private fun GeneratedCodeInfo.toJsonMapperImpl(): GeneratedCodeInfo.JsonMapper =
         annotation.map { it.toJsonMapper() }
     )
 
-private fun GeneratedCodeInfo.JsonMapper.toMessageImpl(): GeneratedCodeInfo =
-    GeneratedCodeInfo(
+private fun GeneratedCodeInfo.JsonMapper.toMessageImpl(): GeneratedCodeInfo {
+    return GeneratedCodeInfo(
         annotation = annotation.map { it.toMessage() }
     )
+}
 
 private fun GeneratedCodeInfo.jsonMarshalImpl(json: Json): String =
     json.stringify(GeneratedCodeInfo.JsonMapper.serializer(), toJsonMapper())
@@ -2981,13 +3007,14 @@ private fun GeneratedCodeInfo.Annotation.toJsonMapperImpl(): GeneratedCodeInfo.A
         end
     )
 
-private fun GeneratedCodeInfo.Annotation.JsonMapper.toMessageImpl(): GeneratedCodeInfo.Annotation =
-    GeneratedCodeInfo.Annotation(
+private fun GeneratedCodeInfo.Annotation.JsonMapper.toMessageImpl(): GeneratedCodeInfo.Annotation {
+    return GeneratedCodeInfo.Annotation(
         path = path ?: emptyList(),
         sourceFile = sourceFile ?: null,
         begin = begin ?: null,
         end = end ?: null
     )
+}
 
 private fun GeneratedCodeInfo.Annotation.jsonMarshalImpl(json: Json): String =
     json.stringify(GeneratedCodeInfo.Annotation.JsonMapper.serializer(), toJsonMapper())

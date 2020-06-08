@@ -62,10 +62,11 @@ private fun FieldMask.toJsonMapperImpl(): FieldMask.JsonMapper =
         paths
     )
 
-private fun FieldMask.JsonMapper.toMessageImpl(): FieldMask =
-    FieldMask(
+private fun FieldMask.JsonMapper.toMessageImpl(): FieldMask {
+    return FieldMask(
         paths = paths ?: emptyList()
     )
+}
 
 private fun FieldMask.jsonMarshalImpl(json: Json): String =
     json.stringify(FieldMask.JsonMapper.serializer(), toJsonMapper())

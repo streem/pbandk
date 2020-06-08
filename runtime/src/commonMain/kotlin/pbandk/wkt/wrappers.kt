@@ -253,10 +253,11 @@ private fun DoubleValue.toJsonMapperImpl(): DoubleValue.JsonMapper =
         value
     )
 
-private fun DoubleValue.JsonMapper.toMessageImpl(): DoubleValue =
-    DoubleValue(
+private fun DoubleValue.JsonMapper.toMessageImpl(): DoubleValue {
+    return DoubleValue(
         value = value ?: 0.0
     )
+}
 
 private fun DoubleValue.jsonMarshalImpl(json: Json): String =
     json.stringify(DoubleValue.JsonMapper.serializer(), toJsonMapper())
@@ -298,10 +299,11 @@ private fun FloatValue.toJsonMapperImpl(): FloatValue.JsonMapper =
         value
     )
 
-private fun FloatValue.JsonMapper.toMessageImpl(): FloatValue =
-    FloatValue(
+private fun FloatValue.JsonMapper.toMessageImpl(): FloatValue {
+    return FloatValue(
         value = value ?: 0.0F
     )
+}
 
 private fun FloatValue.jsonMarshalImpl(json: Json): String =
     json.stringify(FloatValue.JsonMapper.serializer(), toJsonMapper())
@@ -343,10 +345,11 @@ private fun Int64Value.toJsonMapperImpl(): Int64Value.JsonMapper =
         value
     )
 
-private fun Int64Value.JsonMapper.toMessageImpl(): Int64Value =
-    Int64Value(
+private fun Int64Value.JsonMapper.toMessageImpl(): Int64Value {
+    return Int64Value(
         value = value ?: 0L
     )
+}
 
 private fun Int64Value.jsonMarshalImpl(json: Json): String =
     json.stringify(Int64Value.JsonMapper.serializer(), toJsonMapper())
@@ -388,10 +391,11 @@ private fun UInt64Value.toJsonMapperImpl(): UInt64Value.JsonMapper =
         value
     )
 
-private fun UInt64Value.JsonMapper.toMessageImpl(): UInt64Value =
-    UInt64Value(
+private fun UInt64Value.JsonMapper.toMessageImpl(): UInt64Value {
+    return UInt64Value(
         value = value ?: 0L
     )
+}
 
 private fun UInt64Value.jsonMarshalImpl(json: Json): String =
     json.stringify(UInt64Value.JsonMapper.serializer(), toJsonMapper())
@@ -433,10 +437,11 @@ private fun Int32Value.toJsonMapperImpl(): Int32Value.JsonMapper =
         value
     )
 
-private fun Int32Value.JsonMapper.toMessageImpl(): Int32Value =
-    Int32Value(
+private fun Int32Value.JsonMapper.toMessageImpl(): Int32Value {
+    return Int32Value(
         value = value ?: 0
     )
+}
 
 private fun Int32Value.jsonMarshalImpl(json: Json): String =
     json.stringify(Int32Value.JsonMapper.serializer(), toJsonMapper())
@@ -478,10 +483,11 @@ private fun UInt32Value.toJsonMapperImpl(): UInt32Value.JsonMapper =
         value
     )
 
-private fun UInt32Value.JsonMapper.toMessageImpl(): UInt32Value =
-    UInt32Value(
+private fun UInt32Value.JsonMapper.toMessageImpl(): UInt32Value {
+    return UInt32Value(
         value = value ?: 0
     )
+}
 
 private fun UInt32Value.jsonMarshalImpl(json: Json): String =
     json.stringify(UInt32Value.JsonMapper.serializer(), toJsonMapper())
@@ -523,10 +529,11 @@ private fun BoolValue.toJsonMapperImpl(): BoolValue.JsonMapper =
         value
     )
 
-private fun BoolValue.JsonMapper.toMessageImpl(): BoolValue =
-    BoolValue(
+private fun BoolValue.JsonMapper.toMessageImpl(): BoolValue {
+    return BoolValue(
         value = value ?: false
     )
+}
 
 private fun BoolValue.jsonMarshalImpl(json: Json): String =
     json.stringify(BoolValue.JsonMapper.serializer(), toJsonMapper())
@@ -568,10 +575,11 @@ private fun StringValue.toJsonMapperImpl(): StringValue.JsonMapper =
         value.takeIf { it != "" }
     )
 
-private fun StringValue.JsonMapper.toMessageImpl(): StringValue =
-    StringValue(
+private fun StringValue.JsonMapper.toMessageImpl(): StringValue {
+    return StringValue(
         value = value ?: ""
     )
+}
 
 private fun StringValue.jsonMarshalImpl(json: Json): String =
     json.stringify(StringValue.JsonMapper.serializer(), toJsonMapper())
@@ -613,10 +621,11 @@ private fun BytesValue.toJsonMapperImpl(): BytesValue.JsonMapper =
         value
     )
 
-private fun BytesValue.JsonMapper.toMessageImpl(): BytesValue =
-    BytesValue(
+private fun BytesValue.JsonMapper.toMessageImpl(): BytesValue {
+    return BytesValue(
         value = value ?: pbandk.ByteArr.empty
     )
+}
 
 private fun BytesValue.jsonMarshalImpl(json: Json): String =
     json.stringify(BytesValue.JsonMapper.serializer(), toJsonMapper())

@@ -69,11 +69,12 @@ private fun Duration.toJsonMapperImpl(): Duration.JsonMapper =
         nanos
     )
 
-private fun Duration.JsonMapper.toMessageImpl(): Duration =
-    Duration(
+private fun Duration.JsonMapper.toMessageImpl(): Duration {
+    return Duration(
         seconds = seconds ?: 0L,
         nanos = nanos ?: 0
     )
+}
 
 private fun Duration.jsonMarshalImpl(json: Json): String =
     json.stringify(Duration.JsonMapper.serializer(), toJsonMapper())
