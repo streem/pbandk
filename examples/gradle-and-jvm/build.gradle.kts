@@ -9,7 +9,7 @@ plugins {
 }
 
 val kotlinxSerializationVersion by extra("0.20.0")
-val protobufVersion by extra(val protobufVersion = "3.11.1")
+val protobufVersion by extra("3.11.1")
 val pbandkVersion by extra("0.8.2-SNAPSHOT")
 
 repositories {

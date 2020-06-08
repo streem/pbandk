@@ -10,7 +10,7 @@ plugins {
 val pbandkVersion: String by rootProject.extra
 val kotlinxSerializationVersion by extra("0.20.0")
 val kotlinxCoroutinesVersion by extra("1.3.6")
-val protobufVersion by extra(val protobufVersion = "3.11.1")
+val protobufVersion by extra("3.11.1")
 
 application {
     mainClassName = "pbandk.examples.greeter.MainKt"
