@@ -140,10 +140,10 @@ private fun Version.protoMergeImpl(plus: Version?): Version = plus?.copy(
 
 private fun Version.protoSizeImpl(): Int {
     var protoSize = 0
-    if (major != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(major)
-    if (minor != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(minor)
-    if (patch != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(patch)
-    if (suffix != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(suffix)
+    if (major != null) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(major)
+    if (minor != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.int32Size(minor)
+    if (patch != null) protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.int32Size(patch)
+    if (suffix != null) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.stringSize(suffix)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -207,10 +207,10 @@ private fun CodeGeneratorRequest.protoMergeImpl(plus: CodeGeneratorRequest?): Co
 
 private fun CodeGeneratorRequest.protoSizeImpl(): Int {
     var protoSize = 0
-    if (fileToGenerate.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * fileToGenerate.size) + fileToGenerate.sumBy(pbandk.Sizer::stringSize)
-    if (parameter != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(parameter)
-    if (protoFile.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(15) * protoFile.size) + protoFile.sumBy(pbandk.Sizer::messageSize)
-    if (compilerVersion != null) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.messageSize(compilerVersion)
+    if (fileToGenerate.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(1) * fileToGenerate.size) + fileToGenerate.sumBy(pbandk.SizerImpl::stringSize)
+    if (parameter != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(parameter)
+    if (protoFile.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(15) * protoFile.size) + protoFile.sumBy(pbandk.SizerImpl::messageSize)
+    if (compilerVersion != null) protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.messageSize(compilerVersion)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -272,8 +272,8 @@ private fun CodeGeneratorResponse.protoMergeImpl(plus: CodeGeneratorResponse?): 
 
 private fun CodeGeneratorResponse.protoSizeImpl(): Int {
     var protoSize = 0
-    if (error != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(error)
-    if (file.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(15) * file.size) + file.sumBy(pbandk.Sizer::messageSize)
+    if (error != null) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(error)
+    if (file.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(15) * file.size) + file.sumBy(pbandk.SizerImpl::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -326,9 +326,9 @@ private fun CodeGeneratorResponse.File.protoMergeImpl(plus: CodeGeneratorRespons
 
 private fun CodeGeneratorResponse.File.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (insertionPoint != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(insertionPoint)
-    if (content != null) protoSize += pbandk.Sizer.tagSize(15) + pbandk.Sizer.stringSize(content)
+    if (name != null) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (insertionPoint != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(insertionPoint)
+    if (content != null) protoSize += pbandk.SizerImpl.tagSize(15) + pbandk.SizerImpl.stringSize(content)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

@@ -229,7 +229,7 @@ private fun DoubleValue.protoMergeImpl(plus: DoubleValue?): DoubleValue = plus?.
 
 private fun DoubleValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value != 0.0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.doubleSize(value)
+    if (value != 0.0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.doubleSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -274,7 +274,7 @@ private fun FloatValue.protoMergeImpl(plus: FloatValue?): FloatValue = plus?.cop
 
 private fun FloatValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value != 0.0F) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.floatSize(value)
+    if (value != 0.0F) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.floatSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -319,7 +319,7 @@ private fun Int64Value.protoMergeImpl(plus: Int64Value?): Int64Value = plus?.cop
 
 private fun Int64Value.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int64Size(value)
+    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -364,7 +364,7 @@ private fun UInt64Value.protoMergeImpl(plus: UInt64Value?): UInt64Value = plus?.
 
 private fun UInt64Value.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.uInt64Size(value)
+    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.uInt64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -409,7 +409,7 @@ private fun Int32Value.protoMergeImpl(plus: Int32Value?): Int32Value = plus?.cop
 
 private fun Int32Value.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(value)
+    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -454,7 +454,7 @@ private fun UInt32Value.protoMergeImpl(plus: UInt32Value?): UInt32Value = plus?.
 
 private fun UInt32Value.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.uInt32Size(value)
+    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.uInt32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -499,7 +499,7 @@ private fun BoolValue.protoMergeImpl(plus: BoolValue?): BoolValue = plus?.copy(
 
 private fun BoolValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(value)
+    if (value) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.boolSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -544,7 +544,7 @@ private fun StringValue.protoMergeImpl(plus: StringValue?): StringValue = plus?.
 
 private fun StringValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(value)
+    if (value.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -589,7 +589,7 @@ private fun BytesValue.protoMergeImpl(plus: BytesValue?): BytesValue = plus?.cop
 
 private fun BytesValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (value.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.bytesSize(value)
+    if (value.array.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.bytesSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

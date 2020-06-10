@@ -1,6 +1,6 @@
 package pbandk
 
-actual object Sizer: pbandk.impl.Sizer(), SizerInterface
+actual object SizerImpl: pbandk.impl.SizerImpl(), SizerInterface
 actual typealias UtilImpl = pbandk.impl.UtilImpl
 
 internal actual fun unmarshallerByteArray(arr: ByteArray): Unmarshaller =

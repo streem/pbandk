@@ -38,7 +38,7 @@ private fun FieldMask.protoMergeImpl(plus: FieldMask?): FieldMask = plus?.copy(
 
 private fun FieldMask.protoSizeImpl(): Int {
     var protoSize = 0
-    if (paths.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * paths.size) + paths.sumBy(pbandk.Sizer::stringSize)
+    if (paths.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(1) * paths.size) + paths.sumBy(pbandk.SizerImpl::stringSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

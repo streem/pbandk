@@ -267,12 +267,12 @@ private fun Type.protoMergeImpl(plus: Type?): Type = plus?.copy(
 
 private fun Type.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (fields.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * fields.size) + fields.sumBy(pbandk.Sizer::messageSize)
-    if (oneofs.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * oneofs.size) + oneofs.sumBy(pbandk.Sizer::stringSize)
-    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(4) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
-    if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(sourceContext)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.enumSize(syntax)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (fields.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(2) * fields.size) + fields.sumBy(pbandk.SizerImpl::messageSize)
+    if (oneofs.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(3) * oneofs.size) + oneofs.sumBy(pbandk.SizerImpl::stringSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(4) * options.size) + options.sumBy(pbandk.SizerImpl::messageSize)
+    if (sourceContext != null) protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.messageSize(sourceContext)
+    if (syntax.value != 0) protoSize += pbandk.SizerImpl.tagSize(6) + pbandk.SizerImpl.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -344,16 +344,16 @@ private fun Field.protoMergeImpl(plus: Field?): Field = plus?.copy(
 
 private fun Field.protoSizeImpl(): Int {
     var protoSize = 0
-    if (kind.value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind)
-    if (cardinality.value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.enumSize(cardinality)
-    if (number != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.int32Size(number)
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(name)
-    if (typeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(typeUrl)
-    if (oneofIndex != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.int32Size(oneofIndex)
-    if (packed) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.boolSize(packed)
-    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(9) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
-    if (jsonName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.stringSize(jsonName)
-    if (defaultValue.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(11) + pbandk.Sizer.stringSize(defaultValue)
+    if (kind.value != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.enumSize(kind)
+    if (cardinality.value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.enumSize(cardinality)
+    if (number != 0) protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.int32Size(number)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.stringSize(name)
+    if (typeUrl.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(6) + pbandk.SizerImpl.stringSize(typeUrl)
+    if (oneofIndex != 0) protoSize += pbandk.SizerImpl.tagSize(7) + pbandk.SizerImpl.int32Size(oneofIndex)
+    if (packed) protoSize += pbandk.SizerImpl.tagSize(8) + pbandk.SizerImpl.boolSize(packed)
+    if (options.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(9) * options.size) + options.sumBy(pbandk.SizerImpl::messageSize)
+    if (jsonName.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(10) + pbandk.SizerImpl.stringSize(jsonName)
+    if (defaultValue.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(11) + pbandk.SizerImpl.stringSize(defaultValue)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -448,11 +448,11 @@ private fun Enum.protoMergeImpl(plus: Enum?): Enum = plus?.copy(
 
 private fun Enum.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (enumvalue.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * enumvalue.size) + enumvalue.sumBy(pbandk.Sizer::messageSize)
-    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
-    if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.messageSize(sourceContext)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(syntax)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (enumvalue.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(2) * enumvalue.size) + enumvalue.sumBy(pbandk.SizerImpl::messageSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(3) * options.size) + options.sumBy(pbandk.SizerImpl::messageSize)
+    if (sourceContext != null) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.messageSize(sourceContext)
+    if (syntax.value != 0) protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -519,9 +519,9 @@ private fun EnumValue.protoMergeImpl(plus: EnumValue?): EnumValue = plus?.copy(
 
 private fun EnumValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (number != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(number)
-    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (number != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.int32Size(number)
+    if (options.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(3) * options.size) + options.sumBy(pbandk.SizerImpl::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -577,8 +577,8 @@ private fun Option.protoMergeImpl(plus: Option?): Option = plus?.copy(
 
 private fun Option.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (value != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(value)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (value != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.messageSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

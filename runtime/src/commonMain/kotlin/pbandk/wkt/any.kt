@@ -40,8 +40,8 @@ private fun Any.protoMergeImpl(plus: Any?): Any = plus?.copy(
 
 private fun Any.protoSizeImpl(): Int {
     var protoSize = 0
-    if (typeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(typeUrl)
-    if (value.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.bytesSize(value)
+    if (typeUrl.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(typeUrl)
+    if (value.array.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.bytesSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

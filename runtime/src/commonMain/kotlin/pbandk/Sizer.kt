@@ -27,4 +27,4 @@ interface SizerInterface {
     ): Int
 }
 
-expect object Sizer : SizerInterface
+expect object SizerImpl : SizerInterface

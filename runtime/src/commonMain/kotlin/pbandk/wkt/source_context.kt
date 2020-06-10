@@ -37,7 +37,7 @@ private fun SourceContext.protoMergeImpl(plus: SourceContext?): SourceContext = 
 
 private fun SourceContext.protoSizeImpl(): Int {
     var protoSize = 0
-    if (fileName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(fileName)
+    if (fileName.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(fileName)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

@@ -128,13 +128,13 @@ private fun Api.protoMergeImpl(plus: Api?): Api = plus?.copy(
 
 private fun Api.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (methods.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * methods.size) + methods.sumBy(pbandk.Sizer::messageSize)
-    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(3) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
-    if (version.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(version)
-    if (sourceContext != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(sourceContext)
-    if (mixins.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(6) * mixins.size) + mixins.sumBy(pbandk.Sizer::messageSize)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.enumSize(syntax)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (methods.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(2) * methods.size) + methods.sumBy(pbandk.SizerImpl::messageSize)
+    if (options.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(3) * options.size) + options.sumBy(pbandk.SizerImpl::messageSize)
+    if (version.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.stringSize(version)
+    if (sourceContext != null) protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.messageSize(sourceContext)
+    if (mixins.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(6) * mixins.size) + mixins.sumBy(pbandk.SizerImpl::messageSize)
+    if (syntax.value != 0) protoSize += pbandk.SizerImpl.tagSize(7) + pbandk.SizerImpl.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -211,13 +211,13 @@ private fun Method.protoMergeImpl(plus: Method?): Method = plus?.copy(
 
 private fun Method.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (requestTypeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(requestTypeUrl)
-    if (requestStreaming) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.boolSize(requestStreaming)
-    if (responseTypeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(responseTypeUrl)
-    if (responseStreaming) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.boolSize(responseStreaming)
-    if (options.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(6) * options.size) + options.sumBy(pbandk.Sizer::messageSize)
-    if (syntax.value != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.enumSize(syntax)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (requestTypeUrl.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(requestTypeUrl)
+    if (requestStreaming) protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.boolSize(requestStreaming)
+    if (responseTypeUrl.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.stringSize(responseTypeUrl)
+    if (responseStreaming) protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.boolSize(responseStreaming)
+    if (options.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(6) * options.size) + options.sumBy(pbandk.SizerImpl::messageSize)
+    if (syntax.value != 0) protoSize += pbandk.SizerImpl.tagSize(7) + pbandk.SizerImpl.enumSize(syntax)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -293,8 +293,8 @@ private fun Mixin.protoMergeImpl(plus: Mixin?): Mixin = plus?.copy(
 
 private fun Mixin.protoSizeImpl(): Int {
     var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (root.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(root)
+    if (name.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(name)
+    if (root.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(root)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

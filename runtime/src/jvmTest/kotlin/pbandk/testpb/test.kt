@@ -139,7 +139,7 @@ private fun Foo.protoMergeImpl(plus: Foo?): Foo = plus?.copy(
 
 private fun Foo.protoSizeImpl(): Int {
     var protoSize = 0
-    if (`val`.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(`val`)
+    if (`val`.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(`val`)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -185,7 +185,7 @@ private fun Bar.protoMergeImpl(plus: Bar?): Bar = plus?.copy(
 
 private fun Bar.protoSizeImpl(): Int {
     var protoSize = 0
-    if (foos.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * foos.size) + foos.sumBy(pbandk.Sizer::messageSize)
+    if (foos.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(1) * foos.size) + foos.sumBy(pbandk.SizerImpl::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -231,7 +231,7 @@ private fun MessageWithMap.protoMergeImpl(plus: MessageWithMap?): MessageWithMap
 
 private fun MessageWithMap.protoSizeImpl(): Int {
     var protoSize = 0
-    if (map.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(1, map, pbandk.testpb.MessageWithMap::MapEntry)
+    if (map.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(1, map, pbandk.testpb.MessageWithMap::MapEntry)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -276,8 +276,8 @@ private fun MessageWithMap.MapEntry.protoMergeImpl(plus: MessageWithMap.MapEntry
 
 private fun MessageWithMap.MapEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
-    if (value.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
+    if (value.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -329,8 +329,8 @@ private fun Wrappers.protoMergeImpl(plus: Wrappers?): Wrappers = plus?.copy(
 
 private fun Wrappers.protoSizeImpl(): Int {
     var protoSize = 0
-    if (stringValue != null) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.messageSize(pbandk.wkt.StringValue(stringValue))
-    if (uint64Values.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(2) * uint64Values.size) + uint64Values.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.UInt64Value(it)) }
+    if (stringValue != null) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.messageSize(pbandk.wkt.StringValue(stringValue))
+    if (uint64Values.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(2) * uint64Values.size) + uint64Values.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.UInt64Value(it)) }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
