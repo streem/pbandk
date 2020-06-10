@@ -1,6 +1,6 @@
 package pbandk
 
-interface SizerInterface {
+interface Sizer {
     fun tagSize(fieldNum: Int): Int
     fun doubleSize(value: Double): Int
     fun floatSize(value: Float): Int
@@ -27,4 +27,4 @@ interface SizerInterface {
     ): Int
 }
 
-expect object SizerImpl : SizerInterface
+expect object SizerImpl : Sizer

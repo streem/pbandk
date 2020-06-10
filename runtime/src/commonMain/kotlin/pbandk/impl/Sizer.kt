@@ -2,7 +2,7 @@ package pbandk.impl
 
 import pbandk.*
 
-open class SizerImpl : SizerInterface {
+open class SizerImpl : Sizer {
     override fun stringSize(value: String): Int {
         val len = UtilImpl.utf8Len(value)
         return uInt32Size(len) + len
