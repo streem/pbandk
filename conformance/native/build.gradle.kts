@@ -34,21 +34,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-            }
-        }
-
-        val nativeMain by creating {
-            dependencies {
                 api(project(":conformance:lib"))
             }
-        }
-
-        val linuxMain by getting {
-            dependsOn(nativeMain)
-        }
-
-        val macosMain by getting {
-            dependsOn(nativeMain)
         }
     }
 }
