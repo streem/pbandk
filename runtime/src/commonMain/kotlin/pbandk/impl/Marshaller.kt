@@ -51,19 +51,12 @@ class ByteArrayMarshaller private constructor(private val backingBytes: ByteArra
 
 abstract class AbstractMarshaller : pbandk.Marshaller {
     abstract fun writeRawBytes(arr: ByteArray, offset: Int, len: Int)
-    private fun encodeZigZag32(n: Int): Int {
-        // Note:  the right-shift must be arithmetic
-        return (n shl 1) xor (n shr 31)
-    }
-    private fun encodeZigZag64(n: Long): Long {
-        // Note:  the right-shift must be arithmetic
-        return (n shl 1) xor (n shr 63)
-    }
+
     override fun writeSInt32(value: Int) {
-        writeUInt32(encodeZigZag32(value))
+        writeUInt32(value.zigZagEncoded)
     }
     override fun writeSInt64(value: Long) {
-        writeUInt64(encodeZigZag64(value))
+        writeUInt64(value.zigZagEncoded)
     }
     override fun writeBool(value: Boolean) = writeRawBytes(byteArrayOf(
             if (value) 1 else 0

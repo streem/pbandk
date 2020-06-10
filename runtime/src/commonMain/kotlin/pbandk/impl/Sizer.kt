@@ -67,7 +67,4 @@ open class Sizer : SizerInterface {
     override fun sFixed64Size(@Suppress("UNUSED_PARAMETER") value: Long) = 8
     override fun boolSize(@Suppress("UNUSED_PARAMETER") value: Boolean) = 1
     override fun bytesSize(value: ByteArr) = uInt32Size(value.array.size) + value.array.size
-
-    val Int.zigZagEncoded get() = (this shl 1) xor (this shr 31)
-    val Long.zigZagEncoded get() = (this shl 1) xor (this shr 63)
 }
