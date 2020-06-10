@@ -370,7 +370,7 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:assembleDist :protoc-gen-kotlin:macos:installDist
+./gradlew :protoc-gen-kotlin:jvm:assembleDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -379,7 +379,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:installDist :protoc-gen-kotlin:macos:installDist
+./gradlew :protoc-gen-kotlin:jvm:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
