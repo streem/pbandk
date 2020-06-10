@@ -449,8 +449,7 @@ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 Now, back in `pbandk`, build all JS. JVM and native projects via:
 
 ```
-./gradlew \
-./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:installDist
+./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:build
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).
