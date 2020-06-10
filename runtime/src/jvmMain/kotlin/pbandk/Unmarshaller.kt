@@ -7,7 +7,7 @@ class CodedStreamUnmarshaller(val stream: CodedInputStream,
                               val discardUnknownFields: Boolean = false): Unmarshaller {
     var currentUnknownFields = if (discardUnknownFields) null else mutableMapOf<Int, UnknownField>()
 
-    override fun getTotalBytesRead(): Int = stream.totalBytesRead
+    override val totalBytesRead: Int = stream.totalBytesRead
     override fun readTag() = stream.readTag()
     override fun readDouble() = stream.readDouble()
     override fun readFloat() = stream.readFloat()

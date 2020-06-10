@@ -60,11 +60,12 @@ class ByteArrayUnmarshallerInputStream (private val arr: ByteArray): Unmarshalle
 
 open class Unmarshaller(val stream: UnmarshallerInputStream,
                         val discardUnknownFields: Boolean = false) : pbandk.Unmarshaller {
-    override fun getTotalBytesRead(): Int = consumed
 
     private var lastTag: Int = 0
     private var consumed: Int = 0
     private var curLimit: Int? = null
+
+    override val totalBytesRead: Int = consumed
     var currentUnknownFields = if (discardUnknownFields) null else mutableMapOf<Int, UnknownField>()
 
     private fun decodeZigZag32(n: Int): Int = n.ushr(1) xor -(n and 1)

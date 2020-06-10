@@ -14,7 +14,8 @@ class Unmarshaller(val r: Reader, val discardUnknownFields: Boolean = false): pb
         return lastTag
     }
 
-    override fun getTotalBytesRead(): Int = r.pos
+    override val totalBytesRead: Int = r.pos
+
     override fun readDouble() = r.double()
     override fun readFloat() = r.float()
     override fun readInt32() = r.int32()

@@ -1,7 +1,8 @@
 package pbandk
 
 interface Unmarshaller {
-    fun getTotalBytesRead(): Int
+    val totalBytesRead: Int
+
     // 0 means there is no next tag
     fun readTag(): Int
     fun readDouble(): Double
