@@ -40,7 +40,7 @@ package pbandk.impl
  *
  * @author kenton@google.com Kenton Varda
  */
-object WireFormat {
+internal object WireFormat {
     internal const val FIXED32_SIZE = 4
     internal const val FIXED64_SIZE = 8
     internal const val MAX_VARINT32_SIZE = 5
