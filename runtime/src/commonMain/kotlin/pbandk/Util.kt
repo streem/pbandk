@@ -2,7 +2,7 @@ package pbandk
 
 import pbandk.wkt.Timestamp
 
-interface UtilInterface {
+interface Util {
     fun stringToUtf8(str: String): ByteArray
     fun utf8ToString(bytes: ByteArray): String
 
@@ -13,4 +13,4 @@ interface UtilInterface {
     fun stringToTimestamp(str: String): Timestamp.JsonMapper
 }
 
-expect object UtilImpl : UtilInterface
+expect object UtilImpl : Util

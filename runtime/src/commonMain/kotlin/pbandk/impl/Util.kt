@@ -29,7 +29,7 @@
 
 package pbandk.impl
 
-import pbandk.UtilInterface
+import pbandk.Util
 import pbandk.wkt.Timestamp
 
 private class CodePointIterator (private val s: String): Iterator<Int> {
@@ -54,7 +54,7 @@ private class CodePointIterable (private val s: String): Iterable<Int> {
     override fun iterator(): Iterator<Int> = CodePointIterator(s)
 }
 
-object UtilImpl : UtilInterface {
+object UtilImpl : Util {
     override fun stringToUtf8(str: String): ByteArray {
         val output = ByteArray(utf8Len(str))
         var pos = 0

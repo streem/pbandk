@@ -1,5 +1,6 @@
 package pbandk.protobufjs
 
+import pbandk.Util
 import pbandk.asUint8Array
 import pbandk.wkt.Timestamp
 import kotlin.js.Date
@@ -15,7 +16,7 @@ val Long.protobufjsLong: dynamic
 
 fun Long.Companion.fromProtobufjsLong(l: dynamic) = js("Kotlin").Long.fromBits(l.low, l.high) as Long
 
-object Util : pbandk.UtilInterface {
+object Util : Util {
     override fun stringToUtf8(str: String) = ByteArray(util.utf8.length(str)).also { util.utf8.write(str, it.asUint8Array(), 0) }
     override fun utf8ToString(bytes: ByteArray) = bytes.asUint8Array().let { util.utf8.read(it, 0, it.length) }
 
