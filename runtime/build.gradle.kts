@@ -28,7 +28,7 @@ kotlin {
     
     sourceSets {
         val commonMain by getting {
-            this.dependencies {
+            dependencies {
                 implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
             }
