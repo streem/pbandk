@@ -4,13 +4,15 @@ plugins {
     kotlin("multiplatform")
 }
 
+val executableBaseName = "conformance"
+val executableEntryPoint = "pbandk.conformance.main"
+
 kotlin {
     linuxX64("linux") {
         binaries {
             executable {
-                baseName = "conformance"
-
-                entryPoint = "pbandk.conformance.main"
+                baseName = executableBaseName
+                entryPoint = executableEntryPoint
 
                 runTask?.args("")
             }
@@ -20,9 +22,8 @@ kotlin {
     macosX64("macos") {
         binaries {
             executable {
-                baseName = "conformance"
-
-                entryPoint = "pbandk.conformance.main"
+                baseName = executableBaseName
+                entryPoint = executableEntryPoint
 
                 runTask?.args("")
             }
