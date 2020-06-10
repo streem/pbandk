@@ -172,6 +172,24 @@ jobs:
             export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
             ./conformance/test-conformance.sh js
 
+  conformance_native:
+    executor:
+      name: native
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - restore_cache:
+          name: Restore protobuf cache
+          keys:
+            - v3-protobuf-3.10.1
+
+      - run:
+          name: Run Native conformance tests
+          command: |
+            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+            ./conformance/test-conformance.sh linux
 
   build_examples:
     executor:
@@ -221,24 +239,6 @@ jobs:
           key: v1-examples-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
           when: always
 
-conformance_native:
-    executor:
-      name: native
-
-    steps:
-      - attach_workspace:
-          at: ~/project
-
-      - restore_cache:
-          name: Restore protobuf cache
-          keys:
-            - v3-protobuf-3.10.1
-
-      - run:
-          name: Run Native conformance tests
-          command: |
-            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./conformance/test-conformance.sh linux
 
 workflows:
   version: 2.1
@@ -251,7 +251,7 @@ workflows:
       - conformance_js:
           requires:
             - build
-- conformance_native:
+      - conformance_native:
           requires:
             - build
       - build_examples:
