@@ -20,7 +20,6 @@ executors:
     docker:
       - image: cimg/base:2020.01
 
-
 jobs:
 
   build:
@@ -95,6 +94,18 @@ jobs:
             fi
 
       - run:
+          name: Publish artifacts to local maven repository
+          command: |
+            ./gradlew publishToMavenLocal
+            echo "Published files:"
+            find $HOME/.m2/repository -type f
+
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - .m2/repository
+
+      - run:
           name: Build conformance test suite
           command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:build
 
@@ -161,7 +172,56 @@ jobs:
             export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
             ./conformance/test-conformance.sh js
 
-  conformance_native:
+
+  build_examples:
+    executor:
+      name: jvm
+
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/project
+
+      - run:
+          name: Setup local maven repository
+          command: mv .m2 $HOME/
+
+      - run:
+          name: Collect files for dependencies cache key
+          command: |
+            find ./examples -name '*.gradle*' -type f -print0 \
+            | sort -z \
+            | xargs -0 cat \
+            > /tmp/circleci_cache_key
+
+      - restore_cache:
+          name: Restore dependencies cache
+          keys:
+            - v1-examples-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-examples-dependencies-
+
+      - run:
+          name: Build all examples
+          command: |
+            for d in examples/*; do
+              set -e
+              [ -d "$d" ] || continue
+              echo "== $d =="
+              pushd "$d" >/dev/null
+              ../../gradlew build
+              popd >/dev/null
+            done
+
+      - save_cache:
+          name: Save dependencies cache
+          paths:
+            - ~/.gradle
+          key: v1-examples-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
+          when: always
+
+conformance_native:
     executor:
       name: native
 
@@ -191,6 +251,9 @@ workflows:
       - conformance_js:
           requires:
             - build
-      - conformance_native:
+- conformance_native:
+          requires:
+            - build
+      - build_examples:
           requires:
             - build

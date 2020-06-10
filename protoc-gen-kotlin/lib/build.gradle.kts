@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
+    `maven-publish`
 }
 
 kotlin {
@@ -50,6 +51,7 @@ kotlin {
         }
 
         val macosX64Main by getting {
+//      }
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
             }
@@ -63,5 +65,15 @@ tasks {
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
+    }
+}
+
+publishing {
+    publications.withType<MavenPublication>().configureEach {
+        artifactId = "protoc-gen-kotlin-$artifactId"
+        description = "Library for pbandk protoc plugin plugins"
+        pom {
+            configureForPbandk()
+        }
     }
 }

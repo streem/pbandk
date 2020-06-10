@@ -100,7 +100,7 @@ tasks {
         logLevel.set("debug")
     }
 
-    // DCE is now enable by default in Kotlin 1.3.70/71
+    // DCE is now enable by default in Kotlin 1.3.7x
     // and it doesn't work well with commonJS modules
     // Use of commonJs could be removed since default module is now UMD
     // but would require some code change

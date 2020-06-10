@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [ -z "$CONF_TEST_PATH" ]; then
     echo "Need to set CONF_TEST_PATH to conformance-test-runner"
     exit 1
