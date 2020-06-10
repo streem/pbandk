@@ -126,10 +126,10 @@ abstract class AbstractMarshaller : pbandk.Marshaller {
         writeBytes(value = ByteArr(Util.stringToUtf8(value)))
     }
     override fun writeFloat(value: Float) {
-        writeFixed32(value.toBits())
+        writeFixed32(value.toRawBits())
     }
     override fun writeDouble(value: Double) {
-        writeFixed64(value.toBits())
+        writeFixed64(value.toRawBits())
     }
 
     private fun writeTag(fieldNum: Int, wireType: Int) = also { writeUInt32((fieldNum shl 3) or wireType) }
