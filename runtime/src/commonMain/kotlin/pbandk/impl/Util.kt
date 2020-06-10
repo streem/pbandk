@@ -54,7 +54,7 @@ private class CodePointIterable (private val s: String): Iterable<Int> {
     override fun iterator(): Iterator<Int> = CodePointIterator(s)
 }
 
-object Util : UtilInterface {
+object UtilImpl : UtilInterface {
     override fun stringToUtf8(str: String): ByteArray {
         val output = ByteArray(utf8Len(str))
         var pos = 0

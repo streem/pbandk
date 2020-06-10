@@ -137,7 +137,7 @@ open class Unmarshaller(val stream: UnmarshallerInputStream,
         return lastTag
     }
 
-    override fun readString() = Util.utf8ToString(readBytes().array)
+    override fun readString() = UtilImpl.utf8ToString(readBytes().array)
     override fun readBytes() = ByteArr(readRawBytes(readRawVarint32()))
 
     override fun <T : Message.Enum> readEnum(s: Message.Enum.Companion<T>) = s.fromValue(readEnum())

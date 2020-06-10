@@ -10,7 +10,7 @@ data class UnknownField(val fieldNum: Int, val value: Value) {
     constructor(fieldNum: Int, value: ByteArray) :
         this(fieldNum, Value.LengthDelimited(ByteArr(value)))
     constructor(fieldNum: Int, value: String) :
-        this(fieldNum, Value.LengthDelimited(ByteArr(Util.stringToUtf8(value))))
+        this(fieldNum, Value.LengthDelimited(ByteArr(UtilImpl.stringToUtf8(value))))
 
     fun size() =
         if (value is Value.Composite) (Sizer.tagSize(fieldNum) * value.values.size) + value.size()

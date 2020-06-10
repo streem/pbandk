@@ -13,10 +13,10 @@ class ByteArr(val array: ByteArray) {
         val empty = ByteArr(ByteArray(0))
 
         override fun serialize(encoder: Encoder, obj: ByteArr) =
-            encoder.encodeString(Util.bytesToBase64(obj.array))
+            encoder.encodeString(UtilImpl.bytesToBase64(obj.array))
 
         @UseExperimental(ExperimentalStdlibApi::class)
         override fun deserialize(decoder: Decoder) =
-            ByteArr(Util.base64ToBytes(decoder.decodeString()))
+            ByteArr(UtilImpl.base64ToBytes(decoder.decodeString()))
     }
 }

@@ -10,7 +10,7 @@ inline fun Uint8Array.asByteArray() =
 
 actual typealias Sizer = pbandk.protobufjs.Sizer
 
-actual typealias Util = pbandk.protobufjs.Util
+actual typealias UtilImpl = pbandk.protobufjs.Util
 
 fun Unmarshaller(r: pbandk.protobufjs.Reader, discardUnknownFields: Boolean = false)
         = pbandk.protobufjs.Unmarshaller(r = r, discardUnknownFields = discardUnknownFields)

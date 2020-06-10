@@ -13,4 +13,4 @@ interface UtilInterface {
     fun stringToTimestamp(str: String): Timestamp.JsonMapper
 }
 
-expect object Util : UtilInterface
+expect object UtilImpl : UtilInterface

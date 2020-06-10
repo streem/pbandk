@@ -4,7 +4,7 @@ import pbandk.*
 
 open class Sizer : SizerInterface {
     override fun stringSize(value: String): Int {
-        val len = Util.utf8Len(value)
+        val len = UtilImpl.utf8Len(value)
         return uInt32Size(len) + len
     }
 
