@@ -13,12 +13,6 @@ kotlin {
         }
     }
 
-    // For ARM, should be changed to iosArm32 or iosArm64
-    // For Linux, should be changed to e.g. linuxX64
-    // For MacOS, should be changed to e.g. macosX64
-    // For Windows, should be changed to e.g. mingwX64
-    macosX64()
-
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -47,13 +41,6 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.12")
-            }
-        }
-
-        val macosX64Main by getting {
-//      }
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
             }
         }
     }
