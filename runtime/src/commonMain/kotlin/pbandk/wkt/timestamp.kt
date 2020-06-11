@@ -69,11 +69,12 @@ private fun Timestamp.toJsonMapperImpl(): Timestamp.JsonMapper =
         nanos
     )
 
-private fun Timestamp.JsonMapper.toMessageImpl(): Timestamp =
-    Timestamp(
+private fun Timestamp.JsonMapper.toMessageImpl(): Timestamp {
+    return Timestamp(
         seconds = seconds ?: 0L,
         nanos = nanos ?: 0
     )
+}
 
 private fun Timestamp.jsonMarshalImpl(json: Json): String =
     json.stringify(Timestamp.JsonMapper.serializer(), toJsonMapper())

@@ -252,10 +252,11 @@ private fun FailureSet.toJsonMapperImpl(): FailureSet.JsonMapper =
         failure
     )
 
-private fun FailureSet.JsonMapper.toMessageImpl(): FailureSet =
-    FailureSet(
+private fun FailureSet.JsonMapper.toMessageImpl(): FailureSet {
+    return FailureSet(
         failure = failure ?: emptyList()
     )
+}
 
 private fun FailureSet.jsonMarshalImpl(json: Json): String =
     json.stringify(FailureSet.JsonMapper.serializer(), toJsonMapper())
@@ -339,19 +340,21 @@ private fun ConformanceRequest.toJsonMapperImpl(): ConformanceRequest.JsonMapper
         printUnknownFields
     )
 
-private fun ConformanceRequest.JsonMapper.toMessageImpl(): ConformanceRequest =
-    ConformanceRequest(
+private fun ConformanceRequest.JsonMapper.toMessageImpl(): ConformanceRequest {
+    var payload: ConformanceRequest.Payload<*>? = null
+    if (payload == null && protobufPayload != null) { payload = ConformanceRequest.Payload.ProtobufPayload(protobufPayload) }
+    if (payload == null && jsonPayload != null) { payload = ConformanceRequest.Payload.JsonPayload(jsonPayload) }
+    if (payload == null && jspbPayload != null) { payload = ConformanceRequest.Payload.JspbPayload(jspbPayload) }
+    if (payload == null && textPayload != null) { payload = ConformanceRequest.Payload.TextPayload(textPayload) }
+    return ConformanceRequest(
         requestedOutputFormat = requestedOutputFormat?.let { pbandk.conformance.pb.WireFormat.fromName(it) } ?: pbandk.conformance.pb.WireFormat.fromValue(0),
         messageType = messageType ?: "",
         testCategory = testCategory?.let { pbandk.conformance.pb.TestCategory.fromName(it) } ?: pbandk.conformance.pb.TestCategory.fromValue(0),
         jspbEncodingOptions = jspbEncodingOptions?.toMessage(),
         printUnknownFields = printUnknownFields ?: false,
-        payload = 
-            protobufPayload?.let { value -> ConformanceRequest.Payload.ProtobufPayload(value) }
-             ?: jsonPayload?.let { value -> ConformanceRequest.Payload.JsonPayload(value) }
-             ?: jspbPayload?.let { value -> ConformanceRequest.Payload.JspbPayload(value) }
-             ?: textPayload?.let { value -> ConformanceRequest.Payload.TextPayload(value) }
+        payload = payload
     )
+}
 
 private fun ConformanceRequest.jsonMarshalImpl(json: Json): String =
     json.stringify(ConformanceRequest.JsonMapper.serializer(), toJsonMapper())
@@ -424,18 +427,20 @@ private fun ConformanceResponse.toJsonMapperImpl(): ConformanceResponse.JsonMapp
         textPayload.takeIf { it != "" }
     )
 
-private fun ConformanceResponse.JsonMapper.toMessageImpl(): ConformanceResponse =
-    ConformanceResponse(
-        result = 
-            parseError?.let { value -> ConformanceResponse.Result.ParseError(value) }
-             ?: serializeError?.let { value -> ConformanceResponse.Result.SerializeError(value) }
-             ?: runtimeError?.let { value -> ConformanceResponse.Result.RuntimeError(value) }
-             ?: protobufPayload?.let { value -> ConformanceResponse.Result.ProtobufPayload(value) }
-             ?: jsonPayload?.let { value -> ConformanceResponse.Result.JsonPayload(value) }
-             ?: skipped?.let { value -> ConformanceResponse.Result.Skipped(value) }
-             ?: jspbPayload?.let { value -> ConformanceResponse.Result.JspbPayload(value) }
-             ?: textPayload?.let { value -> ConformanceResponse.Result.TextPayload(value) }
+private fun ConformanceResponse.JsonMapper.toMessageImpl(): ConformanceResponse {
+    var result: ConformanceResponse.Result<*>? = null
+    if (result == null && parseError != null) { result = ConformanceResponse.Result.ParseError(parseError) }
+    if (result == null && serializeError != null) { result = ConformanceResponse.Result.SerializeError(serializeError) }
+    if (result == null && runtimeError != null) { result = ConformanceResponse.Result.RuntimeError(runtimeError) }
+    if (result == null && protobufPayload != null) { result = ConformanceResponse.Result.ProtobufPayload(protobufPayload) }
+    if (result == null && jsonPayload != null) { result = ConformanceResponse.Result.JsonPayload(jsonPayload) }
+    if (result == null && skipped != null) { result = ConformanceResponse.Result.Skipped(skipped) }
+    if (result == null && jspbPayload != null) { result = ConformanceResponse.Result.JspbPayload(jspbPayload) }
+    if (result == null && textPayload != null) { result = ConformanceResponse.Result.TextPayload(textPayload) }
+    return ConformanceResponse(
+        result = result
     )
+}
 
 private fun ConformanceResponse.jsonMarshalImpl(json: Json): String =
     json.stringify(ConformanceResponse.JsonMapper.serializer(), toJsonMapper())
@@ -477,10 +482,11 @@ private fun JspbEncodingConfig.toJsonMapperImpl(): JspbEncodingConfig.JsonMapper
         useJspbArrayAnyFormat
     )
 
-private fun JspbEncodingConfig.JsonMapper.toMessageImpl(): JspbEncodingConfig =
-    JspbEncodingConfig(
+private fun JspbEncodingConfig.JsonMapper.toMessageImpl(): JspbEncodingConfig {
+    return JspbEncodingConfig(
         useJspbArrayAnyFormat = useJspbArrayAnyFormat ?: false
     )
+}
 
 private fun JspbEncodingConfig.jsonMarshalImpl(json: Json): String =
     json.stringify(JspbEncodingConfig.JsonMapper.serializer(), toJsonMapper())

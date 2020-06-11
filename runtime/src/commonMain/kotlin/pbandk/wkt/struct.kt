@@ -184,10 +184,11 @@ private fun Struct.toJsonMapperImpl(): Struct.JsonMapper =
         fields.mapValues { it.value?.toJsonMapper() }
     )
 
-private fun Struct.JsonMapper.toMessageImpl(): Struct =
-    Struct(
+private fun Struct.JsonMapper.toMessageImpl(): Struct {
+    return Struct(
         fields = fields.mapValues { it.value?.toMessage() }
     )
+}
 
 private fun Struct.jsonMarshalImpl(json: Json): String =
     json.stringify(Struct.JsonMapper.serializer(), toJsonMapper())
@@ -235,11 +236,12 @@ private fun Struct.FieldsEntry.toJsonMapperImpl(): Struct.FieldsEntry.JsonMapper
         value?.toJsonMapper()
     )
 
-private fun Struct.FieldsEntry.JsonMapper.toMessageImpl(): Struct.FieldsEntry =
-    Struct.FieldsEntry(
+private fun Struct.FieldsEntry.JsonMapper.toMessageImpl(): Struct.FieldsEntry {
+    return Struct.FieldsEntry(
         key = key ?: "",
         value = value?.toMessage()
     )
+}
 
 private fun Struct.FieldsEntry.jsonMarshalImpl(json: Json): String =
     json.stringify(Struct.FieldsEntry.JsonMapper.serializer(), toJsonMapper())
@@ -311,16 +313,18 @@ private fun Value.toJsonMapperImpl(): Value.JsonMapper =
         listValue?.toJsonMapper()
     )
 
-private fun Value.JsonMapper.toMessageImpl(): Value =
-    Value(
-        kind = 
-            nullValue?.let { value -> Value.Kind.NullValue(value.let { pbandk.wkt.NullValue.fromName(it) }) }
-             ?: numberValue?.let { value -> Value.Kind.NumberValue(value) }
-             ?: stringValue?.let { value -> Value.Kind.StringValue(value) }
-             ?: boolValue?.let { value -> Value.Kind.BoolValue(value) }
-             ?: structValue?.let { value -> Value.Kind.StructValue(value.toMessage()) }
-             ?: listValue?.let { value -> Value.Kind.ListValue(value.toMessage()) }
+private fun Value.JsonMapper.toMessageImpl(): Value {
+    var kind: Value.Kind<*>? = null
+    if (kind == null && nullValue != null) { kind = Value.Kind.NullValue(nullValue.let { pbandk.wkt.NullValue.fromName(it) }) }
+    if (kind == null && numberValue != null) { kind = Value.Kind.NumberValue(numberValue) }
+    if (kind == null && stringValue != null) { kind = Value.Kind.StringValue(stringValue) }
+    if (kind == null && boolValue != null) { kind = Value.Kind.BoolValue(boolValue) }
+    if (kind == null && structValue != null) { kind = Value.Kind.StructValue(structValue.toMessage()) }
+    if (kind == null && listValue != null) { kind = Value.Kind.ListValue(listValue.toMessage()) }
+    return Value(
+        kind = kind
     )
+}
 
 private fun Value.jsonMarshalImpl(json: Json): String =
     json.stringify(Value.JsonMapper.serializer(), toJsonMapper())
@@ -363,10 +367,11 @@ private fun ListValue.toJsonMapperImpl(): ListValue.JsonMapper =
         values.map { it.toJsonMapper() }
     )
 
-private fun ListValue.JsonMapper.toMessageImpl(): ListValue =
-    ListValue(
+private fun ListValue.JsonMapper.toMessageImpl(): ListValue {
+    return ListValue(
         values = values.map { it.toMessage() }
     )
+}
 
 private fun ListValue.jsonMarshalImpl(json: Json): String =
     json.stringify(ListValue.JsonMapper.serializer(), toJsonMapper())

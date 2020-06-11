@@ -69,11 +69,12 @@ private fun Any.toJsonMapperImpl(): Any.JsonMapper =
         value
     )
 
-private fun Any.JsonMapper.toMessageImpl(): Any =
-    Any(
+private fun Any.JsonMapper.toMessageImpl(): Any {
+    return Any(
         typeUrl = typeUrl ?: "",
         value = value ?: pbandk.ByteArr.empty
     )
+}
 
 private fun Any.jsonMarshalImpl(json: Json): String =
     json.stringify(Any.JsonMapper.serializer(), toJsonMapper())
