@@ -33,32 +33,24 @@ package pbandk.impl
 import pbandk.*
 import pbandk.impl.WireFormat.MAX_VARINT_SIZE
 
-
-// Implementations are responsible for buffering
-interface UnmarshallerInputStream {
-    fun read(length: Int): ByteArray
-    fun isAtEnd(): Boolean
-    fun skipRawBytes(len: Int)
-}
-
-class ByteArrayUnmarshallerInputStream (private val arr: ByteArray): UnmarshallerInputStream {
+class ByteArrayUnmarshallerInputStream (private val arr: ByteArray) {
     private var pos = 0
-    override fun read(length: Int): ByteArray {
+    fun read(length: Int): ByteArray {
         if (pos + length > arr.size)
             throw InvalidProtocolBufferException.truncatedMessage()
         val ret = arr.sliceArray(pos until pos + length)
         pos += length
         return ret
     }
-    override fun isAtEnd(): Boolean = pos == arr.size
-    override fun skipRawBytes(len: Int) {
+    fun isAtEnd(): Boolean = pos == arr.size
+    fun skipRawBytes(len: Int) {
         pos += len
         if (pos > arr.size)
             throw InvalidProtocolBufferException.truncatedMessage()
     }
 }
 
-open class Unmarshaller(val stream: UnmarshallerInputStream,
+open class Unmarshaller(val stream: ByteArrayUnmarshallerInputStream,
                         val discardUnknownFields: Boolean = false) : pbandk.Unmarshaller {
 
     private var lastTag: Int = 0

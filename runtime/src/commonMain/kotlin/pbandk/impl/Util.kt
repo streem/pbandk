@@ -39,7 +39,7 @@ private class CodePointIterator (private val s: String): Iterator<Int> {
 
     override fun next(): Int {
         if (pos >= s.length) throw NoSuchElementException()
-        
+
         val v = s[pos++]
         if (v.isHighSurrogate() && pos < s.length) {
             val l = s[pos]
