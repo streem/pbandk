@@ -7,13 +7,7 @@ var logDebug = false
 inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
 fun main(args: Array<String>) {
-    // Read the request from stdin and write response into stdout
-    try {
-        Platform.stdoutWriteResponse(runGenerator(Platform.stdinReadRequest()))
-    } catch (e: Exception) {
-        Platform.stderrPrintln("Caught exception $e")
-        throw e
-    }
+    Platform.stdoutWriteResponse(runGenerator(Platform.stdinReadRequest()))
 }
 
 fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
