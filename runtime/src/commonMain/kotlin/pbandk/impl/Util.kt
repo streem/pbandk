@@ -39,9 +39,9 @@ private class CodePointIterator (private val s: String): Iterator<Int> {
 
     override fun next(): Int {
         val v = s[pos++]
-        if (v in 0xD800.toChar()..0xDBFF.toChar() && pos < s.length) {
+        if (v.isHighSurrogate() && pos < s.length) {
             val l = s[pos]
-            if (l in 0xDC00.toChar()..0xDFFF.toChar()) {
+            if (l.isLowSurrogate()) {
                 pos++
                 return 0x10000 + (v - 0xD800).toInt() * 0x400 + (l - 0xDC00).toInt()
             }
