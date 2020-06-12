@@ -57,65 +57,11 @@ private class CodePointIterable (private val s: String): Iterable<Int> {
 }
 
 object UtilImpl : Util {
-    override fun stringToUtf8(str: String): ByteArray {
-        val output = ByteArray(utf8Len(str))
-        var pos = 0
-        CodePointIterator(str).forEach {
-            when (it) {
-                in 0..0x7f -> output[pos++] = it.toByte()
-                in 0x80..0x7ff -> {
-                    output[pos++] = (0xc0 or ((it shr 6) and 0x1f)).toByte()
-                    output[pos++] = (0x80 or (it and 0x3f)).toByte()
-                }
-                in 0x800..0xffff -> {
-                    output[pos++] = (0xe0 or ((it shr 12) and 0xf)).toByte()
-                    output[pos++] = (0x80 or ((it shr 6) and 0x3f)).toByte()
-                    output[pos++] = (0x80 or (it and 0x3f)).toByte()
-                }
-                else -> {
-                    output[pos++] = (0xf0 or ((it shr 18) and 0x7)).toByte()
-                    output[pos++] = (0x80 or ((it shr 12) and 0x3f)).toByte()
-                    output[pos++] = (0x80 or ((it shr 6) and 0x3f)).toByte()
-                    output[pos++] = (0x80 or (it and 0x3f)).toByte()
-                }
-            }
-        }
-        return output
-    }
-    override fun utf8ToString(bytes: ByteArray): String {
-        var pos = 0
-        val ret = StringBuilder()
-        while (pos < bytes.size) {
-            val codePoint: Int
-            when (bytes[pos].toInt() and 0xff) {
-                in 0..0x7f -> {
-                    codePoint = bytes[pos].toInt()
-                    pos++
-                }
-                in 0xc0..0xdf -> {
-                    codePoint = decodeSeq(bytes, pos, 2)
-                    pos += 2
-                }
-                in 0xe0..0xef -> {
-                    codePoint = decodeSeq(bytes, pos, 3)
-                    pos += 3
-                }
-                in 0xf0..0xf7 -> {
-                    codePoint = decodeSeq(bytes, pos, 4)
-                    pos += 4
-                }
-                else -> throw InvalidUTF8Exception()
-            }
-            when (codePoint) {
-                in 0..0xffff -> ret.append(codePoint.toChar())
-                in 0x10000..0x10ffff -> ret.append(
-                        (((codePoint shr 10) and 0x3ff) or 0xDC00).toChar(),
-                        ((codePoint and 0x3ff) or 0xD800).toChar())
-                else -> throw InvalidUTF8Exception()
-            }
-        }
-        return ret.toString()
-    }
+    @OptIn(ExperimentalStdlibApi::class)
+    override fun stringToUtf8(str: String): ByteArray = str.encodeToByteArray()
+
+    @OptIn(ExperimentalStdlibApi::class)
+    override fun utf8ToString(bytes: ByteArray): String = bytes.decodeToString()
 
     @ExperimentalStdlibApi
     override fun base64ToBytes(str: String): ByteArray {
