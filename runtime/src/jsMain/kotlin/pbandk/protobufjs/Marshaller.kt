@@ -26,11 +26,9 @@ class Marshaller(val w: Writer, val expectedSize: Int) : AbstractMarshaller(), B
     override fun complete(): ByteArray = w.finish().asByteArray().also {
         require(it.size == expectedSize) { "Expected $expectedSize, got ${it.size}" }
     }
-    private fun writeRawBytesReal(value: ByteArray) {
-        w._push(Companion::writeBytes, value.size, value)
-    }
     override fun writeRawBytes(arr: ByteArray, offset: Int, len: Int) {
-        writeRawBytesReal(arr.sliceArray(offset until (offset + len)))
+        val convertedArray = arr.sliceArray(offset until (offset + len))
+        w._push(Companion::writeBytes, convertedArray.size, convertedArray)
     }
 
     companion object {
