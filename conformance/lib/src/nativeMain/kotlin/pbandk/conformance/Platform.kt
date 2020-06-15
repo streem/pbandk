@@ -38,6 +38,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.runBlocking
 
+internal class PosixException(val errno: Int) : RuntimeException(
+    strerror(errno)?.toString() ?: "Error with unknown errno: $errno"
+)
+
 actual object Platform {
     actual fun stderrPrintln(str: String) {
         val strn = str + "\n"
@@ -57,7 +61,12 @@ actual object Platform {
 
     private fun readBytes(fd: Int, arr: ByteArray): Int {
         arr.usePinned {
-            return read(fd, it.addressOf(0), arr.size.toULong()).toInt()
+            val bytesRead = read(fd, it.addressOf(0), arr.size.toULong())
+            if (bytesRead == -1L) {
+                throw PosixException(posix_errno())
+            }
+
+            return bytesRead.toInt()
         }
     }
 
@@ -72,7 +81,12 @@ actual object Platform {
 
     actual fun stdoutWriteFull(arr: ByteArray) {
         arr.usePinned {
-            write(1, it.addressOf(0), arr.size.toULong())
+            val bytesWritten = write(1, it.addressOf(0), arr.size.toULong())
+
+            if (bytesWritten.toInt() == -1) {
+                // errno
+                throw PosixException(posix_errno())
+            }
         }
     }
 
