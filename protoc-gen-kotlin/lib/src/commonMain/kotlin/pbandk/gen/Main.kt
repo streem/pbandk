@@ -49,7 +49,7 @@ fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
             val filePath = (file.kotlinPackageName?.replace('.', '/')?.plus('/') ?: "") +
                 fileNameSansPath.removeSuffix(".proto") + ".kt"
             debug { "Generating $filePath" }
-            val code = CodeGenerator(file, kotlinTypeMappings, params).generate()
+            val code = CodeGenerator(file = file, kotlinTypeMappings = kotlinTypeMappings, params = params).generate()
 
             // Do service gen if generator present
             var extraServiceCode = ""

@@ -22,6 +22,14 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
     @Optional
     val kotlinPackage: Property<String> = project.objects.property()
 
+    @Input
+    @Optional
+    val jsonGenerateSerializer: Property<Boolean> = project.objects.property()
+
+    @Input
+    @Optional
+    val jsonUseProtoNames: Property<Boolean> = project.objects.property()
+
     @Console
     val logLevel: Property<String> = project.objects.property()
 
@@ -49,12 +57,12 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
 
     override fun exec() {
         executable = protoc.get()
-
         // Build CLI args
         val kotlinOut = listOfNotNull(
             kotlinPackage.orNull.let { "kotlin_package=$it" },
             logLevel.orNull.let { "log=$it" },
-            "json_use_proto_names=true",
+            jsonUseProtoNames.orElse(true).get().let{ "json_use_proto_names=$it" },
+            jsonGenerateSerializer.orElse(true).get().let{ "json_generate_serializer=$it" },
             "empty_arg:${outputDir.get()}"
         )
         args(kotlinOut.joinToString(separator = ",", prefix = "--kotlin_out="))

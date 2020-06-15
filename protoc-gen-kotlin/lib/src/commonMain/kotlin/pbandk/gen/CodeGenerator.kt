@@ -1,10 +1,12 @@
 package pbandk.gen
 
 open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, String>, val params: Map<String, String>) {
+    private val jsonSerializerNotGeneratedException: String = "throw UnsupportedOperationException(\"Json serializer generation is disabled. [json_generate_serializer=false]\")"
     protected val bld = StringBuilder()
     protected var indent = ""
 
     protected val jsonUseProtoNames = params["json_use_proto_names"]?.toBoolean() ?: false
+    protected val jsonGenerateSerializer = params["json_generate_serializer"]?.toBoolean() ?: true
 
     fun generate(): String {
         line("@file:UseSerializers(pbandk.ser.TimestampSerializer::class)")
@@ -75,15 +77,26 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
             line("override operator fun plus(other: ${typeName}?) = protoMergeImpl(other)")
             line("override val protoSize by lazy { protoSizeImpl() }")
             line("override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)")
-            line("override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)")
-            line("fun toJsonMapper() = toJsonMapperImpl()")
+            if (jsonGenerateSerializer) {
+                line("override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)")
+                line("fun toJsonMapper() = toJsonMapperImpl()")
+            } else {
+                line("override fun jsonMarshal(json: Json): String { $jsonSerializerNotGeneratedException }")
+            }
             line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
                 line("val defaultInstance by lazy { ${typeName}() }")
                 line("override fun protoUnmarshal(u: pbandk.Unmarshaller) = ${typeName}.protoUnmarshalImpl(u)")
-                line("override fun jsonUnmarshal(json: Json, data: String) = ${typeName}.jsonUnmarshalImpl(json, data)")
+                if (jsonGenerateSerializer) {
+                    line("override fun jsonUnmarshal(json: Json, data: String) = ${typeName}.jsonUnmarshalImpl(json, data)")
+                } else {
+                    line("override fun jsonUnmarshal(json: Json, data: String): ${typeName} { $jsonSerializerNotGeneratedException }")
+
+                }
             }.line("}")
-            line()
-            writeJsonMapperClass(type)
+            if (jsonGenerateSerializer) {
+                line()
+                writeJsonMapperClass(type)
+            }
             // Nested enums and types
             type.nestedTypes.forEach { writeType(it,typeName) }
         }.line("}")
@@ -155,10 +168,12 @@ open class CodeGenerator(val file: File, val kotlinTypeMappings: Map<String, Str
         writeMessageSizeExtension(type, fullTypeName)
         writeMessageProtoMarshalExtension(type, fullTypeName)
         writeMessageProtoUnmarshalExtension(type, fullTypeName)
-        writeMessageToJsonMapperExtension(type, fullTypeName)
-        writeJsonMapperToMessageExtension(type, fullTypeName)
-        writeMessageJsonMarshalExtension(type, fullTypeName)
-        writeMessageJsonUnmarshalExtension(type, fullTypeName)
+        if (jsonGenerateSerializer) {
+            writeMessageToJsonMapperExtension(type, fullTypeName)
+            writeJsonMapperToMessageExtension(type, fullTypeName)
+            writeMessageJsonMarshalExtension(type, fullTypeName)
+            writeMessageJsonUnmarshalExtension(type, fullTypeName)
+        }
         type.nestedTypes.mapNotNull { it as? File.Type.Message }.forEach { writeMessageExtensions(it, fullTypeName) }
     }
 
