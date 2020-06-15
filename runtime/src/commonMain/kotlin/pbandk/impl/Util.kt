@@ -65,11 +65,12 @@ object UtilImpl : Util {
 
     @ExperimentalStdlibApi
     override fun base64ToBytes(str: String): ByteArray {
-        return str.encodeToByteArray()
+        return str.decodeBase64ToArray()
+            ?: throw RuntimeException("Unable to base64-decode string: $str")
     }
 
     override fun bytesToBase64(bytes: ByteArray): String {
-        return bytes.contentToString()
+        return utf8ToString(bytes.encodeBase64())
     }
 
     // Not sure this is a requirement for now
