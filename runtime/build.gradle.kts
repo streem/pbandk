@@ -1,5 +1,3 @@
-import java.nio.file.Paths
-
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
@@ -82,7 +80,6 @@ tasks {
             System.getProperty("protoc.path")
                 ?: throw InvalidUserDataException("System property protoc.path must be set")
         }.map { rootProject.layout.projectDirectory.dir(it) }
-
         includeDir.set(protocPath.map { it.dir("include") })
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.wkt")

@@ -49,6 +49,7 @@ protobuf {
             task.plugins {
                 id("kotlin") {
                     option("kotlin_package=pbandk.examples.addressbook.pb")
+//                    option("json_support=false")
                 }
             }
         }
