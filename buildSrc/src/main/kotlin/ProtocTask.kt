@@ -24,7 +24,7 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
 
     @Input
     @Optional
-    val jsonGenerateSerializer: Property<Boolean> = project.objects.property()
+    val jsonSupport: Property<Boolean> = project.objects.property()
 
     @Input
     @Optional
@@ -61,8 +61,8 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
         val kotlinOut = listOfNotNull(
             kotlinPackage.orNull.let { "kotlin_package=$it" },
             logLevel.orNull.let { "log=$it" },
-            jsonUseProtoNames.orElse(true).get().let{ "json_use_proto_names=$it" },
-            jsonGenerateSerializer.orElse(true).get().let{ "json_generate_serializer=$it" },
+            jsonUseProtoNames.getOrElse(true).let{ "json_use_proto_names=$it" },
+            jsonSupport.getOrElse(true).let{ "json_support=$it" },
             "empty_arg:${outputDir.get()}"
         )
         args(kotlinOut.joinToString(separator = ",", prefix = "--kotlin_out="))
