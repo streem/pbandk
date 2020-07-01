@@ -3,6 +3,8 @@ package pbandk.examples.browserjs
 import org.w3c.dom.*
 import pbandk.examples.browserjs.pb.AddressBook
 import pbandk.examples.browserjs.pb.Person
+import pbandk.protoMarshal
+import pbandk.protoUnmarshal
 import kotlin.browser.document
 import kotlin.browser.localStorage
 import kotlin.browser.window

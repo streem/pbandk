@@ -1,636 +1,390 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-
 data class DoubleValue(
     val value: Double = 0.0,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<DoubleValue> {
-    override operator fun plus(other: DoubleValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<DoubleValue> {
         val defaultInstance by lazy { DoubleValue() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = DoubleValue.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = DoubleValue.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = DoubleValue.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Double? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Double(),
+                    jsonName = "value",
+                    value = DoubleValue::value
+                )
+            )
+        }
     }
 }
 
 data class FloatValue(
     val value: Float = 0.0F,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<FloatValue> {
-    override operator fun plus(other: FloatValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FloatValue> {
         val defaultInstance by lazy { FloatValue() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = FloatValue.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = FloatValue.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FloatValue.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Float? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Float(),
+                    jsonName = "value",
+                    value = FloatValue::value
+                )
+            )
+        }
     }
 }
 
 data class Int64Value(
     val value: Long = 0L,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Int64Value> {
-    override operator fun plus(other: Int64Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Int64Value> {
         val defaultInstance by lazy { Int64Value() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Int64Value.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Int64Value.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Int64Value.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Long? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                    jsonName = "value",
+                    value = Int64Value::value
+                )
+            )
+        }
     }
 }
 
 data class UInt64Value(
     val value: Long = 0L,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<UInt64Value> {
-    override operator fun plus(other: UInt64Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UInt64Value> {
         val defaultInstance by lazy { UInt64Value() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = UInt64Value.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = UInt64Value.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = UInt64Value.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Long? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
+                    jsonName = "value",
+                    value = UInt64Value::value
+                )
+            )
+        }
     }
 }
 
 data class Int32Value(
     val value: Int = 0,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Int32Value> {
-    override operator fun plus(other: Int32Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Int32Value> {
         val defaultInstance by lazy { Int32Value() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Int32Value.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Int32Value.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Int32Value.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Int? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                    jsonName = "value",
+                    value = Int32Value::value
+                )
+            )
+        }
     }
 }
 
 data class UInt32Value(
     val value: Int = 0,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<UInt32Value> {
-    override operator fun plus(other: UInt32Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UInt32Value> {
         val defaultInstance by lazy { UInt32Value() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = UInt32Value.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = UInt32Value.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = UInt32Value.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Int? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
+                    jsonName = "value",
+                    value = UInt32Value::value
+                )
+            )
+        }
     }
 }
 
 data class BoolValue(
     val value: Boolean = false,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<BoolValue> {
-    override operator fun plus(other: BoolValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<BoolValue> {
         val defaultInstance by lazy { BoolValue() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = BoolValue.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = BoolValue.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = BoolValue.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: Boolean? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                    jsonName = "value",
+                    value = BoolValue::value
+                )
+            )
+        }
     }
 }
 
 data class StringValue(
     val value: String = "",
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<StringValue> {
-    override operator fun plus(other: StringValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<StringValue> {
         val defaultInstance by lazy { StringValue() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = StringValue.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = StringValue.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = StringValue.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: String? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "value",
+                    value = StringValue::value
+                )
+            )
+        }
     }
 }
 
 data class BytesValue(
     val value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<BytesValue> {
-    override operator fun plus(other: BytesValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<BytesValue> {
         val defaultInstance by lazy { BytesValue() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = BytesValue.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = BytesValue.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = BytesValue.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("value")
-        val value: pbandk.ByteArr? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
+                    jsonName = "value",
+                    value = BytesValue::value
+                )
+            )
+        }
     }
 }
 
 fun DoubleValue?.orDefault() = this ?: DoubleValue.defaultInstance
 
-private fun DoubleValue.protoMergeImpl(plus: DoubleValue?): DoubleValue = plus?.copy(
+private fun DoubleValue.protoMergeImpl(plus: pbandk.Message?): DoubleValue = (plus as? DoubleValue)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun DoubleValue.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value != 0.0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.doubleSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun DoubleValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value != 0.0) protoMarshal.writeTag(9).writeDouble(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun DoubleValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): DoubleValue {
+@Suppress("UNCHECKED_CAST")
+private fun DoubleValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): DoubleValue {
     var value = 0.0
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return DoubleValue(value, protoUnmarshal.unknownFields())
-        9 -> value = protoUnmarshal.readDouble()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Double
+        }
     }
-}
-
-private fun DoubleValue.toJsonMapperImpl(): DoubleValue.JsonMapper =
-    DoubleValue.JsonMapper(
-        value
-    )
-
-private fun DoubleValue.JsonMapper.toMessageImpl(): DoubleValue {
-    return DoubleValue(
-        value = value ?: 0.0
-    )
-}
-
-private fun DoubleValue.jsonMarshalImpl(json: Json): String =
-    json.stringify(DoubleValue.JsonMapper.serializer(), toJsonMapper())
-
-private fun DoubleValue.Companion.jsonUnmarshalImpl(json: Json, data: String): DoubleValue {
-    val mapper = json.parse(DoubleValue.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return DoubleValue(value, unknownFields)
 }
 
 fun FloatValue?.orDefault() = this ?: FloatValue.defaultInstance
 
-private fun FloatValue.protoMergeImpl(plus: FloatValue?): FloatValue = plus?.copy(
+private fun FloatValue.protoMergeImpl(plus: pbandk.Message?): FloatValue = (plus as? FloatValue)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun FloatValue.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value != 0.0F) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.floatSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun FloatValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value != 0.0F) protoMarshal.writeTag(13).writeFloat(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun FloatValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FloatValue {
+@Suppress("UNCHECKED_CAST")
+private fun FloatValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FloatValue {
     var value = 0.0F
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FloatValue(value, protoUnmarshal.unknownFields())
-        13 -> value = protoUnmarshal.readFloat()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Float
+        }
     }
-}
-
-private fun FloatValue.toJsonMapperImpl(): FloatValue.JsonMapper =
-    FloatValue.JsonMapper(
-        value
-    )
-
-private fun FloatValue.JsonMapper.toMessageImpl(): FloatValue {
-    return FloatValue(
-        value = value ?: 0.0F
-    )
-}
-
-private fun FloatValue.jsonMarshalImpl(json: Json): String =
-    json.stringify(FloatValue.JsonMapper.serializer(), toJsonMapper())
-
-private fun FloatValue.Companion.jsonUnmarshalImpl(json: Json, data: String): FloatValue {
-    val mapper = json.parse(FloatValue.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return FloatValue(value, unknownFields)
 }
 
 fun Int64Value?.orDefault() = this ?: Int64Value.defaultInstance
 
-private fun Int64Value.protoMergeImpl(plus: Int64Value?): Int64Value = plus?.copy(
+private fun Int64Value.protoMergeImpl(plus: pbandk.Message?): Int64Value = (plus as? Int64Value)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Int64Value.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int64Size(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Int64Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value != 0L) protoMarshal.writeTag(8).writeInt64(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Int64Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Int64Value {
+@Suppress("UNCHECKED_CAST")
+private fun Int64Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Int64Value {
     var value = 0L
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Int64Value(value, protoUnmarshal.unknownFields())
-        8 -> value = protoUnmarshal.readInt64()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Long
+        }
     }
-}
-
-private fun Int64Value.toJsonMapperImpl(): Int64Value.JsonMapper =
-    Int64Value.JsonMapper(
-        value
-    )
-
-private fun Int64Value.JsonMapper.toMessageImpl(): Int64Value {
-    return Int64Value(
-        value = value ?: 0L
-    )
-}
-
-private fun Int64Value.jsonMarshalImpl(json: Json): String =
-    json.stringify(Int64Value.JsonMapper.serializer(), toJsonMapper())
-
-private fun Int64Value.Companion.jsonUnmarshalImpl(json: Json, data: String): Int64Value {
-    val mapper = json.parse(Int64Value.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Int64Value(value, unknownFields)
 }
 
 fun UInt64Value?.orDefault() = this ?: UInt64Value.defaultInstance
 
-private fun UInt64Value.protoMergeImpl(plus: UInt64Value?): UInt64Value = plus?.copy(
+private fun UInt64Value.protoMergeImpl(plus: pbandk.Message?): UInt64Value = (plus as? UInt64Value)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun UInt64Value.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.uInt64Size(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun UInt64Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value != 0L) protoMarshal.writeTag(8).writeUInt64(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun UInt64Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UInt64Value {
+@Suppress("UNCHECKED_CAST")
+private fun UInt64Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UInt64Value {
     var value = 0L
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return UInt64Value(value, protoUnmarshal.unknownFields())
-        8 -> value = protoUnmarshal.readUInt64()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Long
+        }
     }
-}
-
-private fun UInt64Value.toJsonMapperImpl(): UInt64Value.JsonMapper =
-    UInt64Value.JsonMapper(
-        value
-    )
-
-private fun UInt64Value.JsonMapper.toMessageImpl(): UInt64Value {
-    return UInt64Value(
-        value = value ?: 0L
-    )
-}
-
-private fun UInt64Value.jsonMarshalImpl(json: Json): String =
-    json.stringify(UInt64Value.JsonMapper.serializer(), toJsonMapper())
-
-private fun UInt64Value.Companion.jsonUnmarshalImpl(json: Json, data: String): UInt64Value {
-    val mapper = json.parse(UInt64Value.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return UInt64Value(value, unknownFields)
 }
 
 fun Int32Value?.orDefault() = this ?: Int32Value.defaultInstance
 
-private fun Int32Value.protoMergeImpl(plus: Int32Value?): Int32Value = plus?.copy(
+private fun Int32Value.protoMergeImpl(plus: pbandk.Message?): Int32Value = (plus as? Int32Value)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Int32Value.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Int32Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value != 0) protoMarshal.writeTag(8).writeInt32(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Int32Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Int32Value {
+@Suppress("UNCHECKED_CAST")
+private fun Int32Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Int32Value {
     var value = 0
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Int32Value(value, protoUnmarshal.unknownFields())
-        8 -> value = protoUnmarshal.readInt32()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Int
+        }
     }
-}
-
-private fun Int32Value.toJsonMapperImpl(): Int32Value.JsonMapper =
-    Int32Value.JsonMapper(
-        value
-    )
-
-private fun Int32Value.JsonMapper.toMessageImpl(): Int32Value {
-    return Int32Value(
-        value = value ?: 0
-    )
-}
-
-private fun Int32Value.jsonMarshalImpl(json: Json): String =
-    json.stringify(Int32Value.JsonMapper.serializer(), toJsonMapper())
-
-private fun Int32Value.Companion.jsonUnmarshalImpl(json: Json, data: String): Int32Value {
-    val mapper = json.parse(Int32Value.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Int32Value(value, unknownFields)
 }
 
 fun UInt32Value?.orDefault() = this ?: UInt32Value.defaultInstance
 
-private fun UInt32Value.protoMergeImpl(plus: UInt32Value?): UInt32Value = plus?.copy(
+private fun UInt32Value.protoMergeImpl(plus: pbandk.Message?): UInt32Value = (plus as? UInt32Value)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun UInt32Value.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.uInt32Size(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun UInt32Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value != 0) protoMarshal.writeTag(8).writeUInt32(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun UInt32Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): UInt32Value {
+@Suppress("UNCHECKED_CAST")
+private fun UInt32Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UInt32Value {
     var value = 0
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return UInt32Value(value, protoUnmarshal.unknownFields())
-        8 -> value = protoUnmarshal.readUInt32()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Int
+        }
     }
-}
-
-private fun UInt32Value.toJsonMapperImpl(): UInt32Value.JsonMapper =
-    UInt32Value.JsonMapper(
-        value
-    )
-
-private fun UInt32Value.JsonMapper.toMessageImpl(): UInt32Value {
-    return UInt32Value(
-        value = value ?: 0
-    )
-}
-
-private fun UInt32Value.jsonMarshalImpl(json: Json): String =
-    json.stringify(UInt32Value.JsonMapper.serializer(), toJsonMapper())
-
-private fun UInt32Value.Companion.jsonUnmarshalImpl(json: Json, data: String): UInt32Value {
-    val mapper = json.parse(UInt32Value.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return UInt32Value(value, unknownFields)
 }
 
 fun BoolValue?.orDefault() = this ?: BoolValue.defaultInstance
 
-private fun BoolValue.protoMergeImpl(plus: BoolValue?): BoolValue = plus?.copy(
+private fun BoolValue.protoMergeImpl(plus: pbandk.Message?): BoolValue = (plus as? BoolValue)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun BoolValue.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun BoolValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value) protoMarshal.writeTag(8).writeBool(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun BoolValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): BoolValue {
+@Suppress("UNCHECKED_CAST")
+private fun BoolValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): BoolValue {
     var value = false
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return BoolValue(value, protoUnmarshal.unknownFields())
-        8 -> value = protoUnmarshal.readBool()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as Boolean
+        }
     }
-}
-
-private fun BoolValue.toJsonMapperImpl(): BoolValue.JsonMapper =
-    BoolValue.JsonMapper(
-        value
-    )
-
-private fun BoolValue.JsonMapper.toMessageImpl(): BoolValue {
-    return BoolValue(
-        value = value ?: false
-    )
-}
-
-private fun BoolValue.jsonMarshalImpl(json: Json): String =
-    json.stringify(BoolValue.JsonMapper.serializer(), toJsonMapper())
-
-private fun BoolValue.Companion.jsonUnmarshalImpl(json: Json, data: String): BoolValue {
-    val mapper = json.parse(BoolValue.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return BoolValue(value, unknownFields)
 }
 
 fun StringValue?.orDefault() = this ?: StringValue.defaultInstance
 
-private fun StringValue.protoMergeImpl(plus: StringValue?): StringValue = plus?.copy(
+private fun StringValue.protoMergeImpl(plus: pbandk.Message?): StringValue = (plus as? StringValue)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun StringValue.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun StringValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value.isNotEmpty()) protoMarshal.writeTag(10).writeString(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun StringValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): StringValue {
+@Suppress("UNCHECKED_CAST")
+private fun StringValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): StringValue {
     var value = ""
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return StringValue(value, protoUnmarshal.unknownFields())
-        10 -> value = protoUnmarshal.readString()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as String
+        }
     }
-}
-
-private fun StringValue.toJsonMapperImpl(): StringValue.JsonMapper =
-    StringValue.JsonMapper(
-        value.takeIf { it != "" }
-    )
-
-private fun StringValue.JsonMapper.toMessageImpl(): StringValue {
-    return StringValue(
-        value = value ?: ""
-    )
-}
-
-private fun StringValue.jsonMarshalImpl(json: Json): String =
-    json.stringify(StringValue.JsonMapper.serializer(), toJsonMapper())
-
-private fun StringValue.Companion.jsonUnmarshalImpl(json: Json, data: String): StringValue {
-    val mapper = json.parse(StringValue.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return StringValue(value, unknownFields)
 }
 
 fun BytesValue?.orDefault() = this ?: BytesValue.defaultInstance
 
-private fun BytesValue.protoMergeImpl(plus: BytesValue?): BytesValue = plus?.copy(
+private fun BytesValue.protoMergeImpl(plus: pbandk.Message?): BytesValue = (plus as? BytesValue)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun BytesValue.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (value.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.bytesSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun BytesValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (value.array.isNotEmpty()) protoMarshal.writeTag(10).writeBytes(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun BytesValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): BytesValue {
+@Suppress("UNCHECKED_CAST")
+private fun BytesValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): BytesValue {
     var value: pbandk.ByteArr = pbandk.ByteArr.empty
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return BytesValue(value, protoUnmarshal.unknownFields())
-        10 -> value = protoUnmarshal.readBytes()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> value = _fieldValue as pbandk.ByteArr
+        }
     }
-}
-
-private fun BytesValue.toJsonMapperImpl(): BytesValue.JsonMapper =
-    BytesValue.JsonMapper(
-        value
-    )
-
-private fun BytesValue.JsonMapper.toMessageImpl(): BytesValue {
-    return BytesValue(
-        value = value ?: pbandk.ByteArr.empty
-    )
-}
-
-private fun BytesValue.jsonMarshalImpl(json: Json): String =
-    json.stringify(BytesValue.JsonMapper.serializer(), toJsonMapper())
-
-private fun BytesValue.Companion.jsonUnmarshalImpl(json: Json, data: String): BytesValue {
-    val mapper = json.parse(BytesValue.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return BytesValue(value, unknownFields)
 }

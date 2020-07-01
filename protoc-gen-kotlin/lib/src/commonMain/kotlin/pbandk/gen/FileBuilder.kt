@@ -1,6 +1,7 @@
 package pbandk.gen
 
-import pbandk.Util
+import pbandk.PbandkInternal
+import pbandk.internal.Util
 import pbandk.wkt.DescriptorProto
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.FieldDescriptorProto
@@ -15,6 +16,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType, mutableSetOf())
     )
 
+    @OptIn(PbandkInternal::class)
     protected fun packageName(ctx: Context) =
         ctx.params["kotlin_package"]
             ?: ctx.fileDesc.options?.uninterpretedOption?.find {
@@ -139,6 +141,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                     usedFieldNames += it
                 },
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
+                jsonName = fieldDesc.jsonName,
                 wrappedType = wrappedType
             )
         } else {
@@ -148,8 +151,9 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                 type = type,
                 localTypeName = fieldDesc.typeName,
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
+                jsonName = fieldDesc.jsonName,
                 optional = !alwaysRequired && fieldDesc.label == FieldDescriptorProto.Label.OPTIONAL,
-                packed = !type.neverPacked && (ctx.fileDesc.syntax == "proto3" || fieldDesc.options?.packed == true),
+                packed = !type.neverPacked && (fieldDesc.options?.packed ?: (ctx.fileDesc.syntax == "proto3")),
                 map = supportMaps &&
                         fieldDesc.label == FieldDescriptorProto.Label.REPEATED &&
                         fieldDesc.type == FieldDescriptorProto.Type.MESSAGE &&

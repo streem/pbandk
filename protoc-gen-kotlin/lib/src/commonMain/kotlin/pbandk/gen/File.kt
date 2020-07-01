@@ -55,6 +55,7 @@ data class File(
             abstract val number: Int
             abstract val type: Type
             abstract val repeated: Boolean
+            abstract val jsonName: String?
 
             data class Standard(
                 override val number: Int,
@@ -62,6 +63,7 @@ data class File(
                 override val type: Type,
                 val localTypeName: String?,
                 override val repeated: Boolean,
+                override val jsonName: String?,
                 // Note, this is only applicable for proto2
                 // TODO: test explicitly set default value in proto2
                 val optional: Boolean,
@@ -77,6 +79,7 @@ data class File(
                 override val name: String,
                 override val kotlinFieldName: String,
                 override val repeated: Boolean,
+                override val jsonName: String?,
                 val wrappedType: Type
             ) : Numbered() {
                 override val type = Type.MESSAGE
@@ -95,7 +98,7 @@ data class File(
             BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, INT32, INT64, MESSAGE,
             SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64;
 
-            val neverPacked get() = this in listOf(BYTES, ENUM, MESSAGE, STRING)
+            val neverPacked get() = this in listOf(BYTES, MESSAGE, STRING)
 
             val wrapperTypeName
                 get() = TYPE_TO_WRAPPER_TYPE_NAME[this] ?: error("No wrapper type for ${this.name.toLowerCase()}")

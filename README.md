@@ -6,26 +6,26 @@ It is built to work across multiple Kotlin platforms.
 **Features**
 
 * Clean data class generation
-* Works for JVM, JS and Native
+* Works for JVM and JS, with experimental support for Native
 * Support for proto2 and proto3 syntaxes
+* JSON serialization/deserialization following the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) (see https://github.com/streem/pbandk/issues/72 for some corner cases and Well-Known Types that are not handled yet)
 * Oneof's are properly handled as sealed classes
 * Specialized support to handle wrappers from the well-known types (e.g. `StringValue`, `BoolValue`) as nullable primitives (`String?`, `Boolean?`, etc.)
-* JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for
-  best performance
+* JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for best performance
 * JS platform leverages [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) for best performance
 * Support for custom service/gRPC code generator
 
 **Experimental**
 
-* JSON support (the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) is only partially supported)
+* Kotlin/Native support
 
 **Not Yet Implemented**
 
 * Specialized support for more of the well known types (e.g. `Any`)
-* Support for protobuf annotations
+* Support for protobuf custom options/annotations
 * Access to the protobuf descriptor from generated code
 * Code comments on generated code
-* Specialized support for the `deprecated` annotation
+* Specialized support for the `deprecated` option
 
 Read below for more information and see the [examples](examples).
 
@@ -82,12 +82,9 @@ message AddressBook {
 The following file will be generated at `tutorial/addressbook.kt`:
 
 ```kotlin
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package tutorial
-
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
 data class Person(
     val name: String = "",
@@ -95,16 +92,52 @@ data class Person(
     val email: String = "",
     val phones: List<tutorial.Person.PhoneNumber> = emptyList(),
     val lastUpdated: pbandk.wkt.Timestamp? = null,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Person> {
-    override operator fun plus(other: Person?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Person> {
         val defaultInstance by lazy { Person() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Person.jsonUnmarshalImpl(json, data)
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.unmarshalImpl(u)
+
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
+            pbandk.FieldDescriptor(
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "name",
+                value = Person::name
+            ),
+            pbandk.FieldDescriptor(
+                name = "id",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                jsonName = "id",
+                value = Person::id
+            ),
+            pbandk.FieldDescriptor(
+                name = "email",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "email",
+                value = Person::email
+            ),
+            pbandk.FieldDescriptor(
+                name = "phones",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person.PhoneNumber>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.PhoneNumber.Companion)),
+                jsonName = "phones",
+                value = Person::phones
+            ),
+            pbandk.FieldDescriptor(
+                name = "last_updated",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                jsonName = "lastUpdated",
+                value = Person::lastUpdated
+            )
+        )
     }
 
     sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -127,32 +160,55 @@ data class Person(
     data class PhoneNumber(
         val number: String = "",
         val type: tutorial.Person.PhoneType = tutorial.Person.PhoneType.fromValue(0),
-        val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<Person.PhoneNumber> {
-        override operator fun plus(other: Person.PhoneNumber?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
-        override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Person.PhoneNumber> {
             val defaultInstance by lazy { Person.PhoneNumber() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.PhoneNumber.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = Person.PhoneNumber.jsonUnmarshalImpl(json, data)
+            override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.PhoneNumber.unmarshalImpl(u)
+
+            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
+                pbandk.FieldDescriptor(
+                    name = "number",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "number",
+                    value = PhoneNumber::number
+                ),
+                pbandk.FieldDescriptor(
+                    name = "type",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = tutorial.Person.PhoneType.Companion),
+                    jsonName = "type",
+                    value = PhoneNumber::type
+                )
+            )
         }
     }
 }
 
 data class AddressBook(
     val people: List<tutorial.Person> = emptyList(),
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<AddressBook> {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
     override operator fun plus(other: AddressBook?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<AddressBook> {
         val defaultInstance by lazy { AddressBook() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = AddressBook.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = AddressBook.jsonUnmarshalImpl(json, data)
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = AddressBook.unmarshalImpl(u)
+
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
+            pbandk.FieldDescriptor(
+                name = "people",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.Companion)),
+                jsonName = "people",
+                value = AddressBook::people
+            )
+        )
     }
 }
 
@@ -247,6 +303,15 @@ dependencies {
 It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly. For Kotlin
 JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatform code, change `pbandk-runtime-jvm` to
 `pbandk-runtime-common`.
+
+In addition, support for [Kotlin's `@OptIn` annotation](https://kotlinlang.org/docs/reference/opt-in-requirements.html)
+should be enabled in order to avoid compiler warnings in the generated code:
+
+```
+tasks.withType<KotlinCompile>().all {
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+}
+```
 
 ### Service Code Generation
 

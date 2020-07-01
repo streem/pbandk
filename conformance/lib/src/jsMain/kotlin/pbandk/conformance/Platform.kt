@@ -2,8 +2,9 @@ package pbandk.conformance
 
 import org.khronos.webgl.ArrayBufferView
 import org.khronos.webgl.Uint8Array
-import pbandk.asByteArray
-import pbandk.asUint8Array
+import pbandk.PbandkInternal
+import pbandk.internal.asByteArray
+import pbandk.internal.asUint8Array
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 import kotlinx.coroutines.*
@@ -52,6 +53,7 @@ external class Buffer : Uint8Array {
     }
 }
 
+@OptIn(PbandkInternal::class)
 actual object Platform {
     actual fun stderrPrintln(str: String) {
         Process.stderr.write("$str\n")

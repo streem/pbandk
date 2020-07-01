@@ -1,8 +1,14 @@
 package pbandk.conformance
 
 import pbandk.ByteArr
+import pbandk.ExperimentalProtoJson
 import pbandk.conformance.Platform.runBlockingMain
 import pbandk.conformance.pb.*
+import pbandk.json.JsonConfig
+import pbandk.json.jsonMarshal
+import pbandk.json.jsonUnmarshal
+import pbandk.protoMarshal
+import pbandk.protoUnmarshal
 
 var logDebug = false
 
@@ -22,6 +28,7 @@ fun main(args: Array<String>) = runBlockingMain {
     }
 }
 
+@OptIn(ExperimentalProtoJson::class)
 suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     // Read the request (starting with by size)
     val req = Platform.doTry({
@@ -30,6 +37,7 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     }) { err -> return ConformanceResponse.Result.RuntimeError("Failed reading request: $err") }
     // Parse
     val parsed = Platform.doTry({
+        // TODO: re-enable JSON output support (the code already supports it) and fix all of the failing tests
         if (req.requestedOutputFormat != WireFormat.PROTOBUF)
             return ConformanceResponse.Result.Skipped("Only protobuf output supported")
 
@@ -44,7 +52,13 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
                 typeComp.protoUnmarshal(req.payload.value.array).also { debug { "Parsed: $it" } }
             }
             is ConformanceRequest.Payload.JsonPayload -> {
-                typeComp.jsonUnmarshal(req.payload.value).also { debug { "Parsed: $it" } }
+                val jsonConfig = when (req.testCategory) {
+                    TestCategory.JSON_IGNORE_UNKNOWN_PARSING_TEST -> JsonConfig.DEFAULT.copy(
+                        ignoreUnknownFieldsInInput = true
+                    )
+                    else -> JsonConfig.DEFAULT
+                }
+                typeComp.jsonUnmarshal(req.payload.value, jsonConfig).also { debug { "Parsed: $it" } }
             }
             else -> {
                 return ConformanceResponse.Result.Skipped("Only protobuf and json input supported")

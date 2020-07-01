@@ -42,7 +42,6 @@ internal object BootstrapConverter {
                 javaPackage = it.javaPackage.orNull(it.hasJavaPackage()),
                 javaOuterClassname = it.javaOuterClassname.orNull(it.hasJavaOuterClassname()),
                 javaMultipleFiles = it.javaMultipleFiles.orNull(it.hasJavaMultipleFiles()),
-                javaGenerateEqualsAndHash = it.javaGenerateEqualsAndHash.orNull(it.hasJavaGenerateEqualsAndHash()),
                 javaStringCheckUtf8 = it.javaStringCheckUtf8.orNull(it.hasJavaStringCheckUtf8()),
                 optimizeFor = it.optimizeFor?.number?.let { FileOptions.OptimizeMode.fromValue(it) },
                 goPackage = it.goPackage.orNull(it.hasGoPackage()),

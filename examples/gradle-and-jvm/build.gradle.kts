@@ -3,12 +3,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.72"
-    kotlin("plugin.serialization") version "1.3.72"
     application
     id("com.google.protobuf") version "0.8.12"
 }
 
-val kotlinxSerializationVersion by extra("0.20.0")
 val protobufVersion by extra("3.11.1")
 val pbandkVersion by extra("0.9.0-SNAPSHOT")
 
@@ -27,7 +25,6 @@ application {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinxSerializationVersion")
     implementation("com.github.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
 }
 
@@ -64,6 +61,7 @@ tasks {
     withType<KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = "1.8"
+            freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
 }

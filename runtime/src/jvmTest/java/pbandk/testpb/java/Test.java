@@ -607,6 +607,21 @@ public final class Test {
      */
     pbandk.testpb.java.Test.FooOrBuilder getFoosOrBuilder(
         int index);
+
+    /**
+     * <code>.testpb.Foo single_foo = 2;</code>
+     * @return Whether the singleFoo field is set.
+     */
+    boolean hasSingleFoo();
+    /**
+     * <code>.testpb.Foo single_foo = 2;</code>
+     * @return The singleFoo.
+     */
+    pbandk.testpb.java.Test.Foo getSingleFoo();
+    /**
+     * <code>.testpb.Foo single_foo = 2;</code>
+     */
+    pbandk.testpb.java.Test.FooOrBuilder getSingleFooOrBuilder();
   }
   /**
    * Protobuf type {@code testpb.Bar}
@@ -662,6 +677,19 @@ public final class Test {
               }
               foos_.add(
                   input.readMessage(pbandk.testpb.java.Test.Foo.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              pbandk.testpb.java.Test.Foo.Builder subBuilder = null;
+              if (singleFoo_ != null) {
+                subBuilder = singleFoo_.toBuilder();
+              }
+              singleFoo_ = input.readMessage(pbandk.testpb.java.Test.Foo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(singleFoo_);
+                singleFoo_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -734,6 +762,29 @@ public final class Test {
       return foos_.get(index);
     }
 
+    public static final int SINGLE_FOO_FIELD_NUMBER = 2;
+    private pbandk.testpb.java.Test.Foo singleFoo_;
+    /**
+     * <code>.testpb.Foo single_foo = 2;</code>
+     * @return Whether the singleFoo field is set.
+     */
+    public boolean hasSingleFoo() {
+      return singleFoo_ != null;
+    }
+    /**
+     * <code>.testpb.Foo single_foo = 2;</code>
+     * @return The singleFoo.
+     */
+    public pbandk.testpb.java.Test.Foo getSingleFoo() {
+      return singleFoo_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : singleFoo_;
+    }
+    /**
+     * <code>.testpb.Foo single_foo = 2;</code>
+     */
+    public pbandk.testpb.java.Test.FooOrBuilder getSingleFooOrBuilder() {
+      return getSingleFoo();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -751,6 +802,9 @@ public final class Test {
       for (int i = 0; i < foos_.size(); i++) {
         output.writeMessage(1, foos_.get(i));
       }
+      if (singleFoo_ != null) {
+        output.writeMessage(2, getSingleFoo());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -763,6 +817,10 @@ public final class Test {
       for (int i = 0; i < foos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, foos_.get(i));
+      }
+      if (singleFoo_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSingleFoo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -781,6 +839,11 @@ public final class Test {
 
       if (!getFoosList()
           .equals(other.getFoosList())) return false;
+      if (hasSingleFoo() != other.hasSingleFoo()) return false;
+      if (hasSingleFoo()) {
+        if (!getSingleFoo()
+            .equals(other.getSingleFoo())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -795,6 +858,10 @@ public final class Test {
       if (getFoosCount() > 0) {
         hash = (37 * hash) + FOOS_FIELD_NUMBER;
         hash = (53 * hash) + getFoosList().hashCode();
+      }
+      if (hasSingleFoo()) {
+        hash = (37 * hash) + SINGLE_FOO_FIELD_NUMBER;
+        hash = (53 * hash) + getSingleFoo().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -936,6 +1003,12 @@ public final class Test {
         } else {
           foosBuilder_.clear();
         }
+        if (singleFooBuilder_ == null) {
+          singleFoo_ = null;
+        } else {
+          singleFoo_ = null;
+          singleFooBuilder_ = null;
+        }
         return this;
       }
 
@@ -971,6 +1044,11 @@ public final class Test {
           result.foos_ = foos_;
         } else {
           result.foos_ = foosBuilder_.build();
+        }
+        if (singleFooBuilder_ == null) {
+          result.singleFoo_ = singleFoo_;
+        } else {
+          result.singleFoo_ = singleFooBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1045,6 +1123,9 @@ public final class Test {
               foosBuilder_.addAllMessages(other.foos_);
             }
           }
+        }
+        if (other.hasSingleFoo()) {
+          mergeSingleFoo(other.getSingleFoo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1314,6 +1395,125 @@ public final class Test {
           foos_ = null;
         }
         return foosBuilder_;
+      }
+
+      private pbandk.testpb.java.Test.Foo singleFoo_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder> singleFooBuilder_;
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       * @return Whether the singleFoo field is set.
+       */
+      public boolean hasSingleFoo() {
+        return singleFooBuilder_ != null || singleFoo_ != null;
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       * @return The singleFoo.
+       */
+      public pbandk.testpb.java.Test.Foo getSingleFoo() {
+        if (singleFooBuilder_ == null) {
+          return singleFoo_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : singleFoo_;
+        } else {
+          return singleFooBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      public Builder setSingleFoo(pbandk.testpb.java.Test.Foo value) {
+        if (singleFooBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          singleFoo_ = value;
+          onChanged();
+        } else {
+          singleFooBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      public Builder setSingleFoo(
+          pbandk.testpb.java.Test.Foo.Builder builderForValue) {
+        if (singleFooBuilder_ == null) {
+          singleFoo_ = builderForValue.build();
+          onChanged();
+        } else {
+          singleFooBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      public Builder mergeSingleFoo(pbandk.testpb.java.Test.Foo value) {
+        if (singleFooBuilder_ == null) {
+          if (singleFoo_ != null) {
+            singleFoo_ =
+              pbandk.testpb.java.Test.Foo.newBuilder(singleFoo_).mergeFrom(value).buildPartial();
+          } else {
+            singleFoo_ = value;
+          }
+          onChanged();
+        } else {
+          singleFooBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      public Builder clearSingleFoo() {
+        if (singleFooBuilder_ == null) {
+          singleFoo_ = null;
+          onChanged();
+        } else {
+          singleFoo_ = null;
+          singleFooBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      public pbandk.testpb.java.Test.Foo.Builder getSingleFooBuilder() {
+        
+        onChanged();
+        return getSingleFooFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      public pbandk.testpb.java.Test.FooOrBuilder getSingleFooOrBuilder() {
+        if (singleFooBuilder_ != null) {
+          return singleFooBuilder_.getMessageOrBuilder();
+        } else {
+          return singleFoo_ == null ?
+              pbandk.testpb.java.Test.Foo.getDefaultInstance() : singleFoo_;
+        }
+      }
+      /**
+       * <code>.testpb.Foo single_foo = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder> 
+          getSingleFooFieldBuilder() {
+        if (singleFooBuilder_ == null) {
+          singleFooBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder>(
+                  getSingleFoo(),
+                  getParentForChildren(),
+                  isClean());
+          singleFoo_ = null;
+        }
+        return singleFooBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3120,14 +3320,15 @@ public final class Test {
     java.lang.String[] descriptorData = {
       "\n\030pbandk/testpb/test.proto\022\006testpb\032\036goog" +
       "le/protobuf/wrappers.proto\"\022\n\003Foo\022\013\n\003val" +
-      "\030\001 \001(\t\" \n\003Bar\022\031\n\004foos\030\001 \003(\0132\013.testpb.Foo" +
-      "\"j\n\016MessageWithMap\022,\n\003map\030\001 \003(\0132\037.testpb" +
-      ".MessageWithMap.MapEntry\032*\n\010MapEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"s\n\010Wrappers" +
-      "\0222\n\014string_value\030\001 \001(\0132\034.google.protobuf" +
-      ".StringValue\0223\n\ruint64_values\030\002 \003(\0132\034.go" +
-      "ogle.protobuf.UInt64ValueB\024\n\022pbandk.test" +
-      "pb.javab\006proto3"
+      "\030\001 \001(\t\"A\n\003Bar\022\031\n\004foos\030\001 \003(\0132\013.testpb.Foo" +
+      "\022\037\n\nsingle_foo\030\002 \001(\0132\013.testpb.Foo\"j\n\016Mes" +
+      "sageWithMap\022,\n\003map\030\001 \003(\0132\037.testpb.Messag" +
+      "eWithMap.MapEntry\032*\n\010MapEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"s\n\010Wrappers\0222\n\014str" +
+      "ing_value\030\001 \001(\0132\034.google.protobuf.String" +
+      "Value\0223\n\ruint64_values\030\002 \003(\0132\034.google.pr" +
+      "otobuf.UInt64ValueB\024\n\022pbandk.testpb.java" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3145,7 +3346,7 @@ public final class Test {
     internal_static_testpb_Bar_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_testpb_Bar_descriptor,
-        new java.lang.String[] { "Foos", });
+        new java.lang.String[] { "Foos", "SingleFoo", });
     internal_static_testpb_MessageWithMap_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_testpb_MessageWithMap_fieldAccessorTable = new

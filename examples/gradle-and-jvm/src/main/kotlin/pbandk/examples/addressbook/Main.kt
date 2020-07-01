@@ -2,6 +2,8 @@ package pbandk.examples.addressbook
 
 import pbandk.examples.addressbook.pb.AddressBook
 import pbandk.examples.addressbook.pb.Person
+import pbandk.protoMarshal
+import pbandk.protoUnmarshal
 import java.nio.file.Files
 import java.nio.file.Paths
 

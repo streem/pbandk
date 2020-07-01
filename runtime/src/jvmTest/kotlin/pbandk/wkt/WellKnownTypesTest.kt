@@ -3,20 +3,17 @@ package pbandk.wkt
 import com.google.protobuf.ByteString
 import com.google.protobuf.MessageLite
 import com.google.protobuf.UnknownFieldSet
-import pbandk.ByteArr
-import pbandk.Message
-import pbandk.UnknownField
+import pbandk.*
 import pbandk.testpb.Wrappers
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class WellKnownTypesTest {
 
-    fun <T : Message<T>> Message.Companion<T>.assertMessageEquals(msg: T, pbMsg: MessageLite) {
+    private fun <T : Message> Message.Companion<T>.assertMessageEquals(msg: T, pbMsg: MessageLite) {
         // First a simple check of their byte arrays
         val pbBytes = pbMsg.toByteArray()
-        assertTrue(pbBytes!!.contentEquals(msg.protoMarshal()))
+        assertEquals(pbBytes.asList(), msg.protoMarshal().asList())
         // Now unmarshal and check the two messages equal each other
         assertEquals(msg, protoUnmarshal(pbBytes))
     }

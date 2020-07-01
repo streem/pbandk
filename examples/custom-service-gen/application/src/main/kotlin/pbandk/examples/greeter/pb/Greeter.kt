@@ -8,7 +8,7 @@ interface Greeter {
     }
 
     abstract class Server : pbandk.examples.greeter.Rpc.Server(), Greeter {
-        override suspend fun <Req : pbandk.Message<*>, Resp : pbandk.Message<*>> onUnaryCall(name: String, req: Req): Resp {
+        override suspend fun <Req : pbandk.Message, Resp : pbandk.Message> onUnaryCall(name: String, req: Req): Resp {
             return when (name) {
                 "SayHello" -> SayHello(req as pbandk.examples.greeter.pb.HelloRequest) as Resp
                 else -> error("404")

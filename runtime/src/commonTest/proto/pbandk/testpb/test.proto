@@ -1,0 +1,24 @@
+syntax = "proto3";
+package testpb;
+
+import "google/protobuf/wrappers.proto";
+
+option java_package = "pbandk.testpb.java";
+
+message Foo {
+    string val = 1;
+}
+
+message Bar {
+    repeated Foo foos = 1;
+    Foo single_foo = 2;
+}
+
+message MessageWithMap {
+    map<string, string> map = 1;
+}
+
+message Wrappers {
+    google.protobuf.StringValue string_value = 1;
+    repeated google.protobuf.UInt64Value uint64_values = 2;
+}

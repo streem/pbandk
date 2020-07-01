@@ -1,77 +1,47 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-
 data class FieldMask(
     val paths: List<String> = emptyList(),
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<FieldMask> {
-    override operator fun plus(other: FieldMask?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FieldMask> {
         val defaultInstance by lazy { FieldMask() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = FieldMask.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = FieldMask.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FieldMask.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("paths")
-        val paths: List<String> = emptyList()
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "paths",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "paths",
+                    value = FieldMask::paths
+                )
+            )
+        }
     }
 }
 
 fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
 
-private fun FieldMask.protoMergeImpl(plus: FieldMask?): FieldMask = plus?.copy(
+private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.copy(
     paths = paths + plus.paths,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun FieldMask.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (paths.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * paths.size) + paths.sumBy(pbandk.Sizer::stringSize)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun FieldMask.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (paths.isNotEmpty()) paths.forEach { protoMarshal.writeTag(10).writeString(it) }
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun FieldMask.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FieldMask {
+@Suppress("UNCHECKED_CAST")
+private fun FieldMask.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FieldMask {
     var paths: pbandk.ListWithSize.Builder<String>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), protoUnmarshal.unknownFields())
-        10 -> paths = protoUnmarshal.readRepeated(paths, protoUnmarshal::readString, true)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> paths = (paths ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+        }
     }
-}
-
-private fun FieldMask.toJsonMapperImpl(): FieldMask.JsonMapper =
-    FieldMask.JsonMapper(
-        paths
-    )
-
-private fun FieldMask.JsonMapper.toMessageImpl(): FieldMask {
-    return FieldMask(
-        paths = paths ?: emptyList()
-    )
-}
-
-private fun FieldMask.jsonMarshalImpl(json: Json): String =
-    json.stringify(FieldMask.JsonMapper.serializer(), toJsonMapper())
-
-private fun FieldMask.Companion.jsonUnmarshalImpl(json: Json, data: String): FieldMask {
-    val mapper = json.parse(FieldMask.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), unknownFields)
 }

@@ -1,15 +1,12 @@
 plugins {
     kotlin("js")
-    kotlin("plugin.serialization")
 }
 
 val pbandkVersion: String by rootProject.extra
-val kotlinxSerializationVersion = "0.20.0"
 val protobufjsVersion = "^6.8.8"
 
 dependencies {
     implementation(kotlin("stdlib-js"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$kotlinxSerializationVersion")
     implementation("com.github.streem.pbandk:pbandk-runtime-js:$pbandkVersion")
     implementation(npm("protobufjs", protobufjsVersion))
 }
@@ -29,6 +26,7 @@ tasks {
         kotlinOptions {
             sourceMap = true
             moduleKind = "commonjs"
+            freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
 

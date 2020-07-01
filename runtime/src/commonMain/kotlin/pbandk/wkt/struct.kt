@@ -1,9 +1,6 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
-
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
 sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is NullValue && other.value == value
@@ -22,59 +19,66 @@ sealed class NullValue(override val value: Int, override val name: String? = nul
 
 data class Struct(
     val fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Struct> {
-    override operator fun plus(other: Struct?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Struct> {
         val defaultInstance by lazy { Struct() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Struct.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Struct.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Struct.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("fields")
-        val fields: Map<String, pbandk.wkt.Value.JsonMapper?> = emptyMap()
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "fields",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.wkt.Value?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
+                    jsonName = "fields",
+                    value = Struct::fields
+                )
+            )
+        }
     }
 
     data class FieldsEntry(
         override val key: String = "",
         override val value: pbandk.wkt.Value? = null,
-        val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<Struct.FieldsEntry>, Map.Entry<String, pbandk.wkt.Value?> {
-        override operator fun plus(other: Struct.FieldsEntry?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
-        override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-        fun toJsonMapper() = toJsonMapperImpl()
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message, Map.Entry<String, pbandk.wkt.Value?> {
+        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Struct.FieldsEntry> {
             val defaultInstance by lazy { Struct.FieldsEntry() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Struct.FieldsEntry.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = Struct.FieldsEntry.jsonUnmarshalImpl(json, data)
-        }
+            override fun unmarshal(u: pbandk.MessageUnmarshaller) = Struct.FieldsEntry.unmarshalImpl(u)
 
-        @Serializable
-        data class JsonMapper (
-            @SerialName("key")
-            val key: String? = null,
-            @SerialName("value")
-            val value: pbandk.wkt.Value.JsonMapper? = null
-        ) {
-            fun toMessage() = toMessageImpl()
+            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+                listOf(
+                    pbandk.FieldDescriptor(
+                        name = "key",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "key",
+                        value = FieldsEntry::key
+                    ),
+                    pbandk.FieldDescriptor(
+                        name = "value",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
+                        jsonName = "value",
+                        value = FieldsEntry::value
+                    )
+                )
+            }
         }
     }
 }
 
 data class Value(
     val kind: Kind<*>? = null,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Value> {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
     sealed class Kind<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : Kind<pbandk.wkt.NullValue>(nullValue)
         class NumberValue(numberValue: Double = 0.0) : Kind<Double>(numberValue)
@@ -97,163 +101,136 @@ data class Value(
     val listValue: pbandk.wkt.ListValue?
         get() = (kind as? Kind.ListValue)?.value
 
-    override operator fun plus(other: Value?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Value> {
         val defaultInstance by lazy { Value() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Value.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Value.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Value.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("null_value")
-        val nullValue: String? = null,
-        @SerialName("number_value")
-        val numberValue: Double? = null,
-        @SerialName("string_value")
-        val stringValue: String? = null,
-        @SerialName("bool_value")
-        val boolValue: Boolean? = null,
-        @SerialName("struct_value")
-        val structValue: pbandk.wkt.Struct.JsonMapper? = null,
-        @SerialName("list_value")
-        val listValue: pbandk.wkt.ListValue.JsonMapper? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "null_value",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.NullValue.Companion, hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "nullValue",
+                    value = Value::nullValue
+                ),
+                pbandk.FieldDescriptor(
+                    name = "number_value",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "numberValue",
+                    value = Value::numberValue
+                ),
+                pbandk.FieldDescriptor(
+                    name = "string_value",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "stringValue",
+                    value = Value::stringValue
+                ),
+                pbandk.FieldDescriptor(
+                    name = "bool_value",
+                    number = 4,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "boolValue",
+                    value = Value::boolValue
+                ),
+                pbandk.FieldDescriptor(
+                    name = "struct_value",
+                    number = 5,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
+                    oneofMember = true,
+                    jsonName = "structValue",
+                    value = Value::structValue
+                ),
+                pbandk.FieldDescriptor(
+                    name = "list_value",
+                    number = 6,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion),
+                    oneofMember = true,
+                    jsonName = "listValue",
+                    value = Value::listValue
+                )
+            )
+        }
     }
 }
 
 data class ListValue(
     val values: List<pbandk.wkt.Value> = emptyList(),
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<ListValue> {
-    override operator fun plus(other: ListValue?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ListValue> {
         val defaultInstance by lazy { ListValue() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = ListValue.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = ListValue.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ListValue.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("values")
-        val values: List<pbandk.wkt.Value.JsonMapper> = emptyList()
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "values",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
+                    jsonName = "values",
+                    value = ListValue::values
+                )
+            )
+        }
     }
 }
 
 fun Struct?.orDefault() = this ?: Struct.defaultInstance
 
-private fun Struct.protoMergeImpl(plus: Struct?): Struct = plus?.copy(
+private fun Struct.protoMergeImpl(plus: pbandk.Message?): Struct = (plus as? Struct)?.copy(
     fields = fields + plus.fields,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Struct.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(1, fields, pbandk.wkt.Struct::FieldsEntry)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Struct.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (fields.isNotEmpty()) protoMarshal.writeMap(10, fields, pbandk.wkt.Struct::FieldsEntry)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Struct.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Struct {
+@Suppress("UNCHECKED_CAST")
+private fun Struct.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Struct {
     var fields: pbandk.MessageMap.Builder<String, pbandk.wkt.Value?>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Struct(pbandk.MessageMap.Builder.fixed(fields), protoUnmarshal.unknownFields())
-        10 -> fields = protoUnmarshal.readMap(fields, pbandk.wkt.Struct.FieldsEntry.Companion, true)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> fields = (fields ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.wkt.Value?>> }
+        }
     }
-}
-
-private fun Struct.toJsonMapperImpl(): Struct.JsonMapper =
-    Struct.JsonMapper(
-        fields.mapValues { it.value?.toJsonMapper() }
-    )
-
-private fun Struct.JsonMapper.toMessageImpl(): Struct {
-    return Struct(
-        fields = fields.mapValues { it.value?.toMessage() }
-    )
-}
-
-private fun Struct.jsonMarshalImpl(json: Json): String =
-    json.stringify(Struct.JsonMapper.serializer(), toJsonMapper())
-
-private fun Struct.Companion.jsonUnmarshalImpl(json: Json, data: String): Struct {
-    val mapper = json.parse(Struct.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Struct(pbandk.MessageMap.Builder.fixed(fields), unknownFields)
 }
 
 fun Struct.FieldsEntry?.orDefault() = this ?: Struct.FieldsEntry.defaultInstance
 
-private fun Struct.FieldsEntry.protoMergeImpl(plus: Struct.FieldsEntry?): Struct.FieldsEntry = plus?.copy(
+private fun Struct.FieldsEntry.protoMergeImpl(plus: pbandk.Message?): Struct.FieldsEntry = (plus as? Struct.FieldsEntry)?.copy(
     value = value?.plus(plus.value) ?: plus.value,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Struct.FieldsEntry.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
-    if (value != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Struct.FieldsEntry.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (key.isNotEmpty()) protoMarshal.writeTag(10).writeString(key)
-    if (value != null) protoMarshal.writeTag(18).writeMessage(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Struct.FieldsEntry.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Struct.FieldsEntry {
+@Suppress("UNCHECKED_CAST")
+private fun Struct.FieldsEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Struct.FieldsEntry {
     var key = ""
     var value: pbandk.wkt.Value? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Struct.FieldsEntry(key, value, protoUnmarshal.unknownFields())
-        10 -> key = protoUnmarshal.readString()
-        18 -> value = protoUnmarshal.readMessage(pbandk.wkt.Value.Companion)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> key = _fieldValue as String
+            2 -> value = _fieldValue as pbandk.wkt.Value
+        }
     }
-}
-
-private fun Struct.FieldsEntry.toJsonMapperImpl(): Struct.FieldsEntry.JsonMapper =
-    Struct.FieldsEntry.JsonMapper(
-        key.takeIf { it != "" },
-        value?.toJsonMapper()
-    )
-
-private fun Struct.FieldsEntry.JsonMapper.toMessageImpl(): Struct.FieldsEntry {
-    return Struct.FieldsEntry(
-        key = key ?: "",
-        value = value?.toMessage()
-    )
-}
-
-private fun Struct.FieldsEntry.jsonMarshalImpl(json: Json): String =
-    json.stringify(Struct.FieldsEntry.JsonMapper.serializer(), toJsonMapper())
-
-private fun Struct.FieldsEntry.Companion.jsonUnmarshalImpl(json: Json, data: String): Struct.FieldsEntry {
-    val mapper = json.parse(Struct.FieldsEntry.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Struct.FieldsEntry(key, value, unknownFields)
 }
 
 fun Value?.orDefault() = this ?: Value.defaultInstance
 
-private fun Value.protoMergeImpl(plus: Value?): Value = plus?.copy(
+private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.copy(
     kind = when {
         kind is Value.Kind.StructValue && plus.kind is Value.Kind.StructValue ->
             Value.Kind.StructValue(kind.value + plus.kind.value)
@@ -265,118 +242,38 @@ private fun Value.protoMergeImpl(plus: Value?): Value = plus?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Value.protoSizeImpl(): Int {
-    var protoSize = 0
-    when (kind) {
-        is Value.Kind.NullValue -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.value)
-        is Value.Kind.NumberValue -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.doubleSize(kind.value)
-        is Value.Kind.StringValue -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(kind.value)
-        is Value.Kind.BoolValue -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.boolSize(kind.value)
-        is Value.Kind.StructValue -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(kind.value)
-        is Value.Kind.ListValue -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.messageSize(kind.value)
-    }
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Value.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (kind is Value.Kind.NullValue) protoMarshal.writeTag(8).writeEnum(kind.value)
-    if (kind is Value.Kind.NumberValue) protoMarshal.writeTag(17).writeDouble(kind.value)
-    if (kind is Value.Kind.StringValue) protoMarshal.writeTag(26).writeString(kind.value)
-    if (kind is Value.Kind.BoolValue) protoMarshal.writeTag(32).writeBool(kind.value)
-    if (kind is Value.Kind.StructValue) protoMarshal.writeTag(42).writeMessage(kind.value)
-    if (kind is Value.Kind.ListValue) protoMarshal.writeTag(50).writeMessage(kind.value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Value.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Value {
+@Suppress("UNCHECKED_CAST")
+private fun Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Value {
     var kind: Value.Kind<*>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Value(kind, protoUnmarshal.unknownFields())
-        8 -> kind = Value.Kind.NullValue(protoUnmarshal.readEnum(pbandk.wkt.NullValue.Companion))
-        17 -> kind = Value.Kind.NumberValue(protoUnmarshal.readDouble())
-        26 -> kind = Value.Kind.StringValue(protoUnmarshal.readString())
-        32 -> kind = Value.Kind.BoolValue(protoUnmarshal.readBool())
-        42 -> kind = Value.Kind.StructValue(protoUnmarshal.readMessage(pbandk.wkt.Struct.Companion))
-        50 -> kind = Value.Kind.ListValue(protoUnmarshal.readMessage(pbandk.wkt.ListValue.Companion))
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> kind = Value.Kind.NullValue(_fieldValue as pbandk.wkt.NullValue)
+            2 -> kind = Value.Kind.NumberValue(_fieldValue as Double)
+            3 -> kind = Value.Kind.StringValue(_fieldValue as String)
+            4 -> kind = Value.Kind.BoolValue(_fieldValue as Boolean)
+            5 -> kind = Value.Kind.StructValue(_fieldValue as pbandk.wkt.Struct)
+            6 -> kind = Value.Kind.ListValue(_fieldValue as pbandk.wkt.ListValue)
+        }
     }
-}
-
-private fun Value.toJsonMapperImpl(): Value.JsonMapper =
-    Value.JsonMapper(
-        nullValue?.name,
-        numberValue,
-        stringValue.takeIf { it != "" },
-        boolValue,
-        structValue?.toJsonMapper(),
-        listValue?.toJsonMapper()
-    )
-
-private fun Value.JsonMapper.toMessageImpl(): Value {
-    var kind: Value.Kind<*>? = null
-    if (kind == null && nullValue != null) { kind = Value.Kind.NullValue(nullValue.let { pbandk.wkt.NullValue.fromName(it) }) }
-    if (kind == null && numberValue != null) { kind = Value.Kind.NumberValue(numberValue) }
-    if (kind == null && stringValue != null) { kind = Value.Kind.StringValue(stringValue) }
-    if (kind == null && boolValue != null) { kind = Value.Kind.BoolValue(boolValue) }
-    if (kind == null && structValue != null) { kind = Value.Kind.StructValue(structValue.toMessage()) }
-    if (kind == null && listValue != null) { kind = Value.Kind.ListValue(listValue.toMessage()) }
-    return Value(
-        kind = kind
-    )
-}
-
-private fun Value.jsonMarshalImpl(json: Json): String =
-    json.stringify(Value.JsonMapper.serializer(), toJsonMapper())
-
-private fun Value.Companion.jsonUnmarshalImpl(json: Json, data: String): Value {
-    val mapper = json.parse(Value.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Value(kind, unknownFields)
 }
 
 fun ListValue?.orDefault() = this ?: ListValue.defaultInstance
 
-private fun ListValue.protoMergeImpl(plus: ListValue?): ListValue = plus?.copy(
+private fun ListValue.protoMergeImpl(plus: pbandk.Message?): ListValue = (plus as? ListValue)?.copy(
     values = values + plus.values,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun ListValue.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (values.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * values.size) + values.sumBy(pbandk.Sizer::messageSize)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun ListValue.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (values.isNotEmpty()) values.forEach { protoMarshal.writeTag(10).writeMessage(it) }
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun ListValue.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ListValue {
+@Suppress("UNCHECKED_CAST")
+private fun ListValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ListValue {
     var values: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ListValue(pbandk.ListWithSize.Builder.fixed(values), protoUnmarshal.unknownFields())
-        10 -> values = protoUnmarshal.readRepeatedMessage(values, pbandk.wkt.Value.Companion, true)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> values = (values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Value> }
+        }
     }
-}
-
-private fun ListValue.toJsonMapperImpl(): ListValue.JsonMapper =
-    ListValue.JsonMapper(
-        values.map { it.toJsonMapper() }
-    )
-
-private fun ListValue.JsonMapper.toMessageImpl(): ListValue {
-    return ListValue(
-        values = values.map { it.toMessage() }
-    )
-}
-
-private fun ListValue.jsonMarshalImpl(json: Json): String =
-    json.stringify(ListValue.JsonMapper.serializer(), toJsonMapper())
-
-private fun ListValue.Companion.jsonUnmarshalImpl(json: Json, data: String): ListValue {
-    val mapper = json.parse(ListValue.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return ListValue(pbandk.ListWithSize.Builder.fixed(values), unknownFields)
 }
