@@ -75,7 +75,7 @@ kotlin {
 }
 
 tasks {
-    val generateWellKnownTypes by registering(ProtocTask::class) {
+    val generateWellKnownTypes by registering(KotlinProtocTask::class) {
         val protocPath = provider {
             System.getProperty("protoc.path")
                 ?: throw InvalidUserDataException("System property protoc.path must be set")
@@ -87,7 +87,7 @@ tasks {
         protoFileSubdir("google/protobuf")
     }
 
-    val generateKotlinTestTypes by registering(ProtocTask::class) {
+    val generateKotlinTestTypes by registering(KotlinProtocTask::class) {
         includeDir.set(project.file("src/jvmTest/proto"))
         outputDir.set(project.file("src/jvmTest/kotlin"))
         kotlinPackage.set("pbandk.testpb")
@@ -95,26 +95,24 @@ tasks {
         protoFileSubdir("pbandk/testpb")
     }
 
-    val generateJavaTestTypes by registering(Exec::class) {
-        commandLine(
-            "protoc",
-            "-Isrc/jvmTest/proto",
-            "--java_out=src/jvmTest/java",
-            "src/jvmTest/proto/pbandk/testpb/test.proto"
-        )
+    val generateJavaTestTypes by registering(ProtocTask::class) {
+        includeDir.set(project.file("src/jvmTest/proto"))
+        outputDir.set(project.file("src/jvmTest/java"))
+        plugin.set("java")
+        protoFileSubdir("pbandk/testpb")
     }
 
     val generateTestTypes by registering {
         dependsOn(generateKotlinTestTypes, generateJavaTestTypes)
     }
 
-     // DCE is now enable by default in Kotlin 1.3.7x
-     // and it doesn't work well with commonJS modules
-     // Use of commonJs could be removed since default module is now UMD
-     // but would require some code change
-     val processDceJsKotlinJs by getting {
-         enabled = false
-     }
+    // DCE is now enable by default in Kotlin 1.3.7x
+    // and it doesn't work well with commonJS modules
+    // Use of commonJs could be removed since default module is now UMD
+    // but would require some code change
+    val processDceJsKotlinJs by getting {
+        enabled = false
+    }
 }
 
 publishing {
