@@ -32,38 +32,7 @@ package pbandk.impl
 import pbandk.Util
 import pbandk.wkt.Timestamp
 
-private class CodePointIterator (private val s: String): Iterator<Int> {
-    var pos = 0
-
-    override fun hasNext(): Boolean = pos < s.length
-
-    override fun next(): Int {
-        if (pos >= s.length) throw NoSuchElementException()
-
-        val v = s[pos++]
-        if (v.isHighSurrogate() && pos < s.length) {
-            val l = s[pos]
-            if (l.isLowSurrogate()) {
-                pos++
-                return 0x10000 + (v - 0xD800).toInt() * 0x400 + (l - 0xDC00).toInt()
-            }
-        }
-        return v.toInt() and 0xffff
-    }
-}
-
-private class CodePointIterable (private val s: String): Iterable<Int> {
-    override fun iterator(): Iterator<Int> = CodePointIterator(s)
-}
-
-object UtilImpl : Util {
-    @OptIn(ExperimentalStdlibApi::class)
-    override fun stringToUtf8(str: String): ByteArray = str.encodeToByteArray()
-
-    @OptIn(ExperimentalStdlibApi::class)
-    override fun utf8ToString(bytes: ByteArray): String = bytes.decodeToString()
-
-    @ExperimentalStdlibApi
+abstract class AbstractUtil : Util {
     override fun base64ToBytes(str: String): ByteArray {
         return str.decodeBase64ToArray()
             ?: throw RuntimeException("Unable to base64-decode string: $str")
@@ -73,12 +42,10 @@ object UtilImpl : Util {
         return utf8ToString(bytes.encodeBase64())
     }
 
-    // Not sure this is a requirement for now
     override fun timestampToString(ts: Timestamp.JsonMapper): String {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    // Not sure this is a requirement for now
     override fun stringToTimestamp(str: String): Timestamp.JsonMapper {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -91,15 +58,6 @@ object UtilImpl : Util {
             ret = (ret shl 6) or (bytes[i].toInt() and 0x3f)
         }
         return ret
-    }
-
-    fun utf8Len(value: String) = CodePointIterable(value).sumBy {
-        when (it) {
-            in 0..0x7f -> 1
-            in 0x80..0x7ff -> 2
-            in 0x800..0xffff -> 3
-            else -> 4
-        }
     }
 }
 

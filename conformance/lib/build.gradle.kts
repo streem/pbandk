@@ -71,6 +71,7 @@ kotlin {
         }
 
         val nativeMain by creating {
+            dependsOn(commonMain)
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.kotlinCoroutines}")
