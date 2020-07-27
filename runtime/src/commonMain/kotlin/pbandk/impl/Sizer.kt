@@ -26,7 +26,7 @@ private class CodePointIterable(private val s: String) : Iterable<Int> {
     override fun iterator(): Iterator<Int> = CodePointIterator(s)
 }
 
-fun utf8Len(value: String) = CodePointIterable(value).sumBy {
+private fun utf8Len(value: String) = CodePointIterable(value).sumBy {
     when (it) {
         in 0..0x7f -> 1
         in 0x80..0x7ff -> 2
@@ -35,19 +35,19 @@ fun utf8Len(value: String) = CodePointIterable(value).sumBy {
     }
 }
 
-open class SizerImpl : Sizer {
-    override fun stringSize(value: String): Int {
+abstract class Sizer {
+    open fun stringSize(value: String): Int {
         val len = utf8Len(value)
         return uInt32Size(len) + len
     }
 
-    override fun enumSize(value: Message.Enum) = int32Size(value.value)
-    override fun messageSize(value: Message<*>) = uInt32Size(value.protoSize) + value.protoSize
-    override fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
+    fun enumSize(value: Message.Enum) = int32Size(value.value)
+    fun messageSize(value: Message<*>) = uInt32Size(value.protoSize) + value.protoSize
+    fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
         if (list is ListWithSize && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
         else list.sumBy(sizeFn).let { it + uInt32Size(it) }
 
-    override fun <K, V, T : Message<T>> mapSize(
+    fun <K, V, T : Message<T>> mapSize(
         fieldNumber: Int,
         map: Map<K, V>,
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
@@ -58,12 +58,12 @@ open class SizerImpl : Sizer {
         }
     }
 
-    override fun tagSize(fieldNum: Int) = uInt32Size(fieldNum shl 3)
-    override fun doubleSize(@Suppress("UNUSED_PARAMETER") value: Double) = 8
-    override fun floatSize(@Suppress("UNUSED_PARAMETER") value: Float) = 4
-    override fun int32Size(value: Int) = if (value >= 0) uInt32Size(value) else 10
-    override fun int64Size(value: Long) = uInt64Size(value)
-    override fun uInt32Size(value: Int) = when {
+    fun tagSize(fieldNum: Int) = uInt32Size(fieldNum shl 3)
+    fun doubleSize(@Suppress("UNUSED_PARAMETER") value: Double) = 8
+    fun floatSize(@Suppress("UNUSED_PARAMETER") value: Float) = 4
+    fun int32Size(value: Int) = if (value >= 0) uInt32Size(value) else 10
+    fun int64Size(value: Long) = uInt64Size(value)
+    fun uInt32Size(value: Int) = when {
         value and (0.inv() shl 7) == 0 -> 1
         value and (0.inv() shl 14) == 0 -> 2
         value and (0.inv() shl 21) == 0 -> 3
@@ -71,7 +71,7 @@ open class SizerImpl : Sizer {
         else -> 5
     }
 
-    override fun uInt64Size(value: Long): Int {
+    fun uInt64Size(value: Long): Int {
         // Taken from CodedOutputStream.java's computeUInt64SizeNoTag
         @Suppress("NAME_SHADOWING")
         var value = value
@@ -92,12 +92,12 @@ open class SizerImpl : Sizer {
         return n
     }
 
-    override fun sInt32Size(value: Int) = uInt32Size(value.zigZagEncoded)
-    override fun sInt64Size(value: Long) = uInt64Size(value.zigZagEncoded)
-    override fun fixed32Size(@Suppress("UNUSED_PARAMETER") value: Int) = 4
-    override fun fixed64Size(@Suppress("UNUSED_PARAMETER") value: Long) = 8
-    override fun sFixed32Size(@Suppress("UNUSED_PARAMETER") value: Int) = 4
-    override fun sFixed64Size(@Suppress("UNUSED_PARAMETER") value: Long) = 8
-    override fun boolSize(@Suppress("UNUSED_PARAMETER") value: Boolean) = 1
-    override fun bytesSize(value: ByteArr) = uInt32Size(value.array.size) + value.array.size
+    fun sInt32Size(value: Int) = uInt32Size(value.zigZagEncoded)
+    fun sInt64Size(value: Long) = uInt64Size(value.zigZagEncoded)
+    fun fixed32Size(@Suppress("UNUSED_PARAMETER") value: Int) = 4
+    fun fixed64Size(@Suppress("UNUSED_PARAMETER") value: Long) = 8
+    fun sFixed32Size(@Suppress("UNUSED_PARAMETER") value: Int) = 4
+    fun sFixed64Size(@Suppress("UNUSED_PARAMETER") value: Long) = 8
+    fun boolSize(@Suppress("UNUSED_PARAMETER") value: Boolean) = 1
+    fun bytesSize(value: ByteArr) = uInt32Size(value.array.size) + value.array.size
 }

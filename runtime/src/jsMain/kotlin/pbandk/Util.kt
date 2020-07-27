@@ -8,9 +8,9 @@ inline fun ByteArray.asUint8Array() =
 inline fun Uint8Array.asByteArray() =
         Int8Array(buffer, byteOffset, length).unsafeCast<ByteArray>()
 
-actual typealias SizerImpl = pbandk.protobufjs.SizerImpl
+actual typealias Sizer = pbandk.protobufjs.Sizer
 
-actual typealias UtilImpl = pbandk.protobufjs.Util
+actual typealias Util = pbandk.protobufjs.Util
 
 fun Unmarshaller(r: pbandk.protobufjs.Reader, discardUnknownFields: Boolean = false)
         = pbandk.protobufjs.Unmarshaller(r = r, discardUnknownFields = discardUnknownFields)

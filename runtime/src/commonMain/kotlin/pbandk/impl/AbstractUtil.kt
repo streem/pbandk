@@ -32,21 +32,21 @@ package pbandk.impl
 import pbandk.Util
 import pbandk.wkt.Timestamp
 
-abstract class AbstractUtil : Util {
-    override fun base64ToBytes(str: String): ByteArray {
+abstract class AbstractUtil {
+    fun base64ToBytes(str: String): ByteArray {
         return str.decodeBase64ToArray()
             ?: throw RuntimeException("Unable to base64-decode string: $str")
     }
 
-    override fun bytesToBase64(bytes: ByteArray): String {
-        return utf8ToString(bytes.encodeBase64())
+    fun bytesToBase64(bytes: ByteArray): String {
+        return Util.utf8ToString(bytes.encodeBase64())
     }
 
-    override fun timestampToString(ts: Timestamp.JsonMapper): String {
+    fun timestampToString(ts: Timestamp.JsonMapper): String {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun stringToTimestamp(str: String): Timestamp.JsonMapper {
+    fun stringToTimestamp(str: String): Timestamp.JsonMapper {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

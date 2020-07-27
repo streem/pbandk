@@ -1,7 +1,7 @@
 package pbandk.ser
 
 import kotlinx.serialization.*
-import pbandk.UtilImpl
+import pbandk.Util
 import pbandk.wkt.Timestamp
 
 @Serializer(forClass = Timestamp.JsonMapper::class)
@@ -11,9 +11,9 @@ object TimestampSerializer: KSerializer<Timestamp.JsonMapper> {
         PrimitiveDescriptor("Timestamp.JsonMapper", PrimitiveKind.STRING)
 
     override fun serialize(encoder: Encoder, obj: Timestamp.JsonMapper) =
-        encoder.encodeString(UtilImpl.timestampToString(obj))
+        encoder.encodeString(Util.timestampToString(obj))
 
     override fun deserialize(decoder: Decoder) =
-        UtilImpl.stringToTimestamp(decoder.decodeString())
+        Util.stringToTimestamp(decoder.decodeString())
 
 }
