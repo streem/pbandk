@@ -160,7 +160,7 @@ private fun Struct.protoMergeImpl(plus: Struct?): Struct = plus?.copy(
 
 private fun Struct.protoSizeImpl(): Int {
     var protoSize = 0
-    if (fields.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(1, fields, pbandk.wkt.Struct::FieldsEntry)
+    if (fields.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(1, fields, pbandk.wkt.Struct::FieldsEntry)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -206,8 +206,8 @@ private fun Struct.FieldsEntry.protoMergeImpl(plus: Struct.FieldsEntry?): Struct
 
 private fun Struct.FieldsEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.messageSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -266,12 +266,12 @@ private fun Value.protoMergeImpl(plus: Value?): Value = plus?.copy(
 private fun Value.protoSizeImpl(): Int {
     var protoSize = 0
     when (kind) {
-        is Value.Kind.NullValue -> protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.enumSize(kind.value)
-        is Value.Kind.NumberValue -> protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.doubleSize(kind.value)
-        is Value.Kind.StringValue -> protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.stringSize(kind.value)
-        is Value.Kind.BoolValue -> protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.boolSize(kind.value)
-        is Value.Kind.StructValue -> protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.messageSize(kind.value)
-        is Value.Kind.ListValue -> protoSize += pbandk.SizerImpl.tagSize(6) + pbandk.SizerImpl.messageSize(kind.value)
+        is Value.Kind.NullValue -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.enumSize(kind.value)
+        is Value.Kind.NumberValue -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.doubleSize(kind.value)
+        is Value.Kind.StringValue -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(kind.value)
+        is Value.Kind.BoolValue -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.boolSize(kind.value)
+        is Value.Kind.StructValue -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(kind.value)
+        is Value.Kind.ListValue -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.messageSize(kind.value)
     }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -339,7 +339,7 @@ private fun ListValue.protoMergeImpl(plus: ListValue?): ListValue = plus?.copy(
 
 private fun ListValue.protoSizeImpl(): Int {
     var protoSize = 0
-    if (values.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(1) * values.size) + values.sumBy(pbandk.SizerImpl::messageSize)
+    if (values.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * values.size) + values.sumBy(pbandk.Sizer::messageSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

@@ -1231,156 +1231,156 @@ private fun TestAllTypesProto3.protoMergeImpl(plus: TestAllTypesProto3?): TestAl
 
 private fun TestAllTypesProto3.protoSizeImpl(): Int {
     var protoSize = 0
-    if (optionalInt32 != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(optionalInt32)
-    if (optionalInt64 != 0L) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.int64Size(optionalInt64)
-    if (optionalUint32 != 0) protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.uInt32Size(optionalUint32)
-    if (optionalUint64 != 0L) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.uInt64Size(optionalUint64)
-    if (optionalSint32 != 0) protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.sInt32Size(optionalSint32)
-    if (optionalSint64 != 0L) protoSize += pbandk.SizerImpl.tagSize(6) + pbandk.SizerImpl.sInt64Size(optionalSint64)
-    if (optionalFixed32 != 0) protoSize += pbandk.SizerImpl.tagSize(7) + pbandk.SizerImpl.fixed32Size(optionalFixed32)
-    if (optionalFixed64 != 0L) protoSize += pbandk.SizerImpl.tagSize(8) + pbandk.SizerImpl.fixed64Size(optionalFixed64)
-    if (optionalSfixed32 != 0) protoSize += pbandk.SizerImpl.tagSize(9) + pbandk.SizerImpl.sFixed32Size(optionalSfixed32)
-    if (optionalSfixed64 != 0L) protoSize += pbandk.SizerImpl.tagSize(10) + pbandk.SizerImpl.sFixed64Size(optionalSfixed64)
-    if (optionalFloat != 0.0F) protoSize += pbandk.SizerImpl.tagSize(11) + pbandk.SizerImpl.floatSize(optionalFloat)
-    if (optionalDouble != 0.0) protoSize += pbandk.SizerImpl.tagSize(12) + pbandk.SizerImpl.doubleSize(optionalDouble)
-    if (optionalBool) protoSize += pbandk.SizerImpl.tagSize(13) + pbandk.SizerImpl.boolSize(optionalBool)
-    if (optionalString.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(14) + pbandk.SizerImpl.stringSize(optionalString)
-    if (optionalBytes.array.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(15) + pbandk.SizerImpl.bytesSize(optionalBytes)
-    if (optionalNestedMessage != null) protoSize += pbandk.SizerImpl.tagSize(18) + pbandk.SizerImpl.messageSize(optionalNestedMessage)
-    if (optionalForeignMessage != null) protoSize += pbandk.SizerImpl.tagSize(19) + pbandk.SizerImpl.messageSize(optionalForeignMessage)
-    if (optionalNestedEnum.value != 0) protoSize += pbandk.SizerImpl.tagSize(21) + pbandk.SizerImpl.enumSize(optionalNestedEnum)
-    if (optionalForeignEnum.value != 0) protoSize += pbandk.SizerImpl.tagSize(22) + pbandk.SizerImpl.enumSize(optionalForeignEnum)
-    if (optionalAliasedEnum.value != 0) protoSize += pbandk.SizerImpl.tagSize(23) + pbandk.SizerImpl.enumSize(optionalAliasedEnum)
-    if (optionalStringPiece.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(24) + pbandk.SizerImpl.stringSize(optionalStringPiece)
-    if (optionalCord.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(25) + pbandk.SizerImpl.stringSize(optionalCord)
-    if (recursiveMessage != null) protoSize += pbandk.SizerImpl.tagSize(27) + pbandk.SizerImpl.messageSize(recursiveMessage)
-    if (repeatedInt32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(31) + pbandk.SizerImpl.packedRepeatedSize(repeatedInt32, pbandk.SizerImpl::int32Size)
-    if (repeatedInt64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(32) + pbandk.SizerImpl.packedRepeatedSize(repeatedInt64, pbandk.SizerImpl::int64Size)
-    if (repeatedUint32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(33) + pbandk.SizerImpl.packedRepeatedSize(repeatedUint32, pbandk.SizerImpl::uInt32Size)
-    if (repeatedUint64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(34) + pbandk.SizerImpl.packedRepeatedSize(repeatedUint64, pbandk.SizerImpl::uInt64Size)
-    if (repeatedSint32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(35) + pbandk.SizerImpl.packedRepeatedSize(repeatedSint32, pbandk.SizerImpl::sInt32Size)
-    if (repeatedSint64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(36) + pbandk.SizerImpl.packedRepeatedSize(repeatedSint64, pbandk.SizerImpl::sInt64Size)
-    if (repeatedFixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(37) + pbandk.SizerImpl.packedRepeatedSize(repeatedFixed32, pbandk.SizerImpl::fixed32Size)
-    if (repeatedFixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(38) + pbandk.SizerImpl.packedRepeatedSize(repeatedFixed64, pbandk.SizerImpl::fixed64Size)
-    if (repeatedSfixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(39) + pbandk.SizerImpl.packedRepeatedSize(repeatedSfixed32, pbandk.SizerImpl::sFixed32Size)
-    if (repeatedSfixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(40) + pbandk.SizerImpl.packedRepeatedSize(repeatedSfixed64, pbandk.SizerImpl::sFixed64Size)
-    if (repeatedFloat.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(41) + pbandk.SizerImpl.packedRepeatedSize(repeatedFloat, pbandk.SizerImpl::floatSize)
-    if (repeatedDouble.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(42) + pbandk.SizerImpl.packedRepeatedSize(repeatedDouble, pbandk.SizerImpl::doubleSize)
-    if (repeatedBool.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(43) + pbandk.SizerImpl.packedRepeatedSize(repeatedBool, pbandk.SizerImpl::boolSize)
-    if (repeatedString.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(44) * repeatedString.size) + repeatedString.sumBy(pbandk.SizerImpl::stringSize)
-    if (repeatedBytes.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(45) * repeatedBytes.size) + repeatedBytes.sumBy(pbandk.SizerImpl::bytesSize)
-    if (repeatedNestedMessage.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(48) * repeatedNestedMessage.size) + repeatedNestedMessage.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedForeignMessage.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(49) * repeatedForeignMessage.size) + repeatedForeignMessage.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedNestedEnum.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(51) * repeatedNestedEnum.size) + repeatedNestedEnum.sumBy(pbandk.SizerImpl::enumSize)
-    if (repeatedForeignEnum.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(52) * repeatedForeignEnum.size) + repeatedForeignEnum.sumBy(pbandk.SizerImpl::enumSize)
-    if (repeatedStringPiece.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(54) * repeatedStringPiece.size) + repeatedStringPiece.sumBy(pbandk.SizerImpl::stringSize)
-    if (repeatedCord.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(55) * repeatedCord.size) + repeatedCord.sumBy(pbandk.SizerImpl::stringSize)
-    if (packedInt32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(75) + pbandk.SizerImpl.packedRepeatedSize(packedInt32, pbandk.SizerImpl::int32Size)
-    if (packedInt64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(76) + pbandk.SizerImpl.packedRepeatedSize(packedInt64, pbandk.SizerImpl::int64Size)
-    if (packedUint32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(77) + pbandk.SizerImpl.packedRepeatedSize(packedUint32, pbandk.SizerImpl::uInt32Size)
-    if (packedUint64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(78) + pbandk.SizerImpl.packedRepeatedSize(packedUint64, pbandk.SizerImpl::uInt64Size)
-    if (packedSint32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(79) + pbandk.SizerImpl.packedRepeatedSize(packedSint32, pbandk.SizerImpl::sInt32Size)
-    if (packedSint64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(80) + pbandk.SizerImpl.packedRepeatedSize(packedSint64, pbandk.SizerImpl::sInt64Size)
-    if (packedFixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(81) + pbandk.SizerImpl.packedRepeatedSize(packedFixed32, pbandk.SizerImpl::fixed32Size)
-    if (packedFixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(82) + pbandk.SizerImpl.packedRepeatedSize(packedFixed64, pbandk.SizerImpl::fixed64Size)
-    if (packedSfixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(83) + pbandk.SizerImpl.packedRepeatedSize(packedSfixed32, pbandk.SizerImpl::sFixed32Size)
-    if (packedSfixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(84) + pbandk.SizerImpl.packedRepeatedSize(packedSfixed64, pbandk.SizerImpl::sFixed64Size)
-    if (packedFloat.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(85) + pbandk.SizerImpl.packedRepeatedSize(packedFloat, pbandk.SizerImpl::floatSize)
-    if (packedDouble.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(86) + pbandk.SizerImpl.packedRepeatedSize(packedDouble, pbandk.SizerImpl::doubleSize)
-    if (packedBool.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(87) + pbandk.SizerImpl.packedRepeatedSize(packedBool, pbandk.SizerImpl::boolSize)
-    if (packedNestedEnum.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(88) * packedNestedEnum.size) + packedNestedEnum.sumBy(pbandk.SizerImpl::enumSize)
-    if (unpackedInt32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(89) + pbandk.SizerImpl.packedRepeatedSize(unpackedInt32, pbandk.SizerImpl::int32Size)
-    if (unpackedInt64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(90) + pbandk.SizerImpl.packedRepeatedSize(unpackedInt64, pbandk.SizerImpl::int64Size)
-    if (unpackedUint32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(91) + pbandk.SizerImpl.packedRepeatedSize(unpackedUint32, pbandk.SizerImpl::uInt32Size)
-    if (unpackedUint64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(92) + pbandk.SizerImpl.packedRepeatedSize(unpackedUint64, pbandk.SizerImpl::uInt64Size)
-    if (unpackedSint32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(93) + pbandk.SizerImpl.packedRepeatedSize(unpackedSint32, pbandk.SizerImpl::sInt32Size)
-    if (unpackedSint64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(94) + pbandk.SizerImpl.packedRepeatedSize(unpackedSint64, pbandk.SizerImpl::sInt64Size)
-    if (unpackedFixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(95) + pbandk.SizerImpl.packedRepeatedSize(unpackedFixed32, pbandk.SizerImpl::fixed32Size)
-    if (unpackedFixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(96) + pbandk.SizerImpl.packedRepeatedSize(unpackedFixed64, pbandk.SizerImpl::fixed64Size)
-    if (unpackedSfixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(97) + pbandk.SizerImpl.packedRepeatedSize(unpackedSfixed32, pbandk.SizerImpl::sFixed32Size)
-    if (unpackedSfixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(98) + pbandk.SizerImpl.packedRepeatedSize(unpackedSfixed64, pbandk.SizerImpl::sFixed64Size)
-    if (unpackedFloat.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(99) + pbandk.SizerImpl.packedRepeatedSize(unpackedFloat, pbandk.SizerImpl::floatSize)
-    if (unpackedDouble.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(100) + pbandk.SizerImpl.packedRepeatedSize(unpackedDouble, pbandk.SizerImpl::doubleSize)
-    if (unpackedBool.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(101) + pbandk.SizerImpl.packedRepeatedSize(unpackedBool, pbandk.SizerImpl::boolSize)
-    if (unpackedNestedEnum.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(102) * unpackedNestedEnum.size) + unpackedNestedEnum.sumBy(pbandk.SizerImpl::enumSize)
-    if (mapInt32Int32.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(56, mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3::MapInt32Int32Entry)
-    if (mapInt64Int64.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(57, mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3::MapInt64Int64Entry)
-    if (mapUint32Uint32.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(58, mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3::MapUint32Uint32Entry)
-    if (mapUint64Uint64.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(59, mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3::MapUint64Uint64Entry)
-    if (mapSint32Sint32.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(60, mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3::MapSint32Sint32Entry)
-    if (mapSint64Sint64.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(61, mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3::MapSint64Sint64Entry)
-    if (mapFixed32Fixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(62, mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3::MapFixed32Fixed32Entry)
-    if (mapFixed64Fixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(63, mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3::MapFixed64Fixed64Entry)
-    if (mapSfixed32Sfixed32.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(64, mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed32Sfixed32Entry)
-    if (mapSfixed64Sfixed64.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(65, mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed64Sfixed64Entry)
-    if (mapInt32Float.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(66, mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3::MapInt32FloatEntry)
-    if (mapInt32Double.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(67, mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3::MapInt32DoubleEntry)
-    if (mapBoolBool.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(68, mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3::MapBoolBoolEntry)
-    if (mapStringString.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(69, mapStringString, pbandk.conformance.pb.TestAllTypesProto3::MapStringStringEntry)
-    if (mapStringBytes.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(70, mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3::MapStringBytesEntry)
-    if (mapStringNestedMessage.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(71, mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedMessageEntry)
-    if (mapStringForeignMessage.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(72, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
-    if (mapStringNestedEnum.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(73, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
-    if (mapStringForeignEnum.isNotEmpty()) protoSize += pbandk.SizerImpl.mapSize(74, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
-    if (optionalBoolWrapper != null) protoSize += pbandk.SizerImpl.tagSize(201) + pbandk.SizerImpl.messageSize(pbandk.wkt.BoolValue(optionalBoolWrapper))
-    if (optionalInt32Wrapper != null) protoSize += pbandk.SizerImpl.tagSize(202) + pbandk.SizerImpl.messageSize(pbandk.wkt.Int32Value(optionalInt32Wrapper))
-    if (optionalInt64Wrapper != null) protoSize += pbandk.SizerImpl.tagSize(203) + pbandk.SizerImpl.messageSize(pbandk.wkt.Int64Value(optionalInt64Wrapper))
-    if (optionalUint32Wrapper != null) protoSize += pbandk.SizerImpl.tagSize(204) + pbandk.SizerImpl.messageSize(pbandk.wkt.UInt32Value(optionalUint32Wrapper))
-    if (optionalUint64Wrapper != null) protoSize += pbandk.SizerImpl.tagSize(205) + pbandk.SizerImpl.messageSize(pbandk.wkt.UInt64Value(optionalUint64Wrapper))
-    if (optionalFloatWrapper != null) protoSize += pbandk.SizerImpl.tagSize(206) + pbandk.SizerImpl.messageSize(pbandk.wkt.FloatValue(optionalFloatWrapper))
-    if (optionalDoubleWrapper != null) protoSize += pbandk.SizerImpl.tagSize(207) + pbandk.SizerImpl.messageSize(pbandk.wkt.DoubleValue(optionalDoubleWrapper))
-    if (optionalStringWrapper != null) protoSize += pbandk.SizerImpl.tagSize(208) + pbandk.SizerImpl.messageSize(pbandk.wkt.StringValue(optionalStringWrapper))
-    if (optionalBytesWrapper != null) protoSize += pbandk.SizerImpl.tagSize(209) + pbandk.SizerImpl.messageSize(pbandk.wkt.BytesValue(optionalBytesWrapper))
-    if (repeatedBoolWrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(211) * repeatedBoolWrapper.size) + repeatedBoolWrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.BoolValue(it)) }
-    if (repeatedInt32Wrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(212) * repeatedInt32Wrapper.size) + repeatedInt32Wrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.Int32Value(it)) }
-    if (repeatedInt64Wrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(213) * repeatedInt64Wrapper.size) + repeatedInt64Wrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.Int64Value(it)) }
-    if (repeatedUint32Wrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(214) * repeatedUint32Wrapper.size) + repeatedUint32Wrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.UInt32Value(it)) }
-    if (repeatedUint64Wrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(215) * repeatedUint64Wrapper.size) + repeatedUint64Wrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.UInt64Value(it)) }
-    if (repeatedFloatWrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(216) * repeatedFloatWrapper.size) + repeatedFloatWrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.FloatValue(it)) }
-    if (repeatedDoubleWrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(217) * repeatedDoubleWrapper.size) + repeatedDoubleWrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.DoubleValue(it)) }
-    if (repeatedStringWrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(218) * repeatedStringWrapper.size) + repeatedStringWrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.StringValue(it)) }
-    if (repeatedBytesWrapper.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(219) * repeatedBytesWrapper.size) + repeatedBytesWrapper.sumBy { pbandk.SizerImpl.messageSize(pbandk.wkt.BytesValue(it)) }
-    if (optionalDuration != null) protoSize += pbandk.SizerImpl.tagSize(301) + pbandk.SizerImpl.messageSize(optionalDuration)
-    if (optionalTimestamp != null) protoSize += pbandk.SizerImpl.tagSize(302) + pbandk.SizerImpl.messageSize(optionalTimestamp)
-    if (optionalFieldMask != null) protoSize += pbandk.SizerImpl.tagSize(303) + pbandk.SizerImpl.messageSize(optionalFieldMask)
-    if (optionalStruct != null) protoSize += pbandk.SizerImpl.tagSize(304) + pbandk.SizerImpl.messageSize(optionalStruct)
-    if (optionalAny != null) protoSize += pbandk.SizerImpl.tagSize(305) + pbandk.SizerImpl.messageSize(optionalAny)
-    if (optionalValue != null) protoSize += pbandk.SizerImpl.tagSize(306) + pbandk.SizerImpl.messageSize(optionalValue)
-    if (repeatedDuration.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(311) * repeatedDuration.size) + repeatedDuration.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedTimestamp.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(312) * repeatedTimestamp.size) + repeatedTimestamp.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedFieldmask.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(313) * repeatedFieldmask.size) + repeatedFieldmask.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedStruct.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(324) * repeatedStruct.size) + repeatedStruct.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedAny.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(315) * repeatedAny.size) + repeatedAny.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedValue.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(316) * repeatedValue.size) + repeatedValue.sumBy(pbandk.SizerImpl::messageSize)
-    if (repeatedListValue.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(317) * repeatedListValue.size) + repeatedListValue.sumBy(pbandk.SizerImpl::messageSize)
-    if (fieldname1 != 0) protoSize += pbandk.SizerImpl.tagSize(401) + pbandk.SizerImpl.int32Size(fieldname1)
-    if (fieldName2 != 0) protoSize += pbandk.SizerImpl.tagSize(402) + pbandk.SizerImpl.int32Size(fieldName2)
-    if (fieldName3 != 0) protoSize += pbandk.SizerImpl.tagSize(403) + pbandk.SizerImpl.int32Size(fieldName3)
-    if (field_name4 != 0) protoSize += pbandk.SizerImpl.tagSize(404) + pbandk.SizerImpl.int32Size(field_name4)
-    if (field0name5 != 0) protoSize += pbandk.SizerImpl.tagSize(405) + pbandk.SizerImpl.int32Size(field0name5)
-    if (field0Name6 != 0) protoSize += pbandk.SizerImpl.tagSize(406) + pbandk.SizerImpl.int32Size(field0Name6)
-    if (fieldName7 != 0) protoSize += pbandk.SizerImpl.tagSize(407) + pbandk.SizerImpl.int32Size(fieldName7)
-    if (fieldName8 != 0) protoSize += pbandk.SizerImpl.tagSize(408) + pbandk.SizerImpl.int32Size(fieldName8)
-    if (fieldName9 != 0) protoSize += pbandk.SizerImpl.tagSize(409) + pbandk.SizerImpl.int32Size(fieldName9)
-    if (fieldName10 != 0) protoSize += pbandk.SizerImpl.tagSize(410) + pbandk.SizerImpl.int32Size(fieldName10)
-    if (fIELDNAME11 != 0) protoSize += pbandk.SizerImpl.tagSize(411) + pbandk.SizerImpl.int32Size(fIELDNAME11)
-    if (fIELDName12 != 0) protoSize += pbandk.SizerImpl.tagSize(412) + pbandk.SizerImpl.int32Size(fIELDName12)
-    if (_fieldName13 != 0) protoSize += pbandk.SizerImpl.tagSize(413) + pbandk.SizerImpl.int32Size(_fieldName13)
-    if (_FieldName14 != 0) protoSize += pbandk.SizerImpl.tagSize(414) + pbandk.SizerImpl.int32Size(_FieldName14)
-    if (field_name15 != 0) protoSize += pbandk.SizerImpl.tagSize(415) + pbandk.SizerImpl.int32Size(field_name15)
-    if (field_Name16 != 0) protoSize += pbandk.SizerImpl.tagSize(416) + pbandk.SizerImpl.int32Size(field_Name16)
-    if (fieldName17_ != 0) protoSize += pbandk.SizerImpl.tagSize(417) + pbandk.SizerImpl.int32Size(fieldName17_)
-    if (fieldName18_ != 0) protoSize += pbandk.SizerImpl.tagSize(418) + pbandk.SizerImpl.int32Size(fieldName18_)
+    if (optionalInt32 != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(optionalInt32)
+    if (optionalInt64 != 0L) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int64Size(optionalInt64)
+    if (optionalUint32 != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.uInt32Size(optionalUint32)
+    if (optionalUint64 != 0L) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.uInt64Size(optionalUint64)
+    if (optionalSint32 != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.sInt32Size(optionalSint32)
+    if (optionalSint64 != 0L) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.sInt64Size(optionalSint64)
+    if (optionalFixed32 != 0) protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.fixed32Size(optionalFixed32)
+    if (optionalFixed64 != 0L) protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.fixed64Size(optionalFixed64)
+    if (optionalSfixed32 != 0) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.sFixed32Size(optionalSfixed32)
+    if (optionalSfixed64 != 0L) protoSize += pbandk.Sizer.tagSize(10) + pbandk.Sizer.sFixed64Size(optionalSfixed64)
+    if (optionalFloat != 0.0F) protoSize += pbandk.Sizer.tagSize(11) + pbandk.Sizer.floatSize(optionalFloat)
+    if (optionalDouble != 0.0) protoSize += pbandk.Sizer.tagSize(12) + pbandk.Sizer.doubleSize(optionalDouble)
+    if (optionalBool) protoSize += pbandk.Sizer.tagSize(13) + pbandk.Sizer.boolSize(optionalBool)
+    if (optionalString.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(14) + pbandk.Sizer.stringSize(optionalString)
+    if (optionalBytes.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(15) + pbandk.Sizer.bytesSize(optionalBytes)
+    if (optionalNestedMessage != null) protoSize += pbandk.Sizer.tagSize(18) + pbandk.Sizer.messageSize(optionalNestedMessage)
+    if (optionalForeignMessage != null) protoSize += pbandk.Sizer.tagSize(19) + pbandk.Sizer.messageSize(optionalForeignMessage)
+    if (optionalNestedEnum.value != 0) protoSize += pbandk.Sizer.tagSize(21) + pbandk.Sizer.enumSize(optionalNestedEnum)
+    if (optionalForeignEnum.value != 0) protoSize += pbandk.Sizer.tagSize(22) + pbandk.Sizer.enumSize(optionalForeignEnum)
+    if (optionalAliasedEnum.value != 0) protoSize += pbandk.Sizer.tagSize(23) + pbandk.Sizer.enumSize(optionalAliasedEnum)
+    if (optionalStringPiece.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(24) + pbandk.Sizer.stringSize(optionalStringPiece)
+    if (optionalCord.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(25) + pbandk.Sizer.stringSize(optionalCord)
+    if (recursiveMessage != null) protoSize += pbandk.Sizer.tagSize(27) + pbandk.Sizer.messageSize(recursiveMessage)
+    if (repeatedInt32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(31) + pbandk.Sizer.packedRepeatedSize(repeatedInt32, pbandk.Sizer::int32Size)
+    if (repeatedInt64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(32) + pbandk.Sizer.packedRepeatedSize(repeatedInt64, pbandk.Sizer::int64Size)
+    if (repeatedUint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(33) + pbandk.Sizer.packedRepeatedSize(repeatedUint32, pbandk.Sizer::uInt32Size)
+    if (repeatedUint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(34) + pbandk.Sizer.packedRepeatedSize(repeatedUint64, pbandk.Sizer::uInt64Size)
+    if (repeatedSint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(35) + pbandk.Sizer.packedRepeatedSize(repeatedSint32, pbandk.Sizer::sInt32Size)
+    if (repeatedSint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(36) + pbandk.Sizer.packedRepeatedSize(repeatedSint64, pbandk.Sizer::sInt64Size)
+    if (repeatedFixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(37) + pbandk.Sizer.packedRepeatedSize(repeatedFixed32, pbandk.Sizer::fixed32Size)
+    if (repeatedFixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(38) + pbandk.Sizer.packedRepeatedSize(repeatedFixed64, pbandk.Sizer::fixed64Size)
+    if (repeatedSfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(39) + pbandk.Sizer.packedRepeatedSize(repeatedSfixed32, pbandk.Sizer::sFixed32Size)
+    if (repeatedSfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(40) + pbandk.Sizer.packedRepeatedSize(repeatedSfixed64, pbandk.Sizer::sFixed64Size)
+    if (repeatedFloat.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(41) + pbandk.Sizer.packedRepeatedSize(repeatedFloat, pbandk.Sizer::floatSize)
+    if (repeatedDouble.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(42) + pbandk.Sizer.packedRepeatedSize(repeatedDouble, pbandk.Sizer::doubleSize)
+    if (repeatedBool.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(43) + pbandk.Sizer.packedRepeatedSize(repeatedBool, pbandk.Sizer::boolSize)
+    if (repeatedString.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(44) * repeatedString.size) + repeatedString.sumBy(pbandk.Sizer::stringSize)
+    if (repeatedBytes.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(45) * repeatedBytes.size) + repeatedBytes.sumBy(pbandk.Sizer::bytesSize)
+    if (repeatedNestedMessage.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(48) * repeatedNestedMessage.size) + repeatedNestedMessage.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedForeignMessage.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(49) * repeatedForeignMessage.size) + repeatedForeignMessage.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedNestedEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(51) * repeatedNestedEnum.size) + repeatedNestedEnum.sumBy(pbandk.Sizer::enumSize)
+    if (repeatedForeignEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(52) * repeatedForeignEnum.size) + repeatedForeignEnum.sumBy(pbandk.Sizer::enumSize)
+    if (repeatedStringPiece.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(54) * repeatedStringPiece.size) + repeatedStringPiece.sumBy(pbandk.Sizer::stringSize)
+    if (repeatedCord.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(55) * repeatedCord.size) + repeatedCord.sumBy(pbandk.Sizer::stringSize)
+    if (packedInt32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(75) + pbandk.Sizer.packedRepeatedSize(packedInt32, pbandk.Sizer::int32Size)
+    if (packedInt64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(76) + pbandk.Sizer.packedRepeatedSize(packedInt64, pbandk.Sizer::int64Size)
+    if (packedUint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(77) + pbandk.Sizer.packedRepeatedSize(packedUint32, pbandk.Sizer::uInt32Size)
+    if (packedUint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(78) + pbandk.Sizer.packedRepeatedSize(packedUint64, pbandk.Sizer::uInt64Size)
+    if (packedSint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(79) + pbandk.Sizer.packedRepeatedSize(packedSint32, pbandk.Sizer::sInt32Size)
+    if (packedSint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(80) + pbandk.Sizer.packedRepeatedSize(packedSint64, pbandk.Sizer::sInt64Size)
+    if (packedFixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(81) + pbandk.Sizer.packedRepeatedSize(packedFixed32, pbandk.Sizer::fixed32Size)
+    if (packedFixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(82) + pbandk.Sizer.packedRepeatedSize(packedFixed64, pbandk.Sizer::fixed64Size)
+    if (packedSfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(83) + pbandk.Sizer.packedRepeatedSize(packedSfixed32, pbandk.Sizer::sFixed32Size)
+    if (packedSfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(84) + pbandk.Sizer.packedRepeatedSize(packedSfixed64, pbandk.Sizer::sFixed64Size)
+    if (packedFloat.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(85) + pbandk.Sizer.packedRepeatedSize(packedFloat, pbandk.Sizer::floatSize)
+    if (packedDouble.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(86) + pbandk.Sizer.packedRepeatedSize(packedDouble, pbandk.Sizer::doubleSize)
+    if (packedBool.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(87) + pbandk.Sizer.packedRepeatedSize(packedBool, pbandk.Sizer::boolSize)
+    if (packedNestedEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(88) * packedNestedEnum.size) + packedNestedEnum.sumBy(pbandk.Sizer::enumSize)
+    if (unpackedInt32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(89) + pbandk.Sizer.packedRepeatedSize(unpackedInt32, pbandk.Sizer::int32Size)
+    if (unpackedInt64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(90) + pbandk.Sizer.packedRepeatedSize(unpackedInt64, pbandk.Sizer::int64Size)
+    if (unpackedUint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(91) + pbandk.Sizer.packedRepeatedSize(unpackedUint32, pbandk.Sizer::uInt32Size)
+    if (unpackedUint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(92) + pbandk.Sizer.packedRepeatedSize(unpackedUint64, pbandk.Sizer::uInt64Size)
+    if (unpackedSint32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(93) + pbandk.Sizer.packedRepeatedSize(unpackedSint32, pbandk.Sizer::sInt32Size)
+    if (unpackedSint64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(94) + pbandk.Sizer.packedRepeatedSize(unpackedSint64, pbandk.Sizer::sInt64Size)
+    if (unpackedFixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(95) + pbandk.Sizer.packedRepeatedSize(unpackedFixed32, pbandk.Sizer::fixed32Size)
+    if (unpackedFixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(96) + pbandk.Sizer.packedRepeatedSize(unpackedFixed64, pbandk.Sizer::fixed64Size)
+    if (unpackedSfixed32.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(97) + pbandk.Sizer.packedRepeatedSize(unpackedSfixed32, pbandk.Sizer::sFixed32Size)
+    if (unpackedSfixed64.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(98) + pbandk.Sizer.packedRepeatedSize(unpackedSfixed64, pbandk.Sizer::sFixed64Size)
+    if (unpackedFloat.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(99) + pbandk.Sizer.packedRepeatedSize(unpackedFloat, pbandk.Sizer::floatSize)
+    if (unpackedDouble.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(100) + pbandk.Sizer.packedRepeatedSize(unpackedDouble, pbandk.Sizer::doubleSize)
+    if (unpackedBool.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(101) + pbandk.Sizer.packedRepeatedSize(unpackedBool, pbandk.Sizer::boolSize)
+    if (unpackedNestedEnum.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(102) * unpackedNestedEnum.size) + unpackedNestedEnum.sumBy(pbandk.Sizer::enumSize)
+    if (mapInt32Int32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(56, mapInt32Int32, pbandk.conformance.pb.TestAllTypesProto3::MapInt32Int32Entry)
+    if (mapInt64Int64.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(57, mapInt64Int64, pbandk.conformance.pb.TestAllTypesProto3::MapInt64Int64Entry)
+    if (mapUint32Uint32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(58, mapUint32Uint32, pbandk.conformance.pb.TestAllTypesProto3::MapUint32Uint32Entry)
+    if (mapUint64Uint64.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(59, mapUint64Uint64, pbandk.conformance.pb.TestAllTypesProto3::MapUint64Uint64Entry)
+    if (mapSint32Sint32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(60, mapSint32Sint32, pbandk.conformance.pb.TestAllTypesProto3::MapSint32Sint32Entry)
+    if (mapSint64Sint64.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(61, mapSint64Sint64, pbandk.conformance.pb.TestAllTypesProto3::MapSint64Sint64Entry)
+    if (mapFixed32Fixed32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(62, mapFixed32Fixed32, pbandk.conformance.pb.TestAllTypesProto3::MapFixed32Fixed32Entry)
+    if (mapFixed64Fixed64.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(63, mapFixed64Fixed64, pbandk.conformance.pb.TestAllTypesProto3::MapFixed64Fixed64Entry)
+    if (mapSfixed32Sfixed32.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(64, mapSfixed32Sfixed32, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed32Sfixed32Entry)
+    if (mapSfixed64Sfixed64.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(65, mapSfixed64Sfixed64, pbandk.conformance.pb.TestAllTypesProto3::MapSfixed64Sfixed64Entry)
+    if (mapInt32Float.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(66, mapInt32Float, pbandk.conformance.pb.TestAllTypesProto3::MapInt32FloatEntry)
+    if (mapInt32Double.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(67, mapInt32Double, pbandk.conformance.pb.TestAllTypesProto3::MapInt32DoubleEntry)
+    if (mapBoolBool.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(68, mapBoolBool, pbandk.conformance.pb.TestAllTypesProto3::MapBoolBoolEntry)
+    if (mapStringString.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(69, mapStringString, pbandk.conformance.pb.TestAllTypesProto3::MapStringStringEntry)
+    if (mapStringBytes.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(70, mapStringBytes, pbandk.conformance.pb.TestAllTypesProto3::MapStringBytesEntry)
+    if (mapStringNestedMessage.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(71, mapStringNestedMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedMessageEntry)
+    if (mapStringForeignMessage.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(72, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
+    if (mapStringNestedEnum.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(73, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
+    if (mapStringForeignEnum.isNotEmpty()) protoSize += pbandk.Sizer.mapSize(74, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
+    if (optionalBoolWrapper != null) protoSize += pbandk.Sizer.tagSize(201) + pbandk.Sizer.messageSize(pbandk.wkt.BoolValue(optionalBoolWrapper))
+    if (optionalInt32Wrapper != null) protoSize += pbandk.Sizer.tagSize(202) + pbandk.Sizer.messageSize(pbandk.wkt.Int32Value(optionalInt32Wrapper))
+    if (optionalInt64Wrapper != null) protoSize += pbandk.Sizer.tagSize(203) + pbandk.Sizer.messageSize(pbandk.wkt.Int64Value(optionalInt64Wrapper))
+    if (optionalUint32Wrapper != null) protoSize += pbandk.Sizer.tagSize(204) + pbandk.Sizer.messageSize(pbandk.wkt.UInt32Value(optionalUint32Wrapper))
+    if (optionalUint64Wrapper != null) protoSize += pbandk.Sizer.tagSize(205) + pbandk.Sizer.messageSize(pbandk.wkt.UInt64Value(optionalUint64Wrapper))
+    if (optionalFloatWrapper != null) protoSize += pbandk.Sizer.tagSize(206) + pbandk.Sizer.messageSize(pbandk.wkt.FloatValue(optionalFloatWrapper))
+    if (optionalDoubleWrapper != null) protoSize += pbandk.Sizer.tagSize(207) + pbandk.Sizer.messageSize(pbandk.wkt.DoubleValue(optionalDoubleWrapper))
+    if (optionalStringWrapper != null) protoSize += pbandk.Sizer.tagSize(208) + pbandk.Sizer.messageSize(pbandk.wkt.StringValue(optionalStringWrapper))
+    if (optionalBytesWrapper != null) protoSize += pbandk.Sizer.tagSize(209) + pbandk.Sizer.messageSize(pbandk.wkt.BytesValue(optionalBytesWrapper))
+    if (repeatedBoolWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(211) * repeatedBoolWrapper.size) + repeatedBoolWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.BoolValue(it)) }
+    if (repeatedInt32Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(212) * repeatedInt32Wrapper.size) + repeatedInt32Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.Int32Value(it)) }
+    if (repeatedInt64Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(213) * repeatedInt64Wrapper.size) + repeatedInt64Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.Int64Value(it)) }
+    if (repeatedUint32Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(214) * repeatedUint32Wrapper.size) + repeatedUint32Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.UInt32Value(it)) }
+    if (repeatedUint64Wrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(215) * repeatedUint64Wrapper.size) + repeatedUint64Wrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.UInt64Value(it)) }
+    if (repeatedFloatWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(216) * repeatedFloatWrapper.size) + repeatedFloatWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.FloatValue(it)) }
+    if (repeatedDoubleWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(217) * repeatedDoubleWrapper.size) + repeatedDoubleWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.DoubleValue(it)) }
+    if (repeatedStringWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(218) * repeatedStringWrapper.size) + repeatedStringWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.StringValue(it)) }
+    if (repeatedBytesWrapper.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(219) * repeatedBytesWrapper.size) + repeatedBytesWrapper.sumBy { pbandk.Sizer.messageSize(pbandk.wkt.BytesValue(it)) }
+    if (optionalDuration != null) protoSize += pbandk.Sizer.tagSize(301) + pbandk.Sizer.messageSize(optionalDuration)
+    if (optionalTimestamp != null) protoSize += pbandk.Sizer.tagSize(302) + pbandk.Sizer.messageSize(optionalTimestamp)
+    if (optionalFieldMask != null) protoSize += pbandk.Sizer.tagSize(303) + pbandk.Sizer.messageSize(optionalFieldMask)
+    if (optionalStruct != null) protoSize += pbandk.Sizer.tagSize(304) + pbandk.Sizer.messageSize(optionalStruct)
+    if (optionalAny != null) protoSize += pbandk.Sizer.tagSize(305) + pbandk.Sizer.messageSize(optionalAny)
+    if (optionalValue != null) protoSize += pbandk.Sizer.tagSize(306) + pbandk.Sizer.messageSize(optionalValue)
+    if (repeatedDuration.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(311) * repeatedDuration.size) + repeatedDuration.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedTimestamp.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(312) * repeatedTimestamp.size) + repeatedTimestamp.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedFieldmask.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(313) * repeatedFieldmask.size) + repeatedFieldmask.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedStruct.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(324) * repeatedStruct.size) + repeatedStruct.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedAny.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(315) * repeatedAny.size) + repeatedAny.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedValue.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(316) * repeatedValue.size) + repeatedValue.sumBy(pbandk.Sizer::messageSize)
+    if (repeatedListValue.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(317) * repeatedListValue.size) + repeatedListValue.sumBy(pbandk.Sizer::messageSize)
+    if (fieldname1 != 0) protoSize += pbandk.Sizer.tagSize(401) + pbandk.Sizer.int32Size(fieldname1)
+    if (fieldName2 != 0) protoSize += pbandk.Sizer.tagSize(402) + pbandk.Sizer.int32Size(fieldName2)
+    if (fieldName3 != 0) protoSize += pbandk.Sizer.tagSize(403) + pbandk.Sizer.int32Size(fieldName3)
+    if (field_name4 != 0) protoSize += pbandk.Sizer.tagSize(404) + pbandk.Sizer.int32Size(field_name4)
+    if (field0name5 != 0) protoSize += pbandk.Sizer.tagSize(405) + pbandk.Sizer.int32Size(field0name5)
+    if (field0Name6 != 0) protoSize += pbandk.Sizer.tagSize(406) + pbandk.Sizer.int32Size(field0Name6)
+    if (fieldName7 != 0) protoSize += pbandk.Sizer.tagSize(407) + pbandk.Sizer.int32Size(fieldName7)
+    if (fieldName8 != 0) protoSize += pbandk.Sizer.tagSize(408) + pbandk.Sizer.int32Size(fieldName8)
+    if (fieldName9 != 0) protoSize += pbandk.Sizer.tagSize(409) + pbandk.Sizer.int32Size(fieldName9)
+    if (fieldName10 != 0) protoSize += pbandk.Sizer.tagSize(410) + pbandk.Sizer.int32Size(fieldName10)
+    if (fIELDNAME11 != 0) protoSize += pbandk.Sizer.tagSize(411) + pbandk.Sizer.int32Size(fIELDNAME11)
+    if (fIELDName12 != 0) protoSize += pbandk.Sizer.tagSize(412) + pbandk.Sizer.int32Size(fIELDName12)
+    if (_fieldName13 != 0) protoSize += pbandk.Sizer.tagSize(413) + pbandk.Sizer.int32Size(_fieldName13)
+    if (_FieldName14 != 0) protoSize += pbandk.Sizer.tagSize(414) + pbandk.Sizer.int32Size(_FieldName14)
+    if (field_name15 != 0) protoSize += pbandk.Sizer.tagSize(415) + pbandk.Sizer.int32Size(field_name15)
+    if (field_Name16 != 0) protoSize += pbandk.Sizer.tagSize(416) + pbandk.Sizer.int32Size(field_Name16)
+    if (fieldName17_ != 0) protoSize += pbandk.Sizer.tagSize(417) + pbandk.Sizer.int32Size(fieldName17_)
+    if (fieldName18_ != 0) protoSize += pbandk.Sizer.tagSize(418) + pbandk.Sizer.int32Size(fieldName18_)
     when (oneofField) {
-        is TestAllTypesProto3.OneofField.OneofUint32 -> protoSize += pbandk.SizerImpl.tagSize(111) + pbandk.SizerImpl.uInt32Size(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofNestedMessage -> protoSize += pbandk.SizerImpl.tagSize(112) + pbandk.SizerImpl.messageSize(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofString -> protoSize += pbandk.SizerImpl.tagSize(113) + pbandk.SizerImpl.stringSize(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofBytes -> protoSize += pbandk.SizerImpl.tagSize(114) + pbandk.SizerImpl.bytesSize(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofBool -> protoSize += pbandk.SizerImpl.tagSize(115) + pbandk.SizerImpl.boolSize(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofUint64 -> protoSize += pbandk.SizerImpl.tagSize(116) + pbandk.SizerImpl.uInt64Size(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofFloat -> protoSize += pbandk.SizerImpl.tagSize(117) + pbandk.SizerImpl.floatSize(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofDouble -> protoSize += pbandk.SizerImpl.tagSize(118) + pbandk.SizerImpl.doubleSize(oneofField.value)
-        is TestAllTypesProto3.OneofField.OneofEnum -> protoSize += pbandk.SizerImpl.tagSize(119) + pbandk.SizerImpl.enumSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofUint32 -> protoSize += pbandk.Sizer.tagSize(111) + pbandk.Sizer.uInt32Size(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofNestedMessage -> protoSize += pbandk.Sizer.tagSize(112) + pbandk.Sizer.messageSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofString -> protoSize += pbandk.Sizer.tagSize(113) + pbandk.Sizer.stringSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofBytes -> protoSize += pbandk.Sizer.tagSize(114) + pbandk.Sizer.bytesSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofBool -> protoSize += pbandk.Sizer.tagSize(115) + pbandk.Sizer.boolSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofUint64 -> protoSize += pbandk.Sizer.tagSize(116) + pbandk.Sizer.uInt64Size(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofFloat -> protoSize += pbandk.Sizer.tagSize(117) + pbandk.Sizer.floatSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofDouble -> protoSize += pbandk.Sizer.tagSize(118) + pbandk.Sizer.doubleSize(oneofField.value)
+        is TestAllTypesProto3.OneofField.OneofEnum -> protoSize += pbandk.Sizer.tagSize(119) + pbandk.Sizer.enumSize(oneofField.value)
     }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -1410,19 +1410,19 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (optionalStringPiece.isNotEmpty()) protoMarshal.writeTag(194).writeString(optionalStringPiece)
     if (optionalCord.isNotEmpty()) protoMarshal.writeTag(202).writeString(optionalCord)
     if (recursiveMessage != null) protoMarshal.writeTag(218).writeMessage(recursiveMessage)
-    if (repeatedInt32.isNotEmpty()) protoMarshal.writeTag(250).writePackedRepeated(repeatedInt32, pbandk.SizerImpl::int32Size, protoMarshal::writeInt32)
-    if (repeatedInt64.isNotEmpty()) protoMarshal.writeTag(258).writePackedRepeated(repeatedInt64, pbandk.SizerImpl::int64Size, protoMarshal::writeInt64)
-    if (repeatedUint32.isNotEmpty()) protoMarshal.writeTag(266).writePackedRepeated(repeatedUint32, pbandk.SizerImpl::uInt32Size, protoMarshal::writeUInt32)
-    if (repeatedUint64.isNotEmpty()) protoMarshal.writeTag(274).writePackedRepeated(repeatedUint64, pbandk.SizerImpl::uInt64Size, protoMarshal::writeUInt64)
-    if (repeatedSint32.isNotEmpty()) protoMarshal.writeTag(282).writePackedRepeated(repeatedSint32, pbandk.SizerImpl::sInt32Size, protoMarshal::writeSInt32)
-    if (repeatedSint64.isNotEmpty()) protoMarshal.writeTag(290).writePackedRepeated(repeatedSint64, pbandk.SizerImpl::sInt64Size, protoMarshal::writeSInt64)
-    if (repeatedFixed32.isNotEmpty()) protoMarshal.writeTag(298).writePackedRepeated(repeatedFixed32, pbandk.SizerImpl::fixed32Size, protoMarshal::writeFixed32)
-    if (repeatedFixed64.isNotEmpty()) protoMarshal.writeTag(306).writePackedRepeated(repeatedFixed64, pbandk.SizerImpl::fixed64Size, protoMarshal::writeFixed64)
-    if (repeatedSfixed32.isNotEmpty()) protoMarshal.writeTag(314).writePackedRepeated(repeatedSfixed32, pbandk.SizerImpl::sFixed32Size, protoMarshal::writeSFixed32)
-    if (repeatedSfixed64.isNotEmpty()) protoMarshal.writeTag(322).writePackedRepeated(repeatedSfixed64, pbandk.SizerImpl::sFixed64Size, protoMarshal::writeSFixed64)
-    if (repeatedFloat.isNotEmpty()) protoMarshal.writeTag(330).writePackedRepeated(repeatedFloat, pbandk.SizerImpl::floatSize, protoMarshal::writeFloat)
-    if (repeatedDouble.isNotEmpty()) protoMarshal.writeTag(338).writePackedRepeated(repeatedDouble, pbandk.SizerImpl::doubleSize, protoMarshal::writeDouble)
-    if (repeatedBool.isNotEmpty()) protoMarshal.writeTag(346).writePackedRepeated(repeatedBool, pbandk.SizerImpl::boolSize, protoMarshal::writeBool)
+    if (repeatedInt32.isNotEmpty()) protoMarshal.writeTag(250).writePackedRepeated(repeatedInt32, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (repeatedInt64.isNotEmpty()) protoMarshal.writeTag(258).writePackedRepeated(repeatedInt64, pbandk.Sizer::int64Size, protoMarshal::writeInt64)
+    if (repeatedUint32.isNotEmpty()) protoMarshal.writeTag(266).writePackedRepeated(repeatedUint32, pbandk.Sizer::uInt32Size, protoMarshal::writeUInt32)
+    if (repeatedUint64.isNotEmpty()) protoMarshal.writeTag(274).writePackedRepeated(repeatedUint64, pbandk.Sizer::uInt64Size, protoMarshal::writeUInt64)
+    if (repeatedSint32.isNotEmpty()) protoMarshal.writeTag(282).writePackedRepeated(repeatedSint32, pbandk.Sizer::sInt32Size, protoMarshal::writeSInt32)
+    if (repeatedSint64.isNotEmpty()) protoMarshal.writeTag(290).writePackedRepeated(repeatedSint64, pbandk.Sizer::sInt64Size, protoMarshal::writeSInt64)
+    if (repeatedFixed32.isNotEmpty()) protoMarshal.writeTag(298).writePackedRepeated(repeatedFixed32, pbandk.Sizer::fixed32Size, protoMarshal::writeFixed32)
+    if (repeatedFixed64.isNotEmpty()) protoMarshal.writeTag(306).writePackedRepeated(repeatedFixed64, pbandk.Sizer::fixed64Size, protoMarshal::writeFixed64)
+    if (repeatedSfixed32.isNotEmpty()) protoMarshal.writeTag(314).writePackedRepeated(repeatedSfixed32, pbandk.Sizer::sFixed32Size, protoMarshal::writeSFixed32)
+    if (repeatedSfixed64.isNotEmpty()) protoMarshal.writeTag(322).writePackedRepeated(repeatedSfixed64, pbandk.Sizer::sFixed64Size, protoMarshal::writeSFixed64)
+    if (repeatedFloat.isNotEmpty()) protoMarshal.writeTag(330).writePackedRepeated(repeatedFloat, pbandk.Sizer::floatSize, protoMarshal::writeFloat)
+    if (repeatedDouble.isNotEmpty()) protoMarshal.writeTag(338).writePackedRepeated(repeatedDouble, pbandk.Sizer::doubleSize, protoMarshal::writeDouble)
+    if (repeatedBool.isNotEmpty()) protoMarshal.writeTag(346).writePackedRepeated(repeatedBool, pbandk.Sizer::boolSize, protoMarshal::writeBool)
     if (repeatedString.isNotEmpty()) repeatedString.forEach { protoMarshal.writeTag(354).writeString(it) }
     if (repeatedBytes.isNotEmpty()) repeatedBytes.forEach { protoMarshal.writeTag(362).writeBytes(it) }
     if (repeatedNestedMessage.isNotEmpty()) repeatedNestedMessage.forEach { protoMarshal.writeTag(386).writeMessage(it) }
@@ -1450,33 +1450,33 @@ private fun TestAllTypesProto3.protoMarshalImpl(protoMarshal: pbandk.Marshaller)
     if (mapStringForeignMessage.isNotEmpty()) protoMarshal.writeMap(578, mapStringForeignMessage, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignMessageEntry)
     if (mapStringNestedEnum.isNotEmpty()) protoMarshal.writeMap(586, mapStringNestedEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringNestedEnumEntry)
     if (mapStringForeignEnum.isNotEmpty()) protoMarshal.writeMap(594, mapStringForeignEnum, pbandk.conformance.pb.TestAllTypesProto3::MapStringForeignEnumEntry)
-    if (packedInt32.isNotEmpty()) protoMarshal.writeTag(602).writePackedRepeated(packedInt32, pbandk.SizerImpl::int32Size, protoMarshal::writeInt32)
-    if (packedInt64.isNotEmpty()) protoMarshal.writeTag(610).writePackedRepeated(packedInt64, pbandk.SizerImpl::int64Size, protoMarshal::writeInt64)
-    if (packedUint32.isNotEmpty()) protoMarshal.writeTag(618).writePackedRepeated(packedUint32, pbandk.SizerImpl::uInt32Size, protoMarshal::writeUInt32)
-    if (packedUint64.isNotEmpty()) protoMarshal.writeTag(626).writePackedRepeated(packedUint64, pbandk.SizerImpl::uInt64Size, protoMarshal::writeUInt64)
-    if (packedSint32.isNotEmpty()) protoMarshal.writeTag(634).writePackedRepeated(packedSint32, pbandk.SizerImpl::sInt32Size, protoMarshal::writeSInt32)
-    if (packedSint64.isNotEmpty()) protoMarshal.writeTag(642).writePackedRepeated(packedSint64, pbandk.SizerImpl::sInt64Size, protoMarshal::writeSInt64)
-    if (packedFixed32.isNotEmpty()) protoMarshal.writeTag(650).writePackedRepeated(packedFixed32, pbandk.SizerImpl::fixed32Size, protoMarshal::writeFixed32)
-    if (packedFixed64.isNotEmpty()) protoMarshal.writeTag(658).writePackedRepeated(packedFixed64, pbandk.SizerImpl::fixed64Size, protoMarshal::writeFixed64)
-    if (packedSfixed32.isNotEmpty()) protoMarshal.writeTag(666).writePackedRepeated(packedSfixed32, pbandk.SizerImpl::sFixed32Size, protoMarshal::writeSFixed32)
-    if (packedSfixed64.isNotEmpty()) protoMarshal.writeTag(674).writePackedRepeated(packedSfixed64, pbandk.SizerImpl::sFixed64Size, protoMarshal::writeSFixed64)
-    if (packedFloat.isNotEmpty()) protoMarshal.writeTag(682).writePackedRepeated(packedFloat, pbandk.SizerImpl::floatSize, protoMarshal::writeFloat)
-    if (packedDouble.isNotEmpty()) protoMarshal.writeTag(690).writePackedRepeated(packedDouble, pbandk.SizerImpl::doubleSize, protoMarshal::writeDouble)
-    if (packedBool.isNotEmpty()) protoMarshal.writeTag(698).writePackedRepeated(packedBool, pbandk.SizerImpl::boolSize, protoMarshal::writeBool)
+    if (packedInt32.isNotEmpty()) protoMarshal.writeTag(602).writePackedRepeated(packedInt32, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (packedInt64.isNotEmpty()) protoMarshal.writeTag(610).writePackedRepeated(packedInt64, pbandk.Sizer::int64Size, protoMarshal::writeInt64)
+    if (packedUint32.isNotEmpty()) protoMarshal.writeTag(618).writePackedRepeated(packedUint32, pbandk.Sizer::uInt32Size, protoMarshal::writeUInt32)
+    if (packedUint64.isNotEmpty()) protoMarshal.writeTag(626).writePackedRepeated(packedUint64, pbandk.Sizer::uInt64Size, protoMarshal::writeUInt64)
+    if (packedSint32.isNotEmpty()) protoMarshal.writeTag(634).writePackedRepeated(packedSint32, pbandk.Sizer::sInt32Size, protoMarshal::writeSInt32)
+    if (packedSint64.isNotEmpty()) protoMarshal.writeTag(642).writePackedRepeated(packedSint64, pbandk.Sizer::sInt64Size, protoMarshal::writeSInt64)
+    if (packedFixed32.isNotEmpty()) protoMarshal.writeTag(650).writePackedRepeated(packedFixed32, pbandk.Sizer::fixed32Size, protoMarshal::writeFixed32)
+    if (packedFixed64.isNotEmpty()) protoMarshal.writeTag(658).writePackedRepeated(packedFixed64, pbandk.Sizer::fixed64Size, protoMarshal::writeFixed64)
+    if (packedSfixed32.isNotEmpty()) protoMarshal.writeTag(666).writePackedRepeated(packedSfixed32, pbandk.Sizer::sFixed32Size, protoMarshal::writeSFixed32)
+    if (packedSfixed64.isNotEmpty()) protoMarshal.writeTag(674).writePackedRepeated(packedSfixed64, pbandk.Sizer::sFixed64Size, protoMarshal::writeSFixed64)
+    if (packedFloat.isNotEmpty()) protoMarshal.writeTag(682).writePackedRepeated(packedFloat, pbandk.Sizer::floatSize, protoMarshal::writeFloat)
+    if (packedDouble.isNotEmpty()) protoMarshal.writeTag(690).writePackedRepeated(packedDouble, pbandk.Sizer::doubleSize, protoMarshal::writeDouble)
+    if (packedBool.isNotEmpty()) protoMarshal.writeTag(698).writePackedRepeated(packedBool, pbandk.Sizer::boolSize, protoMarshal::writeBool)
     if (packedNestedEnum.isNotEmpty()) packedNestedEnum.forEach { protoMarshal.writeTag(704).writeEnum(it) }
-    if (unpackedInt32.isNotEmpty()) protoMarshal.writeTag(714).writePackedRepeated(unpackedInt32, pbandk.SizerImpl::int32Size, protoMarshal::writeInt32)
-    if (unpackedInt64.isNotEmpty()) protoMarshal.writeTag(722).writePackedRepeated(unpackedInt64, pbandk.SizerImpl::int64Size, protoMarshal::writeInt64)
-    if (unpackedUint32.isNotEmpty()) protoMarshal.writeTag(730).writePackedRepeated(unpackedUint32, pbandk.SizerImpl::uInt32Size, protoMarshal::writeUInt32)
-    if (unpackedUint64.isNotEmpty()) protoMarshal.writeTag(738).writePackedRepeated(unpackedUint64, pbandk.SizerImpl::uInt64Size, protoMarshal::writeUInt64)
-    if (unpackedSint32.isNotEmpty()) protoMarshal.writeTag(746).writePackedRepeated(unpackedSint32, pbandk.SizerImpl::sInt32Size, protoMarshal::writeSInt32)
-    if (unpackedSint64.isNotEmpty()) protoMarshal.writeTag(754).writePackedRepeated(unpackedSint64, pbandk.SizerImpl::sInt64Size, protoMarshal::writeSInt64)
-    if (unpackedFixed32.isNotEmpty()) protoMarshal.writeTag(762).writePackedRepeated(unpackedFixed32, pbandk.SizerImpl::fixed32Size, protoMarshal::writeFixed32)
-    if (unpackedFixed64.isNotEmpty()) protoMarshal.writeTag(770).writePackedRepeated(unpackedFixed64, pbandk.SizerImpl::fixed64Size, protoMarshal::writeFixed64)
-    if (unpackedSfixed32.isNotEmpty()) protoMarshal.writeTag(778).writePackedRepeated(unpackedSfixed32, pbandk.SizerImpl::sFixed32Size, protoMarshal::writeSFixed32)
-    if (unpackedSfixed64.isNotEmpty()) protoMarshal.writeTag(786).writePackedRepeated(unpackedSfixed64, pbandk.SizerImpl::sFixed64Size, protoMarshal::writeSFixed64)
-    if (unpackedFloat.isNotEmpty()) protoMarshal.writeTag(794).writePackedRepeated(unpackedFloat, pbandk.SizerImpl::floatSize, protoMarshal::writeFloat)
-    if (unpackedDouble.isNotEmpty()) protoMarshal.writeTag(802).writePackedRepeated(unpackedDouble, pbandk.SizerImpl::doubleSize, protoMarshal::writeDouble)
-    if (unpackedBool.isNotEmpty()) protoMarshal.writeTag(810).writePackedRepeated(unpackedBool, pbandk.SizerImpl::boolSize, protoMarshal::writeBool)
+    if (unpackedInt32.isNotEmpty()) protoMarshal.writeTag(714).writePackedRepeated(unpackedInt32, pbandk.Sizer::int32Size, protoMarshal::writeInt32)
+    if (unpackedInt64.isNotEmpty()) protoMarshal.writeTag(722).writePackedRepeated(unpackedInt64, pbandk.Sizer::int64Size, protoMarshal::writeInt64)
+    if (unpackedUint32.isNotEmpty()) protoMarshal.writeTag(730).writePackedRepeated(unpackedUint32, pbandk.Sizer::uInt32Size, protoMarshal::writeUInt32)
+    if (unpackedUint64.isNotEmpty()) protoMarshal.writeTag(738).writePackedRepeated(unpackedUint64, pbandk.Sizer::uInt64Size, protoMarshal::writeUInt64)
+    if (unpackedSint32.isNotEmpty()) protoMarshal.writeTag(746).writePackedRepeated(unpackedSint32, pbandk.Sizer::sInt32Size, protoMarshal::writeSInt32)
+    if (unpackedSint64.isNotEmpty()) protoMarshal.writeTag(754).writePackedRepeated(unpackedSint64, pbandk.Sizer::sInt64Size, protoMarshal::writeSInt64)
+    if (unpackedFixed32.isNotEmpty()) protoMarshal.writeTag(762).writePackedRepeated(unpackedFixed32, pbandk.Sizer::fixed32Size, protoMarshal::writeFixed32)
+    if (unpackedFixed64.isNotEmpty()) protoMarshal.writeTag(770).writePackedRepeated(unpackedFixed64, pbandk.Sizer::fixed64Size, protoMarshal::writeFixed64)
+    if (unpackedSfixed32.isNotEmpty()) protoMarshal.writeTag(778).writePackedRepeated(unpackedSfixed32, pbandk.Sizer::sFixed32Size, protoMarshal::writeSFixed32)
+    if (unpackedSfixed64.isNotEmpty()) protoMarshal.writeTag(786).writePackedRepeated(unpackedSfixed64, pbandk.Sizer::sFixed64Size, protoMarshal::writeSFixed64)
+    if (unpackedFloat.isNotEmpty()) protoMarshal.writeTag(794).writePackedRepeated(unpackedFloat, pbandk.Sizer::floatSize, protoMarshal::writeFloat)
+    if (unpackedDouble.isNotEmpty()) protoMarshal.writeTag(802).writePackedRepeated(unpackedDouble, pbandk.Sizer::doubleSize, protoMarshal::writeDouble)
+    if (unpackedBool.isNotEmpty()) protoMarshal.writeTag(810).writePackedRepeated(unpackedBool, pbandk.Sizer::boolSize, protoMarshal::writeBool)
     if (unpackedNestedEnum.isNotEmpty()) unpackedNestedEnum.forEach { protoMarshal.writeTag(816).writeEnum(it) }
     if (oneofField is TestAllTypesProto3.OneofField.OneofUint32) protoMarshal.writeTag(888).writeUInt32(oneofField.value)
     if (oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage) protoMarshal.writeTag(898).writeMessage(oneofField.value)
@@ -2195,8 +2195,8 @@ private fun TestAllTypesProto3.NestedMessage.protoMergeImpl(plus: TestAllTypesPr
 
 private fun TestAllTypesProto3.NestedMessage.protoSizeImpl(): Int {
     var protoSize = 0
-    if (a != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(a)
-    if (corecursive != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.messageSize(corecursive)
+    if (a != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(a)
+    if (corecursive != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(corecursive)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2246,8 +2246,8 @@ private fun TestAllTypesProto3.MapInt32Int32Entry.protoMergeImpl(plus: TestAllTy
 
 private fun TestAllTypesProto3.MapInt32Int32Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(key)
-    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.int32Size(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(key)
+    if (value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2297,8 +2297,8 @@ private fun TestAllTypesProto3.MapInt64Int64Entry.protoMergeImpl(plus: TestAllTy
 
 private fun TestAllTypesProto3.MapInt64Int64Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int64Size(key)
-    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.int64Size(value)
+    if (key != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int64Size(key)
+    if (value != 0L) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2348,8 +2348,8 @@ private fun TestAllTypesProto3.MapUint32Uint32Entry.protoMergeImpl(plus: TestAll
 
 private fun TestAllTypesProto3.MapUint32Uint32Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.uInt32Size(key)
-    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.uInt32Size(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.uInt32Size(key)
+    if (value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.uInt32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2399,8 +2399,8 @@ private fun TestAllTypesProto3.MapUint64Uint64Entry.protoMergeImpl(plus: TestAll
 
 private fun TestAllTypesProto3.MapUint64Uint64Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.uInt64Size(key)
-    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.uInt64Size(value)
+    if (key != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.uInt64Size(key)
+    if (value != 0L) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.uInt64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2450,8 +2450,8 @@ private fun TestAllTypesProto3.MapSint32Sint32Entry.protoMergeImpl(plus: TestAll
 
 private fun TestAllTypesProto3.MapSint32Sint32Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.sInt32Size(key)
-    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.sInt32Size(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.sInt32Size(key)
+    if (value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.sInt32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2501,8 +2501,8 @@ private fun TestAllTypesProto3.MapSint64Sint64Entry.protoMergeImpl(plus: TestAll
 
 private fun TestAllTypesProto3.MapSint64Sint64Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.sInt64Size(key)
-    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.sInt64Size(value)
+    if (key != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.sInt64Size(key)
+    if (value != 0L) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.sInt64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2552,8 +2552,8 @@ private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoMergeImpl(plus: TestA
 
 private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.fixed32Size(key)
-    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.fixed32Size(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.fixed32Size(key)
+    if (value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.fixed32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2603,8 +2603,8 @@ private fun TestAllTypesProto3.MapFixed64Fixed64Entry.protoMergeImpl(plus: TestA
 
 private fun TestAllTypesProto3.MapFixed64Fixed64Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.fixed64Size(key)
-    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.fixed64Size(value)
+    if (key != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.fixed64Size(key)
+    if (value != 0L) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.fixed64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2654,8 +2654,8 @@ private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: Tes
 
 private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.sFixed32Size(key)
-    if (value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.sFixed32Size(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.sFixed32Size(key)
+    if (value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.sFixed32Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2705,8 +2705,8 @@ private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoMergeImpl(plus: Tes
 
 private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.sFixed64Size(key)
-    if (value != 0L) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.sFixed64Size(value)
+    if (key != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.sFixed64Size(key)
+    if (value != 0L) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.sFixed64Size(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2756,8 +2756,8 @@ private fun TestAllTypesProto3.MapInt32FloatEntry.protoMergeImpl(plus: TestAllTy
 
 private fun TestAllTypesProto3.MapInt32FloatEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(key)
-    if (value != 0.0F) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.floatSize(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(key)
+    if (value != 0.0F) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.floatSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2807,8 +2807,8 @@ private fun TestAllTypesProto3.MapInt32DoubleEntry.protoMergeImpl(plus: TestAllT
 
 private fun TestAllTypesProto3.MapInt32DoubleEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(key)
-    if (value != 0.0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.doubleSize(value)
+    if (key != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(key)
+    if (value != 0.0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.doubleSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2858,8 +2858,8 @@ private fun TestAllTypesProto3.MapBoolBoolEntry.protoMergeImpl(plus: TestAllType
 
 private fun TestAllTypesProto3.MapBoolBoolEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.boolSize(key)
-    if (value) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.boolSize(value)
+    if (key) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(key)
+    if (value) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.boolSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2909,8 +2909,8 @@ private fun TestAllTypesProto3.MapStringStringEntry.protoMergeImpl(plus: TestAll
 
 private fun TestAllTypesProto3.MapStringStringEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -2960,8 +2960,8 @@ private fun TestAllTypesProto3.MapStringBytesEntry.protoMergeImpl(plus: TestAllT
 
 private fun TestAllTypesProto3.MapStringBytesEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value.array.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.bytesSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.bytesSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -3012,8 +3012,8 @@ private fun TestAllTypesProto3.MapStringNestedMessageEntry.protoMergeImpl(plus: 
 
 private fun TestAllTypesProto3.MapStringNestedMessageEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.messageSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -3064,8 +3064,8 @@ private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoMergeImpl(plus:
 
 private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value != null) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.messageSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value != null) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.messageSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -3115,8 +3115,8 @@ private fun TestAllTypesProto3.MapStringNestedEnumEntry.protoMergeImpl(plus: Tes
 
 private fun TestAllTypesProto3.MapStringNestedEnumEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value.value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.enumSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value.value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.enumSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -3166,8 +3166,8 @@ private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoMergeImpl(plus: Te
 
 private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoSizeImpl(): Int {
     var protoSize = 0
-    if (key.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(key)
-    if (value.value != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.enumSize(value)
+    if (key.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(key)
+    if (value.value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.enumSize(value)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -3217,7 +3217,7 @@ private fun ForeignMessage.protoMergeImpl(plus: ForeignMessage?): ForeignMessage
 
 private fun ForeignMessage.protoSizeImpl(): Int {
     var protoSize = 0
-    if (c != 0) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int32Size(c)
+    if (c != 0) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int32Size(c)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
