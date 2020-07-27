@@ -129,6 +129,7 @@ jobs:
           name: Save dependencies cache
           paths:
             - ~/.gradle
+            - ~/.konan
           key: v2-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
           when: always
 
