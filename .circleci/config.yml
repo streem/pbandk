@@ -27,6 +27,7 @@ commands:
       target:
         description: Target platform for which to run conformance tests
         type: string
+
     steps:
       - attach_workspace:
           at: ~/project
@@ -50,6 +51,10 @@ jobs:
 
     steps:
       - checkout
+
+      - run:
+          name: Install Kotlin/Native compiler dependencies
+          command: sudo apt update && sudo apt install libncurses5
 
       - run:
           name: Collect files for dependencies cache key
