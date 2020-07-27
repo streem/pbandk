@@ -1,0 +1,1 @@
+fun main() = pbandk.conformance.main(emptyArray())

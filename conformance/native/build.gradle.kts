@@ -1,32 +1,16 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
 }
 
-val executableBaseName = "conformance"
-val executableEntryPoint = "pbandk.conformance.main"
-
 kotlin {
-    linuxX64("linux") {
+    linuxX64("linux")
+    macosX64("macos")
+
+    targets.withType<KotlinNativeTarget> {
         binaries {
-            executable {
-                baseName = executableBaseName
-                entryPoint = executableEntryPoint
-
-                runTask?.args("")
-            }
-        }
-    }
-
-    macosX64("macos") {
-        binaries {
-            executable {
-                baseName = executableBaseName
-                entryPoint = executableEntryPoint
-
-                runTask?.args("")
-            }
+            executable("conformance")
         }
     }
 

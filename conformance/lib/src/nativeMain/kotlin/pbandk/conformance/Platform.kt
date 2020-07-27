@@ -97,6 +97,6 @@ actual object Platform {
     }
 
     actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
-        kotlinx.coroutines.runBlocking(block = block)
+        runBlocking(block = block)
     }
 }
