@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
@@ -25,7 +27,19 @@ kotlin {
     // For Windows, should be changed to e.g. mingwX64
     macosX64()
     linuxX64()
-    
+
+    targets.withType<KotlinNativeTarget> {
+        val main by compilations.getting {
+            defaultSourceSet {
+                kotlin.srcDir("src/nativeMain/kotlin")
+            }
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
+            }
+        }
+    }
+
+
     sourceSets {
         all {
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
@@ -73,29 +87,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-js"))
             }
-        }
-
-        val nativeMain by creating {
-            dependsOn(commonMain)
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
-            }
-        }
-
-        val iosArm64Main by getting {
-            dependsOn(nativeMain)
-        }
-
-        val iosX64Main by getting {
-            dependsOn(nativeMain)
-        }
-
-        val macosX64Main by getting {
-            dependsOn(nativeMain)
-        }
-
-        val linuxX64Main by getting {
-            dependsOn(nativeMain)
         }
     }
 }

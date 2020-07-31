@@ -30,7 +30,6 @@
 package pbandk.impl
 
 import pbandk.Util
-import pbandk.wkt.Timestamp
 
 abstract class AbstractUtil {
     fun base64ToBytes(str: String): ByteArray {
@@ -40,14 +39,6 @@ abstract class AbstractUtil {
 
     fun bytesToBase64(bytes: ByteArray): String {
         return Util.utf8ToString(bytes.encodeBase64())
-    }
-
-    fun timestampToString(ts: Timestamp.JsonMapper): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    fun stringToTimestamp(str: String): Timestamp.JsonMapper {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private fun decodeSeq(bytes: ByteArray, pos: Int, len: Int): Int {
