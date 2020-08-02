@@ -1,8 +1,10 @@
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileCollection
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.*
-import org.gradle.internal.os.OperatingSystem
+import org.gradle.kotlin.dsl.listProperty
 import org.gradle.kotlin.dsl.property
 
 @Suppress("UnstableApiUsage")
@@ -15,23 +17,24 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
 
     @Input
     val protoc: Property<String> = project.objects.property<String>().apply {
-        convention("protoc")
+        convention(
+            project.providers.systemProperty("protoc.path")
+                .map { project.layout.projectDirectory.dir(it).file("bin/protoc") }
+                .map { it.asFile.absolutePath }
+                .orElse("protoc")
+        )
     }
 
     @Input
-    @Optional
-    val kotlinPackage: Property<String> = project.objects.property()
+    val plugin: Property<String> = project.objects.property()
 
     @Input
     @Optional
-    val jsonSupport: Property<Boolean> = project.objects.property()
+    val pluginOptions: ListProperty<Pair<Any, Any>> = project.objects.listProperty()
 
-    @Input
+    @InputFile
     @Optional
-    val jsonUseProtoNames: Property<Boolean> = project.objects.property()
-
-    @Console
-    val logLevel: Property<String> = project.objects.property()
+    val pluginPath: RegularFileProperty = project.objects.fileProperty()
 
     private val protoFileDir: DirectoryProperty = project.objects.directoryProperty().apply {
         convention(includeDir)
@@ -47,30 +50,20 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
         this.include("*.proto")
     }
 
-    private val protocGenKotlinInstallDir = project.project(":protoc-gen-kotlin:jvm").tasks
-        .named("installDist", Sync::class.java)
-        .map { it.destinationDir }
-
-    init {
-        inputs.dir(protocGenKotlinInstallDir)
-    }
-
     override fun exec() {
         executable = protoc.get()
-        // Build CLI args
-        val kotlinOut = listOfNotNull(
-            kotlinPackage.orNull.let { "kotlin_package=$it" },
-            logLevel.orNull.let { "log=$it" },
-            jsonUseProtoNames.getOrElse(true).let{ "json_use_proto_names=$it" },
-            jsonSupport.getOrElse(true).let{ "json_support=$it" },
-            "empty_arg:${outputDir.get()}"
-        )
-        args(kotlinOut.joinToString(separator = ",", prefix = "--kotlin_out="))
 
-        val protocGenKotlinPath = protocGenKotlinInstallDir.get().resolve(
-            "bin/protoc-gen-kotlin" + ".bat".takeIf { OperatingSystem.current().isWindows }.orEmpty()
+        // Build CLI args
+        args(
+            pluginOptions.orNull
+                ?.takeUnless { it.isEmpty() }
+                ?.joinToString(separator = ",", postfix = ":") { (k, v) -> "$k=$v" }
+                .let { "--${plugin.get()}_out=${it.orEmpty()}${outputDir.get()}" }
         )
-        args("--plugin=protoc-gen-kotlin=$protocGenKotlinPath")
+
+        pluginPath.orNull?.let {
+            args("--plugin=protoc-gen-${plugin.get()}=${it.asFile.absolutePath}")
+        }
 
         args("-I", includeDir.get())
 

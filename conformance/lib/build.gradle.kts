@@ -79,7 +79,7 @@ kotlin {
 }
 
 tasks {
-    val generateProto by registering(ProtocTask::class) {
+    val generateProto by registering(KotlinProtocTask::class) {
         includeDir.set(project.file("src/commonMain/proto"))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.conformance.pb")
