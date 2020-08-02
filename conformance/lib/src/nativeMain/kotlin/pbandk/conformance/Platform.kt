@@ -86,6 +86,8 @@ actual object Platform {
             if (bytesWritten.toInt() == -1) {
                 // errno
                 throw PosixException(posix_errno())
+            } else if (bytesWritten < arr.size) {
+                throw RuntimeException("Tried to write ${arr.size} bytes but only wrote $bytesWritten bytes")
             }
         }
     }

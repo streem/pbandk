@@ -184,13 +184,6 @@ rename it to `protoc-gen-kotlin`, make the file executable (`chmod +x protoc-gen
 protoc --kotlin_out=src/main/kotlin sample.proto
 ```
 
-For Windows however, `protoc` doesn't support finding `protoc-gen-kotlin.bat` on the `PATH`. So it has to be specified
-explicitly as a plugin:
-
-```
-protoc --kotlin_out=src/main/kotlin --plugin=protoc-gen-kotlin=path/to/protoc-gen-kotlin.bat sample.proto
-```
-
 The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
 comma-separated options can be added to `--kotlin_out` before the colon and out dir path. To explicitly set the Kotlin
 package to `my.pkg`, use the `kotlin_package` option like so:
