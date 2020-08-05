@@ -122,7 +122,7 @@ abstract class AbstractMarshaller : pbandk.Marshaller {
         writeUInt64(value)
     }
     override fun writeString(value: String) {
-        writeBytes(value = ByteArr(UtilImpl.stringToUtf8(value)))
+        writeBytes(value = ByteArr(Util.stringToUtf8(value)))
     }
     override fun writeFloat(value: Float) {
         writeFixed32(value.toRawBits())

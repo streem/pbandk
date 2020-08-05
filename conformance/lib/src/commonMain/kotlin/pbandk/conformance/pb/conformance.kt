@@ -228,7 +228,7 @@ private fun FailureSet.protoMergeImpl(plus: FailureSet?): FailureSet = plus?.cop
 
 private fun FailureSet.protoSizeImpl(): Int {
     var protoSize = 0
-    if (failure.isNotEmpty()) protoSize += (pbandk.SizerImpl.tagSize(1) * failure.size) + failure.sumBy(pbandk.SizerImpl::stringSize)
+    if (failure.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * failure.size) + failure.sumBy(pbandk.Sizer::stringSize)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
@@ -275,16 +275,16 @@ private fun ConformanceRequest.protoMergeImpl(plus: ConformanceRequest?): Confor
 
 private fun ConformanceRequest.protoSizeImpl(): Int {
     var protoSize = 0
-    if (requestedOutputFormat.value != 0) protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.enumSize(requestedOutputFormat)
-    if (messageType.isNotEmpty()) protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.stringSize(messageType)
-    if (testCategory.value != 0) protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.enumSize(testCategory)
-    if (jspbEncodingOptions != null) protoSize += pbandk.SizerImpl.tagSize(6) + pbandk.SizerImpl.messageSize(jspbEncodingOptions)
-    if (printUnknownFields) protoSize += pbandk.SizerImpl.tagSize(9) + pbandk.SizerImpl.boolSize(printUnknownFields)
+    if (requestedOutputFormat.value != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.enumSize(requestedOutputFormat)
+    if (messageType.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(messageType)
+    if (testCategory.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(testCategory)
+    if (jspbEncodingOptions != null) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.messageSize(jspbEncodingOptions)
+    if (printUnknownFields) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.boolSize(printUnknownFields)
     when (payload) {
-        is ConformanceRequest.Payload.ProtobufPayload -> protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.bytesSize(payload.value)
-        is ConformanceRequest.Payload.JsonPayload -> protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(payload.value)
-        is ConformanceRequest.Payload.JspbPayload -> protoSize += pbandk.SizerImpl.tagSize(7) + pbandk.SizerImpl.stringSize(payload.value)
-        is ConformanceRequest.Payload.TextPayload -> protoSize += pbandk.SizerImpl.tagSize(8) + pbandk.SizerImpl.stringSize(payload.value)
+        is ConformanceRequest.Payload.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.bytesSize(payload.value)
+        is ConformanceRequest.Payload.JsonPayload -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(payload.value)
+        is ConformanceRequest.Payload.JspbPayload -> protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(payload.value)
+        is ConformanceRequest.Payload.TextPayload -> protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(payload.value)
     }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -371,14 +371,14 @@ private fun ConformanceResponse.protoMergeImpl(plus: ConformanceResponse?): Conf
 private fun ConformanceResponse.protoSizeImpl(): Int {
     var protoSize = 0
     when (result) {
-        is ConformanceResponse.Result.ParseError -> protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.stringSize(result.value)
-        is ConformanceResponse.Result.SerializeError -> protoSize += pbandk.SizerImpl.tagSize(6) + pbandk.SizerImpl.stringSize(result.value)
-        is ConformanceResponse.Result.RuntimeError -> protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.stringSize(result.value)
-        is ConformanceResponse.Result.ProtobufPayload -> protoSize += pbandk.SizerImpl.tagSize(3) + pbandk.SizerImpl.bytesSize(result.value)
-        is ConformanceResponse.Result.JsonPayload -> protoSize += pbandk.SizerImpl.tagSize(4) + pbandk.SizerImpl.stringSize(result.value)
-        is ConformanceResponse.Result.Skipped -> protoSize += pbandk.SizerImpl.tagSize(5) + pbandk.SizerImpl.stringSize(result.value)
-        is ConformanceResponse.Result.JspbPayload -> protoSize += pbandk.SizerImpl.tagSize(7) + pbandk.SizerImpl.stringSize(result.value)
-        is ConformanceResponse.Result.TextPayload -> protoSize += pbandk.SizerImpl.tagSize(8) + pbandk.SizerImpl.stringSize(result.value)
+        is ConformanceResponse.Result.ParseError -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.SerializeError -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.RuntimeError -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.bytesSize(result.value)
+        is ConformanceResponse.Result.JsonPayload -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.Skipped -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.JspbPayload -> protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(result.value)
+        is ConformanceResponse.Result.TextPayload -> protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(result.value)
     }
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
@@ -453,7 +453,7 @@ private fun JspbEncodingConfig.protoMergeImpl(plus: JspbEncodingConfig?): JspbEn
 
 private fun JspbEncodingConfig.protoSizeImpl(): Int {
     var protoSize = 0
-    if (useJspbArrayAnyFormat) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.boolSize(useJspbArrayAnyFormat)
+    if (useJspbArrayAnyFormat) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(useJspbArrayAnyFormat)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }

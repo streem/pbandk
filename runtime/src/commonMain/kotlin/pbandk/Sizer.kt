@@ -1,6 +1,6 @@
 package pbandk
 
-interface Sizer {
+expect object Sizer {
     fun tagSize(fieldNum: Int): Int
     fun doubleSize(value: Double): Int
     fun floatSize(value: Float): Int
@@ -26,5 +26,3 @@ interface Sizer {
         createEntry: (K, V, Map<Int, pbandk.UnknownField>) -> T
     ): Int
 }
-
-expect object SizerImpl : Sizer

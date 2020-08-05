@@ -20,6 +20,29 @@ executors:
     docker:
       - image: cimg/base:2020.01
 
+commands:
+
+  conformance_test:
+    parameters:
+      target:
+        description: Target platform for which to run conformance tests
+        type: string
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - restore_cache:
+          name: Restore protobuf cache
+          keys:
+            - v3-protobuf-3.10.1
+
+      - run:
+          name: Run << parameters.target >> conformance tests
+          command: |
+            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
+            ./conformance/test-conformance.sh << parameters.target >>
+
 jobs:
 
   build:
@@ -28,6 +51,10 @@ jobs:
 
     steps:
       - checkout
+
+      - run:
+          name: Install Kotlin/Native compiler dependencies
+          command: sudo apt update && sudo apt install libncurses5
 
       - run:
           name: Collect files for dependencies cache key
@@ -122,13 +149,14 @@ jobs:
             - conformance/js/failing_tests.txt
             - conformance/js/run.sh
             # native
-            - conformance/native/build/bin/linux/debugExecutable/conformance.kexe
+            - conformance/native/build/bin/linux/conformanceReleaseExecutable/conformance.kexe
             - conformance/native/failing_tests.txt
 
       - save_cache:
           name: Save dependencies cache
           paths:
             - ~/.gradle
+            - ~/.konan
           key: v2-dependencies-{{ checksum "/tmp/circleci_cache_key" }}
           when: always
 
@@ -138,58 +166,24 @@ jobs:
       name: jvm
 
     steps:
-      - attach_workspace:
-          at: ~/project
-
-      - restore_cache:
-          name: Restore protobuf cache
-          keys:
-            - v3-protobuf-3.10.1
-
-      - run:
-          name: Run JVM conformance tests
-          command: |
-            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./conformance/test-conformance.sh jvm
-
+      - conformance_test:
+          target: jvm
 
   conformance_js:
     executor:
       name: nodejs
 
     steps:
-      - attach_workspace:
-          at: ~/project
-
-      - restore_cache:
-          name: Restore protobuf cache
-          keys:
-            - v3-protobuf-3.10.1
-
-      - run:
-          name: Run JS conformance tests
-          command: |
-            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./conformance/test-conformance.sh js
+      - conformance_test:
+          target: js
 
   conformance_native:
     executor:
       name: native
 
     steps:
-      - attach_workspace:
-          at: ~/project
-
-      - restore_cache:
-          name: Restore protobuf cache
-          keys:
-            - v3-protobuf-3.10.1
-
-      - run:
-          name: Run Native conformance tests
-          command: |
-            export CONF_TEST_PATH=~/protobuf/conformance/conformance-test-runner
-            ./conformance/test-conformance.sh linux
+      - conformance_test:
+          target: linux
 
   build_examples:
     executor:

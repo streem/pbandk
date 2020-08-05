@@ -40,8 +40,8 @@ private fun Duration.protoMergeImpl(plus: Duration?): Duration = plus?.copy(
 
 private fun Duration.protoSizeImpl(): Int {
     var protoSize = 0
-    if (seconds != 0L) protoSize += pbandk.SizerImpl.tagSize(1) + pbandk.SizerImpl.int64Size(seconds)
-    if (nanos != 0) protoSize += pbandk.SizerImpl.tagSize(2) + pbandk.SizerImpl.int32Size(nanos)
+    if (seconds != 0L) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.int64Size(seconds)
+    if (nanos != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(nanos)
     protoSize += unknownFields.entries.sumBy { it.value.size() }
     return protoSize
 }
