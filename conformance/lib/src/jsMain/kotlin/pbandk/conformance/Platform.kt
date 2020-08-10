@@ -6,6 +6,7 @@ import pbandk.asByteArray
 import pbandk.asUint8Array
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
+import kotlinx.coroutines.*
 
 internal external interface StdStream {
     val fd: Int
@@ -104,4 +105,8 @@ actual object Platform {
         } catch (e: dynamic) {
             errFn(e as Any)
         }
+
+    actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
+        GlobalScope.launch(block = block)
+    }
 }

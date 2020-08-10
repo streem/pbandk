@@ -1,5 +1,6 @@
 package pbandk.conformance
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.nio.ByteBuffer
@@ -27,5 +28,13 @@ actual object Platform {
 
     actual fun stdoutWriteFull(arr: ByteArray) = System.out.write(arr)
 
-    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try { fn() } catch (e: Exception) { errFn(e) }
+    actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) = try {
+        fn()
+    } catch (e: Exception) {
+        errFn(e)
+    }
+
+    actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
+        kotlinx.coroutines.runBlocking(block = block)
+    }
 }

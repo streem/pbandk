@@ -1,6 +1,7 @@
 package pbandk
 
-expect class Unmarshaller {
+interface Unmarshaller {
+    val totalBytesRead: Int
 
     // 0 means there is no next tag
     fun readTag(): Int
@@ -45,6 +46,8 @@ expect class Unmarshaller {
     fun unknownFields(): Map<Int, UnknownField>
 
     companion object {
-        fun fromByteArray(arr: ByteArray): Unmarshaller
+        fun fromByteArray(arr: ByteArray): Unmarshaller = unmarshallerByteArray(arr)
     }
 }
+
+internal expect fun unmarshallerByteArray(arr: ByteArray): Unmarshaller

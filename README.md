@@ -6,7 +6,7 @@ It is built to work across multiple Kotlin platforms.
 **Features**
 
 * Clean data class generation
-* Works for JVM and JS
+* Works for JVM, JS and Native
 * Support for proto2 and proto3 syntaxes
 * Oneof's are properly handled as sealed classes
 * Specialized support to handle wrappers from the well-known types (e.g. `StringValue`, `BoolValue`) as nullable primitives (`String?`, `Boolean?`, etc.)
@@ -21,8 +21,6 @@ It is built to work across multiple Kotlin platforms.
 
 **Not Yet Implemented**
 
-* Kotlin Native runtime support
-* Protobuf code generator in Kotlin Native for easier importing
 * Specialized support for more of the well known types (e.g. `Any`)
 * Support for protobuf annotations
 * Access to the protobuf descriptor from generated code
@@ -234,7 +232,15 @@ Then the dependency can be added for JVM libraries:
 
 ```
 dependencies {
-    implementation 'com.github.streem.pbandk:pbandk-runtime-jvm:0.8.1'
+    implementation 'com.github.streem.pbandk:pbandk-runtime-jvm:0.9.0-SNAPSHOT'
+}
+```
+
+or for the Native libraries:
+
+```
+dependencies {
+    implementation "com.github.streem.pbandk:pbandk-runtime-native:0.9.0-SNAPSHOT
 }
 ```
 
@@ -253,7 +259,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.8.1'
+    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.9.0-SNAPSHOT'
 }
 ```
 
@@ -433,12 +439,10 @@ Set the `CONF_TEST_PATH` environment variable (used to run the tests below) with
 export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 ```
 
-Now, back in `pbandk`, build both the JS and JVM projects via:
+Now, back in `pbandk`, build all JS. JVM and native projects via:
 
 ```
-./gradlew \
-    :conformance:lib:assemble
-    :conformance:jvm:installDist
+./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:build
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).
