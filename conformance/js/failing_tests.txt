@@ -129,9 +129,6 @@ Required.Proto3.JsonInput.Struct.JsonOutput
 Required.Proto3.JsonInput.Struct.ProtobufOutput
 Required.Proto3.JsonInput.StructWithEmptyListValue.JsonOutput
 Required.Proto3.JsonInput.StructWithEmptyListValue.ProtobufOutput
-Required.Proto3.JsonInput.TimestampJsonInputLowercaseT
-Required.Proto3.JsonInput.TimestampJsonInputLowercaseZ
-Required.Proto3.JsonInput.TimestampJsonInputTooSmall
 Required.Proto3.JsonInput.Uint32FieldMaxFloatValue.JsonOutput
 Required.Proto3.JsonInput.Uint32FieldMaxFloatValue.ProtobufOutput
 Required.Proto3.JsonInput.ValueAcceptBool.JsonOutput
@@ -148,22 +145,6 @@ Required.Proto3.JsonInput.ValueAcceptObject.JsonOutput
 Required.Proto3.JsonInput.ValueAcceptObject.ProtobufOutput
 Required.Proto3.JsonInput.ValueAcceptString.JsonOutput
 Required.Proto3.JsonInput.ValueAcceptString.ProtobufOutput
-Required.TimestampProtoInputTooLarge.JsonOutput
-Required.TimestampProtoInputTooSmall.JsonOutput
-##
-## JS-specific bugs in our JSON support
-##
-Recommended.Proto3.JsonInput.TimestampHas6FractionalDigits.Validator
-Recommended.Proto3.JsonInput.TimestampHas9FractionalDigits.Validator
-Recommended.Proto3.JsonInput.TimestampHasZeroFractionalDigit.Validator
-Recommended.Proto3.JsonInput.TimestampZeroNormalized.Validator
-Required.Proto3.JsonInput.TimestampJsonInputMissingT
-Required.Proto3.JsonInput.TimestampJsonInputMissingZ
-Required.Proto3.JsonInput.TimestampJsonInputTooLarge
-Required.Proto3.JsonInput.TimestampMaxValue.JsonOutput
-Required.Proto3.JsonInput.TimestampMaxValue.ProtobufOutput
-Required.Proto3.JsonInput.TimestampRepeatedValue.JsonOutput
-Required.Proto3.JsonInput.TimestampRepeatedValue.ProtobufOutput
 ##
 ## These failures need to be investigated
 ## See https://github.com/streem/pbandk/issues/22

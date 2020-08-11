@@ -1,8 +1,6 @@
 package pbandk.internal
 
-import kotlinx.cinterop.*
 import pbandk.wkt.Timestamp
-import platform.posix.*
 
 /*
 These functions are adapted from the similarly-named functions in the protobuf C++ library:
@@ -50,24 +48,20 @@ private fun isLeapYear(year: Int) = (year % 400 == 0) || (year % 4 == 0 && year 
 
 private fun secondsPerYear(year: Int): Long = SECONDS_PER_DAY * (if (isLeapYear(year)) 366 else 365)
 
-private val DAYS_IN_MONTH = arrayOf(
-    0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-)
+private val DAYS_IN_MONTH = arrayOf(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
 private fun secondsPerMonth(month: Int, leap: Boolean): Long =
-    SECONDS_PER_DAY * (DAYS_IN_MONTH[month] + if (month == 2 && leap) 1 else 0)
+        SECONDS_PER_DAY * (DAYS_IN_MONTH[month] + if (month == 2 && leap) 1 else 0)
 
-private val DAYS_SINCE_JAN = arrayOf(
-    0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
-)
+private val DAYS_SINCE_JAN = arrayOf(0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334)
 
 private data class DateTime(
-    val year: Int,
-    val month: Int,
-    val day: Int,
-    val hour: Int,
-    val minute: Int,
-    val second: Int
+        val year: Int,
+        val month: Int,
+        val day: Int,
+        val hour: Int,
+        val minute: Int,
+        val second: Int
 ) {
     companion object
 }
@@ -121,29 +115,6 @@ private fun DateTime.Companion.fromSeconds(seconds: Long): DateTime {
     return DateTime(year, month, day, hour, minute, seconds.toInt())
 }
 
-private fun formatNanos(output: CPointer<ByteVar>, nanos: Int): Int {
-    fun writeFractionalNumber(size: Int, value: Int): Int {
-        val bytesWritten = snprintf(output, (size + 1).convert(), "%0${size}d", value)
-        return when {
-            bytesWritten < 0 -> throw PosixException(posix_errno())
-            bytesWritten > size ->
-                throw IllegalStateException("Needed to write $bytesWritten bytes but only had space for $size")
-            else -> bytesWritten
-        }
-    }
-
-    return when {
-        nanos % NANOS_PER_MILLISECOND == 0 -> writeFractionalNumber(3, nanos / NANOS_PER_MILLISECOND)
-        nanos % NANOS_PER_MICROSECOND == 0 -> writeFractionalNumber(6, nanos / NANOS_PER_MICROSECOND)
-        else -> writeFractionalNumber(9, nanos)
-    }
-}
-
-private fun CPointer<ByteVar>.setChecked(index: Int, size: Int, value: Char) {
-    check(index + 1 < size) { "Not enough space in buffer to write '$value': index=$index, size=$size" }
-    this[index] = value.toByte()
-}
-
 /**
  * Formats a time string in RFC3339 format.
  *
@@ -160,35 +131,33 @@ internal fun formatTime(seconds: Long, nanos: Int): String {
     }
     val time = DateTime.fromSeconds(seconds)
 
-    return memScoped {
+    return buildString(40) {
         // The output string will be yyyy-mm-ddThh:mm:ss.sssssssssZ. The fractional seconds component (with
         // leading period) is optional. If present, it can be up to 9 digits long but can be shorter.
-        val outputBufferSize = 40
-        val output = allocArray<ByteVar>(outputBufferSize)
-        var bytesWritten = snprintf(
-            output, outputBufferSize.convert(), "%04d-%02d-%02dT%02d:%02d:%02d",
-            time.year, time.month, time.day,
-            time.hour, time.minute, time.second
-        )
-        if (bytesWritten < 0) {
-            throw PosixException(posix_errno())
-        } else if (bytesWritten > outputBufferSize) {
-            throw IllegalStateException("Needed to write $bytesWritten bytes but only had space for $outputBufferSize")
-        }
-
-        if (nanos != 0) {
-            output.setChecked(bytesWritten++, outputBufferSize, '.')
-            check(bytesWritten + 9 < outputBufferSize) {
-                "Not enough space in buffer to write nanos: index=$bytesWritten, size=$outputBufferSize"
-            }
-            bytesWritten += formatNanos((output + bytesWritten.toLong())!!, nanos)
-        }
-
-        output.setChecked(bytesWritten++, outputBufferSize, 'Z')
-        output[bytesWritten] = 0
-        output.toKString()
+        append(time.year.toString().padStart(4, '0'))
+        append('-')
+        append(time.month.toString().padStart(2, '0'))
+        append('-')
+        append(time.day.toString().padStart(2, '0'))
+        append('T')
+        append(time.hour.toString().padStart(2, '0'))
+        append(':')
+        append(time.minute.toString().padStart(2, '0'))
+        append(':')
+        append(time.second.toString().padStart(2, '0'))
+        if (nanos != 0) append(".${formatNanos(nanos)}")
+        append('Z')
     }
 }
+
+private fun formatNanos(nanos: Int): String =
+        when {
+            nanos % NANOS_PER_MILLISECOND == 0 ->
+                (nanos / NANOS_PER_MILLISECOND).toString().padStart(3, '0')
+            nanos % NANOS_PER_MICROSECOND == 0 ->
+                (nanos / NANOS_PER_MICROSECOND).toString().padStart(6, '0')
+            else -> nanos.toString().padStart(9, '0')
+        }
 
 // endregion
 
@@ -203,11 +172,11 @@ private data class ParsePosition(var position: Int = 0)
  */
 private fun parseInt(str: String, parsePosition: ParsePosition, width: Int, minValue: Int, maxValue: Int): Int {
     val position = parsePosition.position
-    require(str[position].isDigit()) { "Failed to parse integer at: ${str.substring(position)}" }
+    require(str[position] in '0'..'9') { "Failed to parse integer at: ${str.substring(position)}" }
     var value = 0
     var i = 0
     while (i < width) {
-        if (str[position + i].isDigit()) {
+        if (str[position + i] in '0'..'9') {
             value = value * 10 + (str[position + i] - '0')
         } else {
             break
@@ -224,11 +193,11 @@ private fun parseInt(str: String, parsePosition: ParsePosition, width: Int, minV
  */
 private fun parseNanos(str: String, parsePosition: ParsePosition): Int {
     val position = parsePosition.position
-    require(str[position].isDigit()) { "Failed to parse nanos at: ${str.substring(position)}" }
+    require(str[position] in '0'..'9') { "Failed to parse nanos at: ${str.substring(position)}" }
     var value = 0
     var len = 0
     // Consume as many digits as there are but only take the first 9 into account.
-    while (str[position + len].isDigit()) {
+    while (str[position + len] in '0'..'9') {
         if (len < 9) {
             value = value * 10 + (str[position + len] - '0')
         }
@@ -303,11 +272,11 @@ private val DateTime.secondsSinceCommonEra: Long
 
 private fun DateTime.validate(): Boolean {
     if (year !in 1..9999 ||
-        month !in 1..12 ||
-        day !in 1..31 ||
-        hour !in 0..23 ||
-        minute !in 0..59 ||
-        second !in 0..59
+            month !in 1..12 ||
+            day !in 1..31 ||
+            hour !in 0..23 ||
+            minute !in 0..59 ||
+            second !in 0..59
     ) {
         return false;
     }
@@ -378,7 +347,7 @@ internal fun parseTime(str: String): Timestamp {
         '+' -> -parseTimezoneOffset(str, parsePosition)
         '-' -> parseTimezoneOffset(str, parsePosition)
         else -> throw IllegalArgumentException(
-            "Expected 'Z' or timezone offset at: ${str.substring(parsePosition.position - 1)}"
+                "Expected 'Z' or timezone offset at: ${str.substring(parsePosition.position - 1)}"
         )
     }
     require(parsePosition.position == str.length) {
