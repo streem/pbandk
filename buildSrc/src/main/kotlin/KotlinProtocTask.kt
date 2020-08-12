@@ -12,18 +12,6 @@ open class KotlinProtocTask : ProtocTask() {
     @Optional
     val kotlinPackage: Property<String> = project.objects.property()
 
-    @Input
-    @Optional
-    val jsonSupport: Property<Boolean> = project.objects.property<Boolean>().apply {
-        convention(true)
-    }
-
-    @Input
-    @Optional
-    val jsonUseProtoNames: Property<Boolean> = project.objects.property<Boolean>().apply {
-        convention(true)
-    }
-
     @Console
     val logLevel: Property<String> = project.objects.property()
 
@@ -39,7 +27,5 @@ open class KotlinProtocTask : ProtocTask() {
         }))
         pluginOptions.add(kotlinPackage.map { "kotlin_package" to it })
         pluginOptions.add(logLevel.map { "log" to it })
-        pluginOptions.add(jsonSupport.map { "json_support" to it })
-        pluginOptions.add(jsonUseProtoNames.map { "json_use_proto_names" to it })
     }
 }

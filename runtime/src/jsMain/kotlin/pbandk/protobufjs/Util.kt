@@ -1,11 +1,11 @@
 package pbandk.protobufjs
 
-import pbandk.asUint8Array
+import pbandk.internal.asUint8Array
 import pbandk.wkt.Timestamp
 import kotlin.js.Date
 import kotlin.math.floor
 
-val Long.protobufjsLong: dynamic
+internal val Long.protobufjsLong: dynamic
     get() {
         val ret = js("{}")
         ret.high = this.asDynamic().getHighBits()
@@ -13,20 +13,26 @@ val Long.protobufjsLong: dynamic
         return ret
     }
 
-fun Long.Companion.fromProtobufjsLong(l: dynamic) = js("Kotlin").Long.fromBits(l.low, l.high) as Long
+internal fun Long.Companion.fromProtobufjsLong(l: dynamic) = js("Kotlin").Long.fromBits(l.low, l.high) as Long
 
 object Util {
-    fun stringToUtf8(str: String) = ByteArray(util.utf8.length(str)).also { util.utf8.write(str, it.asUint8Array(), 0) }
-    fun utf8ToString(bytes: ByteArray) = bytes.asUint8Array().let { util.utf8.read(it, 0, it.length) }
+    fun stringToUtf8(str: String): ByteArray = ByteArray(util.utf8.length(str)).also {
+        util.utf8.write(str, it.asUint8Array(), 0)
+    }
 
-    fun base64ToBytes(str: String) = js("Buffer").from(str, "base64")
-    fun bytesToBase64(bytes: ByteArray) = js("Buffer").from(bytes).toString("base64")
+    fun utf8ToString(bytes: ByteArray): String = bytes.asUint8Array().let { util.utf8.read(it, 0, it.length) }
 
-    fun timestampToString(ts: Timestamp.JsonMapper) =
-        Date(((ts.seconds ?: 0) * 1000) + ((ts.nanos ?: 0) / 1_000_000)).toISOString()
+    fun base64ToBytes(str: String): ByteArray = ByteArray(util.base64.length(str)).also {
+        util.base64.decode(str, it.asUint8Array(), 0)
+    }
 
-    fun stringToTimestamp(str: String) = Date(str).getTime().let {
-        Timestamp.JsonMapper(
+    fun bytesToBase64(bytes: ByteArray): String = bytes.asUint8Array().let { util.base64.encode(it, 0, it.length) }
+
+    fun timestampToString(ts: Timestamp): String =
+        Date((ts.seconds * 1000) + (ts.nanos / 1_000_000)).toISOString()
+
+    fun stringToTimestamp(str: String): Timestamp = Date(str).getTime().let {
+        Timestamp(
             seconds = floor(it / 1000.0).toLong(),
             nanos = (it % 1000 * 1_000_000).toInt()
         )

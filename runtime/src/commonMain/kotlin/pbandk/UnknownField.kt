@@ -1,23 +1,26 @@
 package pbandk
 
-data class UnknownField(val fieldNum: Int, val value: Value) {
-    constructor(fieldNum: Int, value: Long, fixed: Boolean = false) :
+import pbandk.internal.binary.Sizer
+import pbandk.internal.Util
+
+data class UnknownField internal constructor(val fieldNum: Int, val value: Value) {
+    internal constructor(fieldNum: Int, value: Long, fixed: Boolean = false) :
         this(fieldNum, if (fixed) Value.Fixed64(value) else Value.Varint(value))
-    constructor(fieldNum: Int, value: Int, fixed: Boolean = false) :
+    internal constructor(fieldNum: Int, value: Int, fixed: Boolean = false) :
         this(fieldNum, if (fixed) Value.Fixed32(value) else Value.Varint(value.toLong()))
-    constructor(fieldNum: Int, value: ByteArr) :
+    internal constructor(fieldNum: Int, value: ByteArr) :
         this(fieldNum, Value.LengthDelimited(value))
-    constructor(fieldNum: Int, value: ByteArray) :
+    internal constructor(fieldNum: Int, value: ByteArray) :
         this(fieldNum, Value.LengthDelimited(ByteArr(value)))
-    constructor(fieldNum: Int, value: String) :
+    internal constructor(fieldNum: Int, value: String) :
         this(fieldNum, Value.LengthDelimited(ByteArr(Util.stringToUtf8(value))))
 
-    fun size() =
+    internal fun size() =
         if (value is Value.Composite) (Sizer.tagSize(fieldNum) * value.values.size) + value.size()
         else Sizer.tagSize(fieldNum) + value.size()
 
     sealed class Value {
-        abstract fun size(): Int
+        internal abstract fun size(): Int
 
         data class Varint(val varint: Long) : Value() {
             override fun size() = Sizer.uInt64Size(varint)

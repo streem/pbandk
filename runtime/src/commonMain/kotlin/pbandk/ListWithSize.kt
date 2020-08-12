@@ -1,18 +1,20 @@
 package pbandk
 
-data class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int?) : List<T> by list {
+@PublicForGeneratedCode
+class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int?) : List<T> by list {
     constructor(list: List<T>, sizeFn: (T) -> Int) : this(list, list.sumBy(sizeFn))
 
+    override fun equals(other: Any?) = list == other
+    override fun hashCode() = list.hashCode()
     override fun toString() = list.toString()
 
-    class Builder<T> {
-        val list = ArrayList<T>()
-        var protoSize: Int? = 0
+    class Builder<T> private constructor(val list: ArrayList<T>): MutableList<T> by list {
+        constructor() : this(ArrayList())
 
-        fun fixed() = ListWithSize(list.also { it.trimToSize() }, protoSize)
+        fun fixed() = ListWithSize(list.also { it.trimToSize() }, protoSize = null)
 
         companion object {
-            fun <T> fixed(bld: Builder<T>?) = bld?.fixed() ?: ListWithSize.Empty
+            fun <T> fixed(bld: Builder<T>?) = bld?.fixed() ?: Empty
         }
     }
 

@@ -33,7 +33,7 @@ class Generator : ServiceGenerator {
                     }
 
                     abstract class Server : pbandk.examples.greeter.Rpc.Server(), ${service.name} {
-                        override suspend fun <Req : pbandk.Message<*>, Resp : pbandk.Message<*>> onUnaryCall(name: String, req: Req): Resp {
+                        override suspend fun <Req : pbandk.Message, Resp : pbandk.Message> onUnaryCall(name: String, req: Req): Resp {
                             return when (name) {
                                 ${serverMethods.joinToString("\n                ")}
                                 else -> error("404")

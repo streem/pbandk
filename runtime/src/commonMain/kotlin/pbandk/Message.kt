@@ -1,21 +1,23 @@
 package pbandk
 
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
+import pbandk.internal.binary.Sizer
+import pbandk.internal.binary.BinaryMessageMarshaller
+import pbandk.internal.binary.BinaryMessageUnmarshaller
+import pbandk.internal.binary.allocate
+import pbandk.internal.binary.fromByteArray
 
-interface Message<T : Message<T>> {
-    operator fun plus(other: T?): T
-    val protoSize: Int
-    fun protoMarshal() = Marshaller.allocate(protoSize).also(::protoMarshal).complete()
-    fun protoMarshal(m: Marshaller)
-    fun jsonMarshal() = jsonMarshal(Json(JsonConfiguration.Stable.copy(ignoreUnknownKeys = true, isLenient = true, serializeSpecialFloatingPointValues = true)))
-    fun jsonMarshal(json: Json): String
+interface Message {
+    val unknownFields: Map<Int, UnknownField>
 
-    interface Companion<T : Message<T>> {
-        fun protoUnmarshal(u: Unmarshaller): T
-        fun protoUnmarshal(arr: ByteArray) = protoUnmarshal(Unmarshaller.fromByteArray(arr))
-        fun jsonUnmarshal(data: String): T = jsonUnmarshal(Json(JsonConfiguration.Stable.copy(ignoreUnknownKeys = true, isLenient = true, serializeSpecialFloatingPointValues = true)), data)
-        fun jsonUnmarshal(json: Json, data: String): T
+    val fieldDescriptors: List<FieldDescriptor<*>>
+    val protoSize: Int get() = Sizer.rawMessageSize(this)
+
+    operator fun plus(other: Message?): Message
+
+    interface Companion<T : Message> {
+        fun unmarshal(u: MessageUnmarshaller): T
+
+        val fieldDescriptors: List<FieldDescriptor<*>>
     }
 
     interface Enum {
@@ -23,7 +25,10 @@ interface Message<T : Message<T>> {
         val name: String?
 
         interface Companion<T : Enum> {
+            /** Returns `T.UNRECOGNIZED` if [value] is not a known value of this enum. */
             fun fromValue(value: Int): T
+
+            /** Throws [IllegalArgumentException] if [name] is not a valid value of this enum. */
             fun fromName(name: String): T
         }
     }
@@ -36,4 +41,13 @@ interface Message<T : Message<T>> {
 
 }
 
-operator fun <T : Message<T>> Message<T>?.plus(other: T?) = this?.plus(other) ?: other
+fun <T : Message> T.marshal(m: MessageMarshaller): Unit = m.writeMessage(this)
+
+fun <T : Message> T.protoMarshal(): ByteArray =
+    BinaryMessageMarshaller.allocate(protoSize).also { marshal(it) }.toByteArray()
+
+fun <T : Message> Message.Companion<T>.protoUnmarshal(arr: ByteArray): T =
+    unmarshal(BinaryMessageUnmarshaller.fromByteArray(arr))
+
+@Suppress("UNCHECKED_CAST")
+operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: other

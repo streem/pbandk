@@ -1,9 +1,6 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.conformance.pb
-
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
 sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is WireFormat && other.value == value
@@ -46,25 +43,26 @@ sealed class TestCategory(override val value: Int, override val name: String? = 
 
 data class FailureSet(
     val failure: List<String> = emptyList(),
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<FailureSet> {
-    override operator fun plus(other: FailureSet?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FailureSet> {
         val defaultInstance by lazy { FailureSet() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = FailureSet.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = FailureSet.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FailureSet.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("failure")
-        val failure: List<String> = emptyList()
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "failure",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                    jsonName = "failure",
+                    value = FailureSet::failure
+                )
+            )
+        }
     }
 }
 
@@ -75,8 +73,8 @@ data class ConformanceRequest(
     val jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig? = null,
     val printUnknownFields: Boolean = false,
     val payload: Payload<*>? = null,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<ConformanceRequest> {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
     sealed class Payload<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Payload<pbandk.ByteArr>(protobufPayload)
         class JsonPayload(jsonPayload: String = "") : Payload<String>(jsonPayload)
@@ -93,46 +91,91 @@ data class ConformanceRequest(
     val textPayload: String?
         get() = (payload as? Payload.TextPayload)?.value
 
-    override operator fun plus(other: ConformanceRequest?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ConformanceRequest> {
         val defaultInstance by lazy { ConformanceRequest() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = ConformanceRequest.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = ConformanceRequest.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ConformanceRequest.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("protobuf_payload")
-        val protobufPayload: pbandk.ByteArr? = null,
-        @SerialName("json_payload")
-        val jsonPayload: String? = null,
-        @SerialName("requested_output_format")
-        val requestedOutputFormat: String? = null,
-        @SerialName("message_type")
-        val messageType: String? = null,
-        @SerialName("test_category")
-        val testCategory: String? = null,
-        @SerialName("jspb_encoding_options")
-        val jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig.JsonMapper? = null,
-        @SerialName("jspb_payload")
-        val jspbPayload: String? = null,
-        @SerialName("text_payload")
-        val textPayload: String? = null,
-        @SerialName("print_unknown_fields")
-        val printUnknownFields: Boolean? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "protobuf_payload",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "protobufPayload",
+                    value = ConformanceRequest::protobufPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "json_payload",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "jsonPayload",
+                    value = ConformanceRequest::jsonPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "requested_output_format",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.WireFormat.Companion),
+                    jsonName = "requestedOutputFormat",
+                    value = ConformanceRequest::requestedOutputFormat
+                ),
+                pbandk.FieldDescriptor(
+                    name = "message_type",
+                    number = 4,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "messageType",
+                    value = ConformanceRequest::messageType
+                ),
+                pbandk.FieldDescriptor(
+                    name = "test_category",
+                    number = 5,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestCategory.Companion),
+                    jsonName = "testCategory",
+                    value = ConformanceRequest::testCategory
+                ),
+                pbandk.FieldDescriptor(
+                    name = "jspb_encoding_options",
+                    number = 6,
+                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.JspbEncodingConfig.Companion),
+                    jsonName = "jspbEncodingOptions",
+                    value = ConformanceRequest::jspbEncodingOptions
+                ),
+                pbandk.FieldDescriptor(
+                    name = "jspb_payload",
+                    number = 7,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "jspbPayload",
+                    value = ConformanceRequest::jspbPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "text_payload",
+                    number = 8,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "textPayload",
+                    value = ConformanceRequest::textPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "print_unknown_fields",
+                    number = 9,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                    jsonName = "printUnknownFields",
+                    value = ConformanceRequest::printUnknownFields
+                )
+            )
+        }
     }
 }
 
 data class ConformanceResponse(
     val result: Result<*>? = null,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<ConformanceResponse> {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
     sealed class Result<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class ParseError(parseError: String = "") : Result<String>(parseError)
         class SerializeError(serializeError: String = "") : Result<String>(serializeError)
@@ -161,337 +204,202 @@ data class ConformanceResponse(
     val textPayload: String?
         get() = (result as? Result.TextPayload)?.value
 
-    override operator fun plus(other: ConformanceResponse?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ConformanceResponse> {
         val defaultInstance by lazy { ConformanceResponse() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = ConformanceResponse.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = ConformanceResponse.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ConformanceResponse.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("parse_error")
-        val parseError: String? = null,
-        @SerialName("runtime_error")
-        val runtimeError: String? = null,
-        @SerialName("protobuf_payload")
-        val protobufPayload: pbandk.ByteArr? = null,
-        @SerialName("json_payload")
-        val jsonPayload: String? = null,
-        @SerialName("skipped")
-        val skipped: String? = null,
-        @SerialName("serialize_error")
-        val serializeError: String? = null,
-        @SerialName("jspb_payload")
-        val jspbPayload: String? = null,
-        @SerialName("text_payload")
-        val textPayload: String? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "parse_error",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "parseError",
+                    value = ConformanceResponse::parseError
+                ),
+                pbandk.FieldDescriptor(
+                    name = "runtime_error",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "runtimeError",
+                    value = ConformanceResponse::runtimeError
+                ),
+                pbandk.FieldDescriptor(
+                    name = "protobuf_payload",
+                    number = 3,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "protobufPayload",
+                    value = ConformanceResponse::protobufPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "json_payload",
+                    number = 4,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "jsonPayload",
+                    value = ConformanceResponse::jsonPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "skipped",
+                    number = 5,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "skipped",
+                    value = ConformanceResponse::skipped
+                ),
+                pbandk.FieldDescriptor(
+                    name = "serialize_error",
+                    number = 6,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "serializeError",
+                    value = ConformanceResponse::serializeError
+                ),
+                pbandk.FieldDescriptor(
+                    name = "jspb_payload",
+                    number = 7,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "jspbPayload",
+                    value = ConformanceResponse::jspbPayload
+                ),
+                pbandk.FieldDescriptor(
+                    name = "text_payload",
+                    number = 8,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                    oneofMember = true,
+                    jsonName = "textPayload",
+                    value = ConformanceResponse::textPayload
+                )
+            )
+        }
     }
 }
 
 data class JspbEncodingConfig(
     val useJspbArrayAnyFormat: Boolean = false,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<JspbEncodingConfig> {
-    override operator fun plus(other: JspbEncodingConfig?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<JspbEncodingConfig> {
         val defaultInstance by lazy { JspbEncodingConfig() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = JspbEncodingConfig.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = JspbEncodingConfig.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = JspbEncodingConfig.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("use_jspb_array_any_format")
-        val useJspbArrayAnyFormat: Boolean? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "use_jspb_array_any_format",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                    jsonName = "useJspbArrayAnyFormat",
+                    value = JspbEncodingConfig::useJspbArrayAnyFormat
+                )
+            )
+        }
     }
 }
 
 fun FailureSet?.orDefault() = this ?: FailureSet.defaultInstance
 
-private fun FailureSet.protoMergeImpl(plus: FailureSet?): FailureSet = plus?.copy(
+private fun FailureSet.protoMergeImpl(plus: pbandk.Message?): FailureSet = (plus as? FailureSet)?.copy(
     failure = failure + plus.failure,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun FailureSet.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (failure.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * failure.size) + failure.sumBy(pbandk.Sizer::stringSize)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun FailureSet.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (failure.isNotEmpty()) failure.forEach { protoMarshal.writeTag(10).writeString(it) }
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun FailureSet.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): FailureSet {
+@Suppress("UNCHECKED_CAST")
+private fun FailureSet.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FailureSet {
     var failure: pbandk.ListWithSize.Builder<String>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return FailureSet(pbandk.ListWithSize.Builder.fixed(failure), protoUnmarshal.unknownFields())
-        10 -> failure = protoUnmarshal.readRepeated(failure, protoUnmarshal::readString, true)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> failure = (failure ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
+        }
     }
-}
-
-private fun FailureSet.toJsonMapperImpl(): FailureSet.JsonMapper =
-    FailureSet.JsonMapper(
-        failure
-    )
-
-private fun FailureSet.JsonMapper.toMessageImpl(): FailureSet {
-    return FailureSet(
-        failure = failure ?: emptyList()
-    )
-}
-
-private fun FailureSet.jsonMarshalImpl(json: Json): String =
-    json.stringify(FailureSet.JsonMapper.serializer(), toJsonMapper())
-
-private fun FailureSet.Companion.jsonUnmarshalImpl(json: Json, data: String): FailureSet {
-    val mapper = json.parse(FailureSet.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return FailureSet(pbandk.ListWithSize.Builder.fixed(failure), unknownFields)
 }
 
 fun ConformanceRequest?.orDefault() = this ?: ConformanceRequest.defaultInstance
 
-private fun ConformanceRequest.protoMergeImpl(plus: ConformanceRequest?): ConformanceRequest = plus?.copy(
+private fun ConformanceRequest.protoMergeImpl(plus: pbandk.Message?): ConformanceRequest = (plus as? ConformanceRequest)?.copy(
     jspbEncodingOptions = jspbEncodingOptions?.plus(plus.jspbEncodingOptions) ?: plus.jspbEncodingOptions,
     payload = plus.payload ?: payload,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun ConformanceRequest.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (requestedOutputFormat.value != 0) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.enumSize(requestedOutputFormat)
-    if (messageType.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(messageType)
-    if (testCategory.value != 0) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.enumSize(testCategory)
-    if (jspbEncodingOptions != null) protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.messageSize(jspbEncodingOptions)
-    if (printUnknownFields) protoSize += pbandk.Sizer.tagSize(9) + pbandk.Sizer.boolSize(printUnknownFields)
-    when (payload) {
-        is ConformanceRequest.Payload.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.bytesSize(payload.value)
-        is ConformanceRequest.Payload.JsonPayload -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(payload.value)
-        is ConformanceRequest.Payload.JspbPayload -> protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(payload.value)
-        is ConformanceRequest.Payload.TextPayload -> protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(payload.value)
-    }
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun ConformanceRequest.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (payload is ConformanceRequest.Payload.ProtobufPayload) protoMarshal.writeTag(10).writeBytes(payload.value)
-    if (payload is ConformanceRequest.Payload.JsonPayload) protoMarshal.writeTag(18).writeString(payload.value)
-    if (requestedOutputFormat.value != 0) protoMarshal.writeTag(24).writeEnum(requestedOutputFormat)
-    if (messageType.isNotEmpty()) protoMarshal.writeTag(34).writeString(messageType)
-    if (testCategory.value != 0) protoMarshal.writeTag(40).writeEnum(testCategory)
-    if (jspbEncodingOptions != null) protoMarshal.writeTag(50).writeMessage(jspbEncodingOptions)
-    if (payload is ConformanceRequest.Payload.JspbPayload) protoMarshal.writeTag(58).writeString(payload.value)
-    if (payload is ConformanceRequest.Payload.TextPayload) protoMarshal.writeTag(66).writeString(payload.value)
-    if (printUnknownFields) protoMarshal.writeTag(72).writeBool(printUnknownFields)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun ConformanceRequest.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ConformanceRequest {
+@Suppress("UNCHECKED_CAST")
+private fun ConformanceRequest.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ConformanceRequest {
     var requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0)
     var messageType = ""
     var testCategory: pbandk.conformance.pb.TestCategory = pbandk.conformance.pb.TestCategory.fromValue(0)
     var jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig? = null
     var printUnknownFields = false
     var payload: ConformanceRequest.Payload<*>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ConformanceRequest(requestedOutputFormat, messageType, testCategory, jspbEncodingOptions,
-            printUnknownFields, payload, protoUnmarshal.unknownFields())
-        10 -> payload = ConformanceRequest.Payload.ProtobufPayload(protoUnmarshal.readBytes())
-        18 -> payload = ConformanceRequest.Payload.JsonPayload(protoUnmarshal.readString())
-        24 -> requestedOutputFormat = protoUnmarshal.readEnum(pbandk.conformance.pb.WireFormat.Companion)
-        34 -> messageType = protoUnmarshal.readString()
-        40 -> testCategory = protoUnmarshal.readEnum(pbandk.conformance.pb.TestCategory.Companion)
-        50 -> jspbEncodingOptions = protoUnmarshal.readMessage(pbandk.conformance.pb.JspbEncodingConfig.Companion)
-        58 -> payload = ConformanceRequest.Payload.JspbPayload(protoUnmarshal.readString())
-        66 -> payload = ConformanceRequest.Payload.TextPayload(protoUnmarshal.readString())
-        72 -> printUnknownFields = protoUnmarshal.readBool()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> payload = ConformanceRequest.Payload.ProtobufPayload(_fieldValue as pbandk.ByteArr)
+            2 -> payload = ConformanceRequest.Payload.JsonPayload(_fieldValue as String)
+            3 -> requestedOutputFormat = _fieldValue as pbandk.conformance.pb.WireFormat
+            4 -> messageType = _fieldValue as String
+            5 -> testCategory = _fieldValue as pbandk.conformance.pb.TestCategory
+            6 -> jspbEncodingOptions = _fieldValue as pbandk.conformance.pb.JspbEncodingConfig
+            7 -> payload = ConformanceRequest.Payload.JspbPayload(_fieldValue as String)
+            8 -> payload = ConformanceRequest.Payload.TextPayload(_fieldValue as String)
+            9 -> printUnknownFields = _fieldValue as Boolean
+        }
     }
-}
-
-private fun ConformanceRequest.toJsonMapperImpl(): ConformanceRequest.JsonMapper =
-    ConformanceRequest.JsonMapper(
-        protobufPayload,
-        jsonPayload.takeIf { it != "" },
-        requestedOutputFormat?.name,
-        messageType.takeIf { it != "" },
-        testCategory?.name,
-        jspbEncodingOptions?.toJsonMapper(),
-        jspbPayload.takeIf { it != "" },
-        textPayload.takeIf { it != "" },
-        printUnknownFields
-    )
-
-private fun ConformanceRequest.JsonMapper.toMessageImpl(): ConformanceRequest {
-    var payload: ConformanceRequest.Payload<*>? = null
-    if (payload == null && protobufPayload != null) { payload = ConformanceRequest.Payload.ProtobufPayload(protobufPayload) }
-    if (payload == null && jsonPayload != null) { payload = ConformanceRequest.Payload.JsonPayload(jsonPayload) }
-    if (payload == null && jspbPayload != null) { payload = ConformanceRequest.Payload.JspbPayload(jspbPayload) }
-    if (payload == null && textPayload != null) { payload = ConformanceRequest.Payload.TextPayload(textPayload) }
-    return ConformanceRequest(
-        requestedOutputFormat = requestedOutputFormat?.let { pbandk.conformance.pb.WireFormat.fromName(it) } ?: pbandk.conformance.pb.WireFormat.fromValue(0),
-        messageType = messageType ?: "",
-        testCategory = testCategory?.let { pbandk.conformance.pb.TestCategory.fromName(it) } ?: pbandk.conformance.pb.TestCategory.fromValue(0),
-        jspbEncodingOptions = jspbEncodingOptions?.toMessage(),
-        printUnknownFields = printUnknownFields ?: false,
-        payload = payload
-    )
-}
-
-private fun ConformanceRequest.jsonMarshalImpl(json: Json): String =
-    json.stringify(ConformanceRequest.JsonMapper.serializer(), toJsonMapper())
-
-private fun ConformanceRequest.Companion.jsonUnmarshalImpl(json: Json, data: String): ConformanceRequest {
-    val mapper = json.parse(ConformanceRequest.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return ConformanceRequest(requestedOutputFormat, messageType, testCategory, jspbEncodingOptions,
+        printUnknownFields, payload, unknownFields)
 }
 
 fun ConformanceResponse?.orDefault() = this ?: ConformanceResponse.defaultInstance
 
-private fun ConformanceResponse.protoMergeImpl(plus: ConformanceResponse?): ConformanceResponse = plus?.copy(
+private fun ConformanceResponse.protoMergeImpl(plus: pbandk.Message?): ConformanceResponse = (plus as? ConformanceResponse)?.copy(
     result = plus.result ?: result,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun ConformanceResponse.protoSizeImpl(): Int {
-    var protoSize = 0
-    when (result) {
-        is ConformanceResponse.Result.ParseError -> protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(result.value)
-        is ConformanceResponse.Result.SerializeError -> protoSize += pbandk.Sizer.tagSize(6) + pbandk.Sizer.stringSize(result.value)
-        is ConformanceResponse.Result.RuntimeError -> protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.stringSize(result.value)
-        is ConformanceResponse.Result.ProtobufPayload -> protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.bytesSize(result.value)
-        is ConformanceResponse.Result.JsonPayload -> protoSize += pbandk.Sizer.tagSize(4) + pbandk.Sizer.stringSize(result.value)
-        is ConformanceResponse.Result.Skipped -> protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.stringSize(result.value)
-        is ConformanceResponse.Result.JspbPayload -> protoSize += pbandk.Sizer.tagSize(7) + pbandk.Sizer.stringSize(result.value)
-        is ConformanceResponse.Result.TextPayload -> protoSize += pbandk.Sizer.tagSize(8) + pbandk.Sizer.stringSize(result.value)
-    }
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun ConformanceResponse.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (result is ConformanceResponse.Result.ParseError) protoMarshal.writeTag(10).writeString(result.value)
-    if (result is ConformanceResponse.Result.RuntimeError) protoMarshal.writeTag(18).writeString(result.value)
-    if (result is ConformanceResponse.Result.ProtobufPayload) protoMarshal.writeTag(26).writeBytes(result.value)
-    if (result is ConformanceResponse.Result.JsonPayload) protoMarshal.writeTag(34).writeString(result.value)
-    if (result is ConformanceResponse.Result.Skipped) protoMarshal.writeTag(42).writeString(result.value)
-    if (result is ConformanceResponse.Result.SerializeError) protoMarshal.writeTag(50).writeString(result.value)
-    if (result is ConformanceResponse.Result.JspbPayload) protoMarshal.writeTag(58).writeString(result.value)
-    if (result is ConformanceResponse.Result.TextPayload) protoMarshal.writeTag(66).writeString(result.value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun ConformanceResponse.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): ConformanceResponse {
+@Suppress("UNCHECKED_CAST")
+private fun ConformanceResponse.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ConformanceResponse {
     var result: ConformanceResponse.Result<*>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return ConformanceResponse(result, protoUnmarshal.unknownFields())
-        10 -> result = ConformanceResponse.Result.ParseError(protoUnmarshal.readString())
-        18 -> result = ConformanceResponse.Result.RuntimeError(protoUnmarshal.readString())
-        26 -> result = ConformanceResponse.Result.ProtobufPayload(protoUnmarshal.readBytes())
-        34 -> result = ConformanceResponse.Result.JsonPayload(protoUnmarshal.readString())
-        42 -> result = ConformanceResponse.Result.Skipped(protoUnmarshal.readString())
-        50 -> result = ConformanceResponse.Result.SerializeError(protoUnmarshal.readString())
-        58 -> result = ConformanceResponse.Result.JspbPayload(protoUnmarshal.readString())
-        66 -> result = ConformanceResponse.Result.TextPayload(protoUnmarshal.readString())
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> result = ConformanceResponse.Result.ParseError(_fieldValue as String)
+            2 -> result = ConformanceResponse.Result.RuntimeError(_fieldValue as String)
+            3 -> result = ConformanceResponse.Result.ProtobufPayload(_fieldValue as pbandk.ByteArr)
+            4 -> result = ConformanceResponse.Result.JsonPayload(_fieldValue as String)
+            5 -> result = ConformanceResponse.Result.Skipped(_fieldValue as String)
+            6 -> result = ConformanceResponse.Result.SerializeError(_fieldValue as String)
+            7 -> result = ConformanceResponse.Result.JspbPayload(_fieldValue as String)
+            8 -> result = ConformanceResponse.Result.TextPayload(_fieldValue as String)
+        }
     }
-}
-
-private fun ConformanceResponse.toJsonMapperImpl(): ConformanceResponse.JsonMapper =
-    ConformanceResponse.JsonMapper(
-        parseError.takeIf { it != "" },
-        runtimeError.takeIf { it != "" },
-        protobufPayload,
-        jsonPayload.takeIf { it != "" },
-        skipped.takeIf { it != "" },
-        serializeError.takeIf { it != "" },
-        jspbPayload.takeIf { it != "" },
-        textPayload.takeIf { it != "" }
-    )
-
-private fun ConformanceResponse.JsonMapper.toMessageImpl(): ConformanceResponse {
-    var result: ConformanceResponse.Result<*>? = null
-    if (result == null && parseError != null) { result = ConformanceResponse.Result.ParseError(parseError) }
-    if (result == null && serializeError != null) { result = ConformanceResponse.Result.SerializeError(serializeError) }
-    if (result == null && runtimeError != null) { result = ConformanceResponse.Result.RuntimeError(runtimeError) }
-    if (result == null && protobufPayload != null) { result = ConformanceResponse.Result.ProtobufPayload(protobufPayload) }
-    if (result == null && jsonPayload != null) { result = ConformanceResponse.Result.JsonPayload(jsonPayload) }
-    if (result == null && skipped != null) { result = ConformanceResponse.Result.Skipped(skipped) }
-    if (result == null && jspbPayload != null) { result = ConformanceResponse.Result.JspbPayload(jspbPayload) }
-    if (result == null && textPayload != null) { result = ConformanceResponse.Result.TextPayload(textPayload) }
-    return ConformanceResponse(
-        result = result
-    )
-}
-
-private fun ConformanceResponse.jsonMarshalImpl(json: Json): String =
-    json.stringify(ConformanceResponse.JsonMapper.serializer(), toJsonMapper())
-
-private fun ConformanceResponse.Companion.jsonUnmarshalImpl(json: Json, data: String): ConformanceResponse {
-    val mapper = json.parse(ConformanceResponse.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return ConformanceResponse(result, unknownFields)
 }
 
 fun JspbEncodingConfig?.orDefault() = this ?: JspbEncodingConfig.defaultInstance
 
-private fun JspbEncodingConfig.protoMergeImpl(plus: JspbEncodingConfig?): JspbEncodingConfig = plus?.copy(
+private fun JspbEncodingConfig.protoMergeImpl(plus: pbandk.Message?): JspbEncodingConfig = (plus as? JspbEncodingConfig)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun JspbEncodingConfig.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (useJspbArrayAnyFormat) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.boolSize(useJspbArrayAnyFormat)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun JspbEncodingConfig.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (useJspbArrayAnyFormat) protoMarshal.writeTag(8).writeBool(useJspbArrayAnyFormat)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun JspbEncodingConfig.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): JspbEncodingConfig {
+@Suppress("UNCHECKED_CAST")
+private fun JspbEncodingConfig.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): JspbEncodingConfig {
     var useJspbArrayAnyFormat = false
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return JspbEncodingConfig(useJspbArrayAnyFormat, protoUnmarshal.unknownFields())
-        8 -> useJspbArrayAnyFormat = protoUnmarshal.readBool()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> useJspbArrayAnyFormat = _fieldValue as Boolean
+        }
     }
-}
-
-private fun JspbEncodingConfig.toJsonMapperImpl(): JspbEncodingConfig.JsonMapper =
-    JspbEncodingConfig.JsonMapper(
-        useJspbArrayAnyFormat
-    )
-
-private fun JspbEncodingConfig.JsonMapper.toMessageImpl(): JspbEncodingConfig {
-    return JspbEncodingConfig(
-        useJspbArrayAnyFormat = useJspbArrayAnyFormat ?: false
-    )
-}
-
-private fun JspbEncodingConfig.jsonMarshalImpl(json: Json): String =
-    json.stringify(JspbEncodingConfig.JsonMapper.serializer(), toJsonMapper())
-
-private fun JspbEncodingConfig.Companion.jsonUnmarshalImpl(json: Json, data: String): JspbEncodingConfig {
-    val mapper = json.parse(JspbEncodingConfig.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return JspbEncodingConfig(useJspbArrayAnyFormat, unknownFields)
 }

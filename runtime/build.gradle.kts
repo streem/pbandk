@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
     `maven-publish`
 }
 
@@ -42,6 +41,9 @@ kotlin {
 
     sourceSets {
         all {
+            languageSettings.useExperimentalAnnotation("pbandk.ExperimentalProtoJson")
+            languageSettings.useExperimentalAnnotation("pbandk.PbandkInternal")
+            languageSettings.useExperimentalAnnotation("pbandk.PublicForGeneratedCode")
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
         }
 
@@ -105,15 +107,15 @@ tasks {
     }
 
     val generateKotlinTestTypes by registering(KotlinProtocTask::class) {
-        includeDir.set(project.file("src/jvmTest/proto"))
-        outputDir.set(project.file("src/jvmTest/kotlin"))
+        includeDir.set(project.file("src/commonTest/proto"))
+        outputDir.set(project.file("src/commonTest/kotlin"))
         kotlinPackage.set("pbandk.testpb")
         logLevel.set("debug")
         protoFileSubdir("pbandk/testpb")
     }
 
     val generateJavaTestTypes by registering(ProtocTask::class) {
-        includeDir.set(project.file("src/jvmTest/proto"))
+        includeDir.set(project.file("src/commonTest/proto"))
         outputDir.set(project.file("src/jvmTest/java"))
         plugin.set("java")
         protoFileSubdir("pbandk/testpb")

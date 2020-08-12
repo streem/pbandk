@@ -3,6 +3,8 @@ package pbandk.gen
 import com.google.protobuf.compiler.PluginProtos
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
+import pbandk.protoMarshal
+import pbandk.protoUnmarshal
 import java.io.File
 import java.lang.RuntimeException
 import java.net.URLClassLoader

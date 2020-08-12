@@ -9,6 +9,9 @@ fun underscoreToCamelCase(str: String): String {
     }
 }
 
+fun splitWordsToSnakeCase(str: String) =
+    str.replace(Regex("(?<=[a-z])([A-Z0-9])"), "_$1").toLowerCase()
+
 interface Namer {
     fun newTypeName(preferred: String, nameSet: Collection<String>): String
     fun newFieldName(preferred: String, nameSet: Collection<String>): String
@@ -19,7 +22,8 @@ interface Namer {
             "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "Map", "String"
         )
         val disallowedFieldNames = setOf(
-            "emptyList", "pbandk", "plus", "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields"
+            "emptyList", "fieldDescriptors", "jsonMarshal", "jsonUnmarshal", "marshal", "pbandk", "plus",
+            "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields", "unmarshal"
         )
         val disallowedValueTypeNames = disallowedTypeNames + setOf(
             "UNRECOGNIZED"
@@ -27,11 +31,8 @@ interface Namer {
         val kotlinKeywords = setOf(
             "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",
             "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
-            "true", "try", "typealias", "val", "var", "when", "while"
+            "true", "try", "typealias", "typeof", "val", "var", "when", "while"
         )
-
-        protected fun splitWordsToSnakeCase(str: String) =
-            str.replace(Regex("(?<=[a-z])([A-Z0-9])"), "_$1").toLowerCase()
 
         override fun newTypeName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).capitalize()

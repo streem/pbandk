@@ -1,76 +1,46 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-
 data class SourceContext(
     val fileName: String = "",
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<SourceContext> {
-    override operator fun plus(other: SourceContext?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<SourceContext> {
         val defaultInstance by lazy { SourceContext() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = SourceContext.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = SourceContext.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = SourceContext.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("file_name")
-        val fileName: String? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "file_name",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "fileName",
+                    value = SourceContext::fileName
+                )
+            )
+        }
     }
 }
 
 fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
 
-private fun SourceContext.protoMergeImpl(plus: SourceContext?): SourceContext = plus?.copy(
+private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun SourceContext.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (fileName.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(fileName)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun SourceContext.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (fileName.isNotEmpty()) protoMarshal.writeTag(10).writeString(fileName)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun SourceContext.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): SourceContext {
+@Suppress("UNCHECKED_CAST")
+private fun SourceContext.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): SourceContext {
     var fileName = ""
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return SourceContext(fileName, protoUnmarshal.unknownFields())
-        10 -> fileName = protoUnmarshal.readString()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> fileName = _fieldValue as String
+        }
     }
-}
-
-private fun SourceContext.toJsonMapperImpl(): SourceContext.JsonMapper =
-    SourceContext.JsonMapper(
-        fileName.takeIf { it != "" }
-    )
-
-private fun SourceContext.JsonMapper.toMessageImpl(): SourceContext {
-    return SourceContext(
-        fileName = fileName ?: ""
-    )
-}
-
-private fun SourceContext.jsonMarshalImpl(json: Json): String =
-    json.stringify(SourceContext.JsonMapper.serializer(), toJsonMapper())
-
-private fun SourceContext.Companion.jsonUnmarshalImpl(json: Json, data: String): SourceContext {
-    val mapper = json.parse(SourceContext.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return SourceContext(fileName, unknownFields)
 }

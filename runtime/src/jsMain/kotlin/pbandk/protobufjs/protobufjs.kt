@@ -39,8 +39,11 @@ external class Writer {
     fun fixed32(value: Int): Writer
     fun fixed64(value: dynamic): Writer
     fun float(value: Float): Writer
+    fun fork(): Writer
     fun int32(value: Int): Writer
     fun int64(value: dynamic): Writer
+    fun ldelim(): Writer
+    fun reset(): Writer
     fun sfixed32(value: Int): Writer
     fun sfixed64(value: dynamic): Writer
     fun sint32(value: Int): Writer
@@ -59,6 +62,15 @@ external class Writer {
 }
 
 external class util {
+    class base64 {
+        companion object {
+            fun decode(string: String, buffer: Uint8Array, offset: Int): Int
+            fun encode(buffer: Uint8Array, start: Int, end: Int): String
+            fun length(string: String): Int
+            fun test(string: String): Boolean
+        }
+    }
+
     class utf8 {
         companion object {
             fun length(str: String): Int

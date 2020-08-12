@@ -1,9 +1,6 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.examples.addressbook.pb
-
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
 data class Person(
     val name: String = "",
@@ -11,33 +8,52 @@ data class Person(
     val email: String = "",
     val phones: List<pbandk.examples.addressbook.pb.Person.PhoneNumber> = emptyList(),
     val lastUpdated: pbandk.wkt.Timestamp? = null,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Person> {
-    override operator fun plus(other: Person?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Person> {
         val defaultInstance by lazy { Person() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Person.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("name")
-        val name: String? = null,
-        @SerialName("id")
-        val id: Int? = null,
-        @SerialName("email")
-        val email: String? = null,
-        @SerialName("phones")
-        val phones: List<pbandk.examples.addressbook.pb.Person.PhoneNumber.JsonMapper> = emptyList(),
-        @SerialName("lastUpdated")
-        val lastUpdated: pbandk.wkt.Timestamp.JsonMapper? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
+            pbandk.FieldDescriptor(
+                name = "name",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "name",
+                value = Person::name
+            ),
+            pbandk.FieldDescriptor(
+                name = "id",
+                number = 2,
+                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                jsonName = "id",
+                value = Person::id
+            ),
+            pbandk.FieldDescriptor(
+                name = "email",
+                number = 3,
+                type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                jsonName = "email",
+                value = Person::email
+            ),
+            pbandk.FieldDescriptor(
+                name = "phones",
+                number = 4,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.examples.addressbook.pb.Person.PhoneNumber>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.examples.addressbook.pb.Person.PhoneNumber.Companion)),
+                jsonName = "phones",
+                value = Person::phones
+            ),
+            pbandk.FieldDescriptor(
+                name = "last_updated",
+                number = 5,
+                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                jsonName = "lastUpdated",
+                value = Person::lastUpdated
+            )
+        )
     }
 
     sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -60,223 +76,122 @@ data class Person(
     data class PhoneNumber(
         val number: String = "",
         val type: pbandk.examples.addressbook.pb.Person.PhoneType = pbandk.examples.addressbook.pb.Person.PhoneType.fromValue(0),
-        val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message<Person.PhoneNumber> {
-        override operator fun plus(other: Person.PhoneNumber?) = protoMergeImpl(other)
-        override val protoSize by lazy { protoSizeImpl() }
-        override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-        override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-        fun toJsonMapper() = toJsonMapperImpl()
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Person.PhoneNumber> {
             val defaultInstance by lazy { Person.PhoneNumber() }
-            override fun protoUnmarshal(u: pbandk.Unmarshaller) = Person.PhoneNumber.protoUnmarshalImpl(u)
-            override fun jsonUnmarshal(json: Json, data: String) = Person.PhoneNumber.jsonUnmarshalImpl(json, data)
-        }
+            override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.PhoneNumber.unmarshalImpl(u)
 
-        @Serializable
-        data class JsonMapper (
-            @SerialName("number")
-            val number: String? = null,
-            @SerialName("type")
-            val type: String? = null
-        ) {
-            fun toMessage() = toMessageImpl()
+            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
+                pbandk.FieldDescriptor(
+                    name = "number",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "number",
+                    value = PhoneNumber::number
+                ),
+                pbandk.FieldDescriptor(
+                    name = "type",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.examples.addressbook.pb.Person.PhoneType.Companion),
+                    jsonName = "type",
+                    value = PhoneNumber::type
+                )
+            )
         }
     }
 }
 
 data class AddressBook(
     val people: List<pbandk.examples.addressbook.pb.Person> = emptyList(),
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<AddressBook> {
-    override operator fun plus(other: AddressBook?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<AddressBook> {
         val defaultInstance by lazy { AddressBook() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = AddressBook.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = AddressBook.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = AddressBook.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("people")
-        val people: List<pbandk.examples.addressbook.pb.Person.JsonMapper> = emptyList()
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
+            pbandk.FieldDescriptor(
+                name = "people",
+                number = 1,
+                type = pbandk.FieldDescriptor.Type.Repeated<pbandk.examples.addressbook.pb.Person>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.examples.addressbook.pb.Person.Companion)),
+                jsonName = "people",
+                value = AddressBook::people
+            )
+        )
     }
 }
 
 fun Person?.orDefault() = this ?: Person.defaultInstance
 
-private fun Person.protoMergeImpl(plus: Person?): Person = plus?.copy(
+private fun Person.protoMergeImpl(plus: pbandk.Message?): Person = (plus as? Person)?.copy(
     phones = phones + plus.phones,
     lastUpdated = lastUpdated?.plus(plus.lastUpdated) ?: plus.lastUpdated,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Person.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (name.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(name)
-    if (id != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.int32Size(id)
-    if (email.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(3) + pbandk.Sizer.stringSize(email)
-    if (phones.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(4) * phones.size) + phones.sumBy(pbandk.Sizer::messageSize)
-    if (lastUpdated != null) protoSize += pbandk.Sizer.tagSize(5) + pbandk.Sizer.messageSize(lastUpdated)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Person.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (name.isNotEmpty()) protoMarshal.writeTag(10).writeString(name)
-    if (id != 0) protoMarshal.writeTag(16).writeInt32(id)
-    if (email.isNotEmpty()) protoMarshal.writeTag(26).writeString(email)
-    if (phones.isNotEmpty()) phones.forEach { protoMarshal.writeTag(34).writeMessage(it) }
-    if (lastUpdated != null) protoMarshal.writeTag(42).writeMessage(lastUpdated)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Person.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Person {
+@Suppress("UNCHECKED_CAST")
+private fun Person.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Person {
     var name = ""
     var id = 0
     var email = ""
     var phones: pbandk.ListWithSize.Builder<pbandk.examples.addressbook.pb.Person.PhoneNumber>? = null
     var lastUpdated: pbandk.wkt.Timestamp? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Person(name, id, email, pbandk.ListWithSize.Builder.fixed(phones),
-            lastUpdated, protoUnmarshal.unknownFields())
-        10 -> name = protoUnmarshal.readString()
-        16 -> id = protoUnmarshal.readInt32()
-        26 -> email = protoUnmarshal.readString()
-        34 -> phones = protoUnmarshal.readRepeatedMessage(phones, pbandk.examples.addressbook.pb.Person.PhoneNumber.Companion, true)
-        42 -> lastUpdated = protoUnmarshal.readMessage(pbandk.wkt.Timestamp.Companion)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> name = _fieldValue as String
+            2 -> id = _fieldValue as Int
+            3 -> email = _fieldValue as String
+            4 -> phones = (phones ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.examples.addressbook.pb.Person.PhoneNumber> }
+            5 -> lastUpdated = _fieldValue as pbandk.wkt.Timestamp
+        }
     }
-}
-
-private fun Person.toJsonMapperImpl(): Person.JsonMapper =
-    Person.JsonMapper(
-        name.takeIf { it != "" },
-        id,
-        email.takeIf { it != "" },
-        phones.map { it.toJsonMapper() },
-        lastUpdated?.toJsonMapper()
-    )
-
-private fun Person.JsonMapper.toMessageImpl(): Person {
-    return Person(
-        name = name ?: "",
-        id = id ?: 0,
-        email = email ?: "",
-        phones = phones.map { it.toMessage() },
-        lastUpdated = lastUpdated?.toMessage()
-    )
-}
-
-private fun Person.jsonMarshalImpl(json: Json): String =
-    json.stringify(Person.JsonMapper.serializer(), toJsonMapper())
-
-private fun Person.Companion.jsonUnmarshalImpl(json: Json, data: String): Person {
-    val mapper = json.parse(Person.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Person(name, id, email, pbandk.ListWithSize.Builder.fixed(phones),
+        lastUpdated, unknownFields)
 }
 
 fun Person.PhoneNumber?.orDefault() = this ?: Person.PhoneNumber.defaultInstance
 
-private fun Person.PhoneNumber.protoMergeImpl(plus: Person.PhoneNumber?): Person.PhoneNumber = plus?.copy(
+private fun Person.PhoneNumber.protoMergeImpl(plus: pbandk.Message?): Person.PhoneNumber = (plus as? Person.PhoneNumber)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Person.PhoneNumber.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (number.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(number)
-    if (type.value != 0) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.enumSize(type)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Person.PhoneNumber.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (number.isNotEmpty()) protoMarshal.writeTag(10).writeString(number)
-    if (type.value != 0) protoMarshal.writeTag(16).writeEnum(type)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Person.PhoneNumber.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Person.PhoneNumber {
+@Suppress("UNCHECKED_CAST")
+private fun Person.PhoneNumber.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Person.PhoneNumber {
     var number = ""
     var type: pbandk.examples.addressbook.pb.Person.PhoneType = pbandk.examples.addressbook.pb.Person.PhoneType.fromValue(0)
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Person.PhoneNumber(number, type, protoUnmarshal.unknownFields())
-        10 -> number = protoUnmarshal.readString()
-        16 -> type = protoUnmarshal.readEnum(pbandk.examples.addressbook.pb.Person.PhoneType.Companion)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> number = _fieldValue as String
+            2 -> type = _fieldValue as pbandk.examples.addressbook.pb.Person.PhoneType
+        }
     }
-}
-
-private fun Person.PhoneNumber.toJsonMapperImpl(): Person.PhoneNumber.JsonMapper =
-    Person.PhoneNumber.JsonMapper(
-        number.takeIf { it != "" },
-        type?.name
-    )
-
-private fun Person.PhoneNumber.JsonMapper.toMessageImpl(): Person.PhoneNumber {
-    return Person.PhoneNumber(
-        number = number ?: "",
-        type = type?.let { pbandk.examples.addressbook.pb.Person.PhoneType.fromName(it) } ?: pbandk.examples.addressbook.pb.Person.PhoneType.fromValue(0)
-    )
-}
-
-private fun Person.PhoneNumber.jsonMarshalImpl(json: Json): String =
-    json.stringify(Person.PhoneNumber.JsonMapper.serializer(), toJsonMapper())
-
-private fun Person.PhoneNumber.Companion.jsonUnmarshalImpl(json: Json, data: String): Person.PhoneNumber {
-    val mapper = json.parse(Person.PhoneNumber.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Person.PhoneNumber(number, type, unknownFields)
 }
 
 fun AddressBook?.orDefault() = this ?: AddressBook.defaultInstance
 
-private fun AddressBook.protoMergeImpl(plus: AddressBook?): AddressBook = plus?.copy(
+private fun AddressBook.protoMergeImpl(plus: pbandk.Message?): AddressBook = (plus as? AddressBook)?.copy(
     people = people + plus.people,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun AddressBook.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (people.isNotEmpty()) protoSize += (pbandk.Sizer.tagSize(1) * people.size) + people.sumBy(pbandk.Sizer::messageSize)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun AddressBook.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (people.isNotEmpty()) people.forEach { protoMarshal.writeTag(10).writeMessage(it) }
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun AddressBook.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): AddressBook {
+@Suppress("UNCHECKED_CAST")
+private fun AddressBook.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): AddressBook {
     var people: pbandk.ListWithSize.Builder<pbandk.examples.addressbook.pb.Person>? = null
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return AddressBook(pbandk.ListWithSize.Builder.fixed(people), protoUnmarshal.unknownFields())
-        10 -> people = protoUnmarshal.readRepeatedMessage(people, pbandk.examples.addressbook.pb.Person.Companion, true)
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> people = (people ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.examples.addressbook.pb.Person> }
+        }
     }
-}
-
-private fun AddressBook.toJsonMapperImpl(): AddressBook.JsonMapper =
-    AddressBook.JsonMapper(
-        people.map { it.toJsonMapper() }
-    )
-
-private fun AddressBook.JsonMapper.toMessageImpl(): AddressBook {
-    return AddressBook(
-        people = people.map { it.toMessage() }
-    )
-}
-
-private fun AddressBook.jsonMarshalImpl(json: Json): String =
-    json.stringify(AddressBook.JsonMapper.serializer(), toJsonMapper())
-
-private fun AddressBook.Companion.jsonUnmarshalImpl(json: Json, data: String): AddressBook {
-    val mapper = json.parse(AddressBook.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return AddressBook(pbandk.ListWithSize.Builder.fixed(people), unknownFields)
 }

@@ -1,85 +1,56 @@
-@file:UseSerializers(pbandk.ser.TimestampSerializer::class)
+@file:OptIn(pbandk.PublicForGeneratedCode::class)
 
 package pbandk.wkt
-
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
 data class Any(
     val typeUrl: String = "",
     val value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message<Any> {
-    override operator fun plus(other: Any?) = protoMergeImpl(other)
-    override val protoSize by lazy { protoSizeImpl() }
-    override fun protoMarshal(m: pbandk.Marshaller) = protoMarshalImpl(m)
-    override fun jsonMarshal(json: Json) = jsonMarshalImpl(json)
-    fun toJsonMapper() = toJsonMapperImpl()
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Any> {
         val defaultInstance by lazy { Any() }
-        override fun protoUnmarshal(u: pbandk.Unmarshaller) = Any.protoUnmarshalImpl(u)
-        override fun jsonUnmarshal(json: Json, data: String) = Any.jsonUnmarshalImpl(json, data)
-    }
+        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Any.unmarshalImpl(u)
 
-    @Serializable
-    data class JsonMapper (
-        @SerialName("type_url")
-        val typeUrl: String? = null,
-        @SerialName("value")
-        val value: pbandk.ByteArr? = null
-    ) {
-        fun toMessage() = toMessageImpl()
+        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
+            listOf(
+                pbandk.FieldDescriptor(
+                    name = "type_url",
+                    number = 1,
+                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                    jsonName = "typeUrl",
+                    value = Any::typeUrl
+                ),
+                pbandk.FieldDescriptor(
+                    name = "value",
+                    number = 2,
+                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
+                    jsonName = "value",
+                    value = Any::value
+                )
+            )
+        }
     }
 }
 
 fun Any?.orDefault() = this ?: Any.defaultInstance
 
-private fun Any.protoMergeImpl(plus: Any?): Any = plus?.copy(
+private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.copy(
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
-private fun Any.protoSizeImpl(): Int {
-    var protoSize = 0
-    if (typeUrl.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(1) + pbandk.Sizer.stringSize(typeUrl)
-    if (value.array.isNotEmpty()) protoSize += pbandk.Sizer.tagSize(2) + pbandk.Sizer.bytesSize(value)
-    protoSize += unknownFields.entries.sumBy { it.value.size() }
-    return protoSize
-}
-
-private fun Any.protoMarshalImpl(protoMarshal: pbandk.Marshaller) {
-    if (typeUrl.isNotEmpty()) protoMarshal.writeTag(10).writeString(typeUrl)
-    if (value.array.isNotEmpty()) protoMarshal.writeTag(18).writeBytes(value)
-    if (unknownFields.isNotEmpty()) protoMarshal.writeUnknownFields(unknownFields)
-}
-
-private fun Any.Companion.protoUnmarshalImpl(protoUnmarshal: pbandk.Unmarshaller): Any {
+@Suppress("UNCHECKED_CAST")
+private fun Any.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Any {
     var typeUrl = ""
     var value: pbandk.ByteArr = pbandk.ByteArr.empty
-    while (true) when (protoUnmarshal.readTag()) {
-        0 -> return Any(typeUrl, value, protoUnmarshal.unknownFields())
-        10 -> typeUrl = protoUnmarshal.readString()
-        18 -> value = protoUnmarshal.readBytes()
-        else -> protoUnmarshal.unknownField()
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> typeUrl = _fieldValue as String
+            2 -> value = _fieldValue as pbandk.ByteArr
+        }
     }
-}
-
-private fun Any.toJsonMapperImpl(): Any.JsonMapper =
-    Any.JsonMapper(
-        typeUrl.takeIf { it != "" },
-        value
-    )
-
-private fun Any.JsonMapper.toMessageImpl(): Any {
-    return Any(
-        typeUrl = typeUrl ?: "",
-        value = value ?: pbandk.ByteArr.empty
-    )
-}
-
-private fun Any.jsonMarshalImpl(json: Json): String =
-    json.stringify(Any.JsonMapper.serializer(), toJsonMapper())
-
-private fun Any.Companion.jsonUnmarshalImpl(json: Json, data: String): Any {
-    val mapper = json.parse(Any.JsonMapper.serializer(), data)
-    return mapper.toMessage()
+    return Any(typeUrl, value, unknownFields)
 }
