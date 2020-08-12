@@ -58,7 +58,6 @@ tasks {
 
 publishing {
     publications.withType<MavenPublication>().configureEach {
-        artifactId = "protoc-gen-kotlin-$artifactId"
         description = "Library for pbandk protoc plugin plugins"
         pom {
             configureForPbandk()

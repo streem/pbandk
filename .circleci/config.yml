@@ -110,8 +110,8 @@ jobs:
             ./gradlew -Dprotoc.path=$HOME/protobuf/install \
               :runtime:generateWellKnownTypes \
               :runtime:generateTestTypes \
-              :protoc-gen-kotlin:lib:generateProto \
-              :conformance:lib:generateProto
+              :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto \
+              :conformance:conformance-lib:generateProto
             if [ -n "$(git status --porcelain)" ]; then
               echo "*** Found uncommitted changes to bundled types: ***"
               git status
@@ -134,7 +134,7 @@ jobs:
 
       - run:
           name: Build conformance test suite
-          command: ./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:build
+          command: ./gradlew :conformance:conformance-lib:assemble :conformance:conformance-jvm:installDist :conformance:conformance-native:build
 
       # persist files necessary to run conformance tests
       - persist_to_workspace:
