@@ -9,7 +9,7 @@ import pbandk.internal.binary.fromByteArray
 interface Message {
     val unknownFields: Map<Int, UnknownField>
 
-    val fieldDescriptors: List<FieldDescriptor<*>>
+    val descriptor: MessageDescriptor<out Message>
     val protoSize: Int get() = Sizer.rawMessageSize(this)
 
     operator fun plus(other: Message?): Message
@@ -17,7 +17,7 @@ interface Message {
     interface Companion<T : Message> {
         fun unmarshal(u: MessageUnmarshaller): T
 
-        val fieldDescriptors: List<FieldDescriptor<*>>
+        val descriptor: MessageDescriptor<T>
     }
 
     interface Enum {

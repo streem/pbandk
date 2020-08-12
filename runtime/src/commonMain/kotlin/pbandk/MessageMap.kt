@@ -1,5 +1,7 @@
 package pbandk
 
+import kotlin.reflect.KClass
+
 @PublicForGeneratedCode
 class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V>>) : AbstractMap<K, V>() {
     class Builder<K, V> {
@@ -23,7 +25,7 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
 
         override val protoSize by lazy { super.protoSize }
 
-        override val fieldDescriptors: List<FieldDescriptor<*>> = companion.fieldDescriptors
+        override val descriptor: MessageDescriptor<Entry<K, V>> = companion.descriptor
 
         class Companion<K, V>(
             internal val keyType: FieldDescriptor.Type,
@@ -43,18 +45,25 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
                 return Entry(key, value, this, unknownFields)
             }
 
-            override val fieldDescriptors: List<FieldDescriptor<*>> = listOf(
+            @Suppress("UNCHECKED_CAST")
+            override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor(
+                messageClass = Entry::class as KClass<Entry<K, V>>,
+                messageCompanion = this,
+                fields = listOf(
                 FieldDescriptor(
+                    messageDescriptor = this::descriptor,
                     name = "key",
                     number = 1,
                     type = keyType,
-                    value = Map.Entry<K, V>::key
+                    value = MessageMap.Entry<K, V>::key
                 ),
                 FieldDescriptor(
+                    messageDescriptor = this::descriptor,
                     name = "value",
                     number = 2,
                     type = valueType,
-                    value = Map.Entry<K, V>::value
+                    value = MessageMap.Entry<K, V>::value
+                )
                 )
             )
         }

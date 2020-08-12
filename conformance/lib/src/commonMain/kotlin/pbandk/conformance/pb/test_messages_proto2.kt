@@ -163,841 +163,962 @@ data class TestAllTypesProto2(
         get() = (oneofField as? OneofField.OneofEnum)?.value
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<TestAllTypesProto2> {
         val defaultInstance by lazy { TestAllTypesProto2() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "optional_int32",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "optionalInt32",
-                    value = TestAllTypesProto2::optionalInt32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_int64",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
-                    jsonName = "optionalInt64",
-                    value = TestAllTypesProto2::optionalInt64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_uint32",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
-                    jsonName = "optionalUint32",
-                    value = TestAllTypesProto2::optionalUint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_uint64",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                    jsonName = "optionalUint64",
-                    value = TestAllTypesProto2::optionalUint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_sint32",
-                    number = 5,
-                    type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
-                    jsonName = "optionalSint32",
-                    value = TestAllTypesProto2::optionalSint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_sint64",
-                    number = 6,
-                    type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
-                    jsonName = "optionalSint64",
-                    value = TestAllTypesProto2::optionalSint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_fixed32",
-                    number = 7,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
-                    jsonName = "optionalFixed32",
-                    value = TestAllTypesProto2::optionalFixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_fixed64",
-                    number = 8,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
-                    jsonName = "optionalFixed64",
-                    value = TestAllTypesProto2::optionalFixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_sfixed32",
-                    number = 9,
-                    type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
-                    jsonName = "optionalSfixed32",
-                    value = TestAllTypesProto2::optionalSfixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_sfixed64",
-                    number = 10,
-                    type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
-                    jsonName = "optionalSfixed64",
-                    value = TestAllTypesProto2::optionalSfixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_float",
-                    number = 11,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
-                    jsonName = "optionalFloat",
-                    value = TestAllTypesProto2::optionalFloat
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_double",
-                    number = 12,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
-                    jsonName = "optionalDouble",
-                    value = TestAllTypesProto2::optionalDouble
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_bool",
-                    number = 13,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                    jsonName = "optionalBool",
-                    value = TestAllTypesProto2::optionalBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_string",
-                    number = 14,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "optionalString",
-                    value = TestAllTypesProto2::optionalString
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_bytes",
-                    number = 15,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                    jsonName = "optionalBytes",
-                    value = TestAllTypesProto2::optionalBytes
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_nested_message",
-                    number = 18,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
-                    jsonName = "optionalNestedMessage",
-                    value = TestAllTypesProto2::optionalNestedMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_foreign_message",
-                    number = 19,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
-                    jsonName = "optionalForeignMessage",
-                    value = TestAllTypesProto2::optionalForeignMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_nested_enum",
-                    number = 21,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
-                    jsonName = "optionalNestedEnum",
-                    value = TestAllTypesProto2::optionalNestedEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_foreign_enum",
-                    number = 22,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true),
-                    jsonName = "optionalForeignEnum",
-                    value = TestAllTypesProto2::optionalForeignEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_string_piece",
-                    number = 24,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "optionalStringPiece",
-                    value = TestAllTypesProto2::optionalStringPiece
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_cord",
-                    number = 25,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "optionalCord",
-                    value = TestAllTypesProto2::optionalCord
-                ),
-                pbandk.FieldDescriptor(
-                    name = "recursive_message",
-                    number = 27,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.Companion),
-                    jsonName = "recursiveMessage",
-                    value = TestAllTypesProto2::recursiveMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_int32",
-                    number = 31,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                    jsonName = "repeatedInt32",
-                    value = TestAllTypesProto2::repeatedInt32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_int64",
-                    number = 32,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
-                    jsonName = "repeatedInt64",
-                    value = TestAllTypesProto2::repeatedInt64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_uint32",
-                    number = 33,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
-                    jsonName = "repeatedUint32",
-                    value = TestAllTypesProto2::repeatedUint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_uint64",
-                    number = 34,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
-                    jsonName = "repeatedUint64",
-                    value = TestAllTypesProto2::repeatedUint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_sint32",
-                    number = 35,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
-                    jsonName = "repeatedSint32",
-                    value = TestAllTypesProto2::repeatedSint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_sint64",
-                    number = 36,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
-                    jsonName = "repeatedSint64",
-                    value = TestAllTypesProto2::repeatedSint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_fixed32",
-                    number = 37,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
-                    jsonName = "repeatedFixed32",
-                    value = TestAllTypesProto2::repeatedFixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_fixed64",
-                    number = 38,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
-                    jsonName = "repeatedFixed64",
-                    value = TestAllTypesProto2::repeatedFixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_sfixed32",
-                    number = 39,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
-                    jsonName = "repeatedSfixed32",
-                    value = TestAllTypesProto2::repeatedSfixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_sfixed64",
-                    number = 40,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
-                    jsonName = "repeatedSfixed64",
-                    value = TestAllTypesProto2::repeatedSfixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_float",
-                    number = 41,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
-                    jsonName = "repeatedFloat",
-                    value = TestAllTypesProto2::repeatedFloat
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_double",
-                    number = 42,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
-                    jsonName = "repeatedDouble",
-                    value = TestAllTypesProto2::repeatedDouble
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_bool",
-                    number = 43,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
-                    jsonName = "repeatedBool",
-                    value = TestAllTypesProto2::repeatedBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_string",
-                    number = 44,
-                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                    jsonName = "repeatedString",
-                    value = TestAllTypesProto2::repeatedString
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_bytes",
-                    number = 45,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
-                    jsonName = "repeatedBytes",
-                    value = TestAllTypesProto2::repeatedBytes
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_nested_message",
-                    number = 48,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion)),
-                    jsonName = "repeatedNestedMessage",
-                    value = TestAllTypesProto2::repeatedNestedMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_foreign_message",
-                    number = 49,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignMessageProto2>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion)),
-                    jsonName = "repeatedForeignMessage",
-                    value = TestAllTypesProto2::repeatedForeignMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_nested_enum",
-                    number = 51,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion)),
-                    jsonName = "repeatedNestedEnum",
-                    value = TestAllTypesProto2::repeatedNestedEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_foreign_enum",
-                    number = 52,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignEnumProto2>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion)),
-                    jsonName = "repeatedForeignEnum",
-                    value = TestAllTypesProto2::repeatedForeignEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_string_piece",
-                    number = 54,
-                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                    jsonName = "repeatedStringPiece",
-                    value = TestAllTypesProto2::repeatedStringPiece
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_cord",
-                    number = 55,
-                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                    jsonName = "repeatedCord",
-                    value = TestAllTypesProto2::repeatedCord
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_int32_int32",
-                    number = 56,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true)),
-                    jsonName = "mapInt32Int32",
-                    value = TestAllTypesProto2::mapInt32Int32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_int64_int64",
-                    number = 57,
-                    type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true)),
-                    jsonName = "mapInt64Int64",
-                    value = TestAllTypesProto2::mapInt64Int64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_uint32_uint32",
-                    number = 58,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true)),
-                    jsonName = "mapUint32Uint32",
-                    value = TestAllTypesProto2::mapUint32Uint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_uint64_uint64",
-                    number = 59,
-                    type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true)),
-                    jsonName = "mapUint64Uint64",
-                    value = TestAllTypesProto2::mapUint64Uint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_sint32_sint32",
-                    number = 60,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true)),
-                    jsonName = "mapSint32Sint32",
-                    value = TestAllTypesProto2::mapSint32Sint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_sint64_sint64",
-                    number = 61,
-                    type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true)),
-                    jsonName = "mapSint64Sint64",
-                    value = TestAllTypesProto2::mapSint64Sint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_fixed32_fixed32",
-                    number = 62,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true)),
-                    jsonName = "mapFixed32Fixed32",
-                    value = TestAllTypesProto2::mapFixed32Fixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_fixed64_fixed64",
-                    number = 63,
-                    type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true)),
-                    jsonName = "mapFixed64Fixed64",
-                    value = TestAllTypesProto2::mapFixed64Fixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_sfixed32_sfixed32",
-                    number = 64,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true)),
-                    jsonName = "mapSfixed32Sfixed32",
-                    value = TestAllTypesProto2::mapSfixed32Sfixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_sfixed64_sfixed64",
-                    number = 65,
-                    type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true)),
-                    jsonName = "mapSfixed64Sfixed64",
-                    value = TestAllTypesProto2::mapSfixed64Sfixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_int32_float",
-                    number = 66,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Float?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true)),
-                    jsonName = "mapInt32Float",
-                    value = TestAllTypesProto2::mapInt32Float
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_int32_double",
-                    number = 67,
-                    type = pbandk.FieldDescriptor.Type.Map<Int?, Double?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true)),
-                    jsonName = "mapInt32Double",
-                    value = TestAllTypesProto2::mapInt32Double
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_bool_bool",
-                    number = 68,
-                    type = pbandk.FieldDescriptor.Type.Map<Boolean?, Boolean?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true)),
-                    jsonName = "mapBoolBool",
-                    value = TestAllTypesProto2::mapBoolBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_string_string",
-                    number = 69,
-                    type = pbandk.FieldDescriptor.Type.Map<String?, String?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true)),
-                    jsonName = "mapStringString",
-                    value = TestAllTypesProto2::mapStringString
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_string_bytes",
-                    number = 70,
-                    type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.ByteArr?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true)),
-                    jsonName = "mapStringBytes",
-                    value = TestAllTypesProto2::mapStringBytes
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_string_nested_message",
-                    number = 71,
-                    type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion)),
-                    jsonName = "mapStringNestedMessage",
-                    value = TestAllTypesProto2::mapStringNestedMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_string_foreign_message",
-                    number = 72,
-                    type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion)),
-                    jsonName = "mapStringForeignMessage",
-                    value = TestAllTypesProto2::mapStringForeignMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_string_nested_enum",
-                    number = 73,
-                    type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true)),
-                    jsonName = "mapStringNestedEnum",
-                    value = TestAllTypesProto2::mapStringNestedEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "map_string_foreign_enum",
-                    number = 74,
-                    type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true)),
-                    jsonName = "mapStringForeignEnum",
-                    value = TestAllTypesProto2::mapStringForeignEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_int32",
-                    number = 75,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
-                    jsonName = "packedInt32",
-                    value = TestAllTypesProto2::packedInt32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_int64",
-                    number = 76,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
-                    jsonName = "packedInt64",
-                    value = TestAllTypesProto2::packedInt64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_uint32",
-                    number = 77,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
-                    jsonName = "packedUint32",
-                    value = TestAllTypesProto2::packedUint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_uint64",
-                    number = 78,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
-                    jsonName = "packedUint64",
-                    value = TestAllTypesProto2::packedUint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_sint32",
-                    number = 79,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
-                    jsonName = "packedSint32",
-                    value = TestAllTypesProto2::packedSint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_sint64",
-                    number = 80,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
-                    jsonName = "packedSint64",
-                    value = TestAllTypesProto2::packedSint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_fixed32",
-                    number = 81,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
-                    jsonName = "packedFixed32",
-                    value = TestAllTypesProto2::packedFixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_fixed64",
-                    number = 82,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
-                    jsonName = "packedFixed64",
-                    value = TestAllTypesProto2::packedFixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_sfixed32",
-                    number = 83,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
-                    jsonName = "packedSfixed32",
-                    value = TestAllTypesProto2::packedSfixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_sfixed64",
-                    number = 84,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
-                    jsonName = "packedSfixed64",
-                    value = TestAllTypesProto2::packedSfixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_float",
-                    number = 85,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
-                    jsonName = "packedFloat",
-                    value = TestAllTypesProto2::packedFloat
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_double",
-                    number = 86,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
-                    jsonName = "packedDouble",
-                    value = TestAllTypesProto2::packedDouble
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_bool",
-                    number = 87,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
-                    jsonName = "packedBool",
-                    value = TestAllTypesProto2::packedBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "packed_nested_enum",
-                    number = 88,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion), packed = true),
-                    jsonName = "packedNestedEnum",
-                    value = TestAllTypesProto2::packedNestedEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_int32",
-                    number = 89,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                    jsonName = "unpackedInt32",
-                    value = TestAllTypesProto2::unpackedInt32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_int64",
-                    number = 90,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
-                    jsonName = "unpackedInt64",
-                    value = TestAllTypesProto2::unpackedInt64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_uint32",
-                    number = 91,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
-                    jsonName = "unpackedUint32",
-                    value = TestAllTypesProto2::unpackedUint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_uint64",
-                    number = 92,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
-                    jsonName = "unpackedUint64",
-                    value = TestAllTypesProto2::unpackedUint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_sint32",
-                    number = 93,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
-                    jsonName = "unpackedSint32",
-                    value = TestAllTypesProto2::unpackedSint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_sint64",
-                    number = 94,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
-                    jsonName = "unpackedSint64",
-                    value = TestAllTypesProto2::unpackedSint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_fixed32",
-                    number = 95,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
-                    jsonName = "unpackedFixed32",
-                    value = TestAllTypesProto2::unpackedFixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_fixed64",
-                    number = 96,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
-                    jsonName = "unpackedFixed64",
-                    value = TestAllTypesProto2::unpackedFixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_sfixed32",
-                    number = 97,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
-                    jsonName = "unpackedSfixed32",
-                    value = TestAllTypesProto2::unpackedSfixed32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_sfixed64",
-                    number = 98,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
-                    jsonName = "unpackedSfixed64",
-                    value = TestAllTypesProto2::unpackedSfixed64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_float",
-                    number = 99,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
-                    jsonName = "unpackedFloat",
-                    value = TestAllTypesProto2::unpackedFloat
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_double",
-                    number = 100,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
-                    jsonName = "unpackedDouble",
-                    value = TestAllTypesProto2::unpackedDouble
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_bool",
-                    number = 101,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
-                    jsonName = "unpackedBool",
-                    value = TestAllTypesProto2::unpackedBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "unpacked_nested_enum",
-                    number = 102,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion)),
-                    jsonName = "unpackedNestedEnum",
-                    value = TestAllTypesProto2::unpackedNestedEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_uint32",
-                    number = 111,
-                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofUint32",
-                    value = TestAllTypesProto2::oneofUint32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_nested_message",
-                    number = 112,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
-                    oneofMember = true,
-                    jsonName = "oneofNestedMessage",
-                    value = TestAllTypesProto2::oneofNestedMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_string",
-                    number = 113,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofString",
-                    value = TestAllTypesProto2::oneofString
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_bytes",
-                    number = 114,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofBytes",
-                    value = TestAllTypesProto2::oneofBytes
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_bool",
-                    number = 115,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofBool",
-                    value = TestAllTypesProto2::oneofBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_uint64",
-                    number = 116,
-                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofUint64",
-                    value = TestAllTypesProto2::oneofUint64
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_float",
-                    number = 117,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofFloat",
-                    value = TestAllTypesProto2::oneofFloat
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_double",
-                    number = 118,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofDouble",
-                    value = TestAllTypesProto2::oneofDouble
-                ),
-                pbandk.FieldDescriptor(
-                    name = "oneof_enum",
-                    number = 119,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "oneofEnum",
-                    value = TestAllTypesProto2::oneofEnum
-                ),
-                pbandk.FieldDescriptor(
-                    name = "fieldname1",
-                    number = 401,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldname1",
-                    value = TestAllTypesProto2::fieldname1
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field_name2",
-                    number = 402,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName2",
-                    value = TestAllTypesProto2::fieldName2
-                ),
-                pbandk.FieldDescriptor(
-                    name = "_field_name3",
-                    number = 403,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FieldName3",
-                    value = TestAllTypesProto2::fieldName3
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field__name4_",
-                    number = 404,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName4",
-                    value = TestAllTypesProto2::field_name4
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field0name5",
-                    number = 405,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "field0name5",
-                    value = TestAllTypesProto2::field0name5
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field_0_name6",
-                    number = 406,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "field0Name6",
-                    value = TestAllTypesProto2::field0Name6
-                ),
-                pbandk.FieldDescriptor(
-                    name = "fieldName7",
-                    number = 407,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName7",
-                    value = TestAllTypesProto2::fieldName7
-                ),
-                pbandk.FieldDescriptor(
-                    name = "FieldName8",
-                    number = 408,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FieldName8",
-                    value = TestAllTypesProto2::fieldName8
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field_Name9",
-                    number = 409,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName9",
-                    value = TestAllTypesProto2::fieldName9
-                ),
-                pbandk.FieldDescriptor(
-                    name = "Field_Name10",
-                    number = 410,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FieldName10",
-                    value = TestAllTypesProto2::fieldName10
-                ),
-                pbandk.FieldDescriptor(
-                    name = "FIELD_NAME11",
-                    number = 411,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FIELDNAME11",
-                    value = TestAllTypesProto2::fIELDNAME11
-                ),
-                pbandk.FieldDescriptor(
-                    name = "FIELD_name12",
-                    number = 412,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FIELDName12",
-                    value = TestAllTypesProto2::fIELDName12
-                ),
-                pbandk.FieldDescriptor(
-                    name = "__field_name13",
-                    number = 413,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FieldName13",
-                    value = TestAllTypesProto2::_fieldName13
-                ),
-                pbandk.FieldDescriptor(
-                    name = "__Field_name14",
-                    number = 414,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FieldName14",
-                    value = TestAllTypesProto2::_FieldName14
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field__name15",
-                    number = 415,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName15",
-                    value = TestAllTypesProto2::field_name15
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field__Name16",
-                    number = 416,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName16",
-                    value = TestAllTypesProto2::field_Name16
-                ),
-                pbandk.FieldDescriptor(
-                    name = "field_name17__",
-                    number = 417,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "fieldName17",
-                    value = TestAllTypesProto2::fieldName17_
-                ),
-                pbandk.FieldDescriptor(
-                    name = "Field_name18__",
-                    number = 418,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "FieldName18",
-                    value = TestAllTypesProto2::fieldName18_
+        override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = TestAllTypesProto2::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_int32",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "optionalInt32",
+                        value = TestAllTypesProto2::optionalInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_int64",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                        jsonName = "optionalInt64",
+                        value = TestAllTypesProto2::optionalInt64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_uint32",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                        jsonName = "optionalUint32",
+                        value = TestAllTypesProto2::optionalUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_uint64",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                        jsonName = "optionalUint64",
+                        value = TestAllTypesProto2::optionalUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_sint32",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
+                        jsonName = "optionalSint32",
+                        value = TestAllTypesProto2::optionalSint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_sint64",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
+                        jsonName = "optionalSint64",
+                        value = TestAllTypesProto2::optionalSint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_fixed32",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
+                        jsonName = "optionalFixed32",
+                        value = TestAllTypesProto2::optionalFixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_fixed64",
+                        number = 8,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
+                        jsonName = "optionalFixed64",
+                        value = TestAllTypesProto2::optionalFixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_sfixed32",
+                        number = 9,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
+                        jsonName = "optionalSfixed32",
+                        value = TestAllTypesProto2::optionalSfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_sfixed64",
+                        number = 10,
+                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
+                        jsonName = "optionalSfixed64",
+                        value = TestAllTypesProto2::optionalSfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_float",
+                        number = 11,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                        jsonName = "optionalFloat",
+                        value = TestAllTypesProto2::optionalFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_double",
+                        number = 12,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                        jsonName = "optionalDouble",
+                        value = TestAllTypesProto2::optionalDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_bool",
+                        number = 13,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "optionalBool",
+                        value = TestAllTypesProto2::optionalBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_string",
+                        number = 14,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "optionalString",
+                        value = TestAllTypesProto2::optionalString
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_bytes",
+                        number = 15,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                        jsonName = "optionalBytes",
+                        value = TestAllTypesProto2::optionalBytes
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_nested_message",
+                        number = 18,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
+                        jsonName = "optionalNestedMessage",
+                        value = TestAllTypesProto2::optionalNestedMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_foreign_message",
+                        number = 19,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
+                        jsonName = "optionalForeignMessage",
+                        value = TestAllTypesProto2::optionalForeignMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_nested_enum",
+                        number = 21,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
+                        jsonName = "optionalNestedEnum",
+                        value = TestAllTypesProto2::optionalNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_foreign_enum",
+                        number = 22,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true),
+                        jsonName = "optionalForeignEnum",
+                        value = TestAllTypesProto2::optionalForeignEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_string_piece",
+                        number = 24,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "optionalStringPiece",
+                        value = TestAllTypesProto2::optionalStringPiece
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_cord",
+                        number = 25,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "optionalCord",
+                        value = TestAllTypesProto2::optionalCord
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "recursive_message",
+                        number = 27,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.Companion),
+                        jsonName = "recursiveMessage",
+                        value = TestAllTypesProto2::recursiveMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_int32",
+                        number = 31,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                        jsonName = "repeatedInt32",
+                        value = TestAllTypesProto2::repeatedInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_int64",
+                        number = 32,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
+                        jsonName = "repeatedInt64",
+                        value = TestAllTypesProto2::repeatedInt64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_uint32",
+                        number = 33,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
+                        jsonName = "repeatedUint32",
+                        value = TestAllTypesProto2::repeatedUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_uint64",
+                        number = 34,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
+                        jsonName = "repeatedUint64",
+                        value = TestAllTypesProto2::repeatedUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_sint32",
+                        number = 35,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
+                        jsonName = "repeatedSint32",
+                        value = TestAllTypesProto2::repeatedSint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_sint64",
+                        number = 36,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
+                        jsonName = "repeatedSint64",
+                        value = TestAllTypesProto2::repeatedSint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_fixed32",
+                        number = 37,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
+                        jsonName = "repeatedFixed32",
+                        value = TestAllTypesProto2::repeatedFixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_fixed64",
+                        number = 38,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
+                        jsonName = "repeatedFixed64",
+                        value = TestAllTypesProto2::repeatedFixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_sfixed32",
+                        number = 39,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
+                        jsonName = "repeatedSfixed32",
+                        value = TestAllTypesProto2::repeatedSfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_sfixed64",
+                        number = 40,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
+                        jsonName = "repeatedSfixed64",
+                        value = TestAllTypesProto2::repeatedSfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_float",
+                        number = 41,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
+                        jsonName = "repeatedFloat",
+                        value = TestAllTypesProto2::repeatedFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_double",
+                        number = 42,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
+                        jsonName = "repeatedDouble",
+                        value = TestAllTypesProto2::repeatedDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_bool",
+                        number = 43,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
+                        jsonName = "repeatedBool",
+                        value = TestAllTypesProto2::repeatedBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_string",
+                        number = 44,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "repeatedString",
+                        value = TestAllTypesProto2::repeatedString
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_bytes",
+                        number = 45,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
+                        jsonName = "repeatedBytes",
+                        value = TestAllTypesProto2::repeatedBytes
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_nested_message",
+                        number = 48,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion)),
+                        jsonName = "repeatedNestedMessage",
+                        value = TestAllTypesProto2::repeatedNestedMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_foreign_message",
+                        number = 49,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignMessageProto2>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion)),
+                        jsonName = "repeatedForeignMessage",
+                        value = TestAllTypesProto2::repeatedForeignMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_nested_enum",
+                        number = 51,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion)),
+                        jsonName = "repeatedNestedEnum",
+                        value = TestAllTypesProto2::repeatedNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_foreign_enum",
+                        number = 52,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignEnumProto2>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion)),
+                        jsonName = "repeatedForeignEnum",
+                        value = TestAllTypesProto2::repeatedForeignEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_string_piece",
+                        number = 54,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "repeatedStringPiece",
+                        value = TestAllTypesProto2::repeatedStringPiece
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_cord",
+                        number = 55,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "repeatedCord",
+                        value = TestAllTypesProto2::repeatedCord
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_int32_int32",
+                        number = 56,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true)),
+                        jsonName = "mapInt32Int32",
+                        value = TestAllTypesProto2::mapInt32Int32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_int64_int64",
+                        number = 57,
+                        type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true)),
+                        jsonName = "mapInt64Int64",
+                        value = TestAllTypesProto2::mapInt64Int64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_uint32_uint32",
+                        number = 58,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true)),
+                        jsonName = "mapUint32Uint32",
+                        value = TestAllTypesProto2::mapUint32Uint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_uint64_uint64",
+                        number = 59,
+                        type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true)),
+                        jsonName = "mapUint64Uint64",
+                        value = TestAllTypesProto2::mapUint64Uint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_sint32_sint32",
+                        number = 60,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true)),
+                        jsonName = "mapSint32Sint32",
+                        value = TestAllTypesProto2::mapSint32Sint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_sint64_sint64",
+                        number = 61,
+                        type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true)),
+                        jsonName = "mapSint64Sint64",
+                        value = TestAllTypesProto2::mapSint64Sint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_fixed32_fixed32",
+                        number = 62,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true)),
+                        jsonName = "mapFixed32Fixed32",
+                        value = TestAllTypesProto2::mapFixed32Fixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_fixed64_fixed64",
+                        number = 63,
+                        type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true)),
+                        jsonName = "mapFixed64Fixed64",
+                        value = TestAllTypesProto2::mapFixed64Fixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_sfixed32_sfixed32",
+                        number = 64,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Int?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true)),
+                        jsonName = "mapSfixed32Sfixed32",
+                        value = TestAllTypesProto2::mapSfixed32Sfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_sfixed64_sfixed64",
+                        number = 65,
+                        type = pbandk.FieldDescriptor.Type.Map<Long?, Long?>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true)),
+                        jsonName = "mapSfixed64Sfixed64",
+                        value = TestAllTypesProto2::mapSfixed64Sfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_int32_float",
+                        number = 66,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Float?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true)),
+                        jsonName = "mapInt32Float",
+                        value = TestAllTypesProto2::mapInt32Float
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_int32_double",
+                        number = 67,
+                        type = pbandk.FieldDescriptor.Type.Map<Int?, Double?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true)),
+                        jsonName = "mapInt32Double",
+                        value = TestAllTypesProto2::mapInt32Double
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_bool_bool",
+                        number = 68,
+                        type = pbandk.FieldDescriptor.Type.Map<Boolean?, Boolean?>(keyType = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true)),
+                        jsonName = "mapBoolBool",
+                        value = TestAllTypesProto2::mapBoolBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_string_string",
+                        number = 69,
+                        type = pbandk.FieldDescriptor.Type.Map<String?, String?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true)),
+                        jsonName = "mapStringString",
+                        value = TestAllTypesProto2::mapStringString
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_string_bytes",
+                        number = 70,
+                        type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.ByteArr?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true)),
+                        jsonName = "mapStringBytes",
+                        value = TestAllTypesProto2::mapStringBytes
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_string_nested_message",
+                        number = 71,
+                        type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion)),
+                        jsonName = "mapStringNestedMessage",
+                        value = TestAllTypesProto2::mapStringNestedMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_string_foreign_message",
+                        number = 72,
+                        type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion)),
+                        jsonName = "mapStringForeignMessage",
+                        value = TestAllTypesProto2::mapStringForeignMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_string_nested_enum",
+                        number = 73,
+                        type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true)),
+                        jsonName = "mapStringNestedEnum",
+                        value = TestAllTypesProto2::mapStringNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map_string_foreign_enum",
+                        number = 74,
+                        type = pbandk.FieldDescriptor.Type.Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true)),
+                        jsonName = "mapStringForeignEnum",
+                        value = TestAllTypesProto2::mapStringForeignEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_int32",
+                        number = 75,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                        jsonName = "packedInt32",
+                        value = TestAllTypesProto2::packedInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_int64",
+                        number = 76,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
+                        jsonName = "packedInt64",
+                        value = TestAllTypesProto2::packedInt64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_uint32",
+                        number = 77,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
+                        jsonName = "packedUint32",
+                        value = TestAllTypesProto2::packedUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_uint64",
+                        number = 78,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
+                        jsonName = "packedUint64",
+                        value = TestAllTypesProto2::packedUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sint32",
+                        number = 79,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
+                        jsonName = "packedSint32",
+                        value = TestAllTypesProto2::packedSint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sint64",
+                        number = 80,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
+                        jsonName = "packedSint64",
+                        value = TestAllTypesProto2::packedSint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_fixed32",
+                        number = 81,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
+                        jsonName = "packedFixed32",
+                        value = TestAllTypesProto2::packedFixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_fixed64",
+                        number = 82,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
+                        jsonName = "packedFixed64",
+                        value = TestAllTypesProto2::packedFixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sfixed32",
+                        number = 83,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
+                        jsonName = "packedSfixed32",
+                        value = TestAllTypesProto2::packedSfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sfixed64",
+                        number = 84,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
+                        jsonName = "packedSfixed64",
+                        value = TestAllTypesProto2::packedSfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_float",
+                        number = 85,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
+                        jsonName = "packedFloat",
+                        value = TestAllTypesProto2::packedFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_double",
+                        number = 86,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
+                        jsonName = "packedDouble",
+                        value = TestAllTypesProto2::packedDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_bool",
+                        number = 87,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
+                        jsonName = "packedBool",
+                        value = TestAllTypesProto2::packedBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_nested_enum",
+                        number = 88,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion), packed = true),
+                        jsonName = "packedNestedEnum",
+                        value = TestAllTypesProto2::packedNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_int32",
+                        number = 89,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                        jsonName = "unpackedInt32",
+                        value = TestAllTypesProto2::unpackedInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_int64",
+                        number = 90,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
+                        jsonName = "unpackedInt64",
+                        value = TestAllTypesProto2::unpackedInt64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_uint32",
+                        number = 91,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
+                        jsonName = "unpackedUint32",
+                        value = TestAllTypesProto2::unpackedUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_uint64",
+                        number = 92,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
+                        jsonName = "unpackedUint64",
+                        value = TestAllTypesProto2::unpackedUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sint32",
+                        number = 93,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
+                        jsonName = "unpackedSint32",
+                        value = TestAllTypesProto2::unpackedSint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sint64",
+                        number = 94,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
+                        jsonName = "unpackedSint64",
+                        value = TestAllTypesProto2::unpackedSint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_fixed32",
+                        number = 95,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
+                        jsonName = "unpackedFixed32",
+                        value = TestAllTypesProto2::unpackedFixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_fixed64",
+                        number = 96,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
+                        jsonName = "unpackedFixed64",
+                        value = TestAllTypesProto2::unpackedFixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sfixed32",
+                        number = 97,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
+                        jsonName = "unpackedSfixed32",
+                        value = TestAllTypesProto2::unpackedSfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sfixed64",
+                        number = 98,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
+                        jsonName = "unpackedSfixed64",
+                        value = TestAllTypesProto2::unpackedSfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_float",
+                        number = 99,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
+                        jsonName = "unpackedFloat",
+                        value = TestAllTypesProto2::unpackedFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_double",
+                        number = 100,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
+                        jsonName = "unpackedDouble",
+                        value = TestAllTypesProto2::unpackedDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_bool",
+                        number = 101,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
+                        jsonName = "unpackedBool",
+                        value = TestAllTypesProto2::unpackedBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_nested_enum",
+                        number = 102,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion)),
+                        jsonName = "unpackedNestedEnum",
+                        value = TestAllTypesProto2::unpackedNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_uint32",
+                        number = 111,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofUint32",
+                        value = TestAllTypesProto2::oneofUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_nested_message",
+                        number = 112,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
+                        oneofMember = true,
+                        jsonName = "oneofNestedMessage",
+                        value = TestAllTypesProto2::oneofNestedMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_string",
+                        number = 113,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofString",
+                        value = TestAllTypesProto2::oneofString
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_bytes",
+                        number = 114,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofBytes",
+                        value = TestAllTypesProto2::oneofBytes
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_bool",
+                        number = 115,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofBool",
+                        value = TestAllTypesProto2::oneofBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_uint64",
+                        number = 116,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofUint64",
+                        value = TestAllTypesProto2::oneofUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_float",
+                        number = 117,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofFloat",
+                        value = TestAllTypesProto2::oneofFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_double",
+                        number = 118,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofDouble",
+                        value = TestAllTypesProto2::oneofDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "oneof_enum",
+                        number = 119,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneofEnum",
+                        value = TestAllTypesProto2::oneofEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "fieldname1",
+                        number = 401,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldname1",
+                        value = TestAllTypesProto2::fieldname1
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field_name2",
+                        number = 402,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName2",
+                        value = TestAllTypesProto2::fieldName2
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "_field_name3",
+                        number = 403,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FieldName3",
+                        value = TestAllTypesProto2::fieldName3
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field__name4_",
+                        number = 404,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName4",
+                        value = TestAllTypesProto2::field_name4
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field0name5",
+                        number = 405,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "field0name5",
+                        value = TestAllTypesProto2::field0name5
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field_0_name6",
+                        number = 406,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "field0Name6",
+                        value = TestAllTypesProto2::field0Name6
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "fieldName7",
+                        number = 407,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName7",
+                        value = TestAllTypesProto2::fieldName7
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "FieldName8",
+                        number = 408,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FieldName8",
+                        value = TestAllTypesProto2::fieldName8
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field_Name9",
+                        number = 409,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName9",
+                        value = TestAllTypesProto2::fieldName9
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "Field_Name10",
+                        number = 410,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FieldName10",
+                        value = TestAllTypesProto2::fieldName10
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "FIELD_NAME11",
+                        number = 411,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FIELDNAME11",
+                        value = TestAllTypesProto2::fIELDNAME11
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "FIELD_name12",
+                        number = 412,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FIELDName12",
+                        value = TestAllTypesProto2::fIELDName12
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "__field_name13",
+                        number = 413,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FieldName13",
+                        value = TestAllTypesProto2::_fieldName13
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "__Field_name14",
+                        number = 414,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FieldName14",
+                        value = TestAllTypesProto2::_FieldName14
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field__name15",
+                        number = 415,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName15",
+                        value = TestAllTypesProto2::field_name15
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field__Name16",
+                        number = 416,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName16",
+                        value = TestAllTypesProto2::field_Name16
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "field_name17__",
+                        number = 417,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "fieldName17",
+                        value = TestAllTypesProto2::fieldName17_
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "Field_name18__",
+                        number = 418,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "FieldName18",
+                        value = TestAllTypesProto2::fieldName18_
+                    )
                 )
             )
         }
@@ -1027,27 +1148,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.NestedMessage> {
             val defaultInstance by lazy { TestAllTypesProto2.NestedMessage() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.NestedMessage.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "a",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "a",
-                        value = NestedMessage::a
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "corecursive",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.Companion),
-                        jsonName = "corecursive",
-                        value = NestedMessage::corecursive
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.NestedMessage> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.NestedMessage::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "a",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "a",
+                            value = TestAllTypesProto2.NestedMessage::a
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "corecursive",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.Companion),
+                            jsonName = "corecursive",
+                            value = TestAllTypesProto2.NestedMessage::corecursive
+                        )
                     )
                 )
             }
@@ -1060,27 +1187,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Int?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt32Int32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt32Int32Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt32Int32Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapInt32Int32Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "value",
-                        value = MapInt32Int32Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt32Int32Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapInt32Int32Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapInt32Int32Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapInt32Int32Entry::value
+                        )
                     )
                 )
             }
@@ -1093,27 +1226,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Long?, Long?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt64Int64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt64Int64Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt64Int64Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
-                        jsonName = "key",
-                        value = MapInt64Int64Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
-                        jsonName = "value",
-                        value = MapInt64Int64Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt64Int64Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapInt64Int64Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapInt64Int64Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapInt64Int64Entry::value
+                        )
                     )
                 )
             }
@@ -1126,27 +1265,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Int?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapUint32Uint32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapUint32Uint32Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapUint32Uint32Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapUint32Uint32Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
-                        jsonName = "value",
-                        value = MapUint32Uint32Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapUint32Uint32Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapUint32Uint32Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapUint32Uint32Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapUint32Uint32Entry::value
+                        )
                     )
                 )
             }
@@ -1159,27 +1304,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Long?, Long?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapUint64Uint64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapUint64Uint64Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapUint64Uint64Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                        jsonName = "key",
-                        value = MapUint64Uint64Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
-                        jsonName = "value",
-                        value = MapUint64Uint64Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapUint64Uint64Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapUint64Uint64Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapUint64Uint64Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapUint64Uint64Entry::value
+                        )
                     )
                 )
             }
@@ -1192,27 +1343,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Int?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSint32Sint32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSint32Sint32Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSint32Sint32Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapSint32Sint32Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
-                        jsonName = "value",
-                        value = MapSint32Sint32Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSint32Sint32Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapSint32Sint32Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapSint32Sint32Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapSint32Sint32Entry::value
+                        )
                     )
                 )
             }
@@ -1225,27 +1382,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Long?, Long?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSint64Sint64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSint64Sint64Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSint64Sint64Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
-                        jsonName = "key",
-                        value = MapSint64Sint64Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
-                        jsonName = "value",
-                        value = MapSint64Sint64Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSint64Sint64Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapSint64Sint64Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapSint64Sint64Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapSint64Sint64Entry::value
+                        )
                     )
                 )
             }
@@ -1258,27 +1421,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Int?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapFixed32Fixed32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapFixed32Fixed32Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapFixed32Fixed32Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapFixed32Fixed32Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
-                        jsonName = "value",
-                        value = MapFixed32Fixed32Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapFixed32Fixed32Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapFixed32Fixed32Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapFixed32Fixed32Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapFixed32Fixed32Entry::value
+                        )
                     )
                 )
             }
@@ -1291,27 +1460,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Long?, Long?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapFixed64Fixed64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapFixed64Fixed64Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapFixed64Fixed64Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
-                        jsonName = "key",
-                        value = MapFixed64Fixed64Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
-                        jsonName = "value",
-                        value = MapFixed64Fixed64Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapFixed64Fixed64Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapFixed64Fixed64Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapFixed64Fixed64Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapFixed64Fixed64Entry::value
+                        )
                     )
                 )
             }
@@ -1324,27 +1499,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Int?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSfixed32Sfixed32Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSfixed32Sfixed32Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapSfixed32Sfixed32Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
-                        jsonName = "value",
-                        value = MapSfixed32Sfixed32Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSfixed32Sfixed32Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapSfixed32Sfixed32Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapSfixed32Sfixed32Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapSfixed32Sfixed32Entry::value
+                        )
                     )
                 )
             }
@@ -1357,27 +1538,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Long?, Long?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSfixed64Sfixed64Entry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSfixed64Sfixed64Entry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
-                        jsonName = "key",
-                        value = MapSfixed64Sfixed64Entry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
-                        jsonName = "value",
-                        value = MapSfixed64Sfixed64Entry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSfixed64Sfixed64Entry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapSfixed64Sfixed64Entry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapSfixed64Sfixed64Entry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapSfixed64Sfixed64Entry::value
+                        )
                     )
                 )
             }
@@ -1390,27 +1577,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Float?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt32FloatEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt32FloatEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt32FloatEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapInt32FloatEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
-                        jsonName = "value",
-                        value = MapInt32FloatEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt32FloatEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapInt32FloatEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapInt32FloatEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapInt32FloatEntry::value
+                        )
                     )
                 )
             }
@@ -1423,27 +1616,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Int?, Double?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt32DoubleEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt32DoubleEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt32DoubleEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "key",
-                        value = MapInt32DoubleEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
-                        jsonName = "value",
-                        value = MapInt32DoubleEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt32DoubleEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapInt32DoubleEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapInt32DoubleEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapInt32DoubleEntry::value
+                        )
                     )
                 )
             }
@@ -1456,27 +1655,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<Boolean?, Boolean?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapBoolBoolEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapBoolBoolEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapBoolBoolEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "key",
-                        value = MapBoolBoolEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                        jsonName = "value",
-                        value = MapBoolBoolEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapBoolBoolEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapBoolBoolEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapBoolBoolEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapBoolBoolEntry::value
+                        )
                     )
                 )
             }
@@ -1489,27 +1694,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String?, String?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringStringEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringStringEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringStringEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "key",
-                        value = MapStringStringEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "value",
-                        value = MapStringStringEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringStringEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapStringStringEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapStringStringEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapStringStringEntry::value
+                        )
                     )
                 )
             }
@@ -1522,27 +1733,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String?, pbandk.ByteArr?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringBytesEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringBytesEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringBytesEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "key",
-                        value = MapStringBytesEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                        jsonName = "value",
-                        value = MapStringBytesEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringBytesEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapStringBytesEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapStringBytesEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapStringBytesEntry::value
+                        )
                     )
                 )
             }
@@ -1555,27 +1772,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringNestedMessageEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringNestedMessageEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringNestedMessageEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "key",
-                        value = MapStringNestedMessageEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
-                        jsonName = "value",
-                        value = MapStringNestedMessageEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringNestedMessageEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapStringNestedMessageEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapStringNestedMessageEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapStringNestedMessageEntry::value
+                        )
                     )
                 )
             }
@@ -1588,27 +1811,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignMessageProto2?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringForeignMessageEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringForeignMessageEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringForeignMessageEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "key",
-                        value = MapStringForeignMessageEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
-                        jsonName = "value",
-                        value = MapStringForeignMessageEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringForeignMessageEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapStringForeignMessageEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapStringForeignMessageEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapStringForeignMessageEntry::value
+                        )
                     )
                 )
             }
@@ -1621,27 +1850,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringNestedEnumEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringNestedEnumEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringNestedEnumEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "key",
-                        value = MapStringNestedEnumEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
-                        jsonName = "value",
-                        value = MapStringNestedEnumEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringNestedEnumEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapStringNestedEnumEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapStringNestedEnumEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapStringNestedEnumEntry::value
+                        )
                     )
                 )
             }
@@ -1654,27 +1889,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignEnumProto2?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringForeignEnumEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringForeignEnumEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringForeignEnumEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "key",
-                        value = MapStringForeignEnumEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true),
-                        jsonName = "value",
-                        value = MapStringForeignEnumEntry::value
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringForeignEnumEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MapStringForeignEnumEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "key",
+                            value = TestAllTypesProto2.MapStringForeignEnumEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true),
+                            jsonName = "value",
+                            value = TestAllTypesProto2.MapStringForeignEnumEntry::value
+                        )
                     )
                 )
             }
@@ -1687,27 +1928,33 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.Data> {
             val defaultInstance by lazy { TestAllTypesProto2.Data() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.Data.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "group_int32",
-                        number = 202,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "groupInt32",
-                        value = Data::groupInt32
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "group_uint32",
-                        number = 203,
-                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
-                        jsonName = "groupUint32",
-                        value = Data::groupUint32
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.Data> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.Data::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "group_int32",
+                            number = 202,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "groupInt32",
+                            value = TestAllTypesProto2.Data::groupInt32
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "group_uint32",
+                            number = 203,
+                            type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
+                            jsonName = "groupUint32",
+                            value = TestAllTypesProto2.Data::groupUint32
+                        )
                     )
                 )
             }
@@ -1718,13 +1965,20 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MessageSetCorrect> {
             val defaultInstance by lazy { TestAllTypesProto2.MessageSetCorrect() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MessageSetCorrect.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = emptyList()
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MessageSetCorrect> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MessageSetCorrect::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                    )
+                )
+            }
         }
     }
 
@@ -1733,20 +1987,25 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MessageSetCorrectExtension1> {
             val defaultInstance by lazy { TestAllTypesProto2.MessageSetCorrectExtension1() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MessageSetCorrectExtension1.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "str",
-                        number = 25,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "str",
-                        value = MessageSetCorrectExtension1::str
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MessageSetCorrectExtension1> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MessageSetCorrectExtension1::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "str",
+                            number = 25,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "str",
+                            value = TestAllTypesProto2.MessageSetCorrectExtension1::str
+                        )
                     )
                 )
             }
@@ -1758,20 +2017,25 @@ data class TestAllTypesProto2(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MessageSetCorrectExtension2> {
             val defaultInstance by lazy { TestAllTypesProto2.MessageSetCorrectExtension2() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MessageSetCorrectExtension2.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "i",
-                        number = 9,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "i",
-                        value = MessageSetCorrectExtension2::i
+            override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MessageSetCorrectExtension2> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto2.MessageSetCorrectExtension2::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "i",
+                            number = 9,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "i",
+                            value = TestAllTypesProto2.MessageSetCorrectExtension2::i
+                        )
                     )
                 )
             }
@@ -1784,20 +2048,25 @@ data class ForeignMessageProto2(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ForeignMessageProto2> {
         val defaultInstance by lazy { ForeignMessageProto2() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = ForeignMessageProto2.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "c",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "c",
-                    value = ForeignMessageProto2::c
+        override val descriptor: pbandk.MessageDescriptor<ForeignMessageProto2> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = ForeignMessageProto2::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "c",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "c",
+                        value = ForeignMessageProto2::c
+                    )
                 )
             )
         }
@@ -1813,48 +2082,57 @@ data class UnknownToTestAllTypes(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UnknownToTestAllTypes> {
         val defaultInstance by lazy { UnknownToTestAllTypes() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = UnknownToTestAllTypes.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "optional_int32",
-                    number = 1001,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "optionalInt32",
-                    value = UnknownToTestAllTypes::optionalInt32
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_string",
-                    number = 1002,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "optionalString",
-                    value = UnknownToTestAllTypes::optionalString
-                ),
-                pbandk.FieldDescriptor(
-                    name = "nested_message",
-                    number = 1003,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
-                    jsonName = "nestedMessage",
-                    value = UnknownToTestAllTypes::nestedMessage
-                ),
-                pbandk.FieldDescriptor(
-                    name = "optional_bool",
-                    number = 1006,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                    jsonName = "optionalBool",
-                    value = UnknownToTestAllTypes::optionalBool
-                ),
-                pbandk.FieldDescriptor(
-                    name = "repeated_int32",
-                    number = 1011,
-                    type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
-                    jsonName = "repeatedInt32",
-                    value = UnknownToTestAllTypes::repeatedInt32
+        override val descriptor: pbandk.MessageDescriptor<UnknownToTestAllTypes> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = UnknownToTestAllTypes::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_int32",
+                        number = 1001,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "optionalInt32",
+                        value = UnknownToTestAllTypes::optionalInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_string",
+                        number = 1002,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "optionalString",
+                        value = UnknownToTestAllTypes::optionalString
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "nested_message",
+                        number = 1003,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
+                        jsonName = "nestedMessage",
+                        value = UnknownToTestAllTypes::nestedMessage
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_bool",
+                        number = 1006,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "optionalBool",
+                        value = UnknownToTestAllTypes::optionalBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "repeated_int32",
+                        number = 1011,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                        jsonName = "repeatedInt32",
+                        value = UnknownToTestAllTypes::repeatedInt32
+                    )
                 )
             )
         }
@@ -1865,20 +2143,25 @@ data class UnknownToTestAllTypes(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<UnknownToTestAllTypes.OptionalGroup> {
             val defaultInstance by lazy { UnknownToTestAllTypes.OptionalGroup() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = UnknownToTestAllTypes.OptionalGroup.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "a",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                        jsonName = "a",
-                        value = OptionalGroup::a
+            override val descriptor: pbandk.MessageDescriptor<UnknownToTestAllTypes.OptionalGroup> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = UnknownToTestAllTypes.OptionalGroup::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "a",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                            jsonName = "a",
+                            value = UnknownToTestAllTypes.OptionalGroup::a
+                        )
                     )
                 )
             }

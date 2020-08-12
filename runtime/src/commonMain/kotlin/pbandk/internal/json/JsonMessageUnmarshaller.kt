@@ -8,7 +8,7 @@ import pbandk.*
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
 
-private val FieldDescriptor<*>.jsonNames: List<String>
+private val FieldDescriptor<*, *>.jsonNames: List<String>
     get() = listOf(
         jsonName ?: name.underscoreToCamelCase(),
         name
@@ -40,7 +40,7 @@ internal class JsonMessageUnmarshaller internal constructor(
         fieldFn: (Int, Any) -> Unit
     ) {
         for ((key, jsonValue) in content.jsonObject) {
-            val fd = messageCompanion.fieldDescriptors.firstOrNull { key in it.jsonNames }
+            val fd = messageCompanion.descriptor.fields.firstOrNull { key in it.jsonNames }
                 ?: if (jsonConfig.ignoreUnknownFieldsInInput) {
                     continue
                 } else {

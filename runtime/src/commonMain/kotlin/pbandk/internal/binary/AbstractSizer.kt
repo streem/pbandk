@@ -68,7 +68,7 @@ private fun utf8Len(value: String) = CodePointIterable(value).sumBy {
 }
 
 private fun <T : Any> wrapperProtoSize(value: T, type: FieldDescriptor.Type.Message<*>): Int {
-    val valueType = type.messageCompanion.fieldDescriptors[0].type
+    val valueType = type.messageCompanion.descriptor.fields.first().type
     val size = if (valueType.isDefaultValue(value)) 0 else Sizer.tagSize(1) + valueType.protoSize(value)
     return Sizer.uInt32Size(size) + size
 }
@@ -118,7 +118,7 @@ internal abstract class AbstractSizer {
 
     fun <T : Message> rawMessageSize(message: T): Int {
         var protoSize = 0
-        for (fd in message.fieldDescriptors) {
+        for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 

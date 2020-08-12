@@ -8,27 +8,33 @@ data class Duration(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Duration> {
         val defaultInstance by lazy { Duration() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Duration.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "seconds",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
-                    jsonName = "seconds",
-                    value = Duration::seconds
-                ),
-                pbandk.FieldDescriptor(
-                    name = "nanos",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                    jsonName = "nanos",
-                    value = Duration::nanos
+        override val descriptor: pbandk.MessageDescriptor<Duration> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Duration::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "seconds",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                        jsonName = "seconds",
+                        value = Duration::seconds
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "nanos",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                        jsonName = "nanos",
+                        value = Duration::nanos
+                    )
                 )
             )
         }

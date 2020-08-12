@@ -6,13 +6,20 @@ data class Empty(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Empty> {
         val defaultInstance by lazy { Empty() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Empty.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = emptyList()
+        override val descriptor: pbandk.MessageDescriptor<Empty> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Empty::class,
+                messageCompanion = this,
+                fields = listOf(
+                )
+            )
+        }
     }
 }
 

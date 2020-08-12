@@ -46,20 +46,25 @@ data class FailureSet(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FailureSet> {
         val defaultInstance by lazy { FailureSet() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = FailureSet.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "failure",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                    jsonName = "failure",
-                    value = FailureSet::failure
+        override val descriptor: pbandk.MessageDescriptor<FailureSet> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = FailureSet::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "failure",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "failure",
+                        value = FailureSet::failure
+                    )
                 )
             )
         }
@@ -92,80 +97,93 @@ data class ConformanceRequest(
         get() = (payload as? Payload.TextPayload)?.value
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ConformanceRequest> {
         val defaultInstance by lazy { ConformanceRequest() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = ConformanceRequest.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "protobuf_payload",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "protobufPayload",
-                    value = ConformanceRequest::protobufPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "json_payload",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "jsonPayload",
-                    value = ConformanceRequest::jsonPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "requested_output_format",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.WireFormat.Companion),
-                    jsonName = "requestedOutputFormat",
-                    value = ConformanceRequest::requestedOutputFormat
-                ),
-                pbandk.FieldDescriptor(
-                    name = "message_type",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "messageType",
-                    value = ConformanceRequest::messageType
-                ),
-                pbandk.FieldDescriptor(
-                    name = "test_category",
-                    number = 5,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestCategory.Companion),
-                    jsonName = "testCategory",
-                    value = ConformanceRequest::testCategory
-                ),
-                pbandk.FieldDescriptor(
-                    name = "jspb_encoding_options",
-                    number = 6,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.JspbEncodingConfig.Companion),
-                    jsonName = "jspbEncodingOptions",
-                    value = ConformanceRequest::jspbEncodingOptions
-                ),
-                pbandk.FieldDescriptor(
-                    name = "jspb_payload",
-                    number = 7,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "jspbPayload",
-                    value = ConformanceRequest::jspbPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "text_payload",
-                    number = 8,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "textPayload",
-                    value = ConformanceRequest::textPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "print_unknown_fields",
-                    number = 9,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                    jsonName = "printUnknownFields",
-                    value = ConformanceRequest::printUnknownFields
+        override val descriptor: pbandk.MessageDescriptor<ConformanceRequest> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = ConformanceRequest::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "protobuf_payload",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "protobufPayload",
+                        value = ConformanceRequest::protobufPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "json_payload",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "jsonPayload",
+                        value = ConformanceRequest::jsonPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "requested_output_format",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.WireFormat.Companion),
+                        jsonName = "requestedOutputFormat",
+                        value = ConformanceRequest::requestedOutputFormat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "message_type",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "messageType",
+                        value = ConformanceRequest::messageType
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "test_category",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestCategory.Companion),
+                        jsonName = "testCategory",
+                        value = ConformanceRequest::testCategory
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "jspb_encoding_options",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.JspbEncodingConfig.Companion),
+                        jsonName = "jspbEncodingOptions",
+                        value = ConformanceRequest::jspbEncodingOptions
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "jspb_payload",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "jspbPayload",
+                        value = ConformanceRequest::jspbPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "text_payload",
+                        number = 8,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "textPayload",
+                        value = ConformanceRequest::textPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "print_unknown_fields",
+                        number = 9,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                        jsonName = "printUnknownFields",
+                        value = ConformanceRequest::printUnknownFields
+                    )
                 )
             )
         }
@@ -205,77 +223,89 @@ data class ConformanceResponse(
         get() = (result as? Result.TextPayload)?.value
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ConformanceResponse> {
         val defaultInstance by lazy { ConformanceResponse() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = ConformanceResponse.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "parse_error",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "parseError",
-                    value = ConformanceResponse::parseError
-                ),
-                pbandk.FieldDescriptor(
-                    name = "runtime_error",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "runtimeError",
-                    value = ConformanceResponse::runtimeError
-                ),
-                pbandk.FieldDescriptor(
-                    name = "protobuf_payload",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "protobufPayload",
-                    value = ConformanceResponse::protobufPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "json_payload",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "jsonPayload",
-                    value = ConformanceResponse::jsonPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "skipped",
-                    number = 5,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "skipped",
-                    value = ConformanceResponse::skipped
-                ),
-                pbandk.FieldDescriptor(
-                    name = "serialize_error",
-                    number = 6,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "serializeError",
-                    value = ConformanceResponse::serializeError
-                ),
-                pbandk.FieldDescriptor(
-                    name = "jspb_payload",
-                    number = 7,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "jspbPayload",
-                    value = ConformanceResponse::jspbPayload
-                ),
-                pbandk.FieldDescriptor(
-                    name = "text_payload",
-                    number = 8,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "textPayload",
-                    value = ConformanceResponse::textPayload
+        override val descriptor: pbandk.MessageDescriptor<ConformanceResponse> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = ConformanceResponse::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "parse_error",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "parseError",
+                        value = ConformanceResponse::parseError
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "runtime_error",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "runtimeError",
+                        value = ConformanceResponse::runtimeError
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "protobuf_payload",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "protobufPayload",
+                        value = ConformanceResponse::protobufPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "json_payload",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "jsonPayload",
+                        value = ConformanceResponse::jsonPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "skipped",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "skipped",
+                        value = ConformanceResponse::skipped
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "serialize_error",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "serializeError",
+                        value = ConformanceResponse::serializeError
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "jspb_payload",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "jspbPayload",
+                        value = ConformanceResponse::jspbPayload
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "text_payload",
+                        number = 8,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "textPayload",
+                        value = ConformanceResponse::textPayload
+                    )
                 )
             )
         }
@@ -287,20 +317,25 @@ data class JspbEncodingConfig(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<JspbEncodingConfig> {
         val defaultInstance by lazy { JspbEncodingConfig() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = JspbEncodingConfig.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "use_jspb_array_any_format",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                    jsonName = "useJspbArrayAnyFormat",
-                    value = JspbEncodingConfig::useJspbArrayAnyFormat
+        override val descriptor: pbandk.MessageDescriptor<JspbEncodingConfig> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = JspbEncodingConfig::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "use_jspb_array_any_format",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                        jsonName = "useJspbArrayAnyFormat",
+                        value = JspbEncodingConfig::useJspbArrayAnyFormat
+                    )
                 )
             )
         }

@@ -91,7 +91,7 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
         fieldFn: (Int, Any) -> Unit
     ): Map<Int, UnknownField> = try {
         val unknownFields = mutableMapOf<Int, UnknownField>()
-        val fieldDescriptors = messageCompanion.fieldDescriptors.associateBy { it.number }
+        val fieldDescriptors = messageCompanion.descriptor.fields.associateBy { it.number }
         while (true) {
             val tag = wireUnmarshaller.readTag()
             if (tag == 0) break

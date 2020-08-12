@@ -7,7 +7,7 @@ import kotlin.reflect.KProperty1
 
 internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWireMarshaller) : MessageMarshaller {
     override fun <T : Message> writeMessage(message: T) {
-        for (fd in message.fieldDescriptors) {
+        for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 
@@ -58,7 +58,7 @@ internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWi
         value: T,
         sizeFn: (T) -> Int
     ) {
-        val valueType = type.messageCompanion.fieldDescriptors[0].type
+        val valueType = type.messageCompanion.descriptor.fields.first().type
         if (valueType.isDefaultValue(value)) {
             wireMarshaller.writeLengthDelimitedHeader(fieldNum, 0)
         } else {

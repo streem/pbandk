@@ -44,12 +44,12 @@ internal class JsonMessageMarshaller(private val jsonConfig: JsonConfig) : Messa
     }
 
     private fun writeWrapperValue(message: Message, value: Any) =
-        jsonValueMarshaller.writeValue(value, message.fieldDescriptors[0].type)
+        jsonValueMarshaller.writeValue(value, message.descriptor.fields.first().type)
 
     private fun <T : Message> writeMessageObject(message: T): JsonObject {
         val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
 
-        for (fd in message.fieldDescriptors) {
+        for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 

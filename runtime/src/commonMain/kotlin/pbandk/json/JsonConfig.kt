@@ -23,7 +23,7 @@ data class JsonConfig(
      */
     val ignoreUnknownFieldsInInput: Boolean = false
 ) {
-    internal fun getFieldJsonName(fieldDescriptor: FieldDescriptor<*>): String =
+    internal fun getFieldJsonName(fieldDescriptor: FieldDescriptor<*, *>): String =
         when {
             outputProtoFieldNames -> fieldDescriptor.name
             fieldDescriptor.jsonName != null -> fieldDescriptor.jsonName

@@ -7,20 +7,25 @@ data class DoubleValue(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<DoubleValue> {
         val defaultInstance by lazy { DoubleValue() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = DoubleValue.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Double(),
-                    jsonName = "value",
-                    value = DoubleValue::value
+        override val descriptor: pbandk.MessageDescriptor<DoubleValue> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = DoubleValue::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Double(),
+                        jsonName = "value",
+                        value = DoubleValue::value
+                    )
                 )
             )
         }
@@ -32,20 +37,25 @@ data class FloatValue(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FloatValue> {
         val defaultInstance by lazy { FloatValue() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = FloatValue.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Float(),
-                    jsonName = "value",
-                    value = FloatValue::value
+        override val descriptor: pbandk.MessageDescriptor<FloatValue> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = FloatValue::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Float(),
+                        jsonName = "value",
+                        value = FloatValue::value
+                    )
                 )
             )
         }
@@ -57,20 +67,25 @@ data class Int64Value(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Int64Value> {
         val defaultInstance by lazy { Int64Value() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Int64Value.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
-                    jsonName = "value",
-                    value = Int64Value::value
+        override val descriptor: pbandk.MessageDescriptor<Int64Value> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Int64Value::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
+                        jsonName = "value",
+                        value = Int64Value::value
+                    )
                 )
             )
         }
@@ -82,20 +97,25 @@ data class UInt64Value(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UInt64Value> {
         val defaultInstance by lazy { UInt64Value() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = UInt64Value.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
-                    jsonName = "value",
-                    value = UInt64Value::value
+        override val descriptor: pbandk.MessageDescriptor<UInt64Value> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = UInt64Value::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
+                        jsonName = "value",
+                        value = UInt64Value::value
+                    )
                 )
             )
         }
@@ -107,20 +127,25 @@ data class Int32Value(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Int32Value> {
         val defaultInstance by lazy { Int32Value() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Int32Value.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                    jsonName = "value",
-                    value = Int32Value::value
+        override val descriptor: pbandk.MessageDescriptor<Int32Value> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Int32Value::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                        jsonName = "value",
+                        value = Int32Value::value
+                    )
                 )
             )
         }
@@ -132,20 +157,25 @@ data class UInt32Value(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UInt32Value> {
         val defaultInstance by lazy { UInt32Value() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = UInt32Value.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
-                    jsonName = "value",
-                    value = UInt32Value::value
+        override val descriptor: pbandk.MessageDescriptor<UInt32Value> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = UInt32Value::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
+                        jsonName = "value",
+                        value = UInt32Value::value
+                    )
                 )
             )
         }
@@ -157,20 +187,25 @@ data class BoolValue(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<BoolValue> {
         val defaultInstance by lazy { BoolValue() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = BoolValue.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                    jsonName = "value",
-                    value = BoolValue::value
+        override val descriptor: pbandk.MessageDescriptor<BoolValue> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = BoolValue::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                        jsonName = "value",
+                        value = BoolValue::value
+                    )
                 )
             )
         }
@@ -182,20 +217,25 @@ data class StringValue(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<StringValue> {
         val defaultInstance by lazy { StringValue() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = StringValue.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "value",
-                    value = StringValue::value
+        override val descriptor: pbandk.MessageDescriptor<StringValue> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = StringValue::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "value",
+                        value = StringValue::value
+                    )
                 )
             )
         }
@@ -207,20 +247,25 @@ data class BytesValue(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<BytesValue> {
         val defaultInstance by lazy { BytesValue() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = BytesValue.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
-                    jsonName = "value",
-                    value = BytesValue::value
+        override val descriptor: pbandk.MessageDescriptor<BytesValue> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = BytesValue::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
+                        jsonName = "value",
+                        value = BytesValue::value
+                    )
                 )
             )
         }
