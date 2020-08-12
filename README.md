@@ -261,7 +261,7 @@ The self-executing jar file doesn't work on Windows. Also `protoc` doesn't suppo
 Windows you will first need to build `protoc-gen-kotlin` locally:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:installDist
+./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
 ```
 
 And then provide the full path to `protoc`:
@@ -324,7 +324,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-jvm:0.9.0-SNAPSHOT'
+    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.9.0-SNAPSHOT'
 }
 ```
 
@@ -418,6 +418,7 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 
 * `conformance/js` - Conformance test runner for Kotlin/JS
 * `conformance/jvm` - Conformance test runner for Kotlin/JVM
+* `conformance/native` - Conformance test runner for Kotlin/Native
 * `conformance/lib` - Common multiplatform code for conformance tests
 * `protoc-gen-kotlin/jvm` - Kotlin/JVM implementation of the code generator (can generate code for any platform, but requires JVM to run)
 * `protoc-gen-kotlin/lib` - Multiplatform code (only Kotlin/JVM supported at the moment) for the code generator and `ServiceGenerator` library
@@ -428,7 +429,7 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 To generate the `protoc-gen-kotlin` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:assembleDist
+./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:assembleDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -437,7 +438,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:jvm:installDist
+./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -471,14 +472,14 @@ extract it to a local directory, and then run:
 ./gradlew -Dprotoc.path=path/to/protobuf/install/directory \
     :runtime:generateWellKnownTypes 
     :runtime:generateTestTypes
-    :protoc-gen-kotlin:lib:generateProto
-    :conformance:lib:generateProto
+    :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto
+    :conformance:conformance-lib:generateProto
 ```
 
-Important: If making changes in both the `:protoc-gen-kotlin:lib` _and_ `:runtime` projects at the
+Important: If making changes in both the `:protoc-gen-kotlin:protoc-gen-kotlin-lib` _and_ `:runtime` projects at the
 same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work
 around this, stash the changes in the `:runtime` project, run the `generateWellKnownTypes` task
-with only the `:protoc-gen-kotlin:lib` changes, and then unstash the `:runtime` changes and rerun the
+with only the `:protoc-gen-kotlin:protoc-gen-kotlin-lib` changes, and then unstash the `:runtime` changes and rerun the
 `generateWellKnownTypes` task.
 
 ### Conformance Tests
@@ -507,7 +508,7 @@ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 Now, back in `pbandk`, build all JS. JVM and native projects via:
 
 ```
-./gradlew :conformance:lib:assemble :conformance:jvm:installDist :conformance:native:build
+./gradlew :conformance:conformance-lib:assemble :conformance:conformance-jvm:installDist :conformance:conformance-native:build
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).

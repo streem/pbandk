@@ -11,7 +11,7 @@ application {
 }
 
 dependencies {
-    implementation(project(":conformance:lib"))
+    implementation(project(":conformance:conformance-lib"))
 }
 
 tasks.withType<KotlinCompile> {

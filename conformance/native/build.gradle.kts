@@ -18,7 +18,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                api(project(":conformance:lib"))
+                api(project(":conformance:conformance-lib"))
             }
         }
     }

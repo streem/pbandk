@@ -15,7 +15,7 @@ open class KotlinProtocTask : ProtocTask() {
     @Console
     val logLevel: Property<String> = project.objects.property()
 
-    private val protocGenKotlinInstallDir = project.project(":protoc-gen-kotlin:jvm").tasks
+    private val protocGenKotlinInstallDir = project.project(":protoc-gen-kotlin:protoc-gen-kotlin-jvm").tasks
         .named("installDist", Sync::class.java)
         .map { it.destinationDir }
 

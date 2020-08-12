@@ -1,3 +1,12 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "binary-compatibility-validator") {
+                useModule("org.jetbrains.kotlinx:binary-compatibility-validator:${requested.version}")
+            }
+        }
+    }
+}
 
 rootProject.name = "pbandk"
 
@@ -6,8 +15,13 @@ enableFeaturePreview("GRADLE_METADATA")
 include ":runtime"
 
 include ":protoc-gen-kotlin:lib"
+project(":protoc-gen-kotlin:lib").name = "protoc-gen-kotlin-lib"
 include ":protoc-gen-kotlin:jvm"
+project(":protoc-gen-kotlin:jvm").name = "protoc-gen-kotlin-jvm"
 
 include ":conformance:lib"
+project(":conformance:lib").name = "conformance-lib"
 include ":conformance:jvm"
+project(":conformance:jvm").name = "conformance-jvm"
 include ":conformance:native"
+project(":conformance:native").name = "conformance-native"

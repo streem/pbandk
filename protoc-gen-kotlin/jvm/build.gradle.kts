@@ -14,7 +14,7 @@ application {
 }
 
 dependencies {
-    implementation(project(":protoc-gen-kotlin:lib"))
+    implementation(project(":protoc-gen-kotlin:protoc-gen-kotlin-lib"))
 }
 
 tasks.withType<KotlinCompile> {
@@ -31,7 +31,6 @@ publishing {
         create<MavenPublication>("bootJar") {
             artifact(tasks.getByName("bootJar"))
 
-            artifactId = "protoc-gen-kotlin-jvm"
             description = "Executable for pbandk protoc plugin"
             pom {
                 configureForPbandk()
