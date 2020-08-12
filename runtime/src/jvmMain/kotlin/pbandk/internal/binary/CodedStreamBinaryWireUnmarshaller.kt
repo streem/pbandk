@@ -7,7 +7,7 @@ import pbandk.Message
 import pbandk.UnknownField
 
 internal class CodedStreamBinaryWireUnmarshaller(private val stream: CodedInputStream) : BinaryWireUnmarshaller {
-    override fun readTag(): Int = stream.readTag()
+    override fun readTag(): Tag = Tag(stream.readTag())
 
     override fun readDouble(): Double = stream.readDouble()
 
@@ -60,7 +60,7 @@ internal class CodedStreamBinaryWireUnmarshaller(private val stream: CodedInputS
         }
     }
 
-    override fun readUnknownField(fieldNum: Int, wireType: Int): UnknownField.Value? {
+    override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
         // TODO: support a `discardUnknownFields` option in the BinaryMessageUnmarshaller
         //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         return when (wireType) {

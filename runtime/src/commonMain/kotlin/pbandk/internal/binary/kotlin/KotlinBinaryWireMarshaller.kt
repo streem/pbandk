@@ -30,12 +30,12 @@
 package pbandk.internal.binary.kotlin
 
 import pbandk.*
-import pbandk.impl.WireFormat
-import pbandk.internal.binary.protoSize
 import pbandk.internal.Util
-import pbandk.internal.binary.zigZagEncoded
+import pbandk.internal.binary.*
 import pbandk.internal.binary.BinaryWireMarshaller
 import pbandk.internal.binary.WireType
+import pbandk.internal.binary.protoSize
+import pbandk.internal.binary.zigZagEncoded
 
 internal class KotlinBinaryWireMarshaller(private val wireWriter: WireWriter) : BinaryWireMarshaller {
     private fun writeValueNoTag(type: FieldDescriptor.Type, value: Any) {
@@ -63,10 +63,10 @@ internal class KotlinBinaryWireMarshaller(private val wireWriter: WireWriter) : 
     }
 
     private fun writeUInt32NoTag(value: Int) {
-        val buffer = ByteArray(WireFormat.MAX_VARINT_SIZE)
+        val buffer = ByteArray(MAX_VARINT_SIZE)
         var position = 0
         var valueCur = value
-        while (position < WireFormat.MAX_VARINT_SIZE) {
+        while (position < MAX_VARINT_SIZE) {
             if ((valueCur and 0x7F.inv()) == 0) {
                 buffer[position++] = valueCur.toByte()
                 break
@@ -79,10 +79,10 @@ internal class KotlinBinaryWireMarshaller(private val wireWriter: WireWriter) : 
     }
 
     private fun writeUInt64NoTag(value: Long) {
-        val buffer = ByteArray(WireFormat.MAX_VARINT_SIZE)
+        val buffer = ByteArray(MAX_VARINT_SIZE)
         var position = 0
         var valueCur = value
-        while (position < WireFormat.MAX_VARINT_SIZE) {
+        while (position < MAX_VARINT_SIZE) {
             if ((valueCur and 0x7FL.inv()) == 0L) {
                 buffer[position++] = valueCur.toByte()
                 break
@@ -94,8 +94,8 @@ internal class KotlinBinaryWireMarshaller(private val wireWriter: WireWriter) : 
         wireWriter.write(buffer, 0, position)
     }
 
-    private fun writeTag(fieldNum: Int, wireType: Int) {
-        writeUInt32NoTag((fieldNum shl 3) or wireType)
+    private fun writeTag(fieldNum: Int, wireType: WireType) {
+        writeUInt32NoTag(Tag(fieldNum, wireType).value)
     }
 
     override fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int) {

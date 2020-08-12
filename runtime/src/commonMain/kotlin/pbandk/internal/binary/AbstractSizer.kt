@@ -168,7 +168,7 @@ internal abstract class AbstractSizer {
         }
     }
 
-    fun tagSize(fieldNum: Int) = uInt32Size(fieldNum shl 3)
+    fun tagSize(fieldNum: Int) = uInt32Size(Tag(fieldNum, WireType(0) ).value)
 
     fun doubleSize(@Suppress("UNUSED_PARAMETER") value: Double) = 8
 

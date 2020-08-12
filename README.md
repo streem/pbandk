@@ -1,3 +1,6 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/streem/pbandk)
+![CircleCI](https://img.shields.io/circleci/build/github/streem/pbandk)
+
 # Pbandk
 
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).

@@ -4,7 +4,7 @@ import kotlin.Any
 import pbandk.*
 import pbandk.wkt.*
 
-private val FieldDescriptor.Type.wireType: Int
+private val FieldDescriptor.Type.wireType: WireType
     get() = when (this) {
         is FieldDescriptor.Type.Primitive.Double -> WireType.FIXED64
         is FieldDescriptor.Type.Primitive.Float -> WireType.FIXED32
@@ -27,7 +27,7 @@ private val FieldDescriptor.Type.wireType: Int
         is FieldDescriptor.Type.Map<*, *> -> WireType.LENGTH_DELIMITED
     }
 
-private fun FieldDescriptor.Type.allowedWireType(wireType: Int) =
+private fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
     this.wireType == wireType ||
             (this is FieldDescriptor.Type.Repeated<*> && valueType.isPackable && wireType == WireType.LENGTH_DELIMITED)
 
@@ -94,9 +94,9 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
         val fieldDescriptors = messageCompanion.descriptor.fields.associateBy { it.number }
         while (true) {
             val tag = wireUnmarshaller.readTag()
-            if (tag == 0) break
-            val fieldNum = tag ushr 3
-            val wireType = tag and 0b111
+            if (tag == Tag(0)) break
+            val fieldNum = tag.fieldNumber
+            val wireType = tag.wireType
             val fd = fieldDescriptors[fieldNum]
             if (fd == null || !fd.type.allowedWireType(wireType)) {
                 addUnknownField(fieldNum, wireType, unknownFields)
@@ -116,7 +116,7 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
         throw InvalidProtocolBufferException("unable to read message", e)
     }
 
-    private fun addUnknownField(fieldNum: Int, wireType: Int, unknownFields: MutableMap<Int, UnknownField>) {
+    private fun addUnknownField(fieldNum: Int, wireType: WireType, unknownFields: MutableMap<Int, UnknownField>) {
         val unknownField = wireUnmarshaller.readUnknownField(fieldNum, wireType) ?: return
         unknownFields[fieldNum] = UnknownField(fieldNum, unknownFields[fieldNum]?.let { prevField ->
             if (prevField.value is UnknownField.Value.Composite) {
@@ -129,7 +129,7 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
         } ?: unknownField)
     }
 
-    private fun readRepeated(type: FieldDescriptor.Type.Repeated<*>, wireType: Int): Any {
+    private fun readRepeated(type: FieldDescriptor.Type.Repeated<*>, wireType: WireType): Any {
         val valueUnmarshaller = type.valueType.binaryReadFn
         return if (wireType == WireType.LENGTH_DELIMITED && type.valueType.isPackable) {
             wireUnmarshaller.readPackedRepeated(valueUnmarshaller)

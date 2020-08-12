@@ -30,14 +30,15 @@
 package pbandk.internal.binary.kotlin
 
 import pbandk.*
-import pbandk.impl.WireFormat
 import pbandk.internal.Util
+import pbandk.internal.binary.*
 import pbandk.internal.binary.BinaryMessageUnmarshaller
 import pbandk.internal.binary.BinaryWireUnmarshaller
+import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
 
 internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) : BinaryWireUnmarshaller {
-    private var lastTag: Int = 0
+    private var lastTag: Tag = Tag(0)
     private var consumed: Int = 0
     private var curLimit: Int? = null
 
@@ -110,7 +111,7 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
     }
 
     private fun skipRawVarint() {
-        repeat(WireFormat.MAX_VARINT_SIZE) {
+        repeat(MAX_VARINT_SIZE) {
             if (readRawByte() >= 0)
                 return
         }
@@ -120,20 +121,20 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
     private fun skipMessage() {
         while (true) {
             val tag = readTag()
-            if (tag == 0 || !skipField(tag)) {
+            if (tag == Tag(0) || !skipField(tag)) {
                 return
             }
         }
     }
 
-    private fun checkLastTagWas(value: Int) {
+    private fun checkLastTagWas(value: Tag) {
         if (lastTag != value) {
             throw InvalidProtocolBufferException("Protocol message end-group tag did not match expected tag.")
         }
     }
 
-    private fun skipField(tag: Int): Boolean {
-        when (WireFormat.getTagWireType(tag)) {
+    private fun skipField(tag: Tag): Boolean {
+        when (tag.wireType) {
             WireType.VARINT -> {
                 skipRawVarint()
                 return true
@@ -152,7 +153,7 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
             }
             WireType.START_GROUP -> {
                 skipMessage()
-                checkLastTagWas(WireFormat.makeTag(WireFormat.getTagFieldNumber(tag), WireType.END_GROUP))
+                checkLastTagWas(Tag(tag.fieldNumber, WireType.END_GROUP))
                 return true
             }
             WireType.END_GROUP -> return false
@@ -160,14 +161,14 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
         }
     }
 
-    override fun readTag(): Int {
+    override fun readTag(): Tag {
         if (isAtEnd()) {
-            lastTag = 0
-            return 0
+            lastTag = Tag(0)
+            return Tag(0)
         }
 
-        lastTag = readRawVarint32()
-        if (WireFormat.getTagFieldNumber(lastTag) == 0) {
+        lastTag = Tag(readRawVarint32())
+        if (lastTag.fieldNumber == 0) {
             // If we actually read zero (or any tag number corresponding to field
             // number zero), that's not a valid tag.
             throw InvalidProtocolBufferException("Protocol message contained an invalid tag (zero).")
@@ -226,7 +227,7 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
         }
     }
 
-    override fun readUnknownField(fieldNum: Int, wireType: Int): UnknownField.Value? {
+    override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
         // TODO: support a `discardUnknownFields` option in the BinaryMessageUnmarshaller
         //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         return when (wireType) {

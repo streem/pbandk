@@ -4,17 +4,18 @@ import pbandk.*
 import pbandk.internal.asByteArray
 import pbandk.internal.binary.BinaryMessageUnmarshaller
 import pbandk.internal.binary.BinaryWireUnmarshaller
+import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
 
 internal class ProtobufjsBinaryWireUnmarshaller(private val reader: Reader) : BinaryWireUnmarshaller {
     private var endPos = reader.len
 
-    override fun readTag(): Int {
+    override fun readTag(): Tag {
         return if (reader.pos == endPos) {
-            0
+            Tag(0)
         } else {
-            val tag = readUInt32()
-            if (tag ushr 3 == 0) throw InvalidProtocolBufferException("Invalid tag: $tag")
+            val tag = Tag(readUInt32())
+            if (tag.fieldNumber == 0) throw InvalidProtocolBufferException("Invalid tag: $tag")
             tag
         }
     }
@@ -71,7 +72,7 @@ internal class ProtobufjsBinaryWireUnmarshaller(private val reader: Reader) : Bi
         while (reader.pos < endPos) yield(readFn())
     }
 
-    override fun readUnknownField(fieldNum: Int, wireType: Int): UnknownField.Value? {
+    override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
         // TODO: support a `discardUnknownFields` option in the BinaryMessageUnmarshaller
         //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         return when (wireType) {
