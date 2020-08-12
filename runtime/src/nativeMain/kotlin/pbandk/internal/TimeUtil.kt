@@ -123,7 +123,7 @@ private fun DateTime.Companion.fromSeconds(seconds: Long): DateTime {
 
 private fun formatNanos(output: CPointer<ByteVar>, nanos: Int): Int {
     fun writeFractionalNumber(size: Int, value: Int): Int {
-        val bytesWritten = snprintf(output, size.convert(), "%0${size}d", value)
+        val bytesWritten = snprintf(output, (size + 1).convert(), "%0${size}d", value)
         return when {
             bytesWritten < 0 -> throw PosixException(posix_errno())
             bytesWritten > size ->

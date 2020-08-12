@@ -24,9 +24,8 @@ internal class JsonMessageUnmarshaller internal constructor(
         messageCompanion: Message.Companion<T>,
         fieldFn: (Int, Any) -> Unit
     ): Map<Int, UnknownField> = try {
-        if (!content.isNull) {
-            readMessageObject(messageCompanion, content, fieldFn)
-        }
+        if (content.isNull) throw InvalidProtocolBufferException("top-level message must not be null")
+        readMessageObject(messageCompanion, content, fieldFn)
         emptyMap()
     } catch (e: InvalidProtocolBufferException) {
         throw e
