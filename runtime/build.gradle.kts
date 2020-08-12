@@ -41,6 +41,8 @@ kotlin {
 
     sourceSets {
         all {
+            languageSettings.enableLanguageFeature("InlineClasses")
+
             languageSettings.useExperimentalAnnotation("pbandk.ExperimentalProtoJson")
             languageSettings.useExperimentalAnnotation("pbandk.PbandkInternal")
             languageSettings.useExperimentalAnnotation("pbandk.PublicForGeneratedCode")

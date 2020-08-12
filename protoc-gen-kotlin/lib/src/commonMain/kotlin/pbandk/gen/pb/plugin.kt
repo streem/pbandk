@@ -10,41 +10,49 @@ data class Version(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Version> {
         val defaultInstance by lazy { Version() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Version.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "major",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "major",
-                    value = Version::major
-                ),
-                pbandk.FieldDescriptor(
-                    name = "minor",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "minor",
-                    value = Version::minor
-                ),
-                pbandk.FieldDescriptor(
-                    name = "patch",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
-                    jsonName = "patch",
-                    value = Version::patch
-                ),
-                pbandk.FieldDescriptor(
-                    name = "suffix",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "suffix",
-                    value = Version::suffix
+        override val descriptor: pbandk.MessageDescriptor<Version> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Version::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "major",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "major",
+                        value = Version::major
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "minor",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "minor",
+                        value = Version::minor
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "patch",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        jsonName = "patch",
+                        value = Version::patch
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "suffix",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "suffix",
+                        value = Version::suffix
+                    )
                 )
             )
         }
@@ -59,41 +67,49 @@ data class CodeGeneratorRequest(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<CodeGeneratorRequest> {
         val defaultInstance by lazy { CodeGeneratorRequest() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = CodeGeneratorRequest.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "file_to_generate",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                    jsonName = "fileToGenerate",
-                    value = CodeGeneratorRequest::fileToGenerate
-                ),
-                pbandk.FieldDescriptor(
-                    name = "parameter",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "parameter",
-                    value = CodeGeneratorRequest::parameter
-                ),
-                pbandk.FieldDescriptor(
-                    name = "compiler_version",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.Version.Companion),
-                    jsonName = "compilerVersion",
-                    value = CodeGeneratorRequest::compilerVersion
-                ),
-                pbandk.FieldDescriptor(
-                    name = "proto_file",
-                    number = 15,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
-                    jsonName = "protoFile",
-                    value = CodeGeneratorRequest::protoFile
+        override val descriptor: pbandk.MessageDescriptor<CodeGeneratorRequest> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = CodeGeneratorRequest::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "file_to_generate",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "fileToGenerate",
+                        value = CodeGeneratorRequest::fileToGenerate
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "parameter",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "parameter",
+                        value = CodeGeneratorRequest::parameter
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "compiler_version",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.Version.Companion),
+                        jsonName = "compilerVersion",
+                        value = CodeGeneratorRequest::compilerVersion
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "proto_file",
+                        number = 15,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
+                        jsonName = "protoFile",
+                        value = CodeGeneratorRequest::protoFile
+                    )
                 )
             )
         }
@@ -106,27 +122,33 @@ data class CodeGeneratorResponse(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<CodeGeneratorResponse> {
         val defaultInstance by lazy { CodeGeneratorResponse() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = CodeGeneratorResponse.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "error",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    jsonName = "error",
-                    value = CodeGeneratorResponse::error
-                ),
-                pbandk.FieldDescriptor(
-                    name = "file",
-                    number = 15,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.gen.pb.CodeGeneratorResponse.File>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
-                    jsonName = "file",
-                    value = CodeGeneratorResponse::file
+        override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = CodeGeneratorResponse::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "error",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        jsonName = "error",
+                        value = CodeGeneratorResponse::error
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "file",
+                        number = 15,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.gen.pb.CodeGeneratorResponse.File>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
+                        jsonName = "file",
+                        value = CodeGeneratorResponse::file
+                    )
                 )
             )
         }
@@ -139,34 +161,41 @@ data class CodeGeneratorResponse(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<CodeGeneratorResponse.File> {
             val defaultInstance by lazy { CodeGeneratorResponse.File() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = CodeGeneratorResponse.File.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "name",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "name",
-                        value = File::name
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "insertion_point",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "insertionPoint",
-                        value = File::insertionPoint
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "content",
-                        number = 15,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                        jsonName = "content",
-                        value = File::content
+            override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse.File> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = CodeGeneratorResponse.File::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "name",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "name",
+                            value = CodeGeneratorResponse.File::name
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "insertion_point",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "insertionPoint",
+                            value = CodeGeneratorResponse.File::insertionPoint
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "content",
+                            number = 15,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                            jsonName = "content",
+                            value = CodeGeneratorResponse.File::content
+                        )
                     )
                 )
             }

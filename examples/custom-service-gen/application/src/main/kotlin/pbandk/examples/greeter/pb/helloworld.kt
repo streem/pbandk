@@ -7,21 +7,28 @@ data class HelloRequest(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<HelloRequest> {
         val defaultInstance by lazy { HelloRequest() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = HelloRequest.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
-            pbandk.FieldDescriptor(
-                name = "name",
-                number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                jsonName = "name",
-                value = HelloRequest::name
+        override val descriptor: pbandk.MessageDescriptor<HelloRequest> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = HelloRequest::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "name",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "name",
+                        value = HelloRequest::name
+                    )
+                )
             )
-        )
+        }
     }
 }
 
@@ -30,21 +37,28 @@ data class HelloReply(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<HelloReply> {
         val defaultInstance by lazy { HelloReply() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = HelloReply.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
-            pbandk.FieldDescriptor(
-                name = "message",
-                number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                jsonName = "message",
-                value = HelloReply::message
+        override val descriptor: pbandk.MessageDescriptor<HelloReply> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = HelloReply::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "message",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "message",
+                        value = HelloReply::message
+                    )
+                )
             )
-        )
+        }
     }
 }
 

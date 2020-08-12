@@ -5,6 +5,8 @@ import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.MessageMap
 
+internal const val MAX_VARINT_SIZE = 10
+
 internal expect object Sizer {
     fun tagSize(fieldNum: Int): Int
     fun doubleSize(value: Double): Int

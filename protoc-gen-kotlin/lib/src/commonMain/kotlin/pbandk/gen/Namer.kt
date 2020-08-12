@@ -22,7 +22,7 @@ interface Namer {
             "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "Map", "String"
         )
         val disallowedFieldNames = setOf(
-            "emptyList", "fieldDescriptors", "jsonMarshal", "jsonUnmarshal", "marshal", "pbandk", "plus",
+            "descriptor", "emptyList", "jsonMarshal", "jsonUnmarshal", "marshal", "pbandk", "plus",
             "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields", "unmarshal"
         )
         val disallowedValueTypeNames = disallowedTypeNames + setOf(

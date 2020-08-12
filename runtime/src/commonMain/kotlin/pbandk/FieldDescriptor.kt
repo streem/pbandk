@@ -1,16 +1,23 @@
 package pbandk
 
+import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @PublicForGeneratedCode
-class FieldDescriptor<T>(
+class FieldDescriptor<M : Message, T>(
+    messageDescriptor: KProperty0<MessageDescriptor<M>>,
     val name: String,
     val number: Int,
     val type: Type,
-    val value: KProperty1<*, T>,
+    val value: KProperty1<M, T>,
     val oneofMember: Boolean = false,
     val jsonName: String? = null
 ) {
+    // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
+    // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
+    // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
+    val messageDescriptor: MessageDescriptor<M> by lazy { messageDescriptor.get() }
+
     sealed class Type {
         internal abstract val hasPresence: Boolean
         internal abstract val isPackable: Boolean

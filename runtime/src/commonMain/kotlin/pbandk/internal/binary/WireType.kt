@@ -1,10 +1,12 @@
 package pbandk.internal.binary
 
-internal object WireType {
-    const val VARINT: Int = 0
-    const val FIXED64: Int = 1
-    const val LENGTH_DELIMITED: Int = 2
-    const val START_GROUP: Int = 3
-    const val END_GROUP: Int = 4
-    const val FIXED32: Int = 5
+internal inline class WireType(val value: Int) {
+    companion object {
+        val VARINT = WireType(0)
+        val FIXED64 = WireType(1)
+        val LENGTH_DELIMITED = WireType(2)
+        val START_GROUP = WireType(3)
+        val END_GROUP = WireType(4)
+        val FIXED32 = WireType(5)
+    }
 }

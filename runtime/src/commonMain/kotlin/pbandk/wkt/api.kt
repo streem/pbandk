@@ -13,62 +13,73 @@ data class Api(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Api> {
         val defaultInstance by lazy { Api() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Api.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "name",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "name",
-                    value = Api::name
-                ),
-                pbandk.FieldDescriptor(
-                    name = "methods",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Method>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Method.Companion)),
-                    jsonName = "methods",
-                    value = Api::methods
-                ),
-                pbandk.FieldDescriptor(
-                    name = "options",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
-                    jsonName = "options",
-                    value = Api::options
-                ),
-                pbandk.FieldDescriptor(
-                    name = "version",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "version",
-                    value = Api::version
-                ),
-                pbandk.FieldDescriptor(
-                    name = "source_context",
-                    number = 5,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
-                    jsonName = "sourceContext",
-                    value = Api::sourceContext
-                ),
-                pbandk.FieldDescriptor(
-                    name = "mixins",
-                    number = 6,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Mixin>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Mixin.Companion)),
-                    jsonName = "mixins",
-                    value = Api::mixins
-                ),
-                pbandk.FieldDescriptor(
-                    name = "syntax",
-                    number = 7,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
-                    jsonName = "syntax",
-                    value = Api::syntax
+        override val descriptor: pbandk.MessageDescriptor<Api> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Api::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "name",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "name",
+                        value = Api::name
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "methods",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Method>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Method.Companion)),
+                        jsonName = "methods",
+                        value = Api::methods
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "options",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                        jsonName = "options",
+                        value = Api::options
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "version",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "version",
+                        value = Api::version
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "source_context",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
+                        jsonName = "sourceContext",
+                        value = Api::sourceContext
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "mixins",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Mixin>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Mixin.Companion)),
+                        jsonName = "mixins",
+                        value = Api::mixins
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "syntax",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                        jsonName = "syntax",
+                        value = Api::syntax
+                    )
                 )
             )
         }
@@ -86,62 +97,73 @@ data class Method(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Method> {
         val defaultInstance by lazy { Method() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Method.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "name",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "name",
-                    value = Method::name
-                ),
-                pbandk.FieldDescriptor(
-                    name = "request_type_url",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "requestTypeUrl",
-                    value = Method::requestTypeUrl
-                ),
-                pbandk.FieldDescriptor(
-                    name = "request_streaming",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                    jsonName = "requestStreaming",
-                    value = Method::requestStreaming
-                ),
-                pbandk.FieldDescriptor(
-                    name = "response_type_url",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "responseTypeUrl",
-                    value = Method::responseTypeUrl
-                ),
-                pbandk.FieldDescriptor(
-                    name = "response_streaming",
-                    number = 5,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
-                    jsonName = "responseStreaming",
-                    value = Method::responseStreaming
-                ),
-                pbandk.FieldDescriptor(
-                    name = "options",
-                    number = 6,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
-                    jsonName = "options",
-                    value = Method::options
-                ),
-                pbandk.FieldDescriptor(
-                    name = "syntax",
-                    number = 7,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
-                    jsonName = "syntax",
-                    value = Method::syntax
+        override val descriptor: pbandk.MessageDescriptor<Method> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Method::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "name",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "name",
+                        value = Method::name
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "request_type_url",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "requestTypeUrl",
+                        value = Method::requestTypeUrl
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "request_streaming",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                        jsonName = "requestStreaming",
+                        value = Method::requestStreaming
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "response_type_url",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "responseTypeUrl",
+                        value = Method::responseTypeUrl
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "response_streaming",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                        jsonName = "responseStreaming",
+                        value = Method::responseStreaming
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "options",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
+                        jsonName = "options",
+                        value = Method::options
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "syntax",
+                        number = 7,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
+                        jsonName = "syntax",
+                        value = Method::syntax
+                    )
                 )
             )
         }
@@ -154,27 +176,33 @@ data class Mixin(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Mixin> {
         val defaultInstance by lazy { Mixin() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Mixin.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "name",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "name",
-                    value = Mixin::name
-                ),
-                pbandk.FieldDescriptor(
-                    name = "root",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "root",
-                    value = Mixin::root
+        override val descriptor: pbandk.MessageDescriptor<Mixin> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Mixin::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "name",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "name",
+                        value = Mixin::name
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "root",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "root",
+                        value = Mixin::root
+                    )
                 )
             )
         }

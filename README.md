@@ -1,3 +1,6 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/streem/pbandk)
+![CircleCI](https://img.shields.io/circleci/build/github/streem/pbandk)
+
 # Pbandk
 
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
@@ -95,49 +98,60 @@ data class Person(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Person> {
         val defaultInstance by lazy { Person() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
-            pbandk.FieldDescriptor(
-                name = "name",
-                number = 1,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                jsonName = "name",
-                value = Person::name
-            ),
-            pbandk.FieldDescriptor(
-                name = "id",
-                number = 2,
-                type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                jsonName = "id",
-                value = Person::id
-            ),
-            pbandk.FieldDescriptor(
-                name = "email",
-                number = 3,
-                type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                jsonName = "email",
-                value = Person::email
-            ),
-            pbandk.FieldDescriptor(
-                name = "phones",
-                number = 4,
-                type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person.PhoneNumber>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.PhoneNumber.Companion)),
-                jsonName = "phones",
-                value = Person::phones
-            ),
-            pbandk.FieldDescriptor(
-                name = "last_updated",
-                number = 5,
-                type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
-                jsonName = "lastUpdated",
-                value = Person::lastUpdated
+        override val descriptors: pbandk.MessageDescriptor<Person> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Person::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "name",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "name",
+                        value = Person::name
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "id",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
+                        jsonName = "id",
+                        value = Person::id
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "email",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "email",
+                        value = Person::email
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "phones",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person.PhoneNumber>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.PhoneNumber.Companion)),
+                        jsonName = "phones",
+                        value = Person::phones
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "last_updated",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
+                        jsonName = "lastUpdated",
+                        value = Person::lastUpdated
+                    )
+                )
             )
-        )
+        }
     }
 
     sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
@@ -163,28 +177,36 @@ data class Person(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Person.PhoneNumber> {
             val defaultInstance by lazy { Person.PhoneNumber() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.PhoneNumber.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
-                pbandk.FieldDescriptor(
-                    name = "number",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "number",
-                    value = PhoneNumber::number
-                ),
-                pbandk.FieldDescriptor(
-                    name = "type",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = tutorial.Person.PhoneType.Companion),
-                    jsonName = "type",
-                    value = PhoneNumber::type
+            override val descriptor: pbandk.MessageDescriptor<PhoneNumber> by lazy {
+                pbandk.MessageDescriptor(            
+                    messageClass = Person.PhoneNumber::class,
+                    messageCompanion = this,                    
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "number",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                            jsonName = "number",
+                            value = PhoneNumber::number
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "type",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = tutorial.Person.PhoneType.Companion),
+                            jsonName = "type",
+                            value = PhoneNumber::type
+                        )
+                    )
                 )
-            )
+            }
         }
     }
 }
@@ -194,21 +216,28 @@ data class AddressBook(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: AddressBook?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<AddressBook> {
         val defaultInstance by lazy { AddressBook() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = AddressBook.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> = listOf(
-            pbandk.FieldDescriptor(
-                name = "people",
-                number = 1,
-                type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.Companion)),
-                jsonName = "people",
-                value = AddressBook::people
+        override val descriptor: pbandk.MessageDescriptor<AddressBook> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = AddressBook::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "people",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.Companion)),
+                        jsonName = "people",
+                        value = AddressBook::people
+                    )
+                )
             )
-        )
+        }
     }
 }
 

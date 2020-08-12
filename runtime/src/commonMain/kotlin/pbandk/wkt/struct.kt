@@ -22,20 +22,25 @@ data class Struct(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Struct> {
         val defaultInstance by lazy { Struct() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Struct.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "fields",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Map<String, pbandk.wkt.Value?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
-                    jsonName = "fields",
-                    value = Struct::fields
+        override val descriptor: pbandk.MessageDescriptor<Struct> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Struct::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "fields",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.wkt.Value?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
+                        jsonName = "fields",
+                        value = Struct::fields
+                    )
                 )
             )
         }
@@ -47,27 +52,33 @@ data class Struct(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String, pbandk.wkt.Value?> {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val fieldDescriptors get() = Companion.fieldDescriptors
+        override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Struct.FieldsEntry> {
             val defaultInstance by lazy { Struct.FieldsEntry() }
             override fun unmarshal(u: pbandk.MessageUnmarshaller) = Struct.FieldsEntry.unmarshalImpl(u)
 
-            override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-                listOf(
-                    pbandk.FieldDescriptor(
-                        name = "key",
-                        number = 1,
-                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                        jsonName = "key",
-                        value = FieldsEntry::key
-                    ),
-                    pbandk.FieldDescriptor(
-                        name = "value",
-                        number = 2,
-                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
-                        jsonName = "value",
-                        value = FieldsEntry::value
+            override val descriptor: pbandk.MessageDescriptor<Struct.FieldsEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = Struct.FieldsEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                            jsonName = "key",
+                            value = Struct.FieldsEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
+                            jsonName = "value",
+                            value = Struct.FieldsEntry::value
+                        )
                     )
                 )
             }
@@ -102,61 +113,71 @@ data class Value(
         get() = (kind as? Kind.ListValue)?.value
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Value> {
         val defaultInstance by lazy { Value() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = Value.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "null_value",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.NullValue.Companion, hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "nullValue",
-                    value = Value::nullValue
-                ),
-                pbandk.FieldDescriptor(
-                    name = "number_value",
-                    number = 2,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "numberValue",
-                    value = Value::numberValue
-                ),
-                pbandk.FieldDescriptor(
-                    name = "string_value",
-                    number = 3,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "stringValue",
-                    value = Value::stringValue
-                ),
-                pbandk.FieldDescriptor(
-                    name = "bool_value",
-                    number = 4,
-                    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-                    oneofMember = true,
-                    jsonName = "boolValue",
-                    value = Value::boolValue
-                ),
-                pbandk.FieldDescriptor(
-                    name = "struct_value",
-                    number = 5,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
-                    oneofMember = true,
-                    jsonName = "structValue",
-                    value = Value::structValue
-                ),
-                pbandk.FieldDescriptor(
-                    name = "list_value",
-                    number = 6,
-                    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion),
-                    oneofMember = true,
-                    jsonName = "listValue",
-                    value = Value::listValue
+        override val descriptor: pbandk.MessageDescriptor<Value> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = Value::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "null_value",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.NullValue.Companion, hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "nullValue",
+                        value = Value::nullValue
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "number_value",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "numberValue",
+                        value = Value::numberValue
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "string_value",
+                        number = 3,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "stringValue",
+                        value = Value::stringValue
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "bool_value",
+                        number = 4,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "boolValue",
+                        value = Value::boolValue
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "struct_value",
+                        number = 5,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
+                        oneofMember = true,
+                        jsonName = "structValue",
+                        value = Value::structValue
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "list_value",
+                        number = 6,
+                        type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion),
+                        oneofMember = true,
+                        jsonName = "listValue",
+                        value = Value::listValue
+                    )
                 )
             )
         }
@@ -168,20 +189,25 @@ data class ListValue(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ListValue> {
         val defaultInstance by lazy { ListValue() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = ListValue.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "values",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
-                    jsonName = "values",
-                    value = ListValue::values
+        override val descriptor: pbandk.MessageDescriptor<ListValue> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = ListValue::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "values",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
+                        jsonName = "values",
+                        value = ListValue::values
+                    )
                 )
             )
         }

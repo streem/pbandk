@@ -7,20 +7,25 @@ data class SourceContext(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<SourceContext> {
         val defaultInstance by lazy { SourceContext() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = SourceContext.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "file_name",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Primitive.String(),
-                    jsonName = "fileName",
-                    value = SourceContext::fileName
+        override val descriptor: pbandk.MessageDescriptor<SourceContext> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = SourceContext::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "file_name",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                        jsonName = "fileName",
+                        value = SourceContext::fileName
+                    )
                 )
             )
         }

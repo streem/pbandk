@@ -7,20 +7,25 @@ data class FieldMask(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val fieldDescriptors get() = Companion.fieldDescriptors
+    override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FieldMask> {
         val defaultInstance by lazy { FieldMask() }
         override fun unmarshal(u: pbandk.MessageUnmarshaller) = FieldMask.unmarshalImpl(u)
 
-        override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> by lazy {
-            listOf(
-                pbandk.FieldDescriptor(
-                    name = "paths",
-                    number = 1,
-                    type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
-                    jsonName = "paths",
-                    value = FieldMask::paths
+        override val descriptor: pbandk.MessageDescriptor<FieldMask> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = FieldMask::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "paths",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
+                        jsonName = "paths",
+                        value = FieldMask::paths
+                    )
                 )
             )
         }

@@ -6,7 +6,7 @@ import pbandk.UnknownField
 
 internal interface BinaryWireUnmarshaller {
     /** Returns 0 when there is no next tag (e.g. at EOF) */
-    fun readTag(): Int
+    fun readTag(): Tag
 
     fun readDouble(): Double
     fun readFloat(): Float
@@ -27,5 +27,5 @@ internal interface BinaryWireUnmarshaller {
     fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T
     fun <T : Any> readPackedRepeated(readFn: BinaryWireUnmarshaller.() -> T): Sequence<T>
 
-    fun readUnknownField(fieldNum: Int, wireType: Int): UnknownField.Value?
+    fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value?
 }

@@ -72,7 +72,7 @@ open class CodeGenerator(
             type.fields.filterIsInstance<File.Field.OneOf>().forEach(::writeOneOfType)
 
             line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
-            line("override val fieldDescriptors get() = Companion.fieldDescriptors")
+            line("override val descriptor get() = Companion.descriptor")
             line("override val protoSize by lazy { super.protoSize }")
 
             // Companion object
@@ -80,11 +80,11 @@ open class CodeGenerator(
                 line("val defaultInstance by lazy { ${typeName}() }")
                 line("override fun unmarshal(u: pbandk.MessageUnmarshaller) = ${typeName}.unmarshalImpl(u)")
                 line()
-                writeMessageFieldDescriptors(type)
+                writeMessageDescriptor(type, typeName)
             }.line("}")
 
             // Nested enums and types
-            type.nestedTypes.forEach { writeType(it,typeName) }
+            type.nestedTypes.forEach { writeType(it, typeName) }
         }.line("}")
     }
 
@@ -114,31 +114,31 @@ open class CodeGenerator(
         line()
     }
 
-    protected fun writeMessageFieldDescriptors(type: File.Type.Message) {
-        lineBegin("override val fieldDescriptors: List<pbandk.FieldDescriptor<*>> ")
-        val allFields = type.sortedStandardFieldsWithOneOfs()
-        if (allFields.isEmpty()) {
-            lineEnd("= emptyList()")
-            return
-        }
+    protected fun writeMessageDescriptor(type: File.Type.Message, fullTypeName: String) {
         // Messages can have circular references to each other (e.g. `pbandk.wkt.Struct` includes a `pbandk.wkt.Value`
         // field, but `pbandk.wkt.Value` includes a `pbandk.wkt.Struct` field). On Kotlin/Native the companion object
         // (e.g. `pbandk.wkt.Value.Companion`) is automatically frozen because it's a singleton. But Kotlin/Native
         // doesn't allow cyclic frozen structures:
         // https://kotlinlang.org/docs/reference/native/concurrency.html#global-variables-and-singletons. In order to
-        // break the circular references, `fieldDescriptors` needs to be a `lazy` field.
-        lineEnd("by lazy {").indented {
-            line("listOf(").indented {
-                allFields.forEachIndexed { i, (field, oneof) ->
-                    line("pbandk.FieldDescriptor(").indented {
-                        line("name = \"${field.name}\",")
-                        line("number = ${field.number},")
-                        line("type = ${field.fieldDescriptorType(oneof != null)},")
-                        oneof?.let { line("oneofMember = true,") }
-                        field.jsonName?.let { line("jsonName = \"$it\",") }
-                        line("value = ${type.kotlinTypeName}::${field.kotlinFieldName}")
-                    }.line(if (i == allFields.lastIndex) ")" else "),")
-                }
+        // break the circular references, `descriptor` needs to be a `lazy` field.
+        line("override val descriptor: pbandk.MessageDescriptor<$fullTypeName> by lazy {").indented {
+            line("pbandk.MessageDescriptor(").indented {
+                line("messageClass = $fullTypeName::class,")
+                line("messageCompanion = this,")
+                line("fields = listOf(").indented {
+                    val allFields = type.sortedStandardFieldsWithOneOfs()
+                    allFields.forEachIndexed { i, (field, oneof) ->
+                        line("pbandk.FieldDescriptor(").indented {
+                            line("messageDescriptor = this::descriptor,")
+                            line("name = \"${field.name}\",")
+                            line("number = ${field.number},")
+                            line("type = ${field.fieldDescriptorType(oneof != null)},")
+                            oneof?.let { line("oneofMember = true,") }
+                            field.jsonName?.let { line("jsonName = \"$it\",") }
+                            line("value = $fullTypeName::${field.kotlinFieldName}")
+                        }.line(if (i == allFields.lastIndex) ")" else "),")
+                    }
+                }.line(")")
             }.line(")")
         }.line("}")
     }
