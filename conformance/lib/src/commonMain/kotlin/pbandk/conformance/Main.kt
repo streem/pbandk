@@ -37,10 +37,6 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     }) { err -> return ConformanceResponse.Result.RuntimeError("Failed reading request: $err") }
     // Parse
     val parsed = Platform.doTry({
-        // TODO: re-enable JSON output support (the code already supports it) and fix all of the failing tests
-        if (req.requestedOutputFormat != WireFormat.PROTOBUF)
-            return ConformanceResponse.Result.Skipped("Only protobuf output supported")
-
         val typeComp = when (req.messageType) {
             "protobuf_test_messages.proto2.TestAllTypesProto2" -> TestAllTypesProto2.Companion
             "protobuf_test_messages.proto3.TestAllTypesProto3" -> TestAllTypesProto3.Companion
