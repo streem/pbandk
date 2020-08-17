@@ -7,6 +7,8 @@ import kotlinx.serialization.json.JsonElementSerializer
 import pbandk.*
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
+import pbandk.wkt.*
+import kotlin.Any
 
 private val FieldDescriptor<*, *>.jsonNames: List<String>
     get() = listOf(
@@ -19,12 +21,10 @@ internal class JsonMessageUnmarshaller internal constructor(
 ) : MessageUnmarshaller {
     private val jsonValueUnmarshaller = JsonValueUnmarshaller(jsonConfig)
 
-    @Suppress("UNCHECKED_CAST")
     override fun <T : Message> readMessage(
         messageCompanion: Message.Companion<T>,
         fieldFn: (Int, Any) -> Unit
     ): Map<Int, UnknownField> = try {
-        if (content.isNull) throw InvalidProtocolBufferException("top-level message must not be null")
         readMessageObject(messageCompanion, content, fieldFn)
         emptyMap()
     } catch (e: InvalidProtocolBufferException) {
@@ -45,8 +45,21 @@ internal class JsonMessageUnmarshaller internal constructor(
                 } else {
                     throw InvalidProtocolBufferException("Unknown field name and ignoreUnknownFieldsInInput=false: $key")
                 }
-            if (jsonValue.isNull) continue
-            fieldFn(fd.number, jsonValueUnmarshaller.readValue(jsonValue, fd.type))
+
+            if (jsonValue.isNull) {
+                // JSON messages can be primitive wrappers, where null signifies a default value
+                // https://developers.google.com/protocol-buffers/docs/proto3#default
+                if (fd.type is FieldDescriptor.Type.Message<*>) {
+                    val defaultValue = when (fd.type.messageCompanion) {
+                        Value -> Value(kind = Value.Kind.NullValue())
+                        else -> fd.type.defaultValue
+                    } ?: continue
+
+                    fieldFn(fd.number, defaultValue)
+                }
+            } else {
+                fieldFn(fd.number, jsonValueUnmarshaller.readValue(jsonValue, fd.type))
+            }
         }
     }
 

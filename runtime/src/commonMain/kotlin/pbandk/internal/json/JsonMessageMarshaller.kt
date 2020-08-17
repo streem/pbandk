@@ -38,6 +38,9 @@ internal class JsonMessageMarshaller(private val jsonConfig: JsonConfig) : Messa
             is BytesValue -> writeWrapperValue(message, message.value)
             // Other well-known types with special JSON encoding
             is Timestamp -> jsonValueMarshaller.writeString(Util.timestampToString(message))
+            is Struct -> jsonValueMarshaller.writeValue(message.fields, message.descriptor.fields.first().type)
+            is ListValue -> jsonValueMarshaller.writeRepeated(message.values, FieldDescriptor.Type.Message(Value.Companion))
+            is Value -> jsonValueMarshaller.writeDynamicValue(message)
             // All other message types
             else -> writeMessageObject(message)
         }

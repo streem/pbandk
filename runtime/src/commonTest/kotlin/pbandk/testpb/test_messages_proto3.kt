@@ -39,6 +39,7 @@ data class TestAllTypesProto3(
     val optionalForeignMessage: pbandk.testpb.ForeignMessage? = null,
     val optionalNestedEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum = pbandk.testpb.TestAllTypesProto3.NestedEnum.fromValue(0),
     val optionalForeignEnum: pbandk.testpb.ForeignEnum = pbandk.testpb.ForeignEnum.fromValue(0),
+    val optionalAliasedEnum: pbandk.testpb.TestAllTypesProto3.AliasedEnum = pbandk.testpb.TestAllTypesProto3.AliasedEnum.fromValue(0),
     val optionalStringPiece: String = "",
     val optionalCord: String = "",
     val recursiveMessage: pbandk.testpb.TestAllTypesProto3? = null,
@@ -63,6 +64,34 @@ data class TestAllTypesProto3(
     val repeatedForeignEnum: List<pbandk.testpb.ForeignEnum> = emptyList(),
     val repeatedStringPiece: List<String> = emptyList(),
     val repeatedCord: List<String> = emptyList(),
+    val packedInt32: List<Int> = emptyList(),
+    val packedInt64: List<Long> = emptyList(),
+    val packedUint32: List<Int> = emptyList(),
+    val packedUint64: List<Long> = emptyList(),
+    val packedSint32: List<Int> = emptyList(),
+    val packedSint64: List<Long> = emptyList(),
+    val packedFixed32: List<Int> = emptyList(),
+    val packedFixed64: List<Long> = emptyList(),
+    val packedSfixed32: List<Int> = emptyList(),
+    val packedSfixed64: List<Long> = emptyList(),
+    val packedFloat: List<Float> = emptyList(),
+    val packedDouble: List<Double> = emptyList(),
+    val packedBool: List<Boolean> = emptyList(),
+    val packedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = emptyList(),
+    val unpackedInt32: List<Int> = emptyList(),
+    val unpackedInt64: List<Long> = emptyList(),
+    val unpackedUint32: List<Int> = emptyList(),
+    val unpackedUint64: List<Long> = emptyList(),
+    val unpackedSint32: List<Int> = emptyList(),
+    val unpackedSint64: List<Long> = emptyList(),
+    val unpackedFixed32: List<Int> = emptyList(),
+    val unpackedFixed64: List<Long> = emptyList(),
+    val unpackedSfixed32: List<Int> = emptyList(),
+    val unpackedSfixed64: List<Long> = emptyList(),
+    val unpackedFloat: List<Float> = emptyList(),
+    val unpackedDouble: List<Double> = emptyList(),
+    val unpackedBool: List<Boolean> = emptyList(),
+    val unpackedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = emptyList(),
     val mapInt32Int32: Map<Int, Int> = emptyMap(),
     val mapInt64Int64: Map<Long, Long> = emptyMap(),
     val mapUint32Uint32: Map<Int, Int> = emptyMap(),
@@ -112,6 +141,7 @@ data class TestAllTypesProto3(
     val repeatedStruct: List<pbandk.wkt.Struct> = emptyList(),
     val repeatedAny: List<pbandk.wkt.Any> = emptyList(),
     val repeatedValue: List<pbandk.wkt.Value> = emptyList(),
+    val repeatedListValue: List<pbandk.wkt.ListValue> = emptyList(),
     val fieldname1: Int = 0,
     val fieldName2: Int = 0,
     val fieldName3: Int = 0,
@@ -327,6 +357,14 @@ data class TestAllTypesProto3(
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.ForeignEnum.Companion),
                         jsonName = "optionalForeignEnum",
                         value = TestAllTypesProto3::optionalForeignEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "optional_aliased_enum",
+                        number = 23,
+                        type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.AliasedEnum.Companion),
+                        jsonName = "optionalAliasedEnum",
+                        value = TestAllTypesProto3::optionalAliasedEnum
                     ),
                     pbandk.FieldDescriptor(
                         messageDescriptor = this::descriptor,
@@ -674,6 +712,230 @@ data class TestAllTypesProto3(
                     ),
                     pbandk.FieldDescriptor(
                         messageDescriptor = this::descriptor,
+                        name = "packed_int32",
+                        number = 75,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
+                        jsonName = "packedInt32",
+                        value = TestAllTypesProto3::packedInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_int64",
+                        number = 76,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
+                        jsonName = "packedInt64",
+                        value = TestAllTypesProto3::packedInt64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_uint32",
+                        number = 77,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
+                        jsonName = "packedUint32",
+                        value = TestAllTypesProto3::packedUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_uint64",
+                        number = 78,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
+                        jsonName = "packedUint64",
+                        value = TestAllTypesProto3::packedUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sint32",
+                        number = 79,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
+                        jsonName = "packedSint32",
+                        value = TestAllTypesProto3::packedSint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sint64",
+                        number = 80,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
+                        jsonName = "packedSint64",
+                        value = TestAllTypesProto3::packedSint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_fixed32",
+                        number = 81,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
+                        jsonName = "packedFixed32",
+                        value = TestAllTypesProto3::packedFixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_fixed64",
+                        number = 82,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
+                        jsonName = "packedFixed64",
+                        value = TestAllTypesProto3::packedFixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sfixed32",
+                        number = 83,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
+                        jsonName = "packedSfixed32",
+                        value = TestAllTypesProto3::packedSfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_sfixed64",
+                        number = 84,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
+                        jsonName = "packedSfixed64",
+                        value = TestAllTypesProto3::packedSfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_float",
+                        number = 85,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
+                        jsonName = "packedFloat",
+                        value = TestAllTypesProto3::packedFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_double",
+                        number = 86,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
+                        jsonName = "packedDouble",
+                        value = TestAllTypesProto3::packedDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_bool",
+                        number = 87,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
+                        jsonName = "packedBool",
+                        value = TestAllTypesProto3::packedBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "packed_nested_enum",
+                        number = 88,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
+                        jsonName = "packedNestedEnum",
+                        value = TestAllTypesProto3::packedNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_int32",
+                        number = 89,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
+                        jsonName = "unpackedInt32",
+                        value = TestAllTypesProto3::unpackedInt32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_int64",
+                        number = 90,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
+                        jsonName = "unpackedInt64",
+                        value = TestAllTypesProto3::unpackedInt64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_uint32",
+                        number = 91,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
+                        jsonName = "unpackedUint32",
+                        value = TestAllTypesProto3::unpackedUint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_uint64",
+                        number = 92,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
+                        jsonName = "unpackedUint64",
+                        value = TestAllTypesProto3::unpackedUint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sint32",
+                        number = 93,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
+                        jsonName = "unpackedSint32",
+                        value = TestAllTypesProto3::unpackedSint32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sint64",
+                        number = 94,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
+                        jsonName = "unpackedSint64",
+                        value = TestAllTypesProto3::unpackedSint64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_fixed32",
+                        number = 95,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
+                        jsonName = "unpackedFixed32",
+                        value = TestAllTypesProto3::unpackedFixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_fixed64",
+                        number = 96,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
+                        jsonName = "unpackedFixed64",
+                        value = TestAllTypesProto3::unpackedFixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sfixed32",
+                        number = 97,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
+                        jsonName = "unpackedSfixed32",
+                        value = TestAllTypesProto3::unpackedSfixed32
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_sfixed64",
+                        number = 98,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
+                        jsonName = "unpackedSfixed64",
+                        value = TestAllTypesProto3::unpackedSfixed64
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_float",
+                        number = 99,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
+                        jsonName = "unpackedFloat",
+                        value = TestAllTypesProto3::unpackedFloat
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_double",
+                        number = 100,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
+                        jsonName = "unpackedDouble",
+                        value = TestAllTypesProto3::unpackedDouble
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_bool",
+                        number = 101,
+                        type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
+                        jsonName = "unpackedBool",
+                        value = TestAllTypesProto3::unpackedBool
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "unpacked_nested_enum",
+                        number = 102,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.TestAllTypesProto3.NestedEnum.Companion)),
+                        jsonName = "unpackedNestedEnum",
+                        value = TestAllTypesProto3::unpackedNestedEnum
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
                         name = "oneof_uint32",
                         number = 111,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
@@ -987,6 +1249,14 @@ data class TestAllTypesProto3(
                     ),
                     pbandk.FieldDescriptor(
                         messageDescriptor = this::descriptor,
+                        name = "repeated_list_value",
+                        number = 317,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ListValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion)),
+                        jsonName = "repeatedListValue",
+                        value = TestAllTypesProto3::repeatedListValue
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
                         name = "repeated_struct",
                         number = 324,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Struct>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion)),
@@ -1157,6 +1427,26 @@ data class TestAllTypesProto3(
             val values: List<TestAllTypesProto3.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
+        }
+    }
+
+    sealed class AliasedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.AliasedEnum && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "TestAllTypesProto3.AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        object ALIAS_FOO : AliasedEnum(0, "ALIAS_FOO")
+        object ALIAS_BAR : AliasedEnum(1, "ALIAS_BAR")
+        object ALIAS_BAZ : AliasedEnum(2, "ALIAS_BAZ")
+        object QUX : AliasedEnum(2, "QUX")
+        object QUX_ : AliasedEnum(2, "qux")
+        object B_AZ : AliasedEnum(2, "bAz")
+        class UNRECOGNIZED(value: Int) : TestAllTypesProto3.AliasedEnum(value)
+
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.AliasedEnum> {
+            val values: List<TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No AliasedEnum with name: $name")
         }
     }
 
@@ -1998,6 +2288,34 @@ private fun TestAllTypesProto3.protoMergeImpl(plus: pbandk.Message?): TestAllTyp
     repeatedForeignEnum = repeatedForeignEnum + plus.repeatedForeignEnum,
     repeatedStringPiece = repeatedStringPiece + plus.repeatedStringPiece,
     repeatedCord = repeatedCord + plus.repeatedCord,
+    packedInt32 = packedInt32 + plus.packedInt32,
+    packedInt64 = packedInt64 + plus.packedInt64,
+    packedUint32 = packedUint32 + plus.packedUint32,
+    packedUint64 = packedUint64 + plus.packedUint64,
+    packedSint32 = packedSint32 + plus.packedSint32,
+    packedSint64 = packedSint64 + plus.packedSint64,
+    packedFixed32 = packedFixed32 + plus.packedFixed32,
+    packedFixed64 = packedFixed64 + plus.packedFixed64,
+    packedSfixed32 = packedSfixed32 + plus.packedSfixed32,
+    packedSfixed64 = packedSfixed64 + plus.packedSfixed64,
+    packedFloat = packedFloat + plus.packedFloat,
+    packedDouble = packedDouble + plus.packedDouble,
+    packedBool = packedBool + plus.packedBool,
+    packedNestedEnum = packedNestedEnum + plus.packedNestedEnum,
+    unpackedInt32 = unpackedInt32 + plus.unpackedInt32,
+    unpackedInt64 = unpackedInt64 + plus.unpackedInt64,
+    unpackedUint32 = unpackedUint32 + plus.unpackedUint32,
+    unpackedUint64 = unpackedUint64 + plus.unpackedUint64,
+    unpackedSint32 = unpackedSint32 + plus.unpackedSint32,
+    unpackedSint64 = unpackedSint64 + plus.unpackedSint64,
+    unpackedFixed32 = unpackedFixed32 + plus.unpackedFixed32,
+    unpackedFixed64 = unpackedFixed64 + plus.unpackedFixed64,
+    unpackedSfixed32 = unpackedSfixed32 + plus.unpackedSfixed32,
+    unpackedSfixed64 = unpackedSfixed64 + plus.unpackedSfixed64,
+    unpackedFloat = unpackedFloat + plus.unpackedFloat,
+    unpackedDouble = unpackedDouble + plus.unpackedDouble,
+    unpackedBool = unpackedBool + plus.unpackedBool,
+    unpackedNestedEnum = unpackedNestedEnum + plus.unpackedNestedEnum,
     mapInt32Int32 = mapInt32Int32 + plus.mapInt32Int32,
     mapInt64Int64 = mapInt64Int64 + plus.mapInt64Int64,
     mapUint32Uint32 = mapUint32Uint32 + plus.mapUint32Uint32,
@@ -2047,6 +2365,7 @@ private fun TestAllTypesProto3.protoMergeImpl(plus: pbandk.Message?): TestAllTyp
     repeatedStruct = repeatedStruct + plus.repeatedStruct,
     repeatedAny = repeatedAny + plus.repeatedAny,
     repeatedValue = repeatedValue + plus.repeatedValue,
+    repeatedListValue = repeatedListValue + plus.repeatedListValue,
     oneofField = when {
         oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage && plus.oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage ->
             TestAllTypesProto3.OneofField.OneofNestedMessage(oneofField.value + plus.oneofField.value)
@@ -2077,6 +2396,7 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
     var optionalForeignMessage: pbandk.testpb.ForeignMessage? = null
     var optionalNestedEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum = pbandk.testpb.TestAllTypesProto3.NestedEnum.fromValue(0)
     var optionalForeignEnum: pbandk.testpb.ForeignEnum = pbandk.testpb.ForeignEnum.fromValue(0)
+    var optionalAliasedEnum: pbandk.testpb.TestAllTypesProto3.AliasedEnum = pbandk.testpb.TestAllTypesProto3.AliasedEnum.fromValue(0)
     var optionalStringPiece = ""
     var optionalCord = ""
     var recursiveMessage: pbandk.testpb.TestAllTypesProto3? = null
@@ -2101,6 +2421,34 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
     var repeatedForeignEnum: pbandk.ListWithSize.Builder<pbandk.testpb.ForeignEnum>? = null
     var repeatedStringPiece: pbandk.ListWithSize.Builder<String>? = null
     var repeatedCord: pbandk.ListWithSize.Builder<String>? = null
+    var packedInt32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedInt64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedUint32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedUint64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedSint32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedSint64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedFixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedFixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var packedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var packedFloat: pbandk.ListWithSize.Builder<Float>? = null
+    var packedDouble: pbandk.ListWithSize.Builder<Double>? = null
+    var packedBool: pbandk.ListWithSize.Builder<Boolean>? = null
+    var packedNestedEnum: pbandk.ListWithSize.Builder<pbandk.testpb.TestAllTypesProto3.NestedEnum>? = null
+    var unpackedInt32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedInt64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedUint32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedUint64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedSint32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedSint64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedFixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedFixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedSfixed32: pbandk.ListWithSize.Builder<Int>? = null
+    var unpackedSfixed64: pbandk.ListWithSize.Builder<Long>? = null
+    var unpackedFloat: pbandk.ListWithSize.Builder<Float>? = null
+    var unpackedDouble: pbandk.ListWithSize.Builder<Double>? = null
+    var unpackedBool: pbandk.ListWithSize.Builder<Boolean>? = null
+    var unpackedNestedEnum: pbandk.ListWithSize.Builder<pbandk.testpb.TestAllTypesProto3.NestedEnum>? = null
     var mapInt32Int32: pbandk.MessageMap.Builder<Int, Int>? = null
     var mapInt64Int64: pbandk.MessageMap.Builder<Long, Long>? = null
     var mapUint32Uint32: pbandk.MessageMap.Builder<Int, Int>? = null
@@ -2150,6 +2498,7 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
     var repeatedStruct: pbandk.ListWithSize.Builder<pbandk.wkt.Struct>? = null
     var repeatedAny: pbandk.ListWithSize.Builder<pbandk.wkt.Any>? = null
     var repeatedValue: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
+    var repeatedListValue: pbandk.ListWithSize.Builder<pbandk.wkt.ListValue>? = null
     var fieldname1 = 0
     var fieldName2 = 0
     var fieldName3 = 0
@@ -2191,6 +2540,7 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
             19 -> optionalForeignMessage = _fieldValue as pbandk.testpb.ForeignMessage
             21 -> optionalNestedEnum = _fieldValue as pbandk.testpb.TestAllTypesProto3.NestedEnum
             22 -> optionalForeignEnum = _fieldValue as pbandk.testpb.ForeignEnum
+            23 -> optionalAliasedEnum = _fieldValue as pbandk.testpb.TestAllTypesProto3.AliasedEnum
             24 -> optionalStringPiece = _fieldValue as String
             25 -> optionalCord = _fieldValue as String
             27 -> recursiveMessage = _fieldValue as pbandk.testpb.TestAllTypesProto3
@@ -2234,6 +2584,34 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
             72 -> mapStringForeignMessage = (mapStringForeignMessage ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.ForeignMessage?>> }
             73 -> mapStringNestedEnum = (mapStringNestedEnum ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.TestAllTypesProto3.NestedEnum>> }
             74 -> mapStringForeignEnum = (mapStringForeignEnum ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.ForeignEnum>> }
+            75 -> packedInt32 = (packedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            76 -> packedInt64 = (packedInt64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            77 -> packedUint32 = (packedUint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            78 -> packedUint64 = (packedUint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            79 -> packedSint32 = (packedSint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            80 -> packedSint64 = (packedSint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            81 -> packedFixed32 = (packedFixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            82 -> packedFixed64 = (packedFixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            83 -> packedSfixed32 = (packedSfixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            84 -> packedSfixed64 = (packedSfixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            85 -> packedFloat = (packedFloat ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
+            86 -> packedDouble = (packedDouble ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
+            87 -> packedBool = (packedBool ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Boolean> }
+            88 -> packedNestedEnum = (packedNestedEnum ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.TestAllTypesProto3.NestedEnum> }
+            89 -> unpackedInt32 = (unpackedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            90 -> unpackedInt64 = (unpackedInt64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            91 -> unpackedUint32 = (unpackedUint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            92 -> unpackedUint64 = (unpackedUint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            93 -> unpackedSint32 = (unpackedSint32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            94 -> unpackedSint64 = (unpackedSint64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            95 -> unpackedFixed32 = (unpackedFixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            96 -> unpackedFixed64 = (unpackedFixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            97 -> unpackedSfixed32 = (unpackedSfixed32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
+            98 -> unpackedSfixed64 = (unpackedSfixed64 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
+            99 -> unpackedFloat = (unpackedFloat ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
+            100 -> unpackedDouble = (unpackedDouble ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
+            101 -> unpackedBool = (unpackedBool ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Boolean> }
+            102 -> unpackedNestedEnum = (unpackedNestedEnum ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.TestAllTypesProto3.NestedEnum> }
             111 -> oneofField = TestAllTypesProto3.OneofField.OneofUint32(_fieldValue as Int)
             112 -> oneofField = TestAllTypesProto3.OneofField.OneofNestedMessage(_fieldValue as pbandk.testpb.TestAllTypesProto3.NestedMessage)
             113 -> oneofField = TestAllTypesProto3.OneofField.OneofString(_fieldValue as String)
@@ -2272,6 +2650,7 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
             313 -> repeatedFieldmask = (repeatedFieldmask ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FieldMask> }
             315 -> repeatedAny = (repeatedAny ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Any> }
             316 -> repeatedValue = (repeatedValue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Value> }
+            317 -> repeatedListValue = (repeatedListValue ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.ListValue> }
             324 -> repeatedStruct = (repeatedStruct ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Struct> }
             401 -> fieldname1 = _fieldValue as Int
             402 -> fieldName2 = _fieldValue as Int
@@ -2297,30 +2676,38 @@ private fun TestAllTypesProto3.Companion.unmarshalImpl(u: pbandk.MessageUnmarsha
         optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
         optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble,
         optionalBool, optionalString, optionalBytes, optionalNestedMessage,
-        optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalStringPiece,
-        optionalCord, recursiveMessage, pbandk.ListWithSize.Builder.fixed(repeatedInt32), pbandk.ListWithSize.Builder.fixed(repeatedInt64),
-        pbandk.ListWithSize.Builder.fixed(repeatedUint32), pbandk.ListWithSize.Builder.fixed(repeatedUint64), pbandk.ListWithSize.Builder.fixed(repeatedSint32), pbandk.ListWithSize.Builder.fixed(repeatedSint64),
-        pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32), pbandk.ListWithSize.Builder.fixed(repeatedSfixed64),
-        pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool), pbandk.ListWithSize.Builder.fixed(repeatedString),
-        pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage), pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum),
-        pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord), pbandk.MessageMap.Builder.fixed(mapInt32Int32),
-        pbandk.MessageMap.Builder.fixed(mapInt64Int64), pbandk.MessageMap.Builder.fixed(mapUint32Uint32), pbandk.MessageMap.Builder.fixed(mapUint64Uint64), pbandk.MessageMap.Builder.fixed(mapSint32Sint32),
-        pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64), pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32),
-        pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double), pbandk.MessageMap.Builder.fixed(mapBoolBool),
-        pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage), pbandk.MessageMap.Builder.fixed(mapStringForeignMessage),
-        pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), optionalBoolWrapper, optionalInt32Wrapper,
-        optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper, optionalFloatWrapper,
-        optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper, pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper),
-        pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper),
-        pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper), pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper),
-        optionalDuration, optionalTimestamp, optionalFieldMask, optionalStruct,
-        optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration), pbandk.ListWithSize.Builder.fixed(repeatedTimestamp),
-        pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny), pbandk.ListWithSize.Builder.fixed(repeatedValue),
-        fieldname1, fieldName2, fieldName3, field_name4,
-        field0name5, field0Name6, fieldName7, fieldName8,
-        fieldName9, fieldName10, fIELDNAME11, fIELDName12,
-        _fieldName13, _FieldName14, field_name15, field_Name16,
-        fieldName17_, fieldName18_, oneofField, unknownFields)
+        optionalForeignMessage, optionalNestedEnum, optionalForeignEnum, optionalAliasedEnum,
+        optionalStringPiece, optionalCord, recursiveMessage, pbandk.ListWithSize.Builder.fixed(repeatedInt32),
+        pbandk.ListWithSize.Builder.fixed(repeatedInt64), pbandk.ListWithSize.Builder.fixed(repeatedUint32), pbandk.ListWithSize.Builder.fixed(repeatedUint64), pbandk.ListWithSize.Builder.fixed(repeatedSint32),
+        pbandk.ListWithSize.Builder.fixed(repeatedSint64), pbandk.ListWithSize.Builder.fixed(repeatedFixed32), pbandk.ListWithSize.Builder.fixed(repeatedFixed64), pbandk.ListWithSize.Builder.fixed(repeatedSfixed32),
+        pbandk.ListWithSize.Builder.fixed(repeatedSfixed64), pbandk.ListWithSize.Builder.fixed(repeatedFloat), pbandk.ListWithSize.Builder.fixed(repeatedDouble), pbandk.ListWithSize.Builder.fixed(repeatedBool),
+        pbandk.ListWithSize.Builder.fixed(repeatedString), pbandk.ListWithSize.Builder.fixed(repeatedBytes), pbandk.ListWithSize.Builder.fixed(repeatedNestedMessage), pbandk.ListWithSize.Builder.fixed(repeatedForeignMessage),
+        pbandk.ListWithSize.Builder.fixed(repeatedNestedEnum), pbandk.ListWithSize.Builder.fixed(repeatedForeignEnum), pbandk.ListWithSize.Builder.fixed(repeatedStringPiece), pbandk.ListWithSize.Builder.fixed(repeatedCord),
+        pbandk.ListWithSize.Builder.fixed(packedInt32), pbandk.ListWithSize.Builder.fixed(packedInt64), pbandk.ListWithSize.Builder.fixed(packedUint32), pbandk.ListWithSize.Builder.fixed(packedUint64),
+        pbandk.ListWithSize.Builder.fixed(packedSint32), pbandk.ListWithSize.Builder.fixed(packedSint64), pbandk.ListWithSize.Builder.fixed(packedFixed32), pbandk.ListWithSize.Builder.fixed(packedFixed64),
+        pbandk.ListWithSize.Builder.fixed(packedSfixed32), pbandk.ListWithSize.Builder.fixed(packedSfixed64), pbandk.ListWithSize.Builder.fixed(packedFloat), pbandk.ListWithSize.Builder.fixed(packedDouble),
+        pbandk.ListWithSize.Builder.fixed(packedBool), pbandk.ListWithSize.Builder.fixed(packedNestedEnum), pbandk.ListWithSize.Builder.fixed(unpackedInt32), pbandk.ListWithSize.Builder.fixed(unpackedInt64),
+        pbandk.ListWithSize.Builder.fixed(unpackedUint32), pbandk.ListWithSize.Builder.fixed(unpackedUint64), pbandk.ListWithSize.Builder.fixed(unpackedSint32), pbandk.ListWithSize.Builder.fixed(unpackedSint64),
+        pbandk.ListWithSize.Builder.fixed(unpackedFixed32), pbandk.ListWithSize.Builder.fixed(unpackedFixed64), pbandk.ListWithSize.Builder.fixed(unpackedSfixed32), pbandk.ListWithSize.Builder.fixed(unpackedSfixed64),
+        pbandk.ListWithSize.Builder.fixed(unpackedFloat), pbandk.ListWithSize.Builder.fixed(unpackedDouble), pbandk.ListWithSize.Builder.fixed(unpackedBool), pbandk.ListWithSize.Builder.fixed(unpackedNestedEnum),
+        pbandk.MessageMap.Builder.fixed(mapInt32Int32), pbandk.MessageMap.Builder.fixed(mapInt64Int64), pbandk.MessageMap.Builder.fixed(mapUint32Uint32), pbandk.MessageMap.Builder.fixed(mapUint64Uint64),
+        pbandk.MessageMap.Builder.fixed(mapSint32Sint32), pbandk.MessageMap.Builder.fixed(mapSint64Sint64), pbandk.MessageMap.Builder.fixed(mapFixed32Fixed32), pbandk.MessageMap.Builder.fixed(mapFixed64Fixed64),
+        pbandk.MessageMap.Builder.fixed(mapSfixed32Sfixed32), pbandk.MessageMap.Builder.fixed(mapSfixed64Sfixed64), pbandk.MessageMap.Builder.fixed(mapInt32Float), pbandk.MessageMap.Builder.fixed(mapInt32Double),
+        pbandk.MessageMap.Builder.fixed(mapBoolBool), pbandk.MessageMap.Builder.fixed(mapStringString), pbandk.MessageMap.Builder.fixed(mapStringBytes), pbandk.MessageMap.Builder.fixed(mapStringNestedMessage),
+        pbandk.MessageMap.Builder.fixed(mapStringForeignMessage), pbandk.MessageMap.Builder.fixed(mapStringNestedEnum), pbandk.MessageMap.Builder.fixed(mapStringForeignEnum), optionalBoolWrapper,
+        optionalInt32Wrapper, optionalInt64Wrapper, optionalUint32Wrapper, optionalUint64Wrapper,
+        optionalFloatWrapper, optionalDoubleWrapper, optionalStringWrapper, optionalBytesWrapper,
+        pbandk.ListWithSize.Builder.fixed(repeatedBoolWrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt32Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedInt64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedUint32Wrapper),
+        pbandk.ListWithSize.Builder.fixed(repeatedUint64Wrapper), pbandk.ListWithSize.Builder.fixed(repeatedFloatWrapper), pbandk.ListWithSize.Builder.fixed(repeatedDoubleWrapper), pbandk.ListWithSize.Builder.fixed(repeatedStringWrapper),
+        pbandk.ListWithSize.Builder.fixed(repeatedBytesWrapper), optionalDuration, optionalTimestamp, optionalFieldMask,
+        optionalStruct, optionalAny, optionalValue, pbandk.ListWithSize.Builder.fixed(repeatedDuration),
+        pbandk.ListWithSize.Builder.fixed(repeatedTimestamp), pbandk.ListWithSize.Builder.fixed(repeatedFieldmask), pbandk.ListWithSize.Builder.fixed(repeatedStruct), pbandk.ListWithSize.Builder.fixed(repeatedAny),
+        pbandk.ListWithSize.Builder.fixed(repeatedValue), pbandk.ListWithSize.Builder.fixed(repeatedListValue), fieldname1, fieldName2,
+        fieldName3, field_name4, field0name5, field0Name6,
+        fieldName7, fieldName8, fieldName9, fieldName10,
+        fIELDNAME11, fIELDName12, _fieldName13, _FieldName14,
+        field_name15, field_Name16, fieldName17_, fieldName18_,
+        oneofField, unknownFields)
 }
 
 fun TestAllTypesProto3.NestedMessage?.orDefault() = this ?: TestAllTypesProto3.NestedMessage.defaultInstance
