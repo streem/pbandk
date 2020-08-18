@@ -413,17 +413,17 @@ public final class pbandk/UnknownField$Value$Varint : pbandk/UnknownField$Value 
 
 public abstract class pbandk/internal/AbstractUtil {
 	public fun <init> ()V
-	public final fun base64ToBytes (Ljava/lang/String;)[B
-	public final fun bytesToBase64 ([B)Ljava/lang/String;
+	public fun base64ToBytes (Ljava/lang/String;)[B
+	public fun bytesToBase64 ([B)Ljava/lang/String;
+	public final fun stringToTimestamp (Ljava/lang/String;)Lpbandk/wkt/Timestamp;
+	public final fun timestampToString (Lpbandk/wkt/Timestamp;)Ljava/lang/String;
 }
 
-public final class pbandk/internal/Util {
+public final class pbandk/internal/Util : pbandk/internal/AbstractUtil {
 	public static final field INSTANCE Lpbandk/internal/Util;
-	public final fun base64ToBytes (Ljava/lang/String;)[B
-	public final fun bytesToBase64 ([B)Ljava/lang/String;
-	public final fun stringToTimestamp (Ljava/lang/String;)Lpbandk/wkt/Timestamp;
+	public fun base64ToBytes (Ljava/lang/String;)[B
+	public fun bytesToBase64 ([B)Ljava/lang/String;
 	public final fun stringToUtf8 (Ljava/lang/String;)[B
-	public final fun timestampToString (Lpbandk/wkt/Timestamp;)Ljava/lang/String;
 	public final fun utf8ToString ([B)Ljava/lang/String;
 }
 
