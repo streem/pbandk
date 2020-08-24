@@ -9,9 +9,7 @@ import pbandk.wkt.ListValue
 import pbandk.wkt.Struct
 import pbandk.wkt.Timestamp
 import pbandk.wkt.Value
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNull
+import kotlin.test.*
 
 class JsonTest {
     @Test
@@ -26,11 +24,11 @@ class JsonTest {
 
     @Test
     fun testNullValues() {
-        val json = json {
-            "optionalInt32" to JsonNull
-            "mapBoolBool" to JsonNull
-            "repeatedString" to JsonNull
-            "optionalNestedMessage" to JsonNull
+        val json = buildJsonObject {
+            put("optionalInt32", JsonNull)
+            put("mapBoolBool", JsonNull)
+            put("repeatedString", JsonNull)
+            put("optionalNestedMessage", JsonNull)
         }.toString()
         val expectedMessage = TestAllTypesProto3.defaultInstance
 
@@ -50,3 +48,4 @@ class JsonTest {
         assertEquals(1, compactJson.lines().size)
     }
 }
+

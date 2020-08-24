@@ -24,18 +24,6 @@ kotlin {
     // Uncomment to enable Windows
     // mingwX64("windows")
 
-    targets.withType<KotlinNativeTarget> {
-        val main by compilations.getting {
-            defaultSourceSet {
-                kotlin.srcDir("src/nativeMain/kotlin")
-            }
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.kotlinCoroutines}")
-            }
-        }
-    }
-
     sourceSets {
         all {
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
@@ -43,9 +31,8 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 implementation(project(":runtime"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Versions.kotlinCoroutines}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}")
             }
         }
 
@@ -53,13 +40,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-            }
-        }
-
-        val jvmMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-jdk8"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}")
             }
         }
 
@@ -71,16 +51,22 @@ kotlin {
             }
         }
 
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${Versions.kotlinCoroutines}")
-            }
-        }
-
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
+            }
+        }
+
+        val nativeMain by creating {
+            dependsOn(commonMain)
+        }
+    }
+
+    targets.withType<KotlinNativeTarget> {
+        val main by compilations.getting {
+            defaultSourceSet {
+                val nativeMain by sourceSets.getting
+                dependsOn(nativeMain)
             }
         }
     }
@@ -94,7 +80,7 @@ tasks {
         logLevel.set("debug")
     }
 
-    // DCE is now enable by default in Kotlin 1.3.7x
+    // DCE is now enabled by default in Kotlin 1.3.7x
     // and it doesn't work well with commonJS modules
     // Use of commonJs could be removed since default module is now UMD
     // but would require some code change

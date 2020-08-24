@@ -35,3 +35,16 @@ tasks {
         .matching { it.name == "generateProto" }
         .all { compileKotlinJs.get().dependsOn(this) }
 }
+
+// This is required for consuming a Kotlin/JS library compiled with Kotlin 1.4
+// from a Kotlin 1.3 project. See https://youtrack.jetbrains.com/issue/KT-40226
+// for details.
+private class KotlinJsCompilerDisambiguationRule : AttributeDisambiguationRule<String> {
+    override fun execute(details: MultipleCandidatesDetails<String>) {
+        details.closestMatch("legacy")
+    }
+}
+val jsCompilerAttr = Attribute.of("org.jetbrains.kotlin.js.compiler", String::class.java)
+project.dependencies.attributesSchema.attribute(jsCompilerAttr) {
+    disambiguationRules.add(KotlinJsCompilerDisambiguationRule::class.java)
+}

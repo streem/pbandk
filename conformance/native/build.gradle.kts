@@ -17,7 +17,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 api(project(":conformance:conformance-lib"))
             }
         }

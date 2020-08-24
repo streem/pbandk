@@ -4,13 +4,16 @@ import kotlinx.serialization.json.*
 import pbandk.testpb.TestAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class OutputDefaultValuesTest {
     @Test
     fun testOutputDefaultValues_false() {
-        val jsonString = TestAllTypesProto3().encodeToJsonString(JsonConfig.DEFAULT.copy(outputDefaultValues = false))
-        val parsedJson = Json(JsonConfiguration.Stable).parseJson(jsonString).jsonObject
-        assertEquals(JsonObject(emptyMap()), parsedJson)
+        val testAllTypesProto3 = TestAllTypesProto3(optionalString = "")
+
+        val actualJson = Json.parseToJsonElement(testAllTypesProto3.encodeToJsonString())
+        assertFalse("optionalString" in actualJson.jsonObject)
     }
 
     @Test
@@ -18,7 +21,7 @@ class OutputDefaultValuesTest {
         val jsonString = TestAllTypesProto3(
             optionalBoolWrapper = false
         ).encodeToJsonString(JsonConfig.DEFAULT.copy(outputDefaultValues = true))
-        val parsedJson = Json(JsonConfiguration.Stable).parseJson(jsonString).jsonObject
+        val parsedJson = Json.parseToJsonElement(jsonString).jsonObject
 
         assertEquals(JsonPrimitive(false), parsedJson["optionalBool"])
         assertEquals(JsonPrimitive(0), parsedJson["optionalInt32"])
@@ -40,7 +43,7 @@ class OutputDefaultValuesTest {
         val jsonString = TestAllTypesProto3(
             optionalStringWrapper = ""
         ).encodeToJsonString(JsonConfig.DEFAULT.copy(outputDefaultValues = true, outputDefaultStringsAsNull = true))
-        val parsedJson = Json(JsonConfiguration.Stable).parseJson(jsonString).jsonObject
+        val parsedJson = Json.parseToJsonElement(jsonString).jsonObject
         assertEquals(JsonPrimitive(false), parsedJson["optionalBool"])
         assertEquals(JsonNull, parsedJson["optionalString"])
         assertEquals(JsonPrimitive(""), parsedJson["optionalStringWrapper"])

@@ -23,7 +23,7 @@ application {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib"))
     implementation("pro.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
 }
 
