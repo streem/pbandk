@@ -19,7 +19,7 @@ protobuf {
     }
     plugins {
         id("kotlin") {
-            artifact = "com.github.streem.pbandk:protoc-gen-kotlin-jvm:$pbandkVersion:jvm8@jar"
+            artifact = "pro.streem.pbandk:protoc-gen-kotlin-jvm:$pbandkVersion:jvm8@jar"
         }
     }
     generateProtoTasks {
