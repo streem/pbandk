@@ -39,6 +39,9 @@ internal class JsonValueUnmarshaller(private val jsonConfig: JsonConfig) {
             BytesValue -> readBytes(value)
             // Other well-known types with special JSON encoding
             Timestamp -> Util.stringToTimestamp(readString(value, false))
+            Struct -> readStruct(value)
+            Value -> readDynamicValue(value)
+            ListValue -> readDynamicListValue(value)
             // All other message types
             else -> readMessage(value, type.messageCompanion)
         }
@@ -163,5 +166,35 @@ internal class JsonValueUnmarshaller(private val jsonConfig: JsonConfig) {
         throw e
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("map field did not contain a valid object", e)
+    }
+
+    fun readStruct(value: JsonElement): Struct = try {
+        val fields = readMap(value, Struct.descriptor.fields.first().type as FieldDescriptor.Type.Map<*, *>)
+        @Suppress("UNCHECKED_CAST")
+        Struct(MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>))
+    }  catch (e: InvalidProtocolBufferException) {
+        throw e
+    } catch (e: Exception) {
+        throw InvalidProtocolBufferException("struct field did not contain a valid object", e)
+    }
+
+    fun readDynamicValue(value: JsonElement): Value = when (value) {
+        is JsonNull -> Value(kind = Value.Kind.NullValue())
+        is JsonLiteral -> runCatching { Value(kind = Value.Kind.StringValue(readString(value))) }
+            .recoverCatching { Value(kind = Value.Kind.NumberValue(readDouble(value))) }
+            .recoverCatching { Value(kind = Value.Kind.BoolValue(readBool(value))) }
+            .getOrElse { throw InvalidProtocolBufferException("dynamically typed value did not contain a valid primitive object") }
+        is JsonArray -> Value(kind = Value.Kind.ListValue(readValue(value, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue))
+        is JsonObject -> Value(kind = Value.Kind.StructValue(readValue(value, FieldDescriptor.Type.Message(Struct.Companion)) as Struct))
+    }
+
+    fun readDynamicListValue(value: JsonElement): ListValue = try {
+        @Suppress("UNCHECKED_CAST")
+        val values = readValue(value, ListValue.descriptor.fields.first().type) as Sequence<Value>
+        ListValue(values.toList())
+    } catch (e: InvalidProtocolBufferException) {
+        throw e
+    } catch (e: Exception) {
+        throw InvalidProtocolBufferException("dynamically typed list value did not contain a valid object", e)
     }
 }

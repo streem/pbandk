@@ -46,7 +46,10 @@ internal class JsonValueMarshaller(private val jsonConfig: JsonConfig) {
             // All other message types
             else -> writeMessage(value as Message)
         }
-        is FieldDescriptor.Type.Enum<*> -> writeEnum(value as Message.Enum)
+        is FieldDescriptor.Type.Enum<*> -> when (type.enumCompanion) {
+            is NullValue -> JsonNull
+            else -> writeEnum(value as Message.Enum)
+        }
         is FieldDescriptor.Type.Repeated<*> -> writeRepeated(value as List<*>, type.valueType)
         is FieldDescriptor.Type.Map<*, *> -> writeMap(
             value as Map<*, *>,
@@ -111,5 +114,14 @@ internal class JsonValueMarshaller(private val jsonConfig: JsonConfig) {
             if (k == null || v == null) continue
             writeValue(k, keyType).content to writeValue(v, valueType)
         }
+    }
+
+    fun writeDynamicValue(value: Value): JsonElement = when (value.kind) {
+        is Value.Kind.StringValue -> writeString(value.kind.value)
+        is Value.Kind.BoolValue -> writeBool(value.kind.value)
+        is Value.Kind.NumberValue -> writeDouble(value.kind.value)
+        is Value.Kind.StructValue -> writeValue(value.kind.value.fields, Struct.descriptor.fields.first().type)
+        is Value.Kind.ListValue -> writeValue(value.kind.value.values, ListValue.descriptor.fields.first().type)
+        is Value.Kind.NullValue, null -> JsonNull
     }
 }
