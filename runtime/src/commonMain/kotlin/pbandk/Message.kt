@@ -1,8 +1,8 @@
 package pbandk
 
 import pbandk.internal.binary.Sizer
-import pbandk.internal.binary.BinaryMessageMarshaller
-import pbandk.internal.binary.BinaryMessageUnmarshaller
+import pbandk.internal.binary.BinaryMessageEncoder
+import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate
 import pbandk.internal.binary.fromByteArray
 
@@ -15,7 +15,7 @@ interface Message {
     operator fun plus(other: Message?): Message
 
     interface Companion<T : Message> {
-        fun unmarshal(u: MessageUnmarshaller): T
+        fun decodeWith(u: MessageDecoder): T
 
         val descriptor: MessageDescriptor<T>
     }
@@ -41,13 +41,13 @@ interface Message {
 
 }
 
-fun <T : Message> T.marshal(m: MessageMarshaller): Unit = m.writeMessage(this)
+fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 
-fun <T : Message> T.protoMarshal(): ByteArray =
-    BinaryMessageMarshaller.allocate(protoSize).also { marshal(it) }.toByteArray()
+fun <T : Message> T.encodeToByteArray(): ByteArray =
+    BinaryMessageEncoder.allocate(protoSize).also { encodeWith(it) }.toByteArray()
 
-fun <T : Message> Message.Companion<T>.protoUnmarshal(arr: ByteArray): T =
-    unmarshal(BinaryMessageUnmarshaller.fromByteArray(arr))
+fun <T : Message> Message.Companion<T>.decodeFromByteArray(arr: ByteArray): T =
+    decodeWith(BinaryMessageDecoder.fromByteArray(arr))
 
 @Suppress("UNCHECKED_CAST")
 operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: other

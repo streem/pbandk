@@ -4,7 +4,7 @@ import pbandk.ByteArr
 import pbandk.Message
 import pbandk.UnknownField
 
-internal interface BinaryWireUnmarshaller {
+internal interface BinaryWireDecoder {
     /** Returns 0 when there is no next tag (e.g. at EOF) */
     fun readTag(): Tag
 
@@ -25,7 +25,7 @@ internal interface BinaryWireUnmarshaller {
     fun readBytes(): ByteArr
     fun <T : Message.Enum> readEnum(enumCompanion: Message.Enum.Companion<T>): T
     fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T
-    fun <T : Any> readPackedRepeated(readFn: BinaryWireUnmarshaller.() -> T): Sequence<T>
+    fun <T : Any> readPackedRepeated(readFn: BinaryWireDecoder.() -> T): Sequence<T>
 
     fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value?
 }

@@ -102,7 +102,7 @@ data class Person(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Person> {
         val defaultInstance by lazy { Person() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Person.decodeWithImpl(u)
 
         override val descriptors: pbandk.MessageDescriptor<Person> by lazy {
             pbandk.MessageDescriptor(
@@ -181,7 +181,7 @@ data class Person(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Person.PhoneNumber> {
             val defaultInstance by lazy { Person.PhoneNumber() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.PhoneNumber.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = Person.PhoneNumber.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<PhoneNumber> by lazy {
                 pbandk.MessageDescriptor(            
@@ -220,7 +220,7 @@ data class AddressBook(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<AddressBook> {
         val defaultInstance by lazy { AddressBook() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = AddressBook.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = AddressBook.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<AddressBook> by lazy {
             pbandk.MessageDescriptor(
@@ -374,15 +374,16 @@ package is referenced, it is assumed to be a well-known type and is changed to r
 
 ### Message
 
-Each Protobuf message extends `pbandk.Message` and has two overloaded `protoMarshal` methods, the most useful of which
-marshals to a byte array. The companion object of every message has two overloaded `protoUnmarshal` methods, the most
-useful of which accepts a byte array and returns an instance of the class. The other `protoMarshal` and `protoUnmarshal`
-methods accept `Marshaller` and `Unmarshaller` instances respectively which are different for each platform. For
-example, the JVM `Marshaller` uses `com.google.protobuf.CodedOutputStream`.
+Each Protobuf message extends `pbandk.Message` and has an `encodeToByteArray` method to encode the message with the
+Protobuf binary encoding into a byte array. The companion object of every message has a `decodeFromByteArray` method: it
+accepts a byte array and returns an instance of the class. Each platform also provides additional `encodeTo*` and
+`decodeFrom*` methods that are platform-specific. For example, the JVM provides `encodeToStream` and `decodeFromStream`
+methods that operate on Java's `OutputStream` and `InputStream`, respectively, and use
+`com.google.protobuf.CodedOutputStream` internally.
 
 Messages are immutable Kotlin data classes. This means they automatically implement `hashCode`, `equals`, and
-`toString`. Each class has an `unknownFields` map which contains information about extra fields the unmarshaller didn't
-recognize. If there are values in this map, they will be marshalled on output. The `Unmarshaller` instances have a
+`toString`. Each class has an `unknownFields` map which contains information about extra fields the decoder didn't
+recognize. If there are values in this map, they will be encoded on output. The `MessageDecoder` instances have a
 constructor option to discard unknown fields when reading.
 
 For proto3, the only nullable fields are other messages and oneof fields. Other values have defaults. For proto2,

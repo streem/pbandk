@@ -3,25 +3,25 @@ package pbandk.gen
 import com.google.protobuf.compiler.PluginProtos
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
-import pbandk.protoMarshal
-import pbandk.protoUnmarshal
+import pbandk.encodeToByteArray
+import pbandk.decodeFromByteArray
 import java.io.File
 import java.lang.RuntimeException
 import java.net.URLClassLoader
 import java.util.*
 
-// Set this to false to use the JVM marshal/unmarshal for code gen proto
+// Set this to false to use the JVM encode/decode for code gen proto
 const val useJvmProto = false
 
 actual object Platform {
     actual fun stderrPrintln(str: String) = System.err.println(str)
     actual fun stdinReadRequest() = System.`in`.readBytes().let { bytes ->
         if (useJvmProto) BootstrapConverter.fromReq(PluginProtos.CodeGeneratorRequest.parseFrom(bytes))
-        else CodeGeneratorRequest.protoUnmarshal(bytes)
+        else CodeGeneratorRequest.decodeFromByteArray(bytes)
     }
     actual fun stdoutWriteResponse(resp: CodeGeneratorResponse) =
         if (useJvmProto) BootstrapConverter.toResp(resp).writeTo(System.out)
-        else System.out.write(resp.protoMarshal())
+        else System.out.write(resp.encodeToByteArray())
 
     actual fun serviceGenerator(cliParams: Map<String, String>): ServiceGenerator? {
         // CLI param kotlin_service_gen is a collection of JARs. At the very end can have a pipe with the

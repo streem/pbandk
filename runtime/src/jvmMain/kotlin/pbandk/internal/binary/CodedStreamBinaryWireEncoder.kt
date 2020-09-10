@@ -31,7 +31,7 @@ private fun CodedOutputStream.writeValueNoTag(type: FieldDescriptor.Type, value:
     }
 }
 
-internal open class CodedStreamBinaryWireMarshaller(private val stream: CodedOutputStream) : BinaryWireMarshaller {
+internal open class CodedStreamBinaryWireEncoder(private val stream: CodedOutputStream) : BinaryWireEncoder {
     override fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int) {
         stream.writeTag(fieldNum, WireFormat.WIRETYPE_LENGTH_DELIMITED)
         stream.writeUInt32NoTag(protoSize)

@@ -12,7 +12,7 @@ data class Any(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Any> {
         val defaultInstance by lazy { Any() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Any.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Any.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Any> by lazy {
             pbandk.MessageDescriptor(
@@ -48,7 +48,7 @@ private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.cop
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Any.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Any {
+private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {
     var typeUrl = ""
     var value: pbandk.ByteArr = pbandk.ByteArr.empty
 

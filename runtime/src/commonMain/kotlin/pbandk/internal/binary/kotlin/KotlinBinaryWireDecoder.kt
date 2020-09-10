@@ -32,12 +32,12 @@ package pbandk.internal.binary.kotlin
 import pbandk.*
 import pbandk.internal.Util
 import pbandk.internal.binary.*
-import pbandk.internal.binary.BinaryMessageUnmarshaller
-import pbandk.internal.binary.BinaryWireUnmarshaller
+import pbandk.internal.binary.BinaryMessageDecoder
+import pbandk.internal.binary.BinaryWireDecoder
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
 
-internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) : BinaryWireUnmarshaller {
+internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : BinaryWireDecoder {
     private var lastTag: Tag = Tag(0)
     private var consumed: Int = 0
     private var curLimit: Int? = null
@@ -211,7 +211,7 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
 
     override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T {
         val oldLimit = pushLimit(readRawVarint32())
-        val message = messageCompanion.unmarshal(BinaryMessageUnmarshaller(this))
+        val message = messageCompanion.decodeWith(BinaryMessageDecoder(this))
         if (!isAtEnd()) {
             throw InvalidProtocolBufferException("Not at the end of the current message limit as expected")
         }
@@ -219,7 +219,7 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
         return message
     }
 
-    override fun <T : Any> readPackedRepeated(readFn: BinaryWireUnmarshaller.() -> T): Sequence<T> {
+    override fun <T : Any> readPackedRepeated(readFn: BinaryWireDecoder.() -> T): Sequence<T> {
         return sequence {
             val oldLimit = pushLimit(readRawVarint32())
             while (!isAtEnd()) yield(readFn())
@@ -228,7 +228,7 @@ internal class KotlinBinaryWireUnmarshaller(private val wireReader: WireReader) 
     }
 
     override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
-        // TODO: support a `discardUnknownFields` option in the BinaryMessageUnmarshaller
+        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
         //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         return when (wireType) {
             WireType.VARINT -> UnknownField.Value.Varint(readInt64())

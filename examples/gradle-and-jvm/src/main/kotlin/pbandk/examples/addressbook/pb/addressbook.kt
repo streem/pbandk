@@ -15,7 +15,7 @@ data class Person(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Person> {
         val defaultInstance by lazy { Person() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Person.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Person> by lazy {
             pbandk.MessageDescriptor(
@@ -94,7 +94,7 @@ data class Person(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Person.PhoneNumber> {
             val defaultInstance by lazy { Person.PhoneNumber() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = Person.PhoneNumber.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = Person.PhoneNumber.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<Person.PhoneNumber> by lazy {
                 pbandk.MessageDescriptor(
@@ -133,7 +133,7 @@ data class AddressBook(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<AddressBook> {
         val defaultInstance by lazy { AddressBook() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = AddressBook.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = AddressBook.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<AddressBook> by lazy {
             pbandk.MessageDescriptor(
@@ -163,7 +163,7 @@ private fun Person.protoMergeImpl(plus: pbandk.Message?): Person = (plus as? Per
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Person.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Person {
+private fun Person.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Person {
     var name = ""
     var id = 0
     var email = ""
@@ -190,7 +190,7 @@ private fun Person.PhoneNumber.protoMergeImpl(plus: pbandk.Message?): Person.Pho
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Person.PhoneNumber.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Person.PhoneNumber {
+private fun Person.PhoneNumber.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Person.PhoneNumber {
     var number = ""
     var type: pbandk.examples.addressbook.pb.Person.PhoneType = pbandk.examples.addressbook.pb.Person.PhoneType.fromValue(0)
 
@@ -211,7 +211,7 @@ private fun AddressBook.protoMergeImpl(plus: pbandk.Message?): AddressBook = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun AddressBook.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): AddressBook {
+private fun AddressBook.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AddressBook {
     var people: pbandk.ListWithSize.Builder<pbandk.examples.addressbook.pb.Person>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

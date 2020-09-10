@@ -78,7 +78,7 @@ open class CodeGenerator(
             // Companion object
             line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
                 line("val defaultInstance by lazy { ${typeName}() }")
-                line("override fun unmarshal(u: pbandk.MessageUnmarshaller) = ${typeName}.unmarshalImpl(u)")
+                line("override fun decodeWith(u: pbandk.MessageDecoder) = ${typeName}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type, typeName)
             }.line("}")
@@ -147,7 +147,7 @@ open class CodeGenerator(
         val fullTypeName = if (parentType == null) type.kotlinTypeName else "$parentType.${type.kotlinTypeName}"
         writeMessageOrDefaultExtension(type, fullTypeName)
         writeMessageMergeExtension(type, fullTypeName)
-        writeMessageUnmarshalExtension(type, fullTypeName)
+        writeMessageDecodeWithExtension(type, fullTypeName)
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it, fullTypeName) }
     }
 
@@ -212,20 +212,20 @@ open class CodeGenerator(
         }.line(") ?: this")
     }
 
-    protected fun writeMessageUnmarshalExtension(type: File.Type.Message, fullTypeName: String) {
+    protected fun writeMessageDecodeWithExtension(type: File.Type.Message, fullTypeName: String) {
         val lineStr = "private fun $fullTypeName.Companion." +
-                "unmarshalImpl(u: pbandk.MessageUnmarshaller): $fullTypeName {"
+                "decodeWithImpl(u: pbandk.MessageDecoder): $fullTypeName {"
         line().line("@Suppress(\"UNCHECKED_CAST\")").line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val doneKotlinFields = type.fields.map {
                 when (it) {
                     is File.Field.Numbered.Standard -> {
-                        line(it.unmarshalVarDecl)
-                        it.unmarshalVarDone
+                        line(it.decodeWithVarDecl)
+                        it.decodeWithVarDone
                     }
                     is File.Field.Numbered.Wrapper -> {
-                        line(it.unmarshalVarDecl)
-                        it.unmarshalVarDone
+                        line(it.decodeWithVarDecl)
+                        it.decodeWithVarDone
                     }
                     is File.Field.OneOf -> {
                         line("var ${it.kotlinFieldName}: $fullTypeName.${it.kotlinTypeName}<*>? = null")
@@ -359,7 +359,7 @@ open class CodeGenerator(
         kotlinLocalTypeName ?:
             localTypeName?.let { kotlinTypeMappings.getOrElse(it) { error("Unable to find mapping for $it") } } ?:
             type.standardTypeName
-    protected val File.Field.Numbered.Standard.unmarshalVarDecl get() = when {
+    protected val File.Field.Numbered.Standard.decodeWithVarDecl get() = when {
         repeated -> mapEntry().let { mapEntry ->
             if (mapEntry == null) "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
             else "var $kotlinFieldName: pbandk.MessageMap.Builder<" +
@@ -368,7 +368,7 @@ open class CodeGenerator(
         requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
         else -> "var $kotlinFieldName = $defaultValue"
     }
-    protected val File.Field.Numbered.Standard.unmarshalVarDone get() =
+    protected val File.Field.Numbered.Standard.decodeWithVarDone get() =
         if (map) "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
         else if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
         else kotlinFieldName
@@ -389,11 +389,11 @@ open class CodeGenerator(
     protected val File.Field.Numbered.Standard.requiresExplicitTypeWithVal get() =
         repeated || hasPresence || type.requiresExplicitTypeWithVal
 
-    protected val File.Field.Numbered.Wrapper.unmarshalVarDecl get() = when {
+    protected val File.Field.Numbered.Wrapper.decodeWithVarDecl get() = when {
         repeated -> "var $kotlinFieldName: pbandk.ListWithSize.Builder<${wrappedType.standardTypeName}>? = null"
         else -> "var $kotlinFieldName: ${wrappedType.standardTypeName}? = $defaultValue"
     }
-    protected val File.Field.Numbered.Wrapper.unmarshalVarDone get() = when {
+    protected val File.Field.Numbered.Wrapper.decodeWithVarDone get() = when {
         repeated -> "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
         else -> kotlinFieldName
     }

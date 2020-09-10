@@ -17,7 +17,7 @@ data class Api(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Api> {
         val defaultInstance by lazy { Api() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Api.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Api.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Api> by lazy {
             pbandk.MessageDescriptor(
@@ -101,7 +101,7 @@ data class Method(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Method> {
         val defaultInstance by lazy { Method() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Method.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Method.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Method> by lazy {
             pbandk.MessageDescriptor(
@@ -180,7 +180,7 @@ data class Mixin(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Mixin> {
         val defaultInstance by lazy { Mixin() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Mixin.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Mixin.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Mixin> by lazy {
             pbandk.MessageDescriptor(
@@ -220,7 +220,7 @@ private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.cop
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Api.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Api {
+private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
     var name = ""
     var methods: pbandk.ListWithSize.Builder<pbandk.wkt.Method>? = null
     var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
@@ -252,7 +252,7 @@ private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Met
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Method.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Method {
+private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
     var name = ""
     var requestTypeUrl = ""
     var requestStreaming = false
@@ -283,7 +283,7 @@ private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Mixin.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Mixin {
+private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {
     var name = ""
     var root = ""
 

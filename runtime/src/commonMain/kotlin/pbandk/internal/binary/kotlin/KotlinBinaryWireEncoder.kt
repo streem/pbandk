@@ -32,12 +32,12 @@ package pbandk.internal.binary.kotlin
 import pbandk.*
 import pbandk.internal.Util
 import pbandk.internal.binary.*
-import pbandk.internal.binary.BinaryWireMarshaller
+import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.WireType
 import pbandk.internal.binary.protoSize
 import pbandk.internal.binary.zigZagEncoded
 
-internal class KotlinBinaryWireMarshaller(private val wireWriter: WireWriter) : BinaryWireMarshaller {
+internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : BinaryWireEncoder {
     private fun writeValueNoTag(type: FieldDescriptor.Type, value: Any) {
         when (type) {
             is FieldDescriptor.Type.Primitive.Double -> writeDoubleNoTag(value as Double)

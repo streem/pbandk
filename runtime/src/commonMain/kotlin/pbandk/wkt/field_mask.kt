@@ -11,7 +11,7 @@ data class FieldMask(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FieldMask> {
         val defaultInstance by lazy { FieldMask() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FieldMask.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FieldMask.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldMask> by lazy {
             pbandk.MessageDescriptor(
@@ -40,7 +40,7 @@ private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus a
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FieldMask.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FieldMask {
+private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldMask {
     var paths: pbandk.ListWithSize.Builder<String>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

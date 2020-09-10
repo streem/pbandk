@@ -1,10 +1,10 @@
 package pbandk.examples.browserjs
 
 import org.w3c.dom.*
+import pbandk.decodeFromByteArray
+import pbandk.encodeToByteArray
 import pbandk.examples.browserjs.pb.AddressBook
 import pbandk.examples.browserjs.pb.Person
-import pbandk.protoMarshal
-import pbandk.protoUnmarshal
 import kotlin.browser.document
 import kotlin.browser.localStorage
 import kotlin.browser.window
@@ -21,10 +21,10 @@ fun main(args: Array<String>) {
 
 // I'm just being lazy/inefficient because I don't want to mess with IndexedDB
 fun loadBook() = localStorage["addressBook"]?.let { str ->
-    AddressBook.protoUnmarshal(JSON.parse<Array<Byte>>(str).toByteArray())
+    AddressBook.decodeFromByteArray(JSON.parse<Array<Byte>>(str).toByteArray())
 } ?: AddressBook()
 fun saveBook(book: AddressBook) {
-    localStorage["addressBook"] = JSON.stringify(book.protoMarshal().toTypedArray())
+    localStorage["addressBook"] = JSON.stringify(book.encodeToByteArray().toTypedArray())
 }
 
 fun createTable() = createElem("table").apply {

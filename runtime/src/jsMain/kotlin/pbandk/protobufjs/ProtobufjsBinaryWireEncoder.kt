@@ -2,7 +2,7 @@ package pbandk.protobufjs
 
 import pbandk.*
 import pbandk.internal.asUint8Array
-import pbandk.internal.binary.BinaryWireMarshaller
+import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
 
@@ -30,7 +30,7 @@ private fun Writer.writeValueNoTag(type: FieldDescriptor.Type, value: Any) {
     }
 }
 
-internal class ProtobufjsBinaryWireMarshaller(private val writer: Writer) : BinaryWireMarshaller {
+internal class ProtobufjsBinaryWireEncoder(private val writer: Writer) : BinaryWireEncoder {
     private fun writeTag(fieldNum: Int, wireType: WireType) {
         writer.uint32(Tag(fieldNum, wireType).value)
     }

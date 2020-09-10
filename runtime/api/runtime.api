@@ -231,8 +231,8 @@ public abstract interface class pbandk/Message {
 }
 
 public abstract interface class pbandk/Message$Companion {
+	public abstract fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public abstract fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
 }
 
 public final class pbandk/Message$DefaultImpls {
@@ -257,6 +257,10 @@ public abstract class pbandk/Message$OneOf {
 	public fun toString ()Ljava/lang/String;
 }
 
+public abstract interface class pbandk/MessageDecoder {
+	public abstract fun readMessage (Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function2;)Ljava/util/Map;
+}
+
 public final class pbandk/MessageDescriptor {
 	public fun <init> (Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Ljava/util/Collection;)V
 	public final fun getFields ()Ljava/util/Collection;
@@ -264,17 +268,21 @@ public final class pbandk/MessageDescriptor {
 	public final fun getMessageCompanion ()Lpbandk/Message$Companion;
 }
 
+public abstract interface class pbandk/MessageEncoder {
+	public abstract fun writeMessage (Lpbandk/Message;)V
+}
+
 public final class pbandk/MessageExtensionsJvmKt {
-	public static final fun protoMarshal (Lpbandk/Message;Ljava/io/OutputStream;)V
-	public static final fun protoUnmarshal (Lpbandk/Message$Companion;Ljava/io/InputStream;)Lpbandk/Message;
-	public static final fun protoUnmarshal (Lpbandk/Message$Companion;Ljava/nio/ByteBuffer;)Lpbandk/Message;
+	public static final fun decodeFromByteBuffer (Lpbandk/Message$Companion;Ljava/nio/ByteBuffer;)Lpbandk/Message;
+	public static final fun decodeFromStream (Lpbandk/Message$Companion;Ljava/io/InputStream;)Lpbandk/Message;
+	public static final fun encodeToStream (Lpbandk/Message;Ljava/io/OutputStream;)V
 }
 
 public final class pbandk/MessageKt {
-	public static final fun marshal (Lpbandk/Message;Lpbandk/MessageMarshaller;)V
+	public static final fun decodeFromByteArray (Lpbandk/Message$Companion;[B)Lpbandk/Message;
+	public static final fun encodeToByteArray (Lpbandk/Message;)[B
+	public static final fun encodeWith (Lpbandk/Message;Lpbandk/MessageEncoder;)V
 	public static final fun plus (Lpbandk/Message;Lpbandk/Message;)Lpbandk/Message;
-	public static final fun protoMarshal (Lpbandk/Message;)[B
-	public static final fun protoUnmarshal (Lpbandk/Message$Companion;[B)Lpbandk/Message;
 }
 
 public final class pbandk/MessageMap : kotlin/collections/AbstractMap {
@@ -312,17 +320,9 @@ public final class pbandk/MessageMap$Entry : java/util/Map$Entry, kotlin/jvm/int
 
 public final class pbandk/MessageMap$Entry$Companion : pbandk/Message$Companion {
 	public fun <init> (Lpbandk/FieldDescriptor$Type;Lpbandk/FieldDescriptor$Type;)V
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/MessageMap$Entry;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/MessageMap$Entry;
-}
-
-public abstract interface class pbandk/MessageMarshaller {
-	public abstract fun writeMessage (Lpbandk/Message;)V
-}
-
-public abstract interface class pbandk/MessageUnmarshaller {
-	public abstract fun readMessage (Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function2;)Ljava/util/Map;
 }
 
 public abstract interface annotation class pbandk/PbandkInternal : java/lang/annotation/Annotation {
@@ -450,10 +450,10 @@ public final class pbandk/json/JsonConfig$Companion {
 }
 
 public final class pbandk/json/MessageExtensionsKt {
-	public static final fun jsonMarshal (Lpbandk/Message;Lpbandk/json/JsonConfig;)Ljava/lang/String;
-	public static synthetic fun jsonMarshal$default (Lpbandk/Message;Lpbandk/json/JsonConfig;ILjava/lang/Object;)Ljava/lang/String;
-	public static final fun jsonUnmarshal (Lpbandk/Message$Companion;Ljava/lang/String;Lpbandk/json/JsonConfig;)Lpbandk/Message;
-	public static synthetic fun jsonUnmarshal$default (Lpbandk/Message$Companion;Ljava/lang/String;Lpbandk/json/JsonConfig;ILjava/lang/Object;)Lpbandk/Message;
+	public static final fun decodeFromJsonString (Lpbandk/Message$Companion;Ljava/lang/String;Lpbandk/json/JsonConfig;)Lpbandk/Message;
+	public static synthetic fun decodeFromJsonString$default (Lpbandk/Message$Companion;Ljava/lang/String;Lpbandk/json/JsonConfig;ILjava/lang/Object;)Lpbandk/Message;
+	public static final fun encodeToJsonString (Lpbandk/Message;Lpbandk/json/JsonConfig;)Ljava/lang/String;
+	public static synthetic fun encodeToJsonString$default (Lpbandk/Message;Lpbandk/json/JsonConfig;ILjava/lang/Object;)Ljava/lang/String;
 }
 
 public final class pbandk/wkt/Any : pbandk/Message {
@@ -479,10 +479,10 @@ public final class pbandk/wkt/Any : pbandk/Message {
 }
 
 public final class pbandk/wkt/Any$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Any;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Any;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Any;
 }
 
 public final class pbandk/wkt/AnyKt {
@@ -522,10 +522,10 @@ public final class pbandk/wkt/Api : pbandk/Message {
 }
 
 public final class pbandk/wkt/Api$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Api;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Api;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Api;
 }
 
 public final class pbandk/wkt/ApiKt {
@@ -555,10 +555,10 @@ public final class pbandk/wkt/BoolValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/BoolValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/BoolValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/BoolValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/BoolValue;
 }
 
 public final class pbandk/wkt/BytesValue : pbandk/Message {
@@ -582,10 +582,10 @@ public final class pbandk/wkt/BytesValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/BytesValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/BytesValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/BytesValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/BytesValue;
 }
 
 public final class pbandk/wkt/DescriptorKt {
@@ -657,10 +657,10 @@ public final class pbandk/wkt/DescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/DescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/DescriptorProto;
 }
 
 public final class pbandk/wkt/DescriptorProto$ExtensionRange : pbandk/Message {
@@ -688,10 +688,10 @@ public final class pbandk/wkt/DescriptorProto$ExtensionRange : pbandk/Message {
 }
 
 public final class pbandk/wkt/DescriptorProto$ExtensionRange$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DescriptorProto$ExtensionRange;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DescriptorProto$ExtensionRange;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/DescriptorProto$ExtensionRange;
 }
 
 public final class pbandk/wkt/DescriptorProto$ReservedRange : pbandk/Message {
@@ -717,10 +717,10 @@ public final class pbandk/wkt/DescriptorProto$ReservedRange : pbandk/Message {
 }
 
 public final class pbandk/wkt/DescriptorProto$ReservedRange$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DescriptorProto$ReservedRange;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DescriptorProto$ReservedRange;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/DescriptorProto$ReservedRange;
 }
 
 public final class pbandk/wkt/DoubleValue : pbandk/Message {
@@ -744,10 +744,10 @@ public final class pbandk/wkt/DoubleValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/DoubleValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/DoubleValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/DoubleValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/DoubleValue;
 }
 
 public final class pbandk/wkt/Duration : pbandk/Message {
@@ -773,10 +773,10 @@ public final class pbandk/wkt/Duration : pbandk/Message {
 }
 
 public final class pbandk/wkt/Duration$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Duration;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Duration;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Duration;
 }
 
 public final class pbandk/wkt/DurationKt {
@@ -802,10 +802,10 @@ public final class pbandk/wkt/Empty : pbandk/Message {
 }
 
 public final class pbandk/wkt/Empty$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Empty;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Empty;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Empty;
 }
 
 public final class pbandk/wkt/EmptyKt {
@@ -841,10 +841,10 @@ public final class pbandk/wkt/Enum : pbandk/Message {
 }
 
 public final class pbandk/wkt/Enum$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Enum;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Enum;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Enum;
 }
 
 public final class pbandk/wkt/EnumDescriptorProto : pbandk/Message {
@@ -876,10 +876,10 @@ public final class pbandk/wkt/EnumDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/EnumDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/EnumDescriptorProto;
 }
 
 public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange : pbandk/Message {
@@ -905,10 +905,10 @@ public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange : pbandk/Mes
 }
 
 public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/EnumDescriptorProto$EnumReservedRange;
 }
 
 public final class pbandk/wkt/EnumOptions : pbandk/Message {
@@ -936,10 +936,10 @@ public final class pbandk/wkt/EnumOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/EnumOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/EnumOptions;
 }
 
 public final class pbandk/wkt/EnumValue : pbandk/Message {
@@ -967,10 +967,10 @@ public final class pbandk/wkt/EnumValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/EnumValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/EnumValue;
 }
 
 public final class pbandk/wkt/EnumValueDescriptorProto : pbandk/Message {
@@ -998,10 +998,10 @@ public final class pbandk/wkt/EnumValueDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/EnumValueDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumValueDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumValueDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/EnumValueDescriptorProto;
 }
 
 public final class pbandk/wkt/EnumValueOptions : pbandk/Message {
@@ -1027,10 +1027,10 @@ public final class pbandk/wkt/EnumValueOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/EnumValueOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/EnumValueOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/EnumValueOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/EnumValueOptions;
 }
 
 public final class pbandk/wkt/ExtensionRangeOptions : pbandk/Message {
@@ -1054,10 +1054,10 @@ public final class pbandk/wkt/ExtensionRangeOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/ExtensionRangeOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ExtensionRangeOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ExtensionRangeOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/ExtensionRangeOptions;
 }
 
 public final class pbandk/wkt/Field : pbandk/Message {
@@ -1137,10 +1137,10 @@ public final class pbandk/wkt/Field$Cardinality$UNRECOGNIZED : pbandk/wkt/Field$
 }
 
 public final class pbandk/wkt/Field$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Field;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Field;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Field;
 }
 
 public abstract class pbandk/wkt/Field$Kind : pbandk/Message$Enum {
@@ -1280,10 +1280,10 @@ public final class pbandk/wkt/FieldDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/FieldDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FieldDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FieldDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FieldDescriptorProto;
 }
 
 public abstract class pbandk/wkt/FieldDescriptorProto$Label : pbandk/Message$Enum {
@@ -1435,10 +1435,10 @@ public final class pbandk/wkt/FieldMask : pbandk/Message {
 }
 
 public final class pbandk/wkt/FieldMask$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FieldMask;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FieldMask;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FieldMask;
 }
 
 public final class pbandk/wkt/FieldOptions : pbandk/Message {
@@ -1508,10 +1508,10 @@ public final class pbandk/wkt/FieldOptions$CType$UNRECOGNIZED : pbandk/wkt/Field
 }
 
 public final class pbandk/wkt/FieldOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FieldOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FieldOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FieldOptions;
 }
 
 public abstract class pbandk/wkt/FieldOptions$JSType : pbandk/Message$Enum {
@@ -1595,10 +1595,10 @@ public final class pbandk/wkt/FileDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/FileDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FileDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FileDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FileDescriptorProto;
 }
 
 public final class pbandk/wkt/FileDescriptorSet : pbandk/Message {
@@ -1622,10 +1622,10 @@ public final class pbandk/wkt/FileDescriptorSet : pbandk/Message {
 }
 
 public final class pbandk/wkt/FileDescriptorSet$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FileDescriptorSet;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FileDescriptorSet;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FileDescriptorSet;
 }
 
 public final class pbandk/wkt/FileOptions : pbandk/Message {
@@ -1689,10 +1689,10 @@ public final class pbandk/wkt/FileOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/FileOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FileOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FileOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FileOptions;
 }
 
 public abstract class pbandk/wkt/FileOptions$OptimizeMode : pbandk/Message$Enum {
@@ -1750,10 +1750,10 @@ public final class pbandk/wkt/FloatValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/FloatValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/FloatValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/FloatValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/FloatValue;
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo : pbandk/Message {
@@ -1803,17 +1803,17 @@ public final class pbandk/wkt/GeneratedCodeInfo$Annotation : pbandk/Message {
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo$Annotation$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public final fun getDefaultInstance ()Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/GeneratedCodeInfo$Annotation;
 }
 
 public final class pbandk/wkt/GeneratedCodeInfo$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/GeneratedCodeInfo;
 	public final fun getDefaultInstance ()Lpbandk/wkt/GeneratedCodeInfo;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/GeneratedCodeInfo;
 }
 
 public final class pbandk/wkt/Int32Value : pbandk/Message {
@@ -1837,10 +1837,10 @@ public final class pbandk/wkt/Int32Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/Int32Value$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Int32Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Int32Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Int32Value;
 }
 
 public final class pbandk/wkt/Int64Value : pbandk/Message {
@@ -1864,10 +1864,10 @@ public final class pbandk/wkt/Int64Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/Int64Value$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Int64Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Int64Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Int64Value;
 }
 
 public final class pbandk/wkt/ListValue : pbandk/Message {
@@ -1891,10 +1891,10 @@ public final class pbandk/wkt/ListValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/ListValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ListValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ListValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/ListValue;
 }
 
 public final class pbandk/wkt/MessageOptions : pbandk/Message {
@@ -1926,10 +1926,10 @@ public final class pbandk/wkt/MessageOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/MessageOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/MessageOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/MessageOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/MessageOptions;
 }
 
 public final class pbandk/wkt/Method : pbandk/Message {
@@ -1965,10 +1965,10 @@ public final class pbandk/wkt/Method : pbandk/Message {
 }
 
 public final class pbandk/wkt/Method$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Method;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Method;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Method;
 }
 
 public final class pbandk/wkt/MethodDescriptorProto : pbandk/Message {
@@ -2002,10 +2002,10 @@ public final class pbandk/wkt/MethodDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/MethodDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/MethodDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/MethodDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/MethodDescriptorProto;
 }
 
 public final class pbandk/wkt/MethodOptions : pbandk/Message {
@@ -2033,10 +2033,10 @@ public final class pbandk/wkt/MethodOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/MethodOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/MethodOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/MethodOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/MethodOptions;
 }
 
 public abstract class pbandk/wkt/MethodOptions$IdempotencyLevel : pbandk/Message$Enum {
@@ -2096,10 +2096,10 @@ public final class pbandk/wkt/Mixin : pbandk/Message {
 }
 
 public final class pbandk/wkt/Mixin$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Mixin;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Mixin;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Mixin;
 }
 
 public abstract class pbandk/wkt/NullValue : pbandk/Message$Enum {
@@ -2151,10 +2151,10 @@ public final class pbandk/wkt/OneofDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/OneofDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/OneofDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/OneofDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/OneofDescriptorProto;
 }
 
 public final class pbandk/wkt/OneofOptions : pbandk/Message {
@@ -2178,10 +2178,10 @@ public final class pbandk/wkt/OneofOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/OneofOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/OneofOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/OneofOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/OneofOptions;
 }
 
 public final class pbandk/wkt/Option : pbandk/Message {
@@ -2207,10 +2207,10 @@ public final class pbandk/wkt/Option : pbandk/Message {
 }
 
 public final class pbandk/wkt/Option$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Option;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Option;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Option;
 }
 
 public final class pbandk/wkt/ServiceDescriptorProto : pbandk/Message {
@@ -2238,10 +2238,10 @@ public final class pbandk/wkt/ServiceDescriptorProto : pbandk/Message {
 }
 
 public final class pbandk/wkt/ServiceDescriptorProto$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ServiceDescriptorProto;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ServiceDescriptorProto;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/ServiceDescriptorProto;
 }
 
 public final class pbandk/wkt/ServiceOptions : pbandk/Message {
@@ -2267,10 +2267,10 @@ public final class pbandk/wkt/ServiceOptions : pbandk/Message {
 }
 
 public final class pbandk/wkt/ServiceOptions$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/ServiceOptions;
 	public final fun getDefaultInstance ()Lpbandk/wkt/ServiceOptions;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/ServiceOptions;
 }
 
 public final class pbandk/wkt/SourceCodeInfo : pbandk/Message {
@@ -2294,10 +2294,10 @@ public final class pbandk/wkt/SourceCodeInfo : pbandk/Message {
 }
 
 public final class pbandk/wkt/SourceCodeInfo$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/SourceCodeInfo;
 	public final fun getDefaultInstance ()Lpbandk/wkt/SourceCodeInfo;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/SourceCodeInfo;
 }
 
 public final class pbandk/wkt/SourceCodeInfo$Location : pbandk/Message {
@@ -2329,10 +2329,10 @@ public final class pbandk/wkt/SourceCodeInfo$Location : pbandk/Message {
 }
 
 public final class pbandk/wkt/SourceCodeInfo$Location$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/SourceCodeInfo$Location;
 	public final fun getDefaultInstance ()Lpbandk/wkt/SourceCodeInfo$Location;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/SourceCodeInfo$Location;
 }
 
 public final class pbandk/wkt/SourceContext : pbandk/Message {
@@ -2356,10 +2356,10 @@ public final class pbandk/wkt/SourceContext : pbandk/Message {
 }
 
 public final class pbandk/wkt/SourceContext$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/SourceContext;
 	public final fun getDefaultInstance ()Lpbandk/wkt/SourceContext;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/SourceContext;
 }
 
 public final class pbandk/wkt/Source_contextKt {
@@ -2387,10 +2387,10 @@ public final class pbandk/wkt/StringValue : pbandk/Message {
 }
 
 public final class pbandk/wkt/StringValue$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/StringValue;
 	public final fun getDefaultInstance ()Lpbandk/wkt/StringValue;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/StringValue;
 }
 
 public final class pbandk/wkt/Struct : pbandk/Message {
@@ -2414,10 +2414,10 @@ public final class pbandk/wkt/Struct : pbandk/Message {
 }
 
 public final class pbandk/wkt/Struct$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Struct;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Struct;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Struct;
 }
 
 public final class pbandk/wkt/Struct$FieldsEntry : java/util/Map$Entry, kotlin/jvm/internal/markers/KMappedMarker, pbandk/Message {
@@ -2447,10 +2447,10 @@ public final class pbandk/wkt/Struct$FieldsEntry : java/util/Map$Entry, kotlin/j
 }
 
 public final class pbandk/wkt/Struct$FieldsEntry$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Struct$FieldsEntry;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Struct$FieldsEntry;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Struct$FieldsEntry;
 }
 
 public final class pbandk/wkt/StructKt {
@@ -2513,10 +2513,10 @@ public final class pbandk/wkt/Timestamp : pbandk/Message {
 }
 
 public final class pbandk/wkt/Timestamp$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Timestamp;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Timestamp;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Timestamp;
 }
 
 public final class pbandk/wkt/TimestampKt {
@@ -2554,10 +2554,10 @@ public final class pbandk/wkt/Type : pbandk/Message {
 }
 
 public final class pbandk/wkt/Type$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Type;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Type;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Type;
 }
 
 public final class pbandk/wkt/TypeKt {
@@ -2589,10 +2589,10 @@ public final class pbandk/wkt/UInt32Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/UInt32Value$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UInt32Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UInt32Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/UInt32Value;
 }
 
 public final class pbandk/wkt/UInt64Value : pbandk/Message {
@@ -2616,10 +2616,10 @@ public final class pbandk/wkt/UInt64Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/UInt64Value$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UInt64Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UInt64Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/UInt64Value;
 }
 
 public final class pbandk/wkt/UninterpretedOption : pbandk/Message {
@@ -2655,10 +2655,10 @@ public final class pbandk/wkt/UninterpretedOption : pbandk/Message {
 }
 
 public final class pbandk/wkt/UninterpretedOption$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UninterpretedOption;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UninterpretedOption;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/UninterpretedOption;
 }
 
 public final class pbandk/wkt/UninterpretedOption$NamePart : pbandk/Message {
@@ -2684,10 +2684,10 @@ public final class pbandk/wkt/UninterpretedOption$NamePart : pbandk/Message {
 }
 
 public final class pbandk/wkt/UninterpretedOption$NamePart$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/UninterpretedOption$NamePart;
 	public final fun getDefaultInstance ()Lpbandk/wkt/UninterpretedOption$NamePart;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/UninterpretedOption$NamePart;
 }
 
 public final class pbandk/wkt/Value : pbandk/Message {
@@ -2717,10 +2717,10 @@ public final class pbandk/wkt/Value : pbandk/Message {
 }
 
 public final class pbandk/wkt/Value$Companion : pbandk/Message$Companion {
+	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
+	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/wkt/Value;
 	public final fun getDefaultInstance ()Lpbandk/wkt/Value;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-	public synthetic fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/Message;
-	public fun unmarshal (Lpbandk/MessageUnmarshaller;)Lpbandk/wkt/Value;
 }
 
 public abstract class pbandk/wkt/Value$Kind : pbandk/Message$OneOf {

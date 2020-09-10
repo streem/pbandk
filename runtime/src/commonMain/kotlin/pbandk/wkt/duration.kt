@@ -12,7 +12,7 @@ data class Duration(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Duration> {
         val defaultInstance by lazy { Duration() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Duration.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Duration.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Duration> by lazy {
             pbandk.MessageDescriptor(
@@ -48,7 +48,7 @@ private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as?
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Duration.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Duration {
+private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duration {
     var seconds = 0L
     var nanos = 0
 

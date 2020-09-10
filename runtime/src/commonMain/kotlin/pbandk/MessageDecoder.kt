@@ -1,6 +1,6 @@
 package pbandk
 
-interface MessageUnmarshaller {
+interface MessageDecoder {
     fun <T : Message> readMessage(
         messageCompanion: Message.Companion<T>,
         fieldFn: (Int, Any) -> Unit

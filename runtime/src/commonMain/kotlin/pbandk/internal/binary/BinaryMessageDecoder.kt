@@ -31,59 +31,59 @@ private fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
     this.wireType == wireType ||
             (this is FieldDescriptor.Type.Repeated<*> && valueType.isPackable && wireType == WireType.LENGTH_DELIMITED)
 
-private val FieldDescriptor.Type.binaryReadFn: BinaryWireUnmarshaller.() -> Any
+private val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
     get() {
         // XXX: The "useless" casts below are required in order to work around a compiler bug in Kotlin 1.3 (see
         // https://youtrack.jetbrains.com/issue/KT-12693 and linked issues). Without the cast, the compiler crashes
         // with an obscure error. This is supposedly fixed in Kotlin 1.4.
         @Suppress("USELESS_CAST")
         return when (this) {
-            is FieldDescriptor.Type.Primitive.Double -> BinaryWireUnmarshaller::readDouble as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Float -> BinaryWireUnmarshaller::readFloat as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Int64 -> BinaryWireUnmarshaller::readInt64 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.UInt64 -> BinaryWireUnmarshaller::readUInt64 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Int32 -> BinaryWireUnmarshaller::readInt32 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Fixed64 -> BinaryWireUnmarshaller::readFixed64 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Fixed32 -> BinaryWireUnmarshaller::readFixed32 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Bool -> BinaryWireUnmarshaller::readBool as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.String -> BinaryWireUnmarshaller::readString as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.Bytes -> BinaryWireUnmarshaller::readBytes as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.UInt32 -> BinaryWireUnmarshaller::readUInt32 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.SFixed32 -> BinaryWireUnmarshaller::readSFixed32 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.SFixed64 -> BinaryWireUnmarshaller::readSFixed64 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.SInt32 -> BinaryWireUnmarshaller::readSInt32 as BinaryWireUnmarshaller.() -> Any
-            is FieldDescriptor.Type.Primitive.SInt64 -> BinaryWireUnmarshaller::readSInt64 as BinaryWireUnmarshaller.() -> Any
+            is FieldDescriptor.Type.Primitive.Double -> BinaryWireDecoder::readDouble as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Float -> BinaryWireDecoder::readFloat as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Int64 -> BinaryWireDecoder::readInt64 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.UInt64 -> BinaryWireDecoder::readUInt64 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Int32 -> BinaryWireDecoder::readInt32 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Fixed64 -> BinaryWireDecoder::readFixed64 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Fixed32 -> BinaryWireDecoder::readFixed32 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Bool -> BinaryWireDecoder::readBool as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.String -> BinaryWireDecoder::readString as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Bytes -> BinaryWireDecoder::readBytes as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.UInt32 -> BinaryWireDecoder::readUInt32 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.SFixed32 -> BinaryWireDecoder::readSFixed32 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.SFixed64 -> BinaryWireDecoder::readSFixed64 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.SInt32 -> BinaryWireDecoder::readSInt32 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.SInt64 -> BinaryWireDecoder::readSInt64 as BinaryWireDecoder.() -> Any
             is FieldDescriptor.Type.Message<*> -> when (messageCompanion) {
-                DoubleValue.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                DoubleValue.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as DoubleValue).value
-                FloatValue.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                FloatValue.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as FloatValue).value
-                Int64Value.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                Int64Value.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as Int64Value).value
-                UInt64Value.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                UInt64Value.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as UInt64Value).value
-                Int32Value.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                Int32Value.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as Int32Value).value
-                UInt32Value.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                UInt32Value.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as UInt32Value).value
-                BoolValue.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                BoolValue.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as BoolValue).value
-                StringValue.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                StringValue.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as StringValue).value
-                BytesValue.Companion -> fun BinaryWireUnmarshaller.(): Any =
+                BytesValue.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as BytesValue).value
-                else -> fun BinaryWireUnmarshaller.(): Any = readMessage(this@binaryReadFn.messageCompanion)
+                else -> fun BinaryWireDecoder.(): Any = readMessage(this@binaryReadFn.messageCompanion)
             }
-            is FieldDescriptor.Type.Enum<*> -> fun BinaryWireUnmarshaller.(): Any =
+            is FieldDescriptor.Type.Enum<*> -> fun BinaryWireDecoder.(): Any =
                 readEnum(this@binaryReadFn.enumCompanion)
             is FieldDescriptor.Type.Repeated<*> ->
                 error("Repeated values should've been handled by the caller of this method")
-            is FieldDescriptor.Type.Map<*, *> -> fun BinaryWireUnmarshaller.(): Any =
+            is FieldDescriptor.Type.Map<*, *> -> fun BinaryWireDecoder.(): Any =
                 sequenceOf(readMessage(this@binaryReadFn.entryCompanion))
         }
     }
 
-internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWireUnmarshaller) : MessageUnmarshaller {
+internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) : MessageDecoder {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : Message> readMessage(
@@ -93,7 +93,7 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
         val unknownFields = mutableMapOf<Int, UnknownField>()
         val fieldDescriptors = messageCompanion.descriptor.fields.associateBy { it.number }
         while (true) {
-            val tag = wireUnmarshaller.readTag()
+            val tag = wireDecoder.readTag()
             if (tag == Tag(0)) break
             val fieldNum = tag.fieldNumber
             val wireType = tag.wireType
@@ -104,7 +104,7 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
                 val value = if (fd.type is FieldDescriptor.Type.Repeated<*>) {
                     readRepeated(fd.type, wireType)
                 } else {
-                    fd.type.binaryReadFn(wireUnmarshaller)
+                    fd.type.binaryReadFn(wireDecoder)
                 }
                 fieldFn(fieldNum, value)
             }
@@ -117,7 +117,7 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
     }
 
     private fun addUnknownField(fieldNum: Int, wireType: WireType, unknownFields: MutableMap<Int, UnknownField>) {
-        val unknownField = wireUnmarshaller.readUnknownField(fieldNum, wireType) ?: return
+        val unknownField = wireDecoder.readUnknownField(fieldNum, wireType) ?: return
         unknownFields[fieldNum] = UnknownField(fieldNum, unknownFields[fieldNum]?.let { prevField ->
             if (prevField.value is UnknownField.Value.Composite) {
                 // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of the list with
@@ -130,15 +130,15 @@ internal class BinaryMessageUnmarshaller(private val wireUnmarshaller: BinaryWir
     }
 
     private fun readRepeated(type: FieldDescriptor.Type.Repeated<*>, wireType: WireType): Any {
-        val valueUnmarshaller = type.valueType.binaryReadFn
+        val valueDecoder = type.valueType.binaryReadFn
         return if (wireType == WireType.LENGTH_DELIMITED && type.valueType.isPackable) {
-            wireUnmarshaller.readPackedRepeated(valueUnmarshaller)
+            wireDecoder.readPackedRepeated(valueDecoder)
         } else {
-            sequenceOf(valueUnmarshaller(wireUnmarshaller))
+            sequenceOf(valueDecoder(wireDecoder))
         }
     }
 
     companion object
 }
 
-internal expect fun BinaryMessageUnmarshaller.Companion.fromByteArray(arr: ByteArray): MessageUnmarshaller
+internal expect fun BinaryMessageDecoder.Companion.fromByteArray(arr: ByteArray): MessageDecoder

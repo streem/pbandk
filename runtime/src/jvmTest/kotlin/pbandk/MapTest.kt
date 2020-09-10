@@ -15,17 +15,17 @@ class MapTest {
         assertEquals(builtJavaObj.serializedSize, builtKotlinObj.protoSize)
 
         val builtJavaBytes = builtJavaObj.toByteArray()
-        val builtKotlinBytes = builtKotlinObj.protoMarshal()
+        val builtKotlinBytes = builtKotlinObj.encodeToByteArray()
         assertEquals(builtJavaBytes.toList(), builtKotlinBytes.toList())
 
         val gendJavaObj = pbandk.testpb.java.Test.MessageWithMap.parseFrom(builtKotlinBytes)
-        val gendKotlinObj = MessageWithMap.protoUnmarshal(builtJavaBytes)
+        val gendKotlinObj = MessageWithMap.decodeFromByteArray(builtJavaBytes)
         assertEquals(builtJavaObj, gendJavaObj)
         assertEquals(builtKotlinObj, gendKotlinObj)
 
         // Check that map-with-size
         assertTrue(gendKotlinObj.map is MessageMap)
         assertEquals(builtKotlinObj.protoSize, gendKotlinObj.protoSize)
-        assertEquals(builtKotlinBytes.toList(), gendKotlinObj.protoMarshal().toList())
+        assertEquals(builtKotlinBytes.toList(), gendKotlinObj.encodeToByteArray().toList())
     }
 }

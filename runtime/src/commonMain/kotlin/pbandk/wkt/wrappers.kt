@@ -11,7 +11,7 @@ data class DoubleValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<DoubleValue> {
         val defaultInstance by lazy { DoubleValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = DoubleValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = DoubleValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<DoubleValue> by lazy {
             pbandk.MessageDescriptor(
@@ -41,7 +41,7 @@ data class FloatValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FloatValue> {
         val defaultInstance by lazy { FloatValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FloatValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FloatValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FloatValue> by lazy {
             pbandk.MessageDescriptor(
@@ -71,7 +71,7 @@ data class Int64Value(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Int64Value> {
         val defaultInstance by lazy { Int64Value() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Int64Value.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Int64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Int64Value> by lazy {
             pbandk.MessageDescriptor(
@@ -101,7 +101,7 @@ data class UInt64Value(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UInt64Value> {
         val defaultInstance by lazy { UInt64Value() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = UInt64Value.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = UInt64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UInt64Value> by lazy {
             pbandk.MessageDescriptor(
@@ -131,7 +131,7 @@ data class Int32Value(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Int32Value> {
         val defaultInstance by lazy { Int32Value() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Int32Value.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Int32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Int32Value> by lazy {
             pbandk.MessageDescriptor(
@@ -161,7 +161,7 @@ data class UInt32Value(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UInt32Value> {
         val defaultInstance by lazy { UInt32Value() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = UInt32Value.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = UInt32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UInt32Value> by lazy {
             pbandk.MessageDescriptor(
@@ -191,7 +191,7 @@ data class BoolValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<BoolValue> {
         val defaultInstance by lazy { BoolValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = BoolValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = BoolValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<BoolValue> by lazy {
             pbandk.MessageDescriptor(
@@ -221,7 +221,7 @@ data class StringValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<StringValue> {
         val defaultInstance by lazy { StringValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = StringValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = StringValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<StringValue> by lazy {
             pbandk.MessageDescriptor(
@@ -251,7 +251,7 @@ data class BytesValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<BytesValue> {
         val defaultInstance by lazy { BytesValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = BytesValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = BytesValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<BytesValue> by lazy {
             pbandk.MessageDescriptor(
@@ -279,7 +279,7 @@ private fun DoubleValue.protoMergeImpl(plus: pbandk.Message?): DoubleValue = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun DoubleValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): DoubleValue {
+private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DoubleValue {
     var value = 0.0
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -297,7 +297,7 @@ private fun FloatValue.protoMergeImpl(plus: pbandk.Message?): FloatValue = (plus
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FloatValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FloatValue {
+private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FloatValue {
     var value = 0.0F
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -315,7 +315,7 @@ private fun Int64Value.protoMergeImpl(plus: pbandk.Message?): Int64Value = (plus
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Int64Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Int64Value {
+private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64Value {
     var value = 0L
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -333,7 +333,7 @@ private fun UInt64Value.protoMergeImpl(plus: pbandk.Message?): UInt64Value = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun UInt64Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UInt64Value {
+private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt64Value {
     var value = 0L
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -351,7 +351,7 @@ private fun Int32Value.protoMergeImpl(plus: pbandk.Message?): Int32Value = (plus
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Int32Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Int32Value {
+private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32Value {
     var value = 0
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -369,7 +369,7 @@ private fun UInt32Value.protoMergeImpl(plus: pbandk.Message?): UInt32Value = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun UInt32Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UInt32Value {
+private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt32Value {
     var value = 0
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -387,7 +387,7 @@ private fun BoolValue.protoMergeImpl(plus: pbandk.Message?): BoolValue = (plus a
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun BoolValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): BoolValue {
+private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolValue {
     var value = false
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -405,7 +405,7 @@ private fun StringValue.protoMergeImpl(plus: pbandk.Message?): StringValue = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun StringValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): StringValue {
+private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): StringValue {
     var value = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -423,7 +423,7 @@ private fun BytesValue.protoMergeImpl(plus: pbandk.Message?): BytesValue = (plus
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun BytesValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): BytesValue {
+private fun BytesValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BytesValue {
     var value: pbandk.ByteArr = pbandk.ByteArr.empty
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

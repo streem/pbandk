@@ -11,7 +11,7 @@ data class FileDescriptorSet(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FileDescriptorSet> {
         val defaultInstance by lazy { FileDescriptorSet() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FileDescriptorSet.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FileDescriptorSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FileDescriptorSet> by lazy {
             pbandk.MessageDescriptor(
@@ -52,7 +52,7 @@ data class FileDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FileDescriptorProto> {
         val defaultInstance by lazy { FileDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FileDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FileDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FileDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -179,7 +179,7 @@ data class DescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<DescriptorProto> {
         val defaultInstance by lazy { DescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = DescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = DescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<DescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -282,7 +282,7 @@ data class DescriptorProto(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<DescriptorProto.ExtensionRange> {
             val defaultInstance by lazy { DescriptorProto.ExtensionRange() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = DescriptorProto.ExtensionRange.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = DescriptorProto.ExtensionRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<DescriptorProto.ExtensionRange> by lazy {
                 pbandk.MessageDescriptor(
@@ -329,7 +329,7 @@ data class DescriptorProto(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<DescriptorProto.ReservedRange> {
             val defaultInstance by lazy { DescriptorProto.ReservedRange() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = DescriptorProto.ReservedRange.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = DescriptorProto.ReservedRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<DescriptorProto.ReservedRange> by lazy {
                 pbandk.MessageDescriptor(
@@ -368,7 +368,7 @@ data class ExtensionRangeOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ExtensionRangeOptions> {
         val defaultInstance by lazy { ExtensionRangeOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ExtensionRangeOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ExtensionRangeOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ExtensionRangeOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -407,7 +407,7 @@ data class FieldDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FieldDescriptorProto> {
         val defaultInstance by lazy { FieldDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FieldDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FieldDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -559,7 +559,7 @@ data class OneofDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<OneofDescriptorProto> {
         val defaultInstance by lazy { OneofDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = OneofDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = OneofDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<OneofDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -601,7 +601,7 @@ data class EnumDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<EnumDescriptorProto> {
         val defaultInstance by lazy { EnumDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = EnumDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = EnumDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -663,7 +663,7 @@ data class EnumDescriptorProto(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<EnumDescriptorProto.EnumReservedRange> {
             val defaultInstance by lazy { EnumDescriptorProto.EnumReservedRange() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = EnumDescriptorProto.EnumReservedRange.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = EnumDescriptorProto.EnumReservedRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<EnumDescriptorProto.EnumReservedRange> by lazy {
                 pbandk.MessageDescriptor(
@@ -704,7 +704,7 @@ data class EnumValueDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<EnumValueDescriptorProto> {
         val defaultInstance by lazy { EnumValueDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = EnumValueDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = EnumValueDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumValueDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -752,7 +752,7 @@ data class ServiceDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ServiceDescriptorProto> {
         val defaultInstance by lazy { ServiceDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ServiceDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ServiceDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ServiceDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -803,7 +803,7 @@ data class MethodDescriptorProto(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<MethodDescriptorProto> {
         val defaultInstance by lazy { MethodDescriptorProto() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = MethodDescriptorProto.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = MethodDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MethodDescriptorProto> by lazy {
             pbandk.MessageDescriptor(
@@ -893,7 +893,7 @@ data class FileOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FileOptions> {
         val defaultInstance by lazy { FileOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FileOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FileOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FileOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1104,7 +1104,7 @@ data class MessageOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<MessageOptions> {
         val defaultInstance by lazy { MessageOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = MessageOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = MessageOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MessageOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1172,7 +1172,7 @@ data class FieldOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FieldOptions> {
         val defaultInstance by lazy { FieldOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FieldOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FieldOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1284,7 +1284,7 @@ data class OneofOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<OneofOptions> {
         val defaultInstance by lazy { OneofOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = OneofOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = OneofOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<OneofOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1316,7 +1316,7 @@ data class EnumOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<EnumOptions> {
         val defaultInstance by lazy { EnumOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = EnumOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = EnumOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1363,7 +1363,7 @@ data class EnumValueOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<EnumValueOptions> {
         val defaultInstance by lazy { EnumValueOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = EnumValueOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = EnumValueOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumValueOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1402,7 +1402,7 @@ data class ServiceOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ServiceOptions> {
         val defaultInstance by lazy { ServiceOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ServiceOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ServiceOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ServiceOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1442,7 +1442,7 @@ data class MethodOptions(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<MethodOptions> {
         val defaultInstance by lazy { MethodOptions() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = MethodOptions.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = MethodOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MethodOptions> by lazy {
             pbandk.MessageDescriptor(
@@ -1511,7 +1511,7 @@ data class UninterpretedOption(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UninterpretedOption> {
         val defaultInstance by lazy { UninterpretedOption() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = UninterpretedOption.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = UninterpretedOption.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UninterpretedOption> by lazy {
             pbandk.MessageDescriptor(
@@ -1589,7 +1589,7 @@ data class UninterpretedOption(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<UninterpretedOption.NamePart> {
             val defaultInstance by lazy { UninterpretedOption.NamePart() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = UninterpretedOption.NamePart.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = UninterpretedOption.NamePart.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<UninterpretedOption.NamePart> by lazy {
                 pbandk.MessageDescriptor(
@@ -1628,7 +1628,7 @@ data class SourceCodeInfo(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<SourceCodeInfo> {
         val defaultInstance by lazy { SourceCodeInfo() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = SourceCodeInfo.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = SourceCodeInfo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SourceCodeInfo> by lazy {
             pbandk.MessageDescriptor(
@@ -1661,7 +1661,7 @@ data class SourceCodeInfo(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<SourceCodeInfo.Location> {
             val defaultInstance by lazy { SourceCodeInfo.Location() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = SourceCodeInfo.Location.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = SourceCodeInfo.Location.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<SourceCodeInfo.Location> by lazy {
                 pbandk.MessageDescriptor(
@@ -1724,7 +1724,7 @@ data class GeneratedCodeInfo(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<GeneratedCodeInfo> {
         val defaultInstance by lazy { GeneratedCodeInfo() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = GeneratedCodeInfo.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = GeneratedCodeInfo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<GeneratedCodeInfo> by lazy {
             pbandk.MessageDescriptor(
@@ -1756,7 +1756,7 @@ data class GeneratedCodeInfo(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<GeneratedCodeInfo.Annotation> {
             val defaultInstance by lazy { GeneratedCodeInfo.Annotation() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = GeneratedCodeInfo.Annotation.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = GeneratedCodeInfo.Annotation.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<GeneratedCodeInfo.Annotation> by lazy {
                 pbandk.MessageDescriptor(
@@ -1810,7 +1810,7 @@ private fun FileDescriptorSet.protoMergeImpl(plus: pbandk.Message?): FileDescrip
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FileDescriptorSet.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FileDescriptorSet {
+private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FileDescriptorSet {
     var file: pbandk.ListWithSize.Builder<pbandk.wkt.FileDescriptorProto>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -1840,7 +1840,7 @@ private fun FileDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FileDescr
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FileDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FileDescriptorProto {
+private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FileDescriptorProto {
     var name: String? = null
     var `package`: String? = null
     var dependency: pbandk.ListWithSize.Builder<String>? = null
@@ -1892,7 +1892,7 @@ private fun DescriptorProto.protoMergeImpl(plus: pbandk.Message?): DescriptorPro
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun DescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): DescriptorProto {
+private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DescriptorProto {
     var name: String? = null
     var field: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
     var extension: pbandk.ListWithSize.Builder<pbandk.wkt.FieldDescriptorProto>? = null
@@ -1933,7 +1933,7 @@ private fun DescriptorProto.ExtensionRange.protoMergeImpl(plus: pbandk.Message?)
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun DescriptorProto.ExtensionRange.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): DescriptorProto.ExtensionRange {
+private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DescriptorProto.ExtensionRange {
     var start: Int? = null
     var end: Int? = null
     var options: pbandk.wkt.ExtensionRangeOptions? = null
@@ -1957,7 +1957,7 @@ private fun DescriptorProto.ReservedRange.protoMergeImpl(plus: pbandk.Message?):
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun DescriptorProto.ReservedRange.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): DescriptorProto.ReservedRange {
+private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DescriptorProto.ReservedRange {
     var start: Int? = null
     var end: Int? = null
 
@@ -1978,7 +1978,7 @@ private fun ExtensionRangeOptions.protoMergeImpl(plus: pbandk.Message?): Extensi
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ExtensionRangeOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ExtensionRangeOptions {
+private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ExtensionRangeOptions {
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2006,7 +2006,7 @@ private fun FieldDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FieldDes
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FieldDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FieldDescriptorProto {
+private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldDescriptorProto {
     var name: String? = null
     var number: Int? = null
     var label: pbandk.wkt.FieldDescriptorProto.Label? = null
@@ -2046,7 +2046,7 @@ private fun OneofDescriptorProto.protoMergeImpl(plus: pbandk.Message?): OneofDes
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun OneofDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): OneofDescriptorProto {
+private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): OneofDescriptorProto {
     var name: String? = null
     var options: pbandk.wkt.OneofOptions? = null
 
@@ -2071,7 +2071,7 @@ private fun EnumDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumDescr
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): EnumDescriptorProto {
+private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumDescriptorProto {
     var name: String? = null
     var value: pbandk.ListWithSize.Builder<pbandk.wkt.EnumValueDescriptorProto>? = null
     var options: pbandk.wkt.EnumOptions? = null
@@ -2100,7 +2100,7 @@ private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(plus: pbandk.Me
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumDescriptorProto.EnumReservedRange.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): EnumDescriptorProto.EnumReservedRange {
+private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumDescriptorProto.EnumReservedRange {
     var start: Int? = null
     var end: Int? = null
 
@@ -2123,7 +2123,7 @@ private fun EnumValueDescriptorProto.protoMergeImpl(plus: pbandk.Message?): Enum
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumValueDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): EnumValueDescriptorProto {
+private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValueDescriptorProto {
     var name: String? = null
     var number: Int? = null
     var options: pbandk.wkt.EnumValueOptions? = null
@@ -2148,7 +2148,7 @@ private fun ServiceDescriptorProto.protoMergeImpl(plus: pbandk.Message?): Servic
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ServiceDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ServiceDescriptorProto {
+private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ServiceDescriptorProto {
     var name: String? = null
     var method: pbandk.ListWithSize.Builder<pbandk.wkt.MethodDescriptorProto>? = null
     var options: pbandk.wkt.ServiceOptions? = null
@@ -2176,7 +2176,7 @@ private fun MethodDescriptorProto.protoMergeImpl(plus: pbandk.Message?): MethodD
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun MethodDescriptorProto.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): MethodDescriptorProto {
+private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MethodDescriptorProto {
     var name: String? = null
     var inputType: String? = null
     var outputType: String? = null
@@ -2226,7 +2226,7 @@ private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FileOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FileOptions {
+private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FileOptions {
     var javaPackage: String? = null
     var javaOuterClassname: String? = null
     var javaMultipleFiles: Boolean? = null
@@ -2294,7 +2294,7 @@ private fun MessageOptions.protoMergeImpl(plus: pbandk.Message?): MessageOptions
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun MessageOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): MessageOptions {
+private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageOptions {
     var messageSetWireFormat: Boolean? = null
     var noStandardDescriptorAccessor: Boolean? = null
     var deprecated: Boolean? = null
@@ -2328,7 +2328,7 @@ private fun FieldOptions.protoMergeImpl(plus: pbandk.Message?): FieldOptions = (
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FieldOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FieldOptions {
+private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldOptions {
     var ctype: pbandk.wkt.FieldOptions.CType? = null
     var packed: Boolean? = null
     var jstype: pbandk.wkt.FieldOptions.JSType? = null
@@ -2360,7 +2360,7 @@ private fun OneofOptions.protoMergeImpl(plus: pbandk.Message?): OneofOptions = (
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun OneofOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): OneofOptions {
+private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): OneofOptions {
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2381,7 +2381,7 @@ private fun EnumOptions.protoMergeImpl(plus: pbandk.Message?): EnumOptions = (pl
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): EnumOptions {
+private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumOptions {
     var allowAlias: Boolean? = null
     var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
@@ -2405,7 +2405,7 @@ private fun EnumValueOptions.protoMergeImpl(plus: pbandk.Message?): EnumValueOpt
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumValueOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): EnumValueOptions {
+private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValueOptions {
     var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
@@ -2427,7 +2427,7 @@ private fun ServiceOptions.protoMergeImpl(plus: pbandk.Message?): ServiceOptions
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ServiceOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ServiceOptions {
+private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ServiceOptions {
     var deprecated: Boolean? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
 
@@ -2450,7 +2450,7 @@ private fun MethodOptions.protoMergeImpl(plus: pbandk.Message?): MethodOptions =
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun MethodOptions.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): MethodOptions {
+private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MethodOptions {
     var deprecated: Boolean? = null
     var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null
     var uninterpretedOption: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption>? = null
@@ -2479,7 +2479,7 @@ private fun UninterpretedOption.protoMergeImpl(plus: pbandk.Message?): Uninterpr
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun UninterpretedOption.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UninterpretedOption {
+private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UninterpretedOption {
     var name: pbandk.ListWithSize.Builder<pbandk.wkt.UninterpretedOption.NamePart>? = null
     var identifierValue: String? = null
     var positiveIntValue: Long? = null
@@ -2510,7 +2510,7 @@ private fun UninterpretedOption.NamePart.protoMergeImpl(plus: pbandk.Message?): 
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun UninterpretedOption.NamePart.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UninterpretedOption.NamePart {
+private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UninterpretedOption.NamePart {
     var namePart = ""
     var isExtension = false
 
@@ -2531,7 +2531,7 @@ private fun SourceCodeInfo.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun SourceCodeInfo.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): SourceCodeInfo {
+private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceCodeInfo {
     var location: pbandk.ListWithSize.Builder<pbandk.wkt.SourceCodeInfo.Location>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2554,7 +2554,7 @@ private fun SourceCodeInfo.Location.protoMergeImpl(plus: pbandk.Message?): Sourc
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun SourceCodeInfo.Location.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): SourceCodeInfo.Location {
+private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceCodeInfo.Location {
     var path: pbandk.ListWithSize.Builder<Int>? = null
     var span: pbandk.ListWithSize.Builder<Int>? = null
     var leadingComments: String? = null
@@ -2582,7 +2582,7 @@ private fun GeneratedCodeInfo.protoMergeImpl(plus: pbandk.Message?): GeneratedCo
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun GeneratedCodeInfo.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): GeneratedCodeInfo {
+private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): GeneratedCodeInfo {
     var annotation: pbandk.ListWithSize.Builder<pbandk.wkt.GeneratedCodeInfo.Annotation>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -2604,7 +2604,7 @@ private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: pbandk.Message?): 
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun GeneratedCodeInfo.Annotation.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): GeneratedCodeInfo.Annotation {
+private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.MessageDecoder): GeneratedCodeInfo.Annotation {
     var path: pbandk.ListWithSize.Builder<Int>? = null
     var sourceFile: String? = null
     var begin: Int? = null

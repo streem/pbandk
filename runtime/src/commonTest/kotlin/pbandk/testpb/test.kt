@@ -11,7 +11,7 @@ data class Foo(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Foo> {
         val defaultInstance by lazy { Foo() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Foo.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Foo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Foo> by lazy {
             pbandk.MessageDescriptor(
@@ -42,7 +42,7 @@ data class Bar(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Bar> {
         val defaultInstance by lazy { Bar() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Bar.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Bar.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Bar> by lazy {
             pbandk.MessageDescriptor(
@@ -80,7 +80,7 @@ data class MessageWithMap(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<MessageWithMap> {
         val defaultInstance by lazy { MessageWithMap() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = MessageWithMap.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MessageWithMap> by lazy {
             pbandk.MessageDescriptor(
@@ -110,7 +110,7 @@ data class MessageWithMap(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<MessageWithMap.MapEntry> {
             val defaultInstance by lazy { MessageWithMap.MapEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = MessageWithMap.MapEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<MessageWithMap.MapEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -150,7 +150,7 @@ data class Wrappers(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Wrappers> {
         val defaultInstance by lazy { Wrappers() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Wrappers.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Wrappers.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Wrappers> by lazy {
             pbandk.MessageDescriptor(
@@ -186,7 +186,7 @@ private fun Foo.protoMergeImpl(plus: pbandk.Message?): Foo = (plus as? Foo)?.cop
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Foo.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Foo {
+private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
     var `val` = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -206,7 +206,7 @@ private fun Bar.protoMergeImpl(plus: pbandk.Message?): Bar = (plus as? Bar)?.cop
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Bar.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Bar {
+private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
     var foos: pbandk.ListWithSize.Builder<pbandk.testpb.Foo>? = null
     var singleFoo: pbandk.testpb.Foo? = null
 
@@ -227,7 +227,7 @@ private fun MessageWithMap.protoMergeImpl(plus: pbandk.Message?): MessageWithMap
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun MessageWithMap.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): MessageWithMap {
+private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithMap {
     var map: pbandk.MessageMap.Builder<String, String>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -245,7 +245,7 @@ private fun MessageWithMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): Messa
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun MessageWithMap.MapEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): MessageWithMap.MapEntry {
+private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithMap.MapEntry {
     var key = ""
     var value = ""
 
@@ -267,7 +267,7 @@ private fun Wrappers.protoMergeImpl(plus: pbandk.Message?): Wrappers = (plus as?
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Wrappers.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Wrappers {
+private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Wrappers {
     var stringValue: String? = null
     var uint64Values: pbandk.ListWithSize.Builder<Long>? = null
 

@@ -11,7 +11,7 @@ data class SourceContext(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<SourceContext> {
         val defaultInstance by lazy { SourceContext() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = SourceContext.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = SourceContext.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SourceContext> by lazy {
             pbandk.MessageDescriptor(
@@ -39,7 +39,7 @@ private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext =
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun SourceContext.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): SourceContext {
+private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceContext {
     var fileName = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

@@ -16,10 +16,11 @@ private val FieldDescriptor<*, *>.jsonNames: List<String>
         name
     )
 
-internal class JsonMessageUnmarshaller internal constructor(
-    private val content: JsonElement, private val jsonConfig: JsonConfig
-) : MessageUnmarshaller {
-    private val jsonValueUnmarshaller = JsonValueUnmarshaller(jsonConfig)
+internal class JsonMessageDecoder internal constructor(
+    private val content: JsonElement,
+    private val jsonConfig: JsonConfig
+) : MessageDecoder {
+    private val jsonValueDecoder = JsonValueDecoder(jsonConfig)
 
     override fun <T : Message> readMessage(
         messageCompanion: Message.Companion<T>,
@@ -58,16 +59,16 @@ internal class JsonMessageUnmarshaller internal constructor(
                     fieldFn(fd.number, defaultValue)
                 }
             } else {
-                fieldFn(fd.number, jsonValueUnmarshaller.readValue(jsonValue, fd.type))
+                fieldFn(fd.number, jsonValueDecoder.readValue(jsonValue, fd.type))
             }
         }
     }
 
     companion object {
-        fun fromString(data: String, jsonConfig: JsonConfig = JsonConfig.DEFAULT): JsonMessageUnmarshaller {
+        fun fromString(data: String, jsonConfig: JsonConfig = JsonConfig.DEFAULT): JsonMessageDecoder {
             val json = Json(JsonConfiguration.Stable)
             val content = json.parse(JsonElementSerializer, data)
-            return JsonMessageUnmarshaller(content, jsonConfig)
+            return JsonMessageDecoder(content, jsonConfig)
         }
     }
 }

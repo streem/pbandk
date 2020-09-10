@@ -5,7 +5,7 @@ import pbandk.wkt.*
 import kotlin.Any
 import kotlin.reflect.KProperty1
 
-internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWireMarshaller) : MessageMarshaller {
+internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEncoder) : MessageEncoder {
     override fun <T : Message> writeMessage(message: T) {
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
@@ -25,7 +25,7 @@ internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWi
 
     private fun writeFieldValue(fieldNum: Int, type: FieldDescriptor.Type, value: Any) {
         when (type) {
-            is FieldDescriptor.Type.Primitive<*> -> wireMarshaller.writePrimitiveValue(fieldNum, type, value)
+            is FieldDescriptor.Type.Primitive<*> -> wireEncoder.writePrimitiveValue(fieldNum, type, value)
 
             is FieldDescriptor.Type.Message<*> -> when (type.messageCompanion) {
                 DoubleValue.Companion -> writeWrapperValue(fieldNum, type, value as Double, Sizer::doubleSize)
@@ -39,7 +39,7 @@ internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWi
                 BytesValue.Companion -> writeWrapperValue(fieldNum, type, value as ByteArr, Sizer::bytesSize)
                 else -> writeMessageValue(fieldNum, value as Message)
             }
-            is FieldDescriptor.Type.Enum<*> -> wireMarshaller.writeEnum(fieldNum, value as Message.Enum)
+            is FieldDescriptor.Type.Enum<*> -> wireEncoder.writeEnum(fieldNum, value as Message.Enum)
 
             is FieldDescriptor.Type.Repeated<*> -> writeRepeatedValue(
                 fieldNum,
@@ -60,21 +60,21 @@ internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWi
     ) {
         val valueType = type.messageCompanion.descriptor.fields.first().type
         if (valueType.isDefaultValue(value)) {
-            wireMarshaller.writeLengthDelimitedHeader(fieldNum, 0)
+            wireEncoder.writeLengthDelimitedHeader(fieldNum, 0)
         } else {
-            wireMarshaller.writeLengthDelimitedHeader(fieldNum, Sizer.tagSize(1) + sizeFn(value))
+            wireEncoder.writeLengthDelimitedHeader(fieldNum, Sizer.tagSize(1) + sizeFn(value))
             writeFieldValue(1, valueType, value)
         }
     }
 
     private fun writeMessageValue(fieldNum: Int, message: Message) {
-        wireMarshaller.writeLengthDelimitedHeader(fieldNum, message.protoSize)
+        wireEncoder.writeLengthDelimitedHeader(fieldNum, message.protoSize)
         writeMessage(message)
     }
 
     private fun writeRepeatedValue(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type, packed: Boolean) {
         if (packed) {
-            wireMarshaller.writePackedRepeated(fieldNum, list, valueType)
+            wireEncoder.writePackedRepeated(fieldNum, list, valueType)
         } else {
             list.forEach {
                 writeFieldValue(fieldNum, valueType, checkNotNull(it))
@@ -100,12 +100,12 @@ internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWi
 
     private fun writeUnknownFieldValue(fieldNum: Int, value: UnknownField.Value) {
         when (value) {
-            is UnknownField.Value.Varint -> wireMarshaller.writeUInt64(fieldNum, value.varint)
-            is UnknownField.Value.Fixed64 -> wireMarshaller.writeFixed64(fieldNum, value.fixed64)
-            is UnknownField.Value.LengthDelimited -> wireMarshaller.writeBytes(fieldNum, value.bytes)
+            is UnknownField.Value.Varint -> wireEncoder.writeUInt64(fieldNum, value.varint)
+            is UnknownField.Value.Fixed64 -> wireEncoder.writeFixed64(fieldNum, value.fixed64)
+            is UnknownField.Value.LengthDelimited -> wireEncoder.writeBytes(fieldNum, value.bytes)
             UnknownField.Value.StartGroup -> throw UnsupportedOperationException()
             UnknownField.Value.EndGroup -> throw UnsupportedOperationException()
-            is UnknownField.Value.Fixed32 -> wireMarshaller.writeFixed32(fieldNum, value.fixed32)
+            is UnknownField.Value.Fixed32 -> wireEncoder.writeFixed32(fieldNum, value.fixed32)
             is UnknownField.Value.Composite -> value.values.forEach { writeUnknownFieldValue(fieldNum, it) }
         }
     }
@@ -113,8 +113,8 @@ internal open class BinaryMessageMarshaller(private val wireMarshaller: BinaryWi
     companion object
 }
 
-internal expect fun BinaryMessageMarshaller.Companion.allocate(size: Int): ByteArrayMessageMarshaller
+internal expect fun BinaryMessageEncoder.Companion.allocate(size: Int): ByteArrayMessageEncoder
 
-internal interface ByteArrayMessageMarshaller : MessageMarshaller {
+internal interface ByteArrayMessageEncoder : MessageEncoder {
     fun toByteArray(): ByteArray
 }

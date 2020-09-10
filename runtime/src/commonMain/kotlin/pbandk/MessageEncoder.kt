@@ -1,5 +1,5 @@
 package pbandk
 
-interface MessageMarshaller {
+interface MessageEncoder {
     fun <T : Message> writeMessage(message: T)
 }

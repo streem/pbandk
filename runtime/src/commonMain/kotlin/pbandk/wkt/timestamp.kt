@@ -12,7 +12,7 @@ data class Timestamp(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Timestamp> {
         val defaultInstance by lazy { Timestamp() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Timestamp.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Timestamp> by lazy {
             pbandk.MessageDescriptor(
@@ -48,7 +48,7 @@ private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus a
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Timestamp.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Timestamp {
+private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Timestamp {
     var seconds = 0L
     var nanos = 0
 

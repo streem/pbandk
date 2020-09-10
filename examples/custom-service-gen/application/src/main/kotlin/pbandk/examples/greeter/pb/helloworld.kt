@@ -11,7 +11,7 @@ data class HelloRequest(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<HelloRequest> {
         val defaultInstance by lazy { HelloRequest() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = HelloRequest.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = HelloRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<HelloRequest> by lazy {
             pbandk.MessageDescriptor(
@@ -41,7 +41,7 @@ data class HelloReply(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<HelloReply> {
         val defaultInstance by lazy { HelloReply() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = HelloReply.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = HelloReply.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<HelloReply> by lazy {
             pbandk.MessageDescriptor(
@@ -69,7 +69,7 @@ private fun HelloRequest.protoMergeImpl(plus: pbandk.Message?): HelloRequest = (
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun HelloRequest.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): HelloRequest {
+private fun HelloRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): HelloRequest {
     var name = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -87,7 +87,7 @@ private fun HelloReply.protoMergeImpl(plus: pbandk.Message?): HelloReply = (plus
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun HelloReply.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): HelloReply {
+private fun HelloReply.Companion.decodeWithImpl(u: pbandk.MessageDecoder): HelloReply {
     var message = ""
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

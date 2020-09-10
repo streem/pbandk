@@ -10,7 +10,7 @@ import pbandk.wkt.*
 import kotlin.Any
 
 @OptIn(ExperimentalUnsignedTypes::class)
-internal class JsonValueMarshaller(private val jsonConfig: JsonConfig) {
+internal class JsonValueEncoder(private val jsonConfig: JsonConfig) {
     fun writeValue(value: Any, type: FieldDescriptor.Type): JsonElement = when (type) {
         is FieldDescriptor.Type.Primitive.Double -> writeDouble(value as Double)
         is FieldDescriptor.Type.Primitive.Float -> writeFloat(value as Float)
@@ -32,8 +32,8 @@ internal class JsonValueMarshaller(private val jsonConfig: JsonConfig) {
             // Kotlin. For example, the [DoubleValue] message is represented in Kotlin as a [Double] type. All other
             // messages, those have a special JSON encoding but are represented in Kotlin using their normal [Message]
             // type (e.g. the [Timestamp] message), only need to be special-cased in
-            // [JsonMessageMarshaller.writeMessage]. The `else` clause below will end up calling the code in
-            // [JsonMessageMarshaller.writeMessage].
+            // [JsonMessageEncoder.writeMessage]. The `else` clause below will end up calling the code in
+            // [JsonMessageEncoder.writeMessage].
             DoubleValue -> writeDouble(value as Double)
             FloatValue -> writeFloat(value as Float)
             Int64Value -> writeInteger64(value as Long)
@@ -95,7 +95,7 @@ internal class JsonValueMarshaller(private val jsonConfig: JsonConfig) {
         JsonLiteral(Util.bytesToBase64(value.array))
 
     fun writeMessage(value: Message): JsonElement =
-        JsonMessageMarshaller(jsonConfig).also { it.writeMessage(value) }.toJsonElement()
+        JsonMessageEncoder(jsonConfig).also { it.writeMessage(value) }.toJsonElement()
 
     fun writeRepeated(list: List<*>, valueType: FieldDescriptor.Type): JsonElement =
         jsonArray {

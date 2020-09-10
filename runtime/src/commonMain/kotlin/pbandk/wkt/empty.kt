@@ -10,7 +10,7 @@ data class Empty(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Empty> {
         val defaultInstance by lazy { Empty() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Empty.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Empty.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Empty> by lazy {
             pbandk.MessageDescriptor(
@@ -30,7 +30,7 @@ private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Empty.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Empty {
+private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Empty {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
     return Empty(unknownFields)

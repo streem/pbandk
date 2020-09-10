@@ -26,7 +26,7 @@ data class Struct(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Struct> {
         val defaultInstance by lazy { Struct() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Struct.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Struct.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Struct> by lazy {
             pbandk.MessageDescriptor(
@@ -56,7 +56,7 @@ data class Struct(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<Struct.FieldsEntry> {
             val defaultInstance by lazy { Struct.FieldsEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = Struct.FieldsEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = Struct.FieldsEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<Struct.FieldsEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -117,7 +117,7 @@ data class Value(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Value> {
         val defaultInstance by lazy { Value() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Value.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Value> by lazy {
             pbandk.MessageDescriptor(
@@ -193,7 +193,7 @@ data class ListValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ListValue> {
         val defaultInstance by lazy { ListValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ListValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ListValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ListValue> by lazy {
             pbandk.MessageDescriptor(
@@ -222,7 +222,7 @@ private fun Struct.protoMergeImpl(plus: pbandk.Message?): Struct = (plus as? Str
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Struct.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Struct {
+private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
     var fields: pbandk.MessageMap.Builder<String, pbandk.wkt.Value?>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -241,7 +241,7 @@ private fun Struct.FieldsEntry.protoMergeImpl(plus: pbandk.Message?): Struct.Fie
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Struct.FieldsEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Struct.FieldsEntry {
+private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct.FieldsEntry {
     var key = ""
     var value: pbandk.wkt.Value? = null
 
@@ -269,7 +269,7 @@ private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Value.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Value {
+private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
     var kind: Value.Kind<*>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -293,7 +293,7 @@ private fun ListValue.protoMergeImpl(plus: pbandk.Message?): ListValue = (plus a
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ListValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ListValue {
+private fun ListValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ListValue {
     var values: pbandk.ListWithSize.Builder<pbandk.wkt.Value>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
