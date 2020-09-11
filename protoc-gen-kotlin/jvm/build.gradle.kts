@@ -35,6 +35,8 @@ publishing {
             pom {
                 configureForPbandk()
             }
+
+            addBintrayRepository(project, this)
         }
     }
 }

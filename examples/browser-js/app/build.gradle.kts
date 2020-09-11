@@ -7,7 +7,7 @@ val protobufjsVersion = "^6.8.8"
 
 dependencies {
     implementation(kotlin("stdlib-js"))
-    implementation("com.github.streem.pbandk:pbandk-runtime-js:$pbandkVersion")
+    implementation("pro.streem.pbandk:pbandk-runtime-js:$pbandkVersion")
     implementation(npm("protobufjs", protobufjsVersion))
 }
 

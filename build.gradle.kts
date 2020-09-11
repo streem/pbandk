@@ -22,9 +22,6 @@ configure<ApiValidationExtension> {
 }
 
 allprojects {
-    group = "com.github.streem.pbandk"
-    version = "0.9.0-SNAPSHOT"
-
     repositories {
         jcenter()
     }

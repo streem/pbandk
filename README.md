@@ -305,39 +305,35 @@ protoc \
 ### Runtime Library
 
 Pbandk's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
-present on [JitPack](https://jitpack.io/#streem/pbandk). Using Gradle, add the JitPack repository:
+present on JCenter. Using Gradle:
 
 ```
 repositories {
-    maven { url 'https://jitpack.io' }
+    jcenter()
 }
-```
 
-Then the dependency can be added for JVM libraries:
-
-```
 dependencies {
-    implementation 'com.github.streem.pbandk:pbandk-runtime-jvm:0.9.0-SNAPSHOT'
+    // For the `common` sourceset in a Kotlin Multiplatform project:
+    implementation("pro.streem.pbandk:pbandk-runtime-common:0.9.0-SNAPSHOT")
+
+    // For Kotlin/JVM sourcesets/projects:
+    implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.0-SNAPSHOT")
+
+    // For Kotlin/JS sourcesets/projects:
+    implementation("pro.streem.pbandk:pbandk-runtime-js:0.9.0-SNAPSHOT")
+
+    // For Kotlin/Native sourcesets/projects:
+    implementation("pro.streem.pbandk:pbandk-runtime-native:0.9.0-SNAPSHOT")
 }
 ```
 
-or for the Native libraries:
-
-```
-dependencies {
-    implementation "com.github.streem.pbandk:pbandk-runtime-native:0.9.0-SNAPSHOT
-}
-```
-
-It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly. For Kotlin
-JS, change `pbandk-runtime-jvm` to `pbandk-runtime-js` and for common multiplatform code, change `pbandk-runtime-jvm` to
-`pbandk-runtime-common`.
+It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly.
 
 In addition, support for [Kotlin's `@OptIn` annotation](https://kotlinlang.org/docs/reference/opt-in-requirements.html)
 should be enabled in order to avoid compiler warnings in the generated code:
 
 ```
-tasks.withType<KotlinCompile>().all {
+tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
 }
 ```
@@ -353,7 +349,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly 'com.github.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.9.0-SNAPSHOT'
+    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.9.0-SNAPSHOT")
 }
 ```
 
@@ -547,6 +543,19 @@ Then, from the root directory:
 ```
 ./conformance/test-conformance.sh
 ```
+
+## Releasing
+
+Releases are handled automatically via CI. To create a new release:
+
+1. Update the pbandk version number in `gradle.properties`, `README.md`, and `examples/*/build.gradle.kts` to remove the `SNAPSHOT` suffix. For example, if the current version is `0.9.0-SNAPSHOT`, then update it to be `0.9.0`.
+1. Commit the change. E.g.: `git commit -m "Bump to 0.9.0" -a`.
+1. Tag the new version. E.g.: `git tag -a v0.9.0`. Include the release notes for this version in the tag's description. See one of the previous tags for examples.
+1. Increment the pbandk version number in the files from step 1 to the next minor release and add the `SNAPSHOT` suffix. For example, if the tag was created for version `0.9.0`, then the new version should be `0.9.1-SNAPSHOT`.
+1. Commit the change. E.g.: `git commit -m "Bump to 0.9.1-SNAPSHOT" -a`.
+1. Push the changes to GitHub: `git push origin --follow-tags master`.
+1. Wait for CI to notice the new tag, build it, and upload it to Bintray.
+1. Create a new release on GitHub. Use the contents of the tag description as the release description. E.g.: `hub release create -F <(git tag -l --format='%(contents)' v0.9.0) v0.9.0`.
 
 ## Credits
 

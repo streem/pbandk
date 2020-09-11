@@ -11,11 +11,10 @@ val protobufVersion by extra("3.11.1")
 val pbandkVersion by extra("0.9.0-SNAPSHOT")
 
 repositories {
-    jcenter()
     if (System.getenv("CI") == "true") {
         mavenLocal()
     }
-    maven("https://jitpack.io")
+    jcenter()
 }
 
 application {
@@ -25,7 +24,7 @@ application {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("com.github.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
+    implementation("pro.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
 }
 
 protobuf {
@@ -35,7 +34,7 @@ protobuf {
     }
     plugins {
         id("kotlin") {
-            artifact = "com.github.streem.pbandk:protoc-gen-kotlin-jvm:$pbandkVersion:jvm8@jar"
+            artifact = "pro.streem.pbandk:protoc-gen-kotlin-jvm:$pbandkVersion:jvm8@jar"
         }
     }
     generateProtoTasks {
@@ -46,7 +45,6 @@ protobuf {
             task.plugins {
                 id("kotlin") {
                     option("kotlin_package=pbandk.examples.addressbook.pb")
-//                    option("json_support=false")
                 }
             }
         }
