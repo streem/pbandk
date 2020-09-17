@@ -33,7 +33,7 @@ public final class Test {
   /**
    * Protobuf type {@code testpb.Foo}
    */
-  public  static final class Foo extends
+  public static final class Foo extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.Foo)
       FooOrBuilder {
@@ -120,6 +120,7 @@ public final class Test {
      * <code>string val = 1;</code>
      * @return The val.
      */
+    @java.lang.Override
     public java.lang.String getVal() {
       java.lang.Object ref = val_;
       if (ref instanceof java.lang.String) {
@@ -136,6 +137,7 @@ public final class Test {
      * <code>string val = 1;</code>
      * @return The bytes for val.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getValBytes() {
       java.lang.Object ref = val_;
@@ -626,7 +628,7 @@ public final class Test {
   /**
    * Protobuf type {@code testpb.Bar}
    */
-  public  static final class Bar extends
+  public static final class Bar extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.Bar)
       BarOrBuilder {
@@ -732,12 +734,14 @@ public final class Test {
     /**
      * <code>repeated .testpb.Foo foos = 1;</code>
      */
+    @java.lang.Override
     public java.util.List<pbandk.testpb.java.Test.Foo> getFoosList() {
       return foos_;
     }
     /**
      * <code>repeated .testpb.Foo foos = 1;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends pbandk.testpb.java.Test.FooOrBuilder> 
         getFoosOrBuilderList() {
       return foos_;
@@ -745,18 +749,21 @@ public final class Test {
     /**
      * <code>repeated .testpb.Foo foos = 1;</code>
      */
+    @java.lang.Override
     public int getFoosCount() {
       return foos_.size();
     }
     /**
      * <code>repeated .testpb.Foo foos = 1;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.java.Test.Foo getFoos(int index) {
       return foos_.get(index);
     }
     /**
      * <code>repeated .testpb.Foo foos = 1;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.java.Test.FooOrBuilder getFoosOrBuilder(
         int index) {
       return foos_.get(index);
@@ -768,6 +775,7 @@ public final class Test {
      * <code>.testpb.Foo single_foo = 2;</code>
      * @return Whether the singleFoo field is set.
      */
+    @java.lang.Override
     public boolean hasSingleFoo() {
       return singleFoo_ != null;
     }
@@ -775,12 +783,14 @@ public final class Test {
      * <code>.testpb.Foo single_foo = 2;</code>
      * @return The singleFoo.
      */
+    @java.lang.Override
     public pbandk.testpb.java.Test.Foo getSingleFoo() {
       return singleFoo_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : singleFoo_;
     }
     /**
      * <code>.testpb.Foo single_foo = 2;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.java.Test.FooOrBuilder getSingleFooOrBuilder() {
       return getSingleFoo();
     }
@@ -1609,7 +1619,7 @@ public final class Test {
   /**
    * Protobuf type {@code testpb.MessageWithMap}
    */
-  public  static final class MessageWithMap extends
+  public static final class MessageWithMap extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.MessageWithMap)
       MessageWithMapOrBuilder {
@@ -1739,6 +1749,7 @@ public final class Test {
      * <code>map&lt;string, string&gt; map = 1;</code>
      */
 
+    @java.lang.Override
     public boolean containsMap(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -1747,6 +1758,7 @@ public final class Test {
     /**
      * Use {@link #getMapMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getMap() {
       return getMapMap();
@@ -1754,6 +1766,7 @@ public final class Test {
     /**
      * <code>map&lt;string, string&gt; map = 1;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getMapMap() {
       return internalGetMap().getMap();
@@ -1761,6 +1774,7 @@ public final class Test {
     /**
      * <code>map&lt;string, string&gt; map = 1;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getMapOrDefault(
         java.lang.String key,
@@ -1773,6 +1787,7 @@ public final class Test {
     /**
      * <code>map&lt;string, string&gt; map = 1;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getMapOrThrow(
         java.lang.String key) {
@@ -2151,6 +2166,7 @@ public final class Test {
        * <code>map&lt;string, string&gt; map = 1;</code>
        */
 
+      @java.lang.Override
       public boolean containsMap(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -2159,6 +2175,7 @@ public final class Test {
       /**
        * Use {@link #getMapMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getMap() {
         return getMapMap();
@@ -2166,6 +2183,7 @@ public final class Test {
       /**
        * <code>map&lt;string, string&gt; map = 1;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getMapMap() {
         return internalGetMap().getMap();
@@ -2173,6 +2191,7 @@ public final class Test {
       /**
        * <code>map&lt;string, string&gt; map = 1;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getMapOrDefault(
           java.lang.String key,
@@ -2185,6 +2204,7 @@ public final class Test {
       /**
        * <code>map&lt;string, string&gt; map = 1;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getMapOrThrow(
           java.lang.String key) {
@@ -2342,7 +2362,7 @@ public final class Test {
   /**
    * Protobuf type {@code testpb.Wrappers}
    */
-  public  static final class Wrappers extends
+  public static final class Wrappers extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.Wrappers)
       WrappersOrBuilder {
@@ -2449,6 +2469,7 @@ public final class Test {
      * <code>.google.protobuf.StringValue string_value = 1;</code>
      * @return Whether the stringValue field is set.
      */
+    @java.lang.Override
     public boolean hasStringValue() {
       return stringValue_ != null;
     }
@@ -2456,12 +2477,14 @@ public final class Test {
      * <code>.google.protobuf.StringValue string_value = 1;</code>
      * @return The stringValue.
      */
+    @java.lang.Override
     public com.google.protobuf.StringValue getStringValue() {
       return stringValue_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : stringValue_;
     }
     /**
      * <code>.google.protobuf.StringValue string_value = 1;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.StringValueOrBuilder getStringValueOrBuilder() {
       return getStringValue();
     }
@@ -2471,12 +2494,14 @@ public final class Test {
     /**
      * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.UInt64Value> getUint64ValuesList() {
       return uint64Values_;
     }
     /**
      * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.UInt64ValueOrBuilder> 
         getUint64ValuesOrBuilderList() {
       return uint64Values_;
@@ -2484,18 +2509,21 @@ public final class Test {
     /**
      * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
      */
+    @java.lang.Override
     public int getUint64ValuesCount() {
       return uint64Values_.size();
     }
     /**
      * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt64Value getUint64Values(int index) {
       return uint64Values_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.UInt64Value uint64_values = 2;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt64ValueOrBuilder getUint64ValuesOrBuilder(
         int index) {
       return uint64Values_.get(index);

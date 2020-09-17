@@ -1,6 +1,16 @@
 plugins {
     kotlin("multiplatform")
     `maven-publish`
+    // Fetch/sync remote proto files prior to code gen.
+    id("com.tinder.gitquery")
+}
+
+val protoDir = "src/commonMain/proto"
+
+gitQuery {
+    configFile = "gitquery-proto.yml"
+    outputDir = protoDir
+    repoDir = "tmp/.gitquery"
 }
 
 kotlin {
@@ -49,10 +59,11 @@ kotlin {
 
 tasks {
     val generateProto by registering(KotlinProtocTask::class) {
-        includeDir.set(project.file("src/commonMain/proto"))
+        includeDir.set(project.file(protoDir))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
+        dependsOn("gitQuery")
     }
 }
 

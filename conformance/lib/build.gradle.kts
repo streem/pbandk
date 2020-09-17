@@ -2,6 +2,16 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
+    // Fetch/sync remote proto files prior to code gen.
+    id("com.tinder.gitquery")
+}
+
+val protoDir = "src/commonMain/proto"
+
+gitQuery {
+    configFile = "gitquery-proto.yml"
+    outputDir = protoDir
+    repoDir = "tmp/.gitquery"
 }
 
 kotlin {
@@ -92,6 +102,7 @@ tasks {
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.conformance.pb")
         logLevel.set("debug")
+        dependsOn("gitQuery")
     }
 
     // DCE is now enable by default in Kotlin 1.3.7x

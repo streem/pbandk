@@ -5,11 +5,25 @@ plugins {
     kotlin("jvm")
     application
     id("com.google.protobuf")
+    id("com.tinder.gitquery")
 }
 
 val pbandkVersion: String by rootProject.extra
 val kotlinxCoroutinesVersion by extra("1.3.6")
 val protobufVersion by extra("3.11.1")
+val protoDir = "src/main/proto"
+
+gitQuery {
+    configFile = "gitquery-proto.yml"
+    outputDir = protoDir
+    repoDir = "tmp/.gitquery"
+}
+
+sourceSets {
+    main {
+        proto.srcDirs(protoDir)
+    }
+}
 
 application {
     mainClassName = "pbandk.examples.greeter.MainKt"
@@ -35,6 +49,9 @@ protobuf {
     generateProtoTasks {
         ofSourceSet("main").forEach { task ->
             task.dependsOn(":generator:jar")
+            if (task.name == "generateProto") {
+                task.dependsOn(tasks.getByName("gitQuery"))
+            }
             task.builtins {
                 remove("java")
             }

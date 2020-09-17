@@ -3,6 +3,16 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     `maven-publish`
+    // Fetch/sync remote proto files prior to code gen.
+    id("com.tinder.gitquery")
+}
+
+val protoDir = "src/commonMain/proto"
+
+gitQuery {
+    configFile = "gitquery-proto.yml"
+    outputDir = protoDir
+    repoDir = "tmp/.gitquery"
 }
 
 kotlin {
@@ -97,15 +107,12 @@ kotlin {
 
 tasks {
     val generateWellKnownTypes by registering(KotlinProtocTask::class) {
-        val protocPath = provider {
-            System.getProperty("protoc.path")
-                ?: throw InvalidUserDataException("System property protoc.path must be set")
-        }.map { rootProject.layout.projectDirectory.dir(it) }
-        includeDir.set(protocPath.map { it.dir("include") })
+        includeDir.set(project.file("$protoDir/src"))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.wkt")
         logLevel.set("debug")
         protoFileSubdir("google/protobuf")
+        dependsOn(gitQuery)
     }
 
     val generateKotlinTestTypes by registering(KotlinProtocTask::class) {

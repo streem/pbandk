@@ -5,6 +5,22 @@ plugins {
     kotlin("jvm") version "1.3.72"
     application
     id("com.google.protobuf") version "0.8.12"
+    // Fetch/sync remote proto files prior to code gen.
+    id("com.tinder.gitquery") version "2.0.1"
+}
+
+val protoDir = "src/main/proto"
+
+gitQuery {
+    configFile = "gitquery-proto.yml"
+    outputDir = protoDir
+    repoDir = "tmp/.gitquery"
+}
+
+sourceSets {
+    main {
+        proto.srcDirs(protoDir)
+    }
 }
 
 val protobufVersion by extra("3.11.1")
@@ -39,6 +55,9 @@ protobuf {
     }
     generateProtoTasks {
         ofSourceSet("main").forEach { task ->
+            if (task.name == "generateProto") {
+                task.dependsOn(tasks.getByName("gitQuery"))
+            }
             task.builtins {
                 remove("java")
             }

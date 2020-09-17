@@ -7,8 +7,9 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     kotlin("multiplatform") version Versions.kotlin apply false
     id("org.springframework.boot") version Versions.springBootGradlePlugin apply false
-
     id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
+    id("com.tinder.gitquery") version Versions.gitQueryGradlePlugin apply false
+
 }
 
 configure<ApiValidationExtension> {

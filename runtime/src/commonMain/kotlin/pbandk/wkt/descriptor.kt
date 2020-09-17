@@ -400,6 +400,7 @@ data class FieldDescriptorProto(
     val oneofIndex: Int? = null,
     val jsonName: String? = null,
     val options: pbandk.wkt.FieldOptions? = null,
+    val proto3Optional: Boolean? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -493,6 +494,14 @@ data class FieldDescriptorProto(
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "jsonName",
                         value = FieldDescriptorProto::jsonName
+                    ),
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "proto3_optional",
+                        number = 17,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+                        jsonName = "proto3Optional",
+                        value = FieldDescriptorProto::proto3Optional
                     )
                 )
             )
@@ -2002,6 +2011,7 @@ private fun FieldDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FieldDes
     oneofIndex = plus.oneofIndex ?: oneofIndex,
     jsonName = plus.jsonName ?: jsonName,
     options = options?.plus(plus.options) ?: plus.options,
+    proto3Optional = plus.proto3Optional ?: proto3Optional,
     unknownFields = unknownFields + plus.unknownFields
 ) ?: this
 
@@ -2017,6 +2027,7 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
     var oneofIndex: Int? = null
     var jsonName: String? = null
     var options: pbandk.wkt.FieldOptions? = null
+    var proto3Optional: Boolean? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
@@ -2030,11 +2041,12 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
             8 -> options = _fieldValue as pbandk.wkt.FieldOptions
             9 -> oneofIndex = _fieldValue as Int
             10 -> jsonName = _fieldValue as String
+            17 -> proto3Optional = _fieldValue as Boolean
         }
     }
     return FieldDescriptorProto(name, number, label, type,
         typeName, extendee, defaultValue, oneofIndex,
-        jsonName, options, unknownFields)
+        jsonName, options, proto3Optional, unknownFields)
 }
 
 fun OneofDescriptorProto?.orDefault() = this ?: OneofDescriptorProto.defaultInstance

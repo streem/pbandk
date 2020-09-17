@@ -16,3 +16,5 @@ To run it, simply:
 
 This will start bundle everything with webpack and start a development web server usually at http://localhost:8080/. See
 the code for more details.
+
+Note: to update the synced proto files run `gradle gitQuery` 
