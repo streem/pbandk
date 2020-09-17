@@ -4,7 +4,7 @@ import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
 
-internal interface BinaryWireMarshaller {
+internal interface BinaryWireEncoder {
     fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int)
 
     fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type)
@@ -42,7 +42,7 @@ internal interface BinaryWireMarshaller {
     fun writeBytes(fieldNum: Int, value: ByteArr)
 }
 
-internal fun BinaryWireMarshaller.writePrimitiveValue(
+internal fun BinaryWireEncoder.writePrimitiveValue(
     fieldNum: Int,
     type: FieldDescriptor.Type.Primitive<*>,
     value: Any

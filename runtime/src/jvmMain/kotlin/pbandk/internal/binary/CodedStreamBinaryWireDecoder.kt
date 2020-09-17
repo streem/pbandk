@@ -6,7 +6,7 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.UnknownField
 
-internal class CodedStreamBinaryWireUnmarshaller(private val stream: CodedInputStream) : BinaryWireUnmarshaller {
+internal class CodedStreamBinaryWireDecoder(private val stream: CodedInputStream) : BinaryWireDecoder {
     override fun readTag(): Tag = Tag(stream.readTag())
 
     override fun readDouble(): Double = stream.readDouble()
@@ -44,7 +44,7 @@ internal class CodedStreamBinaryWireUnmarshaller(private val stream: CodedInputS
 
     override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T {
         val oldLimit = stream.pushLimit(stream.readRawVarint32())
-        val message = messageCompanion.unmarshal(BinaryMessageUnmarshaller(this))
+        val message = messageCompanion.decodeWith(BinaryMessageDecoder(this))
         if (!stream.isAtEnd) {
             throw InvalidProtocolBufferException("Not at the end of the current message limit as expected")
         }
@@ -52,7 +52,7 @@ internal class CodedStreamBinaryWireUnmarshaller(private val stream: CodedInputS
         return message
     }
 
-    override fun <T : Any> readPackedRepeated(readFn: BinaryWireUnmarshaller.() -> T): Sequence<T> {
+    override fun <T : Any> readPackedRepeated(readFn: BinaryWireDecoder.() -> T): Sequence<T> {
         return sequence {
             val oldLimit = stream.pushLimit(stream.readRawVarint32())
             while (!stream.isAtEnd) yield(readFn())
@@ -61,7 +61,7 @@ internal class CodedStreamBinaryWireUnmarshaller(private val stream: CodedInputS
     }
 
     override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
-        // TODO: support a `discardUnknownFields` option in the BinaryMessageUnmarshaller
+        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
         //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         return when (wireType) {
             WireType.VARINT -> UnknownField.Value.Varint(stream.readInt64())

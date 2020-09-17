@@ -22,8 +22,10 @@ interface Namer {
             "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "Map", "String"
         )
         val disallowedFieldNames = setOf(
-            "descriptor", "emptyList", "jsonMarshal", "jsonUnmarshal", "marshal", "pbandk", "plus",
-            "protoMarshal", "protoSize", "protoUnmarshal", "unknownFields", "unmarshal"
+            "decodeWith", "descriptor", "emptyList", "encodeWith", "pbandk", "plus", "protoSize", "unknownFields"
+        )
+        val disallowedFieldNamePrefixes = setOf(
+            "decodeFrom", "encodeTo"
         )
         val disallowedValueTypeNames = disallowedTypeNames + setOf(
             "UNRECOGNIZED"
@@ -43,6 +45,7 @@ interface Namer {
         override fun newFieldName(preferred: String, nameSet: Collection<String>): String {
             var name = underscoreToCamelCase(preferred).decapitalize()
             while (nameSet.contains(name) || disallowedFieldNames.contains(name)) name += '_'
+            if (disallowedFieldNamePrefixes.any { name.startsWith(it) } && !name.endsWith('_')) name += '_'
             if (kotlinKeywords.contains(name)) name = "`$name`"
             return name
         }

@@ -14,7 +14,7 @@ data class Version(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Version> {
         val defaultInstance by lazy { Version() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Version.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Version.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Version> by lazy {
             pbandk.MessageDescriptor(
@@ -71,7 +71,7 @@ data class CodeGeneratorRequest(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<CodeGeneratorRequest> {
         val defaultInstance by lazy { CodeGeneratorRequest() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = CodeGeneratorRequest.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<CodeGeneratorRequest> by lazy {
             pbandk.MessageDescriptor(
@@ -126,7 +126,7 @@ data class CodeGeneratorResponse(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<CodeGeneratorResponse> {
         val defaultInstance by lazy { CodeGeneratorResponse() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = CodeGeneratorResponse.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse> by lazy {
             pbandk.MessageDescriptor(
@@ -165,7 +165,7 @@ data class CodeGeneratorResponse(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<CodeGeneratorResponse.File> {
             val defaultInstance by lazy { CodeGeneratorResponse.File() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = CodeGeneratorResponse.File.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorResponse.File.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse.File> by lazy {
                 pbandk.MessageDescriptor(
@@ -214,7 +214,7 @@ private fun Version.protoMergeImpl(plus: pbandk.Message?): Version = (plus as? V
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Version.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Version {
+private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Version {
     var major: Int? = null
     var minor: Int? = null
     var patch: Int? = null
@@ -242,7 +242,7 @@ private fun CodeGeneratorRequest.protoMergeImpl(plus: pbandk.Message?): CodeGene
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun CodeGeneratorRequest.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): CodeGeneratorRequest {
+private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): CodeGeneratorRequest {
     var fileToGenerate: pbandk.ListWithSize.Builder<String>? = null
     var parameter: String? = null
     var protoFile: pbandk.ListWithSize.Builder<pbandk.wkt.FileDescriptorProto>? = null
@@ -268,7 +268,7 @@ private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGen
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun CodeGeneratorResponse.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): CodeGeneratorResponse {
+private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDecoder): CodeGeneratorResponse {
     var error: String? = null
     var file: pbandk.ListWithSize.Builder<pbandk.gen.pb.CodeGeneratorResponse.File>? = null
 
@@ -291,7 +291,7 @@ private fun CodeGeneratorResponse.File.protoMergeImpl(plus: pbandk.Message?): Co
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun CodeGeneratorResponse.File.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): CodeGeneratorResponse.File {
+private fun CodeGeneratorResponse.File.Companion.decodeWithImpl(u: pbandk.MessageDecoder): CodeGeneratorResponse.File {
     var name: String? = null
     var insertionPoint: String? = null
     var content: String? = null

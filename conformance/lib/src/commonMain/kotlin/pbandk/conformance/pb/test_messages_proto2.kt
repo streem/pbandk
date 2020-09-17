@@ -167,7 +167,7 @@ data class TestAllTypesProto2(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<TestAllTypesProto2> {
         val defaultInstance by lazy { TestAllTypesProto2() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2> by lazy {
             pbandk.MessageDescriptor(
@@ -1152,7 +1152,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.NestedMessage> {
             val defaultInstance by lazy { TestAllTypesProto2.NestedMessage() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.NestedMessage.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.NestedMessage> by lazy {
                 pbandk.MessageDescriptor(
@@ -1191,7 +1191,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt32Int32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt32Int32Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt32Int32Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt32Int32Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1230,7 +1230,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt64Int64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt64Int64Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt64Int64Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt64Int64Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1269,7 +1269,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapUint32Uint32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapUint32Uint32Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapUint32Uint32Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapUint32Uint32Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1308,7 +1308,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapUint64Uint64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapUint64Uint64Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapUint64Uint64Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapUint64Uint64Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1347,7 +1347,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSint32Sint32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSint32Sint32Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSint32Sint32Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSint32Sint32Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1386,7 +1386,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSint64Sint64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSint64Sint64Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSint64Sint64Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSint64Sint64Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1425,7 +1425,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapFixed32Fixed32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapFixed32Fixed32Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapFixed32Fixed32Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapFixed32Fixed32Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1464,7 +1464,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapFixed64Fixed64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapFixed64Fixed64Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapFixed64Fixed64Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapFixed64Fixed64Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1503,7 +1503,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSfixed32Sfixed32Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSfixed32Sfixed32Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSfixed32Sfixed32Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1542,7 +1542,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapSfixed64Sfixed64Entry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapSfixed64Sfixed64Entry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapSfixed64Sfixed64Entry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1581,7 +1581,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt32FloatEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt32FloatEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt32FloatEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt32FloatEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1620,7 +1620,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapInt32DoubleEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapInt32DoubleEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapInt32DoubleEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapInt32DoubleEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1659,7 +1659,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapBoolBoolEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapBoolBoolEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapBoolBoolEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapBoolBoolEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1698,7 +1698,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringStringEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringStringEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringStringEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringStringEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1737,7 +1737,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringBytesEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringBytesEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringBytesEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringBytesEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1776,7 +1776,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringNestedMessageEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringNestedMessageEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringNestedMessageEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringNestedMessageEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1815,7 +1815,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringForeignMessageEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringForeignMessageEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringForeignMessageEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringForeignMessageEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1854,7 +1854,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringNestedEnumEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringNestedEnumEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringNestedEnumEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringNestedEnumEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1893,7 +1893,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MapStringForeignEnumEntry> {
             val defaultInstance by lazy { TestAllTypesProto2.MapStringForeignEnumEntry() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MapStringForeignEnumEntry.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MapStringForeignEnumEntry> by lazy {
                 pbandk.MessageDescriptor(
@@ -1932,7 +1932,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.Data> {
             val defaultInstance by lazy { TestAllTypesProto2.Data() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.Data.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.Data.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.Data> by lazy {
                 pbandk.MessageDescriptor(
@@ -1969,7 +1969,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MessageSetCorrect> {
             val defaultInstance by lazy { TestAllTypesProto2.MessageSetCorrect() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MessageSetCorrect.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MessageSetCorrect> by lazy {
                 pbandk.MessageDescriptor(
@@ -1991,7 +1991,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MessageSetCorrectExtension1> {
             val defaultInstance by lazy { TestAllTypesProto2.MessageSetCorrectExtension1() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MessageSetCorrectExtension1.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MessageSetCorrectExtension1> by lazy {
                 pbandk.MessageDescriptor(
@@ -2021,7 +2021,7 @@ data class TestAllTypesProto2(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<TestAllTypesProto2.MessageSetCorrectExtension2> {
             val defaultInstance by lazy { TestAllTypesProto2.MessageSetCorrectExtension2() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = TestAllTypesProto2.MessageSetCorrectExtension2.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto2.MessageSetCorrectExtension2> by lazy {
                 pbandk.MessageDescriptor(
@@ -2052,7 +2052,7 @@ data class ForeignMessageProto2(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ForeignMessageProto2> {
         val defaultInstance by lazy { ForeignMessageProto2() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ForeignMessageProto2.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ForeignMessageProto2.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ForeignMessageProto2> by lazy {
             pbandk.MessageDescriptor(
@@ -2086,7 +2086,7 @@ data class UnknownToTestAllTypes(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<UnknownToTestAllTypes> {
         val defaultInstance by lazy { UnknownToTestAllTypes() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = UnknownToTestAllTypes.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = UnknownToTestAllTypes.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UnknownToTestAllTypes> by lazy {
             pbandk.MessageDescriptor(
@@ -2147,7 +2147,7 @@ data class UnknownToTestAllTypes(
         override val protoSize by lazy { super.protoSize }
         companion object : pbandk.Message.Companion<UnknownToTestAllTypes.OptionalGroup> {
             val defaultInstance by lazy { UnknownToTestAllTypes.OptionalGroup() }
-            override fun unmarshal(u: pbandk.MessageUnmarshaller) = UnknownToTestAllTypes.OptionalGroup.unmarshalImpl(u)
+            override fun decodeWith(u: pbandk.MessageDecoder) = UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<UnknownToTestAllTypes.OptionalGroup> by lazy {
                 pbandk.MessageDescriptor(
@@ -2290,7 +2290,7 @@ private fun TestAllTypesProto2.protoMergeImpl(plus: pbandk.Message?): TestAllTyp
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2 {
+private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2 {
     var optionalInt32: Int? = null
     var optionalInt64: Long? = null
     var optionalUint32: Int? = null
@@ -2561,7 +2561,7 @@ private fun TestAllTypesProto2.NestedMessage.protoMergeImpl(plus: pbandk.Message
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.NestedMessage.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.NestedMessage {
+private fun TestAllTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.NestedMessage {
     var a: Int? = null
     var corecursive: pbandk.conformance.pb.TestAllTypesProto2? = null
 
@@ -2583,7 +2583,7 @@ private fun TestAllTypesProto2.MapInt32Int32Entry.protoMergeImpl(plus: pbandk.Me
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapInt32Int32Entry {
+private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt32Int32Entry {
     var key: Int? = null
     var value: Int? = null
 
@@ -2605,7 +2605,7 @@ private fun TestAllTypesProto2.MapInt64Int64Entry.protoMergeImpl(plus: pbandk.Me
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapInt64Int64Entry {
+private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt64Int64Entry {
     var key: Long? = null
     var value: Long? = null
 
@@ -2627,7 +2627,7 @@ private fun TestAllTypesProto2.MapUint32Uint32Entry.protoMergeImpl(plus: pbandk.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapUint32Uint32Entry {
+private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapUint32Uint32Entry {
     var key: Int? = null
     var value: Int? = null
 
@@ -2649,7 +2649,7 @@ private fun TestAllTypesProto2.MapUint64Uint64Entry.protoMergeImpl(plus: pbandk.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapUint64Uint64Entry {
+private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapUint64Uint64Entry {
     var key: Long? = null
     var value: Long? = null
 
@@ -2671,7 +2671,7 @@ private fun TestAllTypesProto2.MapSint32Sint32Entry.protoMergeImpl(plus: pbandk.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapSint32Sint32Entry {
+private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSint32Sint32Entry {
     var key: Int? = null
     var value: Int? = null
 
@@ -2693,7 +2693,7 @@ private fun TestAllTypesProto2.MapSint64Sint64Entry.protoMergeImpl(plus: pbandk.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapSint64Sint64Entry {
+private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSint64Sint64Entry {
     var key: Long? = null
     var value: Long? = null
 
@@ -2715,7 +2715,7 @@ private fun TestAllTypesProto2.MapFixed32Fixed32Entry.protoMergeImpl(plus: pband
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapFixed32Fixed32Entry {
+private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapFixed32Fixed32Entry {
     var key: Int? = null
     var value: Int? = null
 
@@ -2737,7 +2737,7 @@ private fun TestAllTypesProto2.MapFixed64Fixed64Entry.protoMergeImpl(plus: pband
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapFixed64Fixed64Entry {
+private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapFixed64Fixed64Entry {
     var key: Long? = null
     var value: Long? = null
 
@@ -2759,7 +2759,7 @@ private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: pba
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapSfixed32Sfixed32Entry {
+private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSfixed32Sfixed32Entry {
     var key: Int? = null
     var value: Int? = null
 
@@ -2781,7 +2781,7 @@ private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.protoMergeImpl(plus: pba
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapSfixed64Sfixed64Entry {
+private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSfixed64Sfixed64Entry {
     var key: Long? = null
     var value: Long? = null
 
@@ -2803,7 +2803,7 @@ private fun TestAllTypesProto2.MapInt32FloatEntry.protoMergeImpl(plus: pbandk.Me
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapInt32FloatEntry {
+private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt32FloatEntry {
     var key: Int? = null
     var value: Float? = null
 
@@ -2825,7 +2825,7 @@ private fun TestAllTypesProto2.MapInt32DoubleEntry.protoMergeImpl(plus: pbandk.M
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapInt32DoubleEntry {
+private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt32DoubleEntry {
     var key: Int? = null
     var value: Double? = null
 
@@ -2847,7 +2847,7 @@ private fun TestAllTypesProto2.MapBoolBoolEntry.protoMergeImpl(plus: pbandk.Mess
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapBoolBoolEntry {
+private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapBoolBoolEntry {
     var key: Boolean? = null
     var value: Boolean? = null
 
@@ -2869,7 +2869,7 @@ private fun TestAllTypesProto2.MapStringStringEntry.protoMergeImpl(plus: pbandk.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapStringStringEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapStringStringEntry {
+private fun TestAllTypesProto2.MapStringStringEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringStringEntry {
     var key: String? = null
     var value: String? = null
 
@@ -2891,7 +2891,7 @@ private fun TestAllTypesProto2.MapStringBytesEntry.protoMergeImpl(plus: pbandk.M
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapStringBytesEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapStringBytesEntry {
+private fun TestAllTypesProto2.MapStringBytesEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringBytesEntry {
     var key: String? = null
     var value: pbandk.ByteArr? = null
 
@@ -2913,7 +2913,7 @@ private fun TestAllTypesProto2.MapStringNestedMessageEntry.protoMergeImpl(plus: 
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapStringNestedMessageEntry {
+private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringNestedMessageEntry {
     var key: String? = null
     var value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage? = null
 
@@ -2935,7 +2935,7 @@ private fun TestAllTypesProto2.MapStringForeignMessageEntry.protoMergeImpl(plus:
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapStringForeignMessageEntry {
+private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringForeignMessageEntry {
     var key: String? = null
     var value: pbandk.conformance.pb.ForeignMessageProto2? = null
 
@@ -2957,7 +2957,7 @@ private fun TestAllTypesProto2.MapStringNestedEnumEntry.protoMergeImpl(plus: pba
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapStringNestedEnumEntry {
+private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringNestedEnumEntry {
     var key: String? = null
     var value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum? = null
 
@@ -2979,7 +2979,7 @@ private fun TestAllTypesProto2.MapStringForeignEnumEntry.protoMergeImpl(plus: pb
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MapStringForeignEnumEntry {
+private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringForeignEnumEntry {
     var key: String? = null
     var value: pbandk.conformance.pb.ForeignEnumProto2? = null
 
@@ -3001,7 +3001,7 @@ private fun TestAllTypesProto2.Data.protoMergeImpl(plus: pbandk.Message?): TestA
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.Data.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.Data {
+private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.Data {
     var groupInt32: Int? = null
     var groupUint32: Int? = null
 
@@ -3021,7 +3021,7 @@ private fun TestAllTypesProto2.MessageSetCorrect.protoMergeImpl(plus: pbandk.Mes
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MessageSetCorrect.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MessageSetCorrect {
+private fun TestAllTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrect {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
     return TestAllTypesProto2.MessageSetCorrect(unknownFields)
@@ -3035,7 +3035,7 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.protoMergeImpl(plus: 
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MessageSetCorrectExtension1 {
+private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrectExtension1 {
     var str: String? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -3054,7 +3054,7 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.protoMergeImpl(plus: 
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): TestAllTypesProto2.MessageSetCorrectExtension2 {
+private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrectExtension2 {
     var i: Int? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -3073,7 +3073,7 @@ private fun ForeignMessageProto2.protoMergeImpl(plus: pbandk.Message?): ForeignM
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ForeignMessageProto2.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ForeignMessageProto2 {
+private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ForeignMessageProto2 {
     var c: Int? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -3096,7 +3096,7 @@ private fun UnknownToTestAllTypes.protoMergeImpl(plus: pbandk.Message?): Unknown
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun UnknownToTestAllTypes.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UnknownToTestAllTypes {
+private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UnknownToTestAllTypes {
     var optionalInt32: Int? = null
     var optionalString: String? = null
     var nestedMessage: pbandk.conformance.pb.ForeignMessageProto2? = null
@@ -3124,7 +3124,7 @@ private fun UnknownToTestAllTypes.OptionalGroup.protoMergeImpl(plus: pbandk.Mess
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun UnknownToTestAllTypes.OptionalGroup.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): UnknownToTestAllTypes.OptionalGroup {
+private fun UnknownToTestAllTypes.OptionalGroup.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UnknownToTestAllTypes.OptionalGroup {
     var a: Int? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

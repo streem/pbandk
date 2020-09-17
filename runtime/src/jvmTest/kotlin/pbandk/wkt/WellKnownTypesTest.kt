@@ -13,9 +13,9 @@ class WellKnownTypesTest {
     private fun <T : Message> Message.Companion<T>.assertMessageEquals(msg: T, pbMsg: MessageLite) {
         // First a simple check of their byte arrays
         val pbBytes = pbMsg.toByteArray()
-        assertEquals(pbBytes.asList(), msg.protoMarshal().asList())
-        // Now unmarshal and check the two messages equal each other
-        assertEquals(msg, protoUnmarshal(pbBytes))
+        assertEquals(pbBytes.asList(), msg.encodeToByteArray().asList())
+        // Now decode and check the two messages equal each other
+        assertEquals(msg, decodeFromByteArray(pbBytes))
     }
 
     @Test

@@ -6,14 +6,14 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.nio.ByteBuffer
 
-fun <T : Message> T.protoMarshal(stream: OutputStream) {
+fun <T : Message> T.encodeToStream(stream: OutputStream) {
     val codedOutputStream = CodedOutputStream.newInstance(stream)
-    marshal(BinaryMessageMarshaller(CodedStreamBinaryWireMarshaller(codedOutputStream)))
+    encodeWith(BinaryMessageEncoder(CodedStreamBinaryWireEncoder(codedOutputStream)))
     codedOutputStream.flush()
 }
 
-fun <T : Message> Message.Companion<T>.protoUnmarshal(stream: InputStream): T =
-    unmarshal(BinaryMessageUnmarshaller.fromInputStream(stream))
+fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStream): T =
+    decodeWith(BinaryMessageDecoder.fromInputStream(stream))
 
-fun <T : Message> Message.Companion<T>.protoUnmarshal(buffer: ByteBuffer): T =
-    unmarshal(BinaryMessageUnmarshaller.fromByteBuffer(buffer))
+fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteBuffer): T =
+    decodeWith(BinaryMessageDecoder.fromByteBuffer(buffer))

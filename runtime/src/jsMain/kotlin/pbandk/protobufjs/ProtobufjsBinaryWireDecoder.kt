@@ -2,12 +2,12 @@ package pbandk.protobufjs
 
 import pbandk.*
 import pbandk.internal.asByteArray
-import pbandk.internal.binary.BinaryMessageUnmarshaller
-import pbandk.internal.binary.BinaryWireUnmarshaller
+import pbandk.internal.binary.BinaryMessageDecoder
+import pbandk.internal.binary.BinaryWireDecoder
 import pbandk.internal.binary.Tag
 import pbandk.internal.binary.WireType
 
-internal class ProtobufjsBinaryWireUnmarshaller(private val reader: Reader) : BinaryWireUnmarshaller {
+internal class ProtobufjsBinaryWireDecoder(private val reader: Reader) : BinaryWireDecoder {
     private var endPos = reader.len
 
     override fun readTag(): Tag {
@@ -58,7 +58,7 @@ internal class ProtobufjsBinaryWireUnmarshaller(private val reader: Reader) : Bi
     override fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T {
         val oldEndPos = endPos
         endPos = readLength() + reader.pos
-        val message = messageCompanion.unmarshal(BinaryMessageUnmarshaller(this))
+        val message = messageCompanion.decodeWith(BinaryMessageDecoder(this))
         if (reader.pos != endPos) {
             throw InvalidProtocolBufferException("Not at the end of the current message limit as expected")
         }
@@ -66,14 +66,14 @@ internal class ProtobufjsBinaryWireUnmarshaller(private val reader: Reader) : Bi
         return message
     }
 
-    override fun <T : Any> readPackedRepeated(readFn: BinaryWireUnmarshaller.() -> T): Sequence<T> = sequence {
+    override fun <T : Any> readPackedRepeated(readFn: BinaryWireDecoder.() -> T): Sequence<T> = sequence {
         val length = readLength()
         val endPos = reader.pos + length
         while (reader.pos < endPos) yield(readFn())
     }
 
     override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
-        // TODO: support a `discardUnknownFields` option in the BinaryMessageUnmarshaller
+        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
         //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
         return when (wireType) {
             WireType.VARINT -> UnknownField.Value.Varint(readInt64())

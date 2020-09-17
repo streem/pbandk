@@ -5,10 +5,10 @@ import pbandk.ExperimentalProtoJson
 import pbandk.conformance.Platform.runBlockingMain
 import pbandk.conformance.pb.*
 import pbandk.json.JsonConfig
-import pbandk.json.jsonMarshal
-import pbandk.json.jsonUnmarshal
-import pbandk.protoMarshal
-import pbandk.protoUnmarshal
+import pbandk.json.encodeToJsonString
+import pbandk.json.decodeFromJsonString
+import pbandk.encodeToByteArray
+import pbandk.decodeFromByteArray
 
 var logDebug = false
 
@@ -21,7 +21,7 @@ fun main(args: Array<String>) = runBlockingMain {
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
 
-        ConformanceResponse(res).protoMarshal().also { bytes ->
+        ConformanceResponse(res).encodeToByteArray().also { bytes ->
             Platform.stdoutWriteIntLE(bytes.size)
             Platform.stdoutWriteFull(bytes)
         }
@@ -33,7 +33,7 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     // Read the request (starting with by size)
     val req = Platform.doTry({
         val size = Platform.stdinReadIntLE()?.also { debug { "Reading $it bytes" } } ?: return null
-        ConformanceRequest.protoUnmarshal(Platform.stdinReadFull(size)).also { debug { "Request: $it" } }
+        ConformanceRequest.decodeFromByteArray(Platform.stdinReadFull(size)).also { debug { "Request: $it" } }
     }) { err -> return ConformanceResponse.Result.RuntimeError("Failed reading request: $err") }
     // Parse
     val parsed = Platform.doTry({
@@ -45,7 +45,7 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
 
         when (req.payload) {
             is ConformanceRequest.Payload.ProtobufPayload -> {
-                typeComp.protoUnmarshal(req.payload.value.array).also { debug { "Parsed: $it" } }
+                typeComp.decodeFromByteArray(req.payload.value.array).also { debug { "Parsed: $it" } }
             }
             is ConformanceRequest.Payload.JsonPayload -> {
                 val jsonConfig = when (req.testCategory) {
@@ -54,7 +54,7 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
                     )
                     else -> JsonConfig.DEFAULT
                 }
-                typeComp.jsonUnmarshal(req.payload.value, jsonConfig).also { debug { "Parsed: $it" } }
+                typeComp.decodeFromJsonString(req.payload.value, jsonConfig).also { debug { "Parsed: $it" } }
             }
             else -> {
                 return ConformanceResponse.Result.Skipped("Only protobuf and json input supported")
@@ -67,8 +67,8 @@ suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     // Serialize
     return Platform.doTry({
         when (req.requestedOutputFormat) {
-            is WireFormat.PROTOBUF -> ConformanceResponse.Result.ProtobufPayload(ByteArr(parsed.protoMarshal()))
-            is WireFormat.JSON -> ConformanceResponse.Result.JsonPayload(parsed.jsonMarshal())
+            is WireFormat.PROTOBUF -> ConformanceResponse.Result.ProtobufPayload(ByteArr(parsed.encodeToByteArray()))
+            is WireFormat.JSON -> ConformanceResponse.Result.JsonPayload(parsed.encodeToJsonString())
             else -> {
                 return ConformanceResponse.Result.Skipped("Only protobuf and json output supported")
             }

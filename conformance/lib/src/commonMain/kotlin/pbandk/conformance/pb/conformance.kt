@@ -50,7 +50,7 @@ data class FailureSet(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<FailureSet> {
         val defaultInstance by lazy { FailureSet() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = FailureSet.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = FailureSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FailureSet> by lazy {
             pbandk.MessageDescriptor(
@@ -101,7 +101,7 @@ data class ConformanceRequest(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ConformanceRequest> {
         val defaultInstance by lazy { ConformanceRequest() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ConformanceRequest.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ConformanceRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ConformanceRequest> by lazy {
             pbandk.MessageDescriptor(
@@ -227,7 +227,7 @@ data class ConformanceResponse(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<ConformanceResponse> {
         val defaultInstance by lazy { ConformanceResponse() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = ConformanceResponse.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = ConformanceResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ConformanceResponse> by lazy {
             pbandk.MessageDescriptor(
@@ -321,7 +321,7 @@ data class JspbEncodingConfig(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<JspbEncodingConfig> {
         val defaultInstance by lazy { JspbEncodingConfig() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = JspbEncodingConfig.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = JspbEncodingConfig.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<JspbEncodingConfig> by lazy {
             pbandk.MessageDescriptor(
@@ -350,7 +350,7 @@ private fun FailureSet.protoMergeImpl(plus: pbandk.Message?): FailureSet = (plus
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun FailureSet.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): FailureSet {
+private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FailureSet {
     var failure: pbandk.ListWithSize.Builder<String>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -370,7 +370,7 @@ private fun ConformanceRequest.protoMergeImpl(plus: pbandk.Message?): Conformanc
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ConformanceRequest.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ConformanceRequest {
+private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ConformanceRequest {
     var requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0)
     var messageType = ""
     var testCategory: pbandk.conformance.pb.TestCategory = pbandk.conformance.pb.TestCategory.fromValue(0)
@@ -403,7 +403,7 @@ private fun ConformanceResponse.protoMergeImpl(plus: pbandk.Message?): Conforman
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun ConformanceResponse.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): ConformanceResponse {
+private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ConformanceResponse {
     var result: ConformanceResponse.Result<*>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -428,7 +428,7 @@ private fun JspbEncodingConfig.protoMergeImpl(plus: pbandk.Message?): JspbEncodi
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun JspbEncodingConfig.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): JspbEncodingConfig {
+private fun JspbEncodingConfig.Companion.decodeWithImpl(u: pbandk.MessageDecoder): JspbEncodingConfig {
     var useJspbArrayAnyFormat = false
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

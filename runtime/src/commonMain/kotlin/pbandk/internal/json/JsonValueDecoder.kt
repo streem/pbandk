@@ -8,7 +8,7 @@ import pbandk.wkt.*
 import kotlin.Any
 
 @OptIn(ExperimentalUnsignedTypes::class)
-internal class JsonValueUnmarshaller(private val jsonConfig: JsonConfig) {
+internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     fun readValue(value: JsonElement, type: FieldDescriptor.Type, isMapKey: Boolean = false): Any = when (type) {
         is FieldDescriptor.Type.Primitive.Double -> readDouble(value)
         is FieldDescriptor.Type.Primitive.Float -> readFloat(value)
@@ -134,7 +134,7 @@ internal class JsonValueUnmarshaller(private val jsonConfig: JsonConfig) {
     }
 
     fun readMessage(value: JsonElement, messageCompanion: Message.Companion<*>): Message = try {
-        messageCompanion.unmarshal(JsonMessageUnmarshaller(value, jsonConfig))
+        messageCompanion.decodeWith(JsonMessageDecoder(value, jsonConfig))
     } catch (e: InvalidProtocolBufferException) {
         throw e
     } catch (e: Exception) {

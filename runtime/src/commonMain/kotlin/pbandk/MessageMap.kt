@@ -32,7 +32,7 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
             internal val valueType: FieldDescriptor.Type
         ) : Message.Companion<Entry<K, V>> {
             @Suppress("UNCHECKED_CAST")
-            override fun unmarshal(u: MessageUnmarshaller): Entry<K, V> {
+            override fun decodeWith(u: MessageDecoder): Entry<K, V> {
                 var key: K = keyType.defaultValue as K
                 var value: V = valueType.defaultValue as V
 

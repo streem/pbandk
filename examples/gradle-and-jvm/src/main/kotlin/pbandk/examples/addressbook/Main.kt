@@ -1,9 +1,9 @@
 package pbandk.examples.addressbook
 
+import pbandk.decodeFromByteArray
+import pbandk.encodeToByteArray
 import pbandk.examples.addressbook.pb.AddressBook
 import pbandk.examples.addressbook.pb.Person
-import pbandk.protoMarshal
-import pbandk.protoUnmarshal
 import java.nio.file.Files
 import java.nio.file.Paths
 
@@ -54,10 +54,10 @@ fun addPerson(fileName: String) {
         }
     )
     // Save it back out
-    Files.write(Paths.get(fileName), book.copy(people = book.people + person).protoMarshal())
+    Files.write(Paths.get(fileName), book.copy(people = book.people + person).encodeToByteArray())
 }
 
 fun readBook(fileName: String) = Paths.get(fileName).let { filePath ->
     if (!Files.isRegularFile(filePath)) null
-    else AddressBook.protoUnmarshal(Files.readAllBytes(filePath))
+    else AddressBook.decodeFromByteArray(Files.readAllBytes(filePath))
 }

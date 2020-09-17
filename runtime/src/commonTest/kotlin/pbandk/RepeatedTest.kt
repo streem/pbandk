@@ -12,8 +12,8 @@ class RepeatedTest {
         val bytes = byteArrayOf(10, 6, 10, 4, 102, 111, 111, 49, 10, 6, 10, 4, 102, 111, 111, 50)
         val expected = Bar(foos = listOf(Foo(`val` = "foo1"), Foo(`val` = "foo2")))
 
-        assertEquals(expected.protoMarshal().asList(), bytes.asList())
-        assertEquals(expected, Bar.protoUnmarshal(bytes))
+        assertEquals(expected.encodeToByteArray().asList(), bytes.asList())
+        assertEquals(expected, Bar.decodeFromByteArray(bytes))
     }
 
     @Test

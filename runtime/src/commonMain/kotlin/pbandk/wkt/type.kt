@@ -32,7 +32,7 @@ data class Type(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Type> {
         val defaultInstance by lazy { Type() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Type.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Type.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Type> by lazy {
             pbandk.MessageDescriptor(
@@ -111,7 +111,7 @@ data class Field(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Field> {
         val defaultInstance by lazy { Field() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Field.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Field.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Field> by lazy {
             pbandk.MessageDescriptor(
@@ -268,7 +268,7 @@ data class Enum(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Enum> {
         val defaultInstance by lazy { Enum() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Enum.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Enum.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Enum> by lazy {
             pbandk.MessageDescriptor(
@@ -332,7 +332,7 @@ data class EnumValue(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<EnumValue> {
         val defaultInstance by lazy { EnumValue() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = EnumValue.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = EnumValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumValue> by lazy {
             pbandk.MessageDescriptor(
@@ -379,7 +379,7 @@ data class Option(
     override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<Option> {
         val defaultInstance by lazy { Option() }
-        override fun unmarshal(u: pbandk.MessageUnmarshaller) = Option.unmarshalImpl(u)
+        override fun decodeWith(u: pbandk.MessageDecoder) = Option.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Option> by lazy {
             pbandk.MessageDescriptor(
@@ -419,7 +419,7 @@ private fun Type.protoMergeImpl(plus: pbandk.Message?): Type = (plus as? Type)?.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Type.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Type {
+private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
     var name = ""
     var fields: pbandk.ListWithSize.Builder<pbandk.wkt.Field>? = null
     var oneofs: pbandk.ListWithSize.Builder<String>? = null
@@ -449,7 +449,7 @@ private fun Field.protoMergeImpl(plus: pbandk.Message?): Field = (plus as? Field
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Field.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Field {
+private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
     var kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0)
     var cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0)
     var number = 0
@@ -490,7 +490,7 @@ private fun Enum.protoMergeImpl(plus: pbandk.Message?): Enum = (plus as? Enum)?.
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Enum.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Enum {
+private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
     var name = ""
     var enumvalue: pbandk.ListWithSize.Builder<pbandk.wkt.EnumValue>? = null
     var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
@@ -518,7 +518,7 @@ private fun EnumValue.protoMergeImpl(plus: pbandk.Message?): EnumValue = (plus a
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumValue.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): EnumValue {
+private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValue {
     var name = ""
     var number = 0
     var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
@@ -541,7 +541,7 @@ private fun Option.protoMergeImpl(plus: pbandk.Message?): Option = (plus as? Opt
 ) ?: this
 
 @Suppress("UNCHECKED_CAST")
-private fun Option.Companion.unmarshalImpl(u: pbandk.MessageUnmarshaller): Option {
+private fun Option.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Option {
     var name = ""
     var value: pbandk.wkt.Any? = null
 
