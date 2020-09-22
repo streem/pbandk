@@ -261,7 +261,7 @@ section below under "Usage" for more details.
 Pbandk's code generator leverages `protoc`. Download the [latest
 protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
 Then download the [latest protoc-gen-kotlin self-executing jar
-file](https://jitpack.io/com/github/streem/pbandk/protoc-gen-kotlin-jvm/0.8.1/protoc-gen-kotlin-jvm-0.8.1-jvm8.jar),
+file](https://jcenter.bintray.com/pro/streem/pbandk/protoc-gen-kotlin-jvm/0.9.0-rc.1/:protoc-gen-kotlin-jvm-0.9.0-rc.1-jvm8.jar),
 rename it to `protoc-gen-kotlin`, make the file executable (`chmod +x protoc-gen-kotlin`), and make sure it is on the `PATH`. To generate code from
 `sample.proto` and put the generated code in `src/main/kotlin`, run:
 
@@ -314,16 +314,16 @@ repositories {
 
 dependencies {
     // For the `common` sourceset in a Kotlin Multiplatform project:
-    implementation("pro.streem.pbandk:pbandk-runtime-common:0.9.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime-common:0.9.0-rc.1")
 
     // For Kotlin/JVM sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.0-rc.1")
 
     // For Kotlin/JS sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-js:0.9.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime-js:0.9.0-rc.1")
 
     // For Kotlin/Native sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-native:0.9.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime-native:0.9.0-rc.1")
 }
 ```
 
@@ -349,7 +349,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.9.0-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.9.0-rc.1")
 }
 ```
 
