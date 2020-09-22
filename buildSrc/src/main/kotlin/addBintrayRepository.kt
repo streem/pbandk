@@ -8,9 +8,11 @@ import java.net.URI
 
 fun PublishingExtension.addBintrayRepository(project: Project, publication: MavenPublication) {
     val bintrayApiUser = project.providers.gradleProperty("bintrayApiUser")
-        .orElse(project.providers.environmentVariable("BINTRAY_API_USER"))
+        .forUseAtConfigurationTime()
+        .orElse(project.providers.environmentVariable("BINTRAY_API_USER").forUseAtConfigurationTime())
     val bintrayApiKey = project.providers.gradleProperty("bintrayApiKey")
-        .orElse(project.providers.environmentVariable("BINTRAY_API_KEY"))
+        .forUseAtConfigurationTime()
+        .orElse(project.providers.environmentVariable("BINTRAY_API_KEY").forUseAtConfigurationTime())
     if (!bintrayApiUser.isPresent || !bintrayApiKey.isPresent) {
         project.logger.info("Bintray API key not defined, skipping configuration of Bintray maven publishing repository")
         return
