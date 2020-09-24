@@ -11,7 +11,7 @@ import kotlin.reflect.KProperty1
 internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageEncoder {
     private val json = Json(
         JsonConfiguration.Stable.copy(
-            prettyPrint = true
+            prettyPrint = !jsonConfig.compactOutput
         )
     )
     private val jsonValueEncoder = JsonValueEncoder(jsonConfig)

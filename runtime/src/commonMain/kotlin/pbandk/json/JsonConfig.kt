@@ -18,6 +18,11 @@ data class JsonConfig(
      */
     val outputDefaultValues: Boolean = false,
     /**
+     * By default the JSON output is formatted for readability: entries are indented, each entry is on a new line, etc.
+     * If this option is `true` then a more compact format will be used that omits extraneous spaces and newlines.
+     */
+    val compactOutput: Boolean = false,
+    /**
      * The JSON parser rejects unknown fields by default. If this option is `true` then unknown fields will instead be
      * ignored.
      */

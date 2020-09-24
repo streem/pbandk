@@ -174,4 +174,16 @@ class JsonTest {
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedMessage, testAllTypesProto3)
     }
+
+    @Test
+    fun testCompactOutput() {
+        val testAllTypesProto3 = TestAllTypesProto3(
+            optionalInt32 = 123,
+            optionalBool = true
+        )
+        val json = testAllTypesProto3.encodeToJsonString()
+        assertEquals(4, json.lines().size)
+        val compactJson = testAllTypesProto3.encodeToJsonString(JsonConfig.DEFAULT.copy(compactOutput = true))
+        assertEquals(1, compactJson.lines().size)
+    }
 }
