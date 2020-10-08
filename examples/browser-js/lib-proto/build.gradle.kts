@@ -13,6 +13,12 @@ dependencies {
     compileOnly("com.google.protobuf:protobuf-java:$protobufVersion")
 }
 
+sourceSets {
+    main {
+        proto.srcDirs("src/main/proto")
+    }
+}
+
 protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:$protobufVersion"

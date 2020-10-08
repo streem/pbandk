@@ -254,6 +254,19 @@ To see a full version of the file, see
 [here](examples/gradle-and-jvm/src/main/kotlin/pbandk/examples/addressbook/pb/addressbook.kt). See the "Generated Code"
 section below under "Usage" for more details.
 
+## Dev setup
+Make sure you have `protoc` installed on your system and its the right version (3.13.0):
+
+```
+protoc --version
+```
+
+If you don't have it, install it using brew or apt
+
+```
+brew unlink protobuf; brew install protobuf@3.13.0
+```
+
 ## Usage
 
 ### Generating Code
@@ -489,13 +502,15 @@ To build the runtime library for both JS and the JVM, run:
 
 ### Bundled Types
 
-If any changes are made to the generated code that is output by `protoc-gen-kotlin`, then the
-well-known types (and other proto types used by pbandk) need to be re-generated using the updated
-`protoc-gen-kotlin` binary. To do this, first download a recent [release of `protoc`](https://github.com/protocolbuffers/protobuf/releases),
-extract it to a local directory, and then run:
+If any changes are made to the generated code that is output by `protoc-gen-kotlin`, or if the 
+version of Protobuf is changed, then the well-known types (and other proto types used by pbandk) 
+need to be re-generated using the updated `protoc-gen-kotlin` binary. To do this, update the file
+`runtime/gitquery-wkt.yml` to point the the sha of the version of Protobuf you are bumping to. If 
+only the code generator was updated, `gitquery-wkt.yml` doesn't need to be modified. Run this 
+command to generate them. 
 
 ```
-./gradlew -Dprotoc.path=path/to/protobuf/install/directory \
+./gradlew \
     :runtime:generateWellKnownTypes 
     :runtime:generateTestTypes
     :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto
@@ -514,9 +529,9 @@ To run conformance tests, the [conformance-test-runner](https://github.com/googl
 be built (does not work on Windows).
 
 ```
-curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
-tar xzvf protobuf-all-3.10.1.tar.gz
-cd protobuf-3.10.1
+curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.13.0.tar.gz
+tar xzvf protobuf-all-3.13.0.tar.gz
+cd protobuf-3.13.0
 ./configure
 make
 cd conformance

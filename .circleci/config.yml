@@ -35,7 +35,7 @@ commands:
       - restore_cache:
           name: Restore protobuf cache
           keys:
-            - v3-protobuf-3.10.1
+            - v3-protobuf-3.13.0
 
       - run:
           name: Run << parameters.target >> conformance tests
@@ -93,7 +93,7 @@ jobs:
       - restore_cache:
           name: Restore protobuf cache
           keys:
-            - v3-protobuf-3.10.1
+            - v3-protobuf-3.13.0
 
       - run:
           name: Build protoc and protobuf conformance-test-runner
@@ -102,9 +102,9 @@ jobs:
             if [ -e ./protobuf/install/bin/protoc -a -e ./protobuf/conformance/conformance-test-runner ]; then
               exit
             fi
-            curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
-            tar xzvf protobuf-all-3.10.1.tar.gz
-            mv protobuf-3.10.1 protobuf
+            curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.13.0.tar.gz
+            tar xzvf protobuf-all-3.13.0.tar.gz
+            mv protobuf-3.13.0 protobuf
             cd protobuf
             ./configure --prefix="$(pwd)/install"
             make
@@ -116,13 +116,13 @@ jobs:
           name: Save protobuf cache
           paths:
             - ~/protobuf
-          key: v3-protobuf-3.10.1
+          key: v3-protobuf-3.13.0
 
       - run:
           name: Ensure bundled types are up-to-date
           command: |
             export PATH="$PATH:$HOME/protobuf/install/bin"
-            ./gradlew -Dprotoc.path=$HOME/protobuf/install \
+            ./gradlew \
               :runtime:generateWellKnownTypes \
               :runtime:generateTestTypes \
               :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto \

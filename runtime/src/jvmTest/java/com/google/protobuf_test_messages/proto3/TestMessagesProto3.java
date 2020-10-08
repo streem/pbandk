@@ -93,6 +93,10 @@ public final class TestMessagesProto3 {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -2820,7 +2824,7 @@ public final class TestMessagesProto3 {
    *
    * Protobuf type {@code protobuf_test_messages.proto3.TestAllTypesProto3}
    */
-  public  static final class TestAllTypesProto3 extends
+  public static final class TestAllTypesProto3 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:protobuf_test_messages.proto3.TestAllTypesProto3)
       TestAllTypesProto3OrBuilder {
@@ -5149,6 +5153,10 @@ public final class TestMessagesProto3 {
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
         return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -5286,6 +5294,10 @@ public final class TestMessagesProto3 {
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
         return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -5297,10 +5309,12 @@ public final class TestMessagesProto3 {
         return com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.getDescriptor().getEnumTypes().get(1);
       }
 
-      private static final AliasedEnum[] VALUES = {
-        ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, qux, bAz, 
-      };
-
+      private static final AliasedEnum[] VALUES = getStaticValuesArray();
+      private static AliasedEnum[] getStaticValuesArray() {
+        return new AliasedEnum[] {
+          ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, qux, bAz, 
+        };
+      }
       public static AliasedEnum valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -5350,7 +5364,7 @@ public final class TestMessagesProto3 {
     /**
      * Protobuf type {@code protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage}
      */
-    public  static final class NestedMessage extends
+    public static final class NestedMessage extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage)
         NestedMessageOrBuilder {
@@ -5448,6 +5462,7 @@ public final class TestMessagesProto3 {
        * <code>int32 a = 1;</code>
        * @return The a.
        */
+      @java.lang.Override
       public int getA() {
         return a_;
       }
@@ -5458,6 +5473,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3 corecursive = 2;</code>
        * @return Whether the corecursive field is set.
        */
+      @java.lang.Override
       public boolean hasCorecursive() {
         return corecursive_ != null;
       }
@@ -5465,12 +5481,14 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3 corecursive = 2;</code>
        * @return The corecursive.
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3 getCorecursive() {
         return corecursive_ == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.getDefaultInstance() : corecursive_;
       }
       /**
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3 corecursive = 2;</code>
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3OrBuilder getCorecursiveOrBuilder() {
         return getCorecursive();
       }
@@ -5812,6 +5830,7 @@ public final class TestMessagesProto3 {
          * <code>int32 a = 1;</code>
          * @return The a.
          */
+        @java.lang.Override
         public int getA() {
           return a_;
         }
@@ -6073,6 +6092,7 @@ public final class TestMessagesProto3 {
      * <code>int32 optional_int32 = 1;</code>
      * @return The optionalInt32.
      */
+    @java.lang.Override
     public int getOptionalInt32() {
       return optionalInt32_;
     }
@@ -6083,6 +6103,7 @@ public final class TestMessagesProto3 {
      * <code>int64 optional_int64 = 2;</code>
      * @return The optionalInt64.
      */
+    @java.lang.Override
     public long getOptionalInt64() {
       return optionalInt64_;
     }
@@ -6093,6 +6114,7 @@ public final class TestMessagesProto3 {
      * <code>uint32 optional_uint32 = 3;</code>
      * @return The optionalUint32.
      */
+    @java.lang.Override
     public int getOptionalUint32() {
       return optionalUint32_;
     }
@@ -6103,6 +6125,7 @@ public final class TestMessagesProto3 {
      * <code>uint64 optional_uint64 = 4;</code>
      * @return The optionalUint64.
      */
+    @java.lang.Override
     public long getOptionalUint64() {
       return optionalUint64_;
     }
@@ -6113,6 +6136,7 @@ public final class TestMessagesProto3 {
      * <code>sint32 optional_sint32 = 5;</code>
      * @return The optionalSint32.
      */
+    @java.lang.Override
     public int getOptionalSint32() {
       return optionalSint32_;
     }
@@ -6123,6 +6147,7 @@ public final class TestMessagesProto3 {
      * <code>sint64 optional_sint64 = 6;</code>
      * @return The optionalSint64.
      */
+    @java.lang.Override
     public long getOptionalSint64() {
       return optionalSint64_;
     }
@@ -6133,6 +6158,7 @@ public final class TestMessagesProto3 {
      * <code>fixed32 optional_fixed32 = 7;</code>
      * @return The optionalFixed32.
      */
+    @java.lang.Override
     public int getOptionalFixed32() {
       return optionalFixed32_;
     }
@@ -6143,6 +6169,7 @@ public final class TestMessagesProto3 {
      * <code>fixed64 optional_fixed64 = 8;</code>
      * @return The optionalFixed64.
      */
+    @java.lang.Override
     public long getOptionalFixed64() {
       return optionalFixed64_;
     }
@@ -6153,6 +6180,7 @@ public final class TestMessagesProto3 {
      * <code>sfixed32 optional_sfixed32 = 9;</code>
      * @return The optionalSfixed32.
      */
+    @java.lang.Override
     public int getOptionalSfixed32() {
       return optionalSfixed32_;
     }
@@ -6163,6 +6191,7 @@ public final class TestMessagesProto3 {
      * <code>sfixed64 optional_sfixed64 = 10;</code>
      * @return The optionalSfixed64.
      */
+    @java.lang.Override
     public long getOptionalSfixed64() {
       return optionalSfixed64_;
     }
@@ -6173,6 +6202,7 @@ public final class TestMessagesProto3 {
      * <code>float optional_float = 11;</code>
      * @return The optionalFloat.
      */
+    @java.lang.Override
     public float getOptionalFloat() {
       return optionalFloat_;
     }
@@ -6183,6 +6213,7 @@ public final class TestMessagesProto3 {
      * <code>double optional_double = 12;</code>
      * @return The optionalDouble.
      */
+    @java.lang.Override
     public double getOptionalDouble() {
       return optionalDouble_;
     }
@@ -6193,6 +6224,7 @@ public final class TestMessagesProto3 {
      * <code>bool optional_bool = 13;</code>
      * @return The optionalBool.
      */
+    @java.lang.Override
     public boolean getOptionalBool() {
       return optionalBool_;
     }
@@ -6203,6 +6235,7 @@ public final class TestMessagesProto3 {
      * <code>string optional_string = 14;</code>
      * @return The optionalString.
      */
+    @java.lang.Override
     public java.lang.String getOptionalString() {
       java.lang.Object ref = optionalString_;
       if (ref instanceof java.lang.String) {
@@ -6219,6 +6252,7 @@ public final class TestMessagesProto3 {
      * <code>string optional_string = 14;</code>
      * @return The bytes for optionalString.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getOptionalStringBytes() {
       java.lang.Object ref = optionalString_;
@@ -6239,6 +6273,7 @@ public final class TestMessagesProto3 {
      * <code>bytes optional_bytes = 15;</code>
      * @return The optionalBytes.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getOptionalBytes() {
       return optionalBytes_;
     }
@@ -6249,6 +6284,7 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage optional_nested_message = 18;</code>
      * @return Whether the optionalNestedMessage field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalNestedMessage() {
       return optionalNestedMessage_ != null;
     }
@@ -6256,12 +6292,14 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage optional_nested_message = 18;</code>
      * @return The optionalNestedMessage.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getOptionalNestedMessage() {
       return optionalNestedMessage_ == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage.getDefaultInstance() : optionalNestedMessage_;
     }
     /**
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage optional_nested_message = 18;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessageOrBuilder getOptionalNestedMessageOrBuilder() {
       return getOptionalNestedMessage();
     }
@@ -6272,6 +6310,7 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.ForeignMessage optional_foreign_message = 19;</code>
      * @return Whether the optionalForeignMessage field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalForeignMessage() {
       return optionalForeignMessage_ != null;
     }
@@ -6279,12 +6318,14 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.ForeignMessage optional_foreign_message = 19;</code>
      * @return The optionalForeignMessage.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getOptionalForeignMessage() {
       return optionalForeignMessage_ == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage.getDefaultInstance() : optionalForeignMessage_;
     }
     /**
      * <code>.protobuf_test_messages.proto3.ForeignMessage optional_foreign_message = 19;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessageOrBuilder getOptionalForeignMessageOrBuilder() {
       return getOptionalForeignMessage();
     }
@@ -6295,14 +6336,14 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum optional_nested_enum = 21;</code>
      * @return The enum numeric value on the wire for optionalNestedEnum.
      */
-    public int getOptionalNestedEnumValue() {
+    @java.lang.Override public int getOptionalNestedEnumValue() {
       return optionalNestedEnum_;
     }
     /**
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum optional_nested_enum = 21;</code>
      * @return The optionalNestedEnum.
      */
-    public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getOptionalNestedEnum() {
+    @java.lang.Override public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getOptionalNestedEnum() {
       @SuppressWarnings("deprecation")
       com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum result = com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum.valueOf(optionalNestedEnum_);
       return result == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum.UNRECOGNIZED : result;
@@ -6314,14 +6355,14 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.ForeignEnum optional_foreign_enum = 22;</code>
      * @return The enum numeric value on the wire for optionalForeignEnum.
      */
-    public int getOptionalForeignEnumValue() {
+    @java.lang.Override public int getOptionalForeignEnumValue() {
       return optionalForeignEnum_;
     }
     /**
      * <code>.protobuf_test_messages.proto3.ForeignEnum optional_foreign_enum = 22;</code>
      * @return The optionalForeignEnum.
      */
-    public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getOptionalForeignEnum() {
+    @java.lang.Override public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getOptionalForeignEnum() {
       @SuppressWarnings("deprecation")
       com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum result = com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum.valueOf(optionalForeignEnum_);
       return result == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum.UNRECOGNIZED : result;
@@ -6333,14 +6374,14 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum optional_aliased_enum = 23;</code>
      * @return The enum numeric value on the wire for optionalAliasedEnum.
      */
-    public int getOptionalAliasedEnumValue() {
+    @java.lang.Override public int getOptionalAliasedEnumValue() {
       return optionalAliasedEnum_;
     }
     /**
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum optional_aliased_enum = 23;</code>
      * @return The optionalAliasedEnum.
      */
-    public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum getOptionalAliasedEnum() {
+    @java.lang.Override public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum getOptionalAliasedEnum() {
       @SuppressWarnings("deprecation")
       com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum result = com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum.valueOf(optionalAliasedEnum_);
       return result == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum.UNRECOGNIZED : result;
@@ -6352,6 +6393,7 @@ public final class TestMessagesProto3 {
      * <code>string optional_string_piece = 24 [ctype = STRING_PIECE];</code>
      * @return The optionalStringPiece.
      */
+    @java.lang.Override
     public java.lang.String getOptionalStringPiece() {
       java.lang.Object ref = optionalStringPiece_;
       if (ref instanceof java.lang.String) {
@@ -6368,6 +6410,7 @@ public final class TestMessagesProto3 {
      * <code>string optional_string_piece = 24 [ctype = STRING_PIECE];</code>
      * @return The bytes for optionalStringPiece.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getOptionalStringPieceBytes() {
       java.lang.Object ref = optionalStringPiece_;
@@ -6388,6 +6431,7 @@ public final class TestMessagesProto3 {
      * <code>string optional_cord = 25 [ctype = CORD];</code>
      * @return The optionalCord.
      */
+    @java.lang.Override
     public java.lang.String getOptionalCord() {
       java.lang.Object ref = optionalCord_;
       if (ref instanceof java.lang.String) {
@@ -6404,6 +6448,7 @@ public final class TestMessagesProto3 {
      * <code>string optional_cord = 25 [ctype = CORD];</code>
      * @return The bytes for optionalCord.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getOptionalCordBytes() {
       java.lang.Object ref = optionalCord_;
@@ -6424,6 +6469,7 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3 recursive_message = 27;</code>
      * @return Whether the recursiveMessage field is set.
      */
+    @java.lang.Override
     public boolean hasRecursiveMessage() {
       return recursiveMessage_ != null;
     }
@@ -6431,12 +6477,14 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3 recursive_message = 27;</code>
      * @return The recursiveMessage.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3 getRecursiveMessage() {
       return recursiveMessage_ == null ? com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.getDefaultInstance() : recursiveMessage_;
     }
     /**
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3 recursive_message = 27;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3OrBuilder getRecursiveMessageOrBuilder() {
       return getRecursiveMessage();
     }
@@ -6451,6 +6499,7 @@ public final class TestMessagesProto3 {
      * <code>repeated int32 repeated_int32 = 31;</code>
      * @return A list containing the repeatedInt32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getRepeatedInt32List() {
       return repeatedInt32_;
@@ -6486,6 +6535,7 @@ public final class TestMessagesProto3 {
      * <code>repeated int64 repeated_int64 = 32;</code>
      * @return A list containing the repeatedInt64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getRepeatedInt64List() {
       return repeatedInt64_;
@@ -6513,6 +6563,7 @@ public final class TestMessagesProto3 {
      * <code>repeated uint32 repeated_uint32 = 33;</code>
      * @return A list containing the repeatedUint32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getRepeatedUint32List() {
       return repeatedUint32_;
@@ -6540,6 +6591,7 @@ public final class TestMessagesProto3 {
      * <code>repeated uint64 repeated_uint64 = 34;</code>
      * @return A list containing the repeatedUint64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getRepeatedUint64List() {
       return repeatedUint64_;
@@ -6567,6 +6619,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sint32 repeated_sint32 = 35;</code>
      * @return A list containing the repeatedSint32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getRepeatedSint32List() {
       return repeatedSint32_;
@@ -6594,6 +6647,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sint64 repeated_sint64 = 36;</code>
      * @return A list containing the repeatedSint64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getRepeatedSint64List() {
       return repeatedSint64_;
@@ -6621,6 +6675,7 @@ public final class TestMessagesProto3 {
      * <code>repeated fixed32 repeated_fixed32 = 37;</code>
      * @return A list containing the repeatedFixed32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getRepeatedFixed32List() {
       return repeatedFixed32_;
@@ -6648,6 +6703,7 @@ public final class TestMessagesProto3 {
      * <code>repeated fixed64 repeated_fixed64 = 38;</code>
      * @return A list containing the repeatedFixed64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getRepeatedFixed64List() {
       return repeatedFixed64_;
@@ -6675,6 +6731,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sfixed32 repeated_sfixed32 = 39;</code>
      * @return A list containing the repeatedSfixed32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getRepeatedSfixed32List() {
       return repeatedSfixed32_;
@@ -6702,6 +6759,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sfixed64 repeated_sfixed64 = 40;</code>
      * @return A list containing the repeatedSfixed64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getRepeatedSfixed64List() {
       return repeatedSfixed64_;
@@ -6729,6 +6787,7 @@ public final class TestMessagesProto3 {
      * <code>repeated float repeated_float = 41;</code>
      * @return A list containing the repeatedFloat.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getRepeatedFloatList() {
       return repeatedFloat_;
@@ -6756,6 +6815,7 @@ public final class TestMessagesProto3 {
      * <code>repeated double repeated_double = 42;</code>
      * @return A list containing the repeatedDouble.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Double>
         getRepeatedDoubleList() {
       return repeatedDouble_;
@@ -6783,6 +6843,7 @@ public final class TestMessagesProto3 {
      * <code>repeated bool repeated_bool = 43;</code>
      * @return A list containing the repeatedBool.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Boolean>
         getRepeatedBoolList() {
       return repeatedBool_;
@@ -6845,6 +6906,7 @@ public final class TestMessagesProto3 {
      * <code>repeated bytes repeated_bytes = 45;</code>
      * @return A list containing the repeatedBytes.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ByteString>
         getRepeatedBytesList() {
       return repeatedBytes_;
@@ -6870,12 +6932,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage repeated_nested_message = 48;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> getRepeatedNestedMessageList() {
       return repeatedNestedMessage_;
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage repeated_nested_message = 48;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessageOrBuilder> 
         getRepeatedNestedMessageOrBuilderList() {
       return repeatedNestedMessage_;
@@ -6883,18 +6947,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage repeated_nested_message = 48;</code>
      */
+    @java.lang.Override
     public int getRepeatedNestedMessageCount() {
       return repeatedNestedMessage_.size();
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage repeated_nested_message = 48;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getRepeatedNestedMessage(int index) {
       return repeatedNestedMessage_.get(index);
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage repeated_nested_message = 48;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessageOrBuilder getRepeatedNestedMessageOrBuilder(
         int index) {
       return repeatedNestedMessage_.get(index);
@@ -6905,12 +6972,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .protobuf_test_messages.proto3.ForeignMessage repeated_foreign_message = 49;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> getRepeatedForeignMessageList() {
       return repeatedForeignMessage_;
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.ForeignMessage repeated_foreign_message = 49;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessageOrBuilder> 
         getRepeatedForeignMessageOrBuilderList() {
       return repeatedForeignMessage_;
@@ -6918,18 +6987,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .protobuf_test_messages.proto3.ForeignMessage repeated_foreign_message = 49;</code>
      */
+    @java.lang.Override
     public int getRepeatedForeignMessageCount() {
       return repeatedForeignMessage_.size();
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.ForeignMessage repeated_foreign_message = 49;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getRepeatedForeignMessage(int index) {
       return repeatedForeignMessage_.get(index);
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.ForeignMessage repeated_foreign_message = 49;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessageOrBuilder getRepeatedForeignMessageOrBuilder(
         int index) {
       return repeatedForeignMessage_.get(index);
@@ -6951,14 +7023,16 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum repeated_nested_enum = 51;</code>
      * @return A list containing the repeatedNestedEnum.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum> getRepeatedNestedEnumList() {
       return new com.google.protobuf.Internal.ListAdapter<
           java.lang.Integer, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>(repeatedNestedEnum_, repeatedNestedEnum_converter_);
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum repeated_nested_enum = 51;</code>
-     * @param value The repeatedNestedEnum to add.
+     * @return The count of repeatedNestedEnum.
      */
+    @java.lang.Override
     public int getRepeatedNestedEnumCount() {
       return repeatedNestedEnum_.size();
     }
@@ -6967,6 +7041,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the element to return.
      * @return The repeatedNestedEnum at the given index.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getRepeatedNestedEnum(int index) {
       return repeatedNestedEnum_converter_.convert(repeatedNestedEnum_.get(index));
     }
@@ -6974,6 +7049,7 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum repeated_nested_enum = 51;</code>
      * @return A list containing the enum numeric values on the wire for repeatedNestedEnum.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
     getRepeatedNestedEnumValueList() {
       return repeatedNestedEnum_;
@@ -6983,6 +7059,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of repeatedNestedEnum at the given index.
      */
+    @java.lang.Override
     public int getRepeatedNestedEnumValue(int index) {
       return repeatedNestedEnum_.get(index);
     }
@@ -7004,14 +7081,16 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.ForeignEnum repeated_foreign_enum = 52;</code>
      * @return A list containing the repeatedForeignEnum.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum> getRepeatedForeignEnumList() {
       return new com.google.protobuf.Internal.ListAdapter<
           java.lang.Integer, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum>(repeatedForeignEnum_, repeatedForeignEnum_converter_);
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.ForeignEnum repeated_foreign_enum = 52;</code>
-     * @param value The repeatedForeignEnum to add.
+     * @return The count of repeatedForeignEnum.
      */
+    @java.lang.Override
     public int getRepeatedForeignEnumCount() {
       return repeatedForeignEnum_.size();
     }
@@ -7020,6 +7099,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the element to return.
      * @return The repeatedForeignEnum at the given index.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getRepeatedForeignEnum(int index) {
       return repeatedForeignEnum_converter_.convert(repeatedForeignEnum_.get(index));
     }
@@ -7027,6 +7107,7 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.ForeignEnum repeated_foreign_enum = 52;</code>
      * @return A list containing the enum numeric values on the wire for repeatedForeignEnum.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
     getRepeatedForeignEnumValueList() {
       return repeatedForeignEnum_;
@@ -7036,6 +7117,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of repeatedForeignEnum at the given index.
      */
+    @java.lang.Override
     public int getRepeatedForeignEnumValue(int index) {
       return repeatedForeignEnum_.get(index);
     }
@@ -7121,6 +7203,7 @@ public final class TestMessagesProto3 {
      * <code>repeated int32 packed_int32 = 75 [packed = true];</code>
      * @return A list containing the packedInt32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getPackedInt32List() {
       return packedInt32_;
@@ -7156,6 +7239,7 @@ public final class TestMessagesProto3 {
      * <code>repeated int64 packed_int64 = 76 [packed = true];</code>
      * @return A list containing the packedInt64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getPackedInt64List() {
       return packedInt64_;
@@ -7183,6 +7267,7 @@ public final class TestMessagesProto3 {
      * <code>repeated uint32 packed_uint32 = 77 [packed = true];</code>
      * @return A list containing the packedUint32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getPackedUint32List() {
       return packedUint32_;
@@ -7210,6 +7295,7 @@ public final class TestMessagesProto3 {
      * <code>repeated uint64 packed_uint64 = 78 [packed = true];</code>
      * @return A list containing the packedUint64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getPackedUint64List() {
       return packedUint64_;
@@ -7237,6 +7323,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sint32 packed_sint32 = 79 [packed = true];</code>
      * @return A list containing the packedSint32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getPackedSint32List() {
       return packedSint32_;
@@ -7264,6 +7351,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sint64 packed_sint64 = 80 [packed = true];</code>
      * @return A list containing the packedSint64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getPackedSint64List() {
       return packedSint64_;
@@ -7291,6 +7379,7 @@ public final class TestMessagesProto3 {
      * <code>repeated fixed32 packed_fixed32 = 81 [packed = true];</code>
      * @return A list containing the packedFixed32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getPackedFixed32List() {
       return packedFixed32_;
@@ -7318,6 +7407,7 @@ public final class TestMessagesProto3 {
      * <code>repeated fixed64 packed_fixed64 = 82 [packed = true];</code>
      * @return A list containing the packedFixed64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getPackedFixed64List() {
       return packedFixed64_;
@@ -7345,6 +7435,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sfixed32 packed_sfixed32 = 83 [packed = true];</code>
      * @return A list containing the packedSfixed32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getPackedSfixed32List() {
       return packedSfixed32_;
@@ -7372,6 +7463,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sfixed64 packed_sfixed64 = 84 [packed = true];</code>
      * @return A list containing the packedSfixed64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getPackedSfixed64List() {
       return packedSfixed64_;
@@ -7399,6 +7491,7 @@ public final class TestMessagesProto3 {
      * <code>repeated float packed_float = 85 [packed = true];</code>
      * @return A list containing the packedFloat.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getPackedFloatList() {
       return packedFloat_;
@@ -7426,6 +7519,7 @@ public final class TestMessagesProto3 {
      * <code>repeated double packed_double = 86 [packed = true];</code>
      * @return A list containing the packedDouble.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Double>
         getPackedDoubleList() {
       return packedDouble_;
@@ -7453,6 +7547,7 @@ public final class TestMessagesProto3 {
      * <code>repeated bool packed_bool = 87 [packed = true];</code>
      * @return A list containing the packedBool.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Boolean>
         getPackedBoolList() {
       return packedBool_;
@@ -7490,14 +7585,16 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum packed_nested_enum = 88 [packed = true];</code>
      * @return A list containing the packedNestedEnum.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum> getPackedNestedEnumList() {
       return new com.google.protobuf.Internal.ListAdapter<
           java.lang.Integer, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>(packedNestedEnum_, packedNestedEnum_converter_);
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum packed_nested_enum = 88 [packed = true];</code>
-     * @param value The packedNestedEnum to add.
+     * @return The count of packedNestedEnum.
      */
+    @java.lang.Override
     public int getPackedNestedEnumCount() {
       return packedNestedEnum_.size();
     }
@@ -7506,6 +7603,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the element to return.
      * @return The packedNestedEnum at the given index.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getPackedNestedEnum(int index) {
       return packedNestedEnum_converter_.convert(packedNestedEnum_.get(index));
     }
@@ -7513,6 +7611,7 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum packed_nested_enum = 88 [packed = true];</code>
      * @return A list containing the enum numeric values on the wire for packedNestedEnum.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
     getPackedNestedEnumValueList() {
       return packedNestedEnum_;
@@ -7522,6 +7621,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of packedNestedEnum at the given index.
      */
+    @java.lang.Override
     public int getPackedNestedEnumValue(int index) {
       return packedNestedEnum_.get(index);
     }
@@ -7537,6 +7637,7 @@ public final class TestMessagesProto3 {
      * <code>repeated int32 unpacked_int32 = 89 [packed = false];</code>
      * @return A list containing the unpackedInt32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getUnpackedInt32List() {
       return unpackedInt32_;
@@ -7571,6 +7672,7 @@ public final class TestMessagesProto3 {
      * <code>repeated int64 unpacked_int64 = 90 [packed = false];</code>
      * @return A list containing the unpackedInt64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getUnpackedInt64List() {
       return unpackedInt64_;
@@ -7597,6 +7699,7 @@ public final class TestMessagesProto3 {
      * <code>repeated uint32 unpacked_uint32 = 91 [packed = false];</code>
      * @return A list containing the unpackedUint32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getUnpackedUint32List() {
       return unpackedUint32_;
@@ -7623,6 +7726,7 @@ public final class TestMessagesProto3 {
      * <code>repeated uint64 unpacked_uint64 = 92 [packed = false];</code>
      * @return A list containing the unpackedUint64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getUnpackedUint64List() {
       return unpackedUint64_;
@@ -7649,6 +7753,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sint32 unpacked_sint32 = 93 [packed = false];</code>
      * @return A list containing the unpackedSint32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getUnpackedSint32List() {
       return unpackedSint32_;
@@ -7675,6 +7780,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sint64 unpacked_sint64 = 94 [packed = false];</code>
      * @return A list containing the unpackedSint64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getUnpackedSint64List() {
       return unpackedSint64_;
@@ -7701,6 +7807,7 @@ public final class TestMessagesProto3 {
      * <code>repeated fixed32 unpacked_fixed32 = 95 [packed = false];</code>
      * @return A list containing the unpackedFixed32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getUnpackedFixed32List() {
       return unpackedFixed32_;
@@ -7727,6 +7834,7 @@ public final class TestMessagesProto3 {
      * <code>repeated fixed64 unpacked_fixed64 = 96 [packed = false];</code>
      * @return A list containing the unpackedFixed64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getUnpackedFixed64List() {
       return unpackedFixed64_;
@@ -7753,6 +7861,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sfixed32 unpacked_sfixed32 = 97 [packed = false];</code>
      * @return A list containing the unpackedSfixed32.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getUnpackedSfixed32List() {
       return unpackedSfixed32_;
@@ -7779,6 +7888,7 @@ public final class TestMessagesProto3 {
      * <code>repeated sfixed64 unpacked_sfixed64 = 98 [packed = false];</code>
      * @return A list containing the unpackedSfixed64.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getUnpackedSfixed64List() {
       return unpackedSfixed64_;
@@ -7805,6 +7915,7 @@ public final class TestMessagesProto3 {
      * <code>repeated float unpacked_float = 99 [packed = false];</code>
      * @return A list containing the unpackedFloat.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getUnpackedFloatList() {
       return unpackedFloat_;
@@ -7831,6 +7942,7 @@ public final class TestMessagesProto3 {
      * <code>repeated double unpacked_double = 100 [packed = false];</code>
      * @return A list containing the unpackedDouble.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Double>
         getUnpackedDoubleList() {
       return unpackedDouble_;
@@ -7857,6 +7969,7 @@ public final class TestMessagesProto3 {
      * <code>repeated bool unpacked_bool = 101 [packed = false];</code>
      * @return A list containing the unpackedBool.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Boolean>
         getUnpackedBoolList() {
       return unpackedBool_;
@@ -7893,14 +8006,16 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum unpacked_nested_enum = 102 [packed = false];</code>
      * @return A list containing the unpackedNestedEnum.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum> getUnpackedNestedEnumList() {
       return new com.google.protobuf.Internal.ListAdapter<
           java.lang.Integer, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>(unpackedNestedEnum_, unpackedNestedEnum_converter_);
     }
     /**
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum unpacked_nested_enum = 102 [packed = false];</code>
-     * @param value The unpackedNestedEnum to add.
+     * @return The count of unpackedNestedEnum.
      */
+    @java.lang.Override
     public int getUnpackedNestedEnumCount() {
       return unpackedNestedEnum_.size();
     }
@@ -7909,6 +8024,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the element to return.
      * @return The unpackedNestedEnum at the given index.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getUnpackedNestedEnum(int index) {
       return unpackedNestedEnum_converter_.convert(unpackedNestedEnum_.get(index));
     }
@@ -7916,6 +8032,7 @@ public final class TestMessagesProto3 {
      * <code>repeated .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum unpacked_nested_enum = 102 [packed = false];</code>
      * @return A list containing the enum numeric values on the wire for unpackedNestedEnum.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
     getUnpackedNestedEnumValueList() {
       return unpackedNestedEnum_;
@@ -7925,6 +8042,7 @@ public final class TestMessagesProto3 {
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of unpackedNestedEnum at the given index.
      */
+    @java.lang.Override
     public int getUnpackedNestedEnumValue(int index) {
       return unpackedNestedEnum_.get(index);
     }
@@ -7963,6 +8081,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapInt32Int32(
         int key) {
       
@@ -7971,6 +8090,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapInt32Int32Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32() {
       return getMapInt32Int32Map();
@@ -7982,6 +8102,7 @@ public final class TestMessagesProto3 {
      *
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
       return internalGetMapInt32Int32().getMap();
@@ -7993,6 +8114,7 @@ public final class TestMessagesProto3 {
      *
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
+    @java.lang.Override
 
     public int getMapInt32Int32OrDefault(
         int key,
@@ -8009,6 +8131,7 @@ public final class TestMessagesProto3 {
      *
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
+    @java.lang.Override
 
     public int getMapInt32Int32OrThrow(
         int key) {
@@ -8051,6 +8174,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapInt64Int64(
         long key) {
       
@@ -8059,6 +8183,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapInt64Int64Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64() {
       return getMapInt64Int64Map();
@@ -8066,6 +8191,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
       return internalGetMapInt64Int64().getMap();
@@ -8073,6 +8199,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
+    @java.lang.Override
 
     public long getMapInt64Int64OrDefault(
         long key,
@@ -8085,6 +8212,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
+    @java.lang.Override
 
     public long getMapInt64Int64OrThrow(
         long key) {
@@ -8127,6 +8255,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapUint32Uint32(
         int key) {
       
@@ -8135,6 +8264,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapUint32Uint32Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32() {
       return getMapUint32Uint32Map();
@@ -8142,6 +8272,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
       return internalGetMapUint32Uint32().getMap();
@@ -8149,6 +8280,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
+    @java.lang.Override
 
     public int getMapUint32Uint32OrDefault(
         int key,
@@ -8161,6 +8293,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
+    @java.lang.Override
 
     public int getMapUint32Uint32OrThrow(
         int key) {
@@ -8203,6 +8336,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapUint64Uint64(
         long key) {
       
@@ -8211,6 +8345,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapUint64Uint64Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64() {
       return getMapUint64Uint64Map();
@@ -8218,6 +8353,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
       return internalGetMapUint64Uint64().getMap();
@@ -8225,6 +8361,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
+    @java.lang.Override
 
     public long getMapUint64Uint64OrDefault(
         long key,
@@ -8237,6 +8374,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
+    @java.lang.Override
 
     public long getMapUint64Uint64OrThrow(
         long key) {
@@ -8279,6 +8417,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapSint32Sint32(
         int key) {
       
@@ -8287,6 +8426,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapSint32Sint32Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32() {
       return getMapSint32Sint32Map();
@@ -8294,6 +8434,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
       return internalGetMapSint32Sint32().getMap();
@@ -8301,6 +8442,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
+    @java.lang.Override
 
     public int getMapSint32Sint32OrDefault(
         int key,
@@ -8313,6 +8455,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
+    @java.lang.Override
 
     public int getMapSint32Sint32OrThrow(
         int key) {
@@ -8355,6 +8498,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapSint64Sint64(
         long key) {
       
@@ -8363,6 +8507,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapSint64Sint64Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64() {
       return getMapSint64Sint64Map();
@@ -8370,6 +8515,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
       return internalGetMapSint64Sint64().getMap();
@@ -8377,6 +8523,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
+    @java.lang.Override
 
     public long getMapSint64Sint64OrDefault(
         long key,
@@ -8389,6 +8536,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
+    @java.lang.Override
 
     public long getMapSint64Sint64OrThrow(
         long key) {
@@ -8431,6 +8579,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapFixed32Fixed32(
         int key) {
       
@@ -8439,6 +8588,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapFixed32Fixed32Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32() {
       return getMapFixed32Fixed32Map();
@@ -8446,6 +8596,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
       return internalGetMapFixed32Fixed32().getMap();
@@ -8453,6 +8604,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
+    @java.lang.Override
 
     public int getMapFixed32Fixed32OrDefault(
         int key,
@@ -8465,6 +8617,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
+    @java.lang.Override
 
     public int getMapFixed32Fixed32OrThrow(
         int key) {
@@ -8507,6 +8660,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapFixed64Fixed64(
         long key) {
       
@@ -8515,6 +8669,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapFixed64Fixed64Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64() {
       return getMapFixed64Fixed64Map();
@@ -8522,6 +8677,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
       return internalGetMapFixed64Fixed64().getMap();
@@ -8529,6 +8685,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
+    @java.lang.Override
 
     public long getMapFixed64Fixed64OrDefault(
         long key,
@@ -8541,6 +8698,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
+    @java.lang.Override
 
     public long getMapFixed64Fixed64OrThrow(
         long key) {
@@ -8583,6 +8741,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapSfixed32Sfixed32(
         int key) {
       
@@ -8591,6 +8750,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapSfixed32Sfixed32Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32() {
       return getMapSfixed32Sfixed32Map();
@@ -8598,6 +8758,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
       return internalGetMapSfixed32Sfixed32().getMap();
@@ -8605,6 +8766,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
+    @java.lang.Override
 
     public int getMapSfixed32Sfixed32OrDefault(
         int key,
@@ -8617,6 +8779,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
+    @java.lang.Override
 
     public int getMapSfixed32Sfixed32OrThrow(
         int key) {
@@ -8659,6 +8822,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapSfixed64Sfixed64(
         long key) {
       
@@ -8667,6 +8831,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapSfixed64Sfixed64Map()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64() {
       return getMapSfixed64Sfixed64Map();
@@ -8674,6 +8839,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
       return internalGetMapSfixed64Sfixed64().getMap();
@@ -8681,6 +8847,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
+    @java.lang.Override
 
     public long getMapSfixed64Sfixed64OrDefault(
         long key,
@@ -8693,6 +8860,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
+    @java.lang.Override
 
     public long getMapSfixed64Sfixed64OrThrow(
         long key) {
@@ -8735,6 +8903,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapInt32Float(
         int key) {
       
@@ -8743,6 +8912,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapInt32FloatMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32Float() {
       return getMapInt32FloatMap();
@@ -8750,6 +8920,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
       return internalGetMapInt32Float().getMap();
@@ -8757,6 +8928,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
+    @java.lang.Override
 
     public float getMapInt32FloatOrDefault(
         int key,
@@ -8769,6 +8941,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
+    @java.lang.Override
 
     public float getMapInt32FloatOrThrow(
         int key) {
@@ -8811,6 +8984,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapInt32Double(
         int key) {
       
@@ -8819,6 +8993,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapInt32DoubleMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32Double() {
       return getMapInt32DoubleMap();
@@ -8826,6 +9001,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
       return internalGetMapInt32Double().getMap();
@@ -8833,6 +9009,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
+    @java.lang.Override
 
     public double getMapInt32DoubleOrDefault(
         int key,
@@ -8845,6 +9022,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
+    @java.lang.Override
 
     public double getMapInt32DoubleOrThrow(
         int key) {
@@ -8887,6 +9065,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapBoolBool(
         boolean key) {
       
@@ -8895,6 +9074,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapBoolBoolMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBool() {
       return getMapBoolBoolMap();
@@ -8902,6 +9082,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
       return internalGetMapBoolBool().getMap();
@@ -8909,6 +9090,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
+    @java.lang.Override
 
     public boolean getMapBoolBoolOrDefault(
         boolean key,
@@ -8921,6 +9103,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
+    @java.lang.Override
 
     public boolean getMapBoolBoolOrThrow(
         boolean key) {
@@ -8963,6 +9146,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapStringString(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -8971,6 +9155,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringStringMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getMapStringString() {
       return getMapStringStringMap();
@@ -8978,6 +9163,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
       return internalGetMapStringString().getMap();
@@ -8985,6 +9171,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
@@ -8997,6 +9184,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getMapStringStringOrThrow(
         java.lang.String key) {
@@ -9039,6 +9227,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapStringBytes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9047,6 +9236,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringBytesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getMapStringBytes() {
       return getMapStringBytesMap();
@@ -9054,6 +9244,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getMapStringBytesMap() {
       return internalGetMapStringBytes().getMap();
@@ -9061,6 +9252,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf.ByteString getMapStringBytesOrDefault(
         java.lang.String key,
@@ -9073,6 +9265,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf.ByteString getMapStringBytesOrThrow(
         java.lang.String key) {
@@ -9115,6 +9308,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapStringNestedMessage(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9123,6 +9317,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringNestedMessageMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> getMapStringNestedMessage() {
       return getMapStringNestedMessageMap();
@@ -9130,6 +9325,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> getMapStringNestedMessageMap() {
       return internalGetMapStringNestedMessage().getMap();
@@ -9137,6 +9333,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrDefault(
         java.lang.String key,
@@ -9149,6 +9346,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrThrow(
         java.lang.String key) {
@@ -9191,6 +9389,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapStringForeignMessage(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9199,6 +9398,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringForeignMessageMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> getMapStringForeignMessage() {
       return getMapStringForeignMessageMap();
@@ -9206,6 +9406,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> getMapStringForeignMessageMap() {
       return internalGetMapStringForeignMessage().getMap();
@@ -9213,6 +9414,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrDefault(
         java.lang.String key,
@@ -9225,6 +9427,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrThrow(
         java.lang.String key) {
@@ -9280,6 +9483,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapStringNestedEnum(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9288,6 +9492,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringNestedEnumMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>
     getMapStringNestedEnum() {
@@ -9296,6 +9501,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>
     getMapStringNestedEnumMap() {
@@ -9304,6 +9510,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrDefault(
         java.lang.String key,
@@ -9318,6 +9525,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrThrow(
         java.lang.String key) {
@@ -9332,6 +9540,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringNestedEnumValueMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMapStringNestedEnumValue() {
@@ -9340,6 +9549,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMapStringNestedEnumValueMap() {
@@ -9348,6 +9558,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
+    @java.lang.Override
 
     public int getMapStringNestedEnumValueOrDefault(
         java.lang.String key,
@@ -9360,6 +9571,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
+    @java.lang.Override
 
     public int getMapStringNestedEnumValueOrThrow(
         java.lang.String key) {
@@ -9415,6 +9627,7 @@ public final class TestMessagesProto3 {
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
 
+    @java.lang.Override
     public boolean containsMapStringForeignEnum(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9423,6 +9636,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringForeignEnumMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum>
     getMapStringForeignEnum() {
@@ -9431,6 +9645,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum>
     getMapStringForeignEnumMap() {
@@ -9439,6 +9654,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrDefault(
         java.lang.String key,
@@ -9453,6 +9669,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
+    @java.lang.Override
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrThrow(
         java.lang.String key) {
@@ -9467,6 +9684,7 @@ public final class TestMessagesProto3 {
     /**
      * Use {@link #getMapStringForeignEnumValueMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMapStringForeignEnumValue() {
@@ -9475,6 +9693,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMapStringForeignEnumValueMap() {
@@ -9483,6 +9702,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
+    @java.lang.Override
 
     public int getMapStringForeignEnumValueOrDefault(
         java.lang.String key,
@@ -9495,6 +9715,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
      */
+    @java.lang.Override
 
     public int getMapStringForeignEnumValueOrThrow(
         java.lang.String key) {
@@ -9512,6 +9733,7 @@ public final class TestMessagesProto3 {
      * <code>uint32 oneof_uint32 = 111;</code>
      * @return The oneofUint32.
      */
+    @java.lang.Override
     public int getOneofUint32() {
       if (oneofFieldCase_ == 111) {
         return (java.lang.Integer) oneofField_;
@@ -9524,6 +9746,7 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage oneof_nested_message = 112;</code>
      * @return Whether the oneofNestedMessage field is set.
      */
+    @java.lang.Override
     public boolean hasOneofNestedMessage() {
       return oneofFieldCase_ == 112;
     }
@@ -9531,6 +9754,7 @@ public final class TestMessagesProto3 {
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage oneof_nested_message = 112;</code>
      * @return The oneofNestedMessage.
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getOneofNestedMessage() {
       if (oneofFieldCase_ == 112) {
          return (com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage) oneofField_;
@@ -9540,6 +9764,7 @@ public final class TestMessagesProto3 {
     /**
      * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage oneof_nested_message = 112;</code>
      */
+    @java.lang.Override
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessageOrBuilder getOneofNestedMessageOrBuilder() {
       if (oneofFieldCase_ == 112) {
          return (com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage) oneofField_;
@@ -9597,6 +9822,7 @@ public final class TestMessagesProto3 {
      * <code>bytes oneof_bytes = 114;</code>
      * @return The oneofBytes.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getOneofBytes() {
       if (oneofFieldCase_ == 114) {
         return (com.google.protobuf.ByteString) oneofField_;
@@ -9609,6 +9835,7 @@ public final class TestMessagesProto3 {
      * <code>bool oneof_bool = 115;</code>
      * @return The oneofBool.
      */
+    @java.lang.Override
     public boolean getOneofBool() {
       if (oneofFieldCase_ == 115) {
         return (java.lang.Boolean) oneofField_;
@@ -9621,6 +9848,7 @@ public final class TestMessagesProto3 {
      * <code>uint64 oneof_uint64 = 116;</code>
      * @return The oneofUint64.
      */
+    @java.lang.Override
     public long getOneofUint64() {
       if (oneofFieldCase_ == 116) {
         return (java.lang.Long) oneofField_;
@@ -9633,6 +9861,7 @@ public final class TestMessagesProto3 {
      * <code>float oneof_float = 117;</code>
      * @return The oneofFloat.
      */
+    @java.lang.Override
     public float getOneofFloat() {
       if (oneofFieldCase_ == 117) {
         return (java.lang.Float) oneofField_;
@@ -9645,6 +9874,7 @@ public final class TestMessagesProto3 {
      * <code>double oneof_double = 118;</code>
      * @return The oneofDouble.
      */
+    @java.lang.Override
     public double getOneofDouble() {
       if (oneofFieldCase_ == 118) {
         return (java.lang.Double) oneofField_;
@@ -9687,6 +9917,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.BoolValue optional_bool_wrapper = 201;</code>
      * @return Whether the optionalBoolWrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalBoolWrapper() {
       return optionalBoolWrapper_ != null;
     }
@@ -9698,6 +9929,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.BoolValue optional_bool_wrapper = 201;</code>
      * @return The optionalBoolWrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.BoolValue getOptionalBoolWrapper() {
       return optionalBoolWrapper_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : optionalBoolWrapper_;
     }
@@ -9708,6 +9940,7 @@ public final class TestMessagesProto3 {
      *
      * <code>.google.protobuf.BoolValue optional_bool_wrapper = 201;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.BoolValueOrBuilder getOptionalBoolWrapperOrBuilder() {
       return getOptionalBoolWrapper();
     }
@@ -9718,6 +9951,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Int32Value optional_int32_wrapper = 202;</code>
      * @return Whether the optionalInt32Wrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalInt32Wrapper() {
       return optionalInt32Wrapper_ != null;
     }
@@ -9725,12 +9959,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Int32Value optional_int32_wrapper = 202;</code>
      * @return The optionalInt32Wrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.Int32Value getOptionalInt32Wrapper() {
       return optionalInt32Wrapper_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : optionalInt32Wrapper_;
     }
     /**
      * <code>.google.protobuf.Int32Value optional_int32_wrapper = 202;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Int32ValueOrBuilder getOptionalInt32WrapperOrBuilder() {
       return getOptionalInt32Wrapper();
     }
@@ -9741,6 +9977,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Int64Value optional_int64_wrapper = 203;</code>
      * @return Whether the optionalInt64Wrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalInt64Wrapper() {
       return optionalInt64Wrapper_ != null;
     }
@@ -9748,12 +9985,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Int64Value optional_int64_wrapper = 203;</code>
      * @return The optionalInt64Wrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.Int64Value getOptionalInt64Wrapper() {
       return optionalInt64Wrapper_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : optionalInt64Wrapper_;
     }
     /**
      * <code>.google.protobuf.Int64Value optional_int64_wrapper = 203;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Int64ValueOrBuilder getOptionalInt64WrapperOrBuilder() {
       return getOptionalInt64Wrapper();
     }
@@ -9764,6 +10003,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.UInt32Value optional_uint32_wrapper = 204;</code>
      * @return Whether the optionalUint32Wrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalUint32Wrapper() {
       return optionalUint32Wrapper_ != null;
     }
@@ -9771,12 +10011,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.UInt32Value optional_uint32_wrapper = 204;</code>
      * @return The optionalUint32Wrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.UInt32Value getOptionalUint32Wrapper() {
       return optionalUint32Wrapper_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : optionalUint32Wrapper_;
     }
     /**
      * <code>.google.protobuf.UInt32Value optional_uint32_wrapper = 204;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt32ValueOrBuilder getOptionalUint32WrapperOrBuilder() {
       return getOptionalUint32Wrapper();
     }
@@ -9787,6 +10029,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.UInt64Value optional_uint64_wrapper = 205;</code>
      * @return Whether the optionalUint64Wrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalUint64Wrapper() {
       return optionalUint64Wrapper_ != null;
     }
@@ -9794,12 +10037,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.UInt64Value optional_uint64_wrapper = 205;</code>
      * @return The optionalUint64Wrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.UInt64Value getOptionalUint64Wrapper() {
       return optionalUint64Wrapper_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : optionalUint64Wrapper_;
     }
     /**
      * <code>.google.protobuf.UInt64Value optional_uint64_wrapper = 205;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt64ValueOrBuilder getOptionalUint64WrapperOrBuilder() {
       return getOptionalUint64Wrapper();
     }
@@ -9810,6 +10055,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.FloatValue optional_float_wrapper = 206;</code>
      * @return Whether the optionalFloatWrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalFloatWrapper() {
       return optionalFloatWrapper_ != null;
     }
@@ -9817,12 +10063,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.FloatValue optional_float_wrapper = 206;</code>
      * @return The optionalFloatWrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.FloatValue getOptionalFloatWrapper() {
       return optionalFloatWrapper_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : optionalFloatWrapper_;
     }
     /**
      * <code>.google.protobuf.FloatValue optional_float_wrapper = 206;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.FloatValueOrBuilder getOptionalFloatWrapperOrBuilder() {
       return getOptionalFloatWrapper();
     }
@@ -9833,6 +10081,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.DoubleValue optional_double_wrapper = 207;</code>
      * @return Whether the optionalDoubleWrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalDoubleWrapper() {
       return optionalDoubleWrapper_ != null;
     }
@@ -9840,12 +10089,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.DoubleValue optional_double_wrapper = 207;</code>
      * @return The optionalDoubleWrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.DoubleValue getOptionalDoubleWrapper() {
       return optionalDoubleWrapper_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : optionalDoubleWrapper_;
     }
     /**
      * <code>.google.protobuf.DoubleValue optional_double_wrapper = 207;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DoubleValueOrBuilder getOptionalDoubleWrapperOrBuilder() {
       return getOptionalDoubleWrapper();
     }
@@ -9856,6 +10107,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.StringValue optional_string_wrapper = 208;</code>
      * @return Whether the optionalStringWrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalStringWrapper() {
       return optionalStringWrapper_ != null;
     }
@@ -9863,12 +10115,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.StringValue optional_string_wrapper = 208;</code>
      * @return The optionalStringWrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.StringValue getOptionalStringWrapper() {
       return optionalStringWrapper_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : optionalStringWrapper_;
     }
     /**
      * <code>.google.protobuf.StringValue optional_string_wrapper = 208;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.StringValueOrBuilder getOptionalStringWrapperOrBuilder() {
       return getOptionalStringWrapper();
     }
@@ -9879,6 +10133,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.BytesValue optional_bytes_wrapper = 209;</code>
      * @return Whether the optionalBytesWrapper field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalBytesWrapper() {
       return optionalBytesWrapper_ != null;
     }
@@ -9886,12 +10141,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.BytesValue optional_bytes_wrapper = 209;</code>
      * @return The optionalBytesWrapper.
      */
+    @java.lang.Override
     public com.google.protobuf.BytesValue getOptionalBytesWrapper() {
       return optionalBytesWrapper_ == null ? com.google.protobuf.BytesValue.getDefaultInstance() : optionalBytesWrapper_;
     }
     /**
      * <code>.google.protobuf.BytesValue optional_bytes_wrapper = 209;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.BytesValueOrBuilder getOptionalBytesWrapperOrBuilder() {
       return getOptionalBytesWrapper();
     }
@@ -9901,12 +10158,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.BoolValue repeated_bool_wrapper = 211;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.BoolValue> getRepeatedBoolWrapperList() {
       return repeatedBoolWrapper_;
     }
     /**
      * <code>repeated .google.protobuf.BoolValue repeated_bool_wrapper = 211;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.BoolValueOrBuilder> 
         getRepeatedBoolWrapperOrBuilderList() {
       return repeatedBoolWrapper_;
@@ -9914,18 +10173,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.BoolValue repeated_bool_wrapper = 211;</code>
      */
+    @java.lang.Override
     public int getRepeatedBoolWrapperCount() {
       return repeatedBoolWrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.BoolValue repeated_bool_wrapper = 211;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.BoolValue getRepeatedBoolWrapper(int index) {
       return repeatedBoolWrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.BoolValue repeated_bool_wrapper = 211;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.BoolValueOrBuilder getRepeatedBoolWrapperOrBuilder(
         int index) {
       return repeatedBoolWrapper_.get(index);
@@ -9936,12 +10198,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Int32Value repeated_int32_wrapper = 212;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Int32Value> getRepeatedInt32WrapperList() {
       return repeatedInt32Wrapper_;
     }
     /**
      * <code>repeated .google.protobuf.Int32Value repeated_int32_wrapper = 212;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
         getRepeatedInt32WrapperOrBuilderList() {
       return repeatedInt32Wrapper_;
@@ -9949,18 +10213,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Int32Value repeated_int32_wrapper = 212;</code>
      */
+    @java.lang.Override
     public int getRepeatedInt32WrapperCount() {
       return repeatedInt32Wrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.Int32Value repeated_int32_wrapper = 212;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Int32Value getRepeatedInt32Wrapper(int index) {
       return repeatedInt32Wrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Int32Value repeated_int32_wrapper = 212;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Int32ValueOrBuilder getRepeatedInt32WrapperOrBuilder(
         int index) {
       return repeatedInt32Wrapper_.get(index);
@@ -9971,12 +10238,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Int64Value repeated_int64_wrapper = 213;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Int64Value> getRepeatedInt64WrapperList() {
       return repeatedInt64Wrapper_;
     }
     /**
      * <code>repeated .google.protobuf.Int64Value repeated_int64_wrapper = 213;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.Int64ValueOrBuilder> 
         getRepeatedInt64WrapperOrBuilderList() {
       return repeatedInt64Wrapper_;
@@ -9984,18 +10253,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Int64Value repeated_int64_wrapper = 213;</code>
      */
+    @java.lang.Override
     public int getRepeatedInt64WrapperCount() {
       return repeatedInt64Wrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.Int64Value repeated_int64_wrapper = 213;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Int64Value getRepeatedInt64Wrapper(int index) {
       return repeatedInt64Wrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Int64Value repeated_int64_wrapper = 213;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Int64ValueOrBuilder getRepeatedInt64WrapperOrBuilder(
         int index) {
       return repeatedInt64Wrapper_.get(index);
@@ -10006,12 +10278,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.UInt32Value repeated_uint32_wrapper = 214;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.UInt32Value> getRepeatedUint32WrapperList() {
       return repeatedUint32Wrapper_;
     }
     /**
      * <code>repeated .google.protobuf.UInt32Value repeated_uint32_wrapper = 214;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.UInt32ValueOrBuilder> 
         getRepeatedUint32WrapperOrBuilderList() {
       return repeatedUint32Wrapper_;
@@ -10019,18 +10293,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.UInt32Value repeated_uint32_wrapper = 214;</code>
      */
+    @java.lang.Override
     public int getRepeatedUint32WrapperCount() {
       return repeatedUint32Wrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.UInt32Value repeated_uint32_wrapper = 214;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt32Value getRepeatedUint32Wrapper(int index) {
       return repeatedUint32Wrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.UInt32Value repeated_uint32_wrapper = 214;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt32ValueOrBuilder getRepeatedUint32WrapperOrBuilder(
         int index) {
       return repeatedUint32Wrapper_.get(index);
@@ -10041,12 +10318,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.UInt64Value repeated_uint64_wrapper = 215;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.UInt64Value> getRepeatedUint64WrapperList() {
       return repeatedUint64Wrapper_;
     }
     /**
      * <code>repeated .google.protobuf.UInt64Value repeated_uint64_wrapper = 215;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.UInt64ValueOrBuilder> 
         getRepeatedUint64WrapperOrBuilderList() {
       return repeatedUint64Wrapper_;
@@ -10054,18 +10333,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.UInt64Value repeated_uint64_wrapper = 215;</code>
      */
+    @java.lang.Override
     public int getRepeatedUint64WrapperCount() {
       return repeatedUint64Wrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.UInt64Value repeated_uint64_wrapper = 215;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt64Value getRepeatedUint64Wrapper(int index) {
       return repeatedUint64Wrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.UInt64Value repeated_uint64_wrapper = 215;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.UInt64ValueOrBuilder getRepeatedUint64WrapperOrBuilder(
         int index) {
       return repeatedUint64Wrapper_.get(index);
@@ -10076,12 +10358,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.FloatValue repeated_float_wrapper = 216;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.FloatValue> getRepeatedFloatWrapperList() {
       return repeatedFloatWrapper_;
     }
     /**
      * <code>repeated .google.protobuf.FloatValue repeated_float_wrapper = 216;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.FloatValueOrBuilder> 
         getRepeatedFloatWrapperOrBuilderList() {
       return repeatedFloatWrapper_;
@@ -10089,18 +10373,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.FloatValue repeated_float_wrapper = 216;</code>
      */
+    @java.lang.Override
     public int getRepeatedFloatWrapperCount() {
       return repeatedFloatWrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.FloatValue repeated_float_wrapper = 216;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.FloatValue getRepeatedFloatWrapper(int index) {
       return repeatedFloatWrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.FloatValue repeated_float_wrapper = 216;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.FloatValueOrBuilder getRepeatedFloatWrapperOrBuilder(
         int index) {
       return repeatedFloatWrapper_.get(index);
@@ -10111,12 +10398,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.DoubleValue repeated_double_wrapper = 217;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.DoubleValue> getRepeatedDoubleWrapperList() {
       return repeatedDoubleWrapper_;
     }
     /**
      * <code>repeated .google.protobuf.DoubleValue repeated_double_wrapper = 217;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.DoubleValueOrBuilder> 
         getRepeatedDoubleWrapperOrBuilderList() {
       return repeatedDoubleWrapper_;
@@ -10124,18 +10413,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.DoubleValue repeated_double_wrapper = 217;</code>
      */
+    @java.lang.Override
     public int getRepeatedDoubleWrapperCount() {
       return repeatedDoubleWrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.DoubleValue repeated_double_wrapper = 217;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DoubleValue getRepeatedDoubleWrapper(int index) {
       return repeatedDoubleWrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.DoubleValue repeated_double_wrapper = 217;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DoubleValueOrBuilder getRepeatedDoubleWrapperOrBuilder(
         int index) {
       return repeatedDoubleWrapper_.get(index);
@@ -10146,12 +10438,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.StringValue repeated_string_wrapper = 218;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.StringValue> getRepeatedStringWrapperList() {
       return repeatedStringWrapper_;
     }
     /**
      * <code>repeated .google.protobuf.StringValue repeated_string_wrapper = 218;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.StringValueOrBuilder> 
         getRepeatedStringWrapperOrBuilderList() {
       return repeatedStringWrapper_;
@@ -10159,18 +10453,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.StringValue repeated_string_wrapper = 218;</code>
      */
+    @java.lang.Override
     public int getRepeatedStringWrapperCount() {
       return repeatedStringWrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.StringValue repeated_string_wrapper = 218;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.StringValue getRepeatedStringWrapper(int index) {
       return repeatedStringWrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.StringValue repeated_string_wrapper = 218;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.StringValueOrBuilder getRepeatedStringWrapperOrBuilder(
         int index) {
       return repeatedStringWrapper_.get(index);
@@ -10181,12 +10478,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.BytesValue repeated_bytes_wrapper = 219;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.BytesValue> getRepeatedBytesWrapperList() {
       return repeatedBytesWrapper_;
     }
     /**
      * <code>repeated .google.protobuf.BytesValue repeated_bytes_wrapper = 219;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.BytesValueOrBuilder> 
         getRepeatedBytesWrapperOrBuilderList() {
       return repeatedBytesWrapper_;
@@ -10194,18 +10493,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.BytesValue repeated_bytes_wrapper = 219;</code>
      */
+    @java.lang.Override
     public int getRepeatedBytesWrapperCount() {
       return repeatedBytesWrapper_.size();
     }
     /**
      * <code>repeated .google.protobuf.BytesValue repeated_bytes_wrapper = 219;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.BytesValue getRepeatedBytesWrapper(int index) {
       return repeatedBytesWrapper_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.BytesValue repeated_bytes_wrapper = 219;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.BytesValueOrBuilder getRepeatedBytesWrapperOrBuilder(
         int index) {
       return repeatedBytesWrapper_.get(index);
@@ -10217,6 +10519,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Duration optional_duration = 301;</code>
      * @return Whether the optionalDuration field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalDuration() {
       return optionalDuration_ != null;
     }
@@ -10224,12 +10527,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Duration optional_duration = 301;</code>
      * @return The optionalDuration.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getOptionalDuration() {
       return optionalDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : optionalDuration_;
     }
     /**
      * <code>.google.protobuf.Duration optional_duration = 301;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getOptionalDurationOrBuilder() {
       return getOptionalDuration();
     }
@@ -10240,6 +10545,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Timestamp optional_timestamp = 302;</code>
      * @return Whether the optionalTimestamp field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalTimestamp() {
       return optionalTimestamp_ != null;
     }
@@ -10247,12 +10553,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Timestamp optional_timestamp = 302;</code>
      * @return The optionalTimestamp.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getOptionalTimestamp() {
       return optionalTimestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : optionalTimestamp_;
     }
     /**
      * <code>.google.protobuf.Timestamp optional_timestamp = 302;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getOptionalTimestampOrBuilder() {
       return getOptionalTimestamp();
     }
@@ -10263,6 +10571,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.FieldMask optional_field_mask = 303;</code>
      * @return Whether the optionalFieldMask field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalFieldMask() {
       return optionalFieldMask_ != null;
     }
@@ -10270,12 +10579,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.FieldMask optional_field_mask = 303;</code>
      * @return The optionalFieldMask.
      */
+    @java.lang.Override
     public com.google.protobuf.FieldMask getOptionalFieldMask() {
       return optionalFieldMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : optionalFieldMask_;
     }
     /**
      * <code>.google.protobuf.FieldMask optional_field_mask = 303;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.FieldMaskOrBuilder getOptionalFieldMaskOrBuilder() {
       return getOptionalFieldMask();
     }
@@ -10286,6 +10597,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Struct optional_struct = 304;</code>
      * @return Whether the optionalStruct field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalStruct() {
       return optionalStruct_ != null;
     }
@@ -10293,12 +10605,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Struct optional_struct = 304;</code>
      * @return The optionalStruct.
      */
+    @java.lang.Override
     public com.google.protobuf.Struct getOptionalStruct() {
       return optionalStruct_ == null ? com.google.protobuf.Struct.getDefaultInstance() : optionalStruct_;
     }
     /**
      * <code>.google.protobuf.Struct optional_struct = 304;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.StructOrBuilder getOptionalStructOrBuilder() {
       return getOptionalStruct();
     }
@@ -10309,6 +10623,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Any optional_any = 305;</code>
      * @return Whether the optionalAny field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalAny() {
       return optionalAny_ != null;
     }
@@ -10316,12 +10631,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Any optional_any = 305;</code>
      * @return The optionalAny.
      */
+    @java.lang.Override
     public com.google.protobuf.Any getOptionalAny() {
       return optionalAny_ == null ? com.google.protobuf.Any.getDefaultInstance() : optionalAny_;
     }
     /**
      * <code>.google.protobuf.Any optional_any = 305;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getOptionalAnyOrBuilder() {
       return getOptionalAny();
     }
@@ -10332,6 +10649,7 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Value optional_value = 306;</code>
      * @return Whether the optionalValue field is set.
      */
+    @java.lang.Override
     public boolean hasOptionalValue() {
       return optionalValue_ != null;
     }
@@ -10339,12 +10657,14 @@ public final class TestMessagesProto3 {
      * <code>.google.protobuf.Value optional_value = 306;</code>
      * @return The optionalValue.
      */
+    @java.lang.Override
     public com.google.protobuf.Value getOptionalValue() {
       return optionalValue_ == null ? com.google.protobuf.Value.getDefaultInstance() : optionalValue_;
     }
     /**
      * <code>.google.protobuf.Value optional_value = 306;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.ValueOrBuilder getOptionalValueOrBuilder() {
       return getOptionalValue();
     }
@@ -10354,12 +10674,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Duration repeated_duration = 311;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Duration> getRepeatedDurationList() {
       return repeatedDuration_;
     }
     /**
      * <code>repeated .google.protobuf.Duration repeated_duration = 311;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.DurationOrBuilder> 
         getRepeatedDurationOrBuilderList() {
       return repeatedDuration_;
@@ -10367,18 +10689,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Duration repeated_duration = 311;</code>
      */
+    @java.lang.Override
     public int getRepeatedDurationCount() {
       return repeatedDuration_.size();
     }
     /**
      * <code>repeated .google.protobuf.Duration repeated_duration = 311;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getRepeatedDuration(int index) {
       return repeatedDuration_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Duration repeated_duration = 311;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getRepeatedDurationOrBuilder(
         int index) {
       return repeatedDuration_.get(index);
@@ -10389,12 +10714,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Timestamp repeated_timestamp = 312;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Timestamp> getRepeatedTimestampList() {
       return repeatedTimestamp_;
     }
     /**
      * <code>repeated .google.protobuf.Timestamp repeated_timestamp = 312;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.TimestampOrBuilder> 
         getRepeatedTimestampOrBuilderList() {
       return repeatedTimestamp_;
@@ -10402,18 +10729,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Timestamp repeated_timestamp = 312;</code>
      */
+    @java.lang.Override
     public int getRepeatedTimestampCount() {
       return repeatedTimestamp_.size();
     }
     /**
      * <code>repeated .google.protobuf.Timestamp repeated_timestamp = 312;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getRepeatedTimestamp(int index) {
       return repeatedTimestamp_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Timestamp repeated_timestamp = 312;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getRepeatedTimestampOrBuilder(
         int index) {
       return repeatedTimestamp_.get(index);
@@ -10424,12 +10754,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.FieldMask repeated_fieldmask = 313;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.FieldMask> getRepeatedFieldmaskList() {
       return repeatedFieldmask_;
     }
     /**
      * <code>repeated .google.protobuf.FieldMask repeated_fieldmask = 313;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.FieldMaskOrBuilder> 
         getRepeatedFieldmaskOrBuilderList() {
       return repeatedFieldmask_;
@@ -10437,18 +10769,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.FieldMask repeated_fieldmask = 313;</code>
      */
+    @java.lang.Override
     public int getRepeatedFieldmaskCount() {
       return repeatedFieldmask_.size();
     }
     /**
      * <code>repeated .google.protobuf.FieldMask repeated_fieldmask = 313;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.FieldMask getRepeatedFieldmask(int index) {
       return repeatedFieldmask_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.FieldMask repeated_fieldmask = 313;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.FieldMaskOrBuilder getRepeatedFieldmaskOrBuilder(
         int index) {
       return repeatedFieldmask_.get(index);
@@ -10459,12 +10794,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Struct repeated_struct = 324;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Struct> getRepeatedStructList() {
       return repeatedStruct_;
     }
     /**
      * <code>repeated .google.protobuf.Struct repeated_struct = 324;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.StructOrBuilder> 
         getRepeatedStructOrBuilderList() {
       return repeatedStruct_;
@@ -10472,18 +10809,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Struct repeated_struct = 324;</code>
      */
+    @java.lang.Override
     public int getRepeatedStructCount() {
       return repeatedStruct_.size();
     }
     /**
      * <code>repeated .google.protobuf.Struct repeated_struct = 324;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Struct getRepeatedStruct(int index) {
       return repeatedStruct_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Struct repeated_struct = 324;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.StructOrBuilder getRepeatedStructOrBuilder(
         int index) {
       return repeatedStruct_.get(index);
@@ -10494,12 +10834,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Any repeated_any = 315;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Any> getRepeatedAnyList() {
       return repeatedAny_;
     }
     /**
      * <code>repeated .google.protobuf.Any repeated_any = 315;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.AnyOrBuilder> 
         getRepeatedAnyOrBuilderList() {
       return repeatedAny_;
@@ -10507,18 +10849,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Any repeated_any = 315;</code>
      */
+    @java.lang.Override
     public int getRepeatedAnyCount() {
       return repeatedAny_.size();
     }
     /**
      * <code>repeated .google.protobuf.Any repeated_any = 315;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Any getRepeatedAny(int index) {
       return repeatedAny_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Any repeated_any = 315;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getRepeatedAnyOrBuilder(
         int index) {
       return repeatedAny_.get(index);
@@ -10529,12 +10874,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Value repeated_value = 316;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Value> getRepeatedValueList() {
       return repeatedValue_;
     }
     /**
      * <code>repeated .google.protobuf.Value repeated_value = 316;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.ValueOrBuilder> 
         getRepeatedValueOrBuilderList() {
       return repeatedValue_;
@@ -10542,18 +10889,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.Value repeated_value = 316;</code>
      */
+    @java.lang.Override
     public int getRepeatedValueCount() {
       return repeatedValue_.size();
     }
     /**
      * <code>repeated .google.protobuf.Value repeated_value = 316;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Value getRepeatedValue(int index) {
       return repeatedValue_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.Value repeated_value = 316;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.ValueOrBuilder getRepeatedValueOrBuilder(
         int index) {
       return repeatedValue_.get(index);
@@ -10564,12 +10914,14 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.ListValue repeated_list_value = 317;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ListValue> getRepeatedListValueList() {
       return repeatedListValue_;
     }
     /**
      * <code>repeated .google.protobuf.ListValue repeated_list_value = 317;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.ListValueOrBuilder> 
         getRepeatedListValueOrBuilderList() {
       return repeatedListValue_;
@@ -10577,18 +10929,21 @@ public final class TestMessagesProto3 {
     /**
      * <code>repeated .google.protobuf.ListValue repeated_list_value = 317;</code>
      */
+    @java.lang.Override
     public int getRepeatedListValueCount() {
       return repeatedListValue_.size();
     }
     /**
      * <code>repeated .google.protobuf.ListValue repeated_list_value = 317;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.ListValue getRepeatedListValue(int index) {
       return repeatedListValue_.get(index);
     }
     /**
      * <code>repeated .google.protobuf.ListValue repeated_list_value = 317;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.ListValueOrBuilder getRepeatedListValueOrBuilder(
         int index) {
       return repeatedListValue_.get(index);
@@ -10605,6 +10960,7 @@ public final class TestMessagesProto3 {
      * <code>int32 fieldname1 = 401;</code>
      * @return The fieldname1.
      */
+    @java.lang.Override
     public int getFieldname1() {
       return fieldname1_;
     }
@@ -10615,6 +10971,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field_name2 = 402;</code>
      * @return The fieldName2.
      */
+    @java.lang.Override
     public int getFieldName2() {
       return fieldName2_;
     }
@@ -10625,6 +10982,7 @@ public final class TestMessagesProto3 {
      * <code>int32 _field_name3 = 403;</code>
      * @return The fieldName3.
      */
+    @java.lang.Override
     public int getFieldName3() {
       return FieldName3_;
     }
@@ -10635,6 +10993,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field__name4_ = 404;</code>
      * @return The fieldName4.
      */
+    @java.lang.Override
     public int getFieldName4() {
       return fieldName4_;
     }
@@ -10645,6 +11004,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field0name5 = 405;</code>
      * @return The field0name5.
      */
+    @java.lang.Override
     public int getField0Name5() {
       return field0Name5_;
     }
@@ -10655,6 +11015,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field_0_name6 = 406;</code>
      * @return The field0Name6.
      */
+    @java.lang.Override
     public int getField0Name6() {
       return field0Name6_;
     }
@@ -10665,6 +11026,7 @@ public final class TestMessagesProto3 {
      * <code>int32 fieldName7 = 407;</code>
      * @return The fieldName7.
      */
+    @java.lang.Override
     public int getFieldName7() {
       return fieldName7_;
     }
@@ -10675,6 +11037,7 @@ public final class TestMessagesProto3 {
      * <code>int32 FieldName8 = 408;</code>
      * @return The fieldName8.
      */
+    @java.lang.Override
     public int getFieldName8() {
       return fieldName8_;
     }
@@ -10685,6 +11048,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field_Name9 = 409;</code>
      * @return The fieldName9.
      */
+    @java.lang.Override
     public int getFieldName9() {
       return fieldName9_;
     }
@@ -10695,6 +11059,7 @@ public final class TestMessagesProto3 {
      * <code>int32 Field_Name10 = 410;</code>
      * @return The fieldName10.
      */
+    @java.lang.Override
     public int getFieldName10() {
       return fieldName10_;
     }
@@ -10705,6 +11070,7 @@ public final class TestMessagesProto3 {
      * <code>int32 FIELD_NAME11 = 411;</code>
      * @return The fIELDNAME11.
      */
+    @java.lang.Override
     public int getFIELDNAME11() {
       return fIELDNAME11_;
     }
@@ -10715,6 +11081,7 @@ public final class TestMessagesProto3 {
      * <code>int32 FIELD_name12 = 412;</code>
      * @return The fIELDName12.
      */
+    @java.lang.Override
     public int getFIELDName12() {
       return fIELDName12_;
     }
@@ -10725,6 +11092,7 @@ public final class TestMessagesProto3 {
      * <code>int32 __field_name13 = 413;</code>
      * @return The fieldName13.
      */
+    @java.lang.Override
     public int getFieldName13() {
       return FieldName13_;
     }
@@ -10735,6 +11103,7 @@ public final class TestMessagesProto3 {
      * <code>int32 __Field_name14 = 414;</code>
      * @return The fieldName14.
      */
+    @java.lang.Override
     public int getFieldName14() {
       return FieldName14_;
     }
@@ -10745,6 +11114,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field__name15 = 415;</code>
      * @return The fieldName15.
      */
+    @java.lang.Override
     public int getFieldName15() {
       return fieldName15_;
     }
@@ -10755,6 +11125,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field__Name16 = 416;</code>
      * @return The fieldName16.
      */
+    @java.lang.Override
     public int getFieldName16() {
       return fieldName16_;
     }
@@ -10765,6 +11136,7 @@ public final class TestMessagesProto3 {
      * <code>int32 field_name17__ = 417;</code>
      * @return The fieldName17.
      */
+    @java.lang.Override
     public int getFieldName17() {
       return fieldName17_;
     }
@@ -10775,6 +11147,7 @@ public final class TestMessagesProto3 {
      * <code>int32 Field_name18__ = 418;</code>
      * @return The fieldName18.
      */
+    @java.lang.Override
     public int getFieldName18() {
       return fieldName18_;
     }
@@ -15962,6 +16335,7 @@ public final class TestMessagesProto3 {
        * <code>int32 optional_int32 = 1;</code>
        * @return The optionalInt32.
        */
+      @java.lang.Override
       public int getOptionalInt32() {
         return optionalInt32_;
       }
@@ -16000,6 +16374,7 @@ public final class TestMessagesProto3 {
        * <code>int64 optional_int64 = 2;</code>
        * @return The optionalInt64.
        */
+      @java.lang.Override
       public long getOptionalInt64() {
         return optionalInt64_;
       }
@@ -16030,6 +16405,7 @@ public final class TestMessagesProto3 {
        * <code>uint32 optional_uint32 = 3;</code>
        * @return The optionalUint32.
        */
+      @java.lang.Override
       public int getOptionalUint32() {
         return optionalUint32_;
       }
@@ -16060,6 +16436,7 @@ public final class TestMessagesProto3 {
        * <code>uint64 optional_uint64 = 4;</code>
        * @return The optionalUint64.
        */
+      @java.lang.Override
       public long getOptionalUint64() {
         return optionalUint64_;
       }
@@ -16090,6 +16467,7 @@ public final class TestMessagesProto3 {
        * <code>sint32 optional_sint32 = 5;</code>
        * @return The optionalSint32.
        */
+      @java.lang.Override
       public int getOptionalSint32() {
         return optionalSint32_;
       }
@@ -16120,6 +16498,7 @@ public final class TestMessagesProto3 {
        * <code>sint64 optional_sint64 = 6;</code>
        * @return The optionalSint64.
        */
+      @java.lang.Override
       public long getOptionalSint64() {
         return optionalSint64_;
       }
@@ -16150,6 +16529,7 @@ public final class TestMessagesProto3 {
        * <code>fixed32 optional_fixed32 = 7;</code>
        * @return The optionalFixed32.
        */
+      @java.lang.Override
       public int getOptionalFixed32() {
         return optionalFixed32_;
       }
@@ -16180,6 +16560,7 @@ public final class TestMessagesProto3 {
        * <code>fixed64 optional_fixed64 = 8;</code>
        * @return The optionalFixed64.
        */
+      @java.lang.Override
       public long getOptionalFixed64() {
         return optionalFixed64_;
       }
@@ -16210,6 +16591,7 @@ public final class TestMessagesProto3 {
        * <code>sfixed32 optional_sfixed32 = 9;</code>
        * @return The optionalSfixed32.
        */
+      @java.lang.Override
       public int getOptionalSfixed32() {
         return optionalSfixed32_;
       }
@@ -16240,6 +16622,7 @@ public final class TestMessagesProto3 {
        * <code>sfixed64 optional_sfixed64 = 10;</code>
        * @return The optionalSfixed64.
        */
+      @java.lang.Override
       public long getOptionalSfixed64() {
         return optionalSfixed64_;
       }
@@ -16270,6 +16653,7 @@ public final class TestMessagesProto3 {
        * <code>float optional_float = 11;</code>
        * @return The optionalFloat.
        */
+      @java.lang.Override
       public float getOptionalFloat() {
         return optionalFloat_;
       }
@@ -16300,6 +16684,7 @@ public final class TestMessagesProto3 {
        * <code>double optional_double = 12;</code>
        * @return The optionalDouble.
        */
+      @java.lang.Override
       public double getOptionalDouble() {
         return optionalDouble_;
       }
@@ -16330,6 +16715,7 @@ public final class TestMessagesProto3 {
        * <code>bool optional_bool = 13;</code>
        * @return The optionalBool.
        */
+      @java.lang.Override
       public boolean getOptionalBool() {
         return optionalBool_;
       }
@@ -16436,6 +16822,7 @@ public final class TestMessagesProto3 {
        * <code>bytes optional_bytes = 15;</code>
        * @return The optionalBytes.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getOptionalBytes() {
         return optionalBytes_;
       }
@@ -16707,7 +17094,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum optional_nested_enum = 21;</code>
        * @return The enum numeric value on the wire for optionalNestedEnum.
        */
-      public int getOptionalNestedEnumValue() {
+      @java.lang.Override public int getOptionalNestedEnumValue() {
         return optionalNestedEnum_;
       }
       /**
@@ -16716,6 +17103,7 @@ public final class TestMessagesProto3 {
        * @return This builder for chaining.
        */
       public Builder setOptionalNestedEnumValue(int value) {
+        
         optionalNestedEnum_ = value;
         onChanged();
         return this;
@@ -16724,6 +17112,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum optional_nested_enum = 21;</code>
        * @return The optionalNestedEnum.
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getOptionalNestedEnum() {
         @SuppressWarnings("deprecation")
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum result = com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum.valueOf(optionalNestedEnum_);
@@ -16759,7 +17148,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.ForeignEnum optional_foreign_enum = 22;</code>
        * @return The enum numeric value on the wire for optionalForeignEnum.
        */
-      public int getOptionalForeignEnumValue() {
+      @java.lang.Override public int getOptionalForeignEnumValue() {
         return optionalForeignEnum_;
       }
       /**
@@ -16768,6 +17157,7 @@ public final class TestMessagesProto3 {
        * @return This builder for chaining.
        */
       public Builder setOptionalForeignEnumValue(int value) {
+        
         optionalForeignEnum_ = value;
         onChanged();
         return this;
@@ -16776,6 +17166,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.ForeignEnum optional_foreign_enum = 22;</code>
        * @return The optionalForeignEnum.
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getOptionalForeignEnum() {
         @SuppressWarnings("deprecation")
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum result = com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum.valueOf(optionalForeignEnum_);
@@ -16811,7 +17202,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum optional_aliased_enum = 23;</code>
        * @return The enum numeric value on the wire for optionalAliasedEnum.
        */
-      public int getOptionalAliasedEnumValue() {
+      @java.lang.Override public int getOptionalAliasedEnumValue() {
         return optionalAliasedEnum_;
       }
       /**
@@ -16820,6 +17211,7 @@ public final class TestMessagesProto3 {
        * @return This builder for chaining.
        */
       public Builder setOptionalAliasedEnumValue(int value) {
+        
         optionalAliasedEnum_ = value;
         onChanged();
         return this;
@@ -16828,6 +17220,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum optional_aliased_enum = 23;</code>
        * @return The optionalAliasedEnum.
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum getOptionalAliasedEnum() {
         @SuppressWarnings("deprecation")
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum result = com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum.valueOf(optionalAliasedEnum_);
@@ -21783,6 +22176,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapInt32Int32(
           int key) {
         
@@ -21791,6 +22185,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapInt32Int32Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32() {
         return getMapInt32Int32Map();
@@ -21802,6 +22197,7 @@ public final class TestMessagesProto3 {
        *
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
         return internalGetMapInt32Int32().getMap();
@@ -21813,6 +22209,7 @@ public final class TestMessagesProto3 {
        *
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
+      @java.lang.Override
 
       public int getMapInt32Int32OrDefault(
           int key,
@@ -21829,6 +22226,7 @@ public final class TestMessagesProto3 {
        *
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
+      @java.lang.Override
 
       public int getMapInt32Int32OrThrow(
           int key) {
@@ -21930,6 +22328,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapInt64Int64(
           long key) {
         
@@ -21938,6 +22337,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapInt64Int64Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64() {
         return getMapInt64Int64Map();
@@ -21945,6 +22345,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
         return internalGetMapInt64Int64().getMap();
@@ -21952,6 +22353,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
+      @java.lang.Override
 
       public long getMapInt64Int64OrDefault(
           long key,
@@ -21964,6 +22366,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
+      @java.lang.Override
 
       public long getMapInt64Int64OrThrow(
           long key) {
@@ -22053,6 +22456,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapUint32Uint32(
           int key) {
         
@@ -22061,6 +22465,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapUint32Uint32Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32() {
         return getMapUint32Uint32Map();
@@ -22068,6 +22473,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
         return internalGetMapUint32Uint32().getMap();
@@ -22075,6 +22481,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
+      @java.lang.Override
 
       public int getMapUint32Uint32OrDefault(
           int key,
@@ -22087,6 +22494,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
+      @java.lang.Override
 
       public int getMapUint32Uint32OrThrow(
           int key) {
@@ -22176,6 +22584,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapUint64Uint64(
           long key) {
         
@@ -22184,6 +22593,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapUint64Uint64Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64() {
         return getMapUint64Uint64Map();
@@ -22191,6 +22601,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
         return internalGetMapUint64Uint64().getMap();
@@ -22198,6 +22609,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
+      @java.lang.Override
 
       public long getMapUint64Uint64OrDefault(
           long key,
@@ -22210,6 +22622,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
+      @java.lang.Override
 
       public long getMapUint64Uint64OrThrow(
           long key) {
@@ -22299,6 +22712,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapSint32Sint32(
           int key) {
         
@@ -22307,6 +22721,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapSint32Sint32Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32() {
         return getMapSint32Sint32Map();
@@ -22314,6 +22729,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
         return internalGetMapSint32Sint32().getMap();
@@ -22321,6 +22737,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
+      @java.lang.Override
 
       public int getMapSint32Sint32OrDefault(
           int key,
@@ -22333,6 +22750,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
+      @java.lang.Override
 
       public int getMapSint32Sint32OrThrow(
           int key) {
@@ -22422,6 +22840,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapSint64Sint64(
           long key) {
         
@@ -22430,6 +22849,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapSint64Sint64Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64() {
         return getMapSint64Sint64Map();
@@ -22437,6 +22857,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
         return internalGetMapSint64Sint64().getMap();
@@ -22444,6 +22865,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
+      @java.lang.Override
 
       public long getMapSint64Sint64OrDefault(
           long key,
@@ -22456,6 +22878,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
+      @java.lang.Override
 
       public long getMapSint64Sint64OrThrow(
           long key) {
@@ -22545,6 +22968,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapFixed32Fixed32(
           int key) {
         
@@ -22553,6 +22977,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapFixed32Fixed32Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32() {
         return getMapFixed32Fixed32Map();
@@ -22560,6 +22985,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
         return internalGetMapFixed32Fixed32().getMap();
@@ -22567,6 +22993,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
+      @java.lang.Override
 
       public int getMapFixed32Fixed32OrDefault(
           int key,
@@ -22579,6 +23006,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
+      @java.lang.Override
 
       public int getMapFixed32Fixed32OrThrow(
           int key) {
@@ -22668,6 +23096,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapFixed64Fixed64(
           long key) {
         
@@ -22676,6 +23105,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapFixed64Fixed64Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64() {
         return getMapFixed64Fixed64Map();
@@ -22683,6 +23113,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
         return internalGetMapFixed64Fixed64().getMap();
@@ -22690,6 +23121,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
+      @java.lang.Override
 
       public long getMapFixed64Fixed64OrDefault(
           long key,
@@ -22702,6 +23134,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
+      @java.lang.Override
 
       public long getMapFixed64Fixed64OrThrow(
           long key) {
@@ -22791,6 +23224,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapSfixed32Sfixed32(
           int key) {
         
@@ -22799,6 +23233,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapSfixed32Sfixed32Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32() {
         return getMapSfixed32Sfixed32Map();
@@ -22806,6 +23241,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
         return internalGetMapSfixed32Sfixed32().getMap();
@@ -22813,6 +23249,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
+      @java.lang.Override
 
       public int getMapSfixed32Sfixed32OrDefault(
           int key,
@@ -22825,6 +23262,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
+      @java.lang.Override
 
       public int getMapSfixed32Sfixed32OrThrow(
           int key) {
@@ -22914,6 +23352,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapSfixed64Sfixed64(
           long key) {
         
@@ -22922,6 +23361,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapSfixed64Sfixed64Map()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64() {
         return getMapSfixed64Sfixed64Map();
@@ -22929,6 +23369,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
         return internalGetMapSfixed64Sfixed64().getMap();
@@ -22936,6 +23377,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
+      @java.lang.Override
 
       public long getMapSfixed64Sfixed64OrDefault(
           long key,
@@ -22948,6 +23390,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
+      @java.lang.Override
 
       public long getMapSfixed64Sfixed64OrThrow(
           long key) {
@@ -23037,6 +23480,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapInt32Float(
           int key) {
         
@@ -23045,6 +23489,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapInt32FloatMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32Float() {
         return getMapInt32FloatMap();
@@ -23052,6 +23497,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
         return internalGetMapInt32Float().getMap();
@@ -23059,6 +23505,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
+      @java.lang.Override
 
       public float getMapInt32FloatOrDefault(
           int key,
@@ -23071,6 +23518,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
+      @java.lang.Override
 
       public float getMapInt32FloatOrThrow(
           int key) {
@@ -23160,6 +23608,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapInt32Double(
           int key) {
         
@@ -23168,6 +23617,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapInt32DoubleMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32Double() {
         return getMapInt32DoubleMap();
@@ -23175,6 +23625,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
         return internalGetMapInt32Double().getMap();
@@ -23182,6 +23633,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
+      @java.lang.Override
 
       public double getMapInt32DoubleOrDefault(
           int key,
@@ -23194,6 +23646,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
+      @java.lang.Override
 
       public double getMapInt32DoubleOrThrow(
           int key) {
@@ -23283,6 +23736,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapBoolBool(
           boolean key) {
         
@@ -23291,6 +23745,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapBoolBoolMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBool() {
         return getMapBoolBoolMap();
@@ -23298,6 +23753,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
         return internalGetMapBoolBool().getMap();
@@ -23305,6 +23761,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
+      @java.lang.Override
 
       public boolean getMapBoolBoolOrDefault(
           boolean key,
@@ -23317,6 +23774,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
+      @java.lang.Override
 
       public boolean getMapBoolBoolOrThrow(
           boolean key) {
@@ -23406,6 +23864,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapStringString(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -23414,6 +23873,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringStringMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getMapStringString() {
         return getMapStringStringMap();
@@ -23421,6 +23881,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
         return internalGetMapStringString().getMap();
@@ -23428,6 +23889,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getMapStringStringOrDefault(
           java.lang.String key,
@@ -23440,6 +23902,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getMapStringStringOrThrow(
           java.lang.String key) {
@@ -23529,6 +23992,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapStringBytes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -23537,6 +24001,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringBytesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getMapStringBytes() {
         return getMapStringBytesMap();
@@ -23544,6 +24009,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getMapStringBytesMap() {
         return internalGetMapStringBytes().getMap();
@@ -23551,6 +24017,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf.ByteString getMapStringBytesOrDefault(
           java.lang.String key,
@@ -23563,6 +24030,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf.ByteString getMapStringBytesOrThrow(
           java.lang.String key) {
@@ -23652,6 +24120,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapStringNestedMessage(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -23660,6 +24129,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringNestedMessageMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> getMapStringNestedMessage() {
         return getMapStringNestedMessageMap();
@@ -23667,6 +24137,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> getMapStringNestedMessageMap() {
         return internalGetMapStringNestedMessage().getMap();
@@ -23674,6 +24145,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrDefault(
           java.lang.String key,
@@ -23686,6 +24158,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrThrow(
           java.lang.String key) {
@@ -23775,6 +24248,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapStringForeignMessage(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -23783,6 +24257,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringForeignMessageMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> getMapStringForeignMessage() {
         return getMapStringForeignMessageMap();
@@ -23790,6 +24265,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> getMapStringForeignMessageMap() {
         return internalGetMapStringForeignMessage().getMap();
@@ -23797,6 +24273,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrDefault(
           java.lang.String key,
@@ -23809,6 +24286,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignMessage&gt; map_string_foreign_message = 72;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrThrow(
           java.lang.String key) {
@@ -23898,6 +24376,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapStringNestedEnum(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -23906,6 +24385,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringNestedEnumMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>
       getMapStringNestedEnum() {
@@ -23914,6 +24394,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum>
       getMapStringNestedEnumMap() {
@@ -23922,6 +24403,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrDefault(
           java.lang.String key,
@@ -23936,6 +24418,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrThrow(
           java.lang.String key) {
@@ -23950,6 +24433,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringNestedEnumValueMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.Integer>
       getMapStringNestedEnumValue() {
@@ -23958,6 +24442,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.Integer>
       getMapStringNestedEnumValueMap() {
@@ -23966,6 +24451,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
+      @java.lang.Override
 
       public int getMapStringNestedEnumValueOrDefault(
           java.lang.String key,
@@ -23978,6 +24464,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
+      @java.lang.Override
 
       public int getMapStringNestedEnumValueOrThrow(
           java.lang.String key) {
@@ -24096,6 +24583,7 @@ public final class TestMessagesProto3 {
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
 
+      @java.lang.Override
       public boolean containsMapStringForeignEnum(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -24104,6 +24592,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringForeignEnumMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum>
       getMapStringForeignEnum() {
@@ -24112,6 +24601,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum>
       getMapStringForeignEnumMap() {
@@ -24120,6 +24610,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrDefault(
           java.lang.String key,
@@ -24134,6 +24625,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
+      @java.lang.Override
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrThrow(
           java.lang.String key) {
@@ -24148,6 +24640,7 @@ public final class TestMessagesProto3 {
       /**
        * Use {@link #getMapStringForeignEnumValueMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.Integer>
       getMapStringForeignEnumValue() {
@@ -24156,6 +24649,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.Integer>
       getMapStringForeignEnumValueMap() {
@@ -24164,6 +24658,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
+      @java.lang.Override
 
       public int getMapStringForeignEnumValueOrDefault(
           java.lang.String key,
@@ -24176,6 +24671,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto3.ForeignEnum&gt; map_string_foreign_enum = 74;</code>
        */
+      @java.lang.Override
 
       public int getMapStringForeignEnumValueOrThrow(
           java.lang.String key) {
@@ -24304,6 +24800,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage oneof_nested_message = 112;</code>
        * @return Whether the oneofNestedMessage field is set.
        */
+      @java.lang.Override
       public boolean hasOneofNestedMessage() {
         return oneofFieldCase_ == 112;
       }
@@ -24311,6 +24808,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage oneof_nested_message = 112;</code>
        * @return The oneofNestedMessage.
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getOneofNestedMessage() {
         if (oneofNestedMessageBuilder_ == null) {
           if (oneofFieldCase_ == 112) {
@@ -24404,6 +24902,7 @@ public final class TestMessagesProto3 {
       /**
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage oneof_nested_message = 112;</code>
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessageOrBuilder getOneofNestedMessageOrBuilder() {
         if ((oneofFieldCase_ == 112) && (oneofNestedMessageBuilder_ != null)) {
           return oneofNestedMessageBuilder_.getMessageOrBuilder();
@@ -24440,6 +24939,7 @@ public final class TestMessagesProto3 {
        * <code>string oneof_string = 113;</code>
        * @return The oneofString.
        */
+      @java.lang.Override
       public java.lang.String getOneofString() {
         java.lang.Object ref = "";
         if (oneofFieldCase_ == 113) {
@@ -24461,6 +24961,7 @@ public final class TestMessagesProto3 {
        * <code>string oneof_string = 113;</code>
        * @return The bytes for oneofString.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString
           getOneofStringBytes() {
         java.lang.Object ref = "";
@@ -24700,6 +25201,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum oneof_enum = 119;</code>
        * @return The enum numeric value on the wire for oneofEnum.
        */
+      @java.lang.Override
       public int getOneofEnumValue() {
         if (oneofFieldCase_ == 119) {
           return ((java.lang.Integer) oneofField_).intValue();
@@ -24721,6 +25223,7 @@ public final class TestMessagesProto3 {
        * <code>.protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum oneof_enum = 119;</code>
        * @return The oneofEnum.
        */
+      @java.lang.Override
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getOneofEnum() {
         if (oneofFieldCase_ == 119) {
           @SuppressWarnings("deprecation")
@@ -30428,6 +30931,7 @@ public final class TestMessagesProto3 {
        * <code>int32 fieldname1 = 401;</code>
        * @return The fieldname1.
        */
+      @java.lang.Override
       public int getFieldname1() {
         return fieldname1_;
       }
@@ -30468,6 +30972,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field_name2 = 402;</code>
        * @return The fieldName2.
        */
+      @java.lang.Override
       public int getFieldName2() {
         return fieldName2_;
       }
@@ -30498,6 +31003,7 @@ public final class TestMessagesProto3 {
        * <code>int32 _field_name3 = 403;</code>
        * @return The fieldName3.
        */
+      @java.lang.Override
       public int getFieldName3() {
         return FieldName3_;
       }
@@ -30528,6 +31034,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field__name4_ = 404;</code>
        * @return The fieldName4.
        */
+      @java.lang.Override
       public int getFieldName4() {
         return fieldName4_;
       }
@@ -30558,6 +31065,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field0name5 = 405;</code>
        * @return The field0name5.
        */
+      @java.lang.Override
       public int getField0Name5() {
         return field0Name5_;
       }
@@ -30588,6 +31096,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field_0_name6 = 406;</code>
        * @return The field0Name6.
        */
+      @java.lang.Override
       public int getField0Name6() {
         return field0Name6_;
       }
@@ -30618,6 +31127,7 @@ public final class TestMessagesProto3 {
        * <code>int32 fieldName7 = 407;</code>
        * @return The fieldName7.
        */
+      @java.lang.Override
       public int getFieldName7() {
         return fieldName7_;
       }
@@ -30648,6 +31158,7 @@ public final class TestMessagesProto3 {
        * <code>int32 FieldName8 = 408;</code>
        * @return The fieldName8.
        */
+      @java.lang.Override
       public int getFieldName8() {
         return fieldName8_;
       }
@@ -30678,6 +31189,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field_Name9 = 409;</code>
        * @return The fieldName9.
        */
+      @java.lang.Override
       public int getFieldName9() {
         return fieldName9_;
       }
@@ -30708,6 +31220,7 @@ public final class TestMessagesProto3 {
        * <code>int32 Field_Name10 = 410;</code>
        * @return The fieldName10.
        */
+      @java.lang.Override
       public int getFieldName10() {
         return fieldName10_;
       }
@@ -30738,6 +31251,7 @@ public final class TestMessagesProto3 {
        * <code>int32 FIELD_NAME11 = 411;</code>
        * @return The fIELDNAME11.
        */
+      @java.lang.Override
       public int getFIELDNAME11() {
         return fIELDNAME11_;
       }
@@ -30768,6 +31282,7 @@ public final class TestMessagesProto3 {
        * <code>int32 FIELD_name12 = 412;</code>
        * @return The fIELDName12.
        */
+      @java.lang.Override
       public int getFIELDName12() {
         return fIELDName12_;
       }
@@ -30798,6 +31313,7 @@ public final class TestMessagesProto3 {
        * <code>int32 __field_name13 = 413;</code>
        * @return The fieldName13.
        */
+      @java.lang.Override
       public int getFieldName13() {
         return FieldName13_;
       }
@@ -30828,6 +31344,7 @@ public final class TestMessagesProto3 {
        * <code>int32 __Field_name14 = 414;</code>
        * @return The fieldName14.
        */
+      @java.lang.Override
       public int getFieldName14() {
         return FieldName14_;
       }
@@ -30858,6 +31375,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field__name15 = 415;</code>
        * @return The fieldName15.
        */
+      @java.lang.Override
       public int getFieldName15() {
         return fieldName15_;
       }
@@ -30888,6 +31406,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field__Name16 = 416;</code>
        * @return The fieldName16.
        */
+      @java.lang.Override
       public int getFieldName16() {
         return fieldName16_;
       }
@@ -30918,6 +31437,7 @@ public final class TestMessagesProto3 {
        * <code>int32 field_name17__ = 417;</code>
        * @return The fieldName17.
        */
+      @java.lang.Override
       public int getFieldName17() {
         return fieldName17_;
       }
@@ -30948,6 +31468,7 @@ public final class TestMessagesProto3 {
        * <code>int32 Field_name18__ = 418;</code>
        * @return The fieldName18.
        */
+      @java.lang.Override
       public int getFieldName18() {
         return fieldName18_;
       }
@@ -31038,7 +31559,7 @@ public final class TestMessagesProto3 {
   /**
    * Protobuf type {@code protobuf_test_messages.proto3.ForeignMessage}
    */
-  public  static final class ForeignMessage extends
+  public static final class ForeignMessage extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:protobuf_test_messages.proto3.ForeignMessage)
       ForeignMessageOrBuilder {
@@ -31123,6 +31644,7 @@ public final class TestMessagesProto3 {
      * <code>int32 c = 1;</code>
      * @return The c.
      */
+    @java.lang.Override
     public int getC() {
       return c_;
     }
@@ -31434,6 +31956,7 @@ public final class TestMessagesProto3 {
        * <code>int32 c = 1;</code>
        * @return The c.
        */
+      @java.lang.Override
       public int getC() {
         return c_;
       }
