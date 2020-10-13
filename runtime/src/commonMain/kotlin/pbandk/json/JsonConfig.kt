@@ -14,9 +14,20 @@ data class JsonConfig(
     val outputProtoFieldNames: Boolean = false,
     /**
      * Fields with default values are omitted by default in proto3 JSON output. If this option is `true` then fields
-     * will be output with their default values.
+     * will be output with their default values. See https://developers.google.com/protocol-buffers/docs/proto3#default
+     * for the default value for each type. When producing JSON output, empty `bytes` fields will be output as empty
+     * strings, and unset message fields will be output as `null`.
      */
     val outputDefaultValues: Boolean = false,
+    /**
+     * WARNING: This option should not be used. It only exists for backwards-compatibility.
+     *
+     * When [outputDefaultValues] is `true`, `string` fields set to their default value will normally be  output as
+     * empty strings in JSON. If this option is also `true`, then these fields will instead be output as `null` values
+     * in JSON. This option has no effect when [outputDefaultValues] is `false`.
+     */
+    @Deprecated("This option only exists for backwards-compatibility reasons. It should not be used by new code and will eventually be removed.")
+    val outputDefaultStringsAsNull: Boolean = false,
     /**
      * By default the JSON output is formatted for readability: entries are indented, each entry is on a new line, etc.
      * If this option is `true` then a more compact format will be used that omits extraneous spaces and newlines.

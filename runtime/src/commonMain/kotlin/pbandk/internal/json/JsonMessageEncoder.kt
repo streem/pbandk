@@ -59,7 +59,16 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
             if (value == null && fd.oneofMember) continue
             if (!fd.oneofMember && !jsonConfig.outputDefaultValues && fd.type.isDefaultValue(value)) continue
 
-            val jsonValue = value?.let { jsonValueEncoder.writeValue(it, fd.type) } ?: JsonNull
+            val jsonValue = value
+                ?.takeUnless {
+                    @Suppress("DEPRECATION")
+                    jsonConfig.outputDefaultValues &&
+                            jsonConfig.outputDefaultStringsAsNull &&
+                            fd.type is FieldDescriptor.Type.Primitive.String &&
+                            fd.type.isDefaultValue(it)
+                }
+                ?.let { jsonValueEncoder.writeValue(it, fd.type) }
+                ?: JsonNull
             jsonContent[jsonConfig.getFieldJsonName(fd)] = jsonValue
         }
 
