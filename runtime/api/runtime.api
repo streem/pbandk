@@ -430,17 +430,19 @@ public final class pbandk/internal/Util : pbandk/internal/AbstractUtil {
 public final class pbandk/json/JsonConfig {
 	public static final field Companion Lpbandk/json/JsonConfig$Companion;
 	public fun <init> ()V
-	public fun <init> (ZZZZ)V
-	public synthetic fun <init> (ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (ZZZZZ)V
+	public synthetic fun <init> (ZZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Z
 	public final fun component2 ()Z
 	public final fun component3 ()Z
 	public final fun component4 ()Z
-	public final fun copy (ZZZZ)Lpbandk/json/JsonConfig;
-	public static synthetic fun copy$default (Lpbandk/json/JsonConfig;ZZZZILjava/lang/Object;)Lpbandk/json/JsonConfig;
+	public final fun component5 ()Z
+	public final fun copy (ZZZZZ)Lpbandk/json/JsonConfig;
+	public static synthetic fun copy$default (Lpbandk/json/JsonConfig;ZZZZZILjava/lang/Object;)Lpbandk/json/JsonConfig;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCompactOutput ()Z
 	public final fun getIgnoreUnknownFieldsInInput ()Z
+	public final fun getOutputDefaultStringsAsNull ()Z
 	public final fun getOutputDefaultValues ()Z
 	public final fun getOutputProtoFieldNames ()Z
 	public fun hashCode ()I
