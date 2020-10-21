@@ -9,7 +9,11 @@ import kotlin.Any
 
 @OptIn(ExperimentalUnsignedTypes::class)
 internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
-    fun readValue(value: JsonElement, type: FieldDescriptor.Type, isMapKey: Boolean = false): Any = when (type) {
+    /**
+     * Returns `null` if the value was parseable but is invalid. This currently only happens for enum fields with
+     * unknown values.
+     */
+    fun readValue(value: JsonElement, type: FieldDescriptor.Type, isMapKey: Boolean = false): Any? = when (type) {
         is FieldDescriptor.Type.Primitive.Double -> readDouble(value)
         is FieldDescriptor.Type.Primitive.Float -> readFloat(value)
         is FieldDescriptor.Type.Primitive.Int64 -> readInteger64(value, isMapKey)
@@ -97,13 +101,19 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
             else -> throw InvalidProtocolBufferException("bool field did not contain a boolean value in JSON")
         }
 
-    fun readEnum(value: JsonElement, enumCompanion: Message.Enum.Companion<*>): Message.Enum = try {
+    fun readEnum(value: JsonElement, enumCompanion: Message.Enum.Companion<*>): Message.Enum? = try {
         val p = value.primitive
         p.intOrNull?.let { return enumCompanion.fromValue(it) }
         require(p is JsonLiteral && p.isString) { "Non-numeric enum values must be quoted" }
         enumCompanion.fromName(p.content)
     } catch (e: Exception) {
-        throw InvalidProtocolBufferException("enum field did not contain a number or valid enum value", e)
+        // See https://github.com/protocolbuffers/protobuf/issues/7392 and
+        // https://github.com/protocolbuffers/protobuf/pull/4825/files for context
+        if (e is IllegalArgumentException && jsonConfig.ignoreUnknownFieldsInInput) {
+            null
+        } else {
+            throw InvalidProtocolBufferException("enum field did not contain a number or valid enum value", e)
+        }
     }
 
     fun readFloat(value: JsonElement): Float = try {
@@ -142,7 +152,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     }
 
     fun readRepeated(value: JsonElement, valueType: FieldDescriptor.Type): Sequence<*> = try {
-        value.jsonArray.asSequence().map { readValue(it, valueType) }
+        value.jsonArray.asSequence().mapNotNull { readValue(it, valueType) }
     } catch (e: InvalidProtocolBufferException) {
         throw e
     } catch (e: Exception) {
@@ -154,13 +164,18 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         type: FieldDescriptor.Type.Map<*, *>
     ): Sequence<Map.Entry<*, *>> = try {
         value.jsonObject.asSequence()
-            .map { (k, v) ->
-                @Suppress("UNCHECKED_CAST")
-                (MessageMap.Entry(
-                    readValue(JsonLiteral(k), type.entryCompanion.keyType, true),
-                    readValue(v, type.entryCompanion.valueType),
-                    type.entryCompanion as MessageMap.Entry.Companion<Any?, Any?>
-                ))
+            .mapNotNull { (k, v) ->
+                val entryKey = readValue(JsonLiteral(k), type.entryCompanion.keyType, true)
+                // When `readValue` returns `null` that means the map entry's value is invalid (e.g. unknown
+                // enum). In that case we skip the entire map entry.
+                readValue(v, type.entryCompanion.valueType)?.let { entryValue ->
+                    @Suppress("UNCHECKED_CAST")
+                    MessageMap.Entry(
+                        entryKey,
+                        entryValue,
+                        type.entryCompanion as MessageMap.Entry.Companion<Any?, Any?>
+                    )
+                }
             }
     } catch (e: InvalidProtocolBufferException) {
         throw e
@@ -172,7 +187,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         val fields = readMap(value, Struct.descriptor.fields.first().type as FieldDescriptor.Type.Map<*, *>)
         @Suppress("UNCHECKED_CAST")
         Struct(MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>))
-    }  catch (e: InvalidProtocolBufferException) {
+    } catch (e: InvalidProtocolBufferException) {
         throw e
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("struct field did not contain a valid object", e)
@@ -184,8 +199,16 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
             .recoverCatching { Value(kind = Value.Kind.NumberValue(readDouble(value))) }
             .recoverCatching { Value(kind = Value.Kind.BoolValue(readBool(value))) }
             .getOrElse { throw InvalidProtocolBufferException("dynamically typed value did not contain a valid primitive object") }
-        is JsonArray -> Value(kind = Value.Kind.ListValue(readValue(value, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue))
-        is JsonObject -> Value(kind = Value.Kind.StructValue(readValue(value, FieldDescriptor.Type.Message(Struct.Companion)) as Struct))
+        is JsonArray -> Value(
+            kind = Value.Kind.ListValue(
+                readValue(value, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue
+            )
+        )
+        is JsonObject -> Value(
+            kind = Value.Kind.StructValue(
+                readValue(value, FieldDescriptor.Type.Message(Struct.Companion)) as Struct
+            )
+        )
     }
 
     fun readDynamicListValue(value: JsonElement): ListValue = try {
