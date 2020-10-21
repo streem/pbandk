@@ -140,6 +140,144 @@ data class MessageWithMap(
     }
 }
 
+data class FooMap(
+    val map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Companion.descriptor
+    override val protoSize by lazy { super.protoSize }
+    companion object : pbandk.Message.Companion<FooMap> {
+        val defaultInstance by lazy { FooMap() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = FooMap.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<FooMap> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = FooMap::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.Foo?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
+                        jsonName = "map",
+                        value = FooMap::map
+                    )
+                )
+            )
+        }
+    }
+
+    data class MapEntry(
+        override val key: String = "",
+        override val value: pbandk.testpb.Foo? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message, Map.Entry<String, pbandk.testpb.Foo?> {
+        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+        override val descriptor get() = Companion.descriptor
+        override val protoSize by lazy { super.protoSize }
+        companion object : pbandk.Message.Companion<FooMap.MapEntry> {
+            val defaultInstance by lazy { FooMap.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = FooMap.MapEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<FooMap.MapEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = FooMap.MapEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                            jsonName = "key",
+                            value = FooMap.MapEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
+                            jsonName = "value",
+                            value = FooMap.MapEntry::value
+                        )
+                    )
+                )
+            }
+        }
+    }
+}
+
+data class FooMapEntries(
+    val map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+) : pbandk.Message {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Companion.descriptor
+    override val protoSize by lazy { super.protoSize }
+    companion object : pbandk.Message.Companion<FooMapEntries> {
+        val defaultInstance by lazy { FooMapEntries() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = FooMapEntries.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<FooMapEntries> by lazy {
+            pbandk.MessageDescriptor(
+                messageClass = FooMapEntries::class,
+                messageCompanion = this,
+                fields = listOf(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "map",
+                        number = 1,
+                        type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.FooMapEntries.MapEntry>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FooMapEntries.MapEntry.Companion)),
+                        jsonName = "map",
+                        value = FooMapEntries::map
+                    )
+                )
+            )
+        }
+    }
+
+    data class MapEntry(
+        val key: String = "",
+        val value: pbandk.testpb.Foo? = null,
+        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ) : pbandk.Message {
+        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+        override val descriptor get() = Companion.descriptor
+        override val protoSize by lazy { super.protoSize }
+        companion object : pbandk.Message.Companion<FooMapEntries.MapEntry> {
+            val defaultInstance by lazy { FooMapEntries.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = FooMapEntries.MapEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<FooMapEntries.MapEntry> by lazy {
+                pbandk.MessageDescriptor(
+                    messageClass = FooMapEntries.MapEntry::class,
+                    messageCompanion = this,
+                    fields = listOf(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "key",
+                            number = 1,
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                            jsonName = "key",
+                            value = FooMapEntries.MapEntry::key
+                        ),
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this::descriptor,
+                            name = "value",
+                            number = 2,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
+                            jsonName = "value",
+                            value = FooMapEntries.MapEntry::value
+                        )
+                    )
+                )
+            }
+        }
+    }
+}
+
 data class Wrappers(
     val stringValue: String? = null,
     val uint64Values: List<Long> = emptyList(),
@@ -256,6 +394,86 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
         }
     }
     return MessageWithMap.MapEntry(key, value, unknownFields)
+}
+
+fun FooMap?.orDefault() = this ?: FooMap.defaultInstance
+
+private fun FooMap.protoMergeImpl(plus: pbandk.Message?): FooMap = (plus as? FooMap)?.copy(
+    map = map + plus.map,
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
+    var map: pbandk.MessageMap.Builder<String, pbandk.testpb.Foo?>? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>> }
+        }
+    }
+    return FooMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
+}
+
+fun FooMap.MapEntry?.orDefault() = this ?: FooMap.MapEntry.defaultInstance
+
+private fun FooMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMap.MapEntry = (plus as? FooMap.MapEntry)?.copy(
+    value = value?.plus(plus.value) ?: plus.value,
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap.MapEntry {
+    var key = ""
+    var value: pbandk.testpb.Foo? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> key = _fieldValue as String
+            2 -> value = _fieldValue as pbandk.testpb.Foo
+        }
+    }
+    return FooMap.MapEntry(key, value, unknownFields)
+}
+
+fun FooMapEntries?.orDefault() = this ?: FooMapEntries.defaultInstance
+
+private fun FooMapEntries.protoMergeImpl(plus: pbandk.Message?): FooMapEntries = (plus as? FooMapEntries)?.copy(
+    map = map + plus.map,
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMapEntries {
+    var map: pbandk.ListWithSize.Builder<pbandk.testpb.FooMapEntries.MapEntry>? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
+        }
+    }
+    return FooMapEntries(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
+}
+
+fun FooMapEntries.MapEntry?.orDefault() = this ?: FooMapEntries.MapEntry.defaultInstance
+
+private fun FooMapEntries.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMapEntries.MapEntry = (plus as? FooMapEntries.MapEntry)?.copy(
+    value = value?.plus(plus.value) ?: plus.value,
+    unknownFields = unknownFields + plus.unknownFields
+) ?: this
+
+@Suppress("UNCHECKED_CAST")
+private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMapEntries.MapEntry {
+    var key = ""
+    var value: pbandk.testpb.Foo? = null
+
+    val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
+        when (_fieldNumber) {
+            1 -> key = _fieldValue as String
+            2 -> value = _fieldValue as pbandk.testpb.Foo
+        }
+    }
+    return FooMapEntries.MapEntry(key, value, unknownFields)
 }
 
 fun Wrappers?.orDefault() = this ?: Wrappers.defaultInstance

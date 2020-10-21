@@ -18,6 +18,21 @@ message MessageWithMap {
     map<string, string> map = 1;
 }
 
+message FooMap {
+    map<string, Foo> map = 1;
+}
+
+// Match the on-the-wire binary serialization of `FooMap` but using the backwards-compatible syntax of repeated map
+// entry messages instead of a `map` field.
+message FooMapEntries {
+    message MapEntry {
+        string key = 1;
+        Foo value = 2;
+    }
+
+    repeated MapEntry map = 1;
+}
+
 message Wrappers {
     google.protobuf.StringValue string_value = 1;
     repeated google.protobuf.UInt64Value uint64_values = 2;

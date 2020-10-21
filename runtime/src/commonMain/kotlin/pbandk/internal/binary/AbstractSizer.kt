@@ -122,11 +122,7 @@ internal abstract class AbstractSizer {
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 
-            if (!fd.type.hasPresence && fd.type.isDefaultValue(value)) {
-                continue
-            }
-
-            value?.let {
+            if (fd.type.shouldOutputValue(value) && value != null) {
                 protoSize += when (fd.type) {
                     is FieldDescriptor.Type.Repeated<*> -> {
                         tagSize(fd.number) * (if (fd.type.packed) 1 else (value as List<*>).size)
@@ -160,15 +156,22 @@ internal abstract class AbstractSizer {
             if (entry is MessageMap.Entry<*, *>) {
                 entry.protoSize
             } else {
-                Sizer.tagSize(1) + (entry.key?.let { entryCompanion.keyType.protoSize(it) } ?: 0) +
-                        Sizer.tagSize(2) + (entry.value?.let { entryCompanion.valueType.protoSize(it) } ?: 0)
+                val keySize = entry.key
+                    .takeIf { entryCompanion.keyType.shouldOutputValue(it) }
+                    ?.let { Sizer.tagSize(1) + entryCompanion.keyType.protoSize(it) }
+                    ?: 0
+                val valueSize = entry.value
+                    .takeIf { entryCompanion.valueType.shouldOutputValue(it) }
+                    ?.let { Sizer.tagSize(2) + entryCompanion.valueType.protoSize(it) }
+                    ?: 0
+                keySize + valueSize
             }.let { size ->
                 Sizer.uInt32Size(size) + size
             }
         }
     }
 
-    fun tagSize(fieldNum: Int) = uInt32Size(Tag(fieldNum, WireType(0) ).value)
+    fun tagSize(fieldNum: Int) = uInt32Size(Tag(fieldNum, WireType(0)).value)
 
     fun doubleSize(@Suppress("UNUSED_PARAMETER") value: Double) = 8
 
