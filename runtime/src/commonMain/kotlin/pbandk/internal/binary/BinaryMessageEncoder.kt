@@ -5,17 +5,19 @@ import pbandk.wkt.*
 import kotlin.Any
 import kotlin.reflect.KProperty1
 
+internal fun FieldDescriptor.Type.shouldOutputValue(value: Any?): Boolean {
+    return (hasPresence || !isDefaultValue(value)) && value != null
+}
+
 internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEncoder) : MessageEncoder {
     override fun <T : Message> writeMessage(message: T) {
         for (fd in message.descriptor.fields) {
             @Suppress("UNCHECKED_CAST")
             val value = (fd.value as KProperty1<T, *>).get(message)
 
-            if (!fd.type.hasPresence && fd.type.isDefaultValue(value)) {
-                continue
+            if (fd.type.shouldOutputValue(value) && value != null) {
+                writeFieldValue(fd.number, fd.type, value)
             }
-
-            value?.let { writeFieldValue(fd.number, fd.type, it) }
         }
 
         for (field in message.unknownFields.values) {

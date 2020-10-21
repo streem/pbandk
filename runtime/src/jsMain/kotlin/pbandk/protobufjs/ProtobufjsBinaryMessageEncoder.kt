@@ -10,7 +10,7 @@ internal class ProtobufjsBinaryMessageEncoder private constructor(
 ) : BinaryMessageEncoder(ProtobufjsBinaryWireEncoder(writer)), ByteArrayMessageEncoder {
     override fun toByteArray(): ByteArray {
         return writer.finish().asByteArray().also {
-            require(it.size == expectedSize) { "Expected $expectedSize, got ${it.size}" }
+            check(it.size == expectedSize) { "Expected $expectedSize, got ${it.size}" }
         }
     }
 

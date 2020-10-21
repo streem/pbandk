@@ -2296,6 +2296,2298 @@ public final class Test {
 
   }
 
+  public interface FooMapOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:testpb.FooMap)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+    int getMapCount();
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+    boolean containsMap(
+        java.lang.String key);
+    /**
+     * Use {@link #getMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo>
+    getMap();
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+    java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo>
+    getMapMap();
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+
+    pbandk.testpb.java.Test.Foo getMapOrDefault(
+        java.lang.String key,
+        pbandk.testpb.java.Test.Foo defaultValue);
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+
+    pbandk.testpb.java.Test.Foo getMapOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code testpb.FooMap}
+   */
+  public  static final class FooMap extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:testpb.FooMap)
+      FooMapOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FooMap.newBuilder() to construct.
+    private FooMap(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FooMap() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FooMap();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FooMap(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                map_ = com.google.protobuf.MapField.newMapField(
+                    MapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, pbandk.testpb.java.Test.Foo>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              map_.getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pbandk.testpb.java.Test.internal_static_testpb_FooMap_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pbandk.testpb.java.Test.internal_static_testpb_FooMap_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pbandk.testpb.java.Test.FooMap.class, pbandk.testpb.java.Test.FooMap.Builder.class);
+    }
+
+    public static final int MAP_FIELD_NUMBER = 1;
+    private static final class MapDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, pbandk.testpb.java.Test.Foo> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, pbandk.testpb.java.Test.Foo>newDefaultInstance(
+                  pbandk.testpb.java.Test.internal_static_testpb_FooMap_MapEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  pbandk.testpb.java.Test.Foo.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, pbandk.testpb.java.Test.Foo> map_;
+    private com.google.protobuf.MapField<java.lang.String, pbandk.testpb.java.Test.Foo>
+    internalGetMap() {
+      if (map_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      return map_;
+    }
+
+    public int getMapCount() {
+      return internalGetMap().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+
+    public boolean containsMap(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetMap().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> getMap() {
+      return getMapMap();
+    }
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+
+    public java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> getMapMap() {
+      return internalGetMap().getMap();
+    }
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+
+    public pbandk.testpb.java.Test.Foo getMapOrDefault(
+        java.lang.String key,
+        pbandk.testpb.java.Test.Foo defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
+          internalGetMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+     */
+
+    public pbandk.testpb.java.Test.Foo getMapOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
+          internalGetMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetMap(),
+          MapDefaultEntryHolder.defaultEntry,
+          1);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.String, pbandk.testpb.java.Test.Foo> entry
+           : internalGetMap().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, pbandk.testpb.java.Test.Foo>
+        map__ = MapDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, map__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pbandk.testpb.java.Test.FooMap)) {
+        return super.equals(obj);
+      }
+      pbandk.testpb.java.Test.FooMap other = (pbandk.testpb.java.Test.FooMap) obj;
+
+      if (!internalGetMap().equals(
+          other.internalGetMap())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetMap().getMap().isEmpty()) {
+        hash = (37 * hash) + MAP_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetMap().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.FooMap parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pbandk.testpb.java.Test.FooMap prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code testpb.FooMap}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:testpb.FooMap)
+        pbandk.testpb.java.Test.FooMapOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMap_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMap();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableMap();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMap_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pbandk.testpb.java.Test.FooMap.class, pbandk.testpb.java.Test.FooMap.Builder.class);
+      }
+
+      // Construct using pbandk.testpb.java.Test.FooMap.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableMap().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMap_descriptor;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMap getDefaultInstanceForType() {
+        return pbandk.testpb.java.Test.FooMap.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMap build() {
+        pbandk.testpb.java.Test.FooMap result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMap buildPartial() {
+        pbandk.testpb.java.Test.FooMap result = new pbandk.testpb.java.Test.FooMap(this);
+        int from_bitField0_ = bitField0_;
+        result.map_ = internalGetMap();
+        result.map_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pbandk.testpb.java.Test.FooMap) {
+          return mergeFrom((pbandk.testpb.java.Test.FooMap)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pbandk.testpb.java.Test.FooMap other) {
+        if (other == pbandk.testpb.java.Test.FooMap.getDefaultInstance()) return this;
+        internalGetMutableMap().mergeFrom(
+            other.internalGetMap());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        pbandk.testpb.java.Test.FooMap parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pbandk.testpb.java.Test.FooMap) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.String, pbandk.testpb.java.Test.Foo> map_;
+      private com.google.protobuf.MapField<java.lang.String, pbandk.testpb.java.Test.Foo>
+      internalGetMap() {
+        if (map_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              MapDefaultEntryHolder.defaultEntry);
+        }
+        return map_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, pbandk.testpb.java.Test.Foo>
+      internalGetMutableMap() {
+        onChanged();;
+        if (map_ == null) {
+          map_ = com.google.protobuf.MapField.newMapField(
+              MapDefaultEntryHolder.defaultEntry);
+        }
+        if (!map_.isMutable()) {
+          map_ = map_.copy();
+        }
+        return map_;
+      }
+
+      public int getMapCount() {
+        return internalGetMap().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+
+      public boolean containsMap(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetMap().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getMapMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> getMap() {
+        return getMapMap();
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+
+      public java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> getMapMap() {
+        return internalGetMap().getMap();
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+
+      public pbandk.testpb.java.Test.Foo getMapOrDefault(
+          java.lang.String key,
+          pbandk.testpb.java.Test.Foo defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
+            internalGetMap().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+
+      public pbandk.testpb.java.Test.Foo getMapOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
+            internalGetMap().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearMap() {
+        internalGetMutableMap().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+
+      public Builder removeMap(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableMap().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo>
+      getMutableMap() {
+        return internalGetMutableMap().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+      public Builder putMap(
+          java.lang.String key,
+          pbandk.testpb.java.Test.Foo value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableMap().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .testpb.Foo&gt; map = 1;</code>
+       */
+
+      public Builder putAllMap(
+          java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> values) {
+        internalGetMutableMap().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:testpb.FooMap)
+    }
+
+    // @@protoc_insertion_point(class_scope:testpb.FooMap)
+    private static final pbandk.testpb.java.Test.FooMap DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pbandk.testpb.java.Test.FooMap();
+    }
+
+    public static pbandk.testpb.java.Test.FooMap getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FooMap>
+        PARSER = new com.google.protobuf.AbstractParser<FooMap>() {
+      @java.lang.Override
+      public FooMap parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FooMap(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FooMap> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FooMap> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pbandk.testpb.java.Test.FooMap getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FooMapEntriesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:testpb.FooMapEntries)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry> 
+        getMapList();
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    pbandk.testpb.java.Test.FooMapEntries.MapEntry getMap(int index);
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    int getMapCount();
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    java.util.List<? extends pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder> 
+        getMapOrBuilderList();
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder getMapOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * Match the on-the-wire binary serialization of `FooMap` but using the backwards-compatible syntax of repeated map
+   * entry messages instead of a `map` field.
+   * </pre>
+   *
+   * Protobuf type {@code testpb.FooMapEntries}
+   */
+  public  static final class FooMapEntries extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:testpb.FooMapEntries)
+      FooMapEntriesOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FooMapEntries.newBuilder() to construct.
+    private FooMapEntries(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FooMapEntries() {
+      map_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FooMapEntries();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FooMapEntries(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                map_ = new java.util.ArrayList<pbandk.testpb.java.Test.FooMapEntries.MapEntry>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              map_.add(
+                  input.readMessage(pbandk.testpb.java.Test.FooMapEntries.MapEntry.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          map_ = java.util.Collections.unmodifiableList(map_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pbandk.testpb.java.Test.FooMapEntries.class, pbandk.testpb.java.Test.FooMapEntries.Builder.class);
+    }
+
+    public interface MapEntryOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:testpb.FooMapEntries.MapEntry)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>string key = 1;</code>
+       * @return The key.
+       */
+      java.lang.String getKey();
+      /**
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
+       */
+      com.google.protobuf.ByteString
+          getKeyBytes();
+
+      /**
+       * <code>.testpb.Foo value = 2;</code>
+       * @return Whether the value field is set.
+       */
+      boolean hasValue();
+      /**
+       * <code>.testpb.Foo value = 2;</code>
+       * @return The value.
+       */
+      pbandk.testpb.java.Test.Foo getValue();
+      /**
+       * <code>.testpb.Foo value = 2;</code>
+       */
+      pbandk.testpb.java.Test.FooOrBuilder getValueOrBuilder();
+    }
+    /**
+     * Protobuf type {@code testpb.FooMapEntries.MapEntry}
+     */
+    public  static final class MapEntry extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:testpb.FooMapEntries.MapEntry)
+        MapEntryOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use MapEntry.newBuilder() to construct.
+      private MapEntry(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private MapEntry() {
+        key_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new MapEntry();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private MapEntry(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                key_ = s;
+                break;
+              }
+              case 18: {
+                pbandk.testpb.java.Test.Foo.Builder subBuilder = null;
+                if (value_ != null) {
+                  subBuilder = value_.toBuilder();
+                }
+                value_ = input.readMessage(pbandk.testpb.java.Test.Foo.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(value_);
+                  value_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_MapEntry_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_MapEntry_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pbandk.testpb.java.Test.FooMapEntries.MapEntry.class, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder.class);
+      }
+
+      public static final int KEY_FIELD_NUMBER = 1;
+      private volatile java.lang.Object key_;
+      /**
+       * <code>string key = 1;</code>
+       * @return The key.
+       */
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int VALUE_FIELD_NUMBER = 2;
+      private pbandk.testpb.java.Test.Foo value_;
+      /**
+       * <code>.testpb.Foo value = 2;</code>
+       * @return Whether the value field is set.
+       */
+      public boolean hasValue() {
+        return value_ != null;
+      }
+      /**
+       * <code>.testpb.Foo value = 2;</code>
+       * @return The value.
+       */
+      public pbandk.testpb.java.Test.Foo getValue() {
+        return value_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : value_;
+      }
+      /**
+       * <code>.testpb.Foo value = 2;</code>
+       */
+      public pbandk.testpb.java.Test.FooOrBuilder getValueOrBuilder() {
+        return getValue();
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!getKeyBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+        }
+        if (value_ != null) {
+          output.writeMessage(2, getValue());
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!getKeyBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+        }
+        if (value_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, getValue());
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof pbandk.testpb.java.Test.FooMapEntries.MapEntry)) {
+          return super.equals(obj);
+        }
+        pbandk.testpb.java.Test.FooMapEntries.MapEntry other = (pbandk.testpb.java.Test.FooMapEntries.MapEntry) obj;
+
+        if (!getKey()
+            .equals(other.getKey())) return false;
+        if (hasValue() != other.hasValue()) return false;
+        if (hasValue()) {
+          if (!getValue()
+              .equals(other.getValue())) return false;
+        }
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
+        if (hasValue()) {
+          hash = (37 * hash) + VALUE_FIELD_NUMBER;
+          hash = (53 * hash) + getValue().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(pbandk.testpb.java.Test.FooMapEntries.MapEntry prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code testpb.FooMapEntries.MapEntry}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:testpb.FooMapEntries.MapEntry)
+          pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_MapEntry_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_MapEntry_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  pbandk.testpb.java.Test.FooMapEntries.MapEntry.class, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder.class);
+        }
+
+        // Construct using pbandk.testpb.java.Test.FooMapEntries.MapEntry.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          key_ = "";
+
+          if (valueBuilder_ == null) {
+            value_ = null;
+          } else {
+            value_ = null;
+            valueBuilder_ = null;
+          }
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_MapEntry_descriptor;
+        }
+
+        @java.lang.Override
+        public pbandk.testpb.java.Test.FooMapEntries.MapEntry getDefaultInstanceForType() {
+          return pbandk.testpb.java.Test.FooMapEntries.MapEntry.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public pbandk.testpb.java.Test.FooMapEntries.MapEntry build() {
+          pbandk.testpb.java.Test.FooMapEntries.MapEntry result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public pbandk.testpb.java.Test.FooMapEntries.MapEntry buildPartial() {
+          pbandk.testpb.java.Test.FooMapEntries.MapEntry result = new pbandk.testpb.java.Test.FooMapEntries.MapEntry(this);
+          result.key_ = key_;
+          if (valueBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = valueBuilder_.build();
+          }
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof pbandk.testpb.java.Test.FooMapEntries.MapEntry) {
+            return mergeFrom((pbandk.testpb.java.Test.FooMapEntries.MapEntry)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(pbandk.testpb.java.Test.FooMapEntries.MapEntry other) {
+          if (other == pbandk.testpb.java.Test.FooMapEntries.MapEntry.getDefaultInstance()) return this;
+          if (!other.getKey().isEmpty()) {
+            key_ = other.key_;
+            onChanged();
+          }
+          if (other.hasValue()) {
+            mergeValue(other.getValue());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          pbandk.testpb.java.Test.FooMapEntries.MapEntry parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (pbandk.testpb.java.Test.FooMapEntries.MapEntry) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private java.lang.Object key_ = "";
+        /**
+         * <code>string key = 1;</code>
+         * @return The key.
+         */
+        public java.lang.String getKey() {
+          java.lang.Object ref = key_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            key_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @return The bytes for key.
+         */
+        public com.google.protobuf.ByteString
+            getKeyBytes() {
+          java.lang.Object ref = key_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            key_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @param value The key to set.
+         * @return This builder for chaining.
+         */
+        public Builder setKey(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          key_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearKey() {
+          
+          key_ = getDefaultInstance().getKey();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @param value The bytes for key to set.
+         * @return This builder for chaining.
+         */
+        public Builder setKeyBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          key_ = value;
+          onChanged();
+          return this;
+        }
+
+        private pbandk.testpb.java.Test.Foo value_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder> valueBuilder_;
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         * @return Whether the value field is set.
+         */
+        public boolean hasValue() {
+          return valueBuilder_ != null || value_ != null;
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         * @return The value.
+         */
+        public pbandk.testpb.java.Test.Foo getValue() {
+          if (valueBuilder_ == null) {
+            return value_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : value_;
+          } else {
+            return valueBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        public Builder setValue(pbandk.testpb.java.Test.Foo value) {
+          if (valueBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            value_ = value;
+            onChanged();
+          } else {
+            valueBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        public Builder setValue(
+            pbandk.testpb.java.Test.Foo.Builder builderForValue) {
+          if (valueBuilder_ == null) {
+            value_ = builderForValue.build();
+            onChanged();
+          } else {
+            valueBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        public Builder mergeValue(pbandk.testpb.java.Test.Foo value) {
+          if (valueBuilder_ == null) {
+            if (value_ != null) {
+              value_ =
+                pbandk.testpb.java.Test.Foo.newBuilder(value_).mergeFrom(value).buildPartial();
+            } else {
+              value_ = value;
+            }
+            onChanged();
+          } else {
+            valueBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        public Builder clearValue() {
+          if (valueBuilder_ == null) {
+            value_ = null;
+            onChanged();
+          } else {
+            value_ = null;
+            valueBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        public pbandk.testpb.java.Test.Foo.Builder getValueBuilder() {
+          
+          onChanged();
+          return getValueFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        public pbandk.testpb.java.Test.FooOrBuilder getValueOrBuilder() {
+          if (valueBuilder_ != null) {
+            return valueBuilder_.getMessageOrBuilder();
+          } else {
+            return value_ == null ?
+                pbandk.testpb.java.Test.Foo.getDefaultInstance() : value_;
+          }
+        }
+        /**
+         * <code>.testpb.Foo value = 2;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder> 
+            getValueFieldBuilder() {
+          if (valueBuilder_ == null) {
+            valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder>(
+                    getValue(),
+                    getParentForChildren(),
+                    isClean());
+            value_ = null;
+          }
+          return valueBuilder_;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:testpb.FooMapEntries.MapEntry)
+      }
+
+      // @@protoc_insertion_point(class_scope:testpb.FooMapEntries.MapEntry)
+      private static final pbandk.testpb.java.Test.FooMapEntries.MapEntry DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new pbandk.testpb.java.Test.FooMapEntries.MapEntry();
+      }
+
+      public static pbandk.testpb.java.Test.FooMapEntries.MapEntry getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<MapEntry>
+          PARSER = new com.google.protobuf.AbstractParser<MapEntry>() {
+        @java.lang.Override
+        public MapEntry parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MapEntry(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<MapEntry> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<MapEntry> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMapEntries.MapEntry getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int MAP_FIELD_NUMBER = 1;
+    private java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry> map_;
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    public java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry> getMapList() {
+      return map_;
+    }
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    public java.util.List<? extends pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder> 
+        getMapOrBuilderList() {
+      return map_;
+    }
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    public int getMapCount() {
+      return map_.size();
+    }
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    public pbandk.testpb.java.Test.FooMapEntries.MapEntry getMap(int index) {
+      return map_.get(index);
+    }
+    /**
+     * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+     */
+    public pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder getMapOrBuilder(
+        int index) {
+      return map_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < map_.size(); i++) {
+        output.writeMessage(1, map_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < map_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, map_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pbandk.testpb.java.Test.FooMapEntries)) {
+        return super.equals(obj);
+      }
+      pbandk.testpb.java.Test.FooMapEntries other = (pbandk.testpb.java.Test.FooMapEntries) obj;
+
+      if (!getMapList()
+          .equals(other.getMapList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getMapCount() > 0) {
+        hash = (37 * hash) + MAP_FIELD_NUMBER;
+        hash = (53 * hash) + getMapList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static pbandk.testpb.java.Test.FooMapEntries parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pbandk.testpb.java.Test.FooMapEntries prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Match the on-the-wire binary serialization of `FooMap` but using the backwards-compatible syntax of repeated map
+     * entry messages instead of a `map` field.
+     * </pre>
+     *
+     * Protobuf type {@code testpb.FooMapEntries}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:testpb.FooMapEntries)
+        pbandk.testpb.java.Test.FooMapEntriesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pbandk.testpb.java.Test.FooMapEntries.class, pbandk.testpb.java.Test.FooMapEntries.Builder.class);
+      }
+
+      // Construct using pbandk.testpb.java.Test.FooMapEntries.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMapFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (mapBuilder_ == null) {
+          map_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          mapBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pbandk.testpb.java.Test.internal_static_testpb_FooMapEntries_descriptor;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMapEntries getDefaultInstanceForType() {
+        return pbandk.testpb.java.Test.FooMapEntries.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMapEntries build() {
+        pbandk.testpb.java.Test.FooMapEntries result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pbandk.testpb.java.Test.FooMapEntries buildPartial() {
+        pbandk.testpb.java.Test.FooMapEntries result = new pbandk.testpb.java.Test.FooMapEntries(this);
+        int from_bitField0_ = bitField0_;
+        if (mapBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            map_ = java.util.Collections.unmodifiableList(map_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.map_ = map_;
+        } else {
+          result.map_ = mapBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pbandk.testpb.java.Test.FooMapEntries) {
+          return mergeFrom((pbandk.testpb.java.Test.FooMapEntries)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pbandk.testpb.java.Test.FooMapEntries other) {
+        if (other == pbandk.testpb.java.Test.FooMapEntries.getDefaultInstance()) return this;
+        if (mapBuilder_ == null) {
+          if (!other.map_.isEmpty()) {
+            if (map_.isEmpty()) {
+              map_ = other.map_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMapIsMutable();
+              map_.addAll(other.map_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.map_.isEmpty()) {
+            if (mapBuilder_.isEmpty()) {
+              mapBuilder_.dispose();
+              mapBuilder_ = null;
+              map_ = other.map_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              mapBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMapFieldBuilder() : null;
+            } else {
+              mapBuilder_.addAllMessages(other.map_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        pbandk.testpb.java.Test.FooMapEntries parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (pbandk.testpb.java.Test.FooMapEntries) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry> map_ =
+        java.util.Collections.emptyList();
+      private void ensureMapIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          map_ = new java.util.ArrayList<pbandk.testpb.java.Test.FooMapEntries.MapEntry>(map_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          pbandk.testpb.java.Test.FooMapEntries.MapEntry, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder, pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder> mapBuilder_;
+
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry> getMapList() {
+        if (mapBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(map_);
+        } else {
+          return mapBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public int getMapCount() {
+        if (mapBuilder_ == null) {
+          return map_.size();
+        } else {
+          return mapBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public pbandk.testpb.java.Test.FooMapEntries.MapEntry getMap(int index) {
+        if (mapBuilder_ == null) {
+          return map_.get(index);
+        } else {
+          return mapBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder setMap(
+          int index, pbandk.testpb.java.Test.FooMapEntries.MapEntry value) {
+        if (mapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMapIsMutable();
+          map_.set(index, value);
+          onChanged();
+        } else {
+          mapBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder setMap(
+          int index, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder builderForValue) {
+        if (mapBuilder_ == null) {
+          ensureMapIsMutable();
+          map_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          mapBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder addMap(pbandk.testpb.java.Test.FooMapEntries.MapEntry value) {
+        if (mapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMapIsMutable();
+          map_.add(value);
+          onChanged();
+        } else {
+          mapBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder addMap(
+          int index, pbandk.testpb.java.Test.FooMapEntries.MapEntry value) {
+        if (mapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMapIsMutable();
+          map_.add(index, value);
+          onChanged();
+        } else {
+          mapBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder addMap(
+          pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder builderForValue) {
+        if (mapBuilder_ == null) {
+          ensureMapIsMutable();
+          map_.add(builderForValue.build());
+          onChanged();
+        } else {
+          mapBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder addMap(
+          int index, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder builderForValue) {
+        if (mapBuilder_ == null) {
+          ensureMapIsMutable();
+          map_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          mapBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder addAllMap(
+          java.lang.Iterable<? extends pbandk.testpb.java.Test.FooMapEntries.MapEntry> values) {
+        if (mapBuilder_ == null) {
+          ensureMapIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, map_);
+          onChanged();
+        } else {
+          mapBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder clearMap() {
+        if (mapBuilder_ == null) {
+          map_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          mapBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public Builder removeMap(int index) {
+        if (mapBuilder_ == null) {
+          ensureMapIsMutable();
+          map_.remove(index);
+          onChanged();
+        } else {
+          mapBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder getMapBuilder(
+          int index) {
+        return getMapFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder getMapOrBuilder(
+          int index) {
+        if (mapBuilder_ == null) {
+          return map_.get(index);  } else {
+          return mapBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public java.util.List<? extends pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder> 
+           getMapOrBuilderList() {
+        if (mapBuilder_ != null) {
+          return mapBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(map_);
+        }
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder addMapBuilder() {
+        return getMapFieldBuilder().addBuilder(
+            pbandk.testpb.java.Test.FooMapEntries.MapEntry.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder addMapBuilder(
+          int index) {
+        return getMapFieldBuilder().addBuilder(
+            index, pbandk.testpb.java.Test.FooMapEntries.MapEntry.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .testpb.FooMapEntries.MapEntry map = 1;</code>
+       */
+      public java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder> 
+           getMapBuilderList() {
+        return getMapFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          pbandk.testpb.java.Test.FooMapEntries.MapEntry, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder, pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder> 
+          getMapFieldBuilder() {
+        if (mapBuilder_ == null) {
+          mapBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              pbandk.testpb.java.Test.FooMapEntries.MapEntry, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder, pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder>(
+                  map_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          map_ = null;
+        }
+        return mapBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:testpb.FooMapEntries)
+    }
+
+    // @@protoc_insertion_point(class_scope:testpb.FooMapEntries)
+    private static final pbandk.testpb.java.Test.FooMapEntries DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pbandk.testpb.java.Test.FooMapEntries();
+    }
+
+    public static pbandk.testpb.java.Test.FooMapEntries getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FooMapEntries>
+        PARSER = new com.google.protobuf.AbstractParser<FooMapEntries>() {
+      @java.lang.Override
+      public FooMapEntries parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FooMapEntries(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FooMapEntries> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FooMapEntries> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pbandk.testpb.java.Test.FooMapEntries getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface WrappersOrBuilder extends
       // @@protoc_insertion_point(interface_extends:testpb.Wrappers)
       com.google.protobuf.MessageOrBuilder {
@@ -3305,6 +5597,26 @@ public final class Test {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_testpb_MessageWithMap_MapEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_testpb_FooMap_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_testpb_FooMap_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_testpb_FooMap_MapEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_testpb_FooMap_MapEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_testpb_FooMapEntries_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_testpb_FooMapEntries_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_testpb_FooMapEntries_MapEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_testpb_FooMapEntries_MapEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_testpb_Wrappers_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -3324,11 +5636,16 @@ public final class Test {
       "\022\037\n\nsingle_foo\030\002 \001(\0132\013.testpb.Foo\"j\n\016Mes" +
       "sageWithMap\022,\n\003map\030\001 \003(\0132\037.testpb.Messag" +
       "eWithMap.MapEntry\032*\n\010MapEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"s\n\010Wrappers\0222\n\014str" +
-      "ing_value\030\001 \001(\0132\034.google.protobuf.String" +
-      "Value\0223\n\ruint64_values\030\002 \003(\0132\034.google.pr" +
-      "otobuf.UInt64ValueB\024\n\022pbandk.testpb.java" +
-      "b\006proto3"
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"g\n\006FooMap\022$\n\003map\030\001" +
+      " \003(\0132\027.testpb.FooMap.MapEntry\0327\n\010MapEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\032\n\005value\030\002 \001(\0132\013.testpb.F" +
+      "oo:\0028\001\"q\n\rFooMapEntries\022+\n\003map\030\001 \003(\0132\036.t" +
+      "estpb.FooMapEntries.MapEntry\0323\n\010MapEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\032\n\005value\030\002 \001(\0132\013.testpb.Fo" +
+      "o\"s\n\010Wrappers\0222\n\014string_value\030\001 \001(\0132\034.go" +
+      "ogle.protobuf.StringValue\0223\n\ruint64_valu" +
+      "es\030\002 \003(\0132\034.google.protobuf.UInt64ValueB\024" +
+      "\n\022pbandk.testpb.javab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3359,8 +5676,32 @@ public final class Test {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_testpb_MessageWithMap_MapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_testpb_Wrappers_descriptor =
+    internal_static_testpb_FooMap_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_testpb_FooMap_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_testpb_FooMap_descriptor,
+        new java.lang.String[] { "Map", });
+    internal_static_testpb_FooMap_MapEntry_descriptor =
+      internal_static_testpb_FooMap_descriptor.getNestedTypes().get(0);
+    internal_static_testpb_FooMap_MapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_testpb_FooMap_MapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_testpb_FooMapEntries_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_testpb_FooMapEntries_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_testpb_FooMapEntries_descriptor,
+        new java.lang.String[] { "Map", });
+    internal_static_testpb_FooMapEntries_MapEntry_descriptor =
+      internal_static_testpb_FooMapEntries_descriptor.getNestedTypes().get(0);
+    internal_static_testpb_FooMapEntries_MapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_testpb_FooMapEntries_MapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_testpb_Wrappers_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_testpb_Wrappers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_testpb_Wrappers_descriptor,

@@ -50,20 +50,20 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
                 messageClass = Entry::class as KClass<Entry<K, V>>,
                 messageCompanion = this,
                 fields = listOf(
-                FieldDescriptor(
-                    messageDescriptor = this::descriptor,
-                    name = "key",
-                    number = 1,
-                    type = keyType,
-                    value = MessageMap.Entry<K, V>::key
-                ),
-                FieldDescriptor(
-                    messageDescriptor = this::descriptor,
-                    name = "value",
-                    number = 2,
-                    type = valueType,
-                    value = MessageMap.Entry<K, V>::value
-                )
+                    FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "key",
+                        number = 1,
+                        type = keyType,
+                        value = MessageMap.Entry<K, V>::key
+                    ),
+                    FieldDescriptor(
+                        messageDescriptor = this::descriptor,
+                        name = "value",
+                        number = 2,
+                        type = valueType,
+                        value = MessageMap.Entry<K, V>::value
+                    )
                 )
             )
         }
@@ -71,5 +71,16 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
 
     companion object {
         val Empty = MessageMap<Nothing, Nothing>(emptySet())
+
+        internal fun <K, V> of(
+            keyType: FieldDescriptor.Type,
+            valueType: FieldDescriptor.Type,
+            vararg pairs: Pair<K, V>
+        ): MessageMap<K, V> {
+            val companion = Entry.Companion<K, V>(keyType, valueType)
+            return Builder<K, V>().apply {
+                pairs.mapTo(entries) { (k, v) -> Entry(k, v, companion) }
+            }.fixed()
+        }
     }
 }
