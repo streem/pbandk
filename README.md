@@ -105,44 +105,50 @@ data class Person(
         override fun decodeWith(u: pbandk.MessageDecoder) = Person.decodeWithImpl(u)
 
         override val descriptors: pbandk.MessageDescriptor<Person> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Person::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Person, *>>(5).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "name",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
                         value = Person::name
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "id",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "id",
                         value = Person::id
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "email",
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "email",
                         value = Person::email
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "phones",
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person.PhoneNumber>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.PhoneNumber.Companion)),
                         jsonName = "phones",
                         value = Person::phones
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "last_updated",
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
@@ -150,6 +156,11 @@ data class Person(
                         value = Person::lastUpdated
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Person::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -184,20 +195,20 @@ data class Person(
             override fun decodeWith(u: pbandk.MessageDecoder) = Person.PhoneNumber.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<PhoneNumber> by lazy {
-                pbandk.MessageDescriptor(            
-                    messageClass = Person.PhoneNumber::class,
-                    messageCompanion = this,                    
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<PhoneNumber, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "number",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "number",
                             value = PhoneNumber::number
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "type",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = tutorial.Person.PhoneType.Companion),
@@ -205,6 +216,11 @@ data class Person(
                             value = PhoneNumber::type
                         )
                     )
+                }
+                pbandk.MessageDescriptor(            
+                    messageClass = Person.PhoneNumber::class,
+                    messageCompanion = this,                    
+                    fields = fieldsList
                 )
             }
         }
@@ -223,12 +239,10 @@ data class AddressBook(
         override fun decodeWith(u: pbandk.MessageDecoder) = AddressBook.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<AddressBook> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = AddressBook::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<AddressBook, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "people",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<tutorial.Person>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = tutorial.Person.Companion)),
@@ -236,6 +250,11 @@ data class AddressBook(
                         value = AddressBook::people
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = AddressBook::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
