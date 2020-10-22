@@ -1,9 +1,6 @@
 package pbandk.internal.json
 
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
-import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonElementSerializer
+import kotlinx.serialization.json.*
 import pbandk.*
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
@@ -59,7 +56,7 @@ internal class JsonMessageDecoder internal constructor(
                     fieldFn(fd.number, defaultValue)
                 }
             } else {
-                fieldFn(fd.number, jsonValueDecoder.readValue(jsonValue, fd.type))
+                jsonValueDecoder.readValue(jsonValue, fd.type)?.let { fieldFn(fd.number, it) }
             }
         }
     }

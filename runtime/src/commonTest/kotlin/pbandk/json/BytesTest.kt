@@ -1,0 +1,23 @@
+package pbandk.json
+
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
+import kotlinx.serialization.json.json
+import pbandk.ByteArr
+import pbandk.testpb.TestAllTypesProto3
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class BytesTest {
+    @Test
+    fun testBytesField_base64() {
+        val testAllTypesProto3 = TestAllTypesProto3(optionalBytes = ByteArr(byteArrayOf(1, 2)))
+        val expectedJson = json { "optionalBytes" to "AQI=" }
+
+        val actualJson = Json(JsonConfiguration.Stable).parseJson(testAllTypesProto3.encodeToJsonString())
+        assertEquals(expectedJson, actualJson)
+
+        val actualProto = TestAllTypesProto3.decodeFromJsonString(expectedJson.toString())
+        assertEquals(testAllTypesProto3, actualProto)
+    }
+}
