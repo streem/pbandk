@@ -14,12 +14,10 @@ data class HelloRequest(
         override fun decodeWith(u: pbandk.MessageDecoder) = HelloRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<HelloRequest> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = HelloRequest::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<HelloRequest, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "name",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
@@ -27,6 +25,11 @@ data class HelloRequest(
                         value = HelloRequest::name
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = HelloRequest::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -44,12 +47,10 @@ data class HelloReply(
         override fun decodeWith(u: pbandk.MessageDecoder) = HelloReply.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<HelloReply> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = HelloReply::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<HelloReply, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "message",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
@@ -57,6 +58,11 @@ data class HelloReply(
                         value = HelloReply::message
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = HelloReply::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

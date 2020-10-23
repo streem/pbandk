@@ -202,1205 +202,1499 @@ data class TestAllTypesProto3(
         override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = TestAllTypesProto3::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3, *>>(149).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_int32",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "optionalInt32",
                         value = TestAllTypesProto3::optionalInt32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_int64",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "optionalInt64",
                         value = TestAllTypesProto3::optionalInt64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_uint32",
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
                         jsonName = "optionalUint32",
                         value = TestAllTypesProto3::optionalUint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_uint64",
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
                         jsonName = "optionalUint64",
                         value = TestAllTypesProto3::optionalUint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_sint32",
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(),
                         jsonName = "optionalSint32",
                         value = TestAllTypesProto3::optionalSint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_sint64",
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(),
                         jsonName = "optionalSint64",
                         value = TestAllTypesProto3::optionalSint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_fixed32",
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(),
                         jsonName = "optionalFixed32",
                         value = TestAllTypesProto3::optionalFixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_fixed64",
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(),
                         jsonName = "optionalFixed64",
                         value = TestAllTypesProto3::optionalFixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_sfixed32",
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(),
                         jsonName = "optionalSfixed32",
                         value = TestAllTypesProto3::optionalSfixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_sfixed64",
                         number = 10,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(),
                         jsonName = "optionalSfixed64",
                         value = TestAllTypesProto3::optionalSfixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_float",
                         number = 11,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(),
                         jsonName = "optionalFloat",
                         value = TestAllTypesProto3::optionalFloat
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_double",
                         number = 12,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(),
                         jsonName = "optionalDouble",
                         value = TestAllTypesProto3::optionalDouble
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_bool",
                         number = 13,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "optionalBool",
                         value = TestAllTypesProto3::optionalBool
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_string",
                         number = 14,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "optionalString",
                         value = TestAllTypesProto3::optionalString
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_bytes",
                         number = 15,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
                         jsonName = "optionalBytes",
                         value = TestAllTypesProto3::optionalBytes
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_nested_message",
                         number = 18,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion),
                         jsonName = "optionalNestedMessage",
                         value = TestAllTypesProto3::optionalNestedMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_foreign_message",
                         number = 19,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion),
                         jsonName = "optionalForeignMessage",
                         value = TestAllTypesProto3::optionalForeignMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_nested_enum",
                         number = 21,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion),
                         jsonName = "optionalNestedEnum",
                         value = TestAllTypesProto3::optionalNestedEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_foreign_enum",
                         number = 22,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion),
                         jsonName = "optionalForeignEnum",
                         value = TestAllTypesProto3::optionalForeignEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_aliased_enum",
                         number = 23,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.AliasedEnum.Companion),
                         jsonName = "optionalAliasedEnum",
                         value = TestAllTypesProto3::optionalAliasedEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_string_piece",
                         number = 24,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "optionalStringPiece",
                         value = TestAllTypesProto3::optionalStringPiece
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_cord",
                         number = 25,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "optionalCord",
                         value = TestAllTypesProto3::optionalCord
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "recursive_message",
                         number = 27,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.Companion),
                         jsonName = "recursiveMessage",
                         value = TestAllTypesProto3::recursiveMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_int32",
                         number = 31,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
                         jsonName = "repeatedInt32",
                         value = TestAllTypesProto3::repeatedInt32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_int64",
                         number = 32,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
                         jsonName = "repeatedInt64",
                         value = TestAllTypesProto3::repeatedInt64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_uint32",
                         number = 33,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
                         jsonName = "repeatedUint32",
                         value = TestAllTypesProto3::repeatedUint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_uint64",
                         number = 34,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
                         jsonName = "repeatedUint64",
                         value = TestAllTypesProto3::repeatedUint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_sint32",
                         number = 35,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
                         jsonName = "repeatedSint32",
                         value = TestAllTypesProto3::repeatedSint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_sint64",
                         number = 36,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
                         jsonName = "repeatedSint64",
                         value = TestAllTypesProto3::repeatedSint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_fixed32",
                         number = 37,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
                         jsonName = "repeatedFixed32",
                         value = TestAllTypesProto3::repeatedFixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_fixed64",
                         number = 38,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
                         jsonName = "repeatedFixed64",
                         value = TestAllTypesProto3::repeatedFixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_sfixed32",
                         number = 39,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
                         jsonName = "repeatedSfixed32",
                         value = TestAllTypesProto3::repeatedSfixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_sfixed64",
                         number = 40,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
                         jsonName = "repeatedSfixed64",
                         value = TestAllTypesProto3::repeatedSfixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_float",
                         number = 41,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
                         jsonName = "repeatedFloat",
                         value = TestAllTypesProto3::repeatedFloat
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_double",
                         number = 42,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
                         jsonName = "repeatedDouble",
                         value = TestAllTypesProto3::repeatedDouble
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_bool",
                         number = 43,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
                         jsonName = "repeatedBool",
                         value = TestAllTypesProto3::repeatedBool
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_string",
                         number = 44,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "repeatedString",
                         value = TestAllTypesProto3::repeatedString
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_bytes",
                         number = 45,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
                         jsonName = "repeatedBytes",
                         value = TestAllTypesProto3::repeatedBytes
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_nested_message",
                         number = 48,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion)),
                         jsonName = "repeatedNestedMessage",
                         value = TestAllTypesProto3::repeatedNestedMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_foreign_message",
                         number = 49,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignMessage>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion)),
                         jsonName = "repeatedForeignMessage",
                         value = TestAllTypesProto3::repeatedForeignMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_nested_enum",
                         number = 51,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
                         jsonName = "repeatedNestedEnum",
                         value = TestAllTypesProto3::repeatedNestedEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_foreign_enum",
                         number = 52,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.ForeignEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion), packed = true),
                         jsonName = "repeatedForeignEnum",
                         value = TestAllTypesProto3::repeatedForeignEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_string_piece",
                         number = 54,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "repeatedStringPiece",
                         value = TestAllTypesProto3::repeatedStringPiece
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_cord",
                         number = 55,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "repeatedCord",
                         value = TestAllTypesProto3::repeatedCord
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_int32_int32",
                         number = 56,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "mapInt32Int32",
                         value = TestAllTypesProto3::mapInt32Int32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_int64_int64",
                         number = 57,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
                         jsonName = "mapInt64Int64",
                         value = TestAllTypesProto3::mapInt64Int64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_uint32_uint32",
                         number = 58,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
                         jsonName = "mapUint32Uint32",
                         value = TestAllTypesProto3::mapUint32Uint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_uint64_uint64",
                         number = 59,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
                         jsonName = "mapUint64Uint64",
                         value = TestAllTypesProto3::mapUint64Uint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_sint32_sint32",
                         number = 60,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
                         jsonName = "mapSint32Sint32",
                         value = TestAllTypesProto3::mapSint32Sint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_sint64_sint64",
                         number = 61,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
                         jsonName = "mapSint64Sint64",
                         value = TestAllTypesProto3::mapSint64Sint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_fixed32_fixed32",
                         number = 62,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
                         jsonName = "mapFixed32Fixed32",
                         value = TestAllTypesProto3::mapFixed32Fixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_fixed64_fixed64",
                         number = 63,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
                         jsonName = "mapFixed64Fixed64",
                         value = TestAllTypesProto3::mapFixed64Fixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_sfixed32_sfixed32",
                         number = 64,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Int>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
                         jsonName = "mapSfixed32Sfixed32",
                         value = TestAllTypesProto3::mapSfixed32Sfixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_sfixed64_sfixed64",
                         number = 65,
                         type = pbandk.FieldDescriptor.Type.Map<Long, Long>(keyType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
                         jsonName = "mapSfixed64Sfixed64",
                         value = TestAllTypesProto3::mapSfixed64Sfixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_int32_float",
                         number = 66,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Float>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
                         jsonName = "mapInt32Float",
                         value = TestAllTypesProto3::mapInt32Float
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_int32_double",
                         number = 67,
                         type = pbandk.FieldDescriptor.Type.Map<Int, Double>(keyType = pbandk.FieldDescriptor.Type.Primitive.Int32(), valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
                         jsonName = "mapInt32Double",
                         value = TestAllTypesProto3::mapInt32Double
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_bool_bool",
                         number = 68,
                         type = pbandk.FieldDescriptor.Type.Map<Boolean, Boolean>(keyType = pbandk.FieldDescriptor.Type.Primitive.Bool(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
                         jsonName = "mapBoolBool",
                         value = TestAllTypesProto3::mapBoolBool
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_string_string",
                         number = 69,
                         type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "mapStringString",
                         value = TestAllTypesProto3::mapStringString
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_string_bytes",
                         number = 70,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.ByteArr>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
                         jsonName = "mapStringBytes",
                         value = TestAllTypesProto3::mapStringBytes
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_string_nested_message",
                         number = 71,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion)),
                         jsonName = "mapStringNestedMessage",
                         value = TestAllTypesProto3::mapStringNestedMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_string_foreign_message",
                         number = 72,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.ForeignMessage?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion)),
                         jsonName = "mapStringForeignMessage",
                         value = TestAllTypesProto3::mapStringForeignMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_string_nested_enum",
                         number = 73,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)),
                         jsonName = "mapStringNestedEnum",
                         value = TestAllTypesProto3::mapStringNestedEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "map_string_foreign_enum",
                         number = 74,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.conformance.pb.ForeignEnum>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion)),
                         jsonName = "mapStringForeignEnum",
                         value = TestAllTypesProto3::mapStringForeignEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_int32",
                         number = 75,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32(), packed = true),
                         jsonName = "packedInt32",
                         value = TestAllTypesProto3::packedInt32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_int64",
                         number = 76,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64(), packed = true),
                         jsonName = "packedInt64",
                         value = TestAllTypesProto3::packedInt64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_uint32",
                         number = 77,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32(), packed = true),
                         jsonName = "packedUint32",
                         value = TestAllTypesProto3::packedUint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_uint64",
                         number = 78,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64(), packed = true),
                         jsonName = "packedUint64",
                         value = TestAllTypesProto3::packedUint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_sint32",
                         number = 79,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32(), packed = true),
                         jsonName = "packedSint32",
                         value = TestAllTypesProto3::packedSint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_sint64",
                         number = 80,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64(), packed = true),
                         jsonName = "packedSint64",
                         value = TestAllTypesProto3::packedSint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_fixed32",
                         number = 81,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32(), packed = true),
                         jsonName = "packedFixed32",
                         value = TestAllTypesProto3::packedFixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_fixed64",
                         number = 82,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64(), packed = true),
                         jsonName = "packedFixed64",
                         value = TestAllTypesProto3::packedFixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_sfixed32",
                         number = 83,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32(), packed = true),
                         jsonName = "packedSfixed32",
                         value = TestAllTypesProto3::packedSfixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_sfixed64",
                         number = 84,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64(), packed = true),
                         jsonName = "packedSfixed64",
                         value = TestAllTypesProto3::packedSfixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_float",
                         number = 85,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float(), packed = true),
                         jsonName = "packedFloat",
                         value = TestAllTypesProto3::packedFloat
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_double",
                         number = 86,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double(), packed = true),
                         jsonName = "packedDouble",
                         value = TestAllTypesProto3::packedDouble
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_bool",
                         number = 87,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool(), packed = true),
                         jsonName = "packedBool",
                         value = TestAllTypesProto3::packedBool
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "packed_nested_enum",
                         number = 88,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion), packed = true),
                         jsonName = "packedNestedEnum",
                         value = TestAllTypesProto3::packedNestedEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_int32",
                         number = 89,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "unpackedInt32",
                         value = TestAllTypesProto3::unpackedInt32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_int64",
                         number = 90,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
                         jsonName = "unpackedInt64",
                         value = TestAllTypesProto3::unpackedInt64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_uint32",
                         number = 91,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
                         jsonName = "unpackedUint32",
                         value = TestAllTypesProto3::unpackedUint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_uint64",
                         number = 92,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
                         jsonName = "unpackedUint64",
                         value = TestAllTypesProto3::unpackedUint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_sint32",
                         number = 93,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
                         jsonName = "unpackedSint32",
                         value = TestAllTypesProto3::unpackedSint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_sint64",
                         number = 94,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
                         jsonName = "unpackedSint64",
                         value = TestAllTypesProto3::unpackedSint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_fixed32",
                         number = 95,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
                         jsonName = "unpackedFixed32",
                         value = TestAllTypesProto3::unpackedFixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_fixed64",
                         number = 96,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
                         jsonName = "unpackedFixed64",
                         value = TestAllTypesProto3::unpackedFixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_sfixed32",
                         number = 97,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
                         jsonName = "unpackedSfixed32",
                         value = TestAllTypesProto3::unpackedSfixed32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_sfixed64",
                         number = 98,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
                         jsonName = "unpackedSfixed64",
                         value = TestAllTypesProto3::unpackedSfixed64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_float",
                         number = 99,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
                         jsonName = "unpackedFloat",
                         value = TestAllTypesProto3::unpackedFloat
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_double",
                         number = 100,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
                         jsonName = "unpackedDouble",
                         value = TestAllTypesProto3::unpackedDouble
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_bool",
                         number = 101,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bool()),
                         jsonName = "unpackedBool",
                         value = TestAllTypesProto3::unpackedBool
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "unpacked_nested_enum",
                         number = 102,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.conformance.pb.TestAllTypesProto3.NestedEnum>(valueType = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion)),
                         jsonName = "unpackedNestedEnum",
                         value = TestAllTypesProto3::unpackedNestedEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_uint32",
                         number = 111,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofUint32",
                         value = TestAllTypesProto3::oneofUint32
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_nested_message",
                         number = 112,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion),
                         oneofMember = true,
                         jsonName = "oneofNestedMessage",
                         value = TestAllTypesProto3::oneofNestedMessage
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_string",
                         number = 113,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofString",
                         value = TestAllTypesProto3::oneofString
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_bytes",
                         number = 114,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofBytes",
                         value = TestAllTypesProto3::oneofBytes
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_bool",
                         number = 115,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofBool",
                         value = TestAllTypesProto3::oneofBool
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_uint64",
                         number = 116,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofUint64",
                         value = TestAllTypesProto3::oneofUint64
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_float",
                         number = 117,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofFloat",
                         value = TestAllTypesProto3::oneofFloat
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_double",
                         number = 118,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofDouble",
                         value = TestAllTypesProto3::oneofDouble
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "oneof_enum",
                         number = 119,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion, hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneofEnum",
                         value = TestAllTypesProto3::oneofEnum
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_bool_wrapper",
                         number = 201,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion),
                         jsonName = "optionalBoolWrapper",
                         value = TestAllTypesProto3::optionalBoolWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_int32_wrapper",
                         number = 202,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion),
                         jsonName = "optionalInt32Wrapper",
                         value = TestAllTypesProto3::optionalInt32Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_int64_wrapper",
                         number = 203,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion),
                         jsonName = "optionalInt64Wrapper",
                         value = TestAllTypesProto3::optionalInt64Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_uint32_wrapper",
                         number = 204,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion),
                         jsonName = "optionalUint32Wrapper",
                         value = TestAllTypesProto3::optionalUint32Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_uint64_wrapper",
                         number = 205,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion),
                         jsonName = "optionalUint64Wrapper",
                         value = TestAllTypesProto3::optionalUint64Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_float_wrapper",
                         number = 206,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion),
                         jsonName = "optionalFloatWrapper",
                         value = TestAllTypesProto3::optionalFloatWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_double_wrapper",
                         number = 207,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion),
                         jsonName = "optionalDoubleWrapper",
                         value = TestAllTypesProto3::optionalDoubleWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_string_wrapper",
                         number = 208,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
                         jsonName = "optionalStringWrapper",
                         value = TestAllTypesProto3::optionalStringWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_bytes_wrapper",
                         number = 209,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion),
                         jsonName = "optionalBytesWrapper",
                         value = TestAllTypesProto3::optionalBytesWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_bool_wrapper",
                         number = 211,
                         type = pbandk.FieldDescriptor.Type.Repeated<Boolean>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BoolValue.Companion)),
                         jsonName = "repeatedBoolWrapper",
                         value = TestAllTypesProto3::repeatedBoolWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_int32_wrapper",
                         number = 212,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int32Value.Companion)),
                         jsonName = "repeatedInt32Wrapper",
                         value = TestAllTypesProto3::repeatedInt32Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_int64_wrapper",
                         number = 213,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Int64Value.Companion)),
                         jsonName = "repeatedInt64Wrapper",
                         value = TestAllTypesProto3::repeatedInt64Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_uint32_wrapper",
                         number = 214,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt32Value.Companion)),
                         jsonName = "repeatedUint32Wrapper",
                         value = TestAllTypesProto3::repeatedUint32Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_uint64_wrapper",
                         number = 215,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
                         jsonName = "repeatedUint64Wrapper",
                         value = TestAllTypesProto3::repeatedUint64Wrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_float_wrapper",
                         number = 216,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FloatValue.Companion)),
                         jsonName = "repeatedFloatWrapper",
                         value = TestAllTypesProto3::repeatedFloatWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_double_wrapper",
                         number = 217,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.DoubleValue.Companion)),
                         jsonName = "repeatedDoubleWrapper",
                         value = TestAllTypesProto3::repeatedDoubleWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_string_wrapper",
                         number = 218,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion)),
                         jsonName = "repeatedStringWrapper",
                         value = TestAllTypesProto3::repeatedStringWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_bytes_wrapper",
                         number = 219,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.BytesValue.Companion)),
                         jsonName = "repeatedBytesWrapper",
                         value = TestAllTypesProto3::repeatedBytesWrapper
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_duration",
                         number = 301,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "optionalDuration",
                         value = TestAllTypesProto3::optionalDuration
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_timestamp",
                         number = 302,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "optionalTimestamp",
                         value = TestAllTypesProto3::optionalTimestamp
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_field_mask",
                         number = 303,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion),
                         jsonName = "optionalFieldMask",
                         value = TestAllTypesProto3::optionalFieldMask
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_struct",
                         number = 304,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion),
                         jsonName = "optionalStruct",
                         value = TestAllTypesProto3::optionalStruct
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_any",
                         number = 305,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
                         jsonName = "optionalAny",
                         value = TestAllTypesProto3::optionalAny
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "optional_value",
                         number = 306,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion),
                         jsonName = "optionalValue",
                         value = TestAllTypesProto3::optionalValue
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_duration",
                         number = 311,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Duration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion)),
                         jsonName = "repeatedDuration",
                         value = TestAllTypesProto3::repeatedDuration
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_timestamp",
                         number = 312,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Timestamp>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion)),
                         jsonName = "repeatedTimestamp",
                         value = TestAllTypesProto3::repeatedTimestamp
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_fieldmask",
                         number = 313,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FieldMask>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FieldMask.Companion)),
                         jsonName = "repeatedFieldmask",
                         value = TestAllTypesProto3::repeatedFieldmask
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_any",
                         number = 315,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Any>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion)),
                         jsonName = "repeatedAny",
                         value = TestAllTypesProto3::repeatedAny
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_value",
                         number = 316,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Value>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Value.Companion)),
                         jsonName = "repeatedValue",
                         value = TestAllTypesProto3::repeatedValue
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_list_value",
                         number = 317,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.ListValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.ListValue.Companion)),
                         jsonName = "repeatedListValue",
                         value = TestAllTypesProto3::repeatedListValue
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "repeated_struct",
                         number = 324,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Struct>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Struct.Companion)),
                         jsonName = "repeatedStruct",
                         value = TestAllTypesProto3::repeatedStruct
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "fieldname1",
                         number = 401,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldname1",
                         value = TestAllTypesProto3::fieldname1
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field_name2",
                         number = 402,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName2",
                         value = TestAllTypesProto3::fieldName2
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "_field_name3",
                         number = 403,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName3",
                         value = TestAllTypesProto3::fieldName3
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field__name4_",
                         number = 404,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName4",
                         value = TestAllTypesProto3::field_name4
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field0name5",
                         number = 405,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "field0name5",
                         value = TestAllTypesProto3::field0name5
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field_0_name6",
                         number = 406,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "field0Name6",
                         value = TestAllTypesProto3::field0Name6
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "fieldName7",
                         number = 407,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName7",
                         value = TestAllTypesProto3::fieldName7
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "FieldName8",
                         number = 408,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName8",
                         value = TestAllTypesProto3::fieldName8
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field_Name9",
                         number = 409,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName9",
                         value = TestAllTypesProto3::fieldName9
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "Field_Name10",
                         number = 410,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName10",
                         value = TestAllTypesProto3::fieldName10
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "FIELD_NAME11",
                         number = 411,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FIELDNAME11",
                         value = TestAllTypesProto3::fIELDNAME11
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "FIELD_name12",
                         number = 412,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FIELDName12",
                         value = TestAllTypesProto3::fIELDName12
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "__field_name13",
                         number = 413,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName13",
                         value = TestAllTypesProto3::_fieldName13
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "__Field_name14",
                         number = 414,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "FieldName14",
                         value = TestAllTypesProto3::_FieldName14
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field__name15",
                         number = 415,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName15",
                         value = TestAllTypesProto3::field_name15
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field__Name16",
                         number = 416,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName16",
                         value = TestAllTypesProto3::field_Name16
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "field_name17__",
                         number = 417,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "fieldName17",
                         value = TestAllTypesProto3::fieldName17_
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "Field_name18__",
                         number = 418,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
@@ -1408,6 +1702,11 @@ data class TestAllTypesProto3(
                         value = TestAllTypesProto3::fieldName18_
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = TestAllTypesProto3::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -1463,20 +1762,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.NestedMessage.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.NestedMessage> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.NestedMessage::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.NestedMessage, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "a",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                             jsonName = "a",
                             value = TestAllTypesProto3.NestedMessage::a
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "corecursive",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.Companion),
@@ -1484,6 +1783,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.NestedMessage::corecursive
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.NestedMessage::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1502,20 +1806,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt32Int32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt32Int32Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapInt32Int32Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32Int32Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapInt32Int32Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
@@ -1523,6 +1827,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapInt32Int32Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapInt32Int32Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1541,20 +1850,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt64Int64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt64Int64Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapInt64Int64Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt64Int64Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapInt64Int64Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
@@ -1562,6 +1871,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapInt64Int64Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapInt64Int64Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1580,20 +1894,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapUint32Uint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapUint32Uint32Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapUint32Uint32Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapUint32Uint32Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapUint32Uint32Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
@@ -1601,6 +1915,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapUint32Uint32Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapUint32Uint32Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1619,20 +1938,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapUint64Uint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapUint64Uint64Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapUint64Uint64Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapUint64Uint64Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapUint64Uint64Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
@@ -1640,6 +1959,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapUint64Uint64Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapUint64Uint64Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1658,20 +1982,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSint32Sint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSint32Sint32Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapSint32Sint32Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSint32Sint32Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapSint32Sint32Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt32(),
@@ -1679,6 +2003,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapSint32Sint32Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapSint32Sint32Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1697,20 +2026,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSint64Sint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSint64Sint64Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapSint64Sint64Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSint64Sint64Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt64(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapSint64Sint64Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt64(),
@@ -1718,6 +2047,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapSint64Sint64Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapSint64Sint64Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1736,20 +2070,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapFixed32Fixed32Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapFixed32Fixed32Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapFixed32Fixed32Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapFixed32Fixed32Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(),
@@ -1757,6 +2091,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapFixed32Fixed32Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapFixed32Fixed32Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1775,20 +2114,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapFixed64Fixed64Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapFixed64Fixed64Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapFixed64Fixed64Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapFixed64Fixed64Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(),
@@ -1796,6 +2135,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapFixed64Fixed64Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapFixed64Fixed64Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1814,20 +2158,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSfixed32Sfixed32Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapSfixed32Sfixed32Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSfixed32Sfixed32Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapSfixed32Sfixed32Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(),
@@ -1835,6 +2179,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapSfixed32Sfixed32Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapSfixed32Sfixed32Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1853,20 +2202,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSfixed64Sfixed64Entry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapSfixed64Sfixed64Entry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSfixed64Sfixed64Entry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapSfixed64Sfixed64Entry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(),
@@ -1874,6 +2223,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapSfixed64Sfixed64Entry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapSfixed64Sfixed64Entry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1892,20 +2246,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt32FloatEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt32FloatEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapInt32FloatEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32FloatEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapInt32FloatEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Float(),
@@ -1913,6 +2267,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapInt32FloatEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapInt32FloatEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1931,20 +2290,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt32DoubleEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt32DoubleEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapInt32DoubleEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32DoubleEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapInt32DoubleEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Double(),
@@ -1952,6 +2311,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapInt32DoubleEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapInt32DoubleEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -1970,20 +2334,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapBoolBoolEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapBoolBoolEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapBoolBoolEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapBoolBoolEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapBoolBoolEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
@@ -1991,6 +2355,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapBoolBoolEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapBoolBoolEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2009,20 +2378,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringStringEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringStringEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapStringStringEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringStringEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapStringStringEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
@@ -2030,6 +2399,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapStringStringEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapStringStringEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2048,20 +2422,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringBytesEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringBytesEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapStringBytesEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringBytesEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapStringBytesEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
@@ -2069,6 +2443,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapStringBytesEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapStringBytesEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2087,20 +2466,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringNestedMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringNestedMessageEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapStringNestedMessageEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringNestedMessageEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapStringNestedMessageEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage.Companion),
@@ -2108,6 +2487,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapStringNestedMessageEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapStringNestedMessageEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2126,20 +2510,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringForeignMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringForeignMessageEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapStringForeignMessageEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringForeignMessageEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapStringForeignMessageEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessage.Companion),
@@ -2147,6 +2531,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapStringForeignMessageEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapStringForeignMessageEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2165,20 +2554,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringNestedEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringNestedEnumEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapStringNestedEnumEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringNestedEnumEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapStringNestedEnumEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto3.NestedEnum.Companion),
@@ -2186,6 +2575,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapStringNestedEnumEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapStringNestedEnumEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2204,20 +2598,20 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringForeignEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringForeignEnumEntry> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = TestAllTypesProto3.MapStringForeignEnumEntry::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringForeignEnumEntry, *>>(2).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "key",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
                             value = TestAllTypesProto3.MapStringForeignEnumEntry::key
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "value",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnum.Companion),
@@ -2225,6 +2619,11 @@ data class TestAllTypesProto3(
                             value = TestAllTypesProto3.MapStringForeignEnumEntry::value
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = TestAllTypesProto3.MapStringForeignEnumEntry::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
@@ -2243,12 +2642,10 @@ data class ForeignMessage(
         override fun decodeWith(u: pbandk.MessageDecoder) = ForeignMessage.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ForeignMessage> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = ForeignMessage::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ForeignMessage, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "c",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
@@ -2256,6 +2653,11 @@ data class ForeignMessage(
                         value = ForeignMessage::c
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = ForeignMessage::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

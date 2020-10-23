@@ -15,20 +15,20 @@ data class Any(
         override fun decodeWith(u: pbandk.MessageDecoder) = Any.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Any> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Any::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Any, *>>(2).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "type_url",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "typeUrl",
                         value = Any::typeUrl
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
@@ -36,6 +36,11 @@ data class Any(
                         value = Any::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Any::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

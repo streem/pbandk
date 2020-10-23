@@ -15,20 +15,20 @@ data class Duration(
         override fun decodeWith(u: pbandk.MessageDecoder) = Duration.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Duration> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Duration::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Duration, *>>(2).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "seconds",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "seconds",
                         value = Duration::seconds
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "nanos",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
@@ -36,6 +36,11 @@ data class Duration(
                         value = Duration::nanos
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Duration::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
