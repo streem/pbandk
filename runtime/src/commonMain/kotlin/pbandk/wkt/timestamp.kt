@@ -15,20 +15,20 @@ data class Timestamp(
         override fun decodeWith(u: pbandk.MessageDecoder) = Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Timestamp> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Timestamp::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Timestamp, *>>(2).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "seconds",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "seconds",
                         value = Timestamp::seconds
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "nanos",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
@@ -36,6 +36,11 @@ data class Timestamp(
                         value = Timestamp::nanos
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Timestamp::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

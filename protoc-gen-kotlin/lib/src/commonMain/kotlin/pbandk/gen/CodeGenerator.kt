@@ -122,23 +122,32 @@ open class CodeGenerator(
         // https://kotlinlang.org/docs/reference/native/concurrency.html#global-variables-and-singletons. In order to
         // break the circular references, `descriptor` needs to be a `lazy` field.
         line("override val descriptor: pbandk.MessageDescriptor<$fullTypeName> by lazy {").indented {
-            line("pbandk.MessageDescriptor(").indented {
-                line("messageClass = $fullTypeName::class,")
-                line("messageCompanion = this,")
-                line("fields = listOf(").indented {
-                    val allFields = type.sortedStandardFieldsWithOneOfs()
-                    allFields.forEachIndexed { i, (field, oneof) ->
+            // XXX: When a message has lots of fields (e.g. `TestAllTypesProto3`), declaring the list of field
+            // descriptors directly in the [MessageDescriptor] constructor can cause a
+            // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.10).
+            // As a workaround, we declare the list of fields as a separate variable rather than inline in the
+            // constructor. We also use a list builder rather than `listOf()` in order to have lots of small statements
+            // instead of a giant expression (which the compiler struggles with).
+            val allFields = type.sortedStandardFieldsWithOneOfs()
+            line("val fieldsList = ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>(${allFields.size}).apply {").indented {
+                allFields.forEach { (field, oneof) ->
+                    line("add(").indented {
                         line("pbandk.FieldDescriptor(").indented {
-                            line("messageDescriptor = this::descriptor,")
+                            line("messageDescriptor = this@Companion::descriptor,")
                             line("name = \"${field.name}\",")
                             line("number = ${field.number},")
                             line("type = ${field.fieldDescriptorType(oneof != null)},")
                             oneof?.let { line("oneofMember = true,") }
                             field.jsonName?.let { line("jsonName = \"$it\",") }
                             line("value = $fullTypeName::${field.kotlinFieldName}")
-                        }.line(if (i == allFields.lastIndex) ")" else "),")
-                    }
-                }.line(")")
+                        }.line(")")
+                    }.line(")")
+                }
+            }.line("}")
+            line("pbandk.MessageDescriptor(").indented {
+                line("messageClass = $fullTypeName::class,")
+                line("messageCompanion = this,")
+                line("fields = fieldsList")
             }.line(")")
         }.line("}")
     }

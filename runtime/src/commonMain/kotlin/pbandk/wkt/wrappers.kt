@@ -14,12 +14,10 @@ data class DoubleValue(
         override fun decodeWith(u: pbandk.MessageDecoder) = DoubleValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<DoubleValue> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = DoubleValue::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<DoubleValue, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(),
@@ -27,6 +25,11 @@ data class DoubleValue(
                         value = DoubleValue::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = DoubleValue::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -44,12 +47,10 @@ data class FloatValue(
         override fun decodeWith(u: pbandk.MessageDecoder) = FloatValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FloatValue> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = FloatValue::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FloatValue, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(),
@@ -57,6 +58,11 @@ data class FloatValue(
                         value = FloatValue::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = FloatValue::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -74,12 +80,10 @@ data class Int64Value(
         override fun decodeWith(u: pbandk.MessageDecoder) = Int64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Int64Value> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Int64Value::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int64Value, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
@@ -87,6 +91,11 @@ data class Int64Value(
                         value = Int64Value::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Int64Value::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -104,12 +113,10 @@ data class UInt64Value(
         override fun decodeWith(u: pbandk.MessageDecoder) = UInt64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UInt64Value> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = UInt64Value::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt64Value, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
@@ -117,6 +124,11 @@ data class UInt64Value(
                         value = UInt64Value::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = UInt64Value::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -134,12 +146,10 @@ data class Int32Value(
         override fun decodeWith(u: pbandk.MessageDecoder) = Int32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Int32Value> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Int32Value::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int32Value, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
@@ -147,6 +157,11 @@ data class Int32Value(
                         value = Int32Value::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Int32Value::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -164,12 +179,10 @@ data class UInt32Value(
         override fun decodeWith(u: pbandk.MessageDecoder) = UInt32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UInt32Value> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = UInt32Value::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt32Value, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
@@ -177,6 +190,11 @@ data class UInt32Value(
                         value = UInt32Value::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = UInt32Value::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -194,12 +212,10 @@ data class BoolValue(
         override fun decodeWith(u: pbandk.MessageDecoder) = BoolValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<BoolValue> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = BoolValue::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<BoolValue, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
@@ -207,6 +223,11 @@ data class BoolValue(
                         value = BoolValue::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = BoolValue::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -224,12 +245,10 @@ data class StringValue(
         override fun decodeWith(u: pbandk.MessageDecoder) = StringValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<StringValue> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = StringValue::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<StringValue, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
@@ -237,6 +256,11 @@ data class StringValue(
                         value = StringValue::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = StringValue::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -254,12 +278,10 @@ data class BytesValue(
         override fun decodeWith(u: pbandk.MessageDecoder) = BytesValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<BytesValue> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = BytesValue::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<BytesValue, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "value",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
@@ -267,6 +289,11 @@ data class BytesValue(
                         value = BytesValue::value
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = BytesValue::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

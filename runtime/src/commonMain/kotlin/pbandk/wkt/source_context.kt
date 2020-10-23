@@ -14,12 +14,10 @@ data class SourceContext(
         override fun decodeWith(u: pbandk.MessageDecoder) = SourceContext.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SourceContext> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = SourceContext::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceContext, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "file_name",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
@@ -27,6 +25,11 @@ data class SourceContext(
                         value = SourceContext::fileName
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = SourceContext::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

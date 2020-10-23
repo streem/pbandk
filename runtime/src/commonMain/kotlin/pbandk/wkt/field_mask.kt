@@ -14,12 +14,10 @@ data class FieldMask(
         override fun decodeWith(u: pbandk.MessageDecoder) = FieldMask.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldMask> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = FieldMask::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldMask, *>>(1).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "paths",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
@@ -27,6 +25,11 @@ data class FieldMask(
                         value = FieldMask::paths
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = FieldMask::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }

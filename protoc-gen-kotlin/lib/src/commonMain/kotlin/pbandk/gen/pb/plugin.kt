@@ -17,36 +17,40 @@ data class Version(
         override fun decodeWith(u: pbandk.MessageDecoder) = Version.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Version> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = Version::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Version, *>>(4).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "major",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "major",
                         value = Version::major
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "minor",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "minor",
                         value = Version::minor
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "patch",
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "patch",
                         value = Version::patch
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "suffix",
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
@@ -54,6 +58,11 @@ data class Version(
                         value = Version::suffix
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = Version::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -74,36 +83,40 @@ data class CodeGeneratorRequest(
         override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<CodeGeneratorRequest> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = CodeGeneratorRequest::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorRequest, *>>(4).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "file_to_generate",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "fileToGenerate",
                         value = CodeGeneratorRequest::fileToGenerate
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "parameter",
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "parameter",
                         value = CodeGeneratorRequest::parameter
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "compiler_version",
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.Version.Companion),
                         jsonName = "compilerVersion",
                         value = CodeGeneratorRequest::compilerVersion
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "proto_file",
                         number = 15,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.FileDescriptorProto>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.FileDescriptorProto.Companion)),
@@ -111,6 +124,11 @@ data class CodeGeneratorRequest(
                         value = CodeGeneratorRequest::protoFile
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = CodeGeneratorRequest::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -129,20 +147,20 @@ data class CodeGeneratorResponse(
         override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse> by lazy {
-            pbandk.MessageDescriptor(
-                messageClass = CodeGeneratorResponse::class,
-                messageCompanion = this,
-                fields = listOf(
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorResponse, *>>(2).apply {
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "error",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "error",
                         value = CodeGeneratorResponse::error
-                    ),
+                    )
+                )
+                add(
                     pbandk.FieldDescriptor(
-                        messageDescriptor = this::descriptor,
+                        messageDescriptor = this@Companion::descriptor,
                         name = "file",
                         number = 15,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.gen.pb.CodeGeneratorResponse.File>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.gen.pb.CodeGeneratorResponse.File.Companion)),
@@ -150,6 +168,11 @@ data class CodeGeneratorResponse(
                         value = CodeGeneratorResponse::file
                     )
                 )
+            }
+            pbandk.MessageDescriptor(
+                messageClass = CodeGeneratorResponse::class,
+                messageCompanion = this,
+                fields = fieldsList
             )
         }
     }
@@ -168,28 +191,30 @@ data class CodeGeneratorResponse(
             override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorResponse.File.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse.File> by lazy {
-                pbandk.MessageDescriptor(
-                    messageClass = CodeGeneratorResponse.File::class,
-                    messageCompanion = this,
-                    fields = listOf(
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorResponse.File, *>>(3).apply {
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "name",
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "name",
                             value = CodeGeneratorResponse.File::name
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "insertion_point",
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "insertionPoint",
                             value = CodeGeneratorResponse.File::insertionPoint
-                        ),
+                        )
+                    )
+                    add(
                         pbandk.FieldDescriptor(
-                            messageDescriptor = this::descriptor,
+                            messageDescriptor = this@Companion::descriptor,
                             name = "content",
                             number = 15,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
@@ -197,6 +222,11 @@ data class CodeGeneratorResponse(
                             value = CodeGeneratorResponse.File::content
                         )
                     )
+                }
+                pbandk.MessageDescriptor(
+                    messageClass = CodeGeneratorResponse.File::class,
+                    messageCompanion = this,
+                    fields = fieldsList
                 )
             }
         }
