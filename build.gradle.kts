@@ -24,6 +24,7 @@ configure<ApiValidationExtension> {
 allprojects {
     repositories {
         jcenter()
+        maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 
     tasks.withType<AbstractTestTask> {

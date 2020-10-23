@@ -13,6 +13,7 @@ subprojects {
             mavenLocal()
         }
         jcenter()
+        maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 
     tasks.withType<KotlinCompile>().configureEach {
