@@ -38,6 +38,7 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
             is BytesValue -> writeWrapperValue(message, message.value)
             // Other well-known types with special JSON encoding
             is Timestamp -> jsonValueEncoder.writeString(Util.timestampToString(message))
+            is Duration -> jsonValueEncoder.writeString(Util.durationToString(message))
             is Struct -> jsonValueEncoder.writeValue(message.fields, message.descriptor.fields.first().type)
             is ListValue -> jsonValueEncoder.writeRepeated(message.values, FieldDescriptor.Type.Message(Value.Companion))
             is Value -> jsonValueEncoder.writeDynamicValue(message)

@@ -1,6 +1,7 @@
 package pbandk.internal
 
 import pbandk.PbandkInternal
+import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
 // This is public only so that it can be used from protoc-gen-kotlin
@@ -14,6 +15,9 @@ expect object Util {
 
     fun timestampToString(ts: Timestamp): String
     fun stringToTimestamp(str: String): Timestamp
+
+    fun durationToString(dur: Duration): String
+    fun stringToDuration(str: String): Duration
 }
 
 internal fun String.underscoreToCamelCase(): String {

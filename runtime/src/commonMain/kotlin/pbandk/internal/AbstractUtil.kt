@@ -1,5 +1,6 @@
 package pbandk.internal
 
+import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
 abstract class AbstractUtil {
@@ -13,6 +14,8 @@ abstract class AbstractUtil {
     }
 
     fun timestampToString(ts: Timestamp): String = formatTime(ts.seconds, ts.nanos)
-
     fun stringToTimestamp(str: String): Timestamp = parseTime(str)
+
+    fun durationToString(dur: Duration): String = formatDuration(dur)
+    fun stringToDuration(str: String): Duration = parseDuration(str)
 }

@@ -1,5 +1,6 @@
 package pbandk.internal
 
+import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
 /*
@@ -10,6 +11,10 @@ https://github.com/protocolbuffers/protobuf/blob/a104dffcb6b1958a424f5fa6f9e6bdc
 // The range of timestamp values we support.
 private const val MIN_TIME = -62135596800L  // 0001-01-01T00:00:00
 private const val MAX_TIME = 253402300799L  // 9999-12-31T23:59:59
+
+// The range of duration values we support.
+private const val MAX_DURATION_SECONDS = 315576000000
+private const val MIN_DURATION_SECONDS = -315576000000
 
 private const val NANOS_PER_MILLISECOND = 1000000
 private const val NANOS_PER_MICROSECOND = 1000
@@ -355,6 +360,69 @@ internal fun parseTime(str: String): Timestamp {
     }
 
     return Timestamp(seconds = seconds + secondsOffset, nanos = nanos)
+}
+
+// endregion
+
+// region duration
+
+internal fun formatDuration(dur: Duration): String {
+    var seconds = dur.seconds
+    var nanos = dur.nanos
+
+    require(seconds in MIN_DURATION_SECONDS..MAX_DURATION_SECONDS) {
+        "Duration seconds outside of allowed range: '$seconds' !in $MIN_DURATION_SECONDS..$MAX_DURATION_SECONDS"
+    }
+    require(nanos in -999999999..999999999) {
+        "Duration nanos outside of allowed range: '$nanos' !in -999999999..999999999"
+    }
+
+    // Max String Length: -315576000000.999999999s
+    return buildString(24) {
+        if (seconds < 0 || nanos < 0) {
+            append('-')
+            seconds = -seconds
+            nanos = -nanos
+        }
+
+        append(seconds)
+        if (nanos != 0) append(".${formatNanos(nanos)}")
+        append('s')
+    }
+}
+
+internal fun parseDuration(str: String): Duration {
+    require(str.isNotEmpty() && str.last() == 's') { "Expected duration to end with s" }
+
+    val negative = str.first() == '-'
+    val signLength = if (negative) 1 else 0
+
+    var seconds: Long
+    var nanos: Int
+    val nanosPos = ParsePosition(str.lastIndexOf('.') + 1)
+    if (nanosPos.position == 0) {
+        seconds = str.substring(signLength, str.length - 1).toLong()
+        nanos = 0
+    } else {
+        seconds = str.substring(signLength, nanosPos.position - 1).toLong()
+        nanos = parseNanos(str, nanosPos)
+        // Catch garbage between nanos and ending 's'
+        require(nanosPos.position == str.length - 1)
+    }
+
+    if (negative) {
+        seconds = -seconds
+        nanos = -nanos
+    }
+
+    require(seconds in -MAX_DURATION_SECONDS..MAX_DURATION_SECONDS) {
+        "Duration seconds outside of allowed range: '$seconds' !in -$MAX_DURATION_SECONDS..$MAX_DURATION_SECONDS"
+    }
+    require(nanos in -999999999..999999999) {
+        "Duration nanos outside of allowed range: '$nanos' !in -999999999..999999999"
+    }
+
+    return Duration(seconds, nanos)
 }
 
 // endregion
