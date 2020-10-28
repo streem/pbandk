@@ -415,6 +415,8 @@ public abstract class pbandk/internal/AbstractUtil {
 	public fun <init> ()V
 	public fun base64ToBytes (Ljava/lang/String;)[B
 	public fun bytesToBase64 ([B)Ljava/lang/String;
+	public final fun durationToString (Lpbandk/wkt/Duration;)Ljava/lang/String;
+	public final fun stringToDuration (Ljava/lang/String;)Lpbandk/wkt/Duration;
 	public final fun stringToTimestamp (Ljava/lang/String;)Lpbandk/wkt/Timestamp;
 	public final fun timestampToString (Lpbandk/wkt/Timestamp;)Ljava/lang/String;
 }
