@@ -43,6 +43,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
             BytesValue -> readBytes(value)
             // Other well-known types with special JSON encoding
             Timestamp -> Util.stringToTimestamp(readString(value, false))
+            Duration -> Util.stringToDuration(readString(value, false))
             Struct -> readStruct(value)
             Value -> readDynamicValue(value)
             ListValue -> readDynamicListValue(value)
