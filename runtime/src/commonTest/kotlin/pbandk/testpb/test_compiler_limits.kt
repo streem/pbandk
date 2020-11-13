@@ -2022,6 +2022,1006 @@ data class MessageWithHugeOneof(
         class Oneof1997(oneof1997: Int = 0) : HugeOneof<Int>(oneof1997)
         class Oneof1998(oneof1998: Int = 0) : HugeOneof<Int>(oneof1998)
         class Oneof1999(oneof1999: Int = 0) : HugeOneof<Int>(oneof1999)
+        class Oneof2000(oneof2000: Int = 0) : HugeOneof<Int>(oneof2000)
+        class Oneof2001(oneof2001: Int = 0) : HugeOneof<Int>(oneof2001)
+        class Oneof2002(oneof2002: Int = 0) : HugeOneof<Int>(oneof2002)
+        class Oneof2003(oneof2003: Int = 0) : HugeOneof<Int>(oneof2003)
+        class Oneof2004(oneof2004: Int = 0) : HugeOneof<Int>(oneof2004)
+        class Oneof2005(oneof2005: Int = 0) : HugeOneof<Int>(oneof2005)
+        class Oneof2006(oneof2006: Int = 0) : HugeOneof<Int>(oneof2006)
+        class Oneof2007(oneof2007: Int = 0) : HugeOneof<Int>(oneof2007)
+        class Oneof2008(oneof2008: Int = 0) : HugeOneof<Int>(oneof2008)
+        class Oneof2009(oneof2009: Int = 0) : HugeOneof<Int>(oneof2009)
+        class Oneof2010(oneof2010: Int = 0) : HugeOneof<Int>(oneof2010)
+        class Oneof2011(oneof2011: Int = 0) : HugeOneof<Int>(oneof2011)
+        class Oneof2012(oneof2012: Int = 0) : HugeOneof<Int>(oneof2012)
+        class Oneof2013(oneof2013: Int = 0) : HugeOneof<Int>(oneof2013)
+        class Oneof2014(oneof2014: Int = 0) : HugeOneof<Int>(oneof2014)
+        class Oneof2015(oneof2015: Int = 0) : HugeOneof<Int>(oneof2015)
+        class Oneof2016(oneof2016: Int = 0) : HugeOneof<Int>(oneof2016)
+        class Oneof2017(oneof2017: Int = 0) : HugeOneof<Int>(oneof2017)
+        class Oneof2018(oneof2018: Int = 0) : HugeOneof<Int>(oneof2018)
+        class Oneof2019(oneof2019: Int = 0) : HugeOneof<Int>(oneof2019)
+        class Oneof2020(oneof2020: Int = 0) : HugeOneof<Int>(oneof2020)
+        class Oneof2021(oneof2021: Int = 0) : HugeOneof<Int>(oneof2021)
+        class Oneof2022(oneof2022: Int = 0) : HugeOneof<Int>(oneof2022)
+        class Oneof2023(oneof2023: Int = 0) : HugeOneof<Int>(oneof2023)
+        class Oneof2024(oneof2024: Int = 0) : HugeOneof<Int>(oneof2024)
+        class Oneof2025(oneof2025: Int = 0) : HugeOneof<Int>(oneof2025)
+        class Oneof2026(oneof2026: Int = 0) : HugeOneof<Int>(oneof2026)
+        class Oneof2027(oneof2027: Int = 0) : HugeOneof<Int>(oneof2027)
+        class Oneof2028(oneof2028: Int = 0) : HugeOneof<Int>(oneof2028)
+        class Oneof2029(oneof2029: Int = 0) : HugeOneof<Int>(oneof2029)
+        class Oneof2030(oneof2030: Int = 0) : HugeOneof<Int>(oneof2030)
+        class Oneof2031(oneof2031: Int = 0) : HugeOneof<Int>(oneof2031)
+        class Oneof2032(oneof2032: Int = 0) : HugeOneof<Int>(oneof2032)
+        class Oneof2033(oneof2033: Int = 0) : HugeOneof<Int>(oneof2033)
+        class Oneof2034(oneof2034: Int = 0) : HugeOneof<Int>(oneof2034)
+        class Oneof2035(oneof2035: Int = 0) : HugeOneof<Int>(oneof2035)
+        class Oneof2036(oneof2036: Int = 0) : HugeOneof<Int>(oneof2036)
+        class Oneof2037(oneof2037: Int = 0) : HugeOneof<Int>(oneof2037)
+        class Oneof2038(oneof2038: Int = 0) : HugeOneof<Int>(oneof2038)
+        class Oneof2039(oneof2039: Int = 0) : HugeOneof<Int>(oneof2039)
+        class Oneof2040(oneof2040: Int = 0) : HugeOneof<Int>(oneof2040)
+        class Oneof2041(oneof2041: Int = 0) : HugeOneof<Int>(oneof2041)
+        class Oneof2042(oneof2042: Int = 0) : HugeOneof<Int>(oneof2042)
+        class Oneof2043(oneof2043: Int = 0) : HugeOneof<Int>(oneof2043)
+        class Oneof2044(oneof2044: Int = 0) : HugeOneof<Int>(oneof2044)
+        class Oneof2045(oneof2045: Int = 0) : HugeOneof<Int>(oneof2045)
+        class Oneof2046(oneof2046: Int = 0) : HugeOneof<Int>(oneof2046)
+        class Oneof2047(oneof2047: Int = 0) : HugeOneof<Int>(oneof2047)
+        class Oneof2048(oneof2048: Int = 0) : HugeOneof<Int>(oneof2048)
+        class Oneof2049(oneof2049: Int = 0) : HugeOneof<Int>(oneof2049)
+        class Oneof2050(oneof2050: Int = 0) : HugeOneof<Int>(oneof2050)
+        class Oneof2051(oneof2051: Int = 0) : HugeOneof<Int>(oneof2051)
+        class Oneof2052(oneof2052: Int = 0) : HugeOneof<Int>(oneof2052)
+        class Oneof2053(oneof2053: Int = 0) : HugeOneof<Int>(oneof2053)
+        class Oneof2054(oneof2054: Int = 0) : HugeOneof<Int>(oneof2054)
+        class Oneof2055(oneof2055: Int = 0) : HugeOneof<Int>(oneof2055)
+        class Oneof2056(oneof2056: Int = 0) : HugeOneof<Int>(oneof2056)
+        class Oneof2057(oneof2057: Int = 0) : HugeOneof<Int>(oneof2057)
+        class Oneof2058(oneof2058: Int = 0) : HugeOneof<Int>(oneof2058)
+        class Oneof2059(oneof2059: Int = 0) : HugeOneof<Int>(oneof2059)
+        class Oneof2060(oneof2060: Int = 0) : HugeOneof<Int>(oneof2060)
+        class Oneof2061(oneof2061: Int = 0) : HugeOneof<Int>(oneof2061)
+        class Oneof2062(oneof2062: Int = 0) : HugeOneof<Int>(oneof2062)
+        class Oneof2063(oneof2063: Int = 0) : HugeOneof<Int>(oneof2063)
+        class Oneof2064(oneof2064: Int = 0) : HugeOneof<Int>(oneof2064)
+        class Oneof2065(oneof2065: Int = 0) : HugeOneof<Int>(oneof2065)
+        class Oneof2066(oneof2066: Int = 0) : HugeOneof<Int>(oneof2066)
+        class Oneof2067(oneof2067: Int = 0) : HugeOneof<Int>(oneof2067)
+        class Oneof2068(oneof2068: Int = 0) : HugeOneof<Int>(oneof2068)
+        class Oneof2069(oneof2069: Int = 0) : HugeOneof<Int>(oneof2069)
+        class Oneof2070(oneof2070: Int = 0) : HugeOneof<Int>(oneof2070)
+        class Oneof2071(oneof2071: Int = 0) : HugeOneof<Int>(oneof2071)
+        class Oneof2072(oneof2072: Int = 0) : HugeOneof<Int>(oneof2072)
+        class Oneof2073(oneof2073: Int = 0) : HugeOneof<Int>(oneof2073)
+        class Oneof2074(oneof2074: Int = 0) : HugeOneof<Int>(oneof2074)
+        class Oneof2075(oneof2075: Int = 0) : HugeOneof<Int>(oneof2075)
+        class Oneof2076(oneof2076: Int = 0) : HugeOneof<Int>(oneof2076)
+        class Oneof2077(oneof2077: Int = 0) : HugeOneof<Int>(oneof2077)
+        class Oneof2078(oneof2078: Int = 0) : HugeOneof<Int>(oneof2078)
+        class Oneof2079(oneof2079: Int = 0) : HugeOneof<Int>(oneof2079)
+        class Oneof2080(oneof2080: Int = 0) : HugeOneof<Int>(oneof2080)
+        class Oneof2081(oneof2081: Int = 0) : HugeOneof<Int>(oneof2081)
+        class Oneof2082(oneof2082: Int = 0) : HugeOneof<Int>(oneof2082)
+        class Oneof2083(oneof2083: Int = 0) : HugeOneof<Int>(oneof2083)
+        class Oneof2084(oneof2084: Int = 0) : HugeOneof<Int>(oneof2084)
+        class Oneof2085(oneof2085: Int = 0) : HugeOneof<Int>(oneof2085)
+        class Oneof2086(oneof2086: Int = 0) : HugeOneof<Int>(oneof2086)
+        class Oneof2087(oneof2087: Int = 0) : HugeOneof<Int>(oneof2087)
+        class Oneof2088(oneof2088: Int = 0) : HugeOneof<Int>(oneof2088)
+        class Oneof2089(oneof2089: Int = 0) : HugeOneof<Int>(oneof2089)
+        class Oneof2090(oneof2090: Int = 0) : HugeOneof<Int>(oneof2090)
+        class Oneof2091(oneof2091: Int = 0) : HugeOneof<Int>(oneof2091)
+        class Oneof2092(oneof2092: Int = 0) : HugeOneof<Int>(oneof2092)
+        class Oneof2093(oneof2093: Int = 0) : HugeOneof<Int>(oneof2093)
+        class Oneof2094(oneof2094: Int = 0) : HugeOneof<Int>(oneof2094)
+        class Oneof2095(oneof2095: Int = 0) : HugeOneof<Int>(oneof2095)
+        class Oneof2096(oneof2096: Int = 0) : HugeOneof<Int>(oneof2096)
+        class Oneof2097(oneof2097: Int = 0) : HugeOneof<Int>(oneof2097)
+        class Oneof2098(oneof2098: Int = 0) : HugeOneof<Int>(oneof2098)
+        class Oneof2099(oneof2099: Int = 0) : HugeOneof<Int>(oneof2099)
+        class Oneof2100(oneof2100: Int = 0) : HugeOneof<Int>(oneof2100)
+        class Oneof2101(oneof2101: Int = 0) : HugeOneof<Int>(oneof2101)
+        class Oneof2102(oneof2102: Int = 0) : HugeOneof<Int>(oneof2102)
+        class Oneof2103(oneof2103: Int = 0) : HugeOneof<Int>(oneof2103)
+        class Oneof2104(oneof2104: Int = 0) : HugeOneof<Int>(oneof2104)
+        class Oneof2105(oneof2105: Int = 0) : HugeOneof<Int>(oneof2105)
+        class Oneof2106(oneof2106: Int = 0) : HugeOneof<Int>(oneof2106)
+        class Oneof2107(oneof2107: Int = 0) : HugeOneof<Int>(oneof2107)
+        class Oneof2108(oneof2108: Int = 0) : HugeOneof<Int>(oneof2108)
+        class Oneof2109(oneof2109: Int = 0) : HugeOneof<Int>(oneof2109)
+        class Oneof2110(oneof2110: Int = 0) : HugeOneof<Int>(oneof2110)
+        class Oneof2111(oneof2111: Int = 0) : HugeOneof<Int>(oneof2111)
+        class Oneof2112(oneof2112: Int = 0) : HugeOneof<Int>(oneof2112)
+        class Oneof2113(oneof2113: Int = 0) : HugeOneof<Int>(oneof2113)
+        class Oneof2114(oneof2114: Int = 0) : HugeOneof<Int>(oneof2114)
+        class Oneof2115(oneof2115: Int = 0) : HugeOneof<Int>(oneof2115)
+        class Oneof2116(oneof2116: Int = 0) : HugeOneof<Int>(oneof2116)
+        class Oneof2117(oneof2117: Int = 0) : HugeOneof<Int>(oneof2117)
+        class Oneof2118(oneof2118: Int = 0) : HugeOneof<Int>(oneof2118)
+        class Oneof2119(oneof2119: Int = 0) : HugeOneof<Int>(oneof2119)
+        class Oneof2120(oneof2120: Int = 0) : HugeOneof<Int>(oneof2120)
+        class Oneof2121(oneof2121: Int = 0) : HugeOneof<Int>(oneof2121)
+        class Oneof2122(oneof2122: Int = 0) : HugeOneof<Int>(oneof2122)
+        class Oneof2123(oneof2123: Int = 0) : HugeOneof<Int>(oneof2123)
+        class Oneof2124(oneof2124: Int = 0) : HugeOneof<Int>(oneof2124)
+        class Oneof2125(oneof2125: Int = 0) : HugeOneof<Int>(oneof2125)
+        class Oneof2126(oneof2126: Int = 0) : HugeOneof<Int>(oneof2126)
+        class Oneof2127(oneof2127: Int = 0) : HugeOneof<Int>(oneof2127)
+        class Oneof2128(oneof2128: Int = 0) : HugeOneof<Int>(oneof2128)
+        class Oneof2129(oneof2129: Int = 0) : HugeOneof<Int>(oneof2129)
+        class Oneof2130(oneof2130: Int = 0) : HugeOneof<Int>(oneof2130)
+        class Oneof2131(oneof2131: Int = 0) : HugeOneof<Int>(oneof2131)
+        class Oneof2132(oneof2132: Int = 0) : HugeOneof<Int>(oneof2132)
+        class Oneof2133(oneof2133: Int = 0) : HugeOneof<Int>(oneof2133)
+        class Oneof2134(oneof2134: Int = 0) : HugeOneof<Int>(oneof2134)
+        class Oneof2135(oneof2135: Int = 0) : HugeOneof<Int>(oneof2135)
+        class Oneof2136(oneof2136: Int = 0) : HugeOneof<Int>(oneof2136)
+        class Oneof2137(oneof2137: Int = 0) : HugeOneof<Int>(oneof2137)
+        class Oneof2138(oneof2138: Int = 0) : HugeOneof<Int>(oneof2138)
+        class Oneof2139(oneof2139: Int = 0) : HugeOneof<Int>(oneof2139)
+        class Oneof2140(oneof2140: Int = 0) : HugeOneof<Int>(oneof2140)
+        class Oneof2141(oneof2141: Int = 0) : HugeOneof<Int>(oneof2141)
+        class Oneof2142(oneof2142: Int = 0) : HugeOneof<Int>(oneof2142)
+        class Oneof2143(oneof2143: Int = 0) : HugeOneof<Int>(oneof2143)
+        class Oneof2144(oneof2144: Int = 0) : HugeOneof<Int>(oneof2144)
+        class Oneof2145(oneof2145: Int = 0) : HugeOneof<Int>(oneof2145)
+        class Oneof2146(oneof2146: Int = 0) : HugeOneof<Int>(oneof2146)
+        class Oneof2147(oneof2147: Int = 0) : HugeOneof<Int>(oneof2147)
+        class Oneof2148(oneof2148: Int = 0) : HugeOneof<Int>(oneof2148)
+        class Oneof2149(oneof2149: Int = 0) : HugeOneof<Int>(oneof2149)
+        class Oneof2150(oneof2150: Int = 0) : HugeOneof<Int>(oneof2150)
+        class Oneof2151(oneof2151: Int = 0) : HugeOneof<Int>(oneof2151)
+        class Oneof2152(oneof2152: Int = 0) : HugeOneof<Int>(oneof2152)
+        class Oneof2153(oneof2153: Int = 0) : HugeOneof<Int>(oneof2153)
+        class Oneof2154(oneof2154: Int = 0) : HugeOneof<Int>(oneof2154)
+        class Oneof2155(oneof2155: Int = 0) : HugeOneof<Int>(oneof2155)
+        class Oneof2156(oneof2156: Int = 0) : HugeOneof<Int>(oneof2156)
+        class Oneof2157(oneof2157: Int = 0) : HugeOneof<Int>(oneof2157)
+        class Oneof2158(oneof2158: Int = 0) : HugeOneof<Int>(oneof2158)
+        class Oneof2159(oneof2159: Int = 0) : HugeOneof<Int>(oneof2159)
+        class Oneof2160(oneof2160: Int = 0) : HugeOneof<Int>(oneof2160)
+        class Oneof2161(oneof2161: Int = 0) : HugeOneof<Int>(oneof2161)
+        class Oneof2162(oneof2162: Int = 0) : HugeOneof<Int>(oneof2162)
+        class Oneof2163(oneof2163: Int = 0) : HugeOneof<Int>(oneof2163)
+        class Oneof2164(oneof2164: Int = 0) : HugeOneof<Int>(oneof2164)
+        class Oneof2165(oneof2165: Int = 0) : HugeOneof<Int>(oneof2165)
+        class Oneof2166(oneof2166: Int = 0) : HugeOneof<Int>(oneof2166)
+        class Oneof2167(oneof2167: Int = 0) : HugeOneof<Int>(oneof2167)
+        class Oneof2168(oneof2168: Int = 0) : HugeOneof<Int>(oneof2168)
+        class Oneof2169(oneof2169: Int = 0) : HugeOneof<Int>(oneof2169)
+        class Oneof2170(oneof2170: Int = 0) : HugeOneof<Int>(oneof2170)
+        class Oneof2171(oneof2171: Int = 0) : HugeOneof<Int>(oneof2171)
+        class Oneof2172(oneof2172: Int = 0) : HugeOneof<Int>(oneof2172)
+        class Oneof2173(oneof2173: Int = 0) : HugeOneof<Int>(oneof2173)
+        class Oneof2174(oneof2174: Int = 0) : HugeOneof<Int>(oneof2174)
+        class Oneof2175(oneof2175: Int = 0) : HugeOneof<Int>(oneof2175)
+        class Oneof2176(oneof2176: Int = 0) : HugeOneof<Int>(oneof2176)
+        class Oneof2177(oneof2177: Int = 0) : HugeOneof<Int>(oneof2177)
+        class Oneof2178(oneof2178: Int = 0) : HugeOneof<Int>(oneof2178)
+        class Oneof2179(oneof2179: Int = 0) : HugeOneof<Int>(oneof2179)
+        class Oneof2180(oneof2180: Int = 0) : HugeOneof<Int>(oneof2180)
+        class Oneof2181(oneof2181: Int = 0) : HugeOneof<Int>(oneof2181)
+        class Oneof2182(oneof2182: Int = 0) : HugeOneof<Int>(oneof2182)
+        class Oneof2183(oneof2183: Int = 0) : HugeOneof<Int>(oneof2183)
+        class Oneof2184(oneof2184: Int = 0) : HugeOneof<Int>(oneof2184)
+        class Oneof2185(oneof2185: Int = 0) : HugeOneof<Int>(oneof2185)
+        class Oneof2186(oneof2186: Int = 0) : HugeOneof<Int>(oneof2186)
+        class Oneof2187(oneof2187: Int = 0) : HugeOneof<Int>(oneof2187)
+        class Oneof2188(oneof2188: Int = 0) : HugeOneof<Int>(oneof2188)
+        class Oneof2189(oneof2189: Int = 0) : HugeOneof<Int>(oneof2189)
+        class Oneof2190(oneof2190: Int = 0) : HugeOneof<Int>(oneof2190)
+        class Oneof2191(oneof2191: Int = 0) : HugeOneof<Int>(oneof2191)
+        class Oneof2192(oneof2192: Int = 0) : HugeOneof<Int>(oneof2192)
+        class Oneof2193(oneof2193: Int = 0) : HugeOneof<Int>(oneof2193)
+        class Oneof2194(oneof2194: Int = 0) : HugeOneof<Int>(oneof2194)
+        class Oneof2195(oneof2195: Int = 0) : HugeOneof<Int>(oneof2195)
+        class Oneof2196(oneof2196: Int = 0) : HugeOneof<Int>(oneof2196)
+        class Oneof2197(oneof2197: Int = 0) : HugeOneof<Int>(oneof2197)
+        class Oneof2198(oneof2198: Int = 0) : HugeOneof<Int>(oneof2198)
+        class Oneof2199(oneof2199: Int = 0) : HugeOneof<Int>(oneof2199)
+        class Oneof2200(oneof2200: Int = 0) : HugeOneof<Int>(oneof2200)
+        class Oneof2201(oneof2201: Int = 0) : HugeOneof<Int>(oneof2201)
+        class Oneof2202(oneof2202: Int = 0) : HugeOneof<Int>(oneof2202)
+        class Oneof2203(oneof2203: Int = 0) : HugeOneof<Int>(oneof2203)
+        class Oneof2204(oneof2204: Int = 0) : HugeOneof<Int>(oneof2204)
+        class Oneof2205(oneof2205: Int = 0) : HugeOneof<Int>(oneof2205)
+        class Oneof2206(oneof2206: Int = 0) : HugeOneof<Int>(oneof2206)
+        class Oneof2207(oneof2207: Int = 0) : HugeOneof<Int>(oneof2207)
+        class Oneof2208(oneof2208: Int = 0) : HugeOneof<Int>(oneof2208)
+        class Oneof2209(oneof2209: Int = 0) : HugeOneof<Int>(oneof2209)
+        class Oneof2210(oneof2210: Int = 0) : HugeOneof<Int>(oneof2210)
+        class Oneof2211(oneof2211: Int = 0) : HugeOneof<Int>(oneof2211)
+        class Oneof2212(oneof2212: Int = 0) : HugeOneof<Int>(oneof2212)
+        class Oneof2213(oneof2213: Int = 0) : HugeOneof<Int>(oneof2213)
+        class Oneof2214(oneof2214: Int = 0) : HugeOneof<Int>(oneof2214)
+        class Oneof2215(oneof2215: Int = 0) : HugeOneof<Int>(oneof2215)
+        class Oneof2216(oneof2216: Int = 0) : HugeOneof<Int>(oneof2216)
+        class Oneof2217(oneof2217: Int = 0) : HugeOneof<Int>(oneof2217)
+        class Oneof2218(oneof2218: Int = 0) : HugeOneof<Int>(oneof2218)
+        class Oneof2219(oneof2219: Int = 0) : HugeOneof<Int>(oneof2219)
+        class Oneof2220(oneof2220: Int = 0) : HugeOneof<Int>(oneof2220)
+        class Oneof2221(oneof2221: Int = 0) : HugeOneof<Int>(oneof2221)
+        class Oneof2222(oneof2222: Int = 0) : HugeOneof<Int>(oneof2222)
+        class Oneof2223(oneof2223: Int = 0) : HugeOneof<Int>(oneof2223)
+        class Oneof2224(oneof2224: Int = 0) : HugeOneof<Int>(oneof2224)
+        class Oneof2225(oneof2225: Int = 0) : HugeOneof<Int>(oneof2225)
+        class Oneof2226(oneof2226: Int = 0) : HugeOneof<Int>(oneof2226)
+        class Oneof2227(oneof2227: Int = 0) : HugeOneof<Int>(oneof2227)
+        class Oneof2228(oneof2228: Int = 0) : HugeOneof<Int>(oneof2228)
+        class Oneof2229(oneof2229: Int = 0) : HugeOneof<Int>(oneof2229)
+        class Oneof2230(oneof2230: Int = 0) : HugeOneof<Int>(oneof2230)
+        class Oneof2231(oneof2231: Int = 0) : HugeOneof<Int>(oneof2231)
+        class Oneof2232(oneof2232: Int = 0) : HugeOneof<Int>(oneof2232)
+        class Oneof2233(oneof2233: Int = 0) : HugeOneof<Int>(oneof2233)
+        class Oneof2234(oneof2234: Int = 0) : HugeOneof<Int>(oneof2234)
+        class Oneof2235(oneof2235: Int = 0) : HugeOneof<Int>(oneof2235)
+        class Oneof2236(oneof2236: Int = 0) : HugeOneof<Int>(oneof2236)
+        class Oneof2237(oneof2237: Int = 0) : HugeOneof<Int>(oneof2237)
+        class Oneof2238(oneof2238: Int = 0) : HugeOneof<Int>(oneof2238)
+        class Oneof2239(oneof2239: Int = 0) : HugeOneof<Int>(oneof2239)
+        class Oneof2240(oneof2240: Int = 0) : HugeOneof<Int>(oneof2240)
+        class Oneof2241(oneof2241: Int = 0) : HugeOneof<Int>(oneof2241)
+        class Oneof2242(oneof2242: Int = 0) : HugeOneof<Int>(oneof2242)
+        class Oneof2243(oneof2243: Int = 0) : HugeOneof<Int>(oneof2243)
+        class Oneof2244(oneof2244: Int = 0) : HugeOneof<Int>(oneof2244)
+        class Oneof2245(oneof2245: Int = 0) : HugeOneof<Int>(oneof2245)
+        class Oneof2246(oneof2246: Int = 0) : HugeOneof<Int>(oneof2246)
+        class Oneof2247(oneof2247: Int = 0) : HugeOneof<Int>(oneof2247)
+        class Oneof2248(oneof2248: Int = 0) : HugeOneof<Int>(oneof2248)
+        class Oneof2249(oneof2249: Int = 0) : HugeOneof<Int>(oneof2249)
+        class Oneof2250(oneof2250: Int = 0) : HugeOneof<Int>(oneof2250)
+        class Oneof2251(oneof2251: Int = 0) : HugeOneof<Int>(oneof2251)
+        class Oneof2252(oneof2252: Int = 0) : HugeOneof<Int>(oneof2252)
+        class Oneof2253(oneof2253: Int = 0) : HugeOneof<Int>(oneof2253)
+        class Oneof2254(oneof2254: Int = 0) : HugeOneof<Int>(oneof2254)
+        class Oneof2255(oneof2255: Int = 0) : HugeOneof<Int>(oneof2255)
+        class Oneof2256(oneof2256: Int = 0) : HugeOneof<Int>(oneof2256)
+        class Oneof2257(oneof2257: Int = 0) : HugeOneof<Int>(oneof2257)
+        class Oneof2258(oneof2258: Int = 0) : HugeOneof<Int>(oneof2258)
+        class Oneof2259(oneof2259: Int = 0) : HugeOneof<Int>(oneof2259)
+        class Oneof2260(oneof2260: Int = 0) : HugeOneof<Int>(oneof2260)
+        class Oneof2261(oneof2261: Int = 0) : HugeOneof<Int>(oneof2261)
+        class Oneof2262(oneof2262: Int = 0) : HugeOneof<Int>(oneof2262)
+        class Oneof2263(oneof2263: Int = 0) : HugeOneof<Int>(oneof2263)
+        class Oneof2264(oneof2264: Int = 0) : HugeOneof<Int>(oneof2264)
+        class Oneof2265(oneof2265: Int = 0) : HugeOneof<Int>(oneof2265)
+        class Oneof2266(oneof2266: Int = 0) : HugeOneof<Int>(oneof2266)
+        class Oneof2267(oneof2267: Int = 0) : HugeOneof<Int>(oneof2267)
+        class Oneof2268(oneof2268: Int = 0) : HugeOneof<Int>(oneof2268)
+        class Oneof2269(oneof2269: Int = 0) : HugeOneof<Int>(oneof2269)
+        class Oneof2270(oneof2270: Int = 0) : HugeOneof<Int>(oneof2270)
+        class Oneof2271(oneof2271: Int = 0) : HugeOneof<Int>(oneof2271)
+        class Oneof2272(oneof2272: Int = 0) : HugeOneof<Int>(oneof2272)
+        class Oneof2273(oneof2273: Int = 0) : HugeOneof<Int>(oneof2273)
+        class Oneof2274(oneof2274: Int = 0) : HugeOneof<Int>(oneof2274)
+        class Oneof2275(oneof2275: Int = 0) : HugeOneof<Int>(oneof2275)
+        class Oneof2276(oneof2276: Int = 0) : HugeOneof<Int>(oneof2276)
+        class Oneof2277(oneof2277: Int = 0) : HugeOneof<Int>(oneof2277)
+        class Oneof2278(oneof2278: Int = 0) : HugeOneof<Int>(oneof2278)
+        class Oneof2279(oneof2279: Int = 0) : HugeOneof<Int>(oneof2279)
+        class Oneof2280(oneof2280: Int = 0) : HugeOneof<Int>(oneof2280)
+        class Oneof2281(oneof2281: Int = 0) : HugeOneof<Int>(oneof2281)
+        class Oneof2282(oneof2282: Int = 0) : HugeOneof<Int>(oneof2282)
+        class Oneof2283(oneof2283: Int = 0) : HugeOneof<Int>(oneof2283)
+        class Oneof2284(oneof2284: Int = 0) : HugeOneof<Int>(oneof2284)
+        class Oneof2285(oneof2285: Int = 0) : HugeOneof<Int>(oneof2285)
+        class Oneof2286(oneof2286: Int = 0) : HugeOneof<Int>(oneof2286)
+        class Oneof2287(oneof2287: Int = 0) : HugeOneof<Int>(oneof2287)
+        class Oneof2288(oneof2288: Int = 0) : HugeOneof<Int>(oneof2288)
+        class Oneof2289(oneof2289: Int = 0) : HugeOneof<Int>(oneof2289)
+        class Oneof2290(oneof2290: Int = 0) : HugeOneof<Int>(oneof2290)
+        class Oneof2291(oneof2291: Int = 0) : HugeOneof<Int>(oneof2291)
+        class Oneof2292(oneof2292: Int = 0) : HugeOneof<Int>(oneof2292)
+        class Oneof2293(oneof2293: Int = 0) : HugeOneof<Int>(oneof2293)
+        class Oneof2294(oneof2294: Int = 0) : HugeOneof<Int>(oneof2294)
+        class Oneof2295(oneof2295: Int = 0) : HugeOneof<Int>(oneof2295)
+        class Oneof2296(oneof2296: Int = 0) : HugeOneof<Int>(oneof2296)
+        class Oneof2297(oneof2297: Int = 0) : HugeOneof<Int>(oneof2297)
+        class Oneof2298(oneof2298: Int = 0) : HugeOneof<Int>(oneof2298)
+        class Oneof2299(oneof2299: Int = 0) : HugeOneof<Int>(oneof2299)
+        class Oneof2300(oneof2300: Int = 0) : HugeOneof<Int>(oneof2300)
+        class Oneof2301(oneof2301: Int = 0) : HugeOneof<Int>(oneof2301)
+        class Oneof2302(oneof2302: Int = 0) : HugeOneof<Int>(oneof2302)
+        class Oneof2303(oneof2303: Int = 0) : HugeOneof<Int>(oneof2303)
+        class Oneof2304(oneof2304: Int = 0) : HugeOneof<Int>(oneof2304)
+        class Oneof2305(oneof2305: Int = 0) : HugeOneof<Int>(oneof2305)
+        class Oneof2306(oneof2306: Int = 0) : HugeOneof<Int>(oneof2306)
+        class Oneof2307(oneof2307: Int = 0) : HugeOneof<Int>(oneof2307)
+        class Oneof2308(oneof2308: Int = 0) : HugeOneof<Int>(oneof2308)
+        class Oneof2309(oneof2309: Int = 0) : HugeOneof<Int>(oneof2309)
+        class Oneof2310(oneof2310: Int = 0) : HugeOneof<Int>(oneof2310)
+        class Oneof2311(oneof2311: Int = 0) : HugeOneof<Int>(oneof2311)
+        class Oneof2312(oneof2312: Int = 0) : HugeOneof<Int>(oneof2312)
+        class Oneof2313(oneof2313: Int = 0) : HugeOneof<Int>(oneof2313)
+        class Oneof2314(oneof2314: Int = 0) : HugeOneof<Int>(oneof2314)
+        class Oneof2315(oneof2315: Int = 0) : HugeOneof<Int>(oneof2315)
+        class Oneof2316(oneof2316: Int = 0) : HugeOneof<Int>(oneof2316)
+        class Oneof2317(oneof2317: Int = 0) : HugeOneof<Int>(oneof2317)
+        class Oneof2318(oneof2318: Int = 0) : HugeOneof<Int>(oneof2318)
+        class Oneof2319(oneof2319: Int = 0) : HugeOneof<Int>(oneof2319)
+        class Oneof2320(oneof2320: Int = 0) : HugeOneof<Int>(oneof2320)
+        class Oneof2321(oneof2321: Int = 0) : HugeOneof<Int>(oneof2321)
+        class Oneof2322(oneof2322: Int = 0) : HugeOneof<Int>(oneof2322)
+        class Oneof2323(oneof2323: Int = 0) : HugeOneof<Int>(oneof2323)
+        class Oneof2324(oneof2324: Int = 0) : HugeOneof<Int>(oneof2324)
+        class Oneof2325(oneof2325: Int = 0) : HugeOneof<Int>(oneof2325)
+        class Oneof2326(oneof2326: Int = 0) : HugeOneof<Int>(oneof2326)
+        class Oneof2327(oneof2327: Int = 0) : HugeOneof<Int>(oneof2327)
+        class Oneof2328(oneof2328: Int = 0) : HugeOneof<Int>(oneof2328)
+        class Oneof2329(oneof2329: Int = 0) : HugeOneof<Int>(oneof2329)
+        class Oneof2330(oneof2330: Int = 0) : HugeOneof<Int>(oneof2330)
+        class Oneof2331(oneof2331: Int = 0) : HugeOneof<Int>(oneof2331)
+        class Oneof2332(oneof2332: Int = 0) : HugeOneof<Int>(oneof2332)
+        class Oneof2333(oneof2333: Int = 0) : HugeOneof<Int>(oneof2333)
+        class Oneof2334(oneof2334: Int = 0) : HugeOneof<Int>(oneof2334)
+        class Oneof2335(oneof2335: Int = 0) : HugeOneof<Int>(oneof2335)
+        class Oneof2336(oneof2336: Int = 0) : HugeOneof<Int>(oneof2336)
+        class Oneof2337(oneof2337: Int = 0) : HugeOneof<Int>(oneof2337)
+        class Oneof2338(oneof2338: Int = 0) : HugeOneof<Int>(oneof2338)
+        class Oneof2339(oneof2339: Int = 0) : HugeOneof<Int>(oneof2339)
+        class Oneof2340(oneof2340: Int = 0) : HugeOneof<Int>(oneof2340)
+        class Oneof2341(oneof2341: Int = 0) : HugeOneof<Int>(oneof2341)
+        class Oneof2342(oneof2342: Int = 0) : HugeOneof<Int>(oneof2342)
+        class Oneof2343(oneof2343: Int = 0) : HugeOneof<Int>(oneof2343)
+        class Oneof2344(oneof2344: Int = 0) : HugeOneof<Int>(oneof2344)
+        class Oneof2345(oneof2345: Int = 0) : HugeOneof<Int>(oneof2345)
+        class Oneof2346(oneof2346: Int = 0) : HugeOneof<Int>(oneof2346)
+        class Oneof2347(oneof2347: Int = 0) : HugeOneof<Int>(oneof2347)
+        class Oneof2348(oneof2348: Int = 0) : HugeOneof<Int>(oneof2348)
+        class Oneof2349(oneof2349: Int = 0) : HugeOneof<Int>(oneof2349)
+        class Oneof2350(oneof2350: Int = 0) : HugeOneof<Int>(oneof2350)
+        class Oneof2351(oneof2351: Int = 0) : HugeOneof<Int>(oneof2351)
+        class Oneof2352(oneof2352: Int = 0) : HugeOneof<Int>(oneof2352)
+        class Oneof2353(oneof2353: Int = 0) : HugeOneof<Int>(oneof2353)
+        class Oneof2354(oneof2354: Int = 0) : HugeOneof<Int>(oneof2354)
+        class Oneof2355(oneof2355: Int = 0) : HugeOneof<Int>(oneof2355)
+        class Oneof2356(oneof2356: Int = 0) : HugeOneof<Int>(oneof2356)
+        class Oneof2357(oneof2357: Int = 0) : HugeOneof<Int>(oneof2357)
+        class Oneof2358(oneof2358: Int = 0) : HugeOneof<Int>(oneof2358)
+        class Oneof2359(oneof2359: Int = 0) : HugeOneof<Int>(oneof2359)
+        class Oneof2360(oneof2360: Int = 0) : HugeOneof<Int>(oneof2360)
+        class Oneof2361(oneof2361: Int = 0) : HugeOneof<Int>(oneof2361)
+        class Oneof2362(oneof2362: Int = 0) : HugeOneof<Int>(oneof2362)
+        class Oneof2363(oneof2363: Int = 0) : HugeOneof<Int>(oneof2363)
+        class Oneof2364(oneof2364: Int = 0) : HugeOneof<Int>(oneof2364)
+        class Oneof2365(oneof2365: Int = 0) : HugeOneof<Int>(oneof2365)
+        class Oneof2366(oneof2366: Int = 0) : HugeOneof<Int>(oneof2366)
+        class Oneof2367(oneof2367: Int = 0) : HugeOneof<Int>(oneof2367)
+        class Oneof2368(oneof2368: Int = 0) : HugeOneof<Int>(oneof2368)
+        class Oneof2369(oneof2369: Int = 0) : HugeOneof<Int>(oneof2369)
+        class Oneof2370(oneof2370: Int = 0) : HugeOneof<Int>(oneof2370)
+        class Oneof2371(oneof2371: Int = 0) : HugeOneof<Int>(oneof2371)
+        class Oneof2372(oneof2372: Int = 0) : HugeOneof<Int>(oneof2372)
+        class Oneof2373(oneof2373: Int = 0) : HugeOneof<Int>(oneof2373)
+        class Oneof2374(oneof2374: Int = 0) : HugeOneof<Int>(oneof2374)
+        class Oneof2375(oneof2375: Int = 0) : HugeOneof<Int>(oneof2375)
+        class Oneof2376(oneof2376: Int = 0) : HugeOneof<Int>(oneof2376)
+        class Oneof2377(oneof2377: Int = 0) : HugeOneof<Int>(oneof2377)
+        class Oneof2378(oneof2378: Int = 0) : HugeOneof<Int>(oneof2378)
+        class Oneof2379(oneof2379: Int = 0) : HugeOneof<Int>(oneof2379)
+        class Oneof2380(oneof2380: Int = 0) : HugeOneof<Int>(oneof2380)
+        class Oneof2381(oneof2381: Int = 0) : HugeOneof<Int>(oneof2381)
+        class Oneof2382(oneof2382: Int = 0) : HugeOneof<Int>(oneof2382)
+        class Oneof2383(oneof2383: Int = 0) : HugeOneof<Int>(oneof2383)
+        class Oneof2384(oneof2384: Int = 0) : HugeOneof<Int>(oneof2384)
+        class Oneof2385(oneof2385: Int = 0) : HugeOneof<Int>(oneof2385)
+        class Oneof2386(oneof2386: Int = 0) : HugeOneof<Int>(oneof2386)
+        class Oneof2387(oneof2387: Int = 0) : HugeOneof<Int>(oneof2387)
+        class Oneof2388(oneof2388: Int = 0) : HugeOneof<Int>(oneof2388)
+        class Oneof2389(oneof2389: Int = 0) : HugeOneof<Int>(oneof2389)
+        class Oneof2390(oneof2390: Int = 0) : HugeOneof<Int>(oneof2390)
+        class Oneof2391(oneof2391: Int = 0) : HugeOneof<Int>(oneof2391)
+        class Oneof2392(oneof2392: Int = 0) : HugeOneof<Int>(oneof2392)
+        class Oneof2393(oneof2393: Int = 0) : HugeOneof<Int>(oneof2393)
+        class Oneof2394(oneof2394: Int = 0) : HugeOneof<Int>(oneof2394)
+        class Oneof2395(oneof2395: Int = 0) : HugeOneof<Int>(oneof2395)
+        class Oneof2396(oneof2396: Int = 0) : HugeOneof<Int>(oneof2396)
+        class Oneof2397(oneof2397: Int = 0) : HugeOneof<Int>(oneof2397)
+        class Oneof2398(oneof2398: Int = 0) : HugeOneof<Int>(oneof2398)
+        class Oneof2399(oneof2399: Int = 0) : HugeOneof<Int>(oneof2399)
+        class Oneof2400(oneof2400: Int = 0) : HugeOneof<Int>(oneof2400)
+        class Oneof2401(oneof2401: Int = 0) : HugeOneof<Int>(oneof2401)
+        class Oneof2402(oneof2402: Int = 0) : HugeOneof<Int>(oneof2402)
+        class Oneof2403(oneof2403: Int = 0) : HugeOneof<Int>(oneof2403)
+        class Oneof2404(oneof2404: Int = 0) : HugeOneof<Int>(oneof2404)
+        class Oneof2405(oneof2405: Int = 0) : HugeOneof<Int>(oneof2405)
+        class Oneof2406(oneof2406: Int = 0) : HugeOneof<Int>(oneof2406)
+        class Oneof2407(oneof2407: Int = 0) : HugeOneof<Int>(oneof2407)
+        class Oneof2408(oneof2408: Int = 0) : HugeOneof<Int>(oneof2408)
+        class Oneof2409(oneof2409: Int = 0) : HugeOneof<Int>(oneof2409)
+        class Oneof2410(oneof2410: Int = 0) : HugeOneof<Int>(oneof2410)
+        class Oneof2411(oneof2411: Int = 0) : HugeOneof<Int>(oneof2411)
+        class Oneof2412(oneof2412: Int = 0) : HugeOneof<Int>(oneof2412)
+        class Oneof2413(oneof2413: Int = 0) : HugeOneof<Int>(oneof2413)
+        class Oneof2414(oneof2414: Int = 0) : HugeOneof<Int>(oneof2414)
+        class Oneof2415(oneof2415: Int = 0) : HugeOneof<Int>(oneof2415)
+        class Oneof2416(oneof2416: Int = 0) : HugeOneof<Int>(oneof2416)
+        class Oneof2417(oneof2417: Int = 0) : HugeOneof<Int>(oneof2417)
+        class Oneof2418(oneof2418: Int = 0) : HugeOneof<Int>(oneof2418)
+        class Oneof2419(oneof2419: Int = 0) : HugeOneof<Int>(oneof2419)
+        class Oneof2420(oneof2420: Int = 0) : HugeOneof<Int>(oneof2420)
+        class Oneof2421(oneof2421: Int = 0) : HugeOneof<Int>(oneof2421)
+        class Oneof2422(oneof2422: Int = 0) : HugeOneof<Int>(oneof2422)
+        class Oneof2423(oneof2423: Int = 0) : HugeOneof<Int>(oneof2423)
+        class Oneof2424(oneof2424: Int = 0) : HugeOneof<Int>(oneof2424)
+        class Oneof2425(oneof2425: Int = 0) : HugeOneof<Int>(oneof2425)
+        class Oneof2426(oneof2426: Int = 0) : HugeOneof<Int>(oneof2426)
+        class Oneof2427(oneof2427: Int = 0) : HugeOneof<Int>(oneof2427)
+        class Oneof2428(oneof2428: Int = 0) : HugeOneof<Int>(oneof2428)
+        class Oneof2429(oneof2429: Int = 0) : HugeOneof<Int>(oneof2429)
+        class Oneof2430(oneof2430: Int = 0) : HugeOneof<Int>(oneof2430)
+        class Oneof2431(oneof2431: Int = 0) : HugeOneof<Int>(oneof2431)
+        class Oneof2432(oneof2432: Int = 0) : HugeOneof<Int>(oneof2432)
+        class Oneof2433(oneof2433: Int = 0) : HugeOneof<Int>(oneof2433)
+        class Oneof2434(oneof2434: Int = 0) : HugeOneof<Int>(oneof2434)
+        class Oneof2435(oneof2435: Int = 0) : HugeOneof<Int>(oneof2435)
+        class Oneof2436(oneof2436: Int = 0) : HugeOneof<Int>(oneof2436)
+        class Oneof2437(oneof2437: Int = 0) : HugeOneof<Int>(oneof2437)
+        class Oneof2438(oneof2438: Int = 0) : HugeOneof<Int>(oneof2438)
+        class Oneof2439(oneof2439: Int = 0) : HugeOneof<Int>(oneof2439)
+        class Oneof2440(oneof2440: Int = 0) : HugeOneof<Int>(oneof2440)
+        class Oneof2441(oneof2441: Int = 0) : HugeOneof<Int>(oneof2441)
+        class Oneof2442(oneof2442: Int = 0) : HugeOneof<Int>(oneof2442)
+        class Oneof2443(oneof2443: Int = 0) : HugeOneof<Int>(oneof2443)
+        class Oneof2444(oneof2444: Int = 0) : HugeOneof<Int>(oneof2444)
+        class Oneof2445(oneof2445: Int = 0) : HugeOneof<Int>(oneof2445)
+        class Oneof2446(oneof2446: Int = 0) : HugeOneof<Int>(oneof2446)
+        class Oneof2447(oneof2447: Int = 0) : HugeOneof<Int>(oneof2447)
+        class Oneof2448(oneof2448: Int = 0) : HugeOneof<Int>(oneof2448)
+        class Oneof2449(oneof2449: Int = 0) : HugeOneof<Int>(oneof2449)
+        class Oneof2450(oneof2450: Int = 0) : HugeOneof<Int>(oneof2450)
+        class Oneof2451(oneof2451: Int = 0) : HugeOneof<Int>(oneof2451)
+        class Oneof2452(oneof2452: Int = 0) : HugeOneof<Int>(oneof2452)
+        class Oneof2453(oneof2453: Int = 0) : HugeOneof<Int>(oneof2453)
+        class Oneof2454(oneof2454: Int = 0) : HugeOneof<Int>(oneof2454)
+        class Oneof2455(oneof2455: Int = 0) : HugeOneof<Int>(oneof2455)
+        class Oneof2456(oneof2456: Int = 0) : HugeOneof<Int>(oneof2456)
+        class Oneof2457(oneof2457: Int = 0) : HugeOneof<Int>(oneof2457)
+        class Oneof2458(oneof2458: Int = 0) : HugeOneof<Int>(oneof2458)
+        class Oneof2459(oneof2459: Int = 0) : HugeOneof<Int>(oneof2459)
+        class Oneof2460(oneof2460: Int = 0) : HugeOneof<Int>(oneof2460)
+        class Oneof2461(oneof2461: Int = 0) : HugeOneof<Int>(oneof2461)
+        class Oneof2462(oneof2462: Int = 0) : HugeOneof<Int>(oneof2462)
+        class Oneof2463(oneof2463: Int = 0) : HugeOneof<Int>(oneof2463)
+        class Oneof2464(oneof2464: Int = 0) : HugeOneof<Int>(oneof2464)
+        class Oneof2465(oneof2465: Int = 0) : HugeOneof<Int>(oneof2465)
+        class Oneof2466(oneof2466: Int = 0) : HugeOneof<Int>(oneof2466)
+        class Oneof2467(oneof2467: Int = 0) : HugeOneof<Int>(oneof2467)
+        class Oneof2468(oneof2468: Int = 0) : HugeOneof<Int>(oneof2468)
+        class Oneof2469(oneof2469: Int = 0) : HugeOneof<Int>(oneof2469)
+        class Oneof2470(oneof2470: Int = 0) : HugeOneof<Int>(oneof2470)
+        class Oneof2471(oneof2471: Int = 0) : HugeOneof<Int>(oneof2471)
+        class Oneof2472(oneof2472: Int = 0) : HugeOneof<Int>(oneof2472)
+        class Oneof2473(oneof2473: Int = 0) : HugeOneof<Int>(oneof2473)
+        class Oneof2474(oneof2474: Int = 0) : HugeOneof<Int>(oneof2474)
+        class Oneof2475(oneof2475: Int = 0) : HugeOneof<Int>(oneof2475)
+        class Oneof2476(oneof2476: Int = 0) : HugeOneof<Int>(oneof2476)
+        class Oneof2477(oneof2477: Int = 0) : HugeOneof<Int>(oneof2477)
+        class Oneof2478(oneof2478: Int = 0) : HugeOneof<Int>(oneof2478)
+        class Oneof2479(oneof2479: Int = 0) : HugeOneof<Int>(oneof2479)
+        class Oneof2480(oneof2480: Int = 0) : HugeOneof<Int>(oneof2480)
+        class Oneof2481(oneof2481: Int = 0) : HugeOneof<Int>(oneof2481)
+        class Oneof2482(oneof2482: Int = 0) : HugeOneof<Int>(oneof2482)
+        class Oneof2483(oneof2483: Int = 0) : HugeOneof<Int>(oneof2483)
+        class Oneof2484(oneof2484: Int = 0) : HugeOneof<Int>(oneof2484)
+        class Oneof2485(oneof2485: Int = 0) : HugeOneof<Int>(oneof2485)
+        class Oneof2486(oneof2486: Int = 0) : HugeOneof<Int>(oneof2486)
+        class Oneof2487(oneof2487: Int = 0) : HugeOneof<Int>(oneof2487)
+        class Oneof2488(oneof2488: Int = 0) : HugeOneof<Int>(oneof2488)
+        class Oneof2489(oneof2489: Int = 0) : HugeOneof<Int>(oneof2489)
+        class Oneof2490(oneof2490: Int = 0) : HugeOneof<Int>(oneof2490)
+        class Oneof2491(oneof2491: Int = 0) : HugeOneof<Int>(oneof2491)
+        class Oneof2492(oneof2492: Int = 0) : HugeOneof<Int>(oneof2492)
+        class Oneof2493(oneof2493: Int = 0) : HugeOneof<Int>(oneof2493)
+        class Oneof2494(oneof2494: Int = 0) : HugeOneof<Int>(oneof2494)
+        class Oneof2495(oneof2495: Int = 0) : HugeOneof<Int>(oneof2495)
+        class Oneof2496(oneof2496: Int = 0) : HugeOneof<Int>(oneof2496)
+        class Oneof2497(oneof2497: Int = 0) : HugeOneof<Int>(oneof2497)
+        class Oneof2498(oneof2498: Int = 0) : HugeOneof<Int>(oneof2498)
+        class Oneof2499(oneof2499: Int = 0) : HugeOneof<Int>(oneof2499)
+        class Oneof2500(oneof2500: Int = 0) : HugeOneof<Int>(oneof2500)
+        class Oneof2501(oneof2501: Int = 0) : HugeOneof<Int>(oneof2501)
+        class Oneof2502(oneof2502: Int = 0) : HugeOneof<Int>(oneof2502)
+        class Oneof2503(oneof2503: Int = 0) : HugeOneof<Int>(oneof2503)
+        class Oneof2504(oneof2504: Int = 0) : HugeOneof<Int>(oneof2504)
+        class Oneof2505(oneof2505: Int = 0) : HugeOneof<Int>(oneof2505)
+        class Oneof2506(oneof2506: Int = 0) : HugeOneof<Int>(oneof2506)
+        class Oneof2507(oneof2507: Int = 0) : HugeOneof<Int>(oneof2507)
+        class Oneof2508(oneof2508: Int = 0) : HugeOneof<Int>(oneof2508)
+        class Oneof2509(oneof2509: Int = 0) : HugeOneof<Int>(oneof2509)
+        class Oneof2510(oneof2510: Int = 0) : HugeOneof<Int>(oneof2510)
+        class Oneof2511(oneof2511: Int = 0) : HugeOneof<Int>(oneof2511)
+        class Oneof2512(oneof2512: Int = 0) : HugeOneof<Int>(oneof2512)
+        class Oneof2513(oneof2513: Int = 0) : HugeOneof<Int>(oneof2513)
+        class Oneof2514(oneof2514: Int = 0) : HugeOneof<Int>(oneof2514)
+        class Oneof2515(oneof2515: Int = 0) : HugeOneof<Int>(oneof2515)
+        class Oneof2516(oneof2516: Int = 0) : HugeOneof<Int>(oneof2516)
+        class Oneof2517(oneof2517: Int = 0) : HugeOneof<Int>(oneof2517)
+        class Oneof2518(oneof2518: Int = 0) : HugeOneof<Int>(oneof2518)
+        class Oneof2519(oneof2519: Int = 0) : HugeOneof<Int>(oneof2519)
+        class Oneof2520(oneof2520: Int = 0) : HugeOneof<Int>(oneof2520)
+        class Oneof2521(oneof2521: Int = 0) : HugeOneof<Int>(oneof2521)
+        class Oneof2522(oneof2522: Int = 0) : HugeOneof<Int>(oneof2522)
+        class Oneof2523(oneof2523: Int = 0) : HugeOneof<Int>(oneof2523)
+        class Oneof2524(oneof2524: Int = 0) : HugeOneof<Int>(oneof2524)
+        class Oneof2525(oneof2525: Int = 0) : HugeOneof<Int>(oneof2525)
+        class Oneof2526(oneof2526: Int = 0) : HugeOneof<Int>(oneof2526)
+        class Oneof2527(oneof2527: Int = 0) : HugeOneof<Int>(oneof2527)
+        class Oneof2528(oneof2528: Int = 0) : HugeOneof<Int>(oneof2528)
+        class Oneof2529(oneof2529: Int = 0) : HugeOneof<Int>(oneof2529)
+        class Oneof2530(oneof2530: Int = 0) : HugeOneof<Int>(oneof2530)
+        class Oneof2531(oneof2531: Int = 0) : HugeOneof<Int>(oneof2531)
+        class Oneof2532(oneof2532: Int = 0) : HugeOneof<Int>(oneof2532)
+        class Oneof2533(oneof2533: Int = 0) : HugeOneof<Int>(oneof2533)
+        class Oneof2534(oneof2534: Int = 0) : HugeOneof<Int>(oneof2534)
+        class Oneof2535(oneof2535: Int = 0) : HugeOneof<Int>(oneof2535)
+        class Oneof2536(oneof2536: Int = 0) : HugeOneof<Int>(oneof2536)
+        class Oneof2537(oneof2537: Int = 0) : HugeOneof<Int>(oneof2537)
+        class Oneof2538(oneof2538: Int = 0) : HugeOneof<Int>(oneof2538)
+        class Oneof2539(oneof2539: Int = 0) : HugeOneof<Int>(oneof2539)
+        class Oneof2540(oneof2540: Int = 0) : HugeOneof<Int>(oneof2540)
+        class Oneof2541(oneof2541: Int = 0) : HugeOneof<Int>(oneof2541)
+        class Oneof2542(oneof2542: Int = 0) : HugeOneof<Int>(oneof2542)
+        class Oneof2543(oneof2543: Int = 0) : HugeOneof<Int>(oneof2543)
+        class Oneof2544(oneof2544: Int = 0) : HugeOneof<Int>(oneof2544)
+        class Oneof2545(oneof2545: Int = 0) : HugeOneof<Int>(oneof2545)
+        class Oneof2546(oneof2546: Int = 0) : HugeOneof<Int>(oneof2546)
+        class Oneof2547(oneof2547: Int = 0) : HugeOneof<Int>(oneof2547)
+        class Oneof2548(oneof2548: Int = 0) : HugeOneof<Int>(oneof2548)
+        class Oneof2549(oneof2549: Int = 0) : HugeOneof<Int>(oneof2549)
+        class Oneof2550(oneof2550: Int = 0) : HugeOneof<Int>(oneof2550)
+        class Oneof2551(oneof2551: Int = 0) : HugeOneof<Int>(oneof2551)
+        class Oneof2552(oneof2552: Int = 0) : HugeOneof<Int>(oneof2552)
+        class Oneof2553(oneof2553: Int = 0) : HugeOneof<Int>(oneof2553)
+        class Oneof2554(oneof2554: Int = 0) : HugeOneof<Int>(oneof2554)
+        class Oneof2555(oneof2555: Int = 0) : HugeOneof<Int>(oneof2555)
+        class Oneof2556(oneof2556: Int = 0) : HugeOneof<Int>(oneof2556)
+        class Oneof2557(oneof2557: Int = 0) : HugeOneof<Int>(oneof2557)
+        class Oneof2558(oneof2558: Int = 0) : HugeOneof<Int>(oneof2558)
+        class Oneof2559(oneof2559: Int = 0) : HugeOneof<Int>(oneof2559)
+        class Oneof2560(oneof2560: Int = 0) : HugeOneof<Int>(oneof2560)
+        class Oneof2561(oneof2561: Int = 0) : HugeOneof<Int>(oneof2561)
+        class Oneof2562(oneof2562: Int = 0) : HugeOneof<Int>(oneof2562)
+        class Oneof2563(oneof2563: Int = 0) : HugeOneof<Int>(oneof2563)
+        class Oneof2564(oneof2564: Int = 0) : HugeOneof<Int>(oneof2564)
+        class Oneof2565(oneof2565: Int = 0) : HugeOneof<Int>(oneof2565)
+        class Oneof2566(oneof2566: Int = 0) : HugeOneof<Int>(oneof2566)
+        class Oneof2567(oneof2567: Int = 0) : HugeOneof<Int>(oneof2567)
+        class Oneof2568(oneof2568: Int = 0) : HugeOneof<Int>(oneof2568)
+        class Oneof2569(oneof2569: Int = 0) : HugeOneof<Int>(oneof2569)
+        class Oneof2570(oneof2570: Int = 0) : HugeOneof<Int>(oneof2570)
+        class Oneof2571(oneof2571: Int = 0) : HugeOneof<Int>(oneof2571)
+        class Oneof2572(oneof2572: Int = 0) : HugeOneof<Int>(oneof2572)
+        class Oneof2573(oneof2573: Int = 0) : HugeOneof<Int>(oneof2573)
+        class Oneof2574(oneof2574: Int = 0) : HugeOneof<Int>(oneof2574)
+        class Oneof2575(oneof2575: Int = 0) : HugeOneof<Int>(oneof2575)
+        class Oneof2576(oneof2576: Int = 0) : HugeOneof<Int>(oneof2576)
+        class Oneof2577(oneof2577: Int = 0) : HugeOneof<Int>(oneof2577)
+        class Oneof2578(oneof2578: Int = 0) : HugeOneof<Int>(oneof2578)
+        class Oneof2579(oneof2579: Int = 0) : HugeOneof<Int>(oneof2579)
+        class Oneof2580(oneof2580: Int = 0) : HugeOneof<Int>(oneof2580)
+        class Oneof2581(oneof2581: Int = 0) : HugeOneof<Int>(oneof2581)
+        class Oneof2582(oneof2582: Int = 0) : HugeOneof<Int>(oneof2582)
+        class Oneof2583(oneof2583: Int = 0) : HugeOneof<Int>(oneof2583)
+        class Oneof2584(oneof2584: Int = 0) : HugeOneof<Int>(oneof2584)
+        class Oneof2585(oneof2585: Int = 0) : HugeOneof<Int>(oneof2585)
+        class Oneof2586(oneof2586: Int = 0) : HugeOneof<Int>(oneof2586)
+        class Oneof2587(oneof2587: Int = 0) : HugeOneof<Int>(oneof2587)
+        class Oneof2588(oneof2588: Int = 0) : HugeOneof<Int>(oneof2588)
+        class Oneof2589(oneof2589: Int = 0) : HugeOneof<Int>(oneof2589)
+        class Oneof2590(oneof2590: Int = 0) : HugeOneof<Int>(oneof2590)
+        class Oneof2591(oneof2591: Int = 0) : HugeOneof<Int>(oneof2591)
+        class Oneof2592(oneof2592: Int = 0) : HugeOneof<Int>(oneof2592)
+        class Oneof2593(oneof2593: Int = 0) : HugeOneof<Int>(oneof2593)
+        class Oneof2594(oneof2594: Int = 0) : HugeOneof<Int>(oneof2594)
+        class Oneof2595(oneof2595: Int = 0) : HugeOneof<Int>(oneof2595)
+        class Oneof2596(oneof2596: Int = 0) : HugeOneof<Int>(oneof2596)
+        class Oneof2597(oneof2597: Int = 0) : HugeOneof<Int>(oneof2597)
+        class Oneof2598(oneof2598: Int = 0) : HugeOneof<Int>(oneof2598)
+        class Oneof2599(oneof2599: Int = 0) : HugeOneof<Int>(oneof2599)
+        class Oneof2600(oneof2600: Int = 0) : HugeOneof<Int>(oneof2600)
+        class Oneof2601(oneof2601: Int = 0) : HugeOneof<Int>(oneof2601)
+        class Oneof2602(oneof2602: Int = 0) : HugeOneof<Int>(oneof2602)
+        class Oneof2603(oneof2603: Int = 0) : HugeOneof<Int>(oneof2603)
+        class Oneof2604(oneof2604: Int = 0) : HugeOneof<Int>(oneof2604)
+        class Oneof2605(oneof2605: Int = 0) : HugeOneof<Int>(oneof2605)
+        class Oneof2606(oneof2606: Int = 0) : HugeOneof<Int>(oneof2606)
+        class Oneof2607(oneof2607: Int = 0) : HugeOneof<Int>(oneof2607)
+        class Oneof2608(oneof2608: Int = 0) : HugeOneof<Int>(oneof2608)
+        class Oneof2609(oneof2609: Int = 0) : HugeOneof<Int>(oneof2609)
+        class Oneof2610(oneof2610: Int = 0) : HugeOneof<Int>(oneof2610)
+        class Oneof2611(oneof2611: Int = 0) : HugeOneof<Int>(oneof2611)
+        class Oneof2612(oneof2612: Int = 0) : HugeOneof<Int>(oneof2612)
+        class Oneof2613(oneof2613: Int = 0) : HugeOneof<Int>(oneof2613)
+        class Oneof2614(oneof2614: Int = 0) : HugeOneof<Int>(oneof2614)
+        class Oneof2615(oneof2615: Int = 0) : HugeOneof<Int>(oneof2615)
+        class Oneof2616(oneof2616: Int = 0) : HugeOneof<Int>(oneof2616)
+        class Oneof2617(oneof2617: Int = 0) : HugeOneof<Int>(oneof2617)
+        class Oneof2618(oneof2618: Int = 0) : HugeOneof<Int>(oneof2618)
+        class Oneof2619(oneof2619: Int = 0) : HugeOneof<Int>(oneof2619)
+        class Oneof2620(oneof2620: Int = 0) : HugeOneof<Int>(oneof2620)
+        class Oneof2621(oneof2621: Int = 0) : HugeOneof<Int>(oneof2621)
+        class Oneof2622(oneof2622: Int = 0) : HugeOneof<Int>(oneof2622)
+        class Oneof2623(oneof2623: Int = 0) : HugeOneof<Int>(oneof2623)
+        class Oneof2624(oneof2624: Int = 0) : HugeOneof<Int>(oneof2624)
+        class Oneof2625(oneof2625: Int = 0) : HugeOneof<Int>(oneof2625)
+        class Oneof2626(oneof2626: Int = 0) : HugeOneof<Int>(oneof2626)
+        class Oneof2627(oneof2627: Int = 0) : HugeOneof<Int>(oneof2627)
+        class Oneof2628(oneof2628: Int = 0) : HugeOneof<Int>(oneof2628)
+        class Oneof2629(oneof2629: Int = 0) : HugeOneof<Int>(oneof2629)
+        class Oneof2630(oneof2630: Int = 0) : HugeOneof<Int>(oneof2630)
+        class Oneof2631(oneof2631: Int = 0) : HugeOneof<Int>(oneof2631)
+        class Oneof2632(oneof2632: Int = 0) : HugeOneof<Int>(oneof2632)
+        class Oneof2633(oneof2633: Int = 0) : HugeOneof<Int>(oneof2633)
+        class Oneof2634(oneof2634: Int = 0) : HugeOneof<Int>(oneof2634)
+        class Oneof2635(oneof2635: Int = 0) : HugeOneof<Int>(oneof2635)
+        class Oneof2636(oneof2636: Int = 0) : HugeOneof<Int>(oneof2636)
+        class Oneof2637(oneof2637: Int = 0) : HugeOneof<Int>(oneof2637)
+        class Oneof2638(oneof2638: Int = 0) : HugeOneof<Int>(oneof2638)
+        class Oneof2639(oneof2639: Int = 0) : HugeOneof<Int>(oneof2639)
+        class Oneof2640(oneof2640: Int = 0) : HugeOneof<Int>(oneof2640)
+        class Oneof2641(oneof2641: Int = 0) : HugeOneof<Int>(oneof2641)
+        class Oneof2642(oneof2642: Int = 0) : HugeOneof<Int>(oneof2642)
+        class Oneof2643(oneof2643: Int = 0) : HugeOneof<Int>(oneof2643)
+        class Oneof2644(oneof2644: Int = 0) : HugeOneof<Int>(oneof2644)
+        class Oneof2645(oneof2645: Int = 0) : HugeOneof<Int>(oneof2645)
+        class Oneof2646(oneof2646: Int = 0) : HugeOneof<Int>(oneof2646)
+        class Oneof2647(oneof2647: Int = 0) : HugeOneof<Int>(oneof2647)
+        class Oneof2648(oneof2648: Int = 0) : HugeOneof<Int>(oneof2648)
+        class Oneof2649(oneof2649: Int = 0) : HugeOneof<Int>(oneof2649)
+        class Oneof2650(oneof2650: Int = 0) : HugeOneof<Int>(oneof2650)
+        class Oneof2651(oneof2651: Int = 0) : HugeOneof<Int>(oneof2651)
+        class Oneof2652(oneof2652: Int = 0) : HugeOneof<Int>(oneof2652)
+        class Oneof2653(oneof2653: Int = 0) : HugeOneof<Int>(oneof2653)
+        class Oneof2654(oneof2654: Int = 0) : HugeOneof<Int>(oneof2654)
+        class Oneof2655(oneof2655: Int = 0) : HugeOneof<Int>(oneof2655)
+        class Oneof2656(oneof2656: Int = 0) : HugeOneof<Int>(oneof2656)
+        class Oneof2657(oneof2657: Int = 0) : HugeOneof<Int>(oneof2657)
+        class Oneof2658(oneof2658: Int = 0) : HugeOneof<Int>(oneof2658)
+        class Oneof2659(oneof2659: Int = 0) : HugeOneof<Int>(oneof2659)
+        class Oneof2660(oneof2660: Int = 0) : HugeOneof<Int>(oneof2660)
+        class Oneof2661(oneof2661: Int = 0) : HugeOneof<Int>(oneof2661)
+        class Oneof2662(oneof2662: Int = 0) : HugeOneof<Int>(oneof2662)
+        class Oneof2663(oneof2663: Int = 0) : HugeOneof<Int>(oneof2663)
+        class Oneof2664(oneof2664: Int = 0) : HugeOneof<Int>(oneof2664)
+        class Oneof2665(oneof2665: Int = 0) : HugeOneof<Int>(oneof2665)
+        class Oneof2666(oneof2666: Int = 0) : HugeOneof<Int>(oneof2666)
+        class Oneof2667(oneof2667: Int = 0) : HugeOneof<Int>(oneof2667)
+        class Oneof2668(oneof2668: Int = 0) : HugeOneof<Int>(oneof2668)
+        class Oneof2669(oneof2669: Int = 0) : HugeOneof<Int>(oneof2669)
+        class Oneof2670(oneof2670: Int = 0) : HugeOneof<Int>(oneof2670)
+        class Oneof2671(oneof2671: Int = 0) : HugeOneof<Int>(oneof2671)
+        class Oneof2672(oneof2672: Int = 0) : HugeOneof<Int>(oneof2672)
+        class Oneof2673(oneof2673: Int = 0) : HugeOneof<Int>(oneof2673)
+        class Oneof2674(oneof2674: Int = 0) : HugeOneof<Int>(oneof2674)
+        class Oneof2675(oneof2675: Int = 0) : HugeOneof<Int>(oneof2675)
+        class Oneof2676(oneof2676: Int = 0) : HugeOneof<Int>(oneof2676)
+        class Oneof2677(oneof2677: Int = 0) : HugeOneof<Int>(oneof2677)
+        class Oneof2678(oneof2678: Int = 0) : HugeOneof<Int>(oneof2678)
+        class Oneof2679(oneof2679: Int = 0) : HugeOneof<Int>(oneof2679)
+        class Oneof2680(oneof2680: Int = 0) : HugeOneof<Int>(oneof2680)
+        class Oneof2681(oneof2681: Int = 0) : HugeOneof<Int>(oneof2681)
+        class Oneof2682(oneof2682: Int = 0) : HugeOneof<Int>(oneof2682)
+        class Oneof2683(oneof2683: Int = 0) : HugeOneof<Int>(oneof2683)
+        class Oneof2684(oneof2684: Int = 0) : HugeOneof<Int>(oneof2684)
+        class Oneof2685(oneof2685: Int = 0) : HugeOneof<Int>(oneof2685)
+        class Oneof2686(oneof2686: Int = 0) : HugeOneof<Int>(oneof2686)
+        class Oneof2687(oneof2687: Int = 0) : HugeOneof<Int>(oneof2687)
+        class Oneof2688(oneof2688: Int = 0) : HugeOneof<Int>(oneof2688)
+        class Oneof2689(oneof2689: Int = 0) : HugeOneof<Int>(oneof2689)
+        class Oneof2690(oneof2690: Int = 0) : HugeOneof<Int>(oneof2690)
+        class Oneof2691(oneof2691: Int = 0) : HugeOneof<Int>(oneof2691)
+        class Oneof2692(oneof2692: Int = 0) : HugeOneof<Int>(oneof2692)
+        class Oneof2693(oneof2693: Int = 0) : HugeOneof<Int>(oneof2693)
+        class Oneof2694(oneof2694: Int = 0) : HugeOneof<Int>(oneof2694)
+        class Oneof2695(oneof2695: Int = 0) : HugeOneof<Int>(oneof2695)
+        class Oneof2696(oneof2696: Int = 0) : HugeOneof<Int>(oneof2696)
+        class Oneof2697(oneof2697: Int = 0) : HugeOneof<Int>(oneof2697)
+        class Oneof2698(oneof2698: Int = 0) : HugeOneof<Int>(oneof2698)
+        class Oneof2699(oneof2699: Int = 0) : HugeOneof<Int>(oneof2699)
+        class Oneof2700(oneof2700: Int = 0) : HugeOneof<Int>(oneof2700)
+        class Oneof2701(oneof2701: Int = 0) : HugeOneof<Int>(oneof2701)
+        class Oneof2702(oneof2702: Int = 0) : HugeOneof<Int>(oneof2702)
+        class Oneof2703(oneof2703: Int = 0) : HugeOneof<Int>(oneof2703)
+        class Oneof2704(oneof2704: Int = 0) : HugeOneof<Int>(oneof2704)
+        class Oneof2705(oneof2705: Int = 0) : HugeOneof<Int>(oneof2705)
+        class Oneof2706(oneof2706: Int = 0) : HugeOneof<Int>(oneof2706)
+        class Oneof2707(oneof2707: Int = 0) : HugeOneof<Int>(oneof2707)
+        class Oneof2708(oneof2708: Int = 0) : HugeOneof<Int>(oneof2708)
+        class Oneof2709(oneof2709: Int = 0) : HugeOneof<Int>(oneof2709)
+        class Oneof2710(oneof2710: Int = 0) : HugeOneof<Int>(oneof2710)
+        class Oneof2711(oneof2711: Int = 0) : HugeOneof<Int>(oneof2711)
+        class Oneof2712(oneof2712: Int = 0) : HugeOneof<Int>(oneof2712)
+        class Oneof2713(oneof2713: Int = 0) : HugeOneof<Int>(oneof2713)
+        class Oneof2714(oneof2714: Int = 0) : HugeOneof<Int>(oneof2714)
+        class Oneof2715(oneof2715: Int = 0) : HugeOneof<Int>(oneof2715)
+        class Oneof2716(oneof2716: Int = 0) : HugeOneof<Int>(oneof2716)
+        class Oneof2717(oneof2717: Int = 0) : HugeOneof<Int>(oneof2717)
+        class Oneof2718(oneof2718: Int = 0) : HugeOneof<Int>(oneof2718)
+        class Oneof2719(oneof2719: Int = 0) : HugeOneof<Int>(oneof2719)
+        class Oneof2720(oneof2720: Int = 0) : HugeOneof<Int>(oneof2720)
+        class Oneof2721(oneof2721: Int = 0) : HugeOneof<Int>(oneof2721)
+        class Oneof2722(oneof2722: Int = 0) : HugeOneof<Int>(oneof2722)
+        class Oneof2723(oneof2723: Int = 0) : HugeOneof<Int>(oneof2723)
+        class Oneof2724(oneof2724: Int = 0) : HugeOneof<Int>(oneof2724)
+        class Oneof2725(oneof2725: Int = 0) : HugeOneof<Int>(oneof2725)
+        class Oneof2726(oneof2726: Int = 0) : HugeOneof<Int>(oneof2726)
+        class Oneof2727(oneof2727: Int = 0) : HugeOneof<Int>(oneof2727)
+        class Oneof2728(oneof2728: Int = 0) : HugeOneof<Int>(oneof2728)
+        class Oneof2729(oneof2729: Int = 0) : HugeOneof<Int>(oneof2729)
+        class Oneof2730(oneof2730: Int = 0) : HugeOneof<Int>(oneof2730)
+        class Oneof2731(oneof2731: Int = 0) : HugeOneof<Int>(oneof2731)
+        class Oneof2732(oneof2732: Int = 0) : HugeOneof<Int>(oneof2732)
+        class Oneof2733(oneof2733: Int = 0) : HugeOneof<Int>(oneof2733)
+        class Oneof2734(oneof2734: Int = 0) : HugeOneof<Int>(oneof2734)
+        class Oneof2735(oneof2735: Int = 0) : HugeOneof<Int>(oneof2735)
+        class Oneof2736(oneof2736: Int = 0) : HugeOneof<Int>(oneof2736)
+        class Oneof2737(oneof2737: Int = 0) : HugeOneof<Int>(oneof2737)
+        class Oneof2738(oneof2738: Int = 0) : HugeOneof<Int>(oneof2738)
+        class Oneof2739(oneof2739: Int = 0) : HugeOneof<Int>(oneof2739)
+        class Oneof2740(oneof2740: Int = 0) : HugeOneof<Int>(oneof2740)
+        class Oneof2741(oneof2741: Int = 0) : HugeOneof<Int>(oneof2741)
+        class Oneof2742(oneof2742: Int = 0) : HugeOneof<Int>(oneof2742)
+        class Oneof2743(oneof2743: Int = 0) : HugeOneof<Int>(oneof2743)
+        class Oneof2744(oneof2744: Int = 0) : HugeOneof<Int>(oneof2744)
+        class Oneof2745(oneof2745: Int = 0) : HugeOneof<Int>(oneof2745)
+        class Oneof2746(oneof2746: Int = 0) : HugeOneof<Int>(oneof2746)
+        class Oneof2747(oneof2747: Int = 0) : HugeOneof<Int>(oneof2747)
+        class Oneof2748(oneof2748: Int = 0) : HugeOneof<Int>(oneof2748)
+        class Oneof2749(oneof2749: Int = 0) : HugeOneof<Int>(oneof2749)
+        class Oneof2750(oneof2750: Int = 0) : HugeOneof<Int>(oneof2750)
+        class Oneof2751(oneof2751: Int = 0) : HugeOneof<Int>(oneof2751)
+        class Oneof2752(oneof2752: Int = 0) : HugeOneof<Int>(oneof2752)
+        class Oneof2753(oneof2753: Int = 0) : HugeOneof<Int>(oneof2753)
+        class Oneof2754(oneof2754: Int = 0) : HugeOneof<Int>(oneof2754)
+        class Oneof2755(oneof2755: Int = 0) : HugeOneof<Int>(oneof2755)
+        class Oneof2756(oneof2756: Int = 0) : HugeOneof<Int>(oneof2756)
+        class Oneof2757(oneof2757: Int = 0) : HugeOneof<Int>(oneof2757)
+        class Oneof2758(oneof2758: Int = 0) : HugeOneof<Int>(oneof2758)
+        class Oneof2759(oneof2759: Int = 0) : HugeOneof<Int>(oneof2759)
+        class Oneof2760(oneof2760: Int = 0) : HugeOneof<Int>(oneof2760)
+        class Oneof2761(oneof2761: Int = 0) : HugeOneof<Int>(oneof2761)
+        class Oneof2762(oneof2762: Int = 0) : HugeOneof<Int>(oneof2762)
+        class Oneof2763(oneof2763: Int = 0) : HugeOneof<Int>(oneof2763)
+        class Oneof2764(oneof2764: Int = 0) : HugeOneof<Int>(oneof2764)
+        class Oneof2765(oneof2765: Int = 0) : HugeOneof<Int>(oneof2765)
+        class Oneof2766(oneof2766: Int = 0) : HugeOneof<Int>(oneof2766)
+        class Oneof2767(oneof2767: Int = 0) : HugeOneof<Int>(oneof2767)
+        class Oneof2768(oneof2768: Int = 0) : HugeOneof<Int>(oneof2768)
+        class Oneof2769(oneof2769: Int = 0) : HugeOneof<Int>(oneof2769)
+        class Oneof2770(oneof2770: Int = 0) : HugeOneof<Int>(oneof2770)
+        class Oneof2771(oneof2771: Int = 0) : HugeOneof<Int>(oneof2771)
+        class Oneof2772(oneof2772: Int = 0) : HugeOneof<Int>(oneof2772)
+        class Oneof2773(oneof2773: Int = 0) : HugeOneof<Int>(oneof2773)
+        class Oneof2774(oneof2774: Int = 0) : HugeOneof<Int>(oneof2774)
+        class Oneof2775(oneof2775: Int = 0) : HugeOneof<Int>(oneof2775)
+        class Oneof2776(oneof2776: Int = 0) : HugeOneof<Int>(oneof2776)
+        class Oneof2777(oneof2777: Int = 0) : HugeOneof<Int>(oneof2777)
+        class Oneof2778(oneof2778: Int = 0) : HugeOneof<Int>(oneof2778)
+        class Oneof2779(oneof2779: Int = 0) : HugeOneof<Int>(oneof2779)
+        class Oneof2780(oneof2780: Int = 0) : HugeOneof<Int>(oneof2780)
+        class Oneof2781(oneof2781: Int = 0) : HugeOneof<Int>(oneof2781)
+        class Oneof2782(oneof2782: Int = 0) : HugeOneof<Int>(oneof2782)
+        class Oneof2783(oneof2783: Int = 0) : HugeOneof<Int>(oneof2783)
+        class Oneof2784(oneof2784: Int = 0) : HugeOneof<Int>(oneof2784)
+        class Oneof2785(oneof2785: Int = 0) : HugeOneof<Int>(oneof2785)
+        class Oneof2786(oneof2786: Int = 0) : HugeOneof<Int>(oneof2786)
+        class Oneof2787(oneof2787: Int = 0) : HugeOneof<Int>(oneof2787)
+        class Oneof2788(oneof2788: Int = 0) : HugeOneof<Int>(oneof2788)
+        class Oneof2789(oneof2789: Int = 0) : HugeOneof<Int>(oneof2789)
+        class Oneof2790(oneof2790: Int = 0) : HugeOneof<Int>(oneof2790)
+        class Oneof2791(oneof2791: Int = 0) : HugeOneof<Int>(oneof2791)
+        class Oneof2792(oneof2792: Int = 0) : HugeOneof<Int>(oneof2792)
+        class Oneof2793(oneof2793: Int = 0) : HugeOneof<Int>(oneof2793)
+        class Oneof2794(oneof2794: Int = 0) : HugeOneof<Int>(oneof2794)
+        class Oneof2795(oneof2795: Int = 0) : HugeOneof<Int>(oneof2795)
+        class Oneof2796(oneof2796: Int = 0) : HugeOneof<Int>(oneof2796)
+        class Oneof2797(oneof2797: Int = 0) : HugeOneof<Int>(oneof2797)
+        class Oneof2798(oneof2798: Int = 0) : HugeOneof<Int>(oneof2798)
+        class Oneof2799(oneof2799: Int = 0) : HugeOneof<Int>(oneof2799)
+        class Oneof2800(oneof2800: Int = 0) : HugeOneof<Int>(oneof2800)
+        class Oneof2801(oneof2801: Int = 0) : HugeOneof<Int>(oneof2801)
+        class Oneof2802(oneof2802: Int = 0) : HugeOneof<Int>(oneof2802)
+        class Oneof2803(oneof2803: Int = 0) : HugeOneof<Int>(oneof2803)
+        class Oneof2804(oneof2804: Int = 0) : HugeOneof<Int>(oneof2804)
+        class Oneof2805(oneof2805: Int = 0) : HugeOneof<Int>(oneof2805)
+        class Oneof2806(oneof2806: Int = 0) : HugeOneof<Int>(oneof2806)
+        class Oneof2807(oneof2807: Int = 0) : HugeOneof<Int>(oneof2807)
+        class Oneof2808(oneof2808: Int = 0) : HugeOneof<Int>(oneof2808)
+        class Oneof2809(oneof2809: Int = 0) : HugeOneof<Int>(oneof2809)
+        class Oneof2810(oneof2810: Int = 0) : HugeOneof<Int>(oneof2810)
+        class Oneof2811(oneof2811: Int = 0) : HugeOneof<Int>(oneof2811)
+        class Oneof2812(oneof2812: Int = 0) : HugeOneof<Int>(oneof2812)
+        class Oneof2813(oneof2813: Int = 0) : HugeOneof<Int>(oneof2813)
+        class Oneof2814(oneof2814: Int = 0) : HugeOneof<Int>(oneof2814)
+        class Oneof2815(oneof2815: Int = 0) : HugeOneof<Int>(oneof2815)
+        class Oneof2816(oneof2816: Int = 0) : HugeOneof<Int>(oneof2816)
+        class Oneof2817(oneof2817: Int = 0) : HugeOneof<Int>(oneof2817)
+        class Oneof2818(oneof2818: Int = 0) : HugeOneof<Int>(oneof2818)
+        class Oneof2819(oneof2819: Int = 0) : HugeOneof<Int>(oneof2819)
+        class Oneof2820(oneof2820: Int = 0) : HugeOneof<Int>(oneof2820)
+        class Oneof2821(oneof2821: Int = 0) : HugeOneof<Int>(oneof2821)
+        class Oneof2822(oneof2822: Int = 0) : HugeOneof<Int>(oneof2822)
+        class Oneof2823(oneof2823: Int = 0) : HugeOneof<Int>(oneof2823)
+        class Oneof2824(oneof2824: Int = 0) : HugeOneof<Int>(oneof2824)
+        class Oneof2825(oneof2825: Int = 0) : HugeOneof<Int>(oneof2825)
+        class Oneof2826(oneof2826: Int = 0) : HugeOneof<Int>(oneof2826)
+        class Oneof2827(oneof2827: Int = 0) : HugeOneof<Int>(oneof2827)
+        class Oneof2828(oneof2828: Int = 0) : HugeOneof<Int>(oneof2828)
+        class Oneof2829(oneof2829: Int = 0) : HugeOneof<Int>(oneof2829)
+        class Oneof2830(oneof2830: Int = 0) : HugeOneof<Int>(oneof2830)
+        class Oneof2831(oneof2831: Int = 0) : HugeOneof<Int>(oneof2831)
+        class Oneof2832(oneof2832: Int = 0) : HugeOneof<Int>(oneof2832)
+        class Oneof2833(oneof2833: Int = 0) : HugeOneof<Int>(oneof2833)
+        class Oneof2834(oneof2834: Int = 0) : HugeOneof<Int>(oneof2834)
+        class Oneof2835(oneof2835: Int = 0) : HugeOneof<Int>(oneof2835)
+        class Oneof2836(oneof2836: Int = 0) : HugeOneof<Int>(oneof2836)
+        class Oneof2837(oneof2837: Int = 0) : HugeOneof<Int>(oneof2837)
+        class Oneof2838(oneof2838: Int = 0) : HugeOneof<Int>(oneof2838)
+        class Oneof2839(oneof2839: Int = 0) : HugeOneof<Int>(oneof2839)
+        class Oneof2840(oneof2840: Int = 0) : HugeOneof<Int>(oneof2840)
+        class Oneof2841(oneof2841: Int = 0) : HugeOneof<Int>(oneof2841)
+        class Oneof2842(oneof2842: Int = 0) : HugeOneof<Int>(oneof2842)
+        class Oneof2843(oneof2843: Int = 0) : HugeOneof<Int>(oneof2843)
+        class Oneof2844(oneof2844: Int = 0) : HugeOneof<Int>(oneof2844)
+        class Oneof2845(oneof2845: Int = 0) : HugeOneof<Int>(oneof2845)
+        class Oneof2846(oneof2846: Int = 0) : HugeOneof<Int>(oneof2846)
+        class Oneof2847(oneof2847: Int = 0) : HugeOneof<Int>(oneof2847)
+        class Oneof2848(oneof2848: Int = 0) : HugeOneof<Int>(oneof2848)
+        class Oneof2849(oneof2849: Int = 0) : HugeOneof<Int>(oneof2849)
+        class Oneof2850(oneof2850: Int = 0) : HugeOneof<Int>(oneof2850)
+        class Oneof2851(oneof2851: Int = 0) : HugeOneof<Int>(oneof2851)
+        class Oneof2852(oneof2852: Int = 0) : HugeOneof<Int>(oneof2852)
+        class Oneof2853(oneof2853: Int = 0) : HugeOneof<Int>(oneof2853)
+        class Oneof2854(oneof2854: Int = 0) : HugeOneof<Int>(oneof2854)
+        class Oneof2855(oneof2855: Int = 0) : HugeOneof<Int>(oneof2855)
+        class Oneof2856(oneof2856: Int = 0) : HugeOneof<Int>(oneof2856)
+        class Oneof2857(oneof2857: Int = 0) : HugeOneof<Int>(oneof2857)
+        class Oneof2858(oneof2858: Int = 0) : HugeOneof<Int>(oneof2858)
+        class Oneof2859(oneof2859: Int = 0) : HugeOneof<Int>(oneof2859)
+        class Oneof2860(oneof2860: Int = 0) : HugeOneof<Int>(oneof2860)
+        class Oneof2861(oneof2861: Int = 0) : HugeOneof<Int>(oneof2861)
+        class Oneof2862(oneof2862: Int = 0) : HugeOneof<Int>(oneof2862)
+        class Oneof2863(oneof2863: Int = 0) : HugeOneof<Int>(oneof2863)
+        class Oneof2864(oneof2864: Int = 0) : HugeOneof<Int>(oneof2864)
+        class Oneof2865(oneof2865: Int = 0) : HugeOneof<Int>(oneof2865)
+        class Oneof2866(oneof2866: Int = 0) : HugeOneof<Int>(oneof2866)
+        class Oneof2867(oneof2867: Int = 0) : HugeOneof<Int>(oneof2867)
+        class Oneof2868(oneof2868: Int = 0) : HugeOneof<Int>(oneof2868)
+        class Oneof2869(oneof2869: Int = 0) : HugeOneof<Int>(oneof2869)
+        class Oneof2870(oneof2870: Int = 0) : HugeOneof<Int>(oneof2870)
+        class Oneof2871(oneof2871: Int = 0) : HugeOneof<Int>(oneof2871)
+        class Oneof2872(oneof2872: Int = 0) : HugeOneof<Int>(oneof2872)
+        class Oneof2873(oneof2873: Int = 0) : HugeOneof<Int>(oneof2873)
+        class Oneof2874(oneof2874: Int = 0) : HugeOneof<Int>(oneof2874)
+        class Oneof2875(oneof2875: Int = 0) : HugeOneof<Int>(oneof2875)
+        class Oneof2876(oneof2876: Int = 0) : HugeOneof<Int>(oneof2876)
+        class Oneof2877(oneof2877: Int = 0) : HugeOneof<Int>(oneof2877)
+        class Oneof2878(oneof2878: Int = 0) : HugeOneof<Int>(oneof2878)
+        class Oneof2879(oneof2879: Int = 0) : HugeOneof<Int>(oneof2879)
+        class Oneof2880(oneof2880: Int = 0) : HugeOneof<Int>(oneof2880)
+        class Oneof2881(oneof2881: Int = 0) : HugeOneof<Int>(oneof2881)
+        class Oneof2882(oneof2882: Int = 0) : HugeOneof<Int>(oneof2882)
+        class Oneof2883(oneof2883: Int = 0) : HugeOneof<Int>(oneof2883)
+        class Oneof2884(oneof2884: Int = 0) : HugeOneof<Int>(oneof2884)
+        class Oneof2885(oneof2885: Int = 0) : HugeOneof<Int>(oneof2885)
+        class Oneof2886(oneof2886: Int = 0) : HugeOneof<Int>(oneof2886)
+        class Oneof2887(oneof2887: Int = 0) : HugeOneof<Int>(oneof2887)
+        class Oneof2888(oneof2888: Int = 0) : HugeOneof<Int>(oneof2888)
+        class Oneof2889(oneof2889: Int = 0) : HugeOneof<Int>(oneof2889)
+        class Oneof2890(oneof2890: Int = 0) : HugeOneof<Int>(oneof2890)
+        class Oneof2891(oneof2891: Int = 0) : HugeOneof<Int>(oneof2891)
+        class Oneof2892(oneof2892: Int = 0) : HugeOneof<Int>(oneof2892)
+        class Oneof2893(oneof2893: Int = 0) : HugeOneof<Int>(oneof2893)
+        class Oneof2894(oneof2894: Int = 0) : HugeOneof<Int>(oneof2894)
+        class Oneof2895(oneof2895: Int = 0) : HugeOneof<Int>(oneof2895)
+        class Oneof2896(oneof2896: Int = 0) : HugeOneof<Int>(oneof2896)
+        class Oneof2897(oneof2897: Int = 0) : HugeOneof<Int>(oneof2897)
+        class Oneof2898(oneof2898: Int = 0) : HugeOneof<Int>(oneof2898)
+        class Oneof2899(oneof2899: Int = 0) : HugeOneof<Int>(oneof2899)
+        class Oneof2900(oneof2900: Int = 0) : HugeOneof<Int>(oneof2900)
+        class Oneof2901(oneof2901: Int = 0) : HugeOneof<Int>(oneof2901)
+        class Oneof2902(oneof2902: Int = 0) : HugeOneof<Int>(oneof2902)
+        class Oneof2903(oneof2903: Int = 0) : HugeOneof<Int>(oneof2903)
+        class Oneof2904(oneof2904: Int = 0) : HugeOneof<Int>(oneof2904)
+        class Oneof2905(oneof2905: Int = 0) : HugeOneof<Int>(oneof2905)
+        class Oneof2906(oneof2906: Int = 0) : HugeOneof<Int>(oneof2906)
+        class Oneof2907(oneof2907: Int = 0) : HugeOneof<Int>(oneof2907)
+        class Oneof2908(oneof2908: Int = 0) : HugeOneof<Int>(oneof2908)
+        class Oneof2909(oneof2909: Int = 0) : HugeOneof<Int>(oneof2909)
+        class Oneof2910(oneof2910: Int = 0) : HugeOneof<Int>(oneof2910)
+        class Oneof2911(oneof2911: Int = 0) : HugeOneof<Int>(oneof2911)
+        class Oneof2912(oneof2912: Int = 0) : HugeOneof<Int>(oneof2912)
+        class Oneof2913(oneof2913: Int = 0) : HugeOneof<Int>(oneof2913)
+        class Oneof2914(oneof2914: Int = 0) : HugeOneof<Int>(oneof2914)
+        class Oneof2915(oneof2915: Int = 0) : HugeOneof<Int>(oneof2915)
+        class Oneof2916(oneof2916: Int = 0) : HugeOneof<Int>(oneof2916)
+        class Oneof2917(oneof2917: Int = 0) : HugeOneof<Int>(oneof2917)
+        class Oneof2918(oneof2918: Int = 0) : HugeOneof<Int>(oneof2918)
+        class Oneof2919(oneof2919: Int = 0) : HugeOneof<Int>(oneof2919)
+        class Oneof2920(oneof2920: Int = 0) : HugeOneof<Int>(oneof2920)
+        class Oneof2921(oneof2921: Int = 0) : HugeOneof<Int>(oneof2921)
+        class Oneof2922(oneof2922: Int = 0) : HugeOneof<Int>(oneof2922)
+        class Oneof2923(oneof2923: Int = 0) : HugeOneof<Int>(oneof2923)
+        class Oneof2924(oneof2924: Int = 0) : HugeOneof<Int>(oneof2924)
+        class Oneof2925(oneof2925: Int = 0) : HugeOneof<Int>(oneof2925)
+        class Oneof2926(oneof2926: Int = 0) : HugeOneof<Int>(oneof2926)
+        class Oneof2927(oneof2927: Int = 0) : HugeOneof<Int>(oneof2927)
+        class Oneof2928(oneof2928: Int = 0) : HugeOneof<Int>(oneof2928)
+        class Oneof2929(oneof2929: Int = 0) : HugeOneof<Int>(oneof2929)
+        class Oneof2930(oneof2930: Int = 0) : HugeOneof<Int>(oneof2930)
+        class Oneof2931(oneof2931: Int = 0) : HugeOneof<Int>(oneof2931)
+        class Oneof2932(oneof2932: Int = 0) : HugeOneof<Int>(oneof2932)
+        class Oneof2933(oneof2933: Int = 0) : HugeOneof<Int>(oneof2933)
+        class Oneof2934(oneof2934: Int = 0) : HugeOneof<Int>(oneof2934)
+        class Oneof2935(oneof2935: Int = 0) : HugeOneof<Int>(oneof2935)
+        class Oneof2936(oneof2936: Int = 0) : HugeOneof<Int>(oneof2936)
+        class Oneof2937(oneof2937: Int = 0) : HugeOneof<Int>(oneof2937)
+        class Oneof2938(oneof2938: Int = 0) : HugeOneof<Int>(oneof2938)
+        class Oneof2939(oneof2939: Int = 0) : HugeOneof<Int>(oneof2939)
+        class Oneof2940(oneof2940: Int = 0) : HugeOneof<Int>(oneof2940)
+        class Oneof2941(oneof2941: Int = 0) : HugeOneof<Int>(oneof2941)
+        class Oneof2942(oneof2942: Int = 0) : HugeOneof<Int>(oneof2942)
+        class Oneof2943(oneof2943: Int = 0) : HugeOneof<Int>(oneof2943)
+        class Oneof2944(oneof2944: Int = 0) : HugeOneof<Int>(oneof2944)
+        class Oneof2945(oneof2945: Int = 0) : HugeOneof<Int>(oneof2945)
+        class Oneof2946(oneof2946: Int = 0) : HugeOneof<Int>(oneof2946)
+        class Oneof2947(oneof2947: Int = 0) : HugeOneof<Int>(oneof2947)
+        class Oneof2948(oneof2948: Int = 0) : HugeOneof<Int>(oneof2948)
+        class Oneof2949(oneof2949: Int = 0) : HugeOneof<Int>(oneof2949)
+        class Oneof2950(oneof2950: Int = 0) : HugeOneof<Int>(oneof2950)
+        class Oneof2951(oneof2951: Int = 0) : HugeOneof<Int>(oneof2951)
+        class Oneof2952(oneof2952: Int = 0) : HugeOneof<Int>(oneof2952)
+        class Oneof2953(oneof2953: Int = 0) : HugeOneof<Int>(oneof2953)
+        class Oneof2954(oneof2954: Int = 0) : HugeOneof<Int>(oneof2954)
+        class Oneof2955(oneof2955: Int = 0) : HugeOneof<Int>(oneof2955)
+        class Oneof2956(oneof2956: Int = 0) : HugeOneof<Int>(oneof2956)
+        class Oneof2957(oneof2957: Int = 0) : HugeOneof<Int>(oneof2957)
+        class Oneof2958(oneof2958: Int = 0) : HugeOneof<Int>(oneof2958)
+        class Oneof2959(oneof2959: Int = 0) : HugeOneof<Int>(oneof2959)
+        class Oneof2960(oneof2960: Int = 0) : HugeOneof<Int>(oneof2960)
+        class Oneof2961(oneof2961: Int = 0) : HugeOneof<Int>(oneof2961)
+        class Oneof2962(oneof2962: Int = 0) : HugeOneof<Int>(oneof2962)
+        class Oneof2963(oneof2963: Int = 0) : HugeOneof<Int>(oneof2963)
+        class Oneof2964(oneof2964: Int = 0) : HugeOneof<Int>(oneof2964)
+        class Oneof2965(oneof2965: Int = 0) : HugeOneof<Int>(oneof2965)
+        class Oneof2966(oneof2966: Int = 0) : HugeOneof<Int>(oneof2966)
+        class Oneof2967(oneof2967: Int = 0) : HugeOneof<Int>(oneof2967)
+        class Oneof2968(oneof2968: Int = 0) : HugeOneof<Int>(oneof2968)
+        class Oneof2969(oneof2969: Int = 0) : HugeOneof<Int>(oneof2969)
+        class Oneof2970(oneof2970: Int = 0) : HugeOneof<Int>(oneof2970)
+        class Oneof2971(oneof2971: Int = 0) : HugeOneof<Int>(oneof2971)
+        class Oneof2972(oneof2972: Int = 0) : HugeOneof<Int>(oneof2972)
+        class Oneof2973(oneof2973: Int = 0) : HugeOneof<Int>(oneof2973)
+        class Oneof2974(oneof2974: Int = 0) : HugeOneof<Int>(oneof2974)
+        class Oneof2975(oneof2975: Int = 0) : HugeOneof<Int>(oneof2975)
+        class Oneof2976(oneof2976: Int = 0) : HugeOneof<Int>(oneof2976)
+        class Oneof2977(oneof2977: Int = 0) : HugeOneof<Int>(oneof2977)
+        class Oneof2978(oneof2978: Int = 0) : HugeOneof<Int>(oneof2978)
+        class Oneof2979(oneof2979: Int = 0) : HugeOneof<Int>(oneof2979)
+        class Oneof2980(oneof2980: Int = 0) : HugeOneof<Int>(oneof2980)
+        class Oneof2981(oneof2981: Int = 0) : HugeOneof<Int>(oneof2981)
+        class Oneof2982(oneof2982: Int = 0) : HugeOneof<Int>(oneof2982)
+        class Oneof2983(oneof2983: Int = 0) : HugeOneof<Int>(oneof2983)
+        class Oneof2984(oneof2984: Int = 0) : HugeOneof<Int>(oneof2984)
+        class Oneof2985(oneof2985: Int = 0) : HugeOneof<Int>(oneof2985)
+        class Oneof2986(oneof2986: Int = 0) : HugeOneof<Int>(oneof2986)
+        class Oneof2987(oneof2987: Int = 0) : HugeOneof<Int>(oneof2987)
+        class Oneof2988(oneof2988: Int = 0) : HugeOneof<Int>(oneof2988)
+        class Oneof2989(oneof2989: Int = 0) : HugeOneof<Int>(oneof2989)
+        class Oneof2990(oneof2990: Int = 0) : HugeOneof<Int>(oneof2990)
+        class Oneof2991(oneof2991: Int = 0) : HugeOneof<Int>(oneof2991)
+        class Oneof2992(oneof2992: Int = 0) : HugeOneof<Int>(oneof2992)
+        class Oneof2993(oneof2993: Int = 0) : HugeOneof<Int>(oneof2993)
+        class Oneof2994(oneof2994: Int = 0) : HugeOneof<Int>(oneof2994)
+        class Oneof2995(oneof2995: Int = 0) : HugeOneof<Int>(oneof2995)
+        class Oneof2996(oneof2996: Int = 0) : HugeOneof<Int>(oneof2996)
+        class Oneof2997(oneof2997: Int = 0) : HugeOneof<Int>(oneof2997)
+        class Oneof2998(oneof2998: Int = 0) : HugeOneof<Int>(oneof2998)
+        class Oneof2999(oneof2999: Int = 0) : HugeOneof<Int>(oneof2999)
     }
 
     val oneof1000: Int?
@@ -4024,6 +5024,2006 @@ data class MessageWithHugeOneof(
         get() = (hugeOneof as? HugeOneof.Oneof1998)?.value
     val oneof1999: Int?
         get() = (hugeOneof as? HugeOneof.Oneof1999)?.value
+    val oneof2000: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2000)?.value
+    val oneof2001: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2001)?.value
+    val oneof2002: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2002)?.value
+    val oneof2003: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2003)?.value
+    val oneof2004: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2004)?.value
+    val oneof2005: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2005)?.value
+    val oneof2006: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2006)?.value
+    val oneof2007: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2007)?.value
+    val oneof2008: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2008)?.value
+    val oneof2009: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2009)?.value
+    val oneof2010: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2010)?.value
+    val oneof2011: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2011)?.value
+    val oneof2012: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2012)?.value
+    val oneof2013: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2013)?.value
+    val oneof2014: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2014)?.value
+    val oneof2015: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2015)?.value
+    val oneof2016: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2016)?.value
+    val oneof2017: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2017)?.value
+    val oneof2018: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2018)?.value
+    val oneof2019: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2019)?.value
+    val oneof2020: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2020)?.value
+    val oneof2021: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2021)?.value
+    val oneof2022: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2022)?.value
+    val oneof2023: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2023)?.value
+    val oneof2024: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2024)?.value
+    val oneof2025: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2025)?.value
+    val oneof2026: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2026)?.value
+    val oneof2027: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2027)?.value
+    val oneof2028: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2028)?.value
+    val oneof2029: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2029)?.value
+    val oneof2030: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2030)?.value
+    val oneof2031: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2031)?.value
+    val oneof2032: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2032)?.value
+    val oneof2033: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2033)?.value
+    val oneof2034: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2034)?.value
+    val oneof2035: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2035)?.value
+    val oneof2036: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2036)?.value
+    val oneof2037: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2037)?.value
+    val oneof2038: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2038)?.value
+    val oneof2039: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2039)?.value
+    val oneof2040: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2040)?.value
+    val oneof2041: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2041)?.value
+    val oneof2042: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2042)?.value
+    val oneof2043: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2043)?.value
+    val oneof2044: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2044)?.value
+    val oneof2045: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2045)?.value
+    val oneof2046: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2046)?.value
+    val oneof2047: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2047)?.value
+    val oneof2048: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2048)?.value
+    val oneof2049: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2049)?.value
+    val oneof2050: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2050)?.value
+    val oneof2051: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2051)?.value
+    val oneof2052: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2052)?.value
+    val oneof2053: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2053)?.value
+    val oneof2054: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2054)?.value
+    val oneof2055: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2055)?.value
+    val oneof2056: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2056)?.value
+    val oneof2057: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2057)?.value
+    val oneof2058: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2058)?.value
+    val oneof2059: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2059)?.value
+    val oneof2060: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2060)?.value
+    val oneof2061: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2061)?.value
+    val oneof2062: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2062)?.value
+    val oneof2063: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2063)?.value
+    val oneof2064: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2064)?.value
+    val oneof2065: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2065)?.value
+    val oneof2066: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2066)?.value
+    val oneof2067: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2067)?.value
+    val oneof2068: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2068)?.value
+    val oneof2069: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2069)?.value
+    val oneof2070: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2070)?.value
+    val oneof2071: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2071)?.value
+    val oneof2072: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2072)?.value
+    val oneof2073: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2073)?.value
+    val oneof2074: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2074)?.value
+    val oneof2075: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2075)?.value
+    val oneof2076: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2076)?.value
+    val oneof2077: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2077)?.value
+    val oneof2078: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2078)?.value
+    val oneof2079: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2079)?.value
+    val oneof2080: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2080)?.value
+    val oneof2081: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2081)?.value
+    val oneof2082: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2082)?.value
+    val oneof2083: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2083)?.value
+    val oneof2084: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2084)?.value
+    val oneof2085: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2085)?.value
+    val oneof2086: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2086)?.value
+    val oneof2087: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2087)?.value
+    val oneof2088: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2088)?.value
+    val oneof2089: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2089)?.value
+    val oneof2090: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2090)?.value
+    val oneof2091: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2091)?.value
+    val oneof2092: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2092)?.value
+    val oneof2093: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2093)?.value
+    val oneof2094: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2094)?.value
+    val oneof2095: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2095)?.value
+    val oneof2096: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2096)?.value
+    val oneof2097: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2097)?.value
+    val oneof2098: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2098)?.value
+    val oneof2099: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2099)?.value
+    val oneof2100: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2100)?.value
+    val oneof2101: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2101)?.value
+    val oneof2102: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2102)?.value
+    val oneof2103: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2103)?.value
+    val oneof2104: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2104)?.value
+    val oneof2105: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2105)?.value
+    val oneof2106: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2106)?.value
+    val oneof2107: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2107)?.value
+    val oneof2108: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2108)?.value
+    val oneof2109: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2109)?.value
+    val oneof2110: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2110)?.value
+    val oneof2111: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2111)?.value
+    val oneof2112: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2112)?.value
+    val oneof2113: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2113)?.value
+    val oneof2114: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2114)?.value
+    val oneof2115: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2115)?.value
+    val oneof2116: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2116)?.value
+    val oneof2117: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2117)?.value
+    val oneof2118: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2118)?.value
+    val oneof2119: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2119)?.value
+    val oneof2120: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2120)?.value
+    val oneof2121: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2121)?.value
+    val oneof2122: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2122)?.value
+    val oneof2123: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2123)?.value
+    val oneof2124: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2124)?.value
+    val oneof2125: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2125)?.value
+    val oneof2126: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2126)?.value
+    val oneof2127: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2127)?.value
+    val oneof2128: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2128)?.value
+    val oneof2129: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2129)?.value
+    val oneof2130: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2130)?.value
+    val oneof2131: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2131)?.value
+    val oneof2132: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2132)?.value
+    val oneof2133: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2133)?.value
+    val oneof2134: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2134)?.value
+    val oneof2135: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2135)?.value
+    val oneof2136: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2136)?.value
+    val oneof2137: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2137)?.value
+    val oneof2138: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2138)?.value
+    val oneof2139: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2139)?.value
+    val oneof2140: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2140)?.value
+    val oneof2141: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2141)?.value
+    val oneof2142: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2142)?.value
+    val oneof2143: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2143)?.value
+    val oneof2144: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2144)?.value
+    val oneof2145: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2145)?.value
+    val oneof2146: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2146)?.value
+    val oneof2147: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2147)?.value
+    val oneof2148: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2148)?.value
+    val oneof2149: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2149)?.value
+    val oneof2150: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2150)?.value
+    val oneof2151: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2151)?.value
+    val oneof2152: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2152)?.value
+    val oneof2153: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2153)?.value
+    val oneof2154: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2154)?.value
+    val oneof2155: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2155)?.value
+    val oneof2156: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2156)?.value
+    val oneof2157: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2157)?.value
+    val oneof2158: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2158)?.value
+    val oneof2159: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2159)?.value
+    val oneof2160: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2160)?.value
+    val oneof2161: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2161)?.value
+    val oneof2162: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2162)?.value
+    val oneof2163: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2163)?.value
+    val oneof2164: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2164)?.value
+    val oneof2165: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2165)?.value
+    val oneof2166: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2166)?.value
+    val oneof2167: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2167)?.value
+    val oneof2168: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2168)?.value
+    val oneof2169: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2169)?.value
+    val oneof2170: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2170)?.value
+    val oneof2171: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2171)?.value
+    val oneof2172: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2172)?.value
+    val oneof2173: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2173)?.value
+    val oneof2174: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2174)?.value
+    val oneof2175: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2175)?.value
+    val oneof2176: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2176)?.value
+    val oneof2177: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2177)?.value
+    val oneof2178: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2178)?.value
+    val oneof2179: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2179)?.value
+    val oneof2180: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2180)?.value
+    val oneof2181: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2181)?.value
+    val oneof2182: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2182)?.value
+    val oneof2183: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2183)?.value
+    val oneof2184: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2184)?.value
+    val oneof2185: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2185)?.value
+    val oneof2186: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2186)?.value
+    val oneof2187: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2187)?.value
+    val oneof2188: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2188)?.value
+    val oneof2189: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2189)?.value
+    val oneof2190: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2190)?.value
+    val oneof2191: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2191)?.value
+    val oneof2192: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2192)?.value
+    val oneof2193: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2193)?.value
+    val oneof2194: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2194)?.value
+    val oneof2195: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2195)?.value
+    val oneof2196: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2196)?.value
+    val oneof2197: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2197)?.value
+    val oneof2198: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2198)?.value
+    val oneof2199: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2199)?.value
+    val oneof2200: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2200)?.value
+    val oneof2201: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2201)?.value
+    val oneof2202: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2202)?.value
+    val oneof2203: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2203)?.value
+    val oneof2204: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2204)?.value
+    val oneof2205: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2205)?.value
+    val oneof2206: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2206)?.value
+    val oneof2207: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2207)?.value
+    val oneof2208: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2208)?.value
+    val oneof2209: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2209)?.value
+    val oneof2210: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2210)?.value
+    val oneof2211: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2211)?.value
+    val oneof2212: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2212)?.value
+    val oneof2213: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2213)?.value
+    val oneof2214: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2214)?.value
+    val oneof2215: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2215)?.value
+    val oneof2216: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2216)?.value
+    val oneof2217: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2217)?.value
+    val oneof2218: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2218)?.value
+    val oneof2219: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2219)?.value
+    val oneof2220: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2220)?.value
+    val oneof2221: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2221)?.value
+    val oneof2222: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2222)?.value
+    val oneof2223: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2223)?.value
+    val oneof2224: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2224)?.value
+    val oneof2225: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2225)?.value
+    val oneof2226: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2226)?.value
+    val oneof2227: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2227)?.value
+    val oneof2228: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2228)?.value
+    val oneof2229: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2229)?.value
+    val oneof2230: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2230)?.value
+    val oneof2231: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2231)?.value
+    val oneof2232: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2232)?.value
+    val oneof2233: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2233)?.value
+    val oneof2234: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2234)?.value
+    val oneof2235: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2235)?.value
+    val oneof2236: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2236)?.value
+    val oneof2237: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2237)?.value
+    val oneof2238: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2238)?.value
+    val oneof2239: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2239)?.value
+    val oneof2240: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2240)?.value
+    val oneof2241: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2241)?.value
+    val oneof2242: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2242)?.value
+    val oneof2243: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2243)?.value
+    val oneof2244: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2244)?.value
+    val oneof2245: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2245)?.value
+    val oneof2246: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2246)?.value
+    val oneof2247: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2247)?.value
+    val oneof2248: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2248)?.value
+    val oneof2249: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2249)?.value
+    val oneof2250: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2250)?.value
+    val oneof2251: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2251)?.value
+    val oneof2252: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2252)?.value
+    val oneof2253: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2253)?.value
+    val oneof2254: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2254)?.value
+    val oneof2255: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2255)?.value
+    val oneof2256: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2256)?.value
+    val oneof2257: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2257)?.value
+    val oneof2258: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2258)?.value
+    val oneof2259: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2259)?.value
+    val oneof2260: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2260)?.value
+    val oneof2261: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2261)?.value
+    val oneof2262: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2262)?.value
+    val oneof2263: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2263)?.value
+    val oneof2264: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2264)?.value
+    val oneof2265: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2265)?.value
+    val oneof2266: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2266)?.value
+    val oneof2267: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2267)?.value
+    val oneof2268: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2268)?.value
+    val oneof2269: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2269)?.value
+    val oneof2270: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2270)?.value
+    val oneof2271: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2271)?.value
+    val oneof2272: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2272)?.value
+    val oneof2273: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2273)?.value
+    val oneof2274: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2274)?.value
+    val oneof2275: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2275)?.value
+    val oneof2276: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2276)?.value
+    val oneof2277: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2277)?.value
+    val oneof2278: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2278)?.value
+    val oneof2279: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2279)?.value
+    val oneof2280: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2280)?.value
+    val oneof2281: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2281)?.value
+    val oneof2282: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2282)?.value
+    val oneof2283: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2283)?.value
+    val oneof2284: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2284)?.value
+    val oneof2285: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2285)?.value
+    val oneof2286: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2286)?.value
+    val oneof2287: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2287)?.value
+    val oneof2288: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2288)?.value
+    val oneof2289: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2289)?.value
+    val oneof2290: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2290)?.value
+    val oneof2291: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2291)?.value
+    val oneof2292: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2292)?.value
+    val oneof2293: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2293)?.value
+    val oneof2294: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2294)?.value
+    val oneof2295: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2295)?.value
+    val oneof2296: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2296)?.value
+    val oneof2297: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2297)?.value
+    val oneof2298: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2298)?.value
+    val oneof2299: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2299)?.value
+    val oneof2300: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2300)?.value
+    val oneof2301: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2301)?.value
+    val oneof2302: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2302)?.value
+    val oneof2303: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2303)?.value
+    val oneof2304: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2304)?.value
+    val oneof2305: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2305)?.value
+    val oneof2306: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2306)?.value
+    val oneof2307: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2307)?.value
+    val oneof2308: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2308)?.value
+    val oneof2309: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2309)?.value
+    val oneof2310: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2310)?.value
+    val oneof2311: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2311)?.value
+    val oneof2312: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2312)?.value
+    val oneof2313: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2313)?.value
+    val oneof2314: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2314)?.value
+    val oneof2315: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2315)?.value
+    val oneof2316: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2316)?.value
+    val oneof2317: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2317)?.value
+    val oneof2318: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2318)?.value
+    val oneof2319: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2319)?.value
+    val oneof2320: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2320)?.value
+    val oneof2321: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2321)?.value
+    val oneof2322: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2322)?.value
+    val oneof2323: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2323)?.value
+    val oneof2324: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2324)?.value
+    val oneof2325: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2325)?.value
+    val oneof2326: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2326)?.value
+    val oneof2327: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2327)?.value
+    val oneof2328: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2328)?.value
+    val oneof2329: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2329)?.value
+    val oneof2330: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2330)?.value
+    val oneof2331: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2331)?.value
+    val oneof2332: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2332)?.value
+    val oneof2333: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2333)?.value
+    val oneof2334: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2334)?.value
+    val oneof2335: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2335)?.value
+    val oneof2336: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2336)?.value
+    val oneof2337: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2337)?.value
+    val oneof2338: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2338)?.value
+    val oneof2339: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2339)?.value
+    val oneof2340: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2340)?.value
+    val oneof2341: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2341)?.value
+    val oneof2342: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2342)?.value
+    val oneof2343: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2343)?.value
+    val oneof2344: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2344)?.value
+    val oneof2345: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2345)?.value
+    val oneof2346: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2346)?.value
+    val oneof2347: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2347)?.value
+    val oneof2348: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2348)?.value
+    val oneof2349: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2349)?.value
+    val oneof2350: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2350)?.value
+    val oneof2351: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2351)?.value
+    val oneof2352: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2352)?.value
+    val oneof2353: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2353)?.value
+    val oneof2354: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2354)?.value
+    val oneof2355: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2355)?.value
+    val oneof2356: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2356)?.value
+    val oneof2357: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2357)?.value
+    val oneof2358: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2358)?.value
+    val oneof2359: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2359)?.value
+    val oneof2360: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2360)?.value
+    val oneof2361: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2361)?.value
+    val oneof2362: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2362)?.value
+    val oneof2363: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2363)?.value
+    val oneof2364: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2364)?.value
+    val oneof2365: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2365)?.value
+    val oneof2366: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2366)?.value
+    val oneof2367: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2367)?.value
+    val oneof2368: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2368)?.value
+    val oneof2369: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2369)?.value
+    val oneof2370: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2370)?.value
+    val oneof2371: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2371)?.value
+    val oneof2372: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2372)?.value
+    val oneof2373: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2373)?.value
+    val oneof2374: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2374)?.value
+    val oneof2375: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2375)?.value
+    val oneof2376: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2376)?.value
+    val oneof2377: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2377)?.value
+    val oneof2378: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2378)?.value
+    val oneof2379: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2379)?.value
+    val oneof2380: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2380)?.value
+    val oneof2381: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2381)?.value
+    val oneof2382: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2382)?.value
+    val oneof2383: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2383)?.value
+    val oneof2384: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2384)?.value
+    val oneof2385: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2385)?.value
+    val oneof2386: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2386)?.value
+    val oneof2387: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2387)?.value
+    val oneof2388: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2388)?.value
+    val oneof2389: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2389)?.value
+    val oneof2390: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2390)?.value
+    val oneof2391: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2391)?.value
+    val oneof2392: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2392)?.value
+    val oneof2393: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2393)?.value
+    val oneof2394: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2394)?.value
+    val oneof2395: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2395)?.value
+    val oneof2396: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2396)?.value
+    val oneof2397: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2397)?.value
+    val oneof2398: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2398)?.value
+    val oneof2399: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2399)?.value
+    val oneof2400: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2400)?.value
+    val oneof2401: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2401)?.value
+    val oneof2402: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2402)?.value
+    val oneof2403: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2403)?.value
+    val oneof2404: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2404)?.value
+    val oneof2405: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2405)?.value
+    val oneof2406: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2406)?.value
+    val oneof2407: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2407)?.value
+    val oneof2408: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2408)?.value
+    val oneof2409: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2409)?.value
+    val oneof2410: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2410)?.value
+    val oneof2411: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2411)?.value
+    val oneof2412: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2412)?.value
+    val oneof2413: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2413)?.value
+    val oneof2414: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2414)?.value
+    val oneof2415: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2415)?.value
+    val oneof2416: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2416)?.value
+    val oneof2417: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2417)?.value
+    val oneof2418: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2418)?.value
+    val oneof2419: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2419)?.value
+    val oneof2420: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2420)?.value
+    val oneof2421: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2421)?.value
+    val oneof2422: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2422)?.value
+    val oneof2423: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2423)?.value
+    val oneof2424: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2424)?.value
+    val oneof2425: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2425)?.value
+    val oneof2426: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2426)?.value
+    val oneof2427: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2427)?.value
+    val oneof2428: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2428)?.value
+    val oneof2429: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2429)?.value
+    val oneof2430: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2430)?.value
+    val oneof2431: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2431)?.value
+    val oneof2432: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2432)?.value
+    val oneof2433: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2433)?.value
+    val oneof2434: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2434)?.value
+    val oneof2435: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2435)?.value
+    val oneof2436: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2436)?.value
+    val oneof2437: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2437)?.value
+    val oneof2438: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2438)?.value
+    val oneof2439: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2439)?.value
+    val oneof2440: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2440)?.value
+    val oneof2441: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2441)?.value
+    val oneof2442: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2442)?.value
+    val oneof2443: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2443)?.value
+    val oneof2444: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2444)?.value
+    val oneof2445: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2445)?.value
+    val oneof2446: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2446)?.value
+    val oneof2447: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2447)?.value
+    val oneof2448: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2448)?.value
+    val oneof2449: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2449)?.value
+    val oneof2450: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2450)?.value
+    val oneof2451: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2451)?.value
+    val oneof2452: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2452)?.value
+    val oneof2453: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2453)?.value
+    val oneof2454: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2454)?.value
+    val oneof2455: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2455)?.value
+    val oneof2456: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2456)?.value
+    val oneof2457: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2457)?.value
+    val oneof2458: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2458)?.value
+    val oneof2459: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2459)?.value
+    val oneof2460: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2460)?.value
+    val oneof2461: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2461)?.value
+    val oneof2462: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2462)?.value
+    val oneof2463: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2463)?.value
+    val oneof2464: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2464)?.value
+    val oneof2465: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2465)?.value
+    val oneof2466: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2466)?.value
+    val oneof2467: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2467)?.value
+    val oneof2468: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2468)?.value
+    val oneof2469: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2469)?.value
+    val oneof2470: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2470)?.value
+    val oneof2471: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2471)?.value
+    val oneof2472: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2472)?.value
+    val oneof2473: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2473)?.value
+    val oneof2474: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2474)?.value
+    val oneof2475: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2475)?.value
+    val oneof2476: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2476)?.value
+    val oneof2477: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2477)?.value
+    val oneof2478: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2478)?.value
+    val oneof2479: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2479)?.value
+    val oneof2480: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2480)?.value
+    val oneof2481: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2481)?.value
+    val oneof2482: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2482)?.value
+    val oneof2483: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2483)?.value
+    val oneof2484: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2484)?.value
+    val oneof2485: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2485)?.value
+    val oneof2486: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2486)?.value
+    val oneof2487: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2487)?.value
+    val oneof2488: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2488)?.value
+    val oneof2489: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2489)?.value
+    val oneof2490: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2490)?.value
+    val oneof2491: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2491)?.value
+    val oneof2492: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2492)?.value
+    val oneof2493: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2493)?.value
+    val oneof2494: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2494)?.value
+    val oneof2495: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2495)?.value
+    val oneof2496: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2496)?.value
+    val oneof2497: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2497)?.value
+    val oneof2498: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2498)?.value
+    val oneof2499: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2499)?.value
+    val oneof2500: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2500)?.value
+    val oneof2501: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2501)?.value
+    val oneof2502: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2502)?.value
+    val oneof2503: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2503)?.value
+    val oneof2504: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2504)?.value
+    val oneof2505: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2505)?.value
+    val oneof2506: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2506)?.value
+    val oneof2507: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2507)?.value
+    val oneof2508: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2508)?.value
+    val oneof2509: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2509)?.value
+    val oneof2510: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2510)?.value
+    val oneof2511: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2511)?.value
+    val oneof2512: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2512)?.value
+    val oneof2513: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2513)?.value
+    val oneof2514: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2514)?.value
+    val oneof2515: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2515)?.value
+    val oneof2516: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2516)?.value
+    val oneof2517: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2517)?.value
+    val oneof2518: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2518)?.value
+    val oneof2519: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2519)?.value
+    val oneof2520: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2520)?.value
+    val oneof2521: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2521)?.value
+    val oneof2522: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2522)?.value
+    val oneof2523: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2523)?.value
+    val oneof2524: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2524)?.value
+    val oneof2525: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2525)?.value
+    val oneof2526: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2526)?.value
+    val oneof2527: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2527)?.value
+    val oneof2528: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2528)?.value
+    val oneof2529: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2529)?.value
+    val oneof2530: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2530)?.value
+    val oneof2531: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2531)?.value
+    val oneof2532: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2532)?.value
+    val oneof2533: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2533)?.value
+    val oneof2534: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2534)?.value
+    val oneof2535: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2535)?.value
+    val oneof2536: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2536)?.value
+    val oneof2537: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2537)?.value
+    val oneof2538: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2538)?.value
+    val oneof2539: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2539)?.value
+    val oneof2540: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2540)?.value
+    val oneof2541: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2541)?.value
+    val oneof2542: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2542)?.value
+    val oneof2543: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2543)?.value
+    val oneof2544: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2544)?.value
+    val oneof2545: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2545)?.value
+    val oneof2546: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2546)?.value
+    val oneof2547: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2547)?.value
+    val oneof2548: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2548)?.value
+    val oneof2549: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2549)?.value
+    val oneof2550: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2550)?.value
+    val oneof2551: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2551)?.value
+    val oneof2552: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2552)?.value
+    val oneof2553: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2553)?.value
+    val oneof2554: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2554)?.value
+    val oneof2555: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2555)?.value
+    val oneof2556: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2556)?.value
+    val oneof2557: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2557)?.value
+    val oneof2558: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2558)?.value
+    val oneof2559: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2559)?.value
+    val oneof2560: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2560)?.value
+    val oneof2561: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2561)?.value
+    val oneof2562: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2562)?.value
+    val oneof2563: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2563)?.value
+    val oneof2564: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2564)?.value
+    val oneof2565: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2565)?.value
+    val oneof2566: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2566)?.value
+    val oneof2567: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2567)?.value
+    val oneof2568: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2568)?.value
+    val oneof2569: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2569)?.value
+    val oneof2570: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2570)?.value
+    val oneof2571: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2571)?.value
+    val oneof2572: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2572)?.value
+    val oneof2573: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2573)?.value
+    val oneof2574: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2574)?.value
+    val oneof2575: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2575)?.value
+    val oneof2576: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2576)?.value
+    val oneof2577: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2577)?.value
+    val oneof2578: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2578)?.value
+    val oneof2579: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2579)?.value
+    val oneof2580: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2580)?.value
+    val oneof2581: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2581)?.value
+    val oneof2582: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2582)?.value
+    val oneof2583: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2583)?.value
+    val oneof2584: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2584)?.value
+    val oneof2585: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2585)?.value
+    val oneof2586: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2586)?.value
+    val oneof2587: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2587)?.value
+    val oneof2588: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2588)?.value
+    val oneof2589: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2589)?.value
+    val oneof2590: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2590)?.value
+    val oneof2591: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2591)?.value
+    val oneof2592: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2592)?.value
+    val oneof2593: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2593)?.value
+    val oneof2594: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2594)?.value
+    val oneof2595: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2595)?.value
+    val oneof2596: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2596)?.value
+    val oneof2597: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2597)?.value
+    val oneof2598: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2598)?.value
+    val oneof2599: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2599)?.value
+    val oneof2600: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2600)?.value
+    val oneof2601: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2601)?.value
+    val oneof2602: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2602)?.value
+    val oneof2603: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2603)?.value
+    val oneof2604: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2604)?.value
+    val oneof2605: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2605)?.value
+    val oneof2606: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2606)?.value
+    val oneof2607: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2607)?.value
+    val oneof2608: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2608)?.value
+    val oneof2609: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2609)?.value
+    val oneof2610: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2610)?.value
+    val oneof2611: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2611)?.value
+    val oneof2612: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2612)?.value
+    val oneof2613: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2613)?.value
+    val oneof2614: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2614)?.value
+    val oneof2615: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2615)?.value
+    val oneof2616: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2616)?.value
+    val oneof2617: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2617)?.value
+    val oneof2618: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2618)?.value
+    val oneof2619: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2619)?.value
+    val oneof2620: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2620)?.value
+    val oneof2621: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2621)?.value
+    val oneof2622: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2622)?.value
+    val oneof2623: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2623)?.value
+    val oneof2624: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2624)?.value
+    val oneof2625: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2625)?.value
+    val oneof2626: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2626)?.value
+    val oneof2627: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2627)?.value
+    val oneof2628: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2628)?.value
+    val oneof2629: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2629)?.value
+    val oneof2630: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2630)?.value
+    val oneof2631: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2631)?.value
+    val oneof2632: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2632)?.value
+    val oneof2633: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2633)?.value
+    val oneof2634: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2634)?.value
+    val oneof2635: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2635)?.value
+    val oneof2636: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2636)?.value
+    val oneof2637: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2637)?.value
+    val oneof2638: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2638)?.value
+    val oneof2639: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2639)?.value
+    val oneof2640: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2640)?.value
+    val oneof2641: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2641)?.value
+    val oneof2642: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2642)?.value
+    val oneof2643: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2643)?.value
+    val oneof2644: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2644)?.value
+    val oneof2645: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2645)?.value
+    val oneof2646: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2646)?.value
+    val oneof2647: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2647)?.value
+    val oneof2648: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2648)?.value
+    val oneof2649: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2649)?.value
+    val oneof2650: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2650)?.value
+    val oneof2651: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2651)?.value
+    val oneof2652: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2652)?.value
+    val oneof2653: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2653)?.value
+    val oneof2654: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2654)?.value
+    val oneof2655: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2655)?.value
+    val oneof2656: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2656)?.value
+    val oneof2657: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2657)?.value
+    val oneof2658: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2658)?.value
+    val oneof2659: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2659)?.value
+    val oneof2660: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2660)?.value
+    val oneof2661: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2661)?.value
+    val oneof2662: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2662)?.value
+    val oneof2663: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2663)?.value
+    val oneof2664: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2664)?.value
+    val oneof2665: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2665)?.value
+    val oneof2666: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2666)?.value
+    val oneof2667: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2667)?.value
+    val oneof2668: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2668)?.value
+    val oneof2669: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2669)?.value
+    val oneof2670: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2670)?.value
+    val oneof2671: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2671)?.value
+    val oneof2672: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2672)?.value
+    val oneof2673: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2673)?.value
+    val oneof2674: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2674)?.value
+    val oneof2675: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2675)?.value
+    val oneof2676: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2676)?.value
+    val oneof2677: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2677)?.value
+    val oneof2678: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2678)?.value
+    val oneof2679: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2679)?.value
+    val oneof2680: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2680)?.value
+    val oneof2681: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2681)?.value
+    val oneof2682: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2682)?.value
+    val oneof2683: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2683)?.value
+    val oneof2684: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2684)?.value
+    val oneof2685: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2685)?.value
+    val oneof2686: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2686)?.value
+    val oneof2687: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2687)?.value
+    val oneof2688: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2688)?.value
+    val oneof2689: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2689)?.value
+    val oneof2690: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2690)?.value
+    val oneof2691: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2691)?.value
+    val oneof2692: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2692)?.value
+    val oneof2693: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2693)?.value
+    val oneof2694: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2694)?.value
+    val oneof2695: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2695)?.value
+    val oneof2696: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2696)?.value
+    val oneof2697: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2697)?.value
+    val oneof2698: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2698)?.value
+    val oneof2699: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2699)?.value
+    val oneof2700: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2700)?.value
+    val oneof2701: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2701)?.value
+    val oneof2702: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2702)?.value
+    val oneof2703: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2703)?.value
+    val oneof2704: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2704)?.value
+    val oneof2705: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2705)?.value
+    val oneof2706: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2706)?.value
+    val oneof2707: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2707)?.value
+    val oneof2708: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2708)?.value
+    val oneof2709: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2709)?.value
+    val oneof2710: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2710)?.value
+    val oneof2711: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2711)?.value
+    val oneof2712: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2712)?.value
+    val oneof2713: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2713)?.value
+    val oneof2714: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2714)?.value
+    val oneof2715: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2715)?.value
+    val oneof2716: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2716)?.value
+    val oneof2717: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2717)?.value
+    val oneof2718: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2718)?.value
+    val oneof2719: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2719)?.value
+    val oneof2720: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2720)?.value
+    val oneof2721: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2721)?.value
+    val oneof2722: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2722)?.value
+    val oneof2723: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2723)?.value
+    val oneof2724: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2724)?.value
+    val oneof2725: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2725)?.value
+    val oneof2726: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2726)?.value
+    val oneof2727: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2727)?.value
+    val oneof2728: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2728)?.value
+    val oneof2729: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2729)?.value
+    val oneof2730: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2730)?.value
+    val oneof2731: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2731)?.value
+    val oneof2732: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2732)?.value
+    val oneof2733: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2733)?.value
+    val oneof2734: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2734)?.value
+    val oneof2735: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2735)?.value
+    val oneof2736: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2736)?.value
+    val oneof2737: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2737)?.value
+    val oneof2738: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2738)?.value
+    val oneof2739: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2739)?.value
+    val oneof2740: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2740)?.value
+    val oneof2741: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2741)?.value
+    val oneof2742: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2742)?.value
+    val oneof2743: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2743)?.value
+    val oneof2744: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2744)?.value
+    val oneof2745: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2745)?.value
+    val oneof2746: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2746)?.value
+    val oneof2747: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2747)?.value
+    val oneof2748: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2748)?.value
+    val oneof2749: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2749)?.value
+    val oneof2750: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2750)?.value
+    val oneof2751: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2751)?.value
+    val oneof2752: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2752)?.value
+    val oneof2753: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2753)?.value
+    val oneof2754: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2754)?.value
+    val oneof2755: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2755)?.value
+    val oneof2756: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2756)?.value
+    val oneof2757: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2757)?.value
+    val oneof2758: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2758)?.value
+    val oneof2759: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2759)?.value
+    val oneof2760: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2760)?.value
+    val oneof2761: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2761)?.value
+    val oneof2762: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2762)?.value
+    val oneof2763: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2763)?.value
+    val oneof2764: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2764)?.value
+    val oneof2765: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2765)?.value
+    val oneof2766: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2766)?.value
+    val oneof2767: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2767)?.value
+    val oneof2768: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2768)?.value
+    val oneof2769: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2769)?.value
+    val oneof2770: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2770)?.value
+    val oneof2771: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2771)?.value
+    val oneof2772: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2772)?.value
+    val oneof2773: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2773)?.value
+    val oneof2774: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2774)?.value
+    val oneof2775: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2775)?.value
+    val oneof2776: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2776)?.value
+    val oneof2777: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2777)?.value
+    val oneof2778: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2778)?.value
+    val oneof2779: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2779)?.value
+    val oneof2780: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2780)?.value
+    val oneof2781: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2781)?.value
+    val oneof2782: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2782)?.value
+    val oneof2783: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2783)?.value
+    val oneof2784: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2784)?.value
+    val oneof2785: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2785)?.value
+    val oneof2786: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2786)?.value
+    val oneof2787: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2787)?.value
+    val oneof2788: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2788)?.value
+    val oneof2789: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2789)?.value
+    val oneof2790: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2790)?.value
+    val oneof2791: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2791)?.value
+    val oneof2792: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2792)?.value
+    val oneof2793: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2793)?.value
+    val oneof2794: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2794)?.value
+    val oneof2795: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2795)?.value
+    val oneof2796: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2796)?.value
+    val oneof2797: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2797)?.value
+    val oneof2798: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2798)?.value
+    val oneof2799: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2799)?.value
+    val oneof2800: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2800)?.value
+    val oneof2801: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2801)?.value
+    val oneof2802: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2802)?.value
+    val oneof2803: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2803)?.value
+    val oneof2804: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2804)?.value
+    val oneof2805: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2805)?.value
+    val oneof2806: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2806)?.value
+    val oneof2807: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2807)?.value
+    val oneof2808: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2808)?.value
+    val oneof2809: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2809)?.value
+    val oneof2810: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2810)?.value
+    val oneof2811: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2811)?.value
+    val oneof2812: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2812)?.value
+    val oneof2813: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2813)?.value
+    val oneof2814: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2814)?.value
+    val oneof2815: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2815)?.value
+    val oneof2816: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2816)?.value
+    val oneof2817: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2817)?.value
+    val oneof2818: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2818)?.value
+    val oneof2819: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2819)?.value
+    val oneof2820: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2820)?.value
+    val oneof2821: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2821)?.value
+    val oneof2822: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2822)?.value
+    val oneof2823: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2823)?.value
+    val oneof2824: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2824)?.value
+    val oneof2825: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2825)?.value
+    val oneof2826: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2826)?.value
+    val oneof2827: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2827)?.value
+    val oneof2828: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2828)?.value
+    val oneof2829: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2829)?.value
+    val oneof2830: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2830)?.value
+    val oneof2831: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2831)?.value
+    val oneof2832: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2832)?.value
+    val oneof2833: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2833)?.value
+    val oneof2834: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2834)?.value
+    val oneof2835: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2835)?.value
+    val oneof2836: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2836)?.value
+    val oneof2837: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2837)?.value
+    val oneof2838: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2838)?.value
+    val oneof2839: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2839)?.value
+    val oneof2840: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2840)?.value
+    val oneof2841: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2841)?.value
+    val oneof2842: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2842)?.value
+    val oneof2843: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2843)?.value
+    val oneof2844: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2844)?.value
+    val oneof2845: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2845)?.value
+    val oneof2846: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2846)?.value
+    val oneof2847: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2847)?.value
+    val oneof2848: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2848)?.value
+    val oneof2849: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2849)?.value
+    val oneof2850: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2850)?.value
+    val oneof2851: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2851)?.value
+    val oneof2852: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2852)?.value
+    val oneof2853: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2853)?.value
+    val oneof2854: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2854)?.value
+    val oneof2855: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2855)?.value
+    val oneof2856: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2856)?.value
+    val oneof2857: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2857)?.value
+    val oneof2858: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2858)?.value
+    val oneof2859: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2859)?.value
+    val oneof2860: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2860)?.value
+    val oneof2861: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2861)?.value
+    val oneof2862: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2862)?.value
+    val oneof2863: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2863)?.value
+    val oneof2864: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2864)?.value
+    val oneof2865: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2865)?.value
+    val oneof2866: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2866)?.value
+    val oneof2867: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2867)?.value
+    val oneof2868: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2868)?.value
+    val oneof2869: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2869)?.value
+    val oneof2870: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2870)?.value
+    val oneof2871: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2871)?.value
+    val oneof2872: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2872)?.value
+    val oneof2873: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2873)?.value
+    val oneof2874: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2874)?.value
+    val oneof2875: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2875)?.value
+    val oneof2876: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2876)?.value
+    val oneof2877: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2877)?.value
+    val oneof2878: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2878)?.value
+    val oneof2879: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2879)?.value
+    val oneof2880: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2880)?.value
+    val oneof2881: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2881)?.value
+    val oneof2882: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2882)?.value
+    val oneof2883: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2883)?.value
+    val oneof2884: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2884)?.value
+    val oneof2885: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2885)?.value
+    val oneof2886: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2886)?.value
+    val oneof2887: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2887)?.value
+    val oneof2888: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2888)?.value
+    val oneof2889: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2889)?.value
+    val oneof2890: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2890)?.value
+    val oneof2891: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2891)?.value
+    val oneof2892: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2892)?.value
+    val oneof2893: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2893)?.value
+    val oneof2894: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2894)?.value
+    val oneof2895: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2895)?.value
+    val oneof2896: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2896)?.value
+    val oneof2897: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2897)?.value
+    val oneof2898: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2898)?.value
+    val oneof2899: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2899)?.value
+    val oneof2900: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2900)?.value
+    val oneof2901: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2901)?.value
+    val oneof2902: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2902)?.value
+    val oneof2903: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2903)?.value
+    val oneof2904: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2904)?.value
+    val oneof2905: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2905)?.value
+    val oneof2906: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2906)?.value
+    val oneof2907: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2907)?.value
+    val oneof2908: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2908)?.value
+    val oneof2909: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2909)?.value
+    val oneof2910: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2910)?.value
+    val oneof2911: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2911)?.value
+    val oneof2912: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2912)?.value
+    val oneof2913: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2913)?.value
+    val oneof2914: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2914)?.value
+    val oneof2915: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2915)?.value
+    val oneof2916: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2916)?.value
+    val oneof2917: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2917)?.value
+    val oneof2918: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2918)?.value
+    val oneof2919: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2919)?.value
+    val oneof2920: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2920)?.value
+    val oneof2921: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2921)?.value
+    val oneof2922: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2922)?.value
+    val oneof2923: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2923)?.value
+    val oneof2924: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2924)?.value
+    val oneof2925: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2925)?.value
+    val oneof2926: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2926)?.value
+    val oneof2927: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2927)?.value
+    val oneof2928: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2928)?.value
+    val oneof2929: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2929)?.value
+    val oneof2930: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2930)?.value
+    val oneof2931: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2931)?.value
+    val oneof2932: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2932)?.value
+    val oneof2933: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2933)?.value
+    val oneof2934: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2934)?.value
+    val oneof2935: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2935)?.value
+    val oneof2936: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2936)?.value
+    val oneof2937: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2937)?.value
+    val oneof2938: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2938)?.value
+    val oneof2939: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2939)?.value
+    val oneof2940: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2940)?.value
+    val oneof2941: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2941)?.value
+    val oneof2942: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2942)?.value
+    val oneof2943: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2943)?.value
+    val oneof2944: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2944)?.value
+    val oneof2945: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2945)?.value
+    val oneof2946: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2946)?.value
+    val oneof2947: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2947)?.value
+    val oneof2948: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2948)?.value
+    val oneof2949: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2949)?.value
+    val oneof2950: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2950)?.value
+    val oneof2951: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2951)?.value
+    val oneof2952: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2952)?.value
+    val oneof2953: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2953)?.value
+    val oneof2954: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2954)?.value
+    val oneof2955: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2955)?.value
+    val oneof2956: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2956)?.value
+    val oneof2957: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2957)?.value
+    val oneof2958: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2958)?.value
+    val oneof2959: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2959)?.value
+    val oneof2960: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2960)?.value
+    val oneof2961: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2961)?.value
+    val oneof2962: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2962)?.value
+    val oneof2963: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2963)?.value
+    val oneof2964: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2964)?.value
+    val oneof2965: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2965)?.value
+    val oneof2966: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2966)?.value
+    val oneof2967: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2967)?.value
+    val oneof2968: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2968)?.value
+    val oneof2969: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2969)?.value
+    val oneof2970: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2970)?.value
+    val oneof2971: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2971)?.value
+    val oneof2972: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2972)?.value
+    val oneof2973: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2973)?.value
+    val oneof2974: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2974)?.value
+    val oneof2975: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2975)?.value
+    val oneof2976: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2976)?.value
+    val oneof2977: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2977)?.value
+    val oneof2978: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2978)?.value
+    val oneof2979: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2979)?.value
+    val oneof2980: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2980)?.value
+    val oneof2981: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2981)?.value
+    val oneof2982: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2982)?.value
+    val oneof2983: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2983)?.value
+    val oneof2984: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2984)?.value
+    val oneof2985: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2985)?.value
+    val oneof2986: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2986)?.value
+    val oneof2987: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2987)?.value
+    val oneof2988: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2988)?.value
+    val oneof2989: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2989)?.value
+    val oneof2990: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2990)?.value
+    val oneof2991: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2991)?.value
+    val oneof2992: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2992)?.value
+    val oneof2993: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2993)?.value
+    val oneof2994: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2994)?.value
+    val oneof2995: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2995)?.value
+    val oneof2996: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2996)?.value
+    val oneof2997: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2997)?.value
+    val oneof2998: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2998)?.value
+    val oneof2999: Int?
+        get() = (hugeOneof as? HugeOneof.Oneof2999)?.value
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -4033,7 +7033,25 @@ data class MessageWithHugeOneof(
         override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithHugeOneof.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MessageWithHugeOneof> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>(1000).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>(2000)
+            addFields0(fieldsList)
+            addFields1(fieldsList)
+            addFields2(fieldsList)
+            addFields3(fieldsList)
+            addFields4(fieldsList)
+            addFields5(fieldsList)
+            addFields6(fieldsList)
+            addFields7(fieldsList)
+            addFields8(fieldsList)
+            addFields9(fieldsList)
+            pbandk.MessageDescriptor(
+                messageClass = MessageWithHugeOneof::class,
+                messageCompanion = this,
+                fields = fieldsList
+            )
+        }
+        fun addFields0(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -6234,6 +9252,10 @@ data class MessageWithHugeOneof(
                         value = MessageWithHugeOneof::oneof1199
                     )
                 )
+            }
+        }
+        fun addFields1(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -8434,6 +11456,10 @@ data class MessageWithHugeOneof(
                         value = MessageWithHugeOneof::oneof1399
                     )
                 )
+            }
+        }
+        fun addFields2(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -10634,6 +13660,10 @@ data class MessageWithHugeOneof(
                         value = MessageWithHugeOneof::oneof1599
                     )
                 )
+            }
+        }
+        fun addFields3(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -12834,6 +15864,10 @@ data class MessageWithHugeOneof(
                         value = MessageWithHugeOneof::oneof1799
                     )
                 )
+            }
+        }
+        fun addFields4(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -15035,21 +18069,11038 @@ data class MessageWithHugeOneof(
                     )
                 )
             }
-            pbandk.MessageDescriptor(
-                messageClass = MessageWithHugeOneof::class,
-                messageCompanion = this,
-                fields = fieldsList
-            )
+        }
+        fun addFields5(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2000",
+                        number = 2000,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2000",
+                        value = MessageWithHugeOneof::oneof2000
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2001",
+                        number = 2001,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2001",
+                        value = MessageWithHugeOneof::oneof2001
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2002",
+                        number = 2002,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2002",
+                        value = MessageWithHugeOneof::oneof2002
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2003",
+                        number = 2003,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2003",
+                        value = MessageWithHugeOneof::oneof2003
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2004",
+                        number = 2004,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2004",
+                        value = MessageWithHugeOneof::oneof2004
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2005",
+                        number = 2005,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2005",
+                        value = MessageWithHugeOneof::oneof2005
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2006",
+                        number = 2006,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2006",
+                        value = MessageWithHugeOneof::oneof2006
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2007",
+                        number = 2007,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2007",
+                        value = MessageWithHugeOneof::oneof2007
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2008",
+                        number = 2008,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2008",
+                        value = MessageWithHugeOneof::oneof2008
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2009",
+                        number = 2009,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2009",
+                        value = MessageWithHugeOneof::oneof2009
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2010",
+                        number = 2010,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2010",
+                        value = MessageWithHugeOneof::oneof2010
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2011",
+                        number = 2011,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2011",
+                        value = MessageWithHugeOneof::oneof2011
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2012",
+                        number = 2012,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2012",
+                        value = MessageWithHugeOneof::oneof2012
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2013",
+                        number = 2013,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2013",
+                        value = MessageWithHugeOneof::oneof2013
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2014",
+                        number = 2014,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2014",
+                        value = MessageWithHugeOneof::oneof2014
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2015",
+                        number = 2015,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2015",
+                        value = MessageWithHugeOneof::oneof2015
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2016",
+                        number = 2016,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2016",
+                        value = MessageWithHugeOneof::oneof2016
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2017",
+                        number = 2017,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2017",
+                        value = MessageWithHugeOneof::oneof2017
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2018",
+                        number = 2018,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2018",
+                        value = MessageWithHugeOneof::oneof2018
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2019",
+                        number = 2019,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2019",
+                        value = MessageWithHugeOneof::oneof2019
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2020",
+                        number = 2020,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2020",
+                        value = MessageWithHugeOneof::oneof2020
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2021",
+                        number = 2021,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2021",
+                        value = MessageWithHugeOneof::oneof2021
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2022",
+                        number = 2022,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2022",
+                        value = MessageWithHugeOneof::oneof2022
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2023",
+                        number = 2023,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2023",
+                        value = MessageWithHugeOneof::oneof2023
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2024",
+                        number = 2024,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2024",
+                        value = MessageWithHugeOneof::oneof2024
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2025",
+                        number = 2025,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2025",
+                        value = MessageWithHugeOneof::oneof2025
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2026",
+                        number = 2026,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2026",
+                        value = MessageWithHugeOneof::oneof2026
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2027",
+                        number = 2027,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2027",
+                        value = MessageWithHugeOneof::oneof2027
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2028",
+                        number = 2028,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2028",
+                        value = MessageWithHugeOneof::oneof2028
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2029",
+                        number = 2029,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2029",
+                        value = MessageWithHugeOneof::oneof2029
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2030",
+                        number = 2030,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2030",
+                        value = MessageWithHugeOneof::oneof2030
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2031",
+                        number = 2031,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2031",
+                        value = MessageWithHugeOneof::oneof2031
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2032",
+                        number = 2032,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2032",
+                        value = MessageWithHugeOneof::oneof2032
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2033",
+                        number = 2033,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2033",
+                        value = MessageWithHugeOneof::oneof2033
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2034",
+                        number = 2034,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2034",
+                        value = MessageWithHugeOneof::oneof2034
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2035",
+                        number = 2035,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2035",
+                        value = MessageWithHugeOneof::oneof2035
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2036",
+                        number = 2036,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2036",
+                        value = MessageWithHugeOneof::oneof2036
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2037",
+                        number = 2037,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2037",
+                        value = MessageWithHugeOneof::oneof2037
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2038",
+                        number = 2038,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2038",
+                        value = MessageWithHugeOneof::oneof2038
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2039",
+                        number = 2039,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2039",
+                        value = MessageWithHugeOneof::oneof2039
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2040",
+                        number = 2040,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2040",
+                        value = MessageWithHugeOneof::oneof2040
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2041",
+                        number = 2041,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2041",
+                        value = MessageWithHugeOneof::oneof2041
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2042",
+                        number = 2042,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2042",
+                        value = MessageWithHugeOneof::oneof2042
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2043",
+                        number = 2043,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2043",
+                        value = MessageWithHugeOneof::oneof2043
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2044",
+                        number = 2044,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2044",
+                        value = MessageWithHugeOneof::oneof2044
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2045",
+                        number = 2045,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2045",
+                        value = MessageWithHugeOneof::oneof2045
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2046",
+                        number = 2046,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2046",
+                        value = MessageWithHugeOneof::oneof2046
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2047",
+                        number = 2047,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2047",
+                        value = MessageWithHugeOneof::oneof2047
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2048",
+                        number = 2048,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2048",
+                        value = MessageWithHugeOneof::oneof2048
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2049",
+                        number = 2049,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2049",
+                        value = MessageWithHugeOneof::oneof2049
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2050",
+                        number = 2050,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2050",
+                        value = MessageWithHugeOneof::oneof2050
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2051",
+                        number = 2051,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2051",
+                        value = MessageWithHugeOneof::oneof2051
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2052",
+                        number = 2052,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2052",
+                        value = MessageWithHugeOneof::oneof2052
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2053",
+                        number = 2053,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2053",
+                        value = MessageWithHugeOneof::oneof2053
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2054",
+                        number = 2054,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2054",
+                        value = MessageWithHugeOneof::oneof2054
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2055",
+                        number = 2055,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2055",
+                        value = MessageWithHugeOneof::oneof2055
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2056",
+                        number = 2056,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2056",
+                        value = MessageWithHugeOneof::oneof2056
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2057",
+                        number = 2057,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2057",
+                        value = MessageWithHugeOneof::oneof2057
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2058",
+                        number = 2058,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2058",
+                        value = MessageWithHugeOneof::oneof2058
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2059",
+                        number = 2059,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2059",
+                        value = MessageWithHugeOneof::oneof2059
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2060",
+                        number = 2060,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2060",
+                        value = MessageWithHugeOneof::oneof2060
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2061",
+                        number = 2061,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2061",
+                        value = MessageWithHugeOneof::oneof2061
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2062",
+                        number = 2062,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2062",
+                        value = MessageWithHugeOneof::oneof2062
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2063",
+                        number = 2063,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2063",
+                        value = MessageWithHugeOneof::oneof2063
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2064",
+                        number = 2064,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2064",
+                        value = MessageWithHugeOneof::oneof2064
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2065",
+                        number = 2065,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2065",
+                        value = MessageWithHugeOneof::oneof2065
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2066",
+                        number = 2066,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2066",
+                        value = MessageWithHugeOneof::oneof2066
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2067",
+                        number = 2067,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2067",
+                        value = MessageWithHugeOneof::oneof2067
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2068",
+                        number = 2068,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2068",
+                        value = MessageWithHugeOneof::oneof2068
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2069",
+                        number = 2069,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2069",
+                        value = MessageWithHugeOneof::oneof2069
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2070",
+                        number = 2070,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2070",
+                        value = MessageWithHugeOneof::oneof2070
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2071",
+                        number = 2071,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2071",
+                        value = MessageWithHugeOneof::oneof2071
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2072",
+                        number = 2072,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2072",
+                        value = MessageWithHugeOneof::oneof2072
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2073",
+                        number = 2073,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2073",
+                        value = MessageWithHugeOneof::oneof2073
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2074",
+                        number = 2074,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2074",
+                        value = MessageWithHugeOneof::oneof2074
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2075",
+                        number = 2075,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2075",
+                        value = MessageWithHugeOneof::oneof2075
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2076",
+                        number = 2076,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2076",
+                        value = MessageWithHugeOneof::oneof2076
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2077",
+                        number = 2077,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2077",
+                        value = MessageWithHugeOneof::oneof2077
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2078",
+                        number = 2078,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2078",
+                        value = MessageWithHugeOneof::oneof2078
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2079",
+                        number = 2079,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2079",
+                        value = MessageWithHugeOneof::oneof2079
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2080",
+                        number = 2080,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2080",
+                        value = MessageWithHugeOneof::oneof2080
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2081",
+                        number = 2081,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2081",
+                        value = MessageWithHugeOneof::oneof2081
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2082",
+                        number = 2082,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2082",
+                        value = MessageWithHugeOneof::oneof2082
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2083",
+                        number = 2083,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2083",
+                        value = MessageWithHugeOneof::oneof2083
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2084",
+                        number = 2084,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2084",
+                        value = MessageWithHugeOneof::oneof2084
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2085",
+                        number = 2085,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2085",
+                        value = MessageWithHugeOneof::oneof2085
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2086",
+                        number = 2086,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2086",
+                        value = MessageWithHugeOneof::oneof2086
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2087",
+                        number = 2087,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2087",
+                        value = MessageWithHugeOneof::oneof2087
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2088",
+                        number = 2088,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2088",
+                        value = MessageWithHugeOneof::oneof2088
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2089",
+                        number = 2089,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2089",
+                        value = MessageWithHugeOneof::oneof2089
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2090",
+                        number = 2090,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2090",
+                        value = MessageWithHugeOneof::oneof2090
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2091",
+                        number = 2091,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2091",
+                        value = MessageWithHugeOneof::oneof2091
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2092",
+                        number = 2092,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2092",
+                        value = MessageWithHugeOneof::oneof2092
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2093",
+                        number = 2093,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2093",
+                        value = MessageWithHugeOneof::oneof2093
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2094",
+                        number = 2094,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2094",
+                        value = MessageWithHugeOneof::oneof2094
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2095",
+                        number = 2095,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2095",
+                        value = MessageWithHugeOneof::oneof2095
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2096",
+                        number = 2096,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2096",
+                        value = MessageWithHugeOneof::oneof2096
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2097",
+                        number = 2097,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2097",
+                        value = MessageWithHugeOneof::oneof2097
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2098",
+                        number = 2098,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2098",
+                        value = MessageWithHugeOneof::oneof2098
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2099",
+                        number = 2099,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2099",
+                        value = MessageWithHugeOneof::oneof2099
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2100",
+                        number = 2100,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2100",
+                        value = MessageWithHugeOneof::oneof2100
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2101",
+                        number = 2101,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2101",
+                        value = MessageWithHugeOneof::oneof2101
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2102",
+                        number = 2102,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2102",
+                        value = MessageWithHugeOneof::oneof2102
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2103",
+                        number = 2103,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2103",
+                        value = MessageWithHugeOneof::oneof2103
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2104",
+                        number = 2104,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2104",
+                        value = MessageWithHugeOneof::oneof2104
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2105",
+                        number = 2105,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2105",
+                        value = MessageWithHugeOneof::oneof2105
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2106",
+                        number = 2106,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2106",
+                        value = MessageWithHugeOneof::oneof2106
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2107",
+                        number = 2107,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2107",
+                        value = MessageWithHugeOneof::oneof2107
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2108",
+                        number = 2108,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2108",
+                        value = MessageWithHugeOneof::oneof2108
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2109",
+                        number = 2109,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2109",
+                        value = MessageWithHugeOneof::oneof2109
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2110",
+                        number = 2110,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2110",
+                        value = MessageWithHugeOneof::oneof2110
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2111",
+                        number = 2111,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2111",
+                        value = MessageWithHugeOneof::oneof2111
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2112",
+                        number = 2112,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2112",
+                        value = MessageWithHugeOneof::oneof2112
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2113",
+                        number = 2113,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2113",
+                        value = MessageWithHugeOneof::oneof2113
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2114",
+                        number = 2114,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2114",
+                        value = MessageWithHugeOneof::oneof2114
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2115",
+                        number = 2115,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2115",
+                        value = MessageWithHugeOneof::oneof2115
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2116",
+                        number = 2116,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2116",
+                        value = MessageWithHugeOneof::oneof2116
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2117",
+                        number = 2117,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2117",
+                        value = MessageWithHugeOneof::oneof2117
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2118",
+                        number = 2118,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2118",
+                        value = MessageWithHugeOneof::oneof2118
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2119",
+                        number = 2119,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2119",
+                        value = MessageWithHugeOneof::oneof2119
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2120",
+                        number = 2120,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2120",
+                        value = MessageWithHugeOneof::oneof2120
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2121",
+                        number = 2121,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2121",
+                        value = MessageWithHugeOneof::oneof2121
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2122",
+                        number = 2122,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2122",
+                        value = MessageWithHugeOneof::oneof2122
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2123",
+                        number = 2123,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2123",
+                        value = MessageWithHugeOneof::oneof2123
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2124",
+                        number = 2124,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2124",
+                        value = MessageWithHugeOneof::oneof2124
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2125",
+                        number = 2125,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2125",
+                        value = MessageWithHugeOneof::oneof2125
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2126",
+                        number = 2126,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2126",
+                        value = MessageWithHugeOneof::oneof2126
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2127",
+                        number = 2127,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2127",
+                        value = MessageWithHugeOneof::oneof2127
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2128",
+                        number = 2128,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2128",
+                        value = MessageWithHugeOneof::oneof2128
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2129",
+                        number = 2129,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2129",
+                        value = MessageWithHugeOneof::oneof2129
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2130",
+                        number = 2130,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2130",
+                        value = MessageWithHugeOneof::oneof2130
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2131",
+                        number = 2131,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2131",
+                        value = MessageWithHugeOneof::oneof2131
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2132",
+                        number = 2132,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2132",
+                        value = MessageWithHugeOneof::oneof2132
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2133",
+                        number = 2133,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2133",
+                        value = MessageWithHugeOneof::oneof2133
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2134",
+                        number = 2134,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2134",
+                        value = MessageWithHugeOneof::oneof2134
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2135",
+                        number = 2135,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2135",
+                        value = MessageWithHugeOneof::oneof2135
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2136",
+                        number = 2136,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2136",
+                        value = MessageWithHugeOneof::oneof2136
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2137",
+                        number = 2137,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2137",
+                        value = MessageWithHugeOneof::oneof2137
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2138",
+                        number = 2138,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2138",
+                        value = MessageWithHugeOneof::oneof2138
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2139",
+                        number = 2139,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2139",
+                        value = MessageWithHugeOneof::oneof2139
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2140",
+                        number = 2140,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2140",
+                        value = MessageWithHugeOneof::oneof2140
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2141",
+                        number = 2141,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2141",
+                        value = MessageWithHugeOneof::oneof2141
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2142",
+                        number = 2142,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2142",
+                        value = MessageWithHugeOneof::oneof2142
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2143",
+                        number = 2143,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2143",
+                        value = MessageWithHugeOneof::oneof2143
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2144",
+                        number = 2144,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2144",
+                        value = MessageWithHugeOneof::oneof2144
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2145",
+                        number = 2145,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2145",
+                        value = MessageWithHugeOneof::oneof2145
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2146",
+                        number = 2146,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2146",
+                        value = MessageWithHugeOneof::oneof2146
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2147",
+                        number = 2147,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2147",
+                        value = MessageWithHugeOneof::oneof2147
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2148",
+                        number = 2148,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2148",
+                        value = MessageWithHugeOneof::oneof2148
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2149",
+                        number = 2149,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2149",
+                        value = MessageWithHugeOneof::oneof2149
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2150",
+                        number = 2150,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2150",
+                        value = MessageWithHugeOneof::oneof2150
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2151",
+                        number = 2151,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2151",
+                        value = MessageWithHugeOneof::oneof2151
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2152",
+                        number = 2152,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2152",
+                        value = MessageWithHugeOneof::oneof2152
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2153",
+                        number = 2153,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2153",
+                        value = MessageWithHugeOneof::oneof2153
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2154",
+                        number = 2154,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2154",
+                        value = MessageWithHugeOneof::oneof2154
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2155",
+                        number = 2155,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2155",
+                        value = MessageWithHugeOneof::oneof2155
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2156",
+                        number = 2156,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2156",
+                        value = MessageWithHugeOneof::oneof2156
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2157",
+                        number = 2157,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2157",
+                        value = MessageWithHugeOneof::oneof2157
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2158",
+                        number = 2158,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2158",
+                        value = MessageWithHugeOneof::oneof2158
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2159",
+                        number = 2159,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2159",
+                        value = MessageWithHugeOneof::oneof2159
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2160",
+                        number = 2160,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2160",
+                        value = MessageWithHugeOneof::oneof2160
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2161",
+                        number = 2161,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2161",
+                        value = MessageWithHugeOneof::oneof2161
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2162",
+                        number = 2162,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2162",
+                        value = MessageWithHugeOneof::oneof2162
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2163",
+                        number = 2163,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2163",
+                        value = MessageWithHugeOneof::oneof2163
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2164",
+                        number = 2164,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2164",
+                        value = MessageWithHugeOneof::oneof2164
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2165",
+                        number = 2165,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2165",
+                        value = MessageWithHugeOneof::oneof2165
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2166",
+                        number = 2166,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2166",
+                        value = MessageWithHugeOneof::oneof2166
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2167",
+                        number = 2167,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2167",
+                        value = MessageWithHugeOneof::oneof2167
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2168",
+                        number = 2168,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2168",
+                        value = MessageWithHugeOneof::oneof2168
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2169",
+                        number = 2169,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2169",
+                        value = MessageWithHugeOneof::oneof2169
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2170",
+                        number = 2170,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2170",
+                        value = MessageWithHugeOneof::oneof2170
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2171",
+                        number = 2171,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2171",
+                        value = MessageWithHugeOneof::oneof2171
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2172",
+                        number = 2172,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2172",
+                        value = MessageWithHugeOneof::oneof2172
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2173",
+                        number = 2173,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2173",
+                        value = MessageWithHugeOneof::oneof2173
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2174",
+                        number = 2174,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2174",
+                        value = MessageWithHugeOneof::oneof2174
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2175",
+                        number = 2175,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2175",
+                        value = MessageWithHugeOneof::oneof2175
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2176",
+                        number = 2176,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2176",
+                        value = MessageWithHugeOneof::oneof2176
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2177",
+                        number = 2177,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2177",
+                        value = MessageWithHugeOneof::oneof2177
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2178",
+                        number = 2178,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2178",
+                        value = MessageWithHugeOneof::oneof2178
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2179",
+                        number = 2179,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2179",
+                        value = MessageWithHugeOneof::oneof2179
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2180",
+                        number = 2180,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2180",
+                        value = MessageWithHugeOneof::oneof2180
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2181",
+                        number = 2181,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2181",
+                        value = MessageWithHugeOneof::oneof2181
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2182",
+                        number = 2182,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2182",
+                        value = MessageWithHugeOneof::oneof2182
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2183",
+                        number = 2183,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2183",
+                        value = MessageWithHugeOneof::oneof2183
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2184",
+                        number = 2184,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2184",
+                        value = MessageWithHugeOneof::oneof2184
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2185",
+                        number = 2185,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2185",
+                        value = MessageWithHugeOneof::oneof2185
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2186",
+                        number = 2186,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2186",
+                        value = MessageWithHugeOneof::oneof2186
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2187",
+                        number = 2187,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2187",
+                        value = MessageWithHugeOneof::oneof2187
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2188",
+                        number = 2188,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2188",
+                        value = MessageWithHugeOneof::oneof2188
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2189",
+                        number = 2189,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2189",
+                        value = MessageWithHugeOneof::oneof2189
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2190",
+                        number = 2190,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2190",
+                        value = MessageWithHugeOneof::oneof2190
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2191",
+                        number = 2191,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2191",
+                        value = MessageWithHugeOneof::oneof2191
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2192",
+                        number = 2192,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2192",
+                        value = MessageWithHugeOneof::oneof2192
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2193",
+                        number = 2193,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2193",
+                        value = MessageWithHugeOneof::oneof2193
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2194",
+                        number = 2194,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2194",
+                        value = MessageWithHugeOneof::oneof2194
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2195",
+                        number = 2195,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2195",
+                        value = MessageWithHugeOneof::oneof2195
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2196",
+                        number = 2196,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2196",
+                        value = MessageWithHugeOneof::oneof2196
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2197",
+                        number = 2197,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2197",
+                        value = MessageWithHugeOneof::oneof2197
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2198",
+                        number = 2198,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2198",
+                        value = MessageWithHugeOneof::oneof2198
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2199",
+                        number = 2199,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2199",
+                        value = MessageWithHugeOneof::oneof2199
+                    )
+                )
+            }
+        }
+        fun addFields6(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2200",
+                        number = 2200,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2200",
+                        value = MessageWithHugeOneof::oneof2200
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2201",
+                        number = 2201,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2201",
+                        value = MessageWithHugeOneof::oneof2201
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2202",
+                        number = 2202,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2202",
+                        value = MessageWithHugeOneof::oneof2202
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2203",
+                        number = 2203,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2203",
+                        value = MessageWithHugeOneof::oneof2203
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2204",
+                        number = 2204,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2204",
+                        value = MessageWithHugeOneof::oneof2204
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2205",
+                        number = 2205,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2205",
+                        value = MessageWithHugeOneof::oneof2205
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2206",
+                        number = 2206,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2206",
+                        value = MessageWithHugeOneof::oneof2206
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2207",
+                        number = 2207,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2207",
+                        value = MessageWithHugeOneof::oneof2207
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2208",
+                        number = 2208,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2208",
+                        value = MessageWithHugeOneof::oneof2208
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2209",
+                        number = 2209,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2209",
+                        value = MessageWithHugeOneof::oneof2209
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2210",
+                        number = 2210,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2210",
+                        value = MessageWithHugeOneof::oneof2210
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2211",
+                        number = 2211,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2211",
+                        value = MessageWithHugeOneof::oneof2211
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2212",
+                        number = 2212,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2212",
+                        value = MessageWithHugeOneof::oneof2212
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2213",
+                        number = 2213,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2213",
+                        value = MessageWithHugeOneof::oneof2213
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2214",
+                        number = 2214,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2214",
+                        value = MessageWithHugeOneof::oneof2214
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2215",
+                        number = 2215,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2215",
+                        value = MessageWithHugeOneof::oneof2215
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2216",
+                        number = 2216,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2216",
+                        value = MessageWithHugeOneof::oneof2216
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2217",
+                        number = 2217,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2217",
+                        value = MessageWithHugeOneof::oneof2217
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2218",
+                        number = 2218,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2218",
+                        value = MessageWithHugeOneof::oneof2218
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2219",
+                        number = 2219,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2219",
+                        value = MessageWithHugeOneof::oneof2219
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2220",
+                        number = 2220,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2220",
+                        value = MessageWithHugeOneof::oneof2220
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2221",
+                        number = 2221,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2221",
+                        value = MessageWithHugeOneof::oneof2221
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2222",
+                        number = 2222,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2222",
+                        value = MessageWithHugeOneof::oneof2222
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2223",
+                        number = 2223,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2223",
+                        value = MessageWithHugeOneof::oneof2223
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2224",
+                        number = 2224,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2224",
+                        value = MessageWithHugeOneof::oneof2224
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2225",
+                        number = 2225,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2225",
+                        value = MessageWithHugeOneof::oneof2225
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2226",
+                        number = 2226,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2226",
+                        value = MessageWithHugeOneof::oneof2226
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2227",
+                        number = 2227,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2227",
+                        value = MessageWithHugeOneof::oneof2227
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2228",
+                        number = 2228,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2228",
+                        value = MessageWithHugeOneof::oneof2228
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2229",
+                        number = 2229,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2229",
+                        value = MessageWithHugeOneof::oneof2229
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2230",
+                        number = 2230,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2230",
+                        value = MessageWithHugeOneof::oneof2230
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2231",
+                        number = 2231,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2231",
+                        value = MessageWithHugeOneof::oneof2231
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2232",
+                        number = 2232,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2232",
+                        value = MessageWithHugeOneof::oneof2232
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2233",
+                        number = 2233,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2233",
+                        value = MessageWithHugeOneof::oneof2233
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2234",
+                        number = 2234,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2234",
+                        value = MessageWithHugeOneof::oneof2234
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2235",
+                        number = 2235,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2235",
+                        value = MessageWithHugeOneof::oneof2235
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2236",
+                        number = 2236,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2236",
+                        value = MessageWithHugeOneof::oneof2236
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2237",
+                        number = 2237,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2237",
+                        value = MessageWithHugeOneof::oneof2237
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2238",
+                        number = 2238,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2238",
+                        value = MessageWithHugeOneof::oneof2238
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2239",
+                        number = 2239,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2239",
+                        value = MessageWithHugeOneof::oneof2239
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2240",
+                        number = 2240,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2240",
+                        value = MessageWithHugeOneof::oneof2240
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2241",
+                        number = 2241,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2241",
+                        value = MessageWithHugeOneof::oneof2241
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2242",
+                        number = 2242,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2242",
+                        value = MessageWithHugeOneof::oneof2242
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2243",
+                        number = 2243,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2243",
+                        value = MessageWithHugeOneof::oneof2243
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2244",
+                        number = 2244,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2244",
+                        value = MessageWithHugeOneof::oneof2244
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2245",
+                        number = 2245,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2245",
+                        value = MessageWithHugeOneof::oneof2245
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2246",
+                        number = 2246,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2246",
+                        value = MessageWithHugeOneof::oneof2246
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2247",
+                        number = 2247,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2247",
+                        value = MessageWithHugeOneof::oneof2247
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2248",
+                        number = 2248,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2248",
+                        value = MessageWithHugeOneof::oneof2248
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2249",
+                        number = 2249,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2249",
+                        value = MessageWithHugeOneof::oneof2249
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2250",
+                        number = 2250,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2250",
+                        value = MessageWithHugeOneof::oneof2250
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2251",
+                        number = 2251,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2251",
+                        value = MessageWithHugeOneof::oneof2251
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2252",
+                        number = 2252,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2252",
+                        value = MessageWithHugeOneof::oneof2252
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2253",
+                        number = 2253,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2253",
+                        value = MessageWithHugeOneof::oneof2253
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2254",
+                        number = 2254,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2254",
+                        value = MessageWithHugeOneof::oneof2254
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2255",
+                        number = 2255,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2255",
+                        value = MessageWithHugeOneof::oneof2255
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2256",
+                        number = 2256,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2256",
+                        value = MessageWithHugeOneof::oneof2256
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2257",
+                        number = 2257,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2257",
+                        value = MessageWithHugeOneof::oneof2257
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2258",
+                        number = 2258,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2258",
+                        value = MessageWithHugeOneof::oneof2258
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2259",
+                        number = 2259,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2259",
+                        value = MessageWithHugeOneof::oneof2259
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2260",
+                        number = 2260,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2260",
+                        value = MessageWithHugeOneof::oneof2260
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2261",
+                        number = 2261,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2261",
+                        value = MessageWithHugeOneof::oneof2261
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2262",
+                        number = 2262,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2262",
+                        value = MessageWithHugeOneof::oneof2262
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2263",
+                        number = 2263,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2263",
+                        value = MessageWithHugeOneof::oneof2263
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2264",
+                        number = 2264,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2264",
+                        value = MessageWithHugeOneof::oneof2264
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2265",
+                        number = 2265,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2265",
+                        value = MessageWithHugeOneof::oneof2265
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2266",
+                        number = 2266,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2266",
+                        value = MessageWithHugeOneof::oneof2266
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2267",
+                        number = 2267,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2267",
+                        value = MessageWithHugeOneof::oneof2267
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2268",
+                        number = 2268,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2268",
+                        value = MessageWithHugeOneof::oneof2268
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2269",
+                        number = 2269,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2269",
+                        value = MessageWithHugeOneof::oneof2269
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2270",
+                        number = 2270,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2270",
+                        value = MessageWithHugeOneof::oneof2270
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2271",
+                        number = 2271,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2271",
+                        value = MessageWithHugeOneof::oneof2271
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2272",
+                        number = 2272,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2272",
+                        value = MessageWithHugeOneof::oneof2272
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2273",
+                        number = 2273,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2273",
+                        value = MessageWithHugeOneof::oneof2273
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2274",
+                        number = 2274,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2274",
+                        value = MessageWithHugeOneof::oneof2274
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2275",
+                        number = 2275,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2275",
+                        value = MessageWithHugeOneof::oneof2275
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2276",
+                        number = 2276,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2276",
+                        value = MessageWithHugeOneof::oneof2276
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2277",
+                        number = 2277,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2277",
+                        value = MessageWithHugeOneof::oneof2277
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2278",
+                        number = 2278,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2278",
+                        value = MessageWithHugeOneof::oneof2278
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2279",
+                        number = 2279,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2279",
+                        value = MessageWithHugeOneof::oneof2279
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2280",
+                        number = 2280,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2280",
+                        value = MessageWithHugeOneof::oneof2280
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2281",
+                        number = 2281,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2281",
+                        value = MessageWithHugeOneof::oneof2281
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2282",
+                        number = 2282,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2282",
+                        value = MessageWithHugeOneof::oneof2282
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2283",
+                        number = 2283,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2283",
+                        value = MessageWithHugeOneof::oneof2283
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2284",
+                        number = 2284,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2284",
+                        value = MessageWithHugeOneof::oneof2284
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2285",
+                        number = 2285,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2285",
+                        value = MessageWithHugeOneof::oneof2285
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2286",
+                        number = 2286,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2286",
+                        value = MessageWithHugeOneof::oneof2286
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2287",
+                        number = 2287,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2287",
+                        value = MessageWithHugeOneof::oneof2287
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2288",
+                        number = 2288,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2288",
+                        value = MessageWithHugeOneof::oneof2288
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2289",
+                        number = 2289,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2289",
+                        value = MessageWithHugeOneof::oneof2289
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2290",
+                        number = 2290,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2290",
+                        value = MessageWithHugeOneof::oneof2290
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2291",
+                        number = 2291,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2291",
+                        value = MessageWithHugeOneof::oneof2291
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2292",
+                        number = 2292,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2292",
+                        value = MessageWithHugeOneof::oneof2292
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2293",
+                        number = 2293,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2293",
+                        value = MessageWithHugeOneof::oneof2293
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2294",
+                        number = 2294,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2294",
+                        value = MessageWithHugeOneof::oneof2294
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2295",
+                        number = 2295,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2295",
+                        value = MessageWithHugeOneof::oneof2295
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2296",
+                        number = 2296,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2296",
+                        value = MessageWithHugeOneof::oneof2296
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2297",
+                        number = 2297,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2297",
+                        value = MessageWithHugeOneof::oneof2297
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2298",
+                        number = 2298,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2298",
+                        value = MessageWithHugeOneof::oneof2298
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2299",
+                        number = 2299,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2299",
+                        value = MessageWithHugeOneof::oneof2299
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2300",
+                        number = 2300,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2300",
+                        value = MessageWithHugeOneof::oneof2300
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2301",
+                        number = 2301,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2301",
+                        value = MessageWithHugeOneof::oneof2301
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2302",
+                        number = 2302,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2302",
+                        value = MessageWithHugeOneof::oneof2302
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2303",
+                        number = 2303,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2303",
+                        value = MessageWithHugeOneof::oneof2303
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2304",
+                        number = 2304,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2304",
+                        value = MessageWithHugeOneof::oneof2304
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2305",
+                        number = 2305,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2305",
+                        value = MessageWithHugeOneof::oneof2305
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2306",
+                        number = 2306,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2306",
+                        value = MessageWithHugeOneof::oneof2306
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2307",
+                        number = 2307,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2307",
+                        value = MessageWithHugeOneof::oneof2307
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2308",
+                        number = 2308,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2308",
+                        value = MessageWithHugeOneof::oneof2308
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2309",
+                        number = 2309,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2309",
+                        value = MessageWithHugeOneof::oneof2309
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2310",
+                        number = 2310,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2310",
+                        value = MessageWithHugeOneof::oneof2310
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2311",
+                        number = 2311,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2311",
+                        value = MessageWithHugeOneof::oneof2311
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2312",
+                        number = 2312,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2312",
+                        value = MessageWithHugeOneof::oneof2312
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2313",
+                        number = 2313,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2313",
+                        value = MessageWithHugeOneof::oneof2313
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2314",
+                        number = 2314,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2314",
+                        value = MessageWithHugeOneof::oneof2314
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2315",
+                        number = 2315,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2315",
+                        value = MessageWithHugeOneof::oneof2315
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2316",
+                        number = 2316,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2316",
+                        value = MessageWithHugeOneof::oneof2316
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2317",
+                        number = 2317,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2317",
+                        value = MessageWithHugeOneof::oneof2317
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2318",
+                        number = 2318,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2318",
+                        value = MessageWithHugeOneof::oneof2318
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2319",
+                        number = 2319,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2319",
+                        value = MessageWithHugeOneof::oneof2319
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2320",
+                        number = 2320,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2320",
+                        value = MessageWithHugeOneof::oneof2320
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2321",
+                        number = 2321,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2321",
+                        value = MessageWithHugeOneof::oneof2321
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2322",
+                        number = 2322,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2322",
+                        value = MessageWithHugeOneof::oneof2322
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2323",
+                        number = 2323,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2323",
+                        value = MessageWithHugeOneof::oneof2323
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2324",
+                        number = 2324,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2324",
+                        value = MessageWithHugeOneof::oneof2324
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2325",
+                        number = 2325,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2325",
+                        value = MessageWithHugeOneof::oneof2325
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2326",
+                        number = 2326,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2326",
+                        value = MessageWithHugeOneof::oneof2326
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2327",
+                        number = 2327,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2327",
+                        value = MessageWithHugeOneof::oneof2327
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2328",
+                        number = 2328,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2328",
+                        value = MessageWithHugeOneof::oneof2328
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2329",
+                        number = 2329,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2329",
+                        value = MessageWithHugeOneof::oneof2329
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2330",
+                        number = 2330,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2330",
+                        value = MessageWithHugeOneof::oneof2330
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2331",
+                        number = 2331,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2331",
+                        value = MessageWithHugeOneof::oneof2331
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2332",
+                        number = 2332,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2332",
+                        value = MessageWithHugeOneof::oneof2332
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2333",
+                        number = 2333,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2333",
+                        value = MessageWithHugeOneof::oneof2333
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2334",
+                        number = 2334,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2334",
+                        value = MessageWithHugeOneof::oneof2334
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2335",
+                        number = 2335,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2335",
+                        value = MessageWithHugeOneof::oneof2335
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2336",
+                        number = 2336,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2336",
+                        value = MessageWithHugeOneof::oneof2336
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2337",
+                        number = 2337,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2337",
+                        value = MessageWithHugeOneof::oneof2337
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2338",
+                        number = 2338,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2338",
+                        value = MessageWithHugeOneof::oneof2338
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2339",
+                        number = 2339,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2339",
+                        value = MessageWithHugeOneof::oneof2339
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2340",
+                        number = 2340,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2340",
+                        value = MessageWithHugeOneof::oneof2340
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2341",
+                        number = 2341,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2341",
+                        value = MessageWithHugeOneof::oneof2341
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2342",
+                        number = 2342,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2342",
+                        value = MessageWithHugeOneof::oneof2342
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2343",
+                        number = 2343,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2343",
+                        value = MessageWithHugeOneof::oneof2343
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2344",
+                        number = 2344,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2344",
+                        value = MessageWithHugeOneof::oneof2344
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2345",
+                        number = 2345,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2345",
+                        value = MessageWithHugeOneof::oneof2345
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2346",
+                        number = 2346,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2346",
+                        value = MessageWithHugeOneof::oneof2346
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2347",
+                        number = 2347,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2347",
+                        value = MessageWithHugeOneof::oneof2347
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2348",
+                        number = 2348,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2348",
+                        value = MessageWithHugeOneof::oneof2348
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2349",
+                        number = 2349,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2349",
+                        value = MessageWithHugeOneof::oneof2349
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2350",
+                        number = 2350,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2350",
+                        value = MessageWithHugeOneof::oneof2350
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2351",
+                        number = 2351,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2351",
+                        value = MessageWithHugeOneof::oneof2351
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2352",
+                        number = 2352,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2352",
+                        value = MessageWithHugeOneof::oneof2352
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2353",
+                        number = 2353,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2353",
+                        value = MessageWithHugeOneof::oneof2353
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2354",
+                        number = 2354,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2354",
+                        value = MessageWithHugeOneof::oneof2354
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2355",
+                        number = 2355,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2355",
+                        value = MessageWithHugeOneof::oneof2355
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2356",
+                        number = 2356,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2356",
+                        value = MessageWithHugeOneof::oneof2356
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2357",
+                        number = 2357,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2357",
+                        value = MessageWithHugeOneof::oneof2357
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2358",
+                        number = 2358,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2358",
+                        value = MessageWithHugeOneof::oneof2358
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2359",
+                        number = 2359,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2359",
+                        value = MessageWithHugeOneof::oneof2359
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2360",
+                        number = 2360,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2360",
+                        value = MessageWithHugeOneof::oneof2360
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2361",
+                        number = 2361,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2361",
+                        value = MessageWithHugeOneof::oneof2361
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2362",
+                        number = 2362,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2362",
+                        value = MessageWithHugeOneof::oneof2362
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2363",
+                        number = 2363,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2363",
+                        value = MessageWithHugeOneof::oneof2363
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2364",
+                        number = 2364,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2364",
+                        value = MessageWithHugeOneof::oneof2364
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2365",
+                        number = 2365,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2365",
+                        value = MessageWithHugeOneof::oneof2365
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2366",
+                        number = 2366,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2366",
+                        value = MessageWithHugeOneof::oneof2366
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2367",
+                        number = 2367,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2367",
+                        value = MessageWithHugeOneof::oneof2367
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2368",
+                        number = 2368,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2368",
+                        value = MessageWithHugeOneof::oneof2368
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2369",
+                        number = 2369,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2369",
+                        value = MessageWithHugeOneof::oneof2369
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2370",
+                        number = 2370,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2370",
+                        value = MessageWithHugeOneof::oneof2370
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2371",
+                        number = 2371,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2371",
+                        value = MessageWithHugeOneof::oneof2371
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2372",
+                        number = 2372,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2372",
+                        value = MessageWithHugeOneof::oneof2372
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2373",
+                        number = 2373,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2373",
+                        value = MessageWithHugeOneof::oneof2373
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2374",
+                        number = 2374,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2374",
+                        value = MessageWithHugeOneof::oneof2374
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2375",
+                        number = 2375,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2375",
+                        value = MessageWithHugeOneof::oneof2375
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2376",
+                        number = 2376,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2376",
+                        value = MessageWithHugeOneof::oneof2376
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2377",
+                        number = 2377,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2377",
+                        value = MessageWithHugeOneof::oneof2377
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2378",
+                        number = 2378,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2378",
+                        value = MessageWithHugeOneof::oneof2378
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2379",
+                        number = 2379,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2379",
+                        value = MessageWithHugeOneof::oneof2379
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2380",
+                        number = 2380,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2380",
+                        value = MessageWithHugeOneof::oneof2380
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2381",
+                        number = 2381,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2381",
+                        value = MessageWithHugeOneof::oneof2381
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2382",
+                        number = 2382,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2382",
+                        value = MessageWithHugeOneof::oneof2382
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2383",
+                        number = 2383,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2383",
+                        value = MessageWithHugeOneof::oneof2383
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2384",
+                        number = 2384,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2384",
+                        value = MessageWithHugeOneof::oneof2384
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2385",
+                        number = 2385,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2385",
+                        value = MessageWithHugeOneof::oneof2385
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2386",
+                        number = 2386,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2386",
+                        value = MessageWithHugeOneof::oneof2386
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2387",
+                        number = 2387,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2387",
+                        value = MessageWithHugeOneof::oneof2387
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2388",
+                        number = 2388,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2388",
+                        value = MessageWithHugeOneof::oneof2388
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2389",
+                        number = 2389,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2389",
+                        value = MessageWithHugeOneof::oneof2389
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2390",
+                        number = 2390,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2390",
+                        value = MessageWithHugeOneof::oneof2390
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2391",
+                        number = 2391,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2391",
+                        value = MessageWithHugeOneof::oneof2391
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2392",
+                        number = 2392,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2392",
+                        value = MessageWithHugeOneof::oneof2392
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2393",
+                        number = 2393,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2393",
+                        value = MessageWithHugeOneof::oneof2393
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2394",
+                        number = 2394,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2394",
+                        value = MessageWithHugeOneof::oneof2394
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2395",
+                        number = 2395,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2395",
+                        value = MessageWithHugeOneof::oneof2395
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2396",
+                        number = 2396,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2396",
+                        value = MessageWithHugeOneof::oneof2396
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2397",
+                        number = 2397,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2397",
+                        value = MessageWithHugeOneof::oneof2397
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2398",
+                        number = 2398,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2398",
+                        value = MessageWithHugeOneof::oneof2398
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2399",
+                        number = 2399,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2399",
+                        value = MessageWithHugeOneof::oneof2399
+                    )
+                )
+            }
+        }
+        fun addFields7(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2400",
+                        number = 2400,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2400",
+                        value = MessageWithHugeOneof::oneof2400
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2401",
+                        number = 2401,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2401",
+                        value = MessageWithHugeOneof::oneof2401
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2402",
+                        number = 2402,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2402",
+                        value = MessageWithHugeOneof::oneof2402
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2403",
+                        number = 2403,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2403",
+                        value = MessageWithHugeOneof::oneof2403
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2404",
+                        number = 2404,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2404",
+                        value = MessageWithHugeOneof::oneof2404
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2405",
+                        number = 2405,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2405",
+                        value = MessageWithHugeOneof::oneof2405
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2406",
+                        number = 2406,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2406",
+                        value = MessageWithHugeOneof::oneof2406
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2407",
+                        number = 2407,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2407",
+                        value = MessageWithHugeOneof::oneof2407
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2408",
+                        number = 2408,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2408",
+                        value = MessageWithHugeOneof::oneof2408
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2409",
+                        number = 2409,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2409",
+                        value = MessageWithHugeOneof::oneof2409
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2410",
+                        number = 2410,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2410",
+                        value = MessageWithHugeOneof::oneof2410
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2411",
+                        number = 2411,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2411",
+                        value = MessageWithHugeOneof::oneof2411
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2412",
+                        number = 2412,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2412",
+                        value = MessageWithHugeOneof::oneof2412
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2413",
+                        number = 2413,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2413",
+                        value = MessageWithHugeOneof::oneof2413
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2414",
+                        number = 2414,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2414",
+                        value = MessageWithHugeOneof::oneof2414
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2415",
+                        number = 2415,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2415",
+                        value = MessageWithHugeOneof::oneof2415
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2416",
+                        number = 2416,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2416",
+                        value = MessageWithHugeOneof::oneof2416
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2417",
+                        number = 2417,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2417",
+                        value = MessageWithHugeOneof::oneof2417
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2418",
+                        number = 2418,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2418",
+                        value = MessageWithHugeOneof::oneof2418
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2419",
+                        number = 2419,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2419",
+                        value = MessageWithHugeOneof::oneof2419
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2420",
+                        number = 2420,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2420",
+                        value = MessageWithHugeOneof::oneof2420
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2421",
+                        number = 2421,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2421",
+                        value = MessageWithHugeOneof::oneof2421
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2422",
+                        number = 2422,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2422",
+                        value = MessageWithHugeOneof::oneof2422
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2423",
+                        number = 2423,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2423",
+                        value = MessageWithHugeOneof::oneof2423
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2424",
+                        number = 2424,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2424",
+                        value = MessageWithHugeOneof::oneof2424
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2425",
+                        number = 2425,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2425",
+                        value = MessageWithHugeOneof::oneof2425
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2426",
+                        number = 2426,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2426",
+                        value = MessageWithHugeOneof::oneof2426
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2427",
+                        number = 2427,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2427",
+                        value = MessageWithHugeOneof::oneof2427
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2428",
+                        number = 2428,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2428",
+                        value = MessageWithHugeOneof::oneof2428
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2429",
+                        number = 2429,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2429",
+                        value = MessageWithHugeOneof::oneof2429
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2430",
+                        number = 2430,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2430",
+                        value = MessageWithHugeOneof::oneof2430
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2431",
+                        number = 2431,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2431",
+                        value = MessageWithHugeOneof::oneof2431
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2432",
+                        number = 2432,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2432",
+                        value = MessageWithHugeOneof::oneof2432
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2433",
+                        number = 2433,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2433",
+                        value = MessageWithHugeOneof::oneof2433
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2434",
+                        number = 2434,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2434",
+                        value = MessageWithHugeOneof::oneof2434
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2435",
+                        number = 2435,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2435",
+                        value = MessageWithHugeOneof::oneof2435
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2436",
+                        number = 2436,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2436",
+                        value = MessageWithHugeOneof::oneof2436
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2437",
+                        number = 2437,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2437",
+                        value = MessageWithHugeOneof::oneof2437
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2438",
+                        number = 2438,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2438",
+                        value = MessageWithHugeOneof::oneof2438
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2439",
+                        number = 2439,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2439",
+                        value = MessageWithHugeOneof::oneof2439
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2440",
+                        number = 2440,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2440",
+                        value = MessageWithHugeOneof::oneof2440
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2441",
+                        number = 2441,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2441",
+                        value = MessageWithHugeOneof::oneof2441
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2442",
+                        number = 2442,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2442",
+                        value = MessageWithHugeOneof::oneof2442
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2443",
+                        number = 2443,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2443",
+                        value = MessageWithHugeOneof::oneof2443
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2444",
+                        number = 2444,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2444",
+                        value = MessageWithHugeOneof::oneof2444
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2445",
+                        number = 2445,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2445",
+                        value = MessageWithHugeOneof::oneof2445
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2446",
+                        number = 2446,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2446",
+                        value = MessageWithHugeOneof::oneof2446
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2447",
+                        number = 2447,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2447",
+                        value = MessageWithHugeOneof::oneof2447
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2448",
+                        number = 2448,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2448",
+                        value = MessageWithHugeOneof::oneof2448
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2449",
+                        number = 2449,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2449",
+                        value = MessageWithHugeOneof::oneof2449
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2450",
+                        number = 2450,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2450",
+                        value = MessageWithHugeOneof::oneof2450
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2451",
+                        number = 2451,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2451",
+                        value = MessageWithHugeOneof::oneof2451
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2452",
+                        number = 2452,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2452",
+                        value = MessageWithHugeOneof::oneof2452
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2453",
+                        number = 2453,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2453",
+                        value = MessageWithHugeOneof::oneof2453
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2454",
+                        number = 2454,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2454",
+                        value = MessageWithHugeOneof::oneof2454
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2455",
+                        number = 2455,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2455",
+                        value = MessageWithHugeOneof::oneof2455
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2456",
+                        number = 2456,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2456",
+                        value = MessageWithHugeOneof::oneof2456
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2457",
+                        number = 2457,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2457",
+                        value = MessageWithHugeOneof::oneof2457
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2458",
+                        number = 2458,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2458",
+                        value = MessageWithHugeOneof::oneof2458
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2459",
+                        number = 2459,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2459",
+                        value = MessageWithHugeOneof::oneof2459
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2460",
+                        number = 2460,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2460",
+                        value = MessageWithHugeOneof::oneof2460
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2461",
+                        number = 2461,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2461",
+                        value = MessageWithHugeOneof::oneof2461
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2462",
+                        number = 2462,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2462",
+                        value = MessageWithHugeOneof::oneof2462
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2463",
+                        number = 2463,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2463",
+                        value = MessageWithHugeOneof::oneof2463
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2464",
+                        number = 2464,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2464",
+                        value = MessageWithHugeOneof::oneof2464
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2465",
+                        number = 2465,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2465",
+                        value = MessageWithHugeOneof::oneof2465
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2466",
+                        number = 2466,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2466",
+                        value = MessageWithHugeOneof::oneof2466
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2467",
+                        number = 2467,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2467",
+                        value = MessageWithHugeOneof::oneof2467
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2468",
+                        number = 2468,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2468",
+                        value = MessageWithHugeOneof::oneof2468
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2469",
+                        number = 2469,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2469",
+                        value = MessageWithHugeOneof::oneof2469
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2470",
+                        number = 2470,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2470",
+                        value = MessageWithHugeOneof::oneof2470
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2471",
+                        number = 2471,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2471",
+                        value = MessageWithHugeOneof::oneof2471
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2472",
+                        number = 2472,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2472",
+                        value = MessageWithHugeOneof::oneof2472
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2473",
+                        number = 2473,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2473",
+                        value = MessageWithHugeOneof::oneof2473
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2474",
+                        number = 2474,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2474",
+                        value = MessageWithHugeOneof::oneof2474
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2475",
+                        number = 2475,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2475",
+                        value = MessageWithHugeOneof::oneof2475
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2476",
+                        number = 2476,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2476",
+                        value = MessageWithHugeOneof::oneof2476
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2477",
+                        number = 2477,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2477",
+                        value = MessageWithHugeOneof::oneof2477
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2478",
+                        number = 2478,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2478",
+                        value = MessageWithHugeOneof::oneof2478
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2479",
+                        number = 2479,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2479",
+                        value = MessageWithHugeOneof::oneof2479
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2480",
+                        number = 2480,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2480",
+                        value = MessageWithHugeOneof::oneof2480
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2481",
+                        number = 2481,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2481",
+                        value = MessageWithHugeOneof::oneof2481
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2482",
+                        number = 2482,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2482",
+                        value = MessageWithHugeOneof::oneof2482
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2483",
+                        number = 2483,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2483",
+                        value = MessageWithHugeOneof::oneof2483
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2484",
+                        number = 2484,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2484",
+                        value = MessageWithHugeOneof::oneof2484
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2485",
+                        number = 2485,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2485",
+                        value = MessageWithHugeOneof::oneof2485
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2486",
+                        number = 2486,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2486",
+                        value = MessageWithHugeOneof::oneof2486
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2487",
+                        number = 2487,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2487",
+                        value = MessageWithHugeOneof::oneof2487
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2488",
+                        number = 2488,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2488",
+                        value = MessageWithHugeOneof::oneof2488
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2489",
+                        number = 2489,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2489",
+                        value = MessageWithHugeOneof::oneof2489
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2490",
+                        number = 2490,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2490",
+                        value = MessageWithHugeOneof::oneof2490
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2491",
+                        number = 2491,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2491",
+                        value = MessageWithHugeOneof::oneof2491
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2492",
+                        number = 2492,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2492",
+                        value = MessageWithHugeOneof::oneof2492
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2493",
+                        number = 2493,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2493",
+                        value = MessageWithHugeOneof::oneof2493
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2494",
+                        number = 2494,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2494",
+                        value = MessageWithHugeOneof::oneof2494
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2495",
+                        number = 2495,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2495",
+                        value = MessageWithHugeOneof::oneof2495
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2496",
+                        number = 2496,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2496",
+                        value = MessageWithHugeOneof::oneof2496
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2497",
+                        number = 2497,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2497",
+                        value = MessageWithHugeOneof::oneof2497
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2498",
+                        number = 2498,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2498",
+                        value = MessageWithHugeOneof::oneof2498
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2499",
+                        number = 2499,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2499",
+                        value = MessageWithHugeOneof::oneof2499
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2500",
+                        number = 2500,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2500",
+                        value = MessageWithHugeOneof::oneof2500
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2501",
+                        number = 2501,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2501",
+                        value = MessageWithHugeOneof::oneof2501
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2502",
+                        number = 2502,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2502",
+                        value = MessageWithHugeOneof::oneof2502
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2503",
+                        number = 2503,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2503",
+                        value = MessageWithHugeOneof::oneof2503
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2504",
+                        number = 2504,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2504",
+                        value = MessageWithHugeOneof::oneof2504
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2505",
+                        number = 2505,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2505",
+                        value = MessageWithHugeOneof::oneof2505
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2506",
+                        number = 2506,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2506",
+                        value = MessageWithHugeOneof::oneof2506
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2507",
+                        number = 2507,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2507",
+                        value = MessageWithHugeOneof::oneof2507
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2508",
+                        number = 2508,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2508",
+                        value = MessageWithHugeOneof::oneof2508
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2509",
+                        number = 2509,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2509",
+                        value = MessageWithHugeOneof::oneof2509
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2510",
+                        number = 2510,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2510",
+                        value = MessageWithHugeOneof::oneof2510
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2511",
+                        number = 2511,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2511",
+                        value = MessageWithHugeOneof::oneof2511
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2512",
+                        number = 2512,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2512",
+                        value = MessageWithHugeOneof::oneof2512
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2513",
+                        number = 2513,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2513",
+                        value = MessageWithHugeOneof::oneof2513
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2514",
+                        number = 2514,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2514",
+                        value = MessageWithHugeOneof::oneof2514
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2515",
+                        number = 2515,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2515",
+                        value = MessageWithHugeOneof::oneof2515
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2516",
+                        number = 2516,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2516",
+                        value = MessageWithHugeOneof::oneof2516
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2517",
+                        number = 2517,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2517",
+                        value = MessageWithHugeOneof::oneof2517
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2518",
+                        number = 2518,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2518",
+                        value = MessageWithHugeOneof::oneof2518
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2519",
+                        number = 2519,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2519",
+                        value = MessageWithHugeOneof::oneof2519
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2520",
+                        number = 2520,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2520",
+                        value = MessageWithHugeOneof::oneof2520
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2521",
+                        number = 2521,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2521",
+                        value = MessageWithHugeOneof::oneof2521
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2522",
+                        number = 2522,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2522",
+                        value = MessageWithHugeOneof::oneof2522
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2523",
+                        number = 2523,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2523",
+                        value = MessageWithHugeOneof::oneof2523
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2524",
+                        number = 2524,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2524",
+                        value = MessageWithHugeOneof::oneof2524
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2525",
+                        number = 2525,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2525",
+                        value = MessageWithHugeOneof::oneof2525
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2526",
+                        number = 2526,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2526",
+                        value = MessageWithHugeOneof::oneof2526
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2527",
+                        number = 2527,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2527",
+                        value = MessageWithHugeOneof::oneof2527
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2528",
+                        number = 2528,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2528",
+                        value = MessageWithHugeOneof::oneof2528
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2529",
+                        number = 2529,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2529",
+                        value = MessageWithHugeOneof::oneof2529
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2530",
+                        number = 2530,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2530",
+                        value = MessageWithHugeOneof::oneof2530
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2531",
+                        number = 2531,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2531",
+                        value = MessageWithHugeOneof::oneof2531
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2532",
+                        number = 2532,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2532",
+                        value = MessageWithHugeOneof::oneof2532
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2533",
+                        number = 2533,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2533",
+                        value = MessageWithHugeOneof::oneof2533
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2534",
+                        number = 2534,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2534",
+                        value = MessageWithHugeOneof::oneof2534
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2535",
+                        number = 2535,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2535",
+                        value = MessageWithHugeOneof::oneof2535
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2536",
+                        number = 2536,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2536",
+                        value = MessageWithHugeOneof::oneof2536
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2537",
+                        number = 2537,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2537",
+                        value = MessageWithHugeOneof::oneof2537
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2538",
+                        number = 2538,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2538",
+                        value = MessageWithHugeOneof::oneof2538
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2539",
+                        number = 2539,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2539",
+                        value = MessageWithHugeOneof::oneof2539
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2540",
+                        number = 2540,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2540",
+                        value = MessageWithHugeOneof::oneof2540
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2541",
+                        number = 2541,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2541",
+                        value = MessageWithHugeOneof::oneof2541
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2542",
+                        number = 2542,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2542",
+                        value = MessageWithHugeOneof::oneof2542
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2543",
+                        number = 2543,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2543",
+                        value = MessageWithHugeOneof::oneof2543
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2544",
+                        number = 2544,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2544",
+                        value = MessageWithHugeOneof::oneof2544
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2545",
+                        number = 2545,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2545",
+                        value = MessageWithHugeOneof::oneof2545
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2546",
+                        number = 2546,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2546",
+                        value = MessageWithHugeOneof::oneof2546
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2547",
+                        number = 2547,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2547",
+                        value = MessageWithHugeOneof::oneof2547
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2548",
+                        number = 2548,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2548",
+                        value = MessageWithHugeOneof::oneof2548
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2549",
+                        number = 2549,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2549",
+                        value = MessageWithHugeOneof::oneof2549
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2550",
+                        number = 2550,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2550",
+                        value = MessageWithHugeOneof::oneof2550
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2551",
+                        number = 2551,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2551",
+                        value = MessageWithHugeOneof::oneof2551
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2552",
+                        number = 2552,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2552",
+                        value = MessageWithHugeOneof::oneof2552
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2553",
+                        number = 2553,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2553",
+                        value = MessageWithHugeOneof::oneof2553
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2554",
+                        number = 2554,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2554",
+                        value = MessageWithHugeOneof::oneof2554
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2555",
+                        number = 2555,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2555",
+                        value = MessageWithHugeOneof::oneof2555
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2556",
+                        number = 2556,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2556",
+                        value = MessageWithHugeOneof::oneof2556
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2557",
+                        number = 2557,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2557",
+                        value = MessageWithHugeOneof::oneof2557
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2558",
+                        number = 2558,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2558",
+                        value = MessageWithHugeOneof::oneof2558
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2559",
+                        number = 2559,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2559",
+                        value = MessageWithHugeOneof::oneof2559
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2560",
+                        number = 2560,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2560",
+                        value = MessageWithHugeOneof::oneof2560
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2561",
+                        number = 2561,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2561",
+                        value = MessageWithHugeOneof::oneof2561
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2562",
+                        number = 2562,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2562",
+                        value = MessageWithHugeOneof::oneof2562
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2563",
+                        number = 2563,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2563",
+                        value = MessageWithHugeOneof::oneof2563
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2564",
+                        number = 2564,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2564",
+                        value = MessageWithHugeOneof::oneof2564
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2565",
+                        number = 2565,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2565",
+                        value = MessageWithHugeOneof::oneof2565
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2566",
+                        number = 2566,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2566",
+                        value = MessageWithHugeOneof::oneof2566
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2567",
+                        number = 2567,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2567",
+                        value = MessageWithHugeOneof::oneof2567
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2568",
+                        number = 2568,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2568",
+                        value = MessageWithHugeOneof::oneof2568
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2569",
+                        number = 2569,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2569",
+                        value = MessageWithHugeOneof::oneof2569
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2570",
+                        number = 2570,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2570",
+                        value = MessageWithHugeOneof::oneof2570
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2571",
+                        number = 2571,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2571",
+                        value = MessageWithHugeOneof::oneof2571
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2572",
+                        number = 2572,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2572",
+                        value = MessageWithHugeOneof::oneof2572
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2573",
+                        number = 2573,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2573",
+                        value = MessageWithHugeOneof::oneof2573
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2574",
+                        number = 2574,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2574",
+                        value = MessageWithHugeOneof::oneof2574
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2575",
+                        number = 2575,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2575",
+                        value = MessageWithHugeOneof::oneof2575
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2576",
+                        number = 2576,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2576",
+                        value = MessageWithHugeOneof::oneof2576
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2577",
+                        number = 2577,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2577",
+                        value = MessageWithHugeOneof::oneof2577
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2578",
+                        number = 2578,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2578",
+                        value = MessageWithHugeOneof::oneof2578
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2579",
+                        number = 2579,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2579",
+                        value = MessageWithHugeOneof::oneof2579
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2580",
+                        number = 2580,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2580",
+                        value = MessageWithHugeOneof::oneof2580
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2581",
+                        number = 2581,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2581",
+                        value = MessageWithHugeOneof::oneof2581
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2582",
+                        number = 2582,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2582",
+                        value = MessageWithHugeOneof::oneof2582
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2583",
+                        number = 2583,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2583",
+                        value = MessageWithHugeOneof::oneof2583
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2584",
+                        number = 2584,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2584",
+                        value = MessageWithHugeOneof::oneof2584
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2585",
+                        number = 2585,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2585",
+                        value = MessageWithHugeOneof::oneof2585
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2586",
+                        number = 2586,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2586",
+                        value = MessageWithHugeOneof::oneof2586
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2587",
+                        number = 2587,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2587",
+                        value = MessageWithHugeOneof::oneof2587
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2588",
+                        number = 2588,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2588",
+                        value = MessageWithHugeOneof::oneof2588
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2589",
+                        number = 2589,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2589",
+                        value = MessageWithHugeOneof::oneof2589
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2590",
+                        number = 2590,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2590",
+                        value = MessageWithHugeOneof::oneof2590
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2591",
+                        number = 2591,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2591",
+                        value = MessageWithHugeOneof::oneof2591
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2592",
+                        number = 2592,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2592",
+                        value = MessageWithHugeOneof::oneof2592
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2593",
+                        number = 2593,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2593",
+                        value = MessageWithHugeOneof::oneof2593
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2594",
+                        number = 2594,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2594",
+                        value = MessageWithHugeOneof::oneof2594
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2595",
+                        number = 2595,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2595",
+                        value = MessageWithHugeOneof::oneof2595
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2596",
+                        number = 2596,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2596",
+                        value = MessageWithHugeOneof::oneof2596
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2597",
+                        number = 2597,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2597",
+                        value = MessageWithHugeOneof::oneof2597
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2598",
+                        number = 2598,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2598",
+                        value = MessageWithHugeOneof::oneof2598
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2599",
+                        number = 2599,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2599",
+                        value = MessageWithHugeOneof::oneof2599
+                    )
+                )
+            }
+        }
+        fun addFields8(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2600",
+                        number = 2600,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2600",
+                        value = MessageWithHugeOneof::oneof2600
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2601",
+                        number = 2601,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2601",
+                        value = MessageWithHugeOneof::oneof2601
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2602",
+                        number = 2602,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2602",
+                        value = MessageWithHugeOneof::oneof2602
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2603",
+                        number = 2603,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2603",
+                        value = MessageWithHugeOneof::oneof2603
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2604",
+                        number = 2604,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2604",
+                        value = MessageWithHugeOneof::oneof2604
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2605",
+                        number = 2605,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2605",
+                        value = MessageWithHugeOneof::oneof2605
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2606",
+                        number = 2606,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2606",
+                        value = MessageWithHugeOneof::oneof2606
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2607",
+                        number = 2607,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2607",
+                        value = MessageWithHugeOneof::oneof2607
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2608",
+                        number = 2608,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2608",
+                        value = MessageWithHugeOneof::oneof2608
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2609",
+                        number = 2609,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2609",
+                        value = MessageWithHugeOneof::oneof2609
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2610",
+                        number = 2610,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2610",
+                        value = MessageWithHugeOneof::oneof2610
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2611",
+                        number = 2611,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2611",
+                        value = MessageWithHugeOneof::oneof2611
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2612",
+                        number = 2612,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2612",
+                        value = MessageWithHugeOneof::oneof2612
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2613",
+                        number = 2613,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2613",
+                        value = MessageWithHugeOneof::oneof2613
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2614",
+                        number = 2614,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2614",
+                        value = MessageWithHugeOneof::oneof2614
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2615",
+                        number = 2615,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2615",
+                        value = MessageWithHugeOneof::oneof2615
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2616",
+                        number = 2616,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2616",
+                        value = MessageWithHugeOneof::oneof2616
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2617",
+                        number = 2617,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2617",
+                        value = MessageWithHugeOneof::oneof2617
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2618",
+                        number = 2618,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2618",
+                        value = MessageWithHugeOneof::oneof2618
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2619",
+                        number = 2619,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2619",
+                        value = MessageWithHugeOneof::oneof2619
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2620",
+                        number = 2620,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2620",
+                        value = MessageWithHugeOneof::oneof2620
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2621",
+                        number = 2621,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2621",
+                        value = MessageWithHugeOneof::oneof2621
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2622",
+                        number = 2622,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2622",
+                        value = MessageWithHugeOneof::oneof2622
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2623",
+                        number = 2623,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2623",
+                        value = MessageWithHugeOneof::oneof2623
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2624",
+                        number = 2624,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2624",
+                        value = MessageWithHugeOneof::oneof2624
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2625",
+                        number = 2625,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2625",
+                        value = MessageWithHugeOneof::oneof2625
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2626",
+                        number = 2626,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2626",
+                        value = MessageWithHugeOneof::oneof2626
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2627",
+                        number = 2627,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2627",
+                        value = MessageWithHugeOneof::oneof2627
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2628",
+                        number = 2628,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2628",
+                        value = MessageWithHugeOneof::oneof2628
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2629",
+                        number = 2629,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2629",
+                        value = MessageWithHugeOneof::oneof2629
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2630",
+                        number = 2630,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2630",
+                        value = MessageWithHugeOneof::oneof2630
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2631",
+                        number = 2631,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2631",
+                        value = MessageWithHugeOneof::oneof2631
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2632",
+                        number = 2632,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2632",
+                        value = MessageWithHugeOneof::oneof2632
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2633",
+                        number = 2633,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2633",
+                        value = MessageWithHugeOneof::oneof2633
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2634",
+                        number = 2634,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2634",
+                        value = MessageWithHugeOneof::oneof2634
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2635",
+                        number = 2635,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2635",
+                        value = MessageWithHugeOneof::oneof2635
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2636",
+                        number = 2636,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2636",
+                        value = MessageWithHugeOneof::oneof2636
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2637",
+                        number = 2637,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2637",
+                        value = MessageWithHugeOneof::oneof2637
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2638",
+                        number = 2638,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2638",
+                        value = MessageWithHugeOneof::oneof2638
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2639",
+                        number = 2639,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2639",
+                        value = MessageWithHugeOneof::oneof2639
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2640",
+                        number = 2640,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2640",
+                        value = MessageWithHugeOneof::oneof2640
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2641",
+                        number = 2641,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2641",
+                        value = MessageWithHugeOneof::oneof2641
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2642",
+                        number = 2642,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2642",
+                        value = MessageWithHugeOneof::oneof2642
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2643",
+                        number = 2643,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2643",
+                        value = MessageWithHugeOneof::oneof2643
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2644",
+                        number = 2644,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2644",
+                        value = MessageWithHugeOneof::oneof2644
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2645",
+                        number = 2645,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2645",
+                        value = MessageWithHugeOneof::oneof2645
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2646",
+                        number = 2646,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2646",
+                        value = MessageWithHugeOneof::oneof2646
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2647",
+                        number = 2647,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2647",
+                        value = MessageWithHugeOneof::oneof2647
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2648",
+                        number = 2648,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2648",
+                        value = MessageWithHugeOneof::oneof2648
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2649",
+                        number = 2649,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2649",
+                        value = MessageWithHugeOneof::oneof2649
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2650",
+                        number = 2650,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2650",
+                        value = MessageWithHugeOneof::oneof2650
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2651",
+                        number = 2651,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2651",
+                        value = MessageWithHugeOneof::oneof2651
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2652",
+                        number = 2652,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2652",
+                        value = MessageWithHugeOneof::oneof2652
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2653",
+                        number = 2653,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2653",
+                        value = MessageWithHugeOneof::oneof2653
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2654",
+                        number = 2654,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2654",
+                        value = MessageWithHugeOneof::oneof2654
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2655",
+                        number = 2655,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2655",
+                        value = MessageWithHugeOneof::oneof2655
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2656",
+                        number = 2656,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2656",
+                        value = MessageWithHugeOneof::oneof2656
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2657",
+                        number = 2657,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2657",
+                        value = MessageWithHugeOneof::oneof2657
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2658",
+                        number = 2658,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2658",
+                        value = MessageWithHugeOneof::oneof2658
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2659",
+                        number = 2659,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2659",
+                        value = MessageWithHugeOneof::oneof2659
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2660",
+                        number = 2660,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2660",
+                        value = MessageWithHugeOneof::oneof2660
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2661",
+                        number = 2661,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2661",
+                        value = MessageWithHugeOneof::oneof2661
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2662",
+                        number = 2662,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2662",
+                        value = MessageWithHugeOneof::oneof2662
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2663",
+                        number = 2663,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2663",
+                        value = MessageWithHugeOneof::oneof2663
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2664",
+                        number = 2664,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2664",
+                        value = MessageWithHugeOneof::oneof2664
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2665",
+                        number = 2665,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2665",
+                        value = MessageWithHugeOneof::oneof2665
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2666",
+                        number = 2666,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2666",
+                        value = MessageWithHugeOneof::oneof2666
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2667",
+                        number = 2667,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2667",
+                        value = MessageWithHugeOneof::oneof2667
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2668",
+                        number = 2668,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2668",
+                        value = MessageWithHugeOneof::oneof2668
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2669",
+                        number = 2669,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2669",
+                        value = MessageWithHugeOneof::oneof2669
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2670",
+                        number = 2670,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2670",
+                        value = MessageWithHugeOneof::oneof2670
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2671",
+                        number = 2671,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2671",
+                        value = MessageWithHugeOneof::oneof2671
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2672",
+                        number = 2672,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2672",
+                        value = MessageWithHugeOneof::oneof2672
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2673",
+                        number = 2673,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2673",
+                        value = MessageWithHugeOneof::oneof2673
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2674",
+                        number = 2674,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2674",
+                        value = MessageWithHugeOneof::oneof2674
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2675",
+                        number = 2675,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2675",
+                        value = MessageWithHugeOneof::oneof2675
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2676",
+                        number = 2676,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2676",
+                        value = MessageWithHugeOneof::oneof2676
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2677",
+                        number = 2677,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2677",
+                        value = MessageWithHugeOneof::oneof2677
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2678",
+                        number = 2678,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2678",
+                        value = MessageWithHugeOneof::oneof2678
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2679",
+                        number = 2679,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2679",
+                        value = MessageWithHugeOneof::oneof2679
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2680",
+                        number = 2680,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2680",
+                        value = MessageWithHugeOneof::oneof2680
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2681",
+                        number = 2681,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2681",
+                        value = MessageWithHugeOneof::oneof2681
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2682",
+                        number = 2682,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2682",
+                        value = MessageWithHugeOneof::oneof2682
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2683",
+                        number = 2683,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2683",
+                        value = MessageWithHugeOneof::oneof2683
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2684",
+                        number = 2684,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2684",
+                        value = MessageWithHugeOneof::oneof2684
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2685",
+                        number = 2685,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2685",
+                        value = MessageWithHugeOneof::oneof2685
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2686",
+                        number = 2686,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2686",
+                        value = MessageWithHugeOneof::oneof2686
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2687",
+                        number = 2687,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2687",
+                        value = MessageWithHugeOneof::oneof2687
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2688",
+                        number = 2688,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2688",
+                        value = MessageWithHugeOneof::oneof2688
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2689",
+                        number = 2689,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2689",
+                        value = MessageWithHugeOneof::oneof2689
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2690",
+                        number = 2690,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2690",
+                        value = MessageWithHugeOneof::oneof2690
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2691",
+                        number = 2691,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2691",
+                        value = MessageWithHugeOneof::oneof2691
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2692",
+                        number = 2692,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2692",
+                        value = MessageWithHugeOneof::oneof2692
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2693",
+                        number = 2693,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2693",
+                        value = MessageWithHugeOneof::oneof2693
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2694",
+                        number = 2694,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2694",
+                        value = MessageWithHugeOneof::oneof2694
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2695",
+                        number = 2695,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2695",
+                        value = MessageWithHugeOneof::oneof2695
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2696",
+                        number = 2696,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2696",
+                        value = MessageWithHugeOneof::oneof2696
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2697",
+                        number = 2697,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2697",
+                        value = MessageWithHugeOneof::oneof2697
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2698",
+                        number = 2698,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2698",
+                        value = MessageWithHugeOneof::oneof2698
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2699",
+                        number = 2699,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2699",
+                        value = MessageWithHugeOneof::oneof2699
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2700",
+                        number = 2700,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2700",
+                        value = MessageWithHugeOneof::oneof2700
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2701",
+                        number = 2701,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2701",
+                        value = MessageWithHugeOneof::oneof2701
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2702",
+                        number = 2702,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2702",
+                        value = MessageWithHugeOneof::oneof2702
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2703",
+                        number = 2703,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2703",
+                        value = MessageWithHugeOneof::oneof2703
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2704",
+                        number = 2704,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2704",
+                        value = MessageWithHugeOneof::oneof2704
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2705",
+                        number = 2705,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2705",
+                        value = MessageWithHugeOneof::oneof2705
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2706",
+                        number = 2706,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2706",
+                        value = MessageWithHugeOneof::oneof2706
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2707",
+                        number = 2707,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2707",
+                        value = MessageWithHugeOneof::oneof2707
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2708",
+                        number = 2708,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2708",
+                        value = MessageWithHugeOneof::oneof2708
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2709",
+                        number = 2709,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2709",
+                        value = MessageWithHugeOneof::oneof2709
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2710",
+                        number = 2710,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2710",
+                        value = MessageWithHugeOneof::oneof2710
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2711",
+                        number = 2711,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2711",
+                        value = MessageWithHugeOneof::oneof2711
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2712",
+                        number = 2712,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2712",
+                        value = MessageWithHugeOneof::oneof2712
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2713",
+                        number = 2713,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2713",
+                        value = MessageWithHugeOneof::oneof2713
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2714",
+                        number = 2714,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2714",
+                        value = MessageWithHugeOneof::oneof2714
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2715",
+                        number = 2715,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2715",
+                        value = MessageWithHugeOneof::oneof2715
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2716",
+                        number = 2716,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2716",
+                        value = MessageWithHugeOneof::oneof2716
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2717",
+                        number = 2717,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2717",
+                        value = MessageWithHugeOneof::oneof2717
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2718",
+                        number = 2718,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2718",
+                        value = MessageWithHugeOneof::oneof2718
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2719",
+                        number = 2719,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2719",
+                        value = MessageWithHugeOneof::oneof2719
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2720",
+                        number = 2720,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2720",
+                        value = MessageWithHugeOneof::oneof2720
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2721",
+                        number = 2721,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2721",
+                        value = MessageWithHugeOneof::oneof2721
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2722",
+                        number = 2722,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2722",
+                        value = MessageWithHugeOneof::oneof2722
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2723",
+                        number = 2723,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2723",
+                        value = MessageWithHugeOneof::oneof2723
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2724",
+                        number = 2724,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2724",
+                        value = MessageWithHugeOneof::oneof2724
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2725",
+                        number = 2725,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2725",
+                        value = MessageWithHugeOneof::oneof2725
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2726",
+                        number = 2726,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2726",
+                        value = MessageWithHugeOneof::oneof2726
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2727",
+                        number = 2727,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2727",
+                        value = MessageWithHugeOneof::oneof2727
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2728",
+                        number = 2728,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2728",
+                        value = MessageWithHugeOneof::oneof2728
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2729",
+                        number = 2729,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2729",
+                        value = MessageWithHugeOneof::oneof2729
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2730",
+                        number = 2730,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2730",
+                        value = MessageWithHugeOneof::oneof2730
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2731",
+                        number = 2731,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2731",
+                        value = MessageWithHugeOneof::oneof2731
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2732",
+                        number = 2732,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2732",
+                        value = MessageWithHugeOneof::oneof2732
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2733",
+                        number = 2733,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2733",
+                        value = MessageWithHugeOneof::oneof2733
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2734",
+                        number = 2734,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2734",
+                        value = MessageWithHugeOneof::oneof2734
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2735",
+                        number = 2735,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2735",
+                        value = MessageWithHugeOneof::oneof2735
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2736",
+                        number = 2736,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2736",
+                        value = MessageWithHugeOneof::oneof2736
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2737",
+                        number = 2737,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2737",
+                        value = MessageWithHugeOneof::oneof2737
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2738",
+                        number = 2738,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2738",
+                        value = MessageWithHugeOneof::oneof2738
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2739",
+                        number = 2739,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2739",
+                        value = MessageWithHugeOneof::oneof2739
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2740",
+                        number = 2740,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2740",
+                        value = MessageWithHugeOneof::oneof2740
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2741",
+                        number = 2741,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2741",
+                        value = MessageWithHugeOneof::oneof2741
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2742",
+                        number = 2742,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2742",
+                        value = MessageWithHugeOneof::oneof2742
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2743",
+                        number = 2743,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2743",
+                        value = MessageWithHugeOneof::oneof2743
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2744",
+                        number = 2744,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2744",
+                        value = MessageWithHugeOneof::oneof2744
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2745",
+                        number = 2745,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2745",
+                        value = MessageWithHugeOneof::oneof2745
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2746",
+                        number = 2746,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2746",
+                        value = MessageWithHugeOneof::oneof2746
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2747",
+                        number = 2747,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2747",
+                        value = MessageWithHugeOneof::oneof2747
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2748",
+                        number = 2748,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2748",
+                        value = MessageWithHugeOneof::oneof2748
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2749",
+                        number = 2749,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2749",
+                        value = MessageWithHugeOneof::oneof2749
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2750",
+                        number = 2750,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2750",
+                        value = MessageWithHugeOneof::oneof2750
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2751",
+                        number = 2751,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2751",
+                        value = MessageWithHugeOneof::oneof2751
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2752",
+                        number = 2752,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2752",
+                        value = MessageWithHugeOneof::oneof2752
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2753",
+                        number = 2753,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2753",
+                        value = MessageWithHugeOneof::oneof2753
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2754",
+                        number = 2754,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2754",
+                        value = MessageWithHugeOneof::oneof2754
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2755",
+                        number = 2755,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2755",
+                        value = MessageWithHugeOneof::oneof2755
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2756",
+                        number = 2756,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2756",
+                        value = MessageWithHugeOneof::oneof2756
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2757",
+                        number = 2757,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2757",
+                        value = MessageWithHugeOneof::oneof2757
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2758",
+                        number = 2758,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2758",
+                        value = MessageWithHugeOneof::oneof2758
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2759",
+                        number = 2759,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2759",
+                        value = MessageWithHugeOneof::oneof2759
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2760",
+                        number = 2760,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2760",
+                        value = MessageWithHugeOneof::oneof2760
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2761",
+                        number = 2761,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2761",
+                        value = MessageWithHugeOneof::oneof2761
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2762",
+                        number = 2762,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2762",
+                        value = MessageWithHugeOneof::oneof2762
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2763",
+                        number = 2763,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2763",
+                        value = MessageWithHugeOneof::oneof2763
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2764",
+                        number = 2764,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2764",
+                        value = MessageWithHugeOneof::oneof2764
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2765",
+                        number = 2765,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2765",
+                        value = MessageWithHugeOneof::oneof2765
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2766",
+                        number = 2766,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2766",
+                        value = MessageWithHugeOneof::oneof2766
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2767",
+                        number = 2767,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2767",
+                        value = MessageWithHugeOneof::oneof2767
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2768",
+                        number = 2768,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2768",
+                        value = MessageWithHugeOneof::oneof2768
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2769",
+                        number = 2769,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2769",
+                        value = MessageWithHugeOneof::oneof2769
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2770",
+                        number = 2770,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2770",
+                        value = MessageWithHugeOneof::oneof2770
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2771",
+                        number = 2771,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2771",
+                        value = MessageWithHugeOneof::oneof2771
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2772",
+                        number = 2772,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2772",
+                        value = MessageWithHugeOneof::oneof2772
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2773",
+                        number = 2773,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2773",
+                        value = MessageWithHugeOneof::oneof2773
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2774",
+                        number = 2774,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2774",
+                        value = MessageWithHugeOneof::oneof2774
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2775",
+                        number = 2775,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2775",
+                        value = MessageWithHugeOneof::oneof2775
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2776",
+                        number = 2776,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2776",
+                        value = MessageWithHugeOneof::oneof2776
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2777",
+                        number = 2777,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2777",
+                        value = MessageWithHugeOneof::oneof2777
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2778",
+                        number = 2778,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2778",
+                        value = MessageWithHugeOneof::oneof2778
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2779",
+                        number = 2779,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2779",
+                        value = MessageWithHugeOneof::oneof2779
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2780",
+                        number = 2780,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2780",
+                        value = MessageWithHugeOneof::oneof2780
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2781",
+                        number = 2781,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2781",
+                        value = MessageWithHugeOneof::oneof2781
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2782",
+                        number = 2782,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2782",
+                        value = MessageWithHugeOneof::oneof2782
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2783",
+                        number = 2783,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2783",
+                        value = MessageWithHugeOneof::oneof2783
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2784",
+                        number = 2784,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2784",
+                        value = MessageWithHugeOneof::oneof2784
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2785",
+                        number = 2785,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2785",
+                        value = MessageWithHugeOneof::oneof2785
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2786",
+                        number = 2786,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2786",
+                        value = MessageWithHugeOneof::oneof2786
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2787",
+                        number = 2787,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2787",
+                        value = MessageWithHugeOneof::oneof2787
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2788",
+                        number = 2788,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2788",
+                        value = MessageWithHugeOneof::oneof2788
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2789",
+                        number = 2789,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2789",
+                        value = MessageWithHugeOneof::oneof2789
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2790",
+                        number = 2790,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2790",
+                        value = MessageWithHugeOneof::oneof2790
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2791",
+                        number = 2791,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2791",
+                        value = MessageWithHugeOneof::oneof2791
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2792",
+                        number = 2792,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2792",
+                        value = MessageWithHugeOneof::oneof2792
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2793",
+                        number = 2793,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2793",
+                        value = MessageWithHugeOneof::oneof2793
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2794",
+                        number = 2794,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2794",
+                        value = MessageWithHugeOneof::oneof2794
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2795",
+                        number = 2795,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2795",
+                        value = MessageWithHugeOneof::oneof2795
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2796",
+                        number = 2796,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2796",
+                        value = MessageWithHugeOneof::oneof2796
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2797",
+                        number = 2797,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2797",
+                        value = MessageWithHugeOneof::oneof2797
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2798",
+                        number = 2798,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2798",
+                        value = MessageWithHugeOneof::oneof2798
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2799",
+                        number = 2799,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2799",
+                        value = MessageWithHugeOneof::oneof2799
+                    )
+                )
+            }
+        }
+        fun addFields9(fieldsList: ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>) {
+            fieldsList.apply {
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2800",
+                        number = 2800,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2800",
+                        value = MessageWithHugeOneof::oneof2800
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2801",
+                        number = 2801,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2801",
+                        value = MessageWithHugeOneof::oneof2801
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2802",
+                        number = 2802,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2802",
+                        value = MessageWithHugeOneof::oneof2802
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2803",
+                        number = 2803,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2803",
+                        value = MessageWithHugeOneof::oneof2803
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2804",
+                        number = 2804,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2804",
+                        value = MessageWithHugeOneof::oneof2804
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2805",
+                        number = 2805,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2805",
+                        value = MessageWithHugeOneof::oneof2805
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2806",
+                        number = 2806,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2806",
+                        value = MessageWithHugeOneof::oneof2806
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2807",
+                        number = 2807,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2807",
+                        value = MessageWithHugeOneof::oneof2807
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2808",
+                        number = 2808,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2808",
+                        value = MessageWithHugeOneof::oneof2808
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2809",
+                        number = 2809,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2809",
+                        value = MessageWithHugeOneof::oneof2809
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2810",
+                        number = 2810,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2810",
+                        value = MessageWithHugeOneof::oneof2810
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2811",
+                        number = 2811,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2811",
+                        value = MessageWithHugeOneof::oneof2811
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2812",
+                        number = 2812,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2812",
+                        value = MessageWithHugeOneof::oneof2812
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2813",
+                        number = 2813,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2813",
+                        value = MessageWithHugeOneof::oneof2813
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2814",
+                        number = 2814,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2814",
+                        value = MessageWithHugeOneof::oneof2814
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2815",
+                        number = 2815,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2815",
+                        value = MessageWithHugeOneof::oneof2815
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2816",
+                        number = 2816,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2816",
+                        value = MessageWithHugeOneof::oneof2816
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2817",
+                        number = 2817,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2817",
+                        value = MessageWithHugeOneof::oneof2817
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2818",
+                        number = 2818,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2818",
+                        value = MessageWithHugeOneof::oneof2818
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2819",
+                        number = 2819,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2819",
+                        value = MessageWithHugeOneof::oneof2819
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2820",
+                        number = 2820,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2820",
+                        value = MessageWithHugeOneof::oneof2820
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2821",
+                        number = 2821,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2821",
+                        value = MessageWithHugeOneof::oneof2821
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2822",
+                        number = 2822,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2822",
+                        value = MessageWithHugeOneof::oneof2822
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2823",
+                        number = 2823,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2823",
+                        value = MessageWithHugeOneof::oneof2823
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2824",
+                        number = 2824,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2824",
+                        value = MessageWithHugeOneof::oneof2824
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2825",
+                        number = 2825,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2825",
+                        value = MessageWithHugeOneof::oneof2825
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2826",
+                        number = 2826,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2826",
+                        value = MessageWithHugeOneof::oneof2826
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2827",
+                        number = 2827,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2827",
+                        value = MessageWithHugeOneof::oneof2827
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2828",
+                        number = 2828,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2828",
+                        value = MessageWithHugeOneof::oneof2828
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2829",
+                        number = 2829,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2829",
+                        value = MessageWithHugeOneof::oneof2829
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2830",
+                        number = 2830,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2830",
+                        value = MessageWithHugeOneof::oneof2830
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2831",
+                        number = 2831,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2831",
+                        value = MessageWithHugeOneof::oneof2831
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2832",
+                        number = 2832,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2832",
+                        value = MessageWithHugeOneof::oneof2832
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2833",
+                        number = 2833,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2833",
+                        value = MessageWithHugeOneof::oneof2833
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2834",
+                        number = 2834,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2834",
+                        value = MessageWithHugeOneof::oneof2834
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2835",
+                        number = 2835,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2835",
+                        value = MessageWithHugeOneof::oneof2835
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2836",
+                        number = 2836,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2836",
+                        value = MessageWithHugeOneof::oneof2836
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2837",
+                        number = 2837,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2837",
+                        value = MessageWithHugeOneof::oneof2837
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2838",
+                        number = 2838,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2838",
+                        value = MessageWithHugeOneof::oneof2838
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2839",
+                        number = 2839,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2839",
+                        value = MessageWithHugeOneof::oneof2839
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2840",
+                        number = 2840,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2840",
+                        value = MessageWithHugeOneof::oneof2840
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2841",
+                        number = 2841,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2841",
+                        value = MessageWithHugeOneof::oneof2841
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2842",
+                        number = 2842,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2842",
+                        value = MessageWithHugeOneof::oneof2842
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2843",
+                        number = 2843,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2843",
+                        value = MessageWithHugeOneof::oneof2843
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2844",
+                        number = 2844,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2844",
+                        value = MessageWithHugeOneof::oneof2844
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2845",
+                        number = 2845,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2845",
+                        value = MessageWithHugeOneof::oneof2845
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2846",
+                        number = 2846,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2846",
+                        value = MessageWithHugeOneof::oneof2846
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2847",
+                        number = 2847,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2847",
+                        value = MessageWithHugeOneof::oneof2847
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2848",
+                        number = 2848,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2848",
+                        value = MessageWithHugeOneof::oneof2848
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2849",
+                        number = 2849,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2849",
+                        value = MessageWithHugeOneof::oneof2849
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2850",
+                        number = 2850,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2850",
+                        value = MessageWithHugeOneof::oneof2850
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2851",
+                        number = 2851,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2851",
+                        value = MessageWithHugeOneof::oneof2851
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2852",
+                        number = 2852,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2852",
+                        value = MessageWithHugeOneof::oneof2852
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2853",
+                        number = 2853,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2853",
+                        value = MessageWithHugeOneof::oneof2853
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2854",
+                        number = 2854,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2854",
+                        value = MessageWithHugeOneof::oneof2854
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2855",
+                        number = 2855,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2855",
+                        value = MessageWithHugeOneof::oneof2855
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2856",
+                        number = 2856,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2856",
+                        value = MessageWithHugeOneof::oneof2856
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2857",
+                        number = 2857,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2857",
+                        value = MessageWithHugeOneof::oneof2857
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2858",
+                        number = 2858,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2858",
+                        value = MessageWithHugeOneof::oneof2858
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2859",
+                        number = 2859,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2859",
+                        value = MessageWithHugeOneof::oneof2859
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2860",
+                        number = 2860,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2860",
+                        value = MessageWithHugeOneof::oneof2860
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2861",
+                        number = 2861,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2861",
+                        value = MessageWithHugeOneof::oneof2861
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2862",
+                        number = 2862,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2862",
+                        value = MessageWithHugeOneof::oneof2862
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2863",
+                        number = 2863,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2863",
+                        value = MessageWithHugeOneof::oneof2863
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2864",
+                        number = 2864,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2864",
+                        value = MessageWithHugeOneof::oneof2864
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2865",
+                        number = 2865,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2865",
+                        value = MessageWithHugeOneof::oneof2865
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2866",
+                        number = 2866,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2866",
+                        value = MessageWithHugeOneof::oneof2866
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2867",
+                        number = 2867,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2867",
+                        value = MessageWithHugeOneof::oneof2867
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2868",
+                        number = 2868,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2868",
+                        value = MessageWithHugeOneof::oneof2868
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2869",
+                        number = 2869,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2869",
+                        value = MessageWithHugeOneof::oneof2869
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2870",
+                        number = 2870,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2870",
+                        value = MessageWithHugeOneof::oneof2870
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2871",
+                        number = 2871,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2871",
+                        value = MessageWithHugeOneof::oneof2871
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2872",
+                        number = 2872,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2872",
+                        value = MessageWithHugeOneof::oneof2872
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2873",
+                        number = 2873,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2873",
+                        value = MessageWithHugeOneof::oneof2873
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2874",
+                        number = 2874,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2874",
+                        value = MessageWithHugeOneof::oneof2874
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2875",
+                        number = 2875,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2875",
+                        value = MessageWithHugeOneof::oneof2875
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2876",
+                        number = 2876,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2876",
+                        value = MessageWithHugeOneof::oneof2876
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2877",
+                        number = 2877,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2877",
+                        value = MessageWithHugeOneof::oneof2877
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2878",
+                        number = 2878,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2878",
+                        value = MessageWithHugeOneof::oneof2878
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2879",
+                        number = 2879,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2879",
+                        value = MessageWithHugeOneof::oneof2879
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2880",
+                        number = 2880,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2880",
+                        value = MessageWithHugeOneof::oneof2880
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2881",
+                        number = 2881,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2881",
+                        value = MessageWithHugeOneof::oneof2881
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2882",
+                        number = 2882,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2882",
+                        value = MessageWithHugeOneof::oneof2882
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2883",
+                        number = 2883,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2883",
+                        value = MessageWithHugeOneof::oneof2883
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2884",
+                        number = 2884,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2884",
+                        value = MessageWithHugeOneof::oneof2884
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2885",
+                        number = 2885,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2885",
+                        value = MessageWithHugeOneof::oneof2885
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2886",
+                        number = 2886,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2886",
+                        value = MessageWithHugeOneof::oneof2886
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2887",
+                        number = 2887,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2887",
+                        value = MessageWithHugeOneof::oneof2887
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2888",
+                        number = 2888,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2888",
+                        value = MessageWithHugeOneof::oneof2888
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2889",
+                        number = 2889,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2889",
+                        value = MessageWithHugeOneof::oneof2889
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2890",
+                        number = 2890,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2890",
+                        value = MessageWithHugeOneof::oneof2890
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2891",
+                        number = 2891,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2891",
+                        value = MessageWithHugeOneof::oneof2891
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2892",
+                        number = 2892,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2892",
+                        value = MessageWithHugeOneof::oneof2892
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2893",
+                        number = 2893,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2893",
+                        value = MessageWithHugeOneof::oneof2893
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2894",
+                        number = 2894,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2894",
+                        value = MessageWithHugeOneof::oneof2894
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2895",
+                        number = 2895,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2895",
+                        value = MessageWithHugeOneof::oneof2895
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2896",
+                        number = 2896,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2896",
+                        value = MessageWithHugeOneof::oneof2896
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2897",
+                        number = 2897,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2897",
+                        value = MessageWithHugeOneof::oneof2897
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2898",
+                        number = 2898,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2898",
+                        value = MessageWithHugeOneof::oneof2898
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2899",
+                        number = 2899,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2899",
+                        value = MessageWithHugeOneof::oneof2899
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2900",
+                        number = 2900,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2900",
+                        value = MessageWithHugeOneof::oneof2900
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2901",
+                        number = 2901,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2901",
+                        value = MessageWithHugeOneof::oneof2901
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2902",
+                        number = 2902,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2902",
+                        value = MessageWithHugeOneof::oneof2902
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2903",
+                        number = 2903,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2903",
+                        value = MessageWithHugeOneof::oneof2903
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2904",
+                        number = 2904,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2904",
+                        value = MessageWithHugeOneof::oneof2904
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2905",
+                        number = 2905,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2905",
+                        value = MessageWithHugeOneof::oneof2905
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2906",
+                        number = 2906,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2906",
+                        value = MessageWithHugeOneof::oneof2906
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2907",
+                        number = 2907,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2907",
+                        value = MessageWithHugeOneof::oneof2907
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2908",
+                        number = 2908,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2908",
+                        value = MessageWithHugeOneof::oneof2908
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2909",
+                        number = 2909,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2909",
+                        value = MessageWithHugeOneof::oneof2909
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2910",
+                        number = 2910,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2910",
+                        value = MessageWithHugeOneof::oneof2910
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2911",
+                        number = 2911,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2911",
+                        value = MessageWithHugeOneof::oneof2911
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2912",
+                        number = 2912,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2912",
+                        value = MessageWithHugeOneof::oneof2912
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2913",
+                        number = 2913,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2913",
+                        value = MessageWithHugeOneof::oneof2913
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2914",
+                        number = 2914,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2914",
+                        value = MessageWithHugeOneof::oneof2914
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2915",
+                        number = 2915,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2915",
+                        value = MessageWithHugeOneof::oneof2915
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2916",
+                        number = 2916,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2916",
+                        value = MessageWithHugeOneof::oneof2916
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2917",
+                        number = 2917,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2917",
+                        value = MessageWithHugeOneof::oneof2917
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2918",
+                        number = 2918,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2918",
+                        value = MessageWithHugeOneof::oneof2918
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2919",
+                        number = 2919,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2919",
+                        value = MessageWithHugeOneof::oneof2919
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2920",
+                        number = 2920,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2920",
+                        value = MessageWithHugeOneof::oneof2920
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2921",
+                        number = 2921,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2921",
+                        value = MessageWithHugeOneof::oneof2921
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2922",
+                        number = 2922,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2922",
+                        value = MessageWithHugeOneof::oneof2922
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2923",
+                        number = 2923,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2923",
+                        value = MessageWithHugeOneof::oneof2923
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2924",
+                        number = 2924,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2924",
+                        value = MessageWithHugeOneof::oneof2924
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2925",
+                        number = 2925,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2925",
+                        value = MessageWithHugeOneof::oneof2925
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2926",
+                        number = 2926,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2926",
+                        value = MessageWithHugeOneof::oneof2926
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2927",
+                        number = 2927,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2927",
+                        value = MessageWithHugeOneof::oneof2927
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2928",
+                        number = 2928,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2928",
+                        value = MessageWithHugeOneof::oneof2928
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2929",
+                        number = 2929,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2929",
+                        value = MessageWithHugeOneof::oneof2929
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2930",
+                        number = 2930,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2930",
+                        value = MessageWithHugeOneof::oneof2930
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2931",
+                        number = 2931,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2931",
+                        value = MessageWithHugeOneof::oneof2931
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2932",
+                        number = 2932,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2932",
+                        value = MessageWithHugeOneof::oneof2932
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2933",
+                        number = 2933,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2933",
+                        value = MessageWithHugeOneof::oneof2933
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2934",
+                        number = 2934,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2934",
+                        value = MessageWithHugeOneof::oneof2934
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2935",
+                        number = 2935,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2935",
+                        value = MessageWithHugeOneof::oneof2935
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2936",
+                        number = 2936,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2936",
+                        value = MessageWithHugeOneof::oneof2936
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2937",
+                        number = 2937,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2937",
+                        value = MessageWithHugeOneof::oneof2937
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2938",
+                        number = 2938,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2938",
+                        value = MessageWithHugeOneof::oneof2938
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2939",
+                        number = 2939,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2939",
+                        value = MessageWithHugeOneof::oneof2939
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2940",
+                        number = 2940,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2940",
+                        value = MessageWithHugeOneof::oneof2940
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2941",
+                        number = 2941,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2941",
+                        value = MessageWithHugeOneof::oneof2941
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2942",
+                        number = 2942,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2942",
+                        value = MessageWithHugeOneof::oneof2942
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2943",
+                        number = 2943,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2943",
+                        value = MessageWithHugeOneof::oneof2943
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2944",
+                        number = 2944,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2944",
+                        value = MessageWithHugeOneof::oneof2944
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2945",
+                        number = 2945,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2945",
+                        value = MessageWithHugeOneof::oneof2945
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2946",
+                        number = 2946,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2946",
+                        value = MessageWithHugeOneof::oneof2946
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2947",
+                        number = 2947,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2947",
+                        value = MessageWithHugeOneof::oneof2947
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2948",
+                        number = 2948,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2948",
+                        value = MessageWithHugeOneof::oneof2948
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2949",
+                        number = 2949,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2949",
+                        value = MessageWithHugeOneof::oneof2949
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2950",
+                        number = 2950,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2950",
+                        value = MessageWithHugeOneof::oneof2950
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2951",
+                        number = 2951,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2951",
+                        value = MessageWithHugeOneof::oneof2951
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2952",
+                        number = 2952,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2952",
+                        value = MessageWithHugeOneof::oneof2952
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2953",
+                        number = 2953,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2953",
+                        value = MessageWithHugeOneof::oneof2953
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2954",
+                        number = 2954,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2954",
+                        value = MessageWithHugeOneof::oneof2954
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2955",
+                        number = 2955,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2955",
+                        value = MessageWithHugeOneof::oneof2955
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2956",
+                        number = 2956,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2956",
+                        value = MessageWithHugeOneof::oneof2956
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2957",
+                        number = 2957,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2957",
+                        value = MessageWithHugeOneof::oneof2957
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2958",
+                        number = 2958,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2958",
+                        value = MessageWithHugeOneof::oneof2958
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2959",
+                        number = 2959,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2959",
+                        value = MessageWithHugeOneof::oneof2959
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2960",
+                        number = 2960,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2960",
+                        value = MessageWithHugeOneof::oneof2960
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2961",
+                        number = 2961,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2961",
+                        value = MessageWithHugeOneof::oneof2961
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2962",
+                        number = 2962,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2962",
+                        value = MessageWithHugeOneof::oneof2962
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2963",
+                        number = 2963,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2963",
+                        value = MessageWithHugeOneof::oneof2963
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2964",
+                        number = 2964,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2964",
+                        value = MessageWithHugeOneof::oneof2964
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2965",
+                        number = 2965,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2965",
+                        value = MessageWithHugeOneof::oneof2965
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2966",
+                        number = 2966,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2966",
+                        value = MessageWithHugeOneof::oneof2966
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2967",
+                        number = 2967,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2967",
+                        value = MessageWithHugeOneof::oneof2967
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2968",
+                        number = 2968,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2968",
+                        value = MessageWithHugeOneof::oneof2968
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2969",
+                        number = 2969,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2969",
+                        value = MessageWithHugeOneof::oneof2969
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2970",
+                        number = 2970,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2970",
+                        value = MessageWithHugeOneof::oneof2970
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2971",
+                        number = 2971,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2971",
+                        value = MessageWithHugeOneof::oneof2971
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2972",
+                        number = 2972,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2972",
+                        value = MessageWithHugeOneof::oneof2972
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2973",
+                        number = 2973,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2973",
+                        value = MessageWithHugeOneof::oneof2973
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2974",
+                        number = 2974,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2974",
+                        value = MessageWithHugeOneof::oneof2974
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2975",
+                        number = 2975,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2975",
+                        value = MessageWithHugeOneof::oneof2975
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2976",
+                        number = 2976,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2976",
+                        value = MessageWithHugeOneof::oneof2976
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2977",
+                        number = 2977,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2977",
+                        value = MessageWithHugeOneof::oneof2977
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2978",
+                        number = 2978,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2978",
+                        value = MessageWithHugeOneof::oneof2978
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2979",
+                        number = 2979,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2979",
+                        value = MessageWithHugeOneof::oneof2979
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2980",
+                        number = 2980,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2980",
+                        value = MessageWithHugeOneof::oneof2980
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2981",
+                        number = 2981,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2981",
+                        value = MessageWithHugeOneof::oneof2981
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2982",
+                        number = 2982,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2982",
+                        value = MessageWithHugeOneof::oneof2982
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2983",
+                        number = 2983,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2983",
+                        value = MessageWithHugeOneof::oneof2983
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2984",
+                        number = 2984,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2984",
+                        value = MessageWithHugeOneof::oneof2984
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2985",
+                        number = 2985,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2985",
+                        value = MessageWithHugeOneof::oneof2985
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2986",
+                        number = 2986,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2986",
+                        value = MessageWithHugeOneof::oneof2986
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2987",
+                        number = 2987,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2987",
+                        value = MessageWithHugeOneof::oneof2987
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2988",
+                        number = 2988,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2988",
+                        value = MessageWithHugeOneof::oneof2988
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2989",
+                        number = 2989,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2989",
+                        value = MessageWithHugeOneof::oneof2989
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2990",
+                        number = 2990,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2990",
+                        value = MessageWithHugeOneof::oneof2990
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2991",
+                        number = 2991,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2991",
+                        value = MessageWithHugeOneof::oneof2991
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2992",
+                        number = 2992,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2992",
+                        value = MessageWithHugeOneof::oneof2992
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2993",
+                        number = 2993,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2993",
+                        value = MessageWithHugeOneof::oneof2993
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2994",
+                        number = 2994,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2994",
+                        value = MessageWithHugeOneof::oneof2994
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2995",
+                        number = 2995,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2995",
+                        value = MessageWithHugeOneof::oneof2995
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2996",
+                        number = 2996,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2996",
+                        value = MessageWithHugeOneof::oneof2996
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2997",
+                        number = 2997,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2997",
+                        value = MessageWithHugeOneof::oneof2997
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2998",
+                        number = 2998,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2998",
+                        value = MessageWithHugeOneof::oneof2998
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "oneof_2999",
+                        number = 2999,
+                        type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
+                        oneofMember = true,
+                        jsonName = "oneof2999",
+                        value = MessageWithHugeOneof::oneof2999
+                    )
+                )
+            }
         }
     }
 }
 
 fun MessageWithHugeOneof?.orDefault() = this ?: MessageWithHugeOneof.defaultInstance
 
-private fun MessageWithHugeOneof.protoMergeImpl(plus: pbandk.Message?): MessageWithHugeOneof = (plus as? MessageWithHugeOneof)?.copy(
-    hugeOneof = plus.hugeOneof ?: hugeOneof,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun MessageWithHugeOneof.protoMergeImpl(plus: pbandk.Message?): MessageWithHugeOneof = (plus as? MessageWithHugeOneof)?.let {
+    it.copy(
+        hugeOneof = plus.hugeOneof ?: hugeOneof,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun MessageWithHugeOneof.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithHugeOneof {
@@ -16057,6 +30108,1006 @@ private fun MessageWithHugeOneof.Companion.decodeWithImpl(u: pbandk.MessageDecod
             1997 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof1997(_fieldValue as Int)
             1998 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof1998(_fieldValue as Int)
             1999 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof1999(_fieldValue as Int)
+            2000 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2000(_fieldValue as Int)
+            2001 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2001(_fieldValue as Int)
+            2002 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2002(_fieldValue as Int)
+            2003 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2003(_fieldValue as Int)
+            2004 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2004(_fieldValue as Int)
+            2005 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2005(_fieldValue as Int)
+            2006 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2006(_fieldValue as Int)
+            2007 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2007(_fieldValue as Int)
+            2008 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2008(_fieldValue as Int)
+            2009 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2009(_fieldValue as Int)
+            2010 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2010(_fieldValue as Int)
+            2011 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2011(_fieldValue as Int)
+            2012 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2012(_fieldValue as Int)
+            2013 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2013(_fieldValue as Int)
+            2014 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2014(_fieldValue as Int)
+            2015 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2015(_fieldValue as Int)
+            2016 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2016(_fieldValue as Int)
+            2017 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2017(_fieldValue as Int)
+            2018 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2018(_fieldValue as Int)
+            2019 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2019(_fieldValue as Int)
+            2020 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2020(_fieldValue as Int)
+            2021 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2021(_fieldValue as Int)
+            2022 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2022(_fieldValue as Int)
+            2023 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2023(_fieldValue as Int)
+            2024 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2024(_fieldValue as Int)
+            2025 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2025(_fieldValue as Int)
+            2026 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2026(_fieldValue as Int)
+            2027 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2027(_fieldValue as Int)
+            2028 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2028(_fieldValue as Int)
+            2029 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2029(_fieldValue as Int)
+            2030 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2030(_fieldValue as Int)
+            2031 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2031(_fieldValue as Int)
+            2032 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2032(_fieldValue as Int)
+            2033 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2033(_fieldValue as Int)
+            2034 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2034(_fieldValue as Int)
+            2035 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2035(_fieldValue as Int)
+            2036 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2036(_fieldValue as Int)
+            2037 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2037(_fieldValue as Int)
+            2038 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2038(_fieldValue as Int)
+            2039 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2039(_fieldValue as Int)
+            2040 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2040(_fieldValue as Int)
+            2041 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2041(_fieldValue as Int)
+            2042 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2042(_fieldValue as Int)
+            2043 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2043(_fieldValue as Int)
+            2044 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2044(_fieldValue as Int)
+            2045 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2045(_fieldValue as Int)
+            2046 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2046(_fieldValue as Int)
+            2047 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2047(_fieldValue as Int)
+            2048 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2048(_fieldValue as Int)
+            2049 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2049(_fieldValue as Int)
+            2050 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2050(_fieldValue as Int)
+            2051 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2051(_fieldValue as Int)
+            2052 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2052(_fieldValue as Int)
+            2053 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2053(_fieldValue as Int)
+            2054 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2054(_fieldValue as Int)
+            2055 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2055(_fieldValue as Int)
+            2056 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2056(_fieldValue as Int)
+            2057 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2057(_fieldValue as Int)
+            2058 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2058(_fieldValue as Int)
+            2059 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2059(_fieldValue as Int)
+            2060 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2060(_fieldValue as Int)
+            2061 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2061(_fieldValue as Int)
+            2062 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2062(_fieldValue as Int)
+            2063 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2063(_fieldValue as Int)
+            2064 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2064(_fieldValue as Int)
+            2065 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2065(_fieldValue as Int)
+            2066 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2066(_fieldValue as Int)
+            2067 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2067(_fieldValue as Int)
+            2068 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2068(_fieldValue as Int)
+            2069 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2069(_fieldValue as Int)
+            2070 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2070(_fieldValue as Int)
+            2071 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2071(_fieldValue as Int)
+            2072 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2072(_fieldValue as Int)
+            2073 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2073(_fieldValue as Int)
+            2074 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2074(_fieldValue as Int)
+            2075 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2075(_fieldValue as Int)
+            2076 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2076(_fieldValue as Int)
+            2077 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2077(_fieldValue as Int)
+            2078 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2078(_fieldValue as Int)
+            2079 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2079(_fieldValue as Int)
+            2080 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2080(_fieldValue as Int)
+            2081 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2081(_fieldValue as Int)
+            2082 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2082(_fieldValue as Int)
+            2083 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2083(_fieldValue as Int)
+            2084 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2084(_fieldValue as Int)
+            2085 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2085(_fieldValue as Int)
+            2086 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2086(_fieldValue as Int)
+            2087 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2087(_fieldValue as Int)
+            2088 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2088(_fieldValue as Int)
+            2089 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2089(_fieldValue as Int)
+            2090 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2090(_fieldValue as Int)
+            2091 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2091(_fieldValue as Int)
+            2092 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2092(_fieldValue as Int)
+            2093 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2093(_fieldValue as Int)
+            2094 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2094(_fieldValue as Int)
+            2095 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2095(_fieldValue as Int)
+            2096 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2096(_fieldValue as Int)
+            2097 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2097(_fieldValue as Int)
+            2098 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2098(_fieldValue as Int)
+            2099 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2099(_fieldValue as Int)
+            2100 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2100(_fieldValue as Int)
+            2101 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2101(_fieldValue as Int)
+            2102 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2102(_fieldValue as Int)
+            2103 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2103(_fieldValue as Int)
+            2104 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2104(_fieldValue as Int)
+            2105 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2105(_fieldValue as Int)
+            2106 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2106(_fieldValue as Int)
+            2107 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2107(_fieldValue as Int)
+            2108 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2108(_fieldValue as Int)
+            2109 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2109(_fieldValue as Int)
+            2110 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2110(_fieldValue as Int)
+            2111 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2111(_fieldValue as Int)
+            2112 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2112(_fieldValue as Int)
+            2113 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2113(_fieldValue as Int)
+            2114 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2114(_fieldValue as Int)
+            2115 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2115(_fieldValue as Int)
+            2116 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2116(_fieldValue as Int)
+            2117 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2117(_fieldValue as Int)
+            2118 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2118(_fieldValue as Int)
+            2119 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2119(_fieldValue as Int)
+            2120 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2120(_fieldValue as Int)
+            2121 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2121(_fieldValue as Int)
+            2122 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2122(_fieldValue as Int)
+            2123 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2123(_fieldValue as Int)
+            2124 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2124(_fieldValue as Int)
+            2125 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2125(_fieldValue as Int)
+            2126 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2126(_fieldValue as Int)
+            2127 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2127(_fieldValue as Int)
+            2128 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2128(_fieldValue as Int)
+            2129 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2129(_fieldValue as Int)
+            2130 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2130(_fieldValue as Int)
+            2131 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2131(_fieldValue as Int)
+            2132 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2132(_fieldValue as Int)
+            2133 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2133(_fieldValue as Int)
+            2134 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2134(_fieldValue as Int)
+            2135 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2135(_fieldValue as Int)
+            2136 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2136(_fieldValue as Int)
+            2137 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2137(_fieldValue as Int)
+            2138 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2138(_fieldValue as Int)
+            2139 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2139(_fieldValue as Int)
+            2140 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2140(_fieldValue as Int)
+            2141 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2141(_fieldValue as Int)
+            2142 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2142(_fieldValue as Int)
+            2143 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2143(_fieldValue as Int)
+            2144 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2144(_fieldValue as Int)
+            2145 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2145(_fieldValue as Int)
+            2146 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2146(_fieldValue as Int)
+            2147 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2147(_fieldValue as Int)
+            2148 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2148(_fieldValue as Int)
+            2149 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2149(_fieldValue as Int)
+            2150 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2150(_fieldValue as Int)
+            2151 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2151(_fieldValue as Int)
+            2152 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2152(_fieldValue as Int)
+            2153 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2153(_fieldValue as Int)
+            2154 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2154(_fieldValue as Int)
+            2155 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2155(_fieldValue as Int)
+            2156 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2156(_fieldValue as Int)
+            2157 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2157(_fieldValue as Int)
+            2158 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2158(_fieldValue as Int)
+            2159 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2159(_fieldValue as Int)
+            2160 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2160(_fieldValue as Int)
+            2161 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2161(_fieldValue as Int)
+            2162 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2162(_fieldValue as Int)
+            2163 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2163(_fieldValue as Int)
+            2164 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2164(_fieldValue as Int)
+            2165 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2165(_fieldValue as Int)
+            2166 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2166(_fieldValue as Int)
+            2167 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2167(_fieldValue as Int)
+            2168 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2168(_fieldValue as Int)
+            2169 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2169(_fieldValue as Int)
+            2170 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2170(_fieldValue as Int)
+            2171 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2171(_fieldValue as Int)
+            2172 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2172(_fieldValue as Int)
+            2173 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2173(_fieldValue as Int)
+            2174 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2174(_fieldValue as Int)
+            2175 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2175(_fieldValue as Int)
+            2176 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2176(_fieldValue as Int)
+            2177 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2177(_fieldValue as Int)
+            2178 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2178(_fieldValue as Int)
+            2179 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2179(_fieldValue as Int)
+            2180 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2180(_fieldValue as Int)
+            2181 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2181(_fieldValue as Int)
+            2182 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2182(_fieldValue as Int)
+            2183 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2183(_fieldValue as Int)
+            2184 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2184(_fieldValue as Int)
+            2185 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2185(_fieldValue as Int)
+            2186 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2186(_fieldValue as Int)
+            2187 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2187(_fieldValue as Int)
+            2188 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2188(_fieldValue as Int)
+            2189 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2189(_fieldValue as Int)
+            2190 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2190(_fieldValue as Int)
+            2191 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2191(_fieldValue as Int)
+            2192 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2192(_fieldValue as Int)
+            2193 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2193(_fieldValue as Int)
+            2194 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2194(_fieldValue as Int)
+            2195 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2195(_fieldValue as Int)
+            2196 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2196(_fieldValue as Int)
+            2197 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2197(_fieldValue as Int)
+            2198 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2198(_fieldValue as Int)
+            2199 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2199(_fieldValue as Int)
+            2200 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2200(_fieldValue as Int)
+            2201 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2201(_fieldValue as Int)
+            2202 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2202(_fieldValue as Int)
+            2203 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2203(_fieldValue as Int)
+            2204 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2204(_fieldValue as Int)
+            2205 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2205(_fieldValue as Int)
+            2206 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2206(_fieldValue as Int)
+            2207 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2207(_fieldValue as Int)
+            2208 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2208(_fieldValue as Int)
+            2209 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2209(_fieldValue as Int)
+            2210 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2210(_fieldValue as Int)
+            2211 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2211(_fieldValue as Int)
+            2212 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2212(_fieldValue as Int)
+            2213 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2213(_fieldValue as Int)
+            2214 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2214(_fieldValue as Int)
+            2215 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2215(_fieldValue as Int)
+            2216 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2216(_fieldValue as Int)
+            2217 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2217(_fieldValue as Int)
+            2218 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2218(_fieldValue as Int)
+            2219 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2219(_fieldValue as Int)
+            2220 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2220(_fieldValue as Int)
+            2221 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2221(_fieldValue as Int)
+            2222 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2222(_fieldValue as Int)
+            2223 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2223(_fieldValue as Int)
+            2224 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2224(_fieldValue as Int)
+            2225 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2225(_fieldValue as Int)
+            2226 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2226(_fieldValue as Int)
+            2227 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2227(_fieldValue as Int)
+            2228 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2228(_fieldValue as Int)
+            2229 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2229(_fieldValue as Int)
+            2230 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2230(_fieldValue as Int)
+            2231 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2231(_fieldValue as Int)
+            2232 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2232(_fieldValue as Int)
+            2233 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2233(_fieldValue as Int)
+            2234 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2234(_fieldValue as Int)
+            2235 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2235(_fieldValue as Int)
+            2236 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2236(_fieldValue as Int)
+            2237 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2237(_fieldValue as Int)
+            2238 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2238(_fieldValue as Int)
+            2239 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2239(_fieldValue as Int)
+            2240 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2240(_fieldValue as Int)
+            2241 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2241(_fieldValue as Int)
+            2242 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2242(_fieldValue as Int)
+            2243 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2243(_fieldValue as Int)
+            2244 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2244(_fieldValue as Int)
+            2245 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2245(_fieldValue as Int)
+            2246 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2246(_fieldValue as Int)
+            2247 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2247(_fieldValue as Int)
+            2248 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2248(_fieldValue as Int)
+            2249 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2249(_fieldValue as Int)
+            2250 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2250(_fieldValue as Int)
+            2251 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2251(_fieldValue as Int)
+            2252 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2252(_fieldValue as Int)
+            2253 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2253(_fieldValue as Int)
+            2254 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2254(_fieldValue as Int)
+            2255 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2255(_fieldValue as Int)
+            2256 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2256(_fieldValue as Int)
+            2257 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2257(_fieldValue as Int)
+            2258 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2258(_fieldValue as Int)
+            2259 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2259(_fieldValue as Int)
+            2260 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2260(_fieldValue as Int)
+            2261 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2261(_fieldValue as Int)
+            2262 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2262(_fieldValue as Int)
+            2263 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2263(_fieldValue as Int)
+            2264 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2264(_fieldValue as Int)
+            2265 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2265(_fieldValue as Int)
+            2266 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2266(_fieldValue as Int)
+            2267 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2267(_fieldValue as Int)
+            2268 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2268(_fieldValue as Int)
+            2269 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2269(_fieldValue as Int)
+            2270 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2270(_fieldValue as Int)
+            2271 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2271(_fieldValue as Int)
+            2272 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2272(_fieldValue as Int)
+            2273 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2273(_fieldValue as Int)
+            2274 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2274(_fieldValue as Int)
+            2275 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2275(_fieldValue as Int)
+            2276 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2276(_fieldValue as Int)
+            2277 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2277(_fieldValue as Int)
+            2278 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2278(_fieldValue as Int)
+            2279 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2279(_fieldValue as Int)
+            2280 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2280(_fieldValue as Int)
+            2281 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2281(_fieldValue as Int)
+            2282 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2282(_fieldValue as Int)
+            2283 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2283(_fieldValue as Int)
+            2284 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2284(_fieldValue as Int)
+            2285 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2285(_fieldValue as Int)
+            2286 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2286(_fieldValue as Int)
+            2287 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2287(_fieldValue as Int)
+            2288 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2288(_fieldValue as Int)
+            2289 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2289(_fieldValue as Int)
+            2290 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2290(_fieldValue as Int)
+            2291 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2291(_fieldValue as Int)
+            2292 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2292(_fieldValue as Int)
+            2293 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2293(_fieldValue as Int)
+            2294 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2294(_fieldValue as Int)
+            2295 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2295(_fieldValue as Int)
+            2296 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2296(_fieldValue as Int)
+            2297 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2297(_fieldValue as Int)
+            2298 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2298(_fieldValue as Int)
+            2299 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2299(_fieldValue as Int)
+            2300 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2300(_fieldValue as Int)
+            2301 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2301(_fieldValue as Int)
+            2302 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2302(_fieldValue as Int)
+            2303 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2303(_fieldValue as Int)
+            2304 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2304(_fieldValue as Int)
+            2305 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2305(_fieldValue as Int)
+            2306 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2306(_fieldValue as Int)
+            2307 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2307(_fieldValue as Int)
+            2308 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2308(_fieldValue as Int)
+            2309 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2309(_fieldValue as Int)
+            2310 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2310(_fieldValue as Int)
+            2311 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2311(_fieldValue as Int)
+            2312 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2312(_fieldValue as Int)
+            2313 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2313(_fieldValue as Int)
+            2314 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2314(_fieldValue as Int)
+            2315 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2315(_fieldValue as Int)
+            2316 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2316(_fieldValue as Int)
+            2317 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2317(_fieldValue as Int)
+            2318 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2318(_fieldValue as Int)
+            2319 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2319(_fieldValue as Int)
+            2320 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2320(_fieldValue as Int)
+            2321 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2321(_fieldValue as Int)
+            2322 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2322(_fieldValue as Int)
+            2323 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2323(_fieldValue as Int)
+            2324 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2324(_fieldValue as Int)
+            2325 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2325(_fieldValue as Int)
+            2326 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2326(_fieldValue as Int)
+            2327 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2327(_fieldValue as Int)
+            2328 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2328(_fieldValue as Int)
+            2329 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2329(_fieldValue as Int)
+            2330 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2330(_fieldValue as Int)
+            2331 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2331(_fieldValue as Int)
+            2332 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2332(_fieldValue as Int)
+            2333 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2333(_fieldValue as Int)
+            2334 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2334(_fieldValue as Int)
+            2335 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2335(_fieldValue as Int)
+            2336 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2336(_fieldValue as Int)
+            2337 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2337(_fieldValue as Int)
+            2338 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2338(_fieldValue as Int)
+            2339 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2339(_fieldValue as Int)
+            2340 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2340(_fieldValue as Int)
+            2341 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2341(_fieldValue as Int)
+            2342 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2342(_fieldValue as Int)
+            2343 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2343(_fieldValue as Int)
+            2344 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2344(_fieldValue as Int)
+            2345 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2345(_fieldValue as Int)
+            2346 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2346(_fieldValue as Int)
+            2347 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2347(_fieldValue as Int)
+            2348 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2348(_fieldValue as Int)
+            2349 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2349(_fieldValue as Int)
+            2350 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2350(_fieldValue as Int)
+            2351 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2351(_fieldValue as Int)
+            2352 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2352(_fieldValue as Int)
+            2353 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2353(_fieldValue as Int)
+            2354 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2354(_fieldValue as Int)
+            2355 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2355(_fieldValue as Int)
+            2356 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2356(_fieldValue as Int)
+            2357 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2357(_fieldValue as Int)
+            2358 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2358(_fieldValue as Int)
+            2359 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2359(_fieldValue as Int)
+            2360 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2360(_fieldValue as Int)
+            2361 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2361(_fieldValue as Int)
+            2362 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2362(_fieldValue as Int)
+            2363 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2363(_fieldValue as Int)
+            2364 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2364(_fieldValue as Int)
+            2365 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2365(_fieldValue as Int)
+            2366 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2366(_fieldValue as Int)
+            2367 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2367(_fieldValue as Int)
+            2368 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2368(_fieldValue as Int)
+            2369 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2369(_fieldValue as Int)
+            2370 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2370(_fieldValue as Int)
+            2371 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2371(_fieldValue as Int)
+            2372 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2372(_fieldValue as Int)
+            2373 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2373(_fieldValue as Int)
+            2374 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2374(_fieldValue as Int)
+            2375 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2375(_fieldValue as Int)
+            2376 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2376(_fieldValue as Int)
+            2377 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2377(_fieldValue as Int)
+            2378 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2378(_fieldValue as Int)
+            2379 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2379(_fieldValue as Int)
+            2380 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2380(_fieldValue as Int)
+            2381 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2381(_fieldValue as Int)
+            2382 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2382(_fieldValue as Int)
+            2383 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2383(_fieldValue as Int)
+            2384 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2384(_fieldValue as Int)
+            2385 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2385(_fieldValue as Int)
+            2386 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2386(_fieldValue as Int)
+            2387 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2387(_fieldValue as Int)
+            2388 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2388(_fieldValue as Int)
+            2389 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2389(_fieldValue as Int)
+            2390 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2390(_fieldValue as Int)
+            2391 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2391(_fieldValue as Int)
+            2392 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2392(_fieldValue as Int)
+            2393 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2393(_fieldValue as Int)
+            2394 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2394(_fieldValue as Int)
+            2395 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2395(_fieldValue as Int)
+            2396 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2396(_fieldValue as Int)
+            2397 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2397(_fieldValue as Int)
+            2398 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2398(_fieldValue as Int)
+            2399 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2399(_fieldValue as Int)
+            2400 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2400(_fieldValue as Int)
+            2401 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2401(_fieldValue as Int)
+            2402 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2402(_fieldValue as Int)
+            2403 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2403(_fieldValue as Int)
+            2404 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2404(_fieldValue as Int)
+            2405 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2405(_fieldValue as Int)
+            2406 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2406(_fieldValue as Int)
+            2407 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2407(_fieldValue as Int)
+            2408 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2408(_fieldValue as Int)
+            2409 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2409(_fieldValue as Int)
+            2410 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2410(_fieldValue as Int)
+            2411 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2411(_fieldValue as Int)
+            2412 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2412(_fieldValue as Int)
+            2413 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2413(_fieldValue as Int)
+            2414 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2414(_fieldValue as Int)
+            2415 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2415(_fieldValue as Int)
+            2416 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2416(_fieldValue as Int)
+            2417 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2417(_fieldValue as Int)
+            2418 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2418(_fieldValue as Int)
+            2419 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2419(_fieldValue as Int)
+            2420 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2420(_fieldValue as Int)
+            2421 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2421(_fieldValue as Int)
+            2422 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2422(_fieldValue as Int)
+            2423 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2423(_fieldValue as Int)
+            2424 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2424(_fieldValue as Int)
+            2425 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2425(_fieldValue as Int)
+            2426 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2426(_fieldValue as Int)
+            2427 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2427(_fieldValue as Int)
+            2428 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2428(_fieldValue as Int)
+            2429 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2429(_fieldValue as Int)
+            2430 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2430(_fieldValue as Int)
+            2431 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2431(_fieldValue as Int)
+            2432 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2432(_fieldValue as Int)
+            2433 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2433(_fieldValue as Int)
+            2434 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2434(_fieldValue as Int)
+            2435 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2435(_fieldValue as Int)
+            2436 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2436(_fieldValue as Int)
+            2437 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2437(_fieldValue as Int)
+            2438 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2438(_fieldValue as Int)
+            2439 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2439(_fieldValue as Int)
+            2440 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2440(_fieldValue as Int)
+            2441 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2441(_fieldValue as Int)
+            2442 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2442(_fieldValue as Int)
+            2443 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2443(_fieldValue as Int)
+            2444 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2444(_fieldValue as Int)
+            2445 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2445(_fieldValue as Int)
+            2446 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2446(_fieldValue as Int)
+            2447 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2447(_fieldValue as Int)
+            2448 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2448(_fieldValue as Int)
+            2449 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2449(_fieldValue as Int)
+            2450 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2450(_fieldValue as Int)
+            2451 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2451(_fieldValue as Int)
+            2452 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2452(_fieldValue as Int)
+            2453 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2453(_fieldValue as Int)
+            2454 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2454(_fieldValue as Int)
+            2455 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2455(_fieldValue as Int)
+            2456 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2456(_fieldValue as Int)
+            2457 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2457(_fieldValue as Int)
+            2458 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2458(_fieldValue as Int)
+            2459 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2459(_fieldValue as Int)
+            2460 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2460(_fieldValue as Int)
+            2461 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2461(_fieldValue as Int)
+            2462 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2462(_fieldValue as Int)
+            2463 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2463(_fieldValue as Int)
+            2464 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2464(_fieldValue as Int)
+            2465 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2465(_fieldValue as Int)
+            2466 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2466(_fieldValue as Int)
+            2467 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2467(_fieldValue as Int)
+            2468 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2468(_fieldValue as Int)
+            2469 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2469(_fieldValue as Int)
+            2470 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2470(_fieldValue as Int)
+            2471 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2471(_fieldValue as Int)
+            2472 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2472(_fieldValue as Int)
+            2473 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2473(_fieldValue as Int)
+            2474 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2474(_fieldValue as Int)
+            2475 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2475(_fieldValue as Int)
+            2476 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2476(_fieldValue as Int)
+            2477 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2477(_fieldValue as Int)
+            2478 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2478(_fieldValue as Int)
+            2479 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2479(_fieldValue as Int)
+            2480 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2480(_fieldValue as Int)
+            2481 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2481(_fieldValue as Int)
+            2482 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2482(_fieldValue as Int)
+            2483 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2483(_fieldValue as Int)
+            2484 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2484(_fieldValue as Int)
+            2485 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2485(_fieldValue as Int)
+            2486 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2486(_fieldValue as Int)
+            2487 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2487(_fieldValue as Int)
+            2488 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2488(_fieldValue as Int)
+            2489 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2489(_fieldValue as Int)
+            2490 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2490(_fieldValue as Int)
+            2491 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2491(_fieldValue as Int)
+            2492 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2492(_fieldValue as Int)
+            2493 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2493(_fieldValue as Int)
+            2494 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2494(_fieldValue as Int)
+            2495 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2495(_fieldValue as Int)
+            2496 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2496(_fieldValue as Int)
+            2497 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2497(_fieldValue as Int)
+            2498 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2498(_fieldValue as Int)
+            2499 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2499(_fieldValue as Int)
+            2500 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2500(_fieldValue as Int)
+            2501 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2501(_fieldValue as Int)
+            2502 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2502(_fieldValue as Int)
+            2503 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2503(_fieldValue as Int)
+            2504 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2504(_fieldValue as Int)
+            2505 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2505(_fieldValue as Int)
+            2506 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2506(_fieldValue as Int)
+            2507 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2507(_fieldValue as Int)
+            2508 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2508(_fieldValue as Int)
+            2509 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2509(_fieldValue as Int)
+            2510 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2510(_fieldValue as Int)
+            2511 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2511(_fieldValue as Int)
+            2512 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2512(_fieldValue as Int)
+            2513 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2513(_fieldValue as Int)
+            2514 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2514(_fieldValue as Int)
+            2515 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2515(_fieldValue as Int)
+            2516 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2516(_fieldValue as Int)
+            2517 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2517(_fieldValue as Int)
+            2518 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2518(_fieldValue as Int)
+            2519 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2519(_fieldValue as Int)
+            2520 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2520(_fieldValue as Int)
+            2521 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2521(_fieldValue as Int)
+            2522 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2522(_fieldValue as Int)
+            2523 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2523(_fieldValue as Int)
+            2524 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2524(_fieldValue as Int)
+            2525 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2525(_fieldValue as Int)
+            2526 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2526(_fieldValue as Int)
+            2527 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2527(_fieldValue as Int)
+            2528 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2528(_fieldValue as Int)
+            2529 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2529(_fieldValue as Int)
+            2530 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2530(_fieldValue as Int)
+            2531 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2531(_fieldValue as Int)
+            2532 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2532(_fieldValue as Int)
+            2533 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2533(_fieldValue as Int)
+            2534 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2534(_fieldValue as Int)
+            2535 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2535(_fieldValue as Int)
+            2536 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2536(_fieldValue as Int)
+            2537 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2537(_fieldValue as Int)
+            2538 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2538(_fieldValue as Int)
+            2539 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2539(_fieldValue as Int)
+            2540 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2540(_fieldValue as Int)
+            2541 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2541(_fieldValue as Int)
+            2542 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2542(_fieldValue as Int)
+            2543 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2543(_fieldValue as Int)
+            2544 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2544(_fieldValue as Int)
+            2545 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2545(_fieldValue as Int)
+            2546 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2546(_fieldValue as Int)
+            2547 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2547(_fieldValue as Int)
+            2548 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2548(_fieldValue as Int)
+            2549 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2549(_fieldValue as Int)
+            2550 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2550(_fieldValue as Int)
+            2551 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2551(_fieldValue as Int)
+            2552 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2552(_fieldValue as Int)
+            2553 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2553(_fieldValue as Int)
+            2554 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2554(_fieldValue as Int)
+            2555 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2555(_fieldValue as Int)
+            2556 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2556(_fieldValue as Int)
+            2557 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2557(_fieldValue as Int)
+            2558 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2558(_fieldValue as Int)
+            2559 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2559(_fieldValue as Int)
+            2560 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2560(_fieldValue as Int)
+            2561 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2561(_fieldValue as Int)
+            2562 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2562(_fieldValue as Int)
+            2563 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2563(_fieldValue as Int)
+            2564 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2564(_fieldValue as Int)
+            2565 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2565(_fieldValue as Int)
+            2566 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2566(_fieldValue as Int)
+            2567 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2567(_fieldValue as Int)
+            2568 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2568(_fieldValue as Int)
+            2569 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2569(_fieldValue as Int)
+            2570 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2570(_fieldValue as Int)
+            2571 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2571(_fieldValue as Int)
+            2572 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2572(_fieldValue as Int)
+            2573 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2573(_fieldValue as Int)
+            2574 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2574(_fieldValue as Int)
+            2575 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2575(_fieldValue as Int)
+            2576 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2576(_fieldValue as Int)
+            2577 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2577(_fieldValue as Int)
+            2578 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2578(_fieldValue as Int)
+            2579 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2579(_fieldValue as Int)
+            2580 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2580(_fieldValue as Int)
+            2581 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2581(_fieldValue as Int)
+            2582 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2582(_fieldValue as Int)
+            2583 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2583(_fieldValue as Int)
+            2584 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2584(_fieldValue as Int)
+            2585 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2585(_fieldValue as Int)
+            2586 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2586(_fieldValue as Int)
+            2587 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2587(_fieldValue as Int)
+            2588 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2588(_fieldValue as Int)
+            2589 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2589(_fieldValue as Int)
+            2590 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2590(_fieldValue as Int)
+            2591 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2591(_fieldValue as Int)
+            2592 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2592(_fieldValue as Int)
+            2593 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2593(_fieldValue as Int)
+            2594 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2594(_fieldValue as Int)
+            2595 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2595(_fieldValue as Int)
+            2596 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2596(_fieldValue as Int)
+            2597 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2597(_fieldValue as Int)
+            2598 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2598(_fieldValue as Int)
+            2599 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2599(_fieldValue as Int)
+            2600 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2600(_fieldValue as Int)
+            2601 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2601(_fieldValue as Int)
+            2602 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2602(_fieldValue as Int)
+            2603 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2603(_fieldValue as Int)
+            2604 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2604(_fieldValue as Int)
+            2605 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2605(_fieldValue as Int)
+            2606 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2606(_fieldValue as Int)
+            2607 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2607(_fieldValue as Int)
+            2608 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2608(_fieldValue as Int)
+            2609 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2609(_fieldValue as Int)
+            2610 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2610(_fieldValue as Int)
+            2611 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2611(_fieldValue as Int)
+            2612 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2612(_fieldValue as Int)
+            2613 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2613(_fieldValue as Int)
+            2614 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2614(_fieldValue as Int)
+            2615 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2615(_fieldValue as Int)
+            2616 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2616(_fieldValue as Int)
+            2617 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2617(_fieldValue as Int)
+            2618 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2618(_fieldValue as Int)
+            2619 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2619(_fieldValue as Int)
+            2620 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2620(_fieldValue as Int)
+            2621 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2621(_fieldValue as Int)
+            2622 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2622(_fieldValue as Int)
+            2623 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2623(_fieldValue as Int)
+            2624 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2624(_fieldValue as Int)
+            2625 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2625(_fieldValue as Int)
+            2626 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2626(_fieldValue as Int)
+            2627 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2627(_fieldValue as Int)
+            2628 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2628(_fieldValue as Int)
+            2629 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2629(_fieldValue as Int)
+            2630 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2630(_fieldValue as Int)
+            2631 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2631(_fieldValue as Int)
+            2632 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2632(_fieldValue as Int)
+            2633 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2633(_fieldValue as Int)
+            2634 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2634(_fieldValue as Int)
+            2635 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2635(_fieldValue as Int)
+            2636 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2636(_fieldValue as Int)
+            2637 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2637(_fieldValue as Int)
+            2638 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2638(_fieldValue as Int)
+            2639 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2639(_fieldValue as Int)
+            2640 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2640(_fieldValue as Int)
+            2641 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2641(_fieldValue as Int)
+            2642 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2642(_fieldValue as Int)
+            2643 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2643(_fieldValue as Int)
+            2644 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2644(_fieldValue as Int)
+            2645 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2645(_fieldValue as Int)
+            2646 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2646(_fieldValue as Int)
+            2647 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2647(_fieldValue as Int)
+            2648 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2648(_fieldValue as Int)
+            2649 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2649(_fieldValue as Int)
+            2650 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2650(_fieldValue as Int)
+            2651 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2651(_fieldValue as Int)
+            2652 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2652(_fieldValue as Int)
+            2653 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2653(_fieldValue as Int)
+            2654 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2654(_fieldValue as Int)
+            2655 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2655(_fieldValue as Int)
+            2656 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2656(_fieldValue as Int)
+            2657 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2657(_fieldValue as Int)
+            2658 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2658(_fieldValue as Int)
+            2659 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2659(_fieldValue as Int)
+            2660 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2660(_fieldValue as Int)
+            2661 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2661(_fieldValue as Int)
+            2662 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2662(_fieldValue as Int)
+            2663 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2663(_fieldValue as Int)
+            2664 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2664(_fieldValue as Int)
+            2665 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2665(_fieldValue as Int)
+            2666 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2666(_fieldValue as Int)
+            2667 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2667(_fieldValue as Int)
+            2668 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2668(_fieldValue as Int)
+            2669 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2669(_fieldValue as Int)
+            2670 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2670(_fieldValue as Int)
+            2671 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2671(_fieldValue as Int)
+            2672 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2672(_fieldValue as Int)
+            2673 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2673(_fieldValue as Int)
+            2674 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2674(_fieldValue as Int)
+            2675 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2675(_fieldValue as Int)
+            2676 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2676(_fieldValue as Int)
+            2677 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2677(_fieldValue as Int)
+            2678 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2678(_fieldValue as Int)
+            2679 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2679(_fieldValue as Int)
+            2680 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2680(_fieldValue as Int)
+            2681 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2681(_fieldValue as Int)
+            2682 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2682(_fieldValue as Int)
+            2683 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2683(_fieldValue as Int)
+            2684 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2684(_fieldValue as Int)
+            2685 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2685(_fieldValue as Int)
+            2686 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2686(_fieldValue as Int)
+            2687 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2687(_fieldValue as Int)
+            2688 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2688(_fieldValue as Int)
+            2689 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2689(_fieldValue as Int)
+            2690 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2690(_fieldValue as Int)
+            2691 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2691(_fieldValue as Int)
+            2692 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2692(_fieldValue as Int)
+            2693 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2693(_fieldValue as Int)
+            2694 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2694(_fieldValue as Int)
+            2695 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2695(_fieldValue as Int)
+            2696 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2696(_fieldValue as Int)
+            2697 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2697(_fieldValue as Int)
+            2698 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2698(_fieldValue as Int)
+            2699 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2699(_fieldValue as Int)
+            2700 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2700(_fieldValue as Int)
+            2701 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2701(_fieldValue as Int)
+            2702 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2702(_fieldValue as Int)
+            2703 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2703(_fieldValue as Int)
+            2704 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2704(_fieldValue as Int)
+            2705 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2705(_fieldValue as Int)
+            2706 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2706(_fieldValue as Int)
+            2707 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2707(_fieldValue as Int)
+            2708 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2708(_fieldValue as Int)
+            2709 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2709(_fieldValue as Int)
+            2710 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2710(_fieldValue as Int)
+            2711 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2711(_fieldValue as Int)
+            2712 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2712(_fieldValue as Int)
+            2713 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2713(_fieldValue as Int)
+            2714 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2714(_fieldValue as Int)
+            2715 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2715(_fieldValue as Int)
+            2716 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2716(_fieldValue as Int)
+            2717 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2717(_fieldValue as Int)
+            2718 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2718(_fieldValue as Int)
+            2719 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2719(_fieldValue as Int)
+            2720 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2720(_fieldValue as Int)
+            2721 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2721(_fieldValue as Int)
+            2722 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2722(_fieldValue as Int)
+            2723 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2723(_fieldValue as Int)
+            2724 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2724(_fieldValue as Int)
+            2725 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2725(_fieldValue as Int)
+            2726 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2726(_fieldValue as Int)
+            2727 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2727(_fieldValue as Int)
+            2728 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2728(_fieldValue as Int)
+            2729 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2729(_fieldValue as Int)
+            2730 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2730(_fieldValue as Int)
+            2731 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2731(_fieldValue as Int)
+            2732 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2732(_fieldValue as Int)
+            2733 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2733(_fieldValue as Int)
+            2734 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2734(_fieldValue as Int)
+            2735 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2735(_fieldValue as Int)
+            2736 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2736(_fieldValue as Int)
+            2737 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2737(_fieldValue as Int)
+            2738 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2738(_fieldValue as Int)
+            2739 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2739(_fieldValue as Int)
+            2740 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2740(_fieldValue as Int)
+            2741 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2741(_fieldValue as Int)
+            2742 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2742(_fieldValue as Int)
+            2743 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2743(_fieldValue as Int)
+            2744 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2744(_fieldValue as Int)
+            2745 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2745(_fieldValue as Int)
+            2746 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2746(_fieldValue as Int)
+            2747 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2747(_fieldValue as Int)
+            2748 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2748(_fieldValue as Int)
+            2749 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2749(_fieldValue as Int)
+            2750 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2750(_fieldValue as Int)
+            2751 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2751(_fieldValue as Int)
+            2752 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2752(_fieldValue as Int)
+            2753 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2753(_fieldValue as Int)
+            2754 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2754(_fieldValue as Int)
+            2755 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2755(_fieldValue as Int)
+            2756 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2756(_fieldValue as Int)
+            2757 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2757(_fieldValue as Int)
+            2758 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2758(_fieldValue as Int)
+            2759 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2759(_fieldValue as Int)
+            2760 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2760(_fieldValue as Int)
+            2761 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2761(_fieldValue as Int)
+            2762 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2762(_fieldValue as Int)
+            2763 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2763(_fieldValue as Int)
+            2764 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2764(_fieldValue as Int)
+            2765 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2765(_fieldValue as Int)
+            2766 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2766(_fieldValue as Int)
+            2767 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2767(_fieldValue as Int)
+            2768 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2768(_fieldValue as Int)
+            2769 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2769(_fieldValue as Int)
+            2770 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2770(_fieldValue as Int)
+            2771 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2771(_fieldValue as Int)
+            2772 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2772(_fieldValue as Int)
+            2773 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2773(_fieldValue as Int)
+            2774 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2774(_fieldValue as Int)
+            2775 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2775(_fieldValue as Int)
+            2776 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2776(_fieldValue as Int)
+            2777 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2777(_fieldValue as Int)
+            2778 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2778(_fieldValue as Int)
+            2779 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2779(_fieldValue as Int)
+            2780 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2780(_fieldValue as Int)
+            2781 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2781(_fieldValue as Int)
+            2782 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2782(_fieldValue as Int)
+            2783 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2783(_fieldValue as Int)
+            2784 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2784(_fieldValue as Int)
+            2785 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2785(_fieldValue as Int)
+            2786 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2786(_fieldValue as Int)
+            2787 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2787(_fieldValue as Int)
+            2788 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2788(_fieldValue as Int)
+            2789 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2789(_fieldValue as Int)
+            2790 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2790(_fieldValue as Int)
+            2791 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2791(_fieldValue as Int)
+            2792 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2792(_fieldValue as Int)
+            2793 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2793(_fieldValue as Int)
+            2794 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2794(_fieldValue as Int)
+            2795 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2795(_fieldValue as Int)
+            2796 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2796(_fieldValue as Int)
+            2797 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2797(_fieldValue as Int)
+            2798 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2798(_fieldValue as Int)
+            2799 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2799(_fieldValue as Int)
+            2800 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2800(_fieldValue as Int)
+            2801 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2801(_fieldValue as Int)
+            2802 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2802(_fieldValue as Int)
+            2803 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2803(_fieldValue as Int)
+            2804 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2804(_fieldValue as Int)
+            2805 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2805(_fieldValue as Int)
+            2806 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2806(_fieldValue as Int)
+            2807 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2807(_fieldValue as Int)
+            2808 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2808(_fieldValue as Int)
+            2809 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2809(_fieldValue as Int)
+            2810 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2810(_fieldValue as Int)
+            2811 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2811(_fieldValue as Int)
+            2812 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2812(_fieldValue as Int)
+            2813 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2813(_fieldValue as Int)
+            2814 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2814(_fieldValue as Int)
+            2815 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2815(_fieldValue as Int)
+            2816 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2816(_fieldValue as Int)
+            2817 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2817(_fieldValue as Int)
+            2818 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2818(_fieldValue as Int)
+            2819 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2819(_fieldValue as Int)
+            2820 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2820(_fieldValue as Int)
+            2821 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2821(_fieldValue as Int)
+            2822 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2822(_fieldValue as Int)
+            2823 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2823(_fieldValue as Int)
+            2824 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2824(_fieldValue as Int)
+            2825 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2825(_fieldValue as Int)
+            2826 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2826(_fieldValue as Int)
+            2827 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2827(_fieldValue as Int)
+            2828 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2828(_fieldValue as Int)
+            2829 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2829(_fieldValue as Int)
+            2830 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2830(_fieldValue as Int)
+            2831 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2831(_fieldValue as Int)
+            2832 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2832(_fieldValue as Int)
+            2833 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2833(_fieldValue as Int)
+            2834 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2834(_fieldValue as Int)
+            2835 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2835(_fieldValue as Int)
+            2836 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2836(_fieldValue as Int)
+            2837 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2837(_fieldValue as Int)
+            2838 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2838(_fieldValue as Int)
+            2839 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2839(_fieldValue as Int)
+            2840 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2840(_fieldValue as Int)
+            2841 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2841(_fieldValue as Int)
+            2842 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2842(_fieldValue as Int)
+            2843 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2843(_fieldValue as Int)
+            2844 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2844(_fieldValue as Int)
+            2845 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2845(_fieldValue as Int)
+            2846 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2846(_fieldValue as Int)
+            2847 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2847(_fieldValue as Int)
+            2848 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2848(_fieldValue as Int)
+            2849 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2849(_fieldValue as Int)
+            2850 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2850(_fieldValue as Int)
+            2851 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2851(_fieldValue as Int)
+            2852 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2852(_fieldValue as Int)
+            2853 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2853(_fieldValue as Int)
+            2854 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2854(_fieldValue as Int)
+            2855 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2855(_fieldValue as Int)
+            2856 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2856(_fieldValue as Int)
+            2857 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2857(_fieldValue as Int)
+            2858 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2858(_fieldValue as Int)
+            2859 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2859(_fieldValue as Int)
+            2860 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2860(_fieldValue as Int)
+            2861 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2861(_fieldValue as Int)
+            2862 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2862(_fieldValue as Int)
+            2863 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2863(_fieldValue as Int)
+            2864 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2864(_fieldValue as Int)
+            2865 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2865(_fieldValue as Int)
+            2866 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2866(_fieldValue as Int)
+            2867 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2867(_fieldValue as Int)
+            2868 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2868(_fieldValue as Int)
+            2869 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2869(_fieldValue as Int)
+            2870 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2870(_fieldValue as Int)
+            2871 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2871(_fieldValue as Int)
+            2872 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2872(_fieldValue as Int)
+            2873 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2873(_fieldValue as Int)
+            2874 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2874(_fieldValue as Int)
+            2875 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2875(_fieldValue as Int)
+            2876 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2876(_fieldValue as Int)
+            2877 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2877(_fieldValue as Int)
+            2878 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2878(_fieldValue as Int)
+            2879 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2879(_fieldValue as Int)
+            2880 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2880(_fieldValue as Int)
+            2881 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2881(_fieldValue as Int)
+            2882 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2882(_fieldValue as Int)
+            2883 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2883(_fieldValue as Int)
+            2884 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2884(_fieldValue as Int)
+            2885 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2885(_fieldValue as Int)
+            2886 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2886(_fieldValue as Int)
+            2887 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2887(_fieldValue as Int)
+            2888 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2888(_fieldValue as Int)
+            2889 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2889(_fieldValue as Int)
+            2890 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2890(_fieldValue as Int)
+            2891 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2891(_fieldValue as Int)
+            2892 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2892(_fieldValue as Int)
+            2893 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2893(_fieldValue as Int)
+            2894 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2894(_fieldValue as Int)
+            2895 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2895(_fieldValue as Int)
+            2896 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2896(_fieldValue as Int)
+            2897 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2897(_fieldValue as Int)
+            2898 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2898(_fieldValue as Int)
+            2899 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2899(_fieldValue as Int)
+            2900 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2900(_fieldValue as Int)
+            2901 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2901(_fieldValue as Int)
+            2902 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2902(_fieldValue as Int)
+            2903 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2903(_fieldValue as Int)
+            2904 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2904(_fieldValue as Int)
+            2905 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2905(_fieldValue as Int)
+            2906 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2906(_fieldValue as Int)
+            2907 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2907(_fieldValue as Int)
+            2908 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2908(_fieldValue as Int)
+            2909 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2909(_fieldValue as Int)
+            2910 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2910(_fieldValue as Int)
+            2911 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2911(_fieldValue as Int)
+            2912 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2912(_fieldValue as Int)
+            2913 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2913(_fieldValue as Int)
+            2914 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2914(_fieldValue as Int)
+            2915 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2915(_fieldValue as Int)
+            2916 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2916(_fieldValue as Int)
+            2917 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2917(_fieldValue as Int)
+            2918 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2918(_fieldValue as Int)
+            2919 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2919(_fieldValue as Int)
+            2920 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2920(_fieldValue as Int)
+            2921 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2921(_fieldValue as Int)
+            2922 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2922(_fieldValue as Int)
+            2923 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2923(_fieldValue as Int)
+            2924 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2924(_fieldValue as Int)
+            2925 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2925(_fieldValue as Int)
+            2926 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2926(_fieldValue as Int)
+            2927 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2927(_fieldValue as Int)
+            2928 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2928(_fieldValue as Int)
+            2929 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2929(_fieldValue as Int)
+            2930 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2930(_fieldValue as Int)
+            2931 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2931(_fieldValue as Int)
+            2932 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2932(_fieldValue as Int)
+            2933 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2933(_fieldValue as Int)
+            2934 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2934(_fieldValue as Int)
+            2935 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2935(_fieldValue as Int)
+            2936 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2936(_fieldValue as Int)
+            2937 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2937(_fieldValue as Int)
+            2938 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2938(_fieldValue as Int)
+            2939 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2939(_fieldValue as Int)
+            2940 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2940(_fieldValue as Int)
+            2941 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2941(_fieldValue as Int)
+            2942 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2942(_fieldValue as Int)
+            2943 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2943(_fieldValue as Int)
+            2944 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2944(_fieldValue as Int)
+            2945 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2945(_fieldValue as Int)
+            2946 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2946(_fieldValue as Int)
+            2947 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2947(_fieldValue as Int)
+            2948 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2948(_fieldValue as Int)
+            2949 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2949(_fieldValue as Int)
+            2950 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2950(_fieldValue as Int)
+            2951 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2951(_fieldValue as Int)
+            2952 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2952(_fieldValue as Int)
+            2953 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2953(_fieldValue as Int)
+            2954 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2954(_fieldValue as Int)
+            2955 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2955(_fieldValue as Int)
+            2956 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2956(_fieldValue as Int)
+            2957 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2957(_fieldValue as Int)
+            2958 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2958(_fieldValue as Int)
+            2959 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2959(_fieldValue as Int)
+            2960 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2960(_fieldValue as Int)
+            2961 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2961(_fieldValue as Int)
+            2962 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2962(_fieldValue as Int)
+            2963 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2963(_fieldValue as Int)
+            2964 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2964(_fieldValue as Int)
+            2965 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2965(_fieldValue as Int)
+            2966 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2966(_fieldValue as Int)
+            2967 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2967(_fieldValue as Int)
+            2968 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2968(_fieldValue as Int)
+            2969 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2969(_fieldValue as Int)
+            2970 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2970(_fieldValue as Int)
+            2971 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2971(_fieldValue as Int)
+            2972 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2972(_fieldValue as Int)
+            2973 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2973(_fieldValue as Int)
+            2974 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2974(_fieldValue as Int)
+            2975 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2975(_fieldValue as Int)
+            2976 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2976(_fieldValue as Int)
+            2977 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2977(_fieldValue as Int)
+            2978 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2978(_fieldValue as Int)
+            2979 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2979(_fieldValue as Int)
+            2980 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2980(_fieldValue as Int)
+            2981 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2981(_fieldValue as Int)
+            2982 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2982(_fieldValue as Int)
+            2983 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2983(_fieldValue as Int)
+            2984 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2984(_fieldValue as Int)
+            2985 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2985(_fieldValue as Int)
+            2986 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2986(_fieldValue as Int)
+            2987 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2987(_fieldValue as Int)
+            2988 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2988(_fieldValue as Int)
+            2989 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2989(_fieldValue as Int)
+            2990 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2990(_fieldValue as Int)
+            2991 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2991(_fieldValue as Int)
+            2992 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2992(_fieldValue as Int)
+            2993 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2993(_fieldValue as Int)
+            2994 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2994(_fieldValue as Int)
+            2995 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2995(_fieldValue as Int)
+            2996 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2996(_fieldValue as Int)
+            2997 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2997(_fieldValue as Int)
+            2998 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2998(_fieldValue as Int)
+            2999 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2999(_fieldValue as Int)
         }
     }
     return MessageWithHugeOneof(hugeOneof, unknownFields)

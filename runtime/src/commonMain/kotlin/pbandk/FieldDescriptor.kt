@@ -1,21 +1,29 @@
 package pbandk
 
+import pbandk.wkt.FieldOptions
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
-@PublicForGeneratedCode
 class FieldDescriptor<M : Message, T>(
     messageDescriptor: KProperty0<MessageDescriptor<M>>,
+    @PublicForGeneratedCode
     val name: String,
+    @PublicForGeneratedCode
     val number: Int,
+    @PublicForGeneratedCode
     val type: Type,
+    @PublicForGeneratedCode
     val value: KProperty1<M, T>,
+    @PublicForGeneratedCode
     val oneofMember: Boolean = false,
-    val jsonName: String? = null
+    @PublicForGeneratedCode
+    val jsonName: String? = null,
+    val options: FieldOptions? = null
 ) {
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
     // [MessageDescriptor] constructor. To avoid the circular dependency, this property is declared lazy.
+    @PublicForGeneratedCode
     val messageDescriptor: MessageDescriptor<M> by lazy { messageDescriptor.get() }
 
     sealed class Type {
@@ -125,4 +133,6 @@ class FieldDescriptor<M : Message, T>(
             override fun isDefaultValue(value: Any?) = (value as? kotlin.collections.Map<*, *>)?.isEmpty() == true
         }
     }
+
+
 }

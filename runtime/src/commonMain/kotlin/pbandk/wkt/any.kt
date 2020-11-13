@@ -48,9 +48,11 @@ data class Any(
 
 fun Any?.orDefault() = this ?: Any.defaultInstance
 
-private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {

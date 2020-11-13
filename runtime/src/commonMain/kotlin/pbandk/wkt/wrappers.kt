@@ -301,9 +301,11 @@ data class BytesValue(
 
 fun DoubleValue?.orDefault() = this ?: DoubleValue.defaultInstance
 
-private fun DoubleValue.protoMergeImpl(plus: pbandk.Message?): DoubleValue = (plus as? DoubleValue)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun DoubleValue.protoMergeImpl(plus: pbandk.Message?): DoubleValue = (plus as? DoubleValue)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DoubleValue {
@@ -319,9 +321,11 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
 
 fun FloatValue?.orDefault() = this ?: FloatValue.defaultInstance
 
-private fun FloatValue.protoMergeImpl(plus: pbandk.Message?): FloatValue = (plus as? FloatValue)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FloatValue.protoMergeImpl(plus: pbandk.Message?): FloatValue = (plus as? FloatValue)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FloatValue {
@@ -337,9 +341,11 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
 
 fun Int64Value?.orDefault() = this ?: Int64Value.defaultInstance
 
-private fun Int64Value.protoMergeImpl(plus: pbandk.Message?): Int64Value = (plus as? Int64Value)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Int64Value.protoMergeImpl(plus: pbandk.Message?): Int64Value = (plus as? Int64Value)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64Value {
@@ -355,9 +361,11 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
 
 fun UInt64Value?.orDefault() = this ?: UInt64Value.defaultInstance
 
-private fun UInt64Value.protoMergeImpl(plus: pbandk.Message?): UInt64Value = (plus as? UInt64Value)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun UInt64Value.protoMergeImpl(plus: pbandk.Message?): UInt64Value = (plus as? UInt64Value)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt64Value {
@@ -373,9 +381,11 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 
 fun Int32Value?.orDefault() = this ?: Int32Value.defaultInstance
 
-private fun Int32Value.protoMergeImpl(plus: pbandk.Message?): Int32Value = (plus as? Int32Value)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Int32Value.protoMergeImpl(plus: pbandk.Message?): Int32Value = (plus as? Int32Value)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32Value {
@@ -391,9 +401,11 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
 
 fun UInt32Value?.orDefault() = this ?: UInt32Value.defaultInstance
 
-private fun UInt32Value.protoMergeImpl(plus: pbandk.Message?): UInt32Value = (plus as? UInt32Value)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun UInt32Value.protoMergeImpl(plus: pbandk.Message?): UInt32Value = (plus as? UInt32Value)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt32Value {
@@ -409,9 +421,11 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 
 fun BoolValue?.orDefault() = this ?: BoolValue.defaultInstance
 
-private fun BoolValue.protoMergeImpl(plus: pbandk.Message?): BoolValue = (plus as? BoolValue)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun BoolValue.protoMergeImpl(plus: pbandk.Message?): BoolValue = (plus as? BoolValue)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolValue {
@@ -427,9 +441,11 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
 
 fun StringValue?.orDefault() = this ?: StringValue.defaultInstance
 
-private fun StringValue.protoMergeImpl(plus: pbandk.Message?): StringValue = (plus as? StringValue)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun StringValue.protoMergeImpl(plus: pbandk.Message?): StringValue = (plus as? StringValue)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): StringValue {
@@ -445,9 +461,11 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
 
 fun BytesValue?.orDefault() = this ?: BytesValue.defaultInstance
 
-private fun BytesValue.protoMergeImpl(plus: pbandk.Message?): BytesValue = (plus as? BytesValue)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun BytesValue.protoMergeImpl(plus: pbandk.Message?): BytesValue = (plus as? BytesValue)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun BytesValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BytesValue {

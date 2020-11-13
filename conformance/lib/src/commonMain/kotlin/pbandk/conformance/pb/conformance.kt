@@ -386,10 +386,12 @@ data class JspbEncodingConfig(
 
 fun FailureSet?.orDefault() = this ?: FailureSet.defaultInstance
 
-private fun FailureSet.protoMergeImpl(plus: pbandk.Message?): FailureSet = (plus as? FailureSet)?.copy(
-    failure = failure + plus.failure,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FailureSet.protoMergeImpl(plus: pbandk.Message?): FailureSet = (plus as? FailureSet)?.let {
+    it.copy(
+        failure = failure + plus.failure,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FailureSet {
@@ -405,11 +407,13 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
 
 fun ConformanceRequest?.orDefault() = this ?: ConformanceRequest.defaultInstance
 
-private fun ConformanceRequest.protoMergeImpl(plus: pbandk.Message?): ConformanceRequest = (plus as? ConformanceRequest)?.copy(
-    jspbEncodingOptions = jspbEncodingOptions?.plus(plus.jspbEncodingOptions) ?: plus.jspbEncodingOptions,
-    payload = plus.payload ?: payload,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ConformanceRequest.protoMergeImpl(plus: pbandk.Message?): ConformanceRequest = (plus as? ConformanceRequest)?.let {
+    it.copy(
+        jspbEncodingOptions = jspbEncodingOptions?.plus(plus.jspbEncodingOptions) ?: plus.jspbEncodingOptions,
+        payload = plus.payload ?: payload,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ConformanceRequest {
@@ -439,10 +443,12 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 
 fun ConformanceResponse?.orDefault() = this ?: ConformanceResponse.defaultInstance
 
-private fun ConformanceResponse.protoMergeImpl(plus: pbandk.Message?): ConformanceResponse = (plus as? ConformanceResponse)?.copy(
-    result = plus.result ?: result,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ConformanceResponse.protoMergeImpl(plus: pbandk.Message?): ConformanceResponse = (plus as? ConformanceResponse)?.let {
+    it.copy(
+        result = plus.result ?: result,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ConformanceResponse {
@@ -465,9 +471,11 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
 
 fun JspbEncodingConfig?.orDefault() = this ?: JspbEncodingConfig.defaultInstance
 
-private fun JspbEncodingConfig.protoMergeImpl(plus: pbandk.Message?): JspbEncodingConfig = (plus as? JspbEncodingConfig)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun JspbEncodingConfig.protoMergeImpl(plus: pbandk.Message?): JspbEncodingConfig = (plus as? JspbEncodingConfig)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun JspbEncodingConfig.Companion.decodeWithImpl(u: pbandk.MessageDecoder): JspbEncodingConfig {

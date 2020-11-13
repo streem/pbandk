@@ -26,9 +26,11 @@ data class Empty(
 
 fun Empty?.orDefault() = this ?: Empty.defaultInstance
 
-private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Empty {

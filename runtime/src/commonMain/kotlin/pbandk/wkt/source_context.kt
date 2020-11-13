@@ -37,9 +37,11 @@ data class SourceContext(
 
 fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
 
-private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceContext {

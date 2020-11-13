@@ -48,9 +48,11 @@ data class Timestamp(
 
 fun Timestamp?.orDefault() = this ?: Timestamp.defaultInstance
 
-private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Timestamp {

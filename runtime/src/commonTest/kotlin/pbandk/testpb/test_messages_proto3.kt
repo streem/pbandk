@@ -2665,117 +2665,119 @@ data class ForeignMessage(
 
 fun TestAllTypesProto3?.orDefault() = this ?: TestAllTypesProto3.defaultInstance
 
-private fun TestAllTypesProto3.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3 = (plus as? TestAllTypesProto3)?.copy(
-    optionalNestedMessage = optionalNestedMessage?.plus(plus.optionalNestedMessage) ?: plus.optionalNestedMessage,
-    optionalForeignMessage = optionalForeignMessage?.plus(plus.optionalForeignMessage) ?: plus.optionalForeignMessage,
-    recursiveMessage = recursiveMessage?.plus(plus.recursiveMessage) ?: plus.recursiveMessage,
-    repeatedInt32 = repeatedInt32 + plus.repeatedInt32,
-    repeatedInt64 = repeatedInt64 + plus.repeatedInt64,
-    repeatedUint32 = repeatedUint32 + plus.repeatedUint32,
-    repeatedUint64 = repeatedUint64 + plus.repeatedUint64,
-    repeatedSint32 = repeatedSint32 + plus.repeatedSint32,
-    repeatedSint64 = repeatedSint64 + plus.repeatedSint64,
-    repeatedFixed32 = repeatedFixed32 + plus.repeatedFixed32,
-    repeatedFixed64 = repeatedFixed64 + plus.repeatedFixed64,
-    repeatedSfixed32 = repeatedSfixed32 + plus.repeatedSfixed32,
-    repeatedSfixed64 = repeatedSfixed64 + plus.repeatedSfixed64,
-    repeatedFloat = repeatedFloat + plus.repeatedFloat,
-    repeatedDouble = repeatedDouble + plus.repeatedDouble,
-    repeatedBool = repeatedBool + plus.repeatedBool,
-    repeatedString = repeatedString + plus.repeatedString,
-    repeatedBytes = repeatedBytes + plus.repeatedBytes,
-    repeatedNestedMessage = repeatedNestedMessage + plus.repeatedNestedMessage,
-    repeatedForeignMessage = repeatedForeignMessage + plus.repeatedForeignMessage,
-    repeatedNestedEnum = repeatedNestedEnum + plus.repeatedNestedEnum,
-    repeatedForeignEnum = repeatedForeignEnum + plus.repeatedForeignEnum,
-    repeatedStringPiece = repeatedStringPiece + plus.repeatedStringPiece,
-    repeatedCord = repeatedCord + plus.repeatedCord,
-    packedInt32 = packedInt32 + plus.packedInt32,
-    packedInt64 = packedInt64 + plus.packedInt64,
-    packedUint32 = packedUint32 + plus.packedUint32,
-    packedUint64 = packedUint64 + plus.packedUint64,
-    packedSint32 = packedSint32 + plus.packedSint32,
-    packedSint64 = packedSint64 + plus.packedSint64,
-    packedFixed32 = packedFixed32 + plus.packedFixed32,
-    packedFixed64 = packedFixed64 + plus.packedFixed64,
-    packedSfixed32 = packedSfixed32 + plus.packedSfixed32,
-    packedSfixed64 = packedSfixed64 + plus.packedSfixed64,
-    packedFloat = packedFloat + plus.packedFloat,
-    packedDouble = packedDouble + plus.packedDouble,
-    packedBool = packedBool + plus.packedBool,
-    packedNestedEnum = packedNestedEnum + plus.packedNestedEnum,
-    unpackedInt32 = unpackedInt32 + plus.unpackedInt32,
-    unpackedInt64 = unpackedInt64 + plus.unpackedInt64,
-    unpackedUint32 = unpackedUint32 + plus.unpackedUint32,
-    unpackedUint64 = unpackedUint64 + plus.unpackedUint64,
-    unpackedSint32 = unpackedSint32 + plus.unpackedSint32,
-    unpackedSint64 = unpackedSint64 + plus.unpackedSint64,
-    unpackedFixed32 = unpackedFixed32 + plus.unpackedFixed32,
-    unpackedFixed64 = unpackedFixed64 + plus.unpackedFixed64,
-    unpackedSfixed32 = unpackedSfixed32 + plus.unpackedSfixed32,
-    unpackedSfixed64 = unpackedSfixed64 + plus.unpackedSfixed64,
-    unpackedFloat = unpackedFloat + plus.unpackedFloat,
-    unpackedDouble = unpackedDouble + plus.unpackedDouble,
-    unpackedBool = unpackedBool + plus.unpackedBool,
-    unpackedNestedEnum = unpackedNestedEnum + plus.unpackedNestedEnum,
-    mapInt32Int32 = mapInt32Int32 + plus.mapInt32Int32,
-    mapInt64Int64 = mapInt64Int64 + plus.mapInt64Int64,
-    mapUint32Uint32 = mapUint32Uint32 + plus.mapUint32Uint32,
-    mapUint64Uint64 = mapUint64Uint64 + plus.mapUint64Uint64,
-    mapSint32Sint32 = mapSint32Sint32 + plus.mapSint32Sint32,
-    mapSint64Sint64 = mapSint64Sint64 + plus.mapSint64Sint64,
-    mapFixed32Fixed32 = mapFixed32Fixed32 + plus.mapFixed32Fixed32,
-    mapFixed64Fixed64 = mapFixed64Fixed64 + plus.mapFixed64Fixed64,
-    mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + plus.mapSfixed32Sfixed32,
-    mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + plus.mapSfixed64Sfixed64,
-    mapInt32Float = mapInt32Float + plus.mapInt32Float,
-    mapInt32Double = mapInt32Double + plus.mapInt32Double,
-    mapBoolBool = mapBoolBool + plus.mapBoolBool,
-    mapStringString = mapStringString + plus.mapStringString,
-    mapStringBytes = mapStringBytes + plus.mapStringBytes,
-    mapStringNestedMessage = mapStringNestedMessage + plus.mapStringNestedMessage,
-    mapStringForeignMessage = mapStringForeignMessage + plus.mapStringForeignMessage,
-    mapStringNestedEnum = mapStringNestedEnum + plus.mapStringNestedEnum,
-    mapStringForeignEnum = mapStringForeignEnum + plus.mapStringForeignEnum,
-    optionalBoolWrapper = plus.optionalBoolWrapper ?: optionalBoolWrapper,
-    optionalInt32Wrapper = plus.optionalInt32Wrapper ?: optionalInt32Wrapper,
-    optionalInt64Wrapper = plus.optionalInt64Wrapper ?: optionalInt64Wrapper,
-    optionalUint32Wrapper = plus.optionalUint32Wrapper ?: optionalUint32Wrapper,
-    optionalUint64Wrapper = plus.optionalUint64Wrapper ?: optionalUint64Wrapper,
-    optionalFloatWrapper = plus.optionalFloatWrapper ?: optionalFloatWrapper,
-    optionalDoubleWrapper = plus.optionalDoubleWrapper ?: optionalDoubleWrapper,
-    optionalStringWrapper = plus.optionalStringWrapper ?: optionalStringWrapper,
-    optionalBytesWrapper = plus.optionalBytesWrapper ?: optionalBytesWrapper,
-    repeatedBoolWrapper = repeatedBoolWrapper + plus.repeatedBoolWrapper,
-    repeatedInt32Wrapper = repeatedInt32Wrapper + plus.repeatedInt32Wrapper,
-    repeatedInt64Wrapper = repeatedInt64Wrapper + plus.repeatedInt64Wrapper,
-    repeatedUint32Wrapper = repeatedUint32Wrapper + plus.repeatedUint32Wrapper,
-    repeatedUint64Wrapper = repeatedUint64Wrapper + plus.repeatedUint64Wrapper,
-    repeatedFloatWrapper = repeatedFloatWrapper + plus.repeatedFloatWrapper,
-    repeatedDoubleWrapper = repeatedDoubleWrapper + plus.repeatedDoubleWrapper,
-    repeatedStringWrapper = repeatedStringWrapper + plus.repeatedStringWrapper,
-    repeatedBytesWrapper = repeatedBytesWrapper + plus.repeatedBytesWrapper,
-    optionalDuration = optionalDuration?.plus(plus.optionalDuration) ?: plus.optionalDuration,
-    optionalTimestamp = optionalTimestamp?.plus(plus.optionalTimestamp) ?: plus.optionalTimestamp,
-    optionalFieldMask = optionalFieldMask?.plus(plus.optionalFieldMask) ?: plus.optionalFieldMask,
-    optionalStruct = optionalStruct?.plus(plus.optionalStruct) ?: plus.optionalStruct,
-    optionalAny = optionalAny?.plus(plus.optionalAny) ?: plus.optionalAny,
-    optionalValue = optionalValue?.plus(plus.optionalValue) ?: plus.optionalValue,
-    repeatedDuration = repeatedDuration + plus.repeatedDuration,
-    repeatedTimestamp = repeatedTimestamp + plus.repeatedTimestamp,
-    repeatedFieldmask = repeatedFieldmask + plus.repeatedFieldmask,
-    repeatedStruct = repeatedStruct + plus.repeatedStruct,
-    repeatedAny = repeatedAny + plus.repeatedAny,
-    repeatedValue = repeatedValue + plus.repeatedValue,
-    repeatedListValue = repeatedListValue + plus.repeatedListValue,
-    oneofField = when {
-        oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage && plus.oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage ->
-            TestAllTypesProto3.OneofField.OneofNestedMessage(oneofField.value + plus.oneofField.value)
-        else ->
-            plus.oneofField ?: oneofField
-    },
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3 = (plus as? TestAllTypesProto3)?.let {
+    it.copy(
+        optionalNestedMessage = optionalNestedMessage?.plus(plus.optionalNestedMessage) ?: plus.optionalNestedMessage,
+        optionalForeignMessage = optionalForeignMessage?.plus(plus.optionalForeignMessage) ?: plus.optionalForeignMessage,
+        recursiveMessage = recursiveMessage?.plus(plus.recursiveMessage) ?: plus.recursiveMessage,
+        repeatedInt32 = repeatedInt32 + plus.repeatedInt32,
+        repeatedInt64 = repeatedInt64 + plus.repeatedInt64,
+        repeatedUint32 = repeatedUint32 + plus.repeatedUint32,
+        repeatedUint64 = repeatedUint64 + plus.repeatedUint64,
+        repeatedSint32 = repeatedSint32 + plus.repeatedSint32,
+        repeatedSint64 = repeatedSint64 + plus.repeatedSint64,
+        repeatedFixed32 = repeatedFixed32 + plus.repeatedFixed32,
+        repeatedFixed64 = repeatedFixed64 + plus.repeatedFixed64,
+        repeatedSfixed32 = repeatedSfixed32 + plus.repeatedSfixed32,
+        repeatedSfixed64 = repeatedSfixed64 + plus.repeatedSfixed64,
+        repeatedFloat = repeatedFloat + plus.repeatedFloat,
+        repeatedDouble = repeatedDouble + plus.repeatedDouble,
+        repeatedBool = repeatedBool + plus.repeatedBool,
+        repeatedString = repeatedString + plus.repeatedString,
+        repeatedBytes = repeatedBytes + plus.repeatedBytes,
+        repeatedNestedMessage = repeatedNestedMessage + plus.repeatedNestedMessage,
+        repeatedForeignMessage = repeatedForeignMessage + plus.repeatedForeignMessage,
+        repeatedNestedEnum = repeatedNestedEnum + plus.repeatedNestedEnum,
+        repeatedForeignEnum = repeatedForeignEnum + plus.repeatedForeignEnum,
+        repeatedStringPiece = repeatedStringPiece + plus.repeatedStringPiece,
+        repeatedCord = repeatedCord + plus.repeatedCord,
+        packedInt32 = packedInt32 + plus.packedInt32,
+        packedInt64 = packedInt64 + plus.packedInt64,
+        packedUint32 = packedUint32 + plus.packedUint32,
+        packedUint64 = packedUint64 + plus.packedUint64,
+        packedSint32 = packedSint32 + plus.packedSint32,
+        packedSint64 = packedSint64 + plus.packedSint64,
+        packedFixed32 = packedFixed32 + plus.packedFixed32,
+        packedFixed64 = packedFixed64 + plus.packedFixed64,
+        packedSfixed32 = packedSfixed32 + plus.packedSfixed32,
+        packedSfixed64 = packedSfixed64 + plus.packedSfixed64,
+        packedFloat = packedFloat + plus.packedFloat,
+        packedDouble = packedDouble + plus.packedDouble,
+        packedBool = packedBool + plus.packedBool,
+        packedNestedEnum = packedNestedEnum + plus.packedNestedEnum,
+        unpackedInt32 = unpackedInt32 + plus.unpackedInt32,
+        unpackedInt64 = unpackedInt64 + plus.unpackedInt64,
+        unpackedUint32 = unpackedUint32 + plus.unpackedUint32,
+        unpackedUint64 = unpackedUint64 + plus.unpackedUint64,
+        unpackedSint32 = unpackedSint32 + plus.unpackedSint32,
+        unpackedSint64 = unpackedSint64 + plus.unpackedSint64,
+        unpackedFixed32 = unpackedFixed32 + plus.unpackedFixed32,
+        unpackedFixed64 = unpackedFixed64 + plus.unpackedFixed64,
+        unpackedSfixed32 = unpackedSfixed32 + plus.unpackedSfixed32,
+        unpackedSfixed64 = unpackedSfixed64 + plus.unpackedSfixed64,
+        unpackedFloat = unpackedFloat + plus.unpackedFloat,
+        unpackedDouble = unpackedDouble + plus.unpackedDouble,
+        unpackedBool = unpackedBool + plus.unpackedBool,
+        unpackedNestedEnum = unpackedNestedEnum + plus.unpackedNestedEnum,
+        mapInt32Int32 = mapInt32Int32 + plus.mapInt32Int32,
+        mapInt64Int64 = mapInt64Int64 + plus.mapInt64Int64,
+        mapUint32Uint32 = mapUint32Uint32 + plus.mapUint32Uint32,
+        mapUint64Uint64 = mapUint64Uint64 + plus.mapUint64Uint64,
+        mapSint32Sint32 = mapSint32Sint32 + plus.mapSint32Sint32,
+        mapSint64Sint64 = mapSint64Sint64 + plus.mapSint64Sint64,
+        mapFixed32Fixed32 = mapFixed32Fixed32 + plus.mapFixed32Fixed32,
+        mapFixed64Fixed64 = mapFixed64Fixed64 + plus.mapFixed64Fixed64,
+        mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + plus.mapSfixed32Sfixed32,
+        mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + plus.mapSfixed64Sfixed64,
+        mapInt32Float = mapInt32Float + plus.mapInt32Float,
+        mapInt32Double = mapInt32Double + plus.mapInt32Double,
+        mapBoolBool = mapBoolBool + plus.mapBoolBool,
+        mapStringString = mapStringString + plus.mapStringString,
+        mapStringBytes = mapStringBytes + plus.mapStringBytes,
+        mapStringNestedMessage = mapStringNestedMessage + plus.mapStringNestedMessage,
+        mapStringForeignMessage = mapStringForeignMessage + plus.mapStringForeignMessage,
+        mapStringNestedEnum = mapStringNestedEnum + plus.mapStringNestedEnum,
+        mapStringForeignEnum = mapStringForeignEnum + plus.mapStringForeignEnum,
+        optionalBoolWrapper = plus.optionalBoolWrapper ?: optionalBoolWrapper,
+        optionalInt32Wrapper = plus.optionalInt32Wrapper ?: optionalInt32Wrapper,
+        optionalInt64Wrapper = plus.optionalInt64Wrapper ?: optionalInt64Wrapper,
+        optionalUint32Wrapper = plus.optionalUint32Wrapper ?: optionalUint32Wrapper,
+        optionalUint64Wrapper = plus.optionalUint64Wrapper ?: optionalUint64Wrapper,
+        optionalFloatWrapper = plus.optionalFloatWrapper ?: optionalFloatWrapper,
+        optionalDoubleWrapper = plus.optionalDoubleWrapper ?: optionalDoubleWrapper,
+        optionalStringWrapper = plus.optionalStringWrapper ?: optionalStringWrapper,
+        optionalBytesWrapper = plus.optionalBytesWrapper ?: optionalBytesWrapper,
+        repeatedBoolWrapper = repeatedBoolWrapper + plus.repeatedBoolWrapper,
+        repeatedInt32Wrapper = repeatedInt32Wrapper + plus.repeatedInt32Wrapper,
+        repeatedInt64Wrapper = repeatedInt64Wrapper + plus.repeatedInt64Wrapper,
+        repeatedUint32Wrapper = repeatedUint32Wrapper + plus.repeatedUint32Wrapper,
+        repeatedUint64Wrapper = repeatedUint64Wrapper + plus.repeatedUint64Wrapper,
+        repeatedFloatWrapper = repeatedFloatWrapper + plus.repeatedFloatWrapper,
+        repeatedDoubleWrapper = repeatedDoubleWrapper + plus.repeatedDoubleWrapper,
+        repeatedStringWrapper = repeatedStringWrapper + plus.repeatedStringWrapper,
+        repeatedBytesWrapper = repeatedBytesWrapper + plus.repeatedBytesWrapper,
+        optionalDuration = optionalDuration?.plus(plus.optionalDuration) ?: plus.optionalDuration,
+        optionalTimestamp = optionalTimestamp?.plus(plus.optionalTimestamp) ?: plus.optionalTimestamp,
+        optionalFieldMask = optionalFieldMask?.plus(plus.optionalFieldMask) ?: plus.optionalFieldMask,
+        optionalStruct = optionalStruct?.plus(plus.optionalStruct) ?: plus.optionalStruct,
+        optionalAny = optionalAny?.plus(plus.optionalAny) ?: plus.optionalAny,
+        optionalValue = optionalValue?.plus(plus.optionalValue) ?: plus.optionalValue,
+        repeatedDuration = repeatedDuration + plus.repeatedDuration,
+        repeatedTimestamp = repeatedTimestamp + plus.repeatedTimestamp,
+        repeatedFieldmask = repeatedFieldmask + plus.repeatedFieldmask,
+        repeatedStruct = repeatedStruct + plus.repeatedStruct,
+        repeatedAny = repeatedAny + plus.repeatedAny,
+        repeatedValue = repeatedValue + plus.repeatedValue,
+        repeatedListValue = repeatedListValue + plus.repeatedListValue,
+        oneofField = when {
+            oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage && plus.oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage ->
+                TestAllTypesProto3.OneofField.OneofNestedMessage(oneofField.value + plus.oneofField.value)
+            else ->
+                plus.oneofField ?: oneofField
+        },
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3 {
@@ -3114,10 +3116,12 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 
 fun TestAllTypesProto3.NestedMessage?.orDefault() = this ?: TestAllTypesProto3.NestedMessage.defaultInstance
 
-private fun TestAllTypesProto3.NestedMessage.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.NestedMessage = (plus as? TestAllTypesProto3.NestedMessage)?.copy(
-    corecursive = corecursive?.plus(plus.corecursive) ?: plus.corecursive,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.NestedMessage.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.NestedMessage = (plus as? TestAllTypesProto3.NestedMessage)?.let {
+    it.copy(
+        corecursive = corecursive?.plus(plus.corecursive) ?: plus.corecursive,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.NestedMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.NestedMessage {
@@ -3135,9 +3139,11 @@ private fun TestAllTypesProto3.NestedMessage.Companion.decodeWithImpl(u: pbandk.
 
 fun TestAllTypesProto3.MapInt32Int32Entry?.orDefault() = this ?: TestAllTypesProto3.MapInt32Int32Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapInt32Int32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt32Int32Entry = (plus as? TestAllTypesProto3.MapInt32Int32Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapInt32Int32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt32Int32Entry = (plus as? TestAllTypesProto3.MapInt32Int32Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapInt32Int32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapInt32Int32Entry {
@@ -3155,9 +3161,11 @@ private fun TestAllTypesProto3.MapInt32Int32Entry.Companion.decodeWithImpl(u: pb
 
 fun TestAllTypesProto3.MapInt64Int64Entry?.orDefault() = this ?: TestAllTypesProto3.MapInt64Int64Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapInt64Int64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt64Int64Entry = (plus as? TestAllTypesProto3.MapInt64Int64Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapInt64Int64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt64Int64Entry = (plus as? TestAllTypesProto3.MapInt64Int64Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapInt64Int64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapInt64Int64Entry {
@@ -3175,9 +3183,11 @@ private fun TestAllTypesProto3.MapInt64Int64Entry.Companion.decodeWithImpl(u: pb
 
 fun TestAllTypesProto3.MapUint32Uint32Entry?.orDefault() = this ?: TestAllTypesProto3.MapUint32Uint32Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapUint32Uint32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapUint32Uint32Entry = (plus as? TestAllTypesProto3.MapUint32Uint32Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapUint32Uint32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapUint32Uint32Entry = (plus as? TestAllTypesProto3.MapUint32Uint32Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapUint32Uint32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapUint32Uint32Entry {
@@ -3195,9 +3205,11 @@ private fun TestAllTypesProto3.MapUint32Uint32Entry.Companion.decodeWithImpl(u: 
 
 fun TestAllTypesProto3.MapUint64Uint64Entry?.orDefault() = this ?: TestAllTypesProto3.MapUint64Uint64Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapUint64Uint64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapUint64Uint64Entry = (plus as? TestAllTypesProto3.MapUint64Uint64Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapUint64Uint64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapUint64Uint64Entry = (plus as? TestAllTypesProto3.MapUint64Uint64Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapUint64Uint64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapUint64Uint64Entry {
@@ -3215,9 +3227,11 @@ private fun TestAllTypesProto3.MapUint64Uint64Entry.Companion.decodeWithImpl(u: 
 
 fun TestAllTypesProto3.MapSint32Sint32Entry?.orDefault() = this ?: TestAllTypesProto3.MapSint32Sint32Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapSint32Sint32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSint32Sint32Entry = (plus as? TestAllTypesProto3.MapSint32Sint32Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapSint32Sint32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSint32Sint32Entry = (plus as? TestAllTypesProto3.MapSint32Sint32Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapSint32Sint32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapSint32Sint32Entry {
@@ -3235,9 +3249,11 @@ private fun TestAllTypesProto3.MapSint32Sint32Entry.Companion.decodeWithImpl(u: 
 
 fun TestAllTypesProto3.MapSint64Sint64Entry?.orDefault() = this ?: TestAllTypesProto3.MapSint64Sint64Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapSint64Sint64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSint64Sint64Entry = (plus as? TestAllTypesProto3.MapSint64Sint64Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapSint64Sint64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSint64Sint64Entry = (plus as? TestAllTypesProto3.MapSint64Sint64Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapSint64Sint64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapSint64Sint64Entry {
@@ -3255,9 +3271,11 @@ private fun TestAllTypesProto3.MapSint64Sint64Entry.Companion.decodeWithImpl(u: 
 
 fun TestAllTypesProto3.MapFixed32Fixed32Entry?.orDefault() = this ?: TestAllTypesProto3.MapFixed32Fixed32Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapFixed32Fixed32Entry = (plus as? TestAllTypesProto3.MapFixed32Fixed32Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapFixed32Fixed32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapFixed32Fixed32Entry = (plus as? TestAllTypesProto3.MapFixed32Fixed32Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapFixed32Fixed32Entry {
@@ -3275,9 +3293,11 @@ private fun TestAllTypesProto3.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u
 
 fun TestAllTypesProto3.MapFixed64Fixed64Entry?.orDefault() = this ?: TestAllTypesProto3.MapFixed64Fixed64Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapFixed64Fixed64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapFixed64Fixed64Entry = (plus as? TestAllTypesProto3.MapFixed64Fixed64Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapFixed64Fixed64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapFixed64Fixed64Entry = (plus as? TestAllTypesProto3.MapFixed64Fixed64Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapFixed64Fixed64Entry {
@@ -3295,9 +3315,11 @@ private fun TestAllTypesProto3.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u
 
 fun TestAllTypesProto3.MapSfixed32Sfixed32Entry?.orDefault() = this ?: TestAllTypesProto3.MapSfixed32Sfixed32Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSfixed32Sfixed32Entry = (plus as? TestAllTypesProto3.MapSfixed32Sfixed32Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSfixed32Sfixed32Entry = (plus as? TestAllTypesProto3.MapSfixed32Sfixed32Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapSfixed32Sfixed32Entry {
@@ -3315,9 +3337,11 @@ private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl
 
 fun TestAllTypesProto3.MapSfixed64Sfixed64Entry?.orDefault() = this ?: TestAllTypesProto3.MapSfixed64Sfixed64Entry.defaultInstance
 
-private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSfixed64Sfixed64Entry = (plus as? TestAllTypesProto3.MapSfixed64Sfixed64Entry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapSfixed64Sfixed64Entry = (plus as? TestAllTypesProto3.MapSfixed64Sfixed64Entry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapSfixed64Sfixed64Entry {
@@ -3335,9 +3359,11 @@ private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl
 
 fun TestAllTypesProto3.MapInt32FloatEntry?.orDefault() = this ?: TestAllTypesProto3.MapInt32FloatEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapInt32FloatEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt32FloatEntry = (plus as? TestAllTypesProto3.MapInt32FloatEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapInt32FloatEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt32FloatEntry = (plus as? TestAllTypesProto3.MapInt32FloatEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapInt32FloatEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapInt32FloatEntry {
@@ -3355,9 +3381,11 @@ private fun TestAllTypesProto3.MapInt32FloatEntry.Companion.decodeWithImpl(u: pb
 
 fun TestAllTypesProto3.MapInt32DoubleEntry?.orDefault() = this ?: TestAllTypesProto3.MapInt32DoubleEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapInt32DoubleEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt32DoubleEntry = (plus as? TestAllTypesProto3.MapInt32DoubleEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapInt32DoubleEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapInt32DoubleEntry = (plus as? TestAllTypesProto3.MapInt32DoubleEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapInt32DoubleEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapInt32DoubleEntry {
@@ -3375,9 +3403,11 @@ private fun TestAllTypesProto3.MapInt32DoubleEntry.Companion.decodeWithImpl(u: p
 
 fun TestAllTypesProto3.MapBoolBoolEntry?.orDefault() = this ?: TestAllTypesProto3.MapBoolBoolEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapBoolBoolEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapBoolBoolEntry = (plus as? TestAllTypesProto3.MapBoolBoolEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapBoolBoolEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapBoolBoolEntry = (plus as? TestAllTypesProto3.MapBoolBoolEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapBoolBoolEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapBoolBoolEntry {
@@ -3395,9 +3425,11 @@ private fun TestAllTypesProto3.MapBoolBoolEntry.Companion.decodeWithImpl(u: pban
 
 fun TestAllTypesProto3.MapStringStringEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringStringEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapStringStringEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringStringEntry = (plus as? TestAllTypesProto3.MapStringStringEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapStringStringEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringStringEntry = (plus as? TestAllTypesProto3.MapStringStringEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapStringStringEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapStringStringEntry {
@@ -3415,9 +3447,11 @@ private fun TestAllTypesProto3.MapStringStringEntry.Companion.decodeWithImpl(u: 
 
 fun TestAllTypesProto3.MapStringBytesEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringBytesEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapStringBytesEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringBytesEntry = (plus as? TestAllTypesProto3.MapStringBytesEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapStringBytesEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringBytesEntry = (plus as? TestAllTypesProto3.MapStringBytesEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapStringBytesEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapStringBytesEntry {
@@ -3435,10 +3469,12 @@ private fun TestAllTypesProto3.MapStringBytesEntry.Companion.decodeWithImpl(u: p
 
 fun TestAllTypesProto3.MapStringNestedMessageEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringNestedMessageEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapStringNestedMessageEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringNestedMessageEntry = (plus as? TestAllTypesProto3.MapStringNestedMessageEntry)?.copy(
-    value = value?.plus(plus.value) ?: plus.value,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapStringNestedMessageEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringNestedMessageEntry = (plus as? TestAllTypesProto3.MapStringNestedMessageEntry)?.let {
+    it.copy(
+        value = value?.plus(plus.value) ?: plus.value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapStringNestedMessageEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapStringNestedMessageEntry {
@@ -3456,10 +3492,12 @@ private fun TestAllTypesProto3.MapStringNestedMessageEntry.Companion.decodeWithI
 
 fun TestAllTypesProto3.MapStringForeignMessageEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringForeignMessageEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringForeignMessageEntry = (plus as? TestAllTypesProto3.MapStringForeignMessageEntry)?.copy(
-    value = value?.plus(plus.value) ?: plus.value,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapStringForeignMessageEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringForeignMessageEntry = (plus as? TestAllTypesProto3.MapStringForeignMessageEntry)?.let {
+    it.copy(
+        value = value?.plus(plus.value) ?: plus.value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapStringForeignMessageEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapStringForeignMessageEntry {
@@ -3477,9 +3515,11 @@ private fun TestAllTypesProto3.MapStringForeignMessageEntry.Companion.decodeWith
 
 fun TestAllTypesProto3.MapStringNestedEnumEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringNestedEnumEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapStringNestedEnumEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringNestedEnumEntry = (plus as? TestAllTypesProto3.MapStringNestedEnumEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapStringNestedEnumEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringNestedEnumEntry = (plus as? TestAllTypesProto3.MapStringNestedEnumEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapStringNestedEnumEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapStringNestedEnumEntry {
@@ -3497,9 +3537,11 @@ private fun TestAllTypesProto3.MapStringNestedEnumEntry.Companion.decodeWithImpl
 
 fun TestAllTypesProto3.MapStringForeignEnumEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringForeignEnumEntry.defaultInstance
 
-private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringForeignEnumEntry = (plus as? TestAllTypesProto3.MapStringForeignEnumEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun TestAllTypesProto3.MapStringForeignEnumEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto3.MapStringForeignEnumEntry = (plus as? TestAllTypesProto3.MapStringForeignEnumEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto3.MapStringForeignEnumEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto3.MapStringForeignEnumEntry {
@@ -3517,9 +3559,11 @@ private fun TestAllTypesProto3.MapStringForeignEnumEntry.Companion.decodeWithImp
 
 fun ForeignMessage?.orDefault() = this ?: ForeignMessage.defaultInstance
 
-private fun ForeignMessage.protoMergeImpl(plus: pbandk.Message?): ForeignMessage = (plus as? ForeignMessage)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ForeignMessage.protoMergeImpl(plus: pbandk.Message?): ForeignMessage = (plus as? ForeignMessage)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ForeignMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ForeignMessage {

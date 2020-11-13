@@ -1,3 +1,9 @@
+public final class pbandk/AtomicReference {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun get ()Ljava/lang/Object;
+	public final fun set (Ljava/lang/Object;)V
+}
+
 public final class pbandk/ByteArr {
 	public static final field Companion Lpbandk/ByteArr$Companion;
 	public fun <init> ([B)V
@@ -14,14 +20,25 @@ public final class pbandk/ByteArr$Companion {
 public abstract interface annotation class pbandk/ExperimentalProtoJson : java/lang/annotation/Annotation {
 }
 
+public abstract interface class pbandk/ExtendableMessage : pbandk/Message {
+	public abstract fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public abstract fun getExtensionFields ()Lpbandk/AtomicReference;
+}
+
+public final class pbandk/ExtendableMessage$DefaultImpls {
+	public static fun getExtension (Lpbandk/ExtendableMessage;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public static fun getProtoSize (Lpbandk/ExtendableMessage;)I
+}
+
 public final class pbandk/FieldDescriptor {
-	public fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;)V
-	public synthetic fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;)V
+	public synthetic fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getJsonName ()Ljava/lang/String;
 	public final fun getMessageDescriptor ()Lpbandk/MessageDescriptor;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getNumber ()I
 	public final fun getOneofMember ()Z
+	public final fun getOptions ()Lpbandk/wkt/FieldOptions;
 	public final fun getType ()Lpbandk/FieldDescriptor$Type;
 	public final fun getValue ()Lkotlin/reflect/KProperty1;
 }
@@ -332,6 +349,7 @@ public abstract interface annotation class pbandk/PublicForGeneratedCode : java/
 }
 
 public final class pbandk/UnknownField {
+	public fun <init> (ILpbandk/UnknownField$Value;)V
 	public final fun component1 ()I
 	public final fun component2 ()Lpbandk/UnknownField$Value;
 	public final fun copy (ILpbandk/UnknownField$Value;)Lpbandk/UnknownField;
@@ -915,21 +933,24 @@ public final class pbandk/wkt/EnumDescriptorProto$EnumReservedRange$Companion : 
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/EnumOptions : pbandk/Message {
+public final class pbandk/wkt/EnumOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/EnumOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/EnumOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
+	public final fun component5 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/EnumOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/EnumOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/EnumOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAllowAlias ()Ljava/lang/Boolean;
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -1008,19 +1029,22 @@ public final class pbandk/wkt/EnumValueDescriptorProto$Companion : pbandk/Messag
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/EnumValueOptions : pbandk/Message {
+public final class pbandk/wkt/EnumValueOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/EnumValueOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/EnumValueOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/EnumValueOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
+	public final fun component4 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/EnumValueOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/EnumValueOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/EnumValueOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -1037,17 +1061,20 @@ public final class pbandk/wkt/EnumValueOptions$Companion : pbandk/Message$Compan
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/ExtensionRangeOptions : pbandk/Message {
+public final class pbandk/wkt/ExtensionRangeOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/ExtensionRangeOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2 ()Ljava/util/Map;
-	public final fun copy (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ExtensionRangeOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/ExtensionRangeOptions;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
+	public final fun component3 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/ExtensionRangeOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/ExtensionRangeOptions;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/ExtensionRangeOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -1445,11 +1472,11 @@ public final class pbandk/wkt/FieldMask$Companion : pbandk/Message$Companion {
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/FieldOptions : pbandk/Message {
+public final class pbandk/wkt/FieldOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/FieldOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lpbandk/wkt/FieldOptions$CType;
 	public final fun component2 ()Ljava/lang/Boolean;
 	public final fun component3 ()Lpbandk/wkt/FieldOptions$JSType;
@@ -1458,12 +1485,15 @@ public final class pbandk/wkt/FieldOptions : pbandk/Message {
 	public final fun component6 ()Ljava/lang/Boolean;
 	public final fun component7 ()Ljava/util/List;
 	public final fun component8 ()Ljava/util/Map;
-	public final fun copy (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FieldOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions;Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
+	public final fun component9 ()Lpbandk/AtomicReference;
+	public final fun copy (Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/FieldOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/FieldOptions;Lpbandk/wkt/FieldOptions$CType;Ljava/lang/Boolean;Lpbandk/wkt/FieldOptions$JSType;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/FieldOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCtype ()Lpbandk/wkt/FieldOptions$CType;
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public final fun getJstype ()Lpbandk/wkt/FieldOptions$JSType;
 	public final fun getLazy ()Ljava/lang/Boolean;
 	public final fun getPacked ()Ljava/lang/Boolean;
@@ -1632,11 +1662,11 @@ public final class pbandk/wkt/FileDescriptorSet$Companion : pbandk/Message$Compa
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/FileOptions : pbandk/Message {
+public final class pbandk/wkt/FileOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/FileOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Boolean;
 	public final fun component11 ()Ljava/lang/Boolean;
@@ -1652,6 +1682,7 @@ public final class pbandk/wkt/FileOptions : pbandk/Message {
 	public final fun component20 ()Ljava/lang/String;
 	public final fun component21 ()Ljava/util/List;
 	public final fun component22 ()Ljava/util/Map;
+	public final fun component23 ()Lpbandk/AtomicReference;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Ljava/lang/Boolean;
@@ -1659,14 +1690,16 @@ public final class pbandk/wkt/FileOptions : pbandk/Message {
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/Boolean;
 	public final fun component9 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/FileOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/FileOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/FileOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/FileOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lpbandk/wkt/FileOptions$OptimizeMode;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/FileOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCcEnableArenas ()Ljava/lang/Boolean;
 	public final fun getCcGenericServices ()Ljava/lang/Boolean;
 	public final fun getCsharpNamespace ()Ljava/lang/String;
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public final fun getGoPackage ()Ljava/lang/String;
 	public final fun getJavaGenerateEqualsAndHash ()Ljava/lang/Boolean;
 	public final fun getJavaGenericServices ()Ljava/lang/Boolean;
@@ -1901,22 +1934,25 @@ public final class pbandk/wkt/ListValue$Companion : pbandk/Message$Companion {
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/MessageOptions : pbandk/Message {
+public final class pbandk/wkt/MessageOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/MessageOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Ljava/util/List;
 	public final fun component6 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MessageOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/MessageOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
+	public final fun component7 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/MessageOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/MessageOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/MessageOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public final fun getMapEntry ()Ljava/lang/Boolean;
 	public final fun getMessageSetWireFormat ()Ljava/lang/Boolean;
 	public final fun getNoStandardDescriptorAccessor ()Ljava/lang/Boolean;
@@ -2012,20 +2048,23 @@ public final class pbandk/wkt/MethodDescriptorProto$Companion : pbandk/Message$C
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/MethodOptions : pbandk/Message {
+public final class pbandk/wkt/MethodOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/MethodOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Lpbandk/wkt/MethodOptions$IdempotencyLevel;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/MethodOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
+	public final fun component5 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/MethodOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/MethodOptions;Ljava/lang/Boolean;Lpbandk/wkt/MethodOptions$IdempotencyLevel;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/MethodOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public final fun getIdempotencyLevel ()Lpbandk/wkt/MethodOptions$IdempotencyLevel;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
@@ -2161,17 +2200,20 @@ public final class pbandk/wkt/OneofDescriptorProto$Companion : pbandk/Message$Co
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/OneofOptions : pbandk/Message {
+public final class pbandk/wkt/OneofOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/OneofOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2 ()Ljava/util/Map;
-	public final fun copy (Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/OneofOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/OneofOptions;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
+	public final fun component3 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/OneofOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/OneofOptions;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/OneofOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -2248,19 +2290,22 @@ public final class pbandk/wkt/ServiceDescriptorProto$Companion : pbandk/Message$
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
-public final class pbandk/wkt/ServiceOptions : pbandk/Message {
+public final class pbandk/wkt/ServiceOptions : pbandk/ExtendableMessage {
 	public static final field Companion Lpbandk/wkt/ServiceOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;)Lpbandk/wkt/ServiceOptions;
-	public static synthetic fun copy$default (Lpbandk/wkt/ServiceOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
+	public final fun component4 ()Lpbandk/AtomicReference;
+	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;)Lpbandk/wkt/ServiceOptions;
+	public static synthetic fun copy$default (Lpbandk/wkt/ServiceOptions;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/Map;Lpbandk/AtomicReference;ILjava/lang/Object;)Lpbandk/wkt/ServiceOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/AtomicReference;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;

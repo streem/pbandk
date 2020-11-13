@@ -240,10 +240,12 @@ data class ListValue(
 
 fun Struct?.orDefault() = this ?: Struct.defaultInstance
 
-private fun Struct.protoMergeImpl(plus: pbandk.Message?): Struct = (plus as? Struct)?.copy(
-    fields = fields + plus.fields,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Struct.protoMergeImpl(plus: pbandk.Message?): Struct = (plus as? Struct)?.let {
+    it.copy(
+        fields = fields + plus.fields,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
@@ -259,10 +261,12 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
 
 fun Struct.FieldsEntry?.orDefault() = this ?: Struct.FieldsEntry.defaultInstance
 
-private fun Struct.FieldsEntry.protoMergeImpl(plus: pbandk.Message?): Struct.FieldsEntry = (plus as? Struct.FieldsEntry)?.copy(
-    value = value?.plus(plus.value) ?: plus.value,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Struct.FieldsEntry.protoMergeImpl(plus: pbandk.Message?): Struct.FieldsEntry = (plus as? Struct.FieldsEntry)?.let {
+    it.copy(
+        value = value?.plus(plus.value) ?: plus.value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct.FieldsEntry {
@@ -280,17 +284,19 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 
 fun Value?.orDefault() = this ?: Value.defaultInstance
 
-private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.copy(
-    kind = when {
-        kind is Value.Kind.StructValue && plus.kind is Value.Kind.StructValue ->
-            Value.Kind.StructValue(kind.value + plus.kind.value)
-        kind is Value.Kind.ListValue && plus.kind is Value.Kind.ListValue ->
-            Value.Kind.ListValue(kind.value + plus.kind.value)
-        else ->
-            plus.kind ?: kind
-    },
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.let {
+    it.copy(
+        kind = when {
+            kind is Value.Kind.StructValue && plus.kind is Value.Kind.StructValue ->
+                Value.Kind.StructValue(kind.value + plus.kind.value)
+            kind is Value.Kind.ListValue && plus.kind is Value.Kind.ListValue ->
+                Value.Kind.ListValue(kind.value + plus.kind.value)
+            else ->
+                plus.kind ?: kind
+        },
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
@@ -311,10 +317,12 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
 
 fun ListValue?.orDefault() = this ?: ListValue.defaultInstance
 
-private fun ListValue.protoMergeImpl(plus: pbandk.Message?): ListValue = (plus as? ListValue)?.copy(
-    values = values + plus.values,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ListValue.protoMergeImpl(plus: pbandk.Message?): ListValue = (plus as? ListValue)?.let {
+    it.copy(
+        values = values + plus.values,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ListValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ListValue {

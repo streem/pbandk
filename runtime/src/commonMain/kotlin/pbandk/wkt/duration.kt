@@ -48,9 +48,11 @@ data class Duration(
 
 fun Duration?.orDefault() = this ?: Duration.defaultInstance
 
-private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duration {

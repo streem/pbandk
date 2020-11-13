@@ -37,10 +37,12 @@ data class FieldMask(
 
 fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
 
-private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.copy(
-    paths = paths + plus.paths,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.let {
+    it.copy(
+        paths = paths + plus.paths,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldMask {

@@ -356,9 +356,11 @@ data class Wrappers(
 
 fun Foo?.orDefault() = this ?: Foo.defaultInstance
 
-private fun Foo.protoMergeImpl(plus: pbandk.Message?): Foo = (plus as? Foo)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Foo.protoMergeImpl(plus: pbandk.Message?): Foo = (plus as? Foo)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
@@ -374,11 +376,13 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
 
 fun Bar?.orDefault() = this ?: Bar.defaultInstance
 
-private fun Bar.protoMergeImpl(plus: pbandk.Message?): Bar = (plus as? Bar)?.copy(
-    foos = foos + plus.foos,
-    singleFoo = singleFoo?.plus(plus.singleFoo) ?: plus.singleFoo,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Bar.protoMergeImpl(plus: pbandk.Message?): Bar = (plus as? Bar)?.let {
+    it.copy(
+        foos = foos + plus.foos,
+        singleFoo = singleFoo?.plus(plus.singleFoo) ?: plus.singleFoo,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
@@ -396,10 +400,12 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
 
 fun MessageWithMap?.orDefault() = this ?: MessageWithMap.defaultInstance
 
-private fun MessageWithMap.protoMergeImpl(plus: pbandk.Message?): MessageWithMap = (plus as? MessageWithMap)?.copy(
-    map = map + plus.map,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun MessageWithMap.protoMergeImpl(plus: pbandk.Message?): MessageWithMap = (plus as? MessageWithMap)?.let {
+    it.copy(
+        map = map + plus.map,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithMap {
@@ -415,9 +421,11 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
 
 fun MessageWithMap.MapEntry?.orDefault() = this ?: MessageWithMap.MapEntry.defaultInstance
 
-private fun MessageWithMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): MessageWithMap.MapEntry = (plus as? MessageWithMap.MapEntry)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun MessageWithMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): MessageWithMap.MapEntry = (plus as? MessageWithMap.MapEntry)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithMap.MapEntry {
@@ -435,10 +443,12 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
 
 fun FooMap?.orDefault() = this ?: FooMap.defaultInstance
 
-private fun FooMap.protoMergeImpl(plus: pbandk.Message?): FooMap = (plus as? FooMap)?.copy(
-    map = map + plus.map,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FooMap.protoMergeImpl(plus: pbandk.Message?): FooMap = (plus as? FooMap)?.let {
+    it.copy(
+        map = map + plus.map,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
@@ -454,10 +464,12 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
 
 fun FooMap.MapEntry?.orDefault() = this ?: FooMap.MapEntry.defaultInstance
 
-private fun FooMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMap.MapEntry = (plus as? FooMap.MapEntry)?.copy(
-    value = value?.plus(plus.value) ?: plus.value,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FooMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMap.MapEntry = (plus as? FooMap.MapEntry)?.let {
+    it.copy(
+        value = value?.plus(plus.value) ?: plus.value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap.MapEntry {
@@ -475,10 +487,12 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
 
 fun FooMapEntries?.orDefault() = this ?: FooMapEntries.defaultInstance
 
-private fun FooMapEntries.protoMergeImpl(plus: pbandk.Message?): FooMapEntries = (plus as? FooMapEntries)?.copy(
-    map = map + plus.map,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FooMapEntries.protoMergeImpl(plus: pbandk.Message?): FooMapEntries = (plus as? FooMapEntries)?.let {
+    it.copy(
+        map = map + plus.map,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMapEntries {
@@ -494,10 +508,12 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
 
 fun FooMapEntries.MapEntry?.orDefault() = this ?: FooMapEntries.MapEntry.defaultInstance
 
-private fun FooMapEntries.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMapEntries.MapEntry = (plus as? FooMapEntries.MapEntry)?.copy(
-    value = value?.plus(plus.value) ?: plus.value,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FooMapEntries.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMapEntries.MapEntry = (plus as? FooMapEntries.MapEntry)?.let {
+    it.copy(
+        value = value?.plus(plus.value) ?: plus.value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMapEntries.MapEntry {
@@ -515,11 +531,13 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
 
 fun Wrappers?.orDefault() = this ?: Wrappers.defaultInstance
 
-private fun Wrappers.protoMergeImpl(plus: pbandk.Message?): Wrappers = (plus as? Wrappers)?.copy(
-    stringValue = plus.stringValue ?: stringValue,
-    uint64Values = uint64Values + plus.uint64Values,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Wrappers.protoMergeImpl(plus: pbandk.Message?): Wrappers = (plus as? Wrappers)?.let {
+    it.copy(
+        stringValue = plus.stringValue ?: stringValue,
+        uint64Values = uint64Values + plus.uint64Values,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Wrappers {

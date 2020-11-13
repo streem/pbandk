@@ -422,8 +422,10 @@ data class DescriptorProto(
 
 data class ExtensionRangeOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1019,8 +1021,10 @@ data class FileOptions(
     val phpMetadataNamespace: String? = null,
     val rubyPackage: String? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1117,6 +1121,9 @@ data class FileOptions(
                         number = 20,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "javaGenerateEqualsAndHash",
+                        options = pbandk.wkt.FieldOptions(
+                            deprecated = true
+                        ),
                         value = FileOptions::javaGenerateEqualsAndHash
                     )
                 )
@@ -1273,8 +1280,10 @@ data class MessageOptions(
     val deprecated: Boolean? = null,
     val mapEntry: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1352,8 +1361,10 @@ data class FieldOptions(
     val deprecated: Boolean? = null,
     val weak: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1479,8 +1490,10 @@ data class FieldOptions(
 
 data class OneofOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1514,8 +1527,10 @@ data class EnumOptions(
     val allowAlias: Boolean? = null,
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1568,8 +1583,10 @@ data class EnumOptions(
 data class EnumValueOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1612,8 +1629,10 @@ data class EnumValueOptions(
 data class ServiceOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -1657,8 +1676,10 @@ data class MethodOptions(
     val deprecated: Boolean? = null,
     val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
+    @pbandk.PbandkInternal
+    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
@@ -2079,10 +2100,12 @@ data class GeneratedCodeInfo(
 
 fun FileDescriptorSet?.orDefault() = this ?: FileDescriptorSet.defaultInstance
 
-private fun FileDescriptorSet.protoMergeImpl(plus: pbandk.Message?): FileDescriptorSet = (plus as? FileDescriptorSet)?.copy(
-    file = file + plus.file,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FileDescriptorSet.protoMergeImpl(plus: pbandk.Message?): FileDescriptorSet = (plus as? FileDescriptorSet)?.let {
+    it.copy(
+        file = file + plus.file,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FileDescriptorSet {
@@ -2098,21 +2121,23 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
 
 fun FileDescriptorProto?.orDefault() = this ?: FileDescriptorProto.defaultInstance
 
-private fun FileDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FileDescriptorProto = (plus as? FileDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    `package` = plus.`package` ?: `package`,
-    dependency = dependency + plus.dependency,
-    publicDependency = publicDependency + plus.publicDependency,
-    weakDependency = weakDependency + plus.weakDependency,
-    messageType = messageType + plus.messageType,
-    enumType = enumType + plus.enumType,
-    service = service + plus.service,
-    extension = extension + plus.extension,
-    options = options?.plus(plus.options) ?: plus.options,
-    sourceCodeInfo = sourceCodeInfo?.plus(plus.sourceCodeInfo) ?: plus.sourceCodeInfo,
-    syntax = plus.syntax ?: syntax,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FileDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FileDescriptorProto = (plus as? FileDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        `package` = plus.`package` ?: `package`,
+        dependency = dependency + plus.dependency,
+        publicDependency = publicDependency + plus.publicDependency,
+        weakDependency = weakDependency + plus.weakDependency,
+        messageType = messageType + plus.messageType,
+        enumType = enumType + plus.enumType,
+        service = service + plus.service,
+        extension = extension + plus.extension,
+        options = options?.plus(plus.options) ?: plus.options,
+        sourceCodeInfo = sourceCodeInfo?.plus(plus.sourceCodeInfo) ?: plus.sourceCodeInfo,
+        syntax = plus.syntax ?: syntax,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FileDescriptorProto {
@@ -2152,19 +2177,21 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
 
 fun DescriptorProto?.orDefault() = this ?: DescriptorProto.defaultInstance
 
-private fun DescriptorProto.protoMergeImpl(plus: pbandk.Message?): DescriptorProto = (plus as? DescriptorProto)?.copy(
-    name = plus.name ?: name,
-    field = field + plus.field,
-    extension = extension + plus.extension,
-    nestedType = nestedType + plus.nestedType,
-    enumType = enumType + plus.enumType,
-    extensionRange = extensionRange + plus.extensionRange,
-    oneofDecl = oneofDecl + plus.oneofDecl,
-    options = options?.plus(plus.options) ?: plus.options,
-    reservedRange = reservedRange + plus.reservedRange,
-    reservedName = reservedName + plus.reservedName,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun DescriptorProto.protoMergeImpl(plus: pbandk.Message?): DescriptorProto = (plus as? DescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        field = field + plus.field,
+        extension = extension + plus.extension,
+        nestedType = nestedType + plus.nestedType,
+        enumType = enumType + plus.enumType,
+        extensionRange = extensionRange + plus.extensionRange,
+        oneofDecl = oneofDecl + plus.oneofDecl,
+        options = options?.plus(plus.options) ?: plus.options,
+        reservedRange = reservedRange + plus.reservedRange,
+        reservedName = reservedName + plus.reservedName,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DescriptorProto {
@@ -2200,12 +2227,14 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
 
 fun DescriptorProto.ExtensionRange?.orDefault() = this ?: DescriptorProto.ExtensionRange.defaultInstance
 
-private fun DescriptorProto.ExtensionRange.protoMergeImpl(plus: pbandk.Message?): DescriptorProto.ExtensionRange = (plus as? DescriptorProto.ExtensionRange)?.copy(
-    start = plus.start ?: start,
-    end = plus.end ?: end,
-    options = options?.plus(plus.options) ?: plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun DescriptorProto.ExtensionRange.protoMergeImpl(plus: pbandk.Message?): DescriptorProto.ExtensionRange = (plus as? DescriptorProto.ExtensionRange)?.let {
+    it.copy(
+        start = plus.start ?: start,
+        end = plus.end ?: end,
+        options = options?.plus(plus.options) ?: plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DescriptorProto.ExtensionRange {
@@ -2225,11 +2254,13 @@ private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.Me
 
 fun DescriptorProto.ReservedRange?.orDefault() = this ?: DescriptorProto.ReservedRange.defaultInstance
 
-private fun DescriptorProto.ReservedRange.protoMergeImpl(plus: pbandk.Message?): DescriptorProto.ReservedRange = (plus as? DescriptorProto.ReservedRange)?.copy(
-    start = plus.start ?: start,
-    end = plus.end ?: end,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun DescriptorProto.ReservedRange.protoMergeImpl(plus: pbandk.Message?): DescriptorProto.ReservedRange = (plus as? DescriptorProto.ReservedRange)?.let {
+    it.copy(
+        start = plus.start ?: start,
+        end = plus.end ?: end,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DescriptorProto.ReservedRange {
@@ -2247,10 +2278,12 @@ private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.Mes
 
 fun ExtensionRangeOptions?.orDefault() = this ?: ExtensionRangeOptions.defaultInstance
 
-private fun ExtensionRangeOptions.protoMergeImpl(plus: pbandk.Message?): ExtensionRangeOptions = (plus as? ExtensionRangeOptions)?.copy(
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ExtensionRangeOptions.protoMergeImpl(plus: pbandk.Message?): ExtensionRangeOptions = (plus as? ExtensionRangeOptions)?.let {
+    it.copy(
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ExtensionRangeOptions {
@@ -2266,19 +2299,21 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 
 fun FieldDescriptorProto?.orDefault() = this ?: FieldDescriptorProto.defaultInstance
 
-private fun FieldDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FieldDescriptorProto = (plus as? FieldDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    number = plus.number ?: number,
-    label = plus.label ?: label,
-    type = plus.type ?: type,
-    typeName = plus.typeName ?: typeName,
-    extendee = plus.extendee ?: extendee,
-    defaultValue = plus.defaultValue ?: defaultValue,
-    oneofIndex = plus.oneofIndex ?: oneofIndex,
-    jsonName = plus.jsonName ?: jsonName,
-    options = options?.plus(plus.options) ?: plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FieldDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FieldDescriptorProto = (plus as? FieldDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        number = plus.number ?: number,
+        label = plus.label ?: label,
+        type = plus.type ?: type,
+        typeName = plus.typeName ?: typeName,
+        extendee = plus.extendee ?: extendee,
+        defaultValue = plus.defaultValue ?: defaultValue,
+        oneofIndex = plus.oneofIndex ?: oneofIndex,
+        jsonName = plus.jsonName ?: jsonName,
+        options = options?.plus(plus.options) ?: plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldDescriptorProto {
@@ -2314,11 +2349,13 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
 
 fun OneofDescriptorProto?.orDefault() = this ?: OneofDescriptorProto.defaultInstance
 
-private fun OneofDescriptorProto.protoMergeImpl(plus: pbandk.Message?): OneofDescriptorProto = (plus as? OneofDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    options = options?.plus(plus.options) ?: plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun OneofDescriptorProto.protoMergeImpl(plus: pbandk.Message?): OneofDescriptorProto = (plus as? OneofDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        options = options?.plus(plus.options) ?: plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): OneofDescriptorProto {
@@ -2336,14 +2373,16 @@ private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
 
 fun EnumDescriptorProto?.orDefault() = this ?: EnumDescriptorProto.defaultInstance
 
-private fun EnumDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumDescriptorProto = (plus as? EnumDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    value = value + plus.value,
-    options = options?.plus(plus.options) ?: plus.options,
-    reservedRange = reservedRange + plus.reservedRange,
-    reservedName = reservedName + plus.reservedName,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun EnumDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumDescriptorProto = (plus as? EnumDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        value = value + plus.value,
+        options = options?.plus(plus.options) ?: plus.options,
+        reservedRange = reservedRange + plus.reservedRange,
+        reservedName = reservedName + plus.reservedName,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumDescriptorProto {
@@ -2368,11 +2407,13 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
 
 fun EnumDescriptorProto.EnumReservedRange?.orDefault() = this ?: EnumDescriptorProto.EnumReservedRange.defaultInstance
 
-private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(plus: pbandk.Message?): EnumDescriptorProto.EnumReservedRange = (plus as? EnumDescriptorProto.EnumReservedRange)?.copy(
-    start = plus.start ?: start,
-    end = plus.end ?: end,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(plus: pbandk.Message?): EnumDescriptorProto.EnumReservedRange = (plus as? EnumDescriptorProto.EnumReservedRange)?.let {
+    it.copy(
+        start = plus.start ?: start,
+        end = plus.end ?: end,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumDescriptorProto.EnumReservedRange {
@@ -2390,12 +2431,14 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pb
 
 fun EnumValueDescriptorProto?.orDefault() = this ?: EnumValueDescriptorProto.defaultInstance
 
-private fun EnumValueDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumValueDescriptorProto = (plus as? EnumValueDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    number = plus.number ?: number,
-    options = options?.plus(plus.options) ?: plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun EnumValueDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumValueDescriptorProto = (plus as? EnumValueDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        number = plus.number ?: number,
+        options = options?.plus(plus.options) ?: plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValueDescriptorProto {
@@ -2415,12 +2458,14 @@ private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageD
 
 fun ServiceDescriptorProto?.orDefault() = this ?: ServiceDescriptorProto.defaultInstance
 
-private fun ServiceDescriptorProto.protoMergeImpl(plus: pbandk.Message?): ServiceDescriptorProto = (plus as? ServiceDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    method = method + plus.method,
-    options = options?.plus(plus.options) ?: plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ServiceDescriptorProto.protoMergeImpl(plus: pbandk.Message?): ServiceDescriptorProto = (plus as? ServiceDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        method = method + plus.method,
+        options = options?.plus(plus.options) ?: plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ServiceDescriptorProto {
@@ -2440,15 +2485,17 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
 
 fun MethodDescriptorProto?.orDefault() = this ?: MethodDescriptorProto.defaultInstance
 
-private fun MethodDescriptorProto.protoMergeImpl(plus: pbandk.Message?): MethodDescriptorProto = (plus as? MethodDescriptorProto)?.copy(
-    name = plus.name ?: name,
-    inputType = plus.inputType ?: inputType,
-    outputType = plus.outputType ?: outputType,
-    options = options?.plus(plus.options) ?: plus.options,
-    clientStreaming = plus.clientStreaming ?: clientStreaming,
-    serverStreaming = plus.serverStreaming ?: serverStreaming,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun MethodDescriptorProto.protoMergeImpl(plus: pbandk.Message?): MethodDescriptorProto = (plus as? MethodDescriptorProto)?.let {
+    it.copy(
+        name = plus.name ?: name,
+        inputType = plus.inputType ?: inputType,
+        outputType = plus.outputType ?: outputType,
+        options = options?.plus(plus.options) ?: plus.options,
+        clientStreaming = plus.clientStreaming ?: clientStreaming,
+        serverStreaming = plus.serverStreaming ?: serverStreaming,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MethodDescriptorProto {
@@ -2475,30 +2522,32 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
 
 fun FileOptions?.orDefault() = this ?: FileOptions.defaultInstance
 
-private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (plus as? FileOptions)?.copy(
-    javaPackage = plus.javaPackage ?: javaPackage,
-    javaOuterClassname = plus.javaOuterClassname ?: javaOuterClassname,
-    javaMultipleFiles = plus.javaMultipleFiles ?: javaMultipleFiles,
-    javaGenerateEqualsAndHash = plus.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash,
-    javaStringCheckUtf8 = plus.javaStringCheckUtf8 ?: javaStringCheckUtf8,
-    optimizeFor = plus.optimizeFor ?: optimizeFor,
-    goPackage = plus.goPackage ?: goPackage,
-    ccGenericServices = plus.ccGenericServices ?: ccGenericServices,
-    javaGenericServices = plus.javaGenericServices ?: javaGenericServices,
-    pyGenericServices = plus.pyGenericServices ?: pyGenericServices,
-    phpGenericServices = plus.phpGenericServices ?: phpGenericServices,
-    deprecated = plus.deprecated ?: deprecated,
-    ccEnableArenas = plus.ccEnableArenas ?: ccEnableArenas,
-    objcClassPrefix = plus.objcClassPrefix ?: objcClassPrefix,
-    csharpNamespace = plus.csharpNamespace ?: csharpNamespace,
-    swiftPrefix = plus.swiftPrefix ?: swiftPrefix,
-    phpClassPrefix = plus.phpClassPrefix ?: phpClassPrefix,
-    phpNamespace = plus.phpNamespace ?: phpNamespace,
-    phpMetadataNamespace = plus.phpMetadataNamespace ?: phpMetadataNamespace,
-    rubyPackage = plus.rubyPackage ?: rubyPackage,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (plus as? FileOptions)?.let {
+    it.copy(
+        javaPackage = plus.javaPackage ?: javaPackage,
+        javaOuterClassname = plus.javaOuterClassname ?: javaOuterClassname,
+        javaMultipleFiles = plus.javaMultipleFiles ?: javaMultipleFiles,
+        javaGenerateEqualsAndHash = plus.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash,
+        javaStringCheckUtf8 = plus.javaStringCheckUtf8 ?: javaStringCheckUtf8,
+        optimizeFor = plus.optimizeFor ?: optimizeFor,
+        goPackage = plus.goPackage ?: goPackage,
+        ccGenericServices = plus.ccGenericServices ?: ccGenericServices,
+        javaGenericServices = plus.javaGenericServices ?: javaGenericServices,
+        pyGenericServices = plus.pyGenericServices ?: pyGenericServices,
+        phpGenericServices = plus.phpGenericServices ?: phpGenericServices,
+        deprecated = plus.deprecated ?: deprecated,
+        ccEnableArenas = plus.ccEnableArenas ?: ccEnableArenas,
+        objcClassPrefix = plus.objcClassPrefix ?: objcClassPrefix,
+        csharpNamespace = plus.csharpNamespace ?: csharpNamespace,
+        swiftPrefix = plus.swiftPrefix ?: swiftPrefix,
+        phpClassPrefix = plus.phpClassPrefix ?: phpClassPrefix,
+        phpNamespace = plus.phpNamespace ?: phpNamespace,
+        phpMetadataNamespace = plus.phpMetadataNamespace ?: phpMetadataNamespace,
+        rubyPackage = plus.rubyPackage ?: rubyPackage,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FileOptions {
@@ -2559,14 +2608,16 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
 
 fun MessageOptions?.orDefault() = this ?: MessageOptions.defaultInstance
 
-private fun MessageOptions.protoMergeImpl(plus: pbandk.Message?): MessageOptions = (plus as? MessageOptions)?.copy(
-    messageSetWireFormat = plus.messageSetWireFormat ?: messageSetWireFormat,
-    noStandardDescriptorAccessor = plus.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
-    deprecated = plus.deprecated ?: deprecated,
-    mapEntry = plus.mapEntry ?: mapEntry,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun MessageOptions.protoMergeImpl(plus: pbandk.Message?): MessageOptions = (plus as? MessageOptions)?.let {
+    it.copy(
+        messageSetWireFormat = plus.messageSetWireFormat ?: messageSetWireFormat,
+        noStandardDescriptorAccessor = plus.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
+        deprecated = plus.deprecated ?: deprecated,
+        mapEntry = plus.mapEntry ?: mapEntry,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageOptions {
@@ -2591,16 +2642,18 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
 
 fun FieldOptions?.orDefault() = this ?: FieldOptions.defaultInstance
 
-private fun FieldOptions.protoMergeImpl(plus: pbandk.Message?): FieldOptions = (plus as? FieldOptions)?.copy(
-    ctype = plus.ctype ?: ctype,
-    packed = plus.packed ?: packed,
-    jstype = plus.jstype ?: jstype,
-    lazy = plus.lazy ?: lazy,
-    deprecated = plus.deprecated ?: deprecated,
-    weak = plus.weak ?: weak,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FieldOptions.protoMergeImpl(plus: pbandk.Message?): FieldOptions = (plus as? FieldOptions)?.let {
+    it.copy(
+        ctype = plus.ctype ?: ctype,
+        packed = plus.packed ?: packed,
+        jstype = plus.jstype ?: jstype,
+        lazy = plus.lazy ?: lazy,
+        deprecated = plus.deprecated ?: deprecated,
+        weak = plus.weak ?: weak,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldOptions {
@@ -2629,10 +2682,12 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
 
 fun OneofOptions?.orDefault() = this ?: OneofOptions.defaultInstance
 
-private fun OneofOptions.protoMergeImpl(plus: pbandk.Message?): OneofOptions = (plus as? OneofOptions)?.copy(
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun OneofOptions.protoMergeImpl(plus: pbandk.Message?): OneofOptions = (plus as? OneofOptions)?.let {
+    it.copy(
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): OneofOptions {
@@ -2648,12 +2703,14 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
 
 fun EnumOptions?.orDefault() = this ?: EnumOptions.defaultInstance
 
-private fun EnumOptions.protoMergeImpl(plus: pbandk.Message?): EnumOptions = (plus as? EnumOptions)?.copy(
-    allowAlias = plus.allowAlias ?: allowAlias,
-    deprecated = plus.deprecated ?: deprecated,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun EnumOptions.protoMergeImpl(plus: pbandk.Message?): EnumOptions = (plus as? EnumOptions)?.let {
+    it.copy(
+        allowAlias = plus.allowAlias ?: allowAlias,
+        deprecated = plus.deprecated ?: deprecated,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumOptions {
@@ -2673,11 +2730,13 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum
 
 fun EnumValueOptions?.orDefault() = this ?: EnumValueOptions.defaultInstance
 
-private fun EnumValueOptions.protoMergeImpl(plus: pbandk.Message?): EnumValueOptions = (plus as? EnumValueOptions)?.copy(
-    deprecated = plus.deprecated ?: deprecated,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun EnumValueOptions.protoMergeImpl(plus: pbandk.Message?): EnumValueOptions = (plus as? EnumValueOptions)?.let {
+    it.copy(
+        deprecated = plus.deprecated ?: deprecated,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValueOptions {
@@ -2695,11 +2754,13 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
 
 fun ServiceOptions?.orDefault() = this ?: ServiceOptions.defaultInstance
 
-private fun ServiceOptions.protoMergeImpl(plus: pbandk.Message?): ServiceOptions = (plus as? ServiceOptions)?.copy(
-    deprecated = plus.deprecated ?: deprecated,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun ServiceOptions.protoMergeImpl(plus: pbandk.Message?): ServiceOptions = (plus as? ServiceOptions)?.let {
+    it.copy(
+        deprecated = plus.deprecated ?: deprecated,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ServiceOptions {
@@ -2717,12 +2778,14 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
 
 fun MethodOptions?.orDefault() = this ?: MethodOptions.defaultInstance
 
-private fun MethodOptions.protoMergeImpl(plus: pbandk.Message?): MethodOptions = (plus as? MethodOptions)?.copy(
-    deprecated = plus.deprecated ?: deprecated,
-    idempotencyLevel = plus.idempotencyLevel ?: idempotencyLevel,
-    uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun MethodOptions.protoMergeImpl(plus: pbandk.Message?): MethodOptions = (plus as? MethodOptions)?.let {
+    it.copy(
+        deprecated = plus.deprecated ?: deprecated,
+        idempotencyLevel = plus.idempotencyLevel ?: idempotencyLevel,
+        uninterpretedOption = uninterpretedOption + plus.uninterpretedOption,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MethodOptions {
@@ -2742,16 +2805,18 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Me
 
 fun UninterpretedOption?.orDefault() = this ?: UninterpretedOption.defaultInstance
 
-private fun UninterpretedOption.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption = (plus as? UninterpretedOption)?.copy(
-    name = name + plus.name,
-    identifierValue = plus.identifierValue ?: identifierValue,
-    positiveIntValue = plus.positiveIntValue ?: positiveIntValue,
-    negativeIntValue = plus.negativeIntValue ?: negativeIntValue,
-    doubleValue = plus.doubleValue ?: doubleValue,
-    stringValue = plus.stringValue ?: stringValue,
-    aggregateValue = plus.aggregateValue ?: aggregateValue,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun UninterpretedOption.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption = (plus as? UninterpretedOption)?.let {
+    it.copy(
+        name = name + plus.name,
+        identifierValue = plus.identifierValue ?: identifierValue,
+        positiveIntValue = plus.positiveIntValue ?: positiveIntValue,
+        negativeIntValue = plus.negativeIntValue ?: negativeIntValue,
+        doubleValue = plus.doubleValue ?: doubleValue,
+        stringValue = plus.stringValue ?: stringValue,
+        aggregateValue = plus.aggregateValue ?: aggregateValue,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UninterpretedOption {
@@ -2780,9 +2845,11 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
 
 fun UninterpretedOption.NamePart?.orDefault() = this ?: UninterpretedOption.NamePart.defaultInstance
 
-private fun UninterpretedOption.NamePart.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption.NamePart = (plus as? UninterpretedOption.NamePart)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun UninterpretedOption.NamePart.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption.NamePart = (plus as? UninterpretedOption.NamePart)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UninterpretedOption.NamePart {
@@ -2800,10 +2867,12 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
 
 fun SourceCodeInfo?.orDefault() = this ?: SourceCodeInfo.defaultInstance
 
-private fun SourceCodeInfo.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo = (plus as? SourceCodeInfo)?.copy(
-    location = location + plus.location,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun SourceCodeInfo.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo = (plus as? SourceCodeInfo)?.let {
+    it.copy(
+        location = location + plus.location,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceCodeInfo {
@@ -2819,14 +2888,16 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
 
 fun SourceCodeInfo.Location?.orDefault() = this ?: SourceCodeInfo.Location.defaultInstance
 
-private fun SourceCodeInfo.Location.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo.Location = (plus as? SourceCodeInfo.Location)?.copy(
-    path = path + plus.path,
-    span = span + plus.span,
-    leadingComments = plus.leadingComments ?: leadingComments,
-    trailingComments = plus.trailingComments ?: trailingComments,
-    leadingDetachedComments = leadingDetachedComments + plus.leadingDetachedComments,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun SourceCodeInfo.Location.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo.Location = (plus as? SourceCodeInfo.Location)?.let {
+    it.copy(
+        path = path + plus.path,
+        span = span + plus.span,
+        leadingComments = plus.leadingComments ?: leadingComments,
+        trailingComments = plus.trailingComments ?: trailingComments,
+        leadingDetachedComments = leadingDetachedComments + plus.leadingDetachedComments,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceCodeInfo.Location {
@@ -2851,10 +2922,12 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
 
 fun GeneratedCodeInfo?.orDefault() = this ?: GeneratedCodeInfo.defaultInstance
 
-private fun GeneratedCodeInfo.protoMergeImpl(plus: pbandk.Message?): GeneratedCodeInfo = (plus as? GeneratedCodeInfo)?.copy(
-    annotation = annotation + plus.annotation,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun GeneratedCodeInfo.protoMergeImpl(plus: pbandk.Message?): GeneratedCodeInfo = (plus as? GeneratedCodeInfo)?.let {
+    it.copy(
+        annotation = annotation + plus.annotation,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): GeneratedCodeInfo {
@@ -2870,13 +2943,15 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
 
 fun GeneratedCodeInfo.Annotation?.orDefault() = this ?: GeneratedCodeInfo.Annotation.defaultInstance
 
-private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: pbandk.Message?): GeneratedCodeInfo.Annotation = (plus as? GeneratedCodeInfo.Annotation)?.copy(
-    path = path + plus.path,
-    sourceFile = plus.sourceFile ?: sourceFile,
-    begin = plus.begin ?: begin,
-    end = plus.end ?: end,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: pbandk.Message?): GeneratedCodeInfo.Annotation = (plus as? GeneratedCodeInfo.Annotation)?.let {
+    it.copy(
+        path = path + plus.path,
+        sourceFile = plus.sourceFile ?: sourceFile,
+        begin = plus.begin ?: begin,
+        end = plus.end ?: end,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.MessageDecoder): GeneratedCodeInfo.Annotation {

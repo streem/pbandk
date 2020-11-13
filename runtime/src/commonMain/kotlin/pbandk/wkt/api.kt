@@ -246,13 +246,15 @@ data class Mixin(
 
 fun Api?.orDefault() = this ?: Api.defaultInstance
 
-private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.copy(
-    methods = methods + plus.methods,
-    options = options + plus.options,
-    sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
-    mixins = mixins + plus.mixins,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.let {
+    it.copy(
+        methods = methods + plus.methods,
+        options = options + plus.options,
+        sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
+        mixins = mixins + plus.mixins,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
@@ -281,10 +283,12 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
 
 fun Method?.orDefault() = this ?: Method.defaultInstance
 
-private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Method)?.copy(
-    options = options + plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Method)?.let {
+    it.copy(
+        options = options + plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
@@ -313,9 +317,11 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
 
 fun Mixin?.orDefault() = this ?: Mixin.defaultInstance
 
-private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {

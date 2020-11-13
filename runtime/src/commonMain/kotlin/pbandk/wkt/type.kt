@@ -467,13 +467,15 @@ data class Option(
 
 fun Type?.orDefault() = this ?: Type.defaultInstance
 
-private fun Type.protoMergeImpl(plus: pbandk.Message?): Type = (plus as? Type)?.copy(
-    fields = fields + plus.fields,
-    oneofs = oneofs + plus.oneofs,
-    options = options + plus.options,
-    sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Type.protoMergeImpl(plus: pbandk.Message?): Type = (plus as? Type)?.let {
+    it.copy(
+        fields = fields + plus.fields,
+        oneofs = oneofs + plus.oneofs,
+        options = options + plus.options,
+        sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
@@ -500,10 +502,12 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
 
 fun Field?.orDefault() = this ?: Field.defaultInstance
 
-private fun Field.protoMergeImpl(plus: pbandk.Message?): Field = (plus as? Field)?.copy(
-    options = options + plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Field.protoMergeImpl(plus: pbandk.Message?): Field = (plus as? Field)?.let {
+    it.copy(
+        options = options + plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
@@ -539,12 +543,14 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
 
 fun Enum?.orDefault() = this ?: Enum.defaultInstance
 
-private fun Enum.protoMergeImpl(plus: pbandk.Message?): Enum = (plus as? Enum)?.copy(
-    enumvalue = enumvalue + plus.enumvalue,
-    options = options + plus.options,
-    sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Enum.protoMergeImpl(plus: pbandk.Message?): Enum = (plus as? Enum)?.let {
+    it.copy(
+        enumvalue = enumvalue + plus.enumvalue,
+        options = options + plus.options,
+        sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
@@ -569,10 +575,12 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
 
 fun EnumValue?.orDefault() = this ?: EnumValue.defaultInstance
 
-private fun EnumValue.protoMergeImpl(plus: pbandk.Message?): EnumValue = (plus as? EnumValue)?.copy(
-    options = options + plus.options,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun EnumValue.protoMergeImpl(plus: pbandk.Message?): EnumValue = (plus as? EnumValue)?.let {
+    it.copy(
+        options = options + plus.options,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValue {
@@ -592,10 +600,12 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
 
 fun Option?.orDefault() = this ?: Option.defaultInstance
 
-private fun Option.protoMergeImpl(plus: pbandk.Message?): Option = (plus as? Option)?.copy(
-    value = value?.plus(plus.value) ?: plus.value,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Option.protoMergeImpl(plus: pbandk.Message?): Option = (plus as? Option)?.let {
+    it.copy(
+        value = value?.plus(plus.value) ?: plus.value,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Option.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Option {
