@@ -10,12 +10,12 @@ data class Any(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        val defaultInstance by lazy { pbandk.wkt.Any() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Any.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<Any> {
+        val defaultInstance by lazy { Any() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = Any.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Any, *>>(2).apply {
+        override val descriptor: pbandk.MessageDescriptor<Any> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Any, *>>(2).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -23,7 +23,7 @@ data class Any(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "typeUrl",
-                        value = pbandk.wkt.Any::typeUrl
+                        value = Any::typeUrl
                     )
                 )
                 add(
@@ -33,12 +33,12 @@ data class Any(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
                         jsonName = "value",
-                        value = pbandk.wkt.Any::value
+                        value = Any::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.Any::class,
+                messageClass = Any::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

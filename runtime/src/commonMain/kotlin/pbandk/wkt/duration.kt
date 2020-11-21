@@ -10,12 +10,12 @@ data class Duration(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        val defaultInstance by lazy { pbandk.wkt.Duration() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Duration.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<Duration> {
+        val defaultInstance by lazy { Duration() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = Duration.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Duration, *>>(2).apply {
+        override val descriptor: pbandk.MessageDescriptor<Duration> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Duration, *>>(2).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -23,7 +23,7 @@ data class Duration(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "seconds",
-                        value = pbandk.wkt.Duration::seconds
+                        value = Duration::seconds
                     )
                 )
                 add(
@@ -33,12 +33,12 @@ data class Duration(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "nanos",
-                        value = pbandk.wkt.Duration::nanos
+                        value = Duration::nanos
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.Duration::class,
+                messageClass = Duration::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

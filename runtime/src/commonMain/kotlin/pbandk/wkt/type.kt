@@ -30,12 +30,12 @@ data class Type(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
-        val defaultInstance by lazy { pbandk.wkt.Type() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Type.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<Type> {
+        val defaultInstance by lazy { Type() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = Type.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Type, *>>(6).apply {
+        override val descriptor: pbandk.MessageDescriptor<Type> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Type, *>>(6).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -43,7 +43,7 @@ data class Type(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Type::name
+                        value = Type::name
                     )
                 )
                 add(
@@ -53,7 +53,7 @@ data class Type(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Field>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Field.Companion)),
                         jsonName = "fields",
-                        value = pbandk.wkt.Type::fields
+                        value = Type::fields
                     )
                 )
                 add(
@@ -63,7 +63,7 @@ data class Type(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "oneofs",
-                        value = pbandk.wkt.Type::oneofs
+                        value = Type::oneofs
                     )
                 )
                 add(
@@ -73,7 +73,7 @@ data class Type(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Type::options
+                        value = Type::options
                     )
                 )
                 add(
@@ -83,7 +83,7 @@ data class Type(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                         jsonName = "sourceContext",
-                        value = pbandk.wkt.Type::sourceContext
+                        value = Type::sourceContext
                     )
                 )
                 add(
@@ -93,12 +93,12 @@ data class Type(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = pbandk.wkt.Type::syntax
+                        value = Type::syntax
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.Type::class,
+                messageClass = Type::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -122,12 +122,12 @@ data class Field(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
-        val defaultInstance by lazy { pbandk.wkt.Field() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Field.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<Field> {
+        val defaultInstance by lazy { Field() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = Field.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Field, *>>(10).apply {
+        override val descriptor: pbandk.MessageDescriptor<Field> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Field, *>>(10).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -135,7 +135,7 @@ data class Field(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Field.Kind.Companion),
                         jsonName = "kind",
-                        value = pbandk.wkt.Field::kind
+                        value = Field::kind
                     )
                 )
                 add(
@@ -145,7 +145,7 @@ data class Field(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Field.Cardinality.Companion),
                         jsonName = "cardinality",
-                        value = pbandk.wkt.Field::cardinality
+                        value = Field::cardinality
                     )
                 )
                 add(
@@ -155,7 +155,7 @@ data class Field(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "number",
-                        value = pbandk.wkt.Field::number
+                        value = Field::number
                     )
                 )
                 add(
@@ -165,7 +165,7 @@ data class Field(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Field::name
+                        value = Field::name
                     )
                 )
                 add(
@@ -175,7 +175,7 @@ data class Field(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "typeUrl",
-                        value = pbandk.wkt.Field::typeUrl
+                        value = Field::typeUrl
                     )
                 )
                 add(
@@ -185,7 +185,7 @@ data class Field(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "oneofIndex",
-                        value = pbandk.wkt.Field::oneofIndex
+                        value = Field::oneofIndex
                     )
                 )
                 add(
@@ -195,7 +195,7 @@ data class Field(
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "packed",
-                        value = pbandk.wkt.Field::packed
+                        value = Field::packed
                     )
                 )
                 add(
@@ -205,7 +205,7 @@ data class Field(
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Field::options
+                        value = Field::options
                     )
                 )
                 add(
@@ -215,7 +215,7 @@ data class Field(
                         number = 10,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "jsonName",
-                        value = pbandk.wkt.Field::jsonName
+                        value = Field::jsonName
                     )
                 )
                 add(
@@ -225,12 +225,12 @@ data class Field(
                         number = 11,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "defaultValue",
-                        value = pbandk.wkt.Field::defaultValue
+                        value = Field::defaultValue
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.Field::class,
+                messageClass = Field::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -238,9 +238,9 @@ data class Field(
     }
 
     sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Field.Kind && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Field.Kind && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object TYPE_UNKNOWN : Kind(0, "TYPE_UNKNOWN")
         object TYPE_DOUBLE : Kind(1, "TYPE_DOUBLE")
@@ -261,28 +261,28 @@ data class Field(
         object TYPE_SFIXED64 : Kind(16, "TYPE_SFIXED64")
         object TYPE_SINT32 : Kind(17, "TYPE_SINT32")
         object TYPE_SINT64 : Kind(18, "TYPE_SINT64")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.Field.Kind(value)
+        class UNRECOGNIZED(value: Int) : Field.Kind(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Kind> {
-            val values: List<pbandk.wkt.Field.Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
+        companion object : pbandk.Message.Enum.Companion<Field.Kind> {
+            val values: List<Field.Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
         }
     }
 
     sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Field.Cardinality && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Field.Cardinality && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object UNKNOWN : Cardinality(0, "CARDINALITY_UNKNOWN")
         object OPTIONAL : Cardinality(1, "CARDINALITY_OPTIONAL")
         object REQUIRED : Cardinality(2, "CARDINALITY_REQUIRED")
         object REPEATED : Cardinality(3, "CARDINALITY_REPEATED")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.Field.Cardinality(value)
+        class UNRECOGNIZED(value: Int) : Field.Cardinality(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Cardinality> {
-            val values: List<pbandk.wkt.Field.Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
+        companion object : pbandk.Message.Enum.Companion<Field.Cardinality> {
+            val values: List<Field.Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")
         }
@@ -300,12 +300,12 @@ data class Enum(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
-        val defaultInstance by lazy { pbandk.wkt.Enum() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Enum.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<Enum> {
+        val defaultInstance by lazy { Enum() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = Enum.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Enum, *>>(5).apply {
+        override val descriptor: pbandk.MessageDescriptor<Enum> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Enum, *>>(5).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -313,7 +313,7 @@ data class Enum(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Enum::name
+                        value = Enum::name
                     )
                 )
                 add(
@@ -323,7 +323,7 @@ data class Enum(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.EnumValue>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.EnumValue.Companion)),
                         jsonName = "enumvalue",
-                        value = pbandk.wkt.Enum::enumvalue
+                        value = Enum::enumvalue
                     )
                 )
                 add(
@@ -333,7 +333,7 @@ data class Enum(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.Enum::options
+                        value = Enum::options
                     )
                 )
                 add(
@@ -343,7 +343,7 @@ data class Enum(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                         jsonName = "sourceContext",
-                        value = pbandk.wkt.Enum::sourceContext
+                        value = Enum::sourceContext
                     )
                 )
                 add(
@@ -353,12 +353,12 @@ data class Enum(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = pbandk.wkt.Enum::syntax
+                        value = Enum::syntax
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.Enum::class,
+                messageClass = Enum::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -375,12 +375,12 @@ data class EnumValue(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
-        val defaultInstance by lazy { pbandk.wkt.EnumValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.EnumValue.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<EnumValue> {
+        val defaultInstance by lazy { EnumValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = EnumValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.EnumValue, *>>(3).apply {
+        override val descriptor: pbandk.MessageDescriptor<EnumValue> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumValue, *>>(3).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -388,7 +388,7 @@ data class EnumValue(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.EnumValue::name
+                        value = EnumValue::name
                     )
                 )
                 add(
@@ -398,7 +398,7 @@ data class EnumValue(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "number",
-                        value = pbandk.wkt.EnumValue::number
+                        value = EnumValue::number
                     )
                 )
                 add(
@@ -408,12 +408,12 @@ data class EnumValue(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = pbandk.wkt.EnumValue::options
+                        value = EnumValue::options
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.EnumValue::class,
+                messageClass = EnumValue::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -429,12 +429,12 @@ data class Option(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
-        val defaultInstance by lazy { pbandk.wkt.Option() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Option.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<Option> {
+        val defaultInstance by lazy { Option() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = Option.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Option, *>>(2).apply {
+        override val descriptor: pbandk.MessageDescriptor<Option> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Option, *>>(2).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -442,7 +442,7 @@ data class Option(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = pbandk.wkt.Option::name
+                        value = Option::name
                     )
                 )
                 add(
@@ -452,12 +452,12 @@ data class Option(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Any.Companion),
                         jsonName = "value",
-                        value = pbandk.wkt.Option::value
+                        value = Option::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.Option::class,
+                messageClass = Option::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

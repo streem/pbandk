@@ -52,8 +52,8 @@ open class CodeGenerator(
     }
 
     protected fun writeMessageType(type: File.Type.Message, parentType: String? = null) {
-        val parentPrefix = parentType?.let { "${it}." }.orEmpty()
-        val typeName = "${file.kotlinPackageName}.${parentPrefix}${type.kotlinTypeName}"
+        val parentPrefix = parentType?.let { "${it}." }.orEmpty().ifEmpty { "${file.kotlinPackageName}." }
+        val typeName = "${parentPrefix}${type.kotlinTypeName}"
         var extends = "pbandk.Message"
         if (type.mapEntry) extends += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 

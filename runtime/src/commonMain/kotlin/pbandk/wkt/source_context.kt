@@ -9,12 +9,12 @@ data class SourceContext(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        val defaultInstance by lazy { pbandk.wkt.SourceContext() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.SourceContext.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<SourceContext> {
+        val defaultInstance by lazy { SourceContext() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = SourceContext.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceContext, *>>(1).apply {
+        override val descriptor: pbandk.MessageDescriptor<SourceContext> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceContext, *>>(1).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -22,12 +22,12 @@ data class SourceContext(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "fileName",
-                        value = pbandk.wkt.SourceContext::fileName
+                        value = SourceContext::fileName
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = pbandk.wkt.SourceContext::class,
+                messageClass = SourceContext::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
