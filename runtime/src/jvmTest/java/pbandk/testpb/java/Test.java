@@ -20,10 +20,12 @@ public final class Test {
 
     /**
      * <code>string val = 1;</code>
+     * @return The val.
      */
     java.lang.String getVal();
     /**
      * <code>string val = 1;</code>
+     * @return The bytes for val.
      */
     com.google.protobuf.ByteString
         getValBytes();
@@ -45,6 +47,13 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Foo();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -57,7 +66,6 @@ public final class Test {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -75,7 +83,7 @@ public final class Test {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -110,6 +118,7 @@ public final class Test {
     private volatile java.lang.Object val_;
     /**
      * <code>string val = 1;</code>
+     * @return The val.
      */
     public java.lang.String getVal() {
       java.lang.Object ref = val_;
@@ -125,6 +134,7 @@ public final class Test {
     }
     /**
      * <code>string val = 1;</code>
+     * @return The bytes for val.
      */
     public com.google.protobuf.ByteString
         getValBytes() {
@@ -184,11 +194,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.Foo other = (pbandk.testpb.java.Test.Foo) obj;
 
-      boolean result = true;
-      result = result && getVal()
-          .equals(other.getVal());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getVal()
+          .equals(other.getVal())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -368,35 +377,35 @@ public final class Test {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -446,6 +455,7 @@ public final class Test {
       private java.lang.Object val_ = "";
       /**
        * <code>string val = 1;</code>
+       * @return The val.
        */
       public java.lang.String getVal() {
         java.lang.Object ref = val_;
@@ -461,6 +471,7 @@ public final class Test {
       }
       /**
        * <code>string val = 1;</code>
+       * @return The bytes for val.
        */
       public com.google.protobuf.ByteString
           getValBytes() {
@@ -477,6 +488,8 @@ public final class Test {
       }
       /**
        * <code>string val = 1;</code>
+       * @param value The val to set.
+       * @return This builder for chaining.
        */
       public Builder setVal(
           java.lang.String value) {
@@ -490,6 +503,7 @@ public final class Test {
       }
       /**
        * <code>string val = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVal() {
         
@@ -499,6 +513,8 @@ public final class Test {
       }
       /**
        * <code>string val = 1;</code>
+       * @param value The bytes for val to set.
+       * @return This builder for chaining.
        */
       public Builder setValBytes(
           com.google.protobuf.ByteString value) {
@@ -514,7 +530,7 @@ public final class Test {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -594,10 +610,12 @@ public final class Test {
 
     /**
      * <code>.testpb.Foo single_foo = 2;</code>
+     * @return Whether the singleFoo field is set.
      */
     boolean hasSingleFoo();
     /**
      * <code>.testpb.Foo single_foo = 2;</code>
+     * @return The singleFoo.
      */
     pbandk.testpb.java.Test.Foo getSingleFoo();
     /**
@@ -619,6 +637,13 @@ public final class Test {
     }
     private Bar() {
       foos_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Bar();
     }
 
     @java.lang.Override
@@ -646,7 +671,7 @@ public final class Test {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 foos_ = new java.util.ArrayList<pbandk.testpb.java.Test.Foo>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -668,7 +693,7 @@ public final class Test {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -682,7 +707,7 @@ public final class Test {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           foos_ = java.util.Collections.unmodifiableList(foos_);
         }
         this.unknownFields = unknownFields.build();
@@ -702,7 +727,6 @@ public final class Test {
               pbandk.testpb.java.Test.Bar.class, pbandk.testpb.java.Test.Bar.Builder.class);
     }
 
-    private int bitField0_;
     public static final int FOOS_FIELD_NUMBER = 1;
     private java.util.List<pbandk.testpb.java.Test.Foo> foos_;
     /**
@@ -742,12 +766,14 @@ public final class Test {
     private pbandk.testpb.java.Test.Foo singleFoo_;
     /**
      * <code>.testpb.Foo single_foo = 2;</code>
+     * @return Whether the singleFoo field is set.
      */
     public boolean hasSingleFoo() {
       return singleFoo_ != null;
     }
     /**
      * <code>.testpb.Foo single_foo = 2;</code>
+     * @return The singleFoo.
      */
     public pbandk.testpb.java.Test.Foo getSingleFoo() {
       return singleFoo_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : singleFoo_;
@@ -811,16 +837,15 @@ public final class Test {
       }
       pbandk.testpb.java.Test.Bar other = (pbandk.testpb.java.Test.Bar) obj;
 
-      boolean result = true;
-      result = result && getFoosList()
-          .equals(other.getFoosList());
-      result = result && (hasSingleFoo() == other.hasSingleFoo());
+      if (!getFoosList()
+          .equals(other.getFoosList())) return false;
+      if (hasSingleFoo() != other.hasSingleFoo()) return false;
       if (hasSingleFoo()) {
-        result = result && getSingleFoo()
-            .equals(other.getSingleFoo());
+        if (!getSingleFoo()
+            .equals(other.getSingleFoo())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1011,9 +1036,8 @@ public final class Test {
       public pbandk.testpb.java.Test.Bar buildPartial() {
         pbandk.testpb.java.Test.Bar result = new pbandk.testpb.java.Test.Bar(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (foosBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             foos_ = java.util.Collections.unmodifiableList(foos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -1026,42 +1050,41 @@ public final class Test {
         } else {
           result.singleFoo_ = singleFooBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1137,7 +1160,7 @@ public final class Test {
       private java.util.List<pbandk.testpb.java.Test.Foo> foos_ =
         java.util.Collections.emptyList();
       private void ensureFoosIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           foos_ = new java.util.ArrayList<pbandk.testpb.java.Test.Foo>(foos_);
           bitField0_ |= 0x00000001;
          }
@@ -1366,7 +1389,7 @@ public final class Test {
           foosBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder>(
                   foos_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           foos_ = null;
@@ -1374,17 +1397,19 @@ public final class Test {
         return foosBuilder_;
       }
 
-      private pbandk.testpb.java.Test.Foo singleFoo_ = null;
+      private pbandk.testpb.java.Test.Foo singleFoo_;
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder> singleFooBuilder_;
       /**
        * <code>.testpb.Foo single_foo = 2;</code>
+       * @return Whether the singleFoo field is set.
        */
       public boolean hasSingleFoo() {
         return singleFooBuilder_ != null || singleFoo_ != null;
       }
       /**
        * <code>.testpb.Foo single_foo = 2;</code>
+       * @return The singleFoo.
        */
       public pbandk.testpb.java.Test.Foo getSingleFoo() {
         if (singleFooBuilder_ == null) {
@@ -1493,7 +1518,7 @@ public final class Test {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1597,6 +1622,13 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageWithMap();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1621,7 +1653,7 @@ public final class Test {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 map_ = com.google.protobuf.MapField.newMapField(
                     MapDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
@@ -1634,7 +1666,7 @@ public final class Test {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1807,11 +1839,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.MessageWithMap other = (pbandk.testpb.java.Test.MessageWithMap) obj;
 
-      boolean result = true;
-      result = result && internalGetMap().equals(
-          other.internalGetMap());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!internalGetMap().equals(
+          other.internalGetMap())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2016,35 +2047,35 @@ public final class Test {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2215,7 +2246,7 @@ public final class Test {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2319,6 +2350,13 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FooMap();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2343,7 +2381,7 @@ public final class Test {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 map_ = com.google.protobuf.MapField.newMapField(
                     MapDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
@@ -2356,7 +2394,7 @@ public final class Test {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2529,11 +2567,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.FooMap other = (pbandk.testpb.java.Test.FooMap) obj;
 
-      boolean result = true;
-      result = result && internalGetMap().equals(
-          other.internalGetMap());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!internalGetMap().equals(
+          other.internalGetMap())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2738,35 +2775,35 @@ public final class Test {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2937,7 +2974,7 @@ public final class Test {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3037,6 +3074,13 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FooMapEntries();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3061,7 +3105,7 @@ public final class Test {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 map_ = new java.util.ArrayList<pbandk.testpb.java.Test.FooMapEntries.MapEntry>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -3070,7 +3114,7 @@ public final class Test {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3084,7 +3128,7 @@ public final class Test {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           map_ = java.util.Collections.unmodifiableList(map_);
         }
         this.unknownFields = unknownFields.build();
@@ -3110,20 +3154,24 @@ public final class Test {
 
       /**
        * <code>string key = 1;</code>
+       * @return The key.
        */
       java.lang.String getKey();
       /**
        * <code>string key = 1;</code>
+       * @return The bytes for key.
        */
       com.google.protobuf.ByteString
           getKeyBytes();
 
       /**
        * <code>.testpb.Foo value = 2;</code>
+       * @return Whether the value field is set.
        */
       boolean hasValue();
       /**
        * <code>.testpb.Foo value = 2;</code>
+       * @return The value.
        */
       pbandk.testpb.java.Test.Foo getValue();
       /**
@@ -3148,6 +3196,13 @@ public final class Test {
       }
 
       @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new MapEntry();
+      }
+
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -3160,7 +3215,6 @@ public final class Test {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
-        int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
@@ -3191,7 +3245,7 @@ public final class Test {
                 break;
               }
               default: {
-                if (!parseUnknownFieldProto3(
+                if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
@@ -3226,6 +3280,7 @@ public final class Test {
       private volatile java.lang.Object key_;
       /**
        * <code>string key = 1;</code>
+       * @return The key.
        */
       public java.lang.String getKey() {
         java.lang.Object ref = key_;
@@ -3241,6 +3296,7 @@ public final class Test {
       }
       /**
        * <code>string key = 1;</code>
+       * @return The bytes for key.
        */
       public com.google.protobuf.ByteString
           getKeyBytes() {
@@ -3260,12 +3316,14 @@ public final class Test {
       private pbandk.testpb.java.Test.Foo value_;
       /**
        * <code>.testpb.Foo value = 2;</code>
+       * @return Whether the value field is set.
        */
       public boolean hasValue() {
         return value_ != null;
       }
       /**
        * <code>.testpb.Foo value = 2;</code>
+       * @return The value.
        */
       public pbandk.testpb.java.Test.Foo getValue() {
         return value_ == null ? pbandk.testpb.java.Test.Foo.getDefaultInstance() : value_;
@@ -3328,16 +3386,15 @@ public final class Test {
         }
         pbandk.testpb.java.Test.FooMapEntries.MapEntry other = (pbandk.testpb.java.Test.FooMapEntries.MapEntry) obj;
 
-        boolean result = true;
-        result = result && getKey()
-            .equals(other.getKey());
-        result = result && (hasValue() == other.hasValue());
+        if (!getKey()
+            .equals(other.getKey())) return false;
+        if (hasValue() != other.hasValue()) return false;
         if (hasValue()) {
-          result = result && getValue()
-              .equals(other.getValue());
+          if (!getValue()
+              .equals(other.getValue())) return false;
         }
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
       }
 
       @java.lang.Override
@@ -3532,35 +3589,35 @@ public final class Test {
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3613,6 +3670,7 @@ public final class Test {
         private java.lang.Object key_ = "";
         /**
          * <code>string key = 1;</code>
+         * @return The key.
          */
         public java.lang.String getKey() {
           java.lang.Object ref = key_;
@@ -3628,6 +3686,7 @@ public final class Test {
         }
         /**
          * <code>string key = 1;</code>
+         * @return The bytes for key.
          */
         public com.google.protobuf.ByteString
             getKeyBytes() {
@@ -3644,6 +3703,8 @@ public final class Test {
         }
         /**
          * <code>string key = 1;</code>
+         * @param value The key to set.
+         * @return This builder for chaining.
          */
         public Builder setKey(
             java.lang.String value) {
@@ -3657,6 +3718,7 @@ public final class Test {
         }
         /**
          * <code>string key = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearKey() {
           
@@ -3666,6 +3728,8 @@ public final class Test {
         }
         /**
          * <code>string key = 1;</code>
+         * @param value The bytes for key to set.
+         * @return This builder for chaining.
          */
         public Builder setKeyBytes(
             com.google.protobuf.ByteString value) {
@@ -3679,17 +3743,19 @@ public final class Test {
           return this;
         }
 
-        private pbandk.testpb.java.Test.Foo value_ = null;
+        private pbandk.testpb.java.Test.Foo value_;
         private com.google.protobuf.SingleFieldBuilderV3<
             pbandk.testpb.java.Test.Foo, pbandk.testpb.java.Test.Foo.Builder, pbandk.testpb.java.Test.FooOrBuilder> valueBuilder_;
         /**
          * <code>.testpb.Foo value = 2;</code>
+         * @return Whether the value field is set.
          */
         public boolean hasValue() {
           return valueBuilder_ != null || value_ != null;
         }
         /**
          * <code>.testpb.Foo value = 2;</code>
+         * @return The value.
          */
         public pbandk.testpb.java.Test.Foo getValue() {
           if (valueBuilder_ == null) {
@@ -3798,7 +3864,7 @@ public final class Test {
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
@@ -3928,11 +3994,10 @@ public final class Test {
       }
       pbandk.testpb.java.Test.FooMapEntries other = (pbandk.testpb.java.Test.FooMapEntries) obj;
 
-      boolean result = true;
-      result = result && getMapList()
-          .equals(other.getMapList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getMapList()
+          .equals(other.getMapList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4119,7 +4184,7 @@ public final class Test {
         pbandk.testpb.java.Test.FooMapEntries result = new pbandk.testpb.java.Test.FooMapEntries(this);
         int from_bitField0_ = bitField0_;
         if (mapBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             map_ = java.util.Collections.unmodifiableList(map_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -4133,35 +4198,35 @@ public final class Test {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4234,7 +4299,7 @@ public final class Test {
       private java.util.List<pbandk.testpb.java.Test.FooMapEntries.MapEntry> map_ =
         java.util.Collections.emptyList();
       private void ensureMapIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           map_ = new java.util.ArrayList<pbandk.testpb.java.Test.FooMapEntries.MapEntry>(map_);
           bitField0_ |= 0x00000001;
          }
@@ -4463,7 +4528,7 @@ public final class Test {
           mapBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               pbandk.testpb.java.Test.FooMapEntries.MapEntry, pbandk.testpb.java.Test.FooMapEntries.MapEntry.Builder, pbandk.testpb.java.Test.FooMapEntries.MapEntryOrBuilder>(
                   map_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           map_ = null;
@@ -4473,7 +4538,7 @@ public final class Test {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4529,10 +4594,12 @@ public final class Test {
 
     /**
      * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return Whether the stringValue field is set.
      */
     boolean hasStringValue();
     /**
      * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return The stringValue.
      */
     com.google.protobuf.StringValue getStringValue();
     /**
@@ -4581,6 +4648,13 @@ public final class Test {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Wrappers();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4618,16 +4692,16 @@ public final class Test {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 uint64Values_ = new java.util.ArrayList<com.google.protobuf.UInt64Value>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               uint64Values_.add(
                   input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry));
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4641,7 +4715,7 @@ public final class Test {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           uint64Values_ = java.util.Collections.unmodifiableList(uint64Values_);
         }
         this.unknownFields = unknownFields.build();
@@ -4661,17 +4735,18 @@ public final class Test {
               pbandk.testpb.java.Test.Wrappers.class, pbandk.testpb.java.Test.Wrappers.Builder.class);
     }
 
-    private int bitField0_;
     public static final int STRING_VALUE_FIELD_NUMBER = 1;
     private com.google.protobuf.StringValue stringValue_;
     /**
      * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return Whether the stringValue field is set.
      */
     public boolean hasStringValue() {
       return stringValue_ != null;
     }
     /**
      * <code>.google.protobuf.StringValue string_value = 1;</code>
+     * @return The stringValue.
      */
     public com.google.protobuf.StringValue getStringValue() {
       return stringValue_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : stringValue_;
@@ -4770,16 +4845,15 @@ public final class Test {
       }
       pbandk.testpb.java.Test.Wrappers other = (pbandk.testpb.java.Test.Wrappers) obj;
 
-      boolean result = true;
-      result = result && (hasStringValue() == other.hasStringValue());
+      if (hasStringValue() != other.hasStringValue()) return false;
       if (hasStringValue()) {
-        result = result && getStringValue()
-            .equals(other.getStringValue());
+        if (!getStringValue()
+            .equals(other.getStringValue())) return false;
       }
-      result = result && getUint64ValuesList()
-          .equals(other.getUint64ValuesList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getUint64ValuesList()
+          .equals(other.getUint64ValuesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4939,7 +5013,7 @@ public final class Test {
         }
         if (uint64ValuesBuilder_ == null) {
           uint64Values_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           uint64ValuesBuilder_.clear();
         }
@@ -4970,57 +5044,55 @@ public final class Test {
       public pbandk.testpb.java.Test.Wrappers buildPartial() {
         pbandk.testpb.java.Test.Wrappers result = new pbandk.testpb.java.Test.Wrappers(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (stringValueBuilder_ == null) {
           result.stringValue_ = stringValue_;
         } else {
           result.stringValue_ = stringValueBuilder_.build();
         }
         if (uint64ValuesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             uint64Values_ = java.util.Collections.unmodifiableList(uint64Values_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.uint64Values_ = uint64Values_;
         } else {
           result.uint64Values_ = uint64ValuesBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5041,7 +5113,7 @@ public final class Test {
           if (!other.uint64Values_.isEmpty()) {
             if (uint64Values_.isEmpty()) {
               uint64Values_ = other.uint64Values_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureUint64ValuesIsMutable();
               uint64Values_.addAll(other.uint64Values_);
@@ -5054,7 +5126,7 @@ public final class Test {
               uint64ValuesBuilder_.dispose();
               uint64ValuesBuilder_ = null;
               uint64Values_ = other.uint64Values_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               uint64ValuesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getUint64ValuesFieldBuilder() : null;
@@ -5093,17 +5165,19 @@ public final class Test {
       }
       private int bitField0_;
 
-      private com.google.protobuf.StringValue stringValue_ = null;
+      private com.google.protobuf.StringValue stringValue_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringValueBuilder_;
       /**
        * <code>.google.protobuf.StringValue string_value = 1;</code>
+       * @return Whether the stringValue field is set.
        */
       public boolean hasStringValue() {
         return stringValueBuilder_ != null || stringValue_ != null;
       }
       /**
        * <code>.google.protobuf.StringValue string_value = 1;</code>
+       * @return The stringValue.
        */
       public com.google.protobuf.StringValue getStringValue() {
         if (stringValueBuilder_ == null) {
@@ -5213,9 +5287,9 @@ public final class Test {
       private java.util.List<com.google.protobuf.UInt64Value> uint64Values_ =
         java.util.Collections.emptyList();
       private void ensureUint64ValuesIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           uint64Values_ = new java.util.ArrayList<com.google.protobuf.UInt64Value>(uint64Values_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -5365,7 +5439,7 @@ public final class Test {
       public Builder clearUint64Values() {
         if (uint64ValuesBuilder_ == null) {
           uint64Values_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           uint64ValuesBuilder_.clear();
@@ -5442,7 +5516,7 @@ public final class Test {
           uint64ValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
                   uint64Values_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           uint64Values_ = null;
@@ -5452,7 +5526,7 @@ public final class Test {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5573,19 +5647,11 @@ public final class Test {
       "es\030\002 \003(\0132\034.google.protobuf.UInt64ValueB\024" +
       "\n\022pbandk.testpb.javab\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
-        }, assigner);
+        });
     internal_static_testpb_Foo_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_testpb_Foo_fieldAccessorTable = new
