@@ -1250,12 +1250,11 @@ public final class pbandk/wkt/Field$Kind$UNRECOGNIZED : pbandk/wkt/Field$Kind {
 public final class pbandk/wkt/FieldDescriptorProto : pbandk/Message {
 	public static final field Companion Lpbandk/wkt/FieldDescriptorProto$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Lpbandk/wkt/FieldOptions;
-	public final fun component11 ()Ljava/lang/Boolean;
-	public final fun component12 ()Ljava/util/Map;
+	public final fun component11 ()Ljava/util/Map;
 	public final fun component2 ()Ljava/lang/Integer;
 	public final fun component3 ()Lpbandk/wkt/FieldDescriptorProto$Label;
 	public final fun component4 ()Lpbandk/wkt/FieldDescriptorProto$Type;
@@ -1264,8 +1263,8 @@ public final class pbandk/wkt/FieldDescriptorProto : pbandk/Message {
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/Integer;
 	public final fun component9 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;)Lpbandk/wkt/FieldDescriptorProto;
-	public static synthetic fun copy$default (Lpbandk/wkt/FieldDescriptorProto;Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/lang/Boolean;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldDescriptorProto;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/util/Map;)Lpbandk/wkt/FieldDescriptorProto;
+	public static synthetic fun copy$default (Lpbandk/wkt/FieldDescriptorProto;Ljava/lang/String;Ljava/lang/Integer;Lpbandk/wkt/FieldDescriptorProto$Label;Lpbandk/wkt/FieldDescriptorProto$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lpbandk/wkt/FieldOptions;Ljava/util/Map;ILjava/lang/Object;)Lpbandk/wkt/FieldDescriptorProto;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDefaultValue ()Ljava/lang/String;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
@@ -1276,7 +1275,6 @@ public final class pbandk/wkt/FieldDescriptorProto : pbandk/Message {
 	public final fun getNumber ()Ljava/lang/Integer;
 	public final fun getOneofIndex ()Ljava/lang/Integer;
 	public final fun getOptions ()Lpbandk/wkt/FieldOptions;
-	public final fun getProto3Optional ()Ljava/lang/Boolean;
 	public fun getProtoSize ()I
 	public final fun getType ()Lpbandk/wkt/FieldDescriptorProto$Type;
 	public final fun getTypeName ()Ljava/lang/String;
