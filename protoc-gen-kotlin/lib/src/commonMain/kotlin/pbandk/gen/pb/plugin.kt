@@ -186,12 +186,12 @@ data class CodeGeneratorResponse(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File> {
-            val defaultInstance by lazy { pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
+            val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorResponse.File() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File, *>>(3).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, *>>(3).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -199,7 +199,7 @@ data class CodeGeneratorResponse(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "name",
-                            value = pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File::name
+                            value = pbandk.gen.pb.CodeGeneratorResponse.File::name
                         )
                     )
                     add(
@@ -209,7 +209,7 @@ data class CodeGeneratorResponse(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "insertionPoint",
-                            value = pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File::insertionPoint
+                            value = pbandk.gen.pb.CodeGeneratorResponse.File::insertionPoint
                         )
                     )
                     add(
@@ -219,12 +219,12 @@ data class CodeGeneratorResponse(
                             number = 15,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "content",
-                            value = pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File::content
+                            value = pbandk.gen.pb.CodeGeneratorResponse.File::content
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.gen.pb.pbandk.gen.pb.CodeGeneratorResponse.File::class,
+                    messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )

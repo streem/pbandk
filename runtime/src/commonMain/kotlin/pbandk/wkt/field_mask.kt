@@ -9,12 +9,12 @@ data class FieldMask(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<FieldMask> {
-        val defaultInstance by lazy { FieldMask() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = FieldMask.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
+        val defaultInstance by lazy { pbandk.wkt.FieldMask() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<FieldMask> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldMask, *>>(1).apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldMask, *>>(1).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -22,12 +22,12 @@ data class FieldMask(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "paths",
-                        value = FieldMask::paths
+                        value = pbandk.wkt.FieldMask::paths
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = FieldMask::class,
+                messageClass = pbandk.wkt.FieldMask::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

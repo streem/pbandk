@@ -1385,12 +1385,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.NestedMessage() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1398,7 +1398,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "a",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::a
+                            value = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::a
                         )
                     )
                     add(
@@ -1408,12 +1408,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.Companion),
                             jsonName = "corecursive",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::corecursive
+                            value = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::corecursive
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1429,12 +1429,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1442,7 +1442,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::key
                         )
                     )
                     add(
@@ -1452,12 +1452,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1473,12 +1473,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1486,7 +1486,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::key
                         )
                     )
                     add(
@@ -1496,12 +1496,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1517,12 +1517,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1530,7 +1530,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::key
                         )
                     )
                     add(
@@ -1540,12 +1540,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1561,12 +1561,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1574,7 +1574,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::key
                         )
                     )
                     add(
@@ -1584,12 +1584,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1605,12 +1605,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1618,7 +1618,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::key
                         )
                     )
                     add(
@@ -1628,12 +1628,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1649,12 +1649,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1662,7 +1662,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::key
                         )
                     )
                     add(
@@ -1672,12 +1672,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1693,12 +1693,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1706,7 +1706,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::key
                         )
                     )
                     add(
@@ -1716,12 +1716,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1737,12 +1737,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1750,7 +1750,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::key
                         )
                     )
                     add(
@@ -1760,12 +1760,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1781,12 +1781,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1794,7 +1794,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::key
                         )
                     )
                     add(
@@ -1804,12 +1804,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1825,12 +1825,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1838,7 +1838,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::key
                         )
                     )
                     add(
@@ -1848,12 +1848,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1869,12 +1869,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1882,7 +1882,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::key
                         )
                     )
                     add(
@@ -1892,12 +1892,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1913,12 +1913,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1926,7 +1926,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::key
                         )
                     )
                     add(
@@ -1936,12 +1936,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -1957,12 +1957,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1970,7 +1970,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::key
                         )
                     )
                     add(
@@ -1980,12 +1980,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2001,12 +2001,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2014,7 +2014,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::key
                         )
                     )
                     add(
@@ -2024,12 +2024,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2045,12 +2045,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2058,7 +2058,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::key
                         )
                     )
                     add(
@@ -2068,12 +2068,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2089,12 +2089,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2102,7 +2102,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::key
                         )
                     )
                     add(
@@ -2112,12 +2112,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.Companion),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2133,12 +2133,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2146,7 +2146,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::key
                         )
                     )
                     add(
@@ -2156,12 +2156,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.conformance.pb.ForeignMessageProto2.Companion),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2177,12 +2177,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2190,7 +2190,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::key
                         )
                     )
                     add(
@@ -2200,12 +2200,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.Companion, hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2221,12 +2221,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2234,7 +2234,7 @@ data class TestAllTypesProto2(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "key",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::key
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::key
                         )
                     )
                     add(
@@ -2244,12 +2244,12 @@ data class TestAllTypesProto2(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.conformance.pb.ForeignEnumProto2.Companion, hasPresence = true),
                             jsonName = "value",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::value
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2265,12 +2265,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.Data() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.Data.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data, *>>(2).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data, *>>(2).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2278,7 +2278,7 @@ data class TestAllTypesProto2(
                             number = 202,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "groupInt32",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data::groupInt32
+                            value = pbandk.conformance.pb.TestAllTypesProto2.Data::groupInt32
                         )
                     )
                     add(
@@ -2288,12 +2288,12 @@ data class TestAllTypesProto2(
                             number = 203,
                             type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                             jsonName = "groupUint32",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data::groupUint32
+                            value = pbandk.conformance.pb.TestAllTypesProto2.Data::groupUint32
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.Data::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.Data::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2307,15 +2307,15 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, *>>(0).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, *>>(0).apply {
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2330,12 +2330,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1, *>>(1).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1, *>>(1).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2343,12 +2343,12 @@ data class TestAllTypesProto2(
                             number = 25,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "str",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::str
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::str
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2363,12 +2363,12 @@ data class TestAllTypesProto2(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
+            val defaultInstance by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2, *>>(1).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2, *>>(1).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2376,12 +2376,12 @@ data class TestAllTypesProto2(
                             number = 9,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "i",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::i
+                            value = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::i
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::class,
+                    messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -2506,12 +2506,12 @@ data class UnknownToTestAllTypes(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
-            val defaultInstance by lazy { pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
+            val defaultInstance by lazy { pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup, *>>(1).apply {
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup, *>>(1).apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2519,12 +2519,12 @@ data class UnknownToTestAllTypes(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                             jsonName = "a",
-                            value = pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::a
+                            value = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::a
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = pbandk.conformance.pb.pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::class,
+                    messageClass = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
