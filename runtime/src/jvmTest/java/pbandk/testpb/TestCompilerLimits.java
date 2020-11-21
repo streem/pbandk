@@ -9075,6 +9075,10 @@ public final class TestCompilerLimits {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -15118,7 +15122,7 @@ public final class TestCompilerLimits {
   /**
    * Protobuf type {@code pbandk.testpb.MessageWithHugeOneof}
    */
-  public  static final class MessageWithHugeOneof extends
+  public static final class MessageWithHugeOneof extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.MessageWithHugeOneof)
       MessageWithHugeOneofOrBuilder {
@@ -22234,6 +22238,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1000 = 1000;</code>
      * @return The oneof1000.
      */
+    @java.lang.Override
     public int getOneof1000() {
       if (hugeOneofCase_ == 1000) {
         return (java.lang.Integer) hugeOneof_;
@@ -22246,6 +22251,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1001 = 1001;</code>
      * @return The oneof1001.
      */
+    @java.lang.Override
     public int getOneof1001() {
       if (hugeOneofCase_ == 1001) {
         return (java.lang.Integer) hugeOneof_;
@@ -22258,6 +22264,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1002 = 1002;</code>
      * @return The oneof1002.
      */
+    @java.lang.Override
     public int getOneof1002() {
       if (hugeOneofCase_ == 1002) {
         return (java.lang.Integer) hugeOneof_;
@@ -22270,6 +22277,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1003 = 1003;</code>
      * @return The oneof1003.
      */
+    @java.lang.Override
     public int getOneof1003() {
       if (hugeOneofCase_ == 1003) {
         return (java.lang.Integer) hugeOneof_;
@@ -22282,6 +22290,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1004 = 1004;</code>
      * @return The oneof1004.
      */
+    @java.lang.Override
     public int getOneof1004() {
       if (hugeOneofCase_ == 1004) {
         return (java.lang.Integer) hugeOneof_;
@@ -22294,6 +22303,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1005 = 1005;</code>
      * @return The oneof1005.
      */
+    @java.lang.Override
     public int getOneof1005() {
       if (hugeOneofCase_ == 1005) {
         return (java.lang.Integer) hugeOneof_;
@@ -22306,6 +22316,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1006 = 1006;</code>
      * @return The oneof1006.
      */
+    @java.lang.Override
     public int getOneof1006() {
       if (hugeOneofCase_ == 1006) {
         return (java.lang.Integer) hugeOneof_;
@@ -22318,6 +22329,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1007 = 1007;</code>
      * @return The oneof1007.
      */
+    @java.lang.Override
     public int getOneof1007() {
       if (hugeOneofCase_ == 1007) {
         return (java.lang.Integer) hugeOneof_;
@@ -22330,6 +22342,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1008 = 1008;</code>
      * @return The oneof1008.
      */
+    @java.lang.Override
     public int getOneof1008() {
       if (hugeOneofCase_ == 1008) {
         return (java.lang.Integer) hugeOneof_;
@@ -22342,6 +22355,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1009 = 1009;</code>
      * @return The oneof1009.
      */
+    @java.lang.Override
     public int getOneof1009() {
       if (hugeOneofCase_ == 1009) {
         return (java.lang.Integer) hugeOneof_;
@@ -22354,6 +22368,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1010 = 1010;</code>
      * @return The oneof1010.
      */
+    @java.lang.Override
     public int getOneof1010() {
       if (hugeOneofCase_ == 1010) {
         return (java.lang.Integer) hugeOneof_;
@@ -22366,6 +22381,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1011 = 1011;</code>
      * @return The oneof1011.
      */
+    @java.lang.Override
     public int getOneof1011() {
       if (hugeOneofCase_ == 1011) {
         return (java.lang.Integer) hugeOneof_;
@@ -22378,6 +22394,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1012 = 1012;</code>
      * @return The oneof1012.
      */
+    @java.lang.Override
     public int getOneof1012() {
       if (hugeOneofCase_ == 1012) {
         return (java.lang.Integer) hugeOneof_;
@@ -22390,6 +22407,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1013 = 1013;</code>
      * @return The oneof1013.
      */
+    @java.lang.Override
     public int getOneof1013() {
       if (hugeOneofCase_ == 1013) {
         return (java.lang.Integer) hugeOneof_;
@@ -22402,6 +22420,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1014 = 1014;</code>
      * @return The oneof1014.
      */
+    @java.lang.Override
     public int getOneof1014() {
       if (hugeOneofCase_ == 1014) {
         return (java.lang.Integer) hugeOneof_;
@@ -22414,6 +22433,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1015 = 1015;</code>
      * @return The oneof1015.
      */
+    @java.lang.Override
     public int getOneof1015() {
       if (hugeOneofCase_ == 1015) {
         return (java.lang.Integer) hugeOneof_;
@@ -22426,6 +22446,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1016 = 1016;</code>
      * @return The oneof1016.
      */
+    @java.lang.Override
     public int getOneof1016() {
       if (hugeOneofCase_ == 1016) {
         return (java.lang.Integer) hugeOneof_;
@@ -22438,6 +22459,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1017 = 1017;</code>
      * @return The oneof1017.
      */
+    @java.lang.Override
     public int getOneof1017() {
       if (hugeOneofCase_ == 1017) {
         return (java.lang.Integer) hugeOneof_;
@@ -22450,6 +22472,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1018 = 1018;</code>
      * @return The oneof1018.
      */
+    @java.lang.Override
     public int getOneof1018() {
       if (hugeOneofCase_ == 1018) {
         return (java.lang.Integer) hugeOneof_;
@@ -22462,6 +22485,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1019 = 1019;</code>
      * @return The oneof1019.
      */
+    @java.lang.Override
     public int getOneof1019() {
       if (hugeOneofCase_ == 1019) {
         return (java.lang.Integer) hugeOneof_;
@@ -22474,6 +22498,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1020 = 1020;</code>
      * @return The oneof1020.
      */
+    @java.lang.Override
     public int getOneof1020() {
       if (hugeOneofCase_ == 1020) {
         return (java.lang.Integer) hugeOneof_;
@@ -22486,6 +22511,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1021 = 1021;</code>
      * @return The oneof1021.
      */
+    @java.lang.Override
     public int getOneof1021() {
       if (hugeOneofCase_ == 1021) {
         return (java.lang.Integer) hugeOneof_;
@@ -22498,6 +22524,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1022 = 1022;</code>
      * @return The oneof1022.
      */
+    @java.lang.Override
     public int getOneof1022() {
       if (hugeOneofCase_ == 1022) {
         return (java.lang.Integer) hugeOneof_;
@@ -22510,6 +22537,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1023 = 1023;</code>
      * @return The oneof1023.
      */
+    @java.lang.Override
     public int getOneof1023() {
       if (hugeOneofCase_ == 1023) {
         return (java.lang.Integer) hugeOneof_;
@@ -22522,6 +22550,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1024 = 1024;</code>
      * @return The oneof1024.
      */
+    @java.lang.Override
     public int getOneof1024() {
       if (hugeOneofCase_ == 1024) {
         return (java.lang.Integer) hugeOneof_;
@@ -22534,6 +22563,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1025 = 1025;</code>
      * @return The oneof1025.
      */
+    @java.lang.Override
     public int getOneof1025() {
       if (hugeOneofCase_ == 1025) {
         return (java.lang.Integer) hugeOneof_;
@@ -22546,6 +22576,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1026 = 1026;</code>
      * @return The oneof1026.
      */
+    @java.lang.Override
     public int getOneof1026() {
       if (hugeOneofCase_ == 1026) {
         return (java.lang.Integer) hugeOneof_;
@@ -22558,6 +22589,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1027 = 1027;</code>
      * @return The oneof1027.
      */
+    @java.lang.Override
     public int getOneof1027() {
       if (hugeOneofCase_ == 1027) {
         return (java.lang.Integer) hugeOneof_;
@@ -22570,6 +22602,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1028 = 1028;</code>
      * @return The oneof1028.
      */
+    @java.lang.Override
     public int getOneof1028() {
       if (hugeOneofCase_ == 1028) {
         return (java.lang.Integer) hugeOneof_;
@@ -22582,6 +22615,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1029 = 1029;</code>
      * @return The oneof1029.
      */
+    @java.lang.Override
     public int getOneof1029() {
       if (hugeOneofCase_ == 1029) {
         return (java.lang.Integer) hugeOneof_;
@@ -22594,6 +22628,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1030 = 1030;</code>
      * @return The oneof1030.
      */
+    @java.lang.Override
     public int getOneof1030() {
       if (hugeOneofCase_ == 1030) {
         return (java.lang.Integer) hugeOneof_;
@@ -22606,6 +22641,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1031 = 1031;</code>
      * @return The oneof1031.
      */
+    @java.lang.Override
     public int getOneof1031() {
       if (hugeOneofCase_ == 1031) {
         return (java.lang.Integer) hugeOneof_;
@@ -22618,6 +22654,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1032 = 1032;</code>
      * @return The oneof1032.
      */
+    @java.lang.Override
     public int getOneof1032() {
       if (hugeOneofCase_ == 1032) {
         return (java.lang.Integer) hugeOneof_;
@@ -22630,6 +22667,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1033 = 1033;</code>
      * @return The oneof1033.
      */
+    @java.lang.Override
     public int getOneof1033() {
       if (hugeOneofCase_ == 1033) {
         return (java.lang.Integer) hugeOneof_;
@@ -22642,6 +22680,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1034 = 1034;</code>
      * @return The oneof1034.
      */
+    @java.lang.Override
     public int getOneof1034() {
       if (hugeOneofCase_ == 1034) {
         return (java.lang.Integer) hugeOneof_;
@@ -22654,6 +22693,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1035 = 1035;</code>
      * @return The oneof1035.
      */
+    @java.lang.Override
     public int getOneof1035() {
       if (hugeOneofCase_ == 1035) {
         return (java.lang.Integer) hugeOneof_;
@@ -22666,6 +22706,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1036 = 1036;</code>
      * @return The oneof1036.
      */
+    @java.lang.Override
     public int getOneof1036() {
       if (hugeOneofCase_ == 1036) {
         return (java.lang.Integer) hugeOneof_;
@@ -22678,6 +22719,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1037 = 1037;</code>
      * @return The oneof1037.
      */
+    @java.lang.Override
     public int getOneof1037() {
       if (hugeOneofCase_ == 1037) {
         return (java.lang.Integer) hugeOneof_;
@@ -22690,6 +22732,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1038 = 1038;</code>
      * @return The oneof1038.
      */
+    @java.lang.Override
     public int getOneof1038() {
       if (hugeOneofCase_ == 1038) {
         return (java.lang.Integer) hugeOneof_;
@@ -22702,6 +22745,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1039 = 1039;</code>
      * @return The oneof1039.
      */
+    @java.lang.Override
     public int getOneof1039() {
       if (hugeOneofCase_ == 1039) {
         return (java.lang.Integer) hugeOneof_;
@@ -22714,6 +22758,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1040 = 1040;</code>
      * @return The oneof1040.
      */
+    @java.lang.Override
     public int getOneof1040() {
       if (hugeOneofCase_ == 1040) {
         return (java.lang.Integer) hugeOneof_;
@@ -22726,6 +22771,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1041 = 1041;</code>
      * @return The oneof1041.
      */
+    @java.lang.Override
     public int getOneof1041() {
       if (hugeOneofCase_ == 1041) {
         return (java.lang.Integer) hugeOneof_;
@@ -22738,6 +22784,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1042 = 1042;</code>
      * @return The oneof1042.
      */
+    @java.lang.Override
     public int getOneof1042() {
       if (hugeOneofCase_ == 1042) {
         return (java.lang.Integer) hugeOneof_;
@@ -22750,6 +22797,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1043 = 1043;</code>
      * @return The oneof1043.
      */
+    @java.lang.Override
     public int getOneof1043() {
       if (hugeOneofCase_ == 1043) {
         return (java.lang.Integer) hugeOneof_;
@@ -22762,6 +22810,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1044 = 1044;</code>
      * @return The oneof1044.
      */
+    @java.lang.Override
     public int getOneof1044() {
       if (hugeOneofCase_ == 1044) {
         return (java.lang.Integer) hugeOneof_;
@@ -22774,6 +22823,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1045 = 1045;</code>
      * @return The oneof1045.
      */
+    @java.lang.Override
     public int getOneof1045() {
       if (hugeOneofCase_ == 1045) {
         return (java.lang.Integer) hugeOneof_;
@@ -22786,6 +22836,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1046 = 1046;</code>
      * @return The oneof1046.
      */
+    @java.lang.Override
     public int getOneof1046() {
       if (hugeOneofCase_ == 1046) {
         return (java.lang.Integer) hugeOneof_;
@@ -22798,6 +22849,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1047 = 1047;</code>
      * @return The oneof1047.
      */
+    @java.lang.Override
     public int getOneof1047() {
       if (hugeOneofCase_ == 1047) {
         return (java.lang.Integer) hugeOneof_;
@@ -22810,6 +22862,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1048 = 1048;</code>
      * @return The oneof1048.
      */
+    @java.lang.Override
     public int getOneof1048() {
       if (hugeOneofCase_ == 1048) {
         return (java.lang.Integer) hugeOneof_;
@@ -22822,6 +22875,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1049 = 1049;</code>
      * @return The oneof1049.
      */
+    @java.lang.Override
     public int getOneof1049() {
       if (hugeOneofCase_ == 1049) {
         return (java.lang.Integer) hugeOneof_;
@@ -22834,6 +22888,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1050 = 1050;</code>
      * @return The oneof1050.
      */
+    @java.lang.Override
     public int getOneof1050() {
       if (hugeOneofCase_ == 1050) {
         return (java.lang.Integer) hugeOneof_;
@@ -22846,6 +22901,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1051 = 1051;</code>
      * @return The oneof1051.
      */
+    @java.lang.Override
     public int getOneof1051() {
       if (hugeOneofCase_ == 1051) {
         return (java.lang.Integer) hugeOneof_;
@@ -22858,6 +22914,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1052 = 1052;</code>
      * @return The oneof1052.
      */
+    @java.lang.Override
     public int getOneof1052() {
       if (hugeOneofCase_ == 1052) {
         return (java.lang.Integer) hugeOneof_;
@@ -22870,6 +22927,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1053 = 1053;</code>
      * @return The oneof1053.
      */
+    @java.lang.Override
     public int getOneof1053() {
       if (hugeOneofCase_ == 1053) {
         return (java.lang.Integer) hugeOneof_;
@@ -22882,6 +22940,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1054 = 1054;</code>
      * @return The oneof1054.
      */
+    @java.lang.Override
     public int getOneof1054() {
       if (hugeOneofCase_ == 1054) {
         return (java.lang.Integer) hugeOneof_;
@@ -22894,6 +22953,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1055 = 1055;</code>
      * @return The oneof1055.
      */
+    @java.lang.Override
     public int getOneof1055() {
       if (hugeOneofCase_ == 1055) {
         return (java.lang.Integer) hugeOneof_;
@@ -22906,6 +22966,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1056 = 1056;</code>
      * @return The oneof1056.
      */
+    @java.lang.Override
     public int getOneof1056() {
       if (hugeOneofCase_ == 1056) {
         return (java.lang.Integer) hugeOneof_;
@@ -22918,6 +22979,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1057 = 1057;</code>
      * @return The oneof1057.
      */
+    @java.lang.Override
     public int getOneof1057() {
       if (hugeOneofCase_ == 1057) {
         return (java.lang.Integer) hugeOneof_;
@@ -22930,6 +22992,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1058 = 1058;</code>
      * @return The oneof1058.
      */
+    @java.lang.Override
     public int getOneof1058() {
       if (hugeOneofCase_ == 1058) {
         return (java.lang.Integer) hugeOneof_;
@@ -22942,6 +23005,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1059 = 1059;</code>
      * @return The oneof1059.
      */
+    @java.lang.Override
     public int getOneof1059() {
       if (hugeOneofCase_ == 1059) {
         return (java.lang.Integer) hugeOneof_;
@@ -22954,6 +23018,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1060 = 1060;</code>
      * @return The oneof1060.
      */
+    @java.lang.Override
     public int getOneof1060() {
       if (hugeOneofCase_ == 1060) {
         return (java.lang.Integer) hugeOneof_;
@@ -22966,6 +23031,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1061 = 1061;</code>
      * @return The oneof1061.
      */
+    @java.lang.Override
     public int getOneof1061() {
       if (hugeOneofCase_ == 1061) {
         return (java.lang.Integer) hugeOneof_;
@@ -22978,6 +23044,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1062 = 1062;</code>
      * @return The oneof1062.
      */
+    @java.lang.Override
     public int getOneof1062() {
       if (hugeOneofCase_ == 1062) {
         return (java.lang.Integer) hugeOneof_;
@@ -22990,6 +23057,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1063 = 1063;</code>
      * @return The oneof1063.
      */
+    @java.lang.Override
     public int getOneof1063() {
       if (hugeOneofCase_ == 1063) {
         return (java.lang.Integer) hugeOneof_;
@@ -23002,6 +23070,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1064 = 1064;</code>
      * @return The oneof1064.
      */
+    @java.lang.Override
     public int getOneof1064() {
       if (hugeOneofCase_ == 1064) {
         return (java.lang.Integer) hugeOneof_;
@@ -23014,6 +23083,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1065 = 1065;</code>
      * @return The oneof1065.
      */
+    @java.lang.Override
     public int getOneof1065() {
       if (hugeOneofCase_ == 1065) {
         return (java.lang.Integer) hugeOneof_;
@@ -23026,6 +23096,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1066 = 1066;</code>
      * @return The oneof1066.
      */
+    @java.lang.Override
     public int getOneof1066() {
       if (hugeOneofCase_ == 1066) {
         return (java.lang.Integer) hugeOneof_;
@@ -23038,6 +23109,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1067 = 1067;</code>
      * @return The oneof1067.
      */
+    @java.lang.Override
     public int getOneof1067() {
       if (hugeOneofCase_ == 1067) {
         return (java.lang.Integer) hugeOneof_;
@@ -23050,6 +23122,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1068 = 1068;</code>
      * @return The oneof1068.
      */
+    @java.lang.Override
     public int getOneof1068() {
       if (hugeOneofCase_ == 1068) {
         return (java.lang.Integer) hugeOneof_;
@@ -23062,6 +23135,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1069 = 1069;</code>
      * @return The oneof1069.
      */
+    @java.lang.Override
     public int getOneof1069() {
       if (hugeOneofCase_ == 1069) {
         return (java.lang.Integer) hugeOneof_;
@@ -23074,6 +23148,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1070 = 1070;</code>
      * @return The oneof1070.
      */
+    @java.lang.Override
     public int getOneof1070() {
       if (hugeOneofCase_ == 1070) {
         return (java.lang.Integer) hugeOneof_;
@@ -23086,6 +23161,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1071 = 1071;</code>
      * @return The oneof1071.
      */
+    @java.lang.Override
     public int getOneof1071() {
       if (hugeOneofCase_ == 1071) {
         return (java.lang.Integer) hugeOneof_;
@@ -23098,6 +23174,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1072 = 1072;</code>
      * @return The oneof1072.
      */
+    @java.lang.Override
     public int getOneof1072() {
       if (hugeOneofCase_ == 1072) {
         return (java.lang.Integer) hugeOneof_;
@@ -23110,6 +23187,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1073 = 1073;</code>
      * @return The oneof1073.
      */
+    @java.lang.Override
     public int getOneof1073() {
       if (hugeOneofCase_ == 1073) {
         return (java.lang.Integer) hugeOneof_;
@@ -23122,6 +23200,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1074 = 1074;</code>
      * @return The oneof1074.
      */
+    @java.lang.Override
     public int getOneof1074() {
       if (hugeOneofCase_ == 1074) {
         return (java.lang.Integer) hugeOneof_;
@@ -23134,6 +23213,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1075 = 1075;</code>
      * @return The oneof1075.
      */
+    @java.lang.Override
     public int getOneof1075() {
       if (hugeOneofCase_ == 1075) {
         return (java.lang.Integer) hugeOneof_;
@@ -23146,6 +23226,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1076 = 1076;</code>
      * @return The oneof1076.
      */
+    @java.lang.Override
     public int getOneof1076() {
       if (hugeOneofCase_ == 1076) {
         return (java.lang.Integer) hugeOneof_;
@@ -23158,6 +23239,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1077 = 1077;</code>
      * @return The oneof1077.
      */
+    @java.lang.Override
     public int getOneof1077() {
       if (hugeOneofCase_ == 1077) {
         return (java.lang.Integer) hugeOneof_;
@@ -23170,6 +23252,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1078 = 1078;</code>
      * @return The oneof1078.
      */
+    @java.lang.Override
     public int getOneof1078() {
       if (hugeOneofCase_ == 1078) {
         return (java.lang.Integer) hugeOneof_;
@@ -23182,6 +23265,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1079 = 1079;</code>
      * @return The oneof1079.
      */
+    @java.lang.Override
     public int getOneof1079() {
       if (hugeOneofCase_ == 1079) {
         return (java.lang.Integer) hugeOneof_;
@@ -23194,6 +23278,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1080 = 1080;</code>
      * @return The oneof1080.
      */
+    @java.lang.Override
     public int getOneof1080() {
       if (hugeOneofCase_ == 1080) {
         return (java.lang.Integer) hugeOneof_;
@@ -23206,6 +23291,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1081 = 1081;</code>
      * @return The oneof1081.
      */
+    @java.lang.Override
     public int getOneof1081() {
       if (hugeOneofCase_ == 1081) {
         return (java.lang.Integer) hugeOneof_;
@@ -23218,6 +23304,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1082 = 1082;</code>
      * @return The oneof1082.
      */
+    @java.lang.Override
     public int getOneof1082() {
       if (hugeOneofCase_ == 1082) {
         return (java.lang.Integer) hugeOneof_;
@@ -23230,6 +23317,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1083 = 1083;</code>
      * @return The oneof1083.
      */
+    @java.lang.Override
     public int getOneof1083() {
       if (hugeOneofCase_ == 1083) {
         return (java.lang.Integer) hugeOneof_;
@@ -23242,6 +23330,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1084 = 1084;</code>
      * @return The oneof1084.
      */
+    @java.lang.Override
     public int getOneof1084() {
       if (hugeOneofCase_ == 1084) {
         return (java.lang.Integer) hugeOneof_;
@@ -23254,6 +23343,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1085 = 1085;</code>
      * @return The oneof1085.
      */
+    @java.lang.Override
     public int getOneof1085() {
       if (hugeOneofCase_ == 1085) {
         return (java.lang.Integer) hugeOneof_;
@@ -23266,6 +23356,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1086 = 1086;</code>
      * @return The oneof1086.
      */
+    @java.lang.Override
     public int getOneof1086() {
       if (hugeOneofCase_ == 1086) {
         return (java.lang.Integer) hugeOneof_;
@@ -23278,6 +23369,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1087 = 1087;</code>
      * @return The oneof1087.
      */
+    @java.lang.Override
     public int getOneof1087() {
       if (hugeOneofCase_ == 1087) {
         return (java.lang.Integer) hugeOneof_;
@@ -23290,6 +23382,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1088 = 1088;</code>
      * @return The oneof1088.
      */
+    @java.lang.Override
     public int getOneof1088() {
       if (hugeOneofCase_ == 1088) {
         return (java.lang.Integer) hugeOneof_;
@@ -23302,6 +23395,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1089 = 1089;</code>
      * @return The oneof1089.
      */
+    @java.lang.Override
     public int getOneof1089() {
       if (hugeOneofCase_ == 1089) {
         return (java.lang.Integer) hugeOneof_;
@@ -23314,6 +23408,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1090 = 1090;</code>
      * @return The oneof1090.
      */
+    @java.lang.Override
     public int getOneof1090() {
       if (hugeOneofCase_ == 1090) {
         return (java.lang.Integer) hugeOneof_;
@@ -23326,6 +23421,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1091 = 1091;</code>
      * @return The oneof1091.
      */
+    @java.lang.Override
     public int getOneof1091() {
       if (hugeOneofCase_ == 1091) {
         return (java.lang.Integer) hugeOneof_;
@@ -23338,6 +23434,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1092 = 1092;</code>
      * @return The oneof1092.
      */
+    @java.lang.Override
     public int getOneof1092() {
       if (hugeOneofCase_ == 1092) {
         return (java.lang.Integer) hugeOneof_;
@@ -23350,6 +23447,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1093 = 1093;</code>
      * @return The oneof1093.
      */
+    @java.lang.Override
     public int getOneof1093() {
       if (hugeOneofCase_ == 1093) {
         return (java.lang.Integer) hugeOneof_;
@@ -23362,6 +23460,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1094 = 1094;</code>
      * @return The oneof1094.
      */
+    @java.lang.Override
     public int getOneof1094() {
       if (hugeOneofCase_ == 1094) {
         return (java.lang.Integer) hugeOneof_;
@@ -23374,6 +23473,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1095 = 1095;</code>
      * @return The oneof1095.
      */
+    @java.lang.Override
     public int getOneof1095() {
       if (hugeOneofCase_ == 1095) {
         return (java.lang.Integer) hugeOneof_;
@@ -23386,6 +23486,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1096 = 1096;</code>
      * @return The oneof1096.
      */
+    @java.lang.Override
     public int getOneof1096() {
       if (hugeOneofCase_ == 1096) {
         return (java.lang.Integer) hugeOneof_;
@@ -23398,6 +23499,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1097 = 1097;</code>
      * @return The oneof1097.
      */
+    @java.lang.Override
     public int getOneof1097() {
       if (hugeOneofCase_ == 1097) {
         return (java.lang.Integer) hugeOneof_;
@@ -23410,6 +23512,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1098 = 1098;</code>
      * @return The oneof1098.
      */
+    @java.lang.Override
     public int getOneof1098() {
       if (hugeOneofCase_ == 1098) {
         return (java.lang.Integer) hugeOneof_;
@@ -23422,6 +23525,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1099 = 1099;</code>
      * @return The oneof1099.
      */
+    @java.lang.Override
     public int getOneof1099() {
       if (hugeOneofCase_ == 1099) {
         return (java.lang.Integer) hugeOneof_;
@@ -23434,6 +23538,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1100 = 1100;</code>
      * @return The oneof1100.
      */
+    @java.lang.Override
     public int getOneof1100() {
       if (hugeOneofCase_ == 1100) {
         return (java.lang.Integer) hugeOneof_;
@@ -23446,6 +23551,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1101 = 1101;</code>
      * @return The oneof1101.
      */
+    @java.lang.Override
     public int getOneof1101() {
       if (hugeOneofCase_ == 1101) {
         return (java.lang.Integer) hugeOneof_;
@@ -23458,6 +23564,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1102 = 1102;</code>
      * @return The oneof1102.
      */
+    @java.lang.Override
     public int getOneof1102() {
       if (hugeOneofCase_ == 1102) {
         return (java.lang.Integer) hugeOneof_;
@@ -23470,6 +23577,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1103 = 1103;</code>
      * @return The oneof1103.
      */
+    @java.lang.Override
     public int getOneof1103() {
       if (hugeOneofCase_ == 1103) {
         return (java.lang.Integer) hugeOneof_;
@@ -23482,6 +23590,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1104 = 1104;</code>
      * @return The oneof1104.
      */
+    @java.lang.Override
     public int getOneof1104() {
       if (hugeOneofCase_ == 1104) {
         return (java.lang.Integer) hugeOneof_;
@@ -23494,6 +23603,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1105 = 1105;</code>
      * @return The oneof1105.
      */
+    @java.lang.Override
     public int getOneof1105() {
       if (hugeOneofCase_ == 1105) {
         return (java.lang.Integer) hugeOneof_;
@@ -23506,6 +23616,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1106 = 1106;</code>
      * @return The oneof1106.
      */
+    @java.lang.Override
     public int getOneof1106() {
       if (hugeOneofCase_ == 1106) {
         return (java.lang.Integer) hugeOneof_;
@@ -23518,6 +23629,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1107 = 1107;</code>
      * @return The oneof1107.
      */
+    @java.lang.Override
     public int getOneof1107() {
       if (hugeOneofCase_ == 1107) {
         return (java.lang.Integer) hugeOneof_;
@@ -23530,6 +23642,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1108 = 1108;</code>
      * @return The oneof1108.
      */
+    @java.lang.Override
     public int getOneof1108() {
       if (hugeOneofCase_ == 1108) {
         return (java.lang.Integer) hugeOneof_;
@@ -23542,6 +23655,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1109 = 1109;</code>
      * @return The oneof1109.
      */
+    @java.lang.Override
     public int getOneof1109() {
       if (hugeOneofCase_ == 1109) {
         return (java.lang.Integer) hugeOneof_;
@@ -23554,6 +23668,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1110 = 1110;</code>
      * @return The oneof1110.
      */
+    @java.lang.Override
     public int getOneof1110() {
       if (hugeOneofCase_ == 1110) {
         return (java.lang.Integer) hugeOneof_;
@@ -23566,6 +23681,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1111 = 1111;</code>
      * @return The oneof1111.
      */
+    @java.lang.Override
     public int getOneof1111() {
       if (hugeOneofCase_ == 1111) {
         return (java.lang.Integer) hugeOneof_;
@@ -23578,6 +23694,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1112 = 1112;</code>
      * @return The oneof1112.
      */
+    @java.lang.Override
     public int getOneof1112() {
       if (hugeOneofCase_ == 1112) {
         return (java.lang.Integer) hugeOneof_;
@@ -23590,6 +23707,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1113 = 1113;</code>
      * @return The oneof1113.
      */
+    @java.lang.Override
     public int getOneof1113() {
       if (hugeOneofCase_ == 1113) {
         return (java.lang.Integer) hugeOneof_;
@@ -23602,6 +23720,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1114 = 1114;</code>
      * @return The oneof1114.
      */
+    @java.lang.Override
     public int getOneof1114() {
       if (hugeOneofCase_ == 1114) {
         return (java.lang.Integer) hugeOneof_;
@@ -23614,6 +23733,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1115 = 1115;</code>
      * @return The oneof1115.
      */
+    @java.lang.Override
     public int getOneof1115() {
       if (hugeOneofCase_ == 1115) {
         return (java.lang.Integer) hugeOneof_;
@@ -23626,6 +23746,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1116 = 1116;</code>
      * @return The oneof1116.
      */
+    @java.lang.Override
     public int getOneof1116() {
       if (hugeOneofCase_ == 1116) {
         return (java.lang.Integer) hugeOneof_;
@@ -23638,6 +23759,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1117 = 1117;</code>
      * @return The oneof1117.
      */
+    @java.lang.Override
     public int getOneof1117() {
       if (hugeOneofCase_ == 1117) {
         return (java.lang.Integer) hugeOneof_;
@@ -23650,6 +23772,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1118 = 1118;</code>
      * @return The oneof1118.
      */
+    @java.lang.Override
     public int getOneof1118() {
       if (hugeOneofCase_ == 1118) {
         return (java.lang.Integer) hugeOneof_;
@@ -23662,6 +23785,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1119 = 1119;</code>
      * @return The oneof1119.
      */
+    @java.lang.Override
     public int getOneof1119() {
       if (hugeOneofCase_ == 1119) {
         return (java.lang.Integer) hugeOneof_;
@@ -23674,6 +23798,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1120 = 1120;</code>
      * @return The oneof1120.
      */
+    @java.lang.Override
     public int getOneof1120() {
       if (hugeOneofCase_ == 1120) {
         return (java.lang.Integer) hugeOneof_;
@@ -23686,6 +23811,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1121 = 1121;</code>
      * @return The oneof1121.
      */
+    @java.lang.Override
     public int getOneof1121() {
       if (hugeOneofCase_ == 1121) {
         return (java.lang.Integer) hugeOneof_;
@@ -23698,6 +23824,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1122 = 1122;</code>
      * @return The oneof1122.
      */
+    @java.lang.Override
     public int getOneof1122() {
       if (hugeOneofCase_ == 1122) {
         return (java.lang.Integer) hugeOneof_;
@@ -23710,6 +23837,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1123 = 1123;</code>
      * @return The oneof1123.
      */
+    @java.lang.Override
     public int getOneof1123() {
       if (hugeOneofCase_ == 1123) {
         return (java.lang.Integer) hugeOneof_;
@@ -23722,6 +23850,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1124 = 1124;</code>
      * @return The oneof1124.
      */
+    @java.lang.Override
     public int getOneof1124() {
       if (hugeOneofCase_ == 1124) {
         return (java.lang.Integer) hugeOneof_;
@@ -23734,6 +23863,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1125 = 1125;</code>
      * @return The oneof1125.
      */
+    @java.lang.Override
     public int getOneof1125() {
       if (hugeOneofCase_ == 1125) {
         return (java.lang.Integer) hugeOneof_;
@@ -23746,6 +23876,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1126 = 1126;</code>
      * @return The oneof1126.
      */
+    @java.lang.Override
     public int getOneof1126() {
       if (hugeOneofCase_ == 1126) {
         return (java.lang.Integer) hugeOneof_;
@@ -23758,6 +23889,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1127 = 1127;</code>
      * @return The oneof1127.
      */
+    @java.lang.Override
     public int getOneof1127() {
       if (hugeOneofCase_ == 1127) {
         return (java.lang.Integer) hugeOneof_;
@@ -23770,6 +23902,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1128 = 1128;</code>
      * @return The oneof1128.
      */
+    @java.lang.Override
     public int getOneof1128() {
       if (hugeOneofCase_ == 1128) {
         return (java.lang.Integer) hugeOneof_;
@@ -23782,6 +23915,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1129 = 1129;</code>
      * @return The oneof1129.
      */
+    @java.lang.Override
     public int getOneof1129() {
       if (hugeOneofCase_ == 1129) {
         return (java.lang.Integer) hugeOneof_;
@@ -23794,6 +23928,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1130 = 1130;</code>
      * @return The oneof1130.
      */
+    @java.lang.Override
     public int getOneof1130() {
       if (hugeOneofCase_ == 1130) {
         return (java.lang.Integer) hugeOneof_;
@@ -23806,6 +23941,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1131 = 1131;</code>
      * @return The oneof1131.
      */
+    @java.lang.Override
     public int getOneof1131() {
       if (hugeOneofCase_ == 1131) {
         return (java.lang.Integer) hugeOneof_;
@@ -23818,6 +23954,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1132 = 1132;</code>
      * @return The oneof1132.
      */
+    @java.lang.Override
     public int getOneof1132() {
       if (hugeOneofCase_ == 1132) {
         return (java.lang.Integer) hugeOneof_;
@@ -23830,6 +23967,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1133 = 1133;</code>
      * @return The oneof1133.
      */
+    @java.lang.Override
     public int getOneof1133() {
       if (hugeOneofCase_ == 1133) {
         return (java.lang.Integer) hugeOneof_;
@@ -23842,6 +23980,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1134 = 1134;</code>
      * @return The oneof1134.
      */
+    @java.lang.Override
     public int getOneof1134() {
       if (hugeOneofCase_ == 1134) {
         return (java.lang.Integer) hugeOneof_;
@@ -23854,6 +23993,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1135 = 1135;</code>
      * @return The oneof1135.
      */
+    @java.lang.Override
     public int getOneof1135() {
       if (hugeOneofCase_ == 1135) {
         return (java.lang.Integer) hugeOneof_;
@@ -23866,6 +24006,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1136 = 1136;</code>
      * @return The oneof1136.
      */
+    @java.lang.Override
     public int getOneof1136() {
       if (hugeOneofCase_ == 1136) {
         return (java.lang.Integer) hugeOneof_;
@@ -23878,6 +24019,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1137 = 1137;</code>
      * @return The oneof1137.
      */
+    @java.lang.Override
     public int getOneof1137() {
       if (hugeOneofCase_ == 1137) {
         return (java.lang.Integer) hugeOneof_;
@@ -23890,6 +24032,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1138 = 1138;</code>
      * @return The oneof1138.
      */
+    @java.lang.Override
     public int getOneof1138() {
       if (hugeOneofCase_ == 1138) {
         return (java.lang.Integer) hugeOneof_;
@@ -23902,6 +24045,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1139 = 1139;</code>
      * @return The oneof1139.
      */
+    @java.lang.Override
     public int getOneof1139() {
       if (hugeOneofCase_ == 1139) {
         return (java.lang.Integer) hugeOneof_;
@@ -23914,6 +24058,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1140 = 1140;</code>
      * @return The oneof1140.
      */
+    @java.lang.Override
     public int getOneof1140() {
       if (hugeOneofCase_ == 1140) {
         return (java.lang.Integer) hugeOneof_;
@@ -23926,6 +24071,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1141 = 1141;</code>
      * @return The oneof1141.
      */
+    @java.lang.Override
     public int getOneof1141() {
       if (hugeOneofCase_ == 1141) {
         return (java.lang.Integer) hugeOneof_;
@@ -23938,6 +24084,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1142 = 1142;</code>
      * @return The oneof1142.
      */
+    @java.lang.Override
     public int getOneof1142() {
       if (hugeOneofCase_ == 1142) {
         return (java.lang.Integer) hugeOneof_;
@@ -23950,6 +24097,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1143 = 1143;</code>
      * @return The oneof1143.
      */
+    @java.lang.Override
     public int getOneof1143() {
       if (hugeOneofCase_ == 1143) {
         return (java.lang.Integer) hugeOneof_;
@@ -23962,6 +24110,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1144 = 1144;</code>
      * @return The oneof1144.
      */
+    @java.lang.Override
     public int getOneof1144() {
       if (hugeOneofCase_ == 1144) {
         return (java.lang.Integer) hugeOneof_;
@@ -23974,6 +24123,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1145 = 1145;</code>
      * @return The oneof1145.
      */
+    @java.lang.Override
     public int getOneof1145() {
       if (hugeOneofCase_ == 1145) {
         return (java.lang.Integer) hugeOneof_;
@@ -23986,6 +24136,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1146 = 1146;</code>
      * @return The oneof1146.
      */
+    @java.lang.Override
     public int getOneof1146() {
       if (hugeOneofCase_ == 1146) {
         return (java.lang.Integer) hugeOneof_;
@@ -23998,6 +24149,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1147 = 1147;</code>
      * @return The oneof1147.
      */
+    @java.lang.Override
     public int getOneof1147() {
       if (hugeOneofCase_ == 1147) {
         return (java.lang.Integer) hugeOneof_;
@@ -24010,6 +24162,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1148 = 1148;</code>
      * @return The oneof1148.
      */
+    @java.lang.Override
     public int getOneof1148() {
       if (hugeOneofCase_ == 1148) {
         return (java.lang.Integer) hugeOneof_;
@@ -24022,6 +24175,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1149 = 1149;</code>
      * @return The oneof1149.
      */
+    @java.lang.Override
     public int getOneof1149() {
       if (hugeOneofCase_ == 1149) {
         return (java.lang.Integer) hugeOneof_;
@@ -24034,6 +24188,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1150 = 1150;</code>
      * @return The oneof1150.
      */
+    @java.lang.Override
     public int getOneof1150() {
       if (hugeOneofCase_ == 1150) {
         return (java.lang.Integer) hugeOneof_;
@@ -24046,6 +24201,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1151 = 1151;</code>
      * @return The oneof1151.
      */
+    @java.lang.Override
     public int getOneof1151() {
       if (hugeOneofCase_ == 1151) {
         return (java.lang.Integer) hugeOneof_;
@@ -24058,6 +24214,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1152 = 1152;</code>
      * @return The oneof1152.
      */
+    @java.lang.Override
     public int getOneof1152() {
       if (hugeOneofCase_ == 1152) {
         return (java.lang.Integer) hugeOneof_;
@@ -24070,6 +24227,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1153 = 1153;</code>
      * @return The oneof1153.
      */
+    @java.lang.Override
     public int getOneof1153() {
       if (hugeOneofCase_ == 1153) {
         return (java.lang.Integer) hugeOneof_;
@@ -24082,6 +24240,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1154 = 1154;</code>
      * @return The oneof1154.
      */
+    @java.lang.Override
     public int getOneof1154() {
       if (hugeOneofCase_ == 1154) {
         return (java.lang.Integer) hugeOneof_;
@@ -24094,6 +24253,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1155 = 1155;</code>
      * @return The oneof1155.
      */
+    @java.lang.Override
     public int getOneof1155() {
       if (hugeOneofCase_ == 1155) {
         return (java.lang.Integer) hugeOneof_;
@@ -24106,6 +24266,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1156 = 1156;</code>
      * @return The oneof1156.
      */
+    @java.lang.Override
     public int getOneof1156() {
       if (hugeOneofCase_ == 1156) {
         return (java.lang.Integer) hugeOneof_;
@@ -24118,6 +24279,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1157 = 1157;</code>
      * @return The oneof1157.
      */
+    @java.lang.Override
     public int getOneof1157() {
       if (hugeOneofCase_ == 1157) {
         return (java.lang.Integer) hugeOneof_;
@@ -24130,6 +24292,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1158 = 1158;</code>
      * @return The oneof1158.
      */
+    @java.lang.Override
     public int getOneof1158() {
       if (hugeOneofCase_ == 1158) {
         return (java.lang.Integer) hugeOneof_;
@@ -24142,6 +24305,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1159 = 1159;</code>
      * @return The oneof1159.
      */
+    @java.lang.Override
     public int getOneof1159() {
       if (hugeOneofCase_ == 1159) {
         return (java.lang.Integer) hugeOneof_;
@@ -24154,6 +24318,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1160 = 1160;</code>
      * @return The oneof1160.
      */
+    @java.lang.Override
     public int getOneof1160() {
       if (hugeOneofCase_ == 1160) {
         return (java.lang.Integer) hugeOneof_;
@@ -24166,6 +24331,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1161 = 1161;</code>
      * @return The oneof1161.
      */
+    @java.lang.Override
     public int getOneof1161() {
       if (hugeOneofCase_ == 1161) {
         return (java.lang.Integer) hugeOneof_;
@@ -24178,6 +24344,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1162 = 1162;</code>
      * @return The oneof1162.
      */
+    @java.lang.Override
     public int getOneof1162() {
       if (hugeOneofCase_ == 1162) {
         return (java.lang.Integer) hugeOneof_;
@@ -24190,6 +24357,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1163 = 1163;</code>
      * @return The oneof1163.
      */
+    @java.lang.Override
     public int getOneof1163() {
       if (hugeOneofCase_ == 1163) {
         return (java.lang.Integer) hugeOneof_;
@@ -24202,6 +24370,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1164 = 1164;</code>
      * @return The oneof1164.
      */
+    @java.lang.Override
     public int getOneof1164() {
       if (hugeOneofCase_ == 1164) {
         return (java.lang.Integer) hugeOneof_;
@@ -24214,6 +24383,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1165 = 1165;</code>
      * @return The oneof1165.
      */
+    @java.lang.Override
     public int getOneof1165() {
       if (hugeOneofCase_ == 1165) {
         return (java.lang.Integer) hugeOneof_;
@@ -24226,6 +24396,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1166 = 1166;</code>
      * @return The oneof1166.
      */
+    @java.lang.Override
     public int getOneof1166() {
       if (hugeOneofCase_ == 1166) {
         return (java.lang.Integer) hugeOneof_;
@@ -24238,6 +24409,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1167 = 1167;</code>
      * @return The oneof1167.
      */
+    @java.lang.Override
     public int getOneof1167() {
       if (hugeOneofCase_ == 1167) {
         return (java.lang.Integer) hugeOneof_;
@@ -24250,6 +24422,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1168 = 1168;</code>
      * @return The oneof1168.
      */
+    @java.lang.Override
     public int getOneof1168() {
       if (hugeOneofCase_ == 1168) {
         return (java.lang.Integer) hugeOneof_;
@@ -24262,6 +24435,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1169 = 1169;</code>
      * @return The oneof1169.
      */
+    @java.lang.Override
     public int getOneof1169() {
       if (hugeOneofCase_ == 1169) {
         return (java.lang.Integer) hugeOneof_;
@@ -24274,6 +24448,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1170 = 1170;</code>
      * @return The oneof1170.
      */
+    @java.lang.Override
     public int getOneof1170() {
       if (hugeOneofCase_ == 1170) {
         return (java.lang.Integer) hugeOneof_;
@@ -24286,6 +24461,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1171 = 1171;</code>
      * @return The oneof1171.
      */
+    @java.lang.Override
     public int getOneof1171() {
       if (hugeOneofCase_ == 1171) {
         return (java.lang.Integer) hugeOneof_;
@@ -24298,6 +24474,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1172 = 1172;</code>
      * @return The oneof1172.
      */
+    @java.lang.Override
     public int getOneof1172() {
       if (hugeOneofCase_ == 1172) {
         return (java.lang.Integer) hugeOneof_;
@@ -24310,6 +24487,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1173 = 1173;</code>
      * @return The oneof1173.
      */
+    @java.lang.Override
     public int getOneof1173() {
       if (hugeOneofCase_ == 1173) {
         return (java.lang.Integer) hugeOneof_;
@@ -24322,6 +24500,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1174 = 1174;</code>
      * @return The oneof1174.
      */
+    @java.lang.Override
     public int getOneof1174() {
       if (hugeOneofCase_ == 1174) {
         return (java.lang.Integer) hugeOneof_;
@@ -24334,6 +24513,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1175 = 1175;</code>
      * @return The oneof1175.
      */
+    @java.lang.Override
     public int getOneof1175() {
       if (hugeOneofCase_ == 1175) {
         return (java.lang.Integer) hugeOneof_;
@@ -24346,6 +24526,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1176 = 1176;</code>
      * @return The oneof1176.
      */
+    @java.lang.Override
     public int getOneof1176() {
       if (hugeOneofCase_ == 1176) {
         return (java.lang.Integer) hugeOneof_;
@@ -24358,6 +24539,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1177 = 1177;</code>
      * @return The oneof1177.
      */
+    @java.lang.Override
     public int getOneof1177() {
       if (hugeOneofCase_ == 1177) {
         return (java.lang.Integer) hugeOneof_;
@@ -24370,6 +24552,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1178 = 1178;</code>
      * @return The oneof1178.
      */
+    @java.lang.Override
     public int getOneof1178() {
       if (hugeOneofCase_ == 1178) {
         return (java.lang.Integer) hugeOneof_;
@@ -24382,6 +24565,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1179 = 1179;</code>
      * @return The oneof1179.
      */
+    @java.lang.Override
     public int getOneof1179() {
       if (hugeOneofCase_ == 1179) {
         return (java.lang.Integer) hugeOneof_;
@@ -24394,6 +24578,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1180 = 1180;</code>
      * @return The oneof1180.
      */
+    @java.lang.Override
     public int getOneof1180() {
       if (hugeOneofCase_ == 1180) {
         return (java.lang.Integer) hugeOneof_;
@@ -24406,6 +24591,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1181 = 1181;</code>
      * @return The oneof1181.
      */
+    @java.lang.Override
     public int getOneof1181() {
       if (hugeOneofCase_ == 1181) {
         return (java.lang.Integer) hugeOneof_;
@@ -24418,6 +24604,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1182 = 1182;</code>
      * @return The oneof1182.
      */
+    @java.lang.Override
     public int getOneof1182() {
       if (hugeOneofCase_ == 1182) {
         return (java.lang.Integer) hugeOneof_;
@@ -24430,6 +24617,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1183 = 1183;</code>
      * @return The oneof1183.
      */
+    @java.lang.Override
     public int getOneof1183() {
       if (hugeOneofCase_ == 1183) {
         return (java.lang.Integer) hugeOneof_;
@@ -24442,6 +24630,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1184 = 1184;</code>
      * @return The oneof1184.
      */
+    @java.lang.Override
     public int getOneof1184() {
       if (hugeOneofCase_ == 1184) {
         return (java.lang.Integer) hugeOneof_;
@@ -24454,6 +24643,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1185 = 1185;</code>
      * @return The oneof1185.
      */
+    @java.lang.Override
     public int getOneof1185() {
       if (hugeOneofCase_ == 1185) {
         return (java.lang.Integer) hugeOneof_;
@@ -24466,6 +24656,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1186 = 1186;</code>
      * @return The oneof1186.
      */
+    @java.lang.Override
     public int getOneof1186() {
       if (hugeOneofCase_ == 1186) {
         return (java.lang.Integer) hugeOneof_;
@@ -24478,6 +24669,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1187 = 1187;</code>
      * @return The oneof1187.
      */
+    @java.lang.Override
     public int getOneof1187() {
       if (hugeOneofCase_ == 1187) {
         return (java.lang.Integer) hugeOneof_;
@@ -24490,6 +24682,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1188 = 1188;</code>
      * @return The oneof1188.
      */
+    @java.lang.Override
     public int getOneof1188() {
       if (hugeOneofCase_ == 1188) {
         return (java.lang.Integer) hugeOneof_;
@@ -24502,6 +24695,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1189 = 1189;</code>
      * @return The oneof1189.
      */
+    @java.lang.Override
     public int getOneof1189() {
       if (hugeOneofCase_ == 1189) {
         return (java.lang.Integer) hugeOneof_;
@@ -24514,6 +24708,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1190 = 1190;</code>
      * @return The oneof1190.
      */
+    @java.lang.Override
     public int getOneof1190() {
       if (hugeOneofCase_ == 1190) {
         return (java.lang.Integer) hugeOneof_;
@@ -24526,6 +24721,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1191 = 1191;</code>
      * @return The oneof1191.
      */
+    @java.lang.Override
     public int getOneof1191() {
       if (hugeOneofCase_ == 1191) {
         return (java.lang.Integer) hugeOneof_;
@@ -24538,6 +24734,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1192 = 1192;</code>
      * @return The oneof1192.
      */
+    @java.lang.Override
     public int getOneof1192() {
       if (hugeOneofCase_ == 1192) {
         return (java.lang.Integer) hugeOneof_;
@@ -24550,6 +24747,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1193 = 1193;</code>
      * @return The oneof1193.
      */
+    @java.lang.Override
     public int getOneof1193() {
       if (hugeOneofCase_ == 1193) {
         return (java.lang.Integer) hugeOneof_;
@@ -24562,6 +24760,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1194 = 1194;</code>
      * @return The oneof1194.
      */
+    @java.lang.Override
     public int getOneof1194() {
       if (hugeOneofCase_ == 1194) {
         return (java.lang.Integer) hugeOneof_;
@@ -24574,6 +24773,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1195 = 1195;</code>
      * @return The oneof1195.
      */
+    @java.lang.Override
     public int getOneof1195() {
       if (hugeOneofCase_ == 1195) {
         return (java.lang.Integer) hugeOneof_;
@@ -24586,6 +24786,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1196 = 1196;</code>
      * @return The oneof1196.
      */
+    @java.lang.Override
     public int getOneof1196() {
       if (hugeOneofCase_ == 1196) {
         return (java.lang.Integer) hugeOneof_;
@@ -24598,6 +24799,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1197 = 1197;</code>
      * @return The oneof1197.
      */
+    @java.lang.Override
     public int getOneof1197() {
       if (hugeOneofCase_ == 1197) {
         return (java.lang.Integer) hugeOneof_;
@@ -24610,6 +24812,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1198 = 1198;</code>
      * @return The oneof1198.
      */
+    @java.lang.Override
     public int getOneof1198() {
       if (hugeOneofCase_ == 1198) {
         return (java.lang.Integer) hugeOneof_;
@@ -24622,6 +24825,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1199 = 1199;</code>
      * @return The oneof1199.
      */
+    @java.lang.Override
     public int getOneof1199() {
       if (hugeOneofCase_ == 1199) {
         return (java.lang.Integer) hugeOneof_;
@@ -24634,6 +24838,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1200 = 1200;</code>
      * @return The oneof1200.
      */
+    @java.lang.Override
     public int getOneof1200() {
       if (hugeOneofCase_ == 1200) {
         return (java.lang.Integer) hugeOneof_;
@@ -24646,6 +24851,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1201 = 1201;</code>
      * @return The oneof1201.
      */
+    @java.lang.Override
     public int getOneof1201() {
       if (hugeOneofCase_ == 1201) {
         return (java.lang.Integer) hugeOneof_;
@@ -24658,6 +24864,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1202 = 1202;</code>
      * @return The oneof1202.
      */
+    @java.lang.Override
     public int getOneof1202() {
       if (hugeOneofCase_ == 1202) {
         return (java.lang.Integer) hugeOneof_;
@@ -24670,6 +24877,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1203 = 1203;</code>
      * @return The oneof1203.
      */
+    @java.lang.Override
     public int getOneof1203() {
       if (hugeOneofCase_ == 1203) {
         return (java.lang.Integer) hugeOneof_;
@@ -24682,6 +24890,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1204 = 1204;</code>
      * @return The oneof1204.
      */
+    @java.lang.Override
     public int getOneof1204() {
       if (hugeOneofCase_ == 1204) {
         return (java.lang.Integer) hugeOneof_;
@@ -24694,6 +24903,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1205 = 1205;</code>
      * @return The oneof1205.
      */
+    @java.lang.Override
     public int getOneof1205() {
       if (hugeOneofCase_ == 1205) {
         return (java.lang.Integer) hugeOneof_;
@@ -24706,6 +24916,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1206 = 1206;</code>
      * @return The oneof1206.
      */
+    @java.lang.Override
     public int getOneof1206() {
       if (hugeOneofCase_ == 1206) {
         return (java.lang.Integer) hugeOneof_;
@@ -24718,6 +24929,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1207 = 1207;</code>
      * @return The oneof1207.
      */
+    @java.lang.Override
     public int getOneof1207() {
       if (hugeOneofCase_ == 1207) {
         return (java.lang.Integer) hugeOneof_;
@@ -24730,6 +24942,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1208 = 1208;</code>
      * @return The oneof1208.
      */
+    @java.lang.Override
     public int getOneof1208() {
       if (hugeOneofCase_ == 1208) {
         return (java.lang.Integer) hugeOneof_;
@@ -24742,6 +24955,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1209 = 1209;</code>
      * @return The oneof1209.
      */
+    @java.lang.Override
     public int getOneof1209() {
       if (hugeOneofCase_ == 1209) {
         return (java.lang.Integer) hugeOneof_;
@@ -24754,6 +24968,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1210 = 1210;</code>
      * @return The oneof1210.
      */
+    @java.lang.Override
     public int getOneof1210() {
       if (hugeOneofCase_ == 1210) {
         return (java.lang.Integer) hugeOneof_;
@@ -24766,6 +24981,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1211 = 1211;</code>
      * @return The oneof1211.
      */
+    @java.lang.Override
     public int getOneof1211() {
       if (hugeOneofCase_ == 1211) {
         return (java.lang.Integer) hugeOneof_;
@@ -24778,6 +24994,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1212 = 1212;</code>
      * @return The oneof1212.
      */
+    @java.lang.Override
     public int getOneof1212() {
       if (hugeOneofCase_ == 1212) {
         return (java.lang.Integer) hugeOneof_;
@@ -24790,6 +25007,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1213 = 1213;</code>
      * @return The oneof1213.
      */
+    @java.lang.Override
     public int getOneof1213() {
       if (hugeOneofCase_ == 1213) {
         return (java.lang.Integer) hugeOneof_;
@@ -24802,6 +25020,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1214 = 1214;</code>
      * @return The oneof1214.
      */
+    @java.lang.Override
     public int getOneof1214() {
       if (hugeOneofCase_ == 1214) {
         return (java.lang.Integer) hugeOneof_;
@@ -24814,6 +25033,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1215 = 1215;</code>
      * @return The oneof1215.
      */
+    @java.lang.Override
     public int getOneof1215() {
       if (hugeOneofCase_ == 1215) {
         return (java.lang.Integer) hugeOneof_;
@@ -24826,6 +25046,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1216 = 1216;</code>
      * @return The oneof1216.
      */
+    @java.lang.Override
     public int getOneof1216() {
       if (hugeOneofCase_ == 1216) {
         return (java.lang.Integer) hugeOneof_;
@@ -24838,6 +25059,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1217 = 1217;</code>
      * @return The oneof1217.
      */
+    @java.lang.Override
     public int getOneof1217() {
       if (hugeOneofCase_ == 1217) {
         return (java.lang.Integer) hugeOneof_;
@@ -24850,6 +25072,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1218 = 1218;</code>
      * @return The oneof1218.
      */
+    @java.lang.Override
     public int getOneof1218() {
       if (hugeOneofCase_ == 1218) {
         return (java.lang.Integer) hugeOneof_;
@@ -24862,6 +25085,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1219 = 1219;</code>
      * @return The oneof1219.
      */
+    @java.lang.Override
     public int getOneof1219() {
       if (hugeOneofCase_ == 1219) {
         return (java.lang.Integer) hugeOneof_;
@@ -24874,6 +25098,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1220 = 1220;</code>
      * @return The oneof1220.
      */
+    @java.lang.Override
     public int getOneof1220() {
       if (hugeOneofCase_ == 1220) {
         return (java.lang.Integer) hugeOneof_;
@@ -24886,6 +25111,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1221 = 1221;</code>
      * @return The oneof1221.
      */
+    @java.lang.Override
     public int getOneof1221() {
       if (hugeOneofCase_ == 1221) {
         return (java.lang.Integer) hugeOneof_;
@@ -24898,6 +25124,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1222 = 1222;</code>
      * @return The oneof1222.
      */
+    @java.lang.Override
     public int getOneof1222() {
       if (hugeOneofCase_ == 1222) {
         return (java.lang.Integer) hugeOneof_;
@@ -24910,6 +25137,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1223 = 1223;</code>
      * @return The oneof1223.
      */
+    @java.lang.Override
     public int getOneof1223() {
       if (hugeOneofCase_ == 1223) {
         return (java.lang.Integer) hugeOneof_;
@@ -24922,6 +25150,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1224 = 1224;</code>
      * @return The oneof1224.
      */
+    @java.lang.Override
     public int getOneof1224() {
       if (hugeOneofCase_ == 1224) {
         return (java.lang.Integer) hugeOneof_;
@@ -24934,6 +25163,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1225 = 1225;</code>
      * @return The oneof1225.
      */
+    @java.lang.Override
     public int getOneof1225() {
       if (hugeOneofCase_ == 1225) {
         return (java.lang.Integer) hugeOneof_;
@@ -24946,6 +25176,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1226 = 1226;</code>
      * @return The oneof1226.
      */
+    @java.lang.Override
     public int getOneof1226() {
       if (hugeOneofCase_ == 1226) {
         return (java.lang.Integer) hugeOneof_;
@@ -24958,6 +25189,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1227 = 1227;</code>
      * @return The oneof1227.
      */
+    @java.lang.Override
     public int getOneof1227() {
       if (hugeOneofCase_ == 1227) {
         return (java.lang.Integer) hugeOneof_;
@@ -24970,6 +25202,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1228 = 1228;</code>
      * @return The oneof1228.
      */
+    @java.lang.Override
     public int getOneof1228() {
       if (hugeOneofCase_ == 1228) {
         return (java.lang.Integer) hugeOneof_;
@@ -24982,6 +25215,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1229 = 1229;</code>
      * @return The oneof1229.
      */
+    @java.lang.Override
     public int getOneof1229() {
       if (hugeOneofCase_ == 1229) {
         return (java.lang.Integer) hugeOneof_;
@@ -24994,6 +25228,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1230 = 1230;</code>
      * @return The oneof1230.
      */
+    @java.lang.Override
     public int getOneof1230() {
       if (hugeOneofCase_ == 1230) {
         return (java.lang.Integer) hugeOneof_;
@@ -25006,6 +25241,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1231 = 1231;</code>
      * @return The oneof1231.
      */
+    @java.lang.Override
     public int getOneof1231() {
       if (hugeOneofCase_ == 1231) {
         return (java.lang.Integer) hugeOneof_;
@@ -25018,6 +25254,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1232 = 1232;</code>
      * @return The oneof1232.
      */
+    @java.lang.Override
     public int getOneof1232() {
       if (hugeOneofCase_ == 1232) {
         return (java.lang.Integer) hugeOneof_;
@@ -25030,6 +25267,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1233 = 1233;</code>
      * @return The oneof1233.
      */
+    @java.lang.Override
     public int getOneof1233() {
       if (hugeOneofCase_ == 1233) {
         return (java.lang.Integer) hugeOneof_;
@@ -25042,6 +25280,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1234 = 1234;</code>
      * @return The oneof1234.
      */
+    @java.lang.Override
     public int getOneof1234() {
       if (hugeOneofCase_ == 1234) {
         return (java.lang.Integer) hugeOneof_;
@@ -25054,6 +25293,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1235 = 1235;</code>
      * @return The oneof1235.
      */
+    @java.lang.Override
     public int getOneof1235() {
       if (hugeOneofCase_ == 1235) {
         return (java.lang.Integer) hugeOneof_;
@@ -25066,6 +25306,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1236 = 1236;</code>
      * @return The oneof1236.
      */
+    @java.lang.Override
     public int getOneof1236() {
       if (hugeOneofCase_ == 1236) {
         return (java.lang.Integer) hugeOneof_;
@@ -25078,6 +25319,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1237 = 1237;</code>
      * @return The oneof1237.
      */
+    @java.lang.Override
     public int getOneof1237() {
       if (hugeOneofCase_ == 1237) {
         return (java.lang.Integer) hugeOneof_;
@@ -25090,6 +25332,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1238 = 1238;</code>
      * @return The oneof1238.
      */
+    @java.lang.Override
     public int getOneof1238() {
       if (hugeOneofCase_ == 1238) {
         return (java.lang.Integer) hugeOneof_;
@@ -25102,6 +25345,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1239 = 1239;</code>
      * @return The oneof1239.
      */
+    @java.lang.Override
     public int getOneof1239() {
       if (hugeOneofCase_ == 1239) {
         return (java.lang.Integer) hugeOneof_;
@@ -25114,6 +25358,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1240 = 1240;</code>
      * @return The oneof1240.
      */
+    @java.lang.Override
     public int getOneof1240() {
       if (hugeOneofCase_ == 1240) {
         return (java.lang.Integer) hugeOneof_;
@@ -25126,6 +25371,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1241 = 1241;</code>
      * @return The oneof1241.
      */
+    @java.lang.Override
     public int getOneof1241() {
       if (hugeOneofCase_ == 1241) {
         return (java.lang.Integer) hugeOneof_;
@@ -25138,6 +25384,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1242 = 1242;</code>
      * @return The oneof1242.
      */
+    @java.lang.Override
     public int getOneof1242() {
       if (hugeOneofCase_ == 1242) {
         return (java.lang.Integer) hugeOneof_;
@@ -25150,6 +25397,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1243 = 1243;</code>
      * @return The oneof1243.
      */
+    @java.lang.Override
     public int getOneof1243() {
       if (hugeOneofCase_ == 1243) {
         return (java.lang.Integer) hugeOneof_;
@@ -25162,6 +25410,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1244 = 1244;</code>
      * @return The oneof1244.
      */
+    @java.lang.Override
     public int getOneof1244() {
       if (hugeOneofCase_ == 1244) {
         return (java.lang.Integer) hugeOneof_;
@@ -25174,6 +25423,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1245 = 1245;</code>
      * @return The oneof1245.
      */
+    @java.lang.Override
     public int getOneof1245() {
       if (hugeOneofCase_ == 1245) {
         return (java.lang.Integer) hugeOneof_;
@@ -25186,6 +25436,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1246 = 1246;</code>
      * @return The oneof1246.
      */
+    @java.lang.Override
     public int getOneof1246() {
       if (hugeOneofCase_ == 1246) {
         return (java.lang.Integer) hugeOneof_;
@@ -25198,6 +25449,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1247 = 1247;</code>
      * @return The oneof1247.
      */
+    @java.lang.Override
     public int getOneof1247() {
       if (hugeOneofCase_ == 1247) {
         return (java.lang.Integer) hugeOneof_;
@@ -25210,6 +25462,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1248 = 1248;</code>
      * @return The oneof1248.
      */
+    @java.lang.Override
     public int getOneof1248() {
       if (hugeOneofCase_ == 1248) {
         return (java.lang.Integer) hugeOneof_;
@@ -25222,6 +25475,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1249 = 1249;</code>
      * @return The oneof1249.
      */
+    @java.lang.Override
     public int getOneof1249() {
       if (hugeOneofCase_ == 1249) {
         return (java.lang.Integer) hugeOneof_;
@@ -25234,6 +25488,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1250 = 1250;</code>
      * @return The oneof1250.
      */
+    @java.lang.Override
     public int getOneof1250() {
       if (hugeOneofCase_ == 1250) {
         return (java.lang.Integer) hugeOneof_;
@@ -25246,6 +25501,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1251 = 1251;</code>
      * @return The oneof1251.
      */
+    @java.lang.Override
     public int getOneof1251() {
       if (hugeOneofCase_ == 1251) {
         return (java.lang.Integer) hugeOneof_;
@@ -25258,6 +25514,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1252 = 1252;</code>
      * @return The oneof1252.
      */
+    @java.lang.Override
     public int getOneof1252() {
       if (hugeOneofCase_ == 1252) {
         return (java.lang.Integer) hugeOneof_;
@@ -25270,6 +25527,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1253 = 1253;</code>
      * @return The oneof1253.
      */
+    @java.lang.Override
     public int getOneof1253() {
       if (hugeOneofCase_ == 1253) {
         return (java.lang.Integer) hugeOneof_;
@@ -25282,6 +25540,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1254 = 1254;</code>
      * @return The oneof1254.
      */
+    @java.lang.Override
     public int getOneof1254() {
       if (hugeOneofCase_ == 1254) {
         return (java.lang.Integer) hugeOneof_;
@@ -25294,6 +25553,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1255 = 1255;</code>
      * @return The oneof1255.
      */
+    @java.lang.Override
     public int getOneof1255() {
       if (hugeOneofCase_ == 1255) {
         return (java.lang.Integer) hugeOneof_;
@@ -25306,6 +25566,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1256 = 1256;</code>
      * @return The oneof1256.
      */
+    @java.lang.Override
     public int getOneof1256() {
       if (hugeOneofCase_ == 1256) {
         return (java.lang.Integer) hugeOneof_;
@@ -25318,6 +25579,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1257 = 1257;</code>
      * @return The oneof1257.
      */
+    @java.lang.Override
     public int getOneof1257() {
       if (hugeOneofCase_ == 1257) {
         return (java.lang.Integer) hugeOneof_;
@@ -25330,6 +25592,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1258 = 1258;</code>
      * @return The oneof1258.
      */
+    @java.lang.Override
     public int getOneof1258() {
       if (hugeOneofCase_ == 1258) {
         return (java.lang.Integer) hugeOneof_;
@@ -25342,6 +25605,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1259 = 1259;</code>
      * @return The oneof1259.
      */
+    @java.lang.Override
     public int getOneof1259() {
       if (hugeOneofCase_ == 1259) {
         return (java.lang.Integer) hugeOneof_;
@@ -25354,6 +25618,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1260 = 1260;</code>
      * @return The oneof1260.
      */
+    @java.lang.Override
     public int getOneof1260() {
       if (hugeOneofCase_ == 1260) {
         return (java.lang.Integer) hugeOneof_;
@@ -25366,6 +25631,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1261 = 1261;</code>
      * @return The oneof1261.
      */
+    @java.lang.Override
     public int getOneof1261() {
       if (hugeOneofCase_ == 1261) {
         return (java.lang.Integer) hugeOneof_;
@@ -25378,6 +25644,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1262 = 1262;</code>
      * @return The oneof1262.
      */
+    @java.lang.Override
     public int getOneof1262() {
       if (hugeOneofCase_ == 1262) {
         return (java.lang.Integer) hugeOneof_;
@@ -25390,6 +25657,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1263 = 1263;</code>
      * @return The oneof1263.
      */
+    @java.lang.Override
     public int getOneof1263() {
       if (hugeOneofCase_ == 1263) {
         return (java.lang.Integer) hugeOneof_;
@@ -25402,6 +25670,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1264 = 1264;</code>
      * @return The oneof1264.
      */
+    @java.lang.Override
     public int getOneof1264() {
       if (hugeOneofCase_ == 1264) {
         return (java.lang.Integer) hugeOneof_;
@@ -25414,6 +25683,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1265 = 1265;</code>
      * @return The oneof1265.
      */
+    @java.lang.Override
     public int getOneof1265() {
       if (hugeOneofCase_ == 1265) {
         return (java.lang.Integer) hugeOneof_;
@@ -25426,6 +25696,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1266 = 1266;</code>
      * @return The oneof1266.
      */
+    @java.lang.Override
     public int getOneof1266() {
       if (hugeOneofCase_ == 1266) {
         return (java.lang.Integer) hugeOneof_;
@@ -25438,6 +25709,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1267 = 1267;</code>
      * @return The oneof1267.
      */
+    @java.lang.Override
     public int getOneof1267() {
       if (hugeOneofCase_ == 1267) {
         return (java.lang.Integer) hugeOneof_;
@@ -25450,6 +25722,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1268 = 1268;</code>
      * @return The oneof1268.
      */
+    @java.lang.Override
     public int getOneof1268() {
       if (hugeOneofCase_ == 1268) {
         return (java.lang.Integer) hugeOneof_;
@@ -25462,6 +25735,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1269 = 1269;</code>
      * @return The oneof1269.
      */
+    @java.lang.Override
     public int getOneof1269() {
       if (hugeOneofCase_ == 1269) {
         return (java.lang.Integer) hugeOneof_;
@@ -25474,6 +25748,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1270 = 1270;</code>
      * @return The oneof1270.
      */
+    @java.lang.Override
     public int getOneof1270() {
       if (hugeOneofCase_ == 1270) {
         return (java.lang.Integer) hugeOneof_;
@@ -25486,6 +25761,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1271 = 1271;</code>
      * @return The oneof1271.
      */
+    @java.lang.Override
     public int getOneof1271() {
       if (hugeOneofCase_ == 1271) {
         return (java.lang.Integer) hugeOneof_;
@@ -25498,6 +25774,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1272 = 1272;</code>
      * @return The oneof1272.
      */
+    @java.lang.Override
     public int getOneof1272() {
       if (hugeOneofCase_ == 1272) {
         return (java.lang.Integer) hugeOneof_;
@@ -25510,6 +25787,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1273 = 1273;</code>
      * @return The oneof1273.
      */
+    @java.lang.Override
     public int getOneof1273() {
       if (hugeOneofCase_ == 1273) {
         return (java.lang.Integer) hugeOneof_;
@@ -25522,6 +25800,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1274 = 1274;</code>
      * @return The oneof1274.
      */
+    @java.lang.Override
     public int getOneof1274() {
       if (hugeOneofCase_ == 1274) {
         return (java.lang.Integer) hugeOneof_;
@@ -25534,6 +25813,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1275 = 1275;</code>
      * @return The oneof1275.
      */
+    @java.lang.Override
     public int getOneof1275() {
       if (hugeOneofCase_ == 1275) {
         return (java.lang.Integer) hugeOneof_;
@@ -25546,6 +25826,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1276 = 1276;</code>
      * @return The oneof1276.
      */
+    @java.lang.Override
     public int getOneof1276() {
       if (hugeOneofCase_ == 1276) {
         return (java.lang.Integer) hugeOneof_;
@@ -25558,6 +25839,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1277 = 1277;</code>
      * @return The oneof1277.
      */
+    @java.lang.Override
     public int getOneof1277() {
       if (hugeOneofCase_ == 1277) {
         return (java.lang.Integer) hugeOneof_;
@@ -25570,6 +25852,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1278 = 1278;</code>
      * @return The oneof1278.
      */
+    @java.lang.Override
     public int getOneof1278() {
       if (hugeOneofCase_ == 1278) {
         return (java.lang.Integer) hugeOneof_;
@@ -25582,6 +25865,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1279 = 1279;</code>
      * @return The oneof1279.
      */
+    @java.lang.Override
     public int getOneof1279() {
       if (hugeOneofCase_ == 1279) {
         return (java.lang.Integer) hugeOneof_;
@@ -25594,6 +25878,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1280 = 1280;</code>
      * @return The oneof1280.
      */
+    @java.lang.Override
     public int getOneof1280() {
       if (hugeOneofCase_ == 1280) {
         return (java.lang.Integer) hugeOneof_;
@@ -25606,6 +25891,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1281 = 1281;</code>
      * @return The oneof1281.
      */
+    @java.lang.Override
     public int getOneof1281() {
       if (hugeOneofCase_ == 1281) {
         return (java.lang.Integer) hugeOneof_;
@@ -25618,6 +25904,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1282 = 1282;</code>
      * @return The oneof1282.
      */
+    @java.lang.Override
     public int getOneof1282() {
       if (hugeOneofCase_ == 1282) {
         return (java.lang.Integer) hugeOneof_;
@@ -25630,6 +25917,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1283 = 1283;</code>
      * @return The oneof1283.
      */
+    @java.lang.Override
     public int getOneof1283() {
       if (hugeOneofCase_ == 1283) {
         return (java.lang.Integer) hugeOneof_;
@@ -25642,6 +25930,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1284 = 1284;</code>
      * @return The oneof1284.
      */
+    @java.lang.Override
     public int getOneof1284() {
       if (hugeOneofCase_ == 1284) {
         return (java.lang.Integer) hugeOneof_;
@@ -25654,6 +25943,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1285 = 1285;</code>
      * @return The oneof1285.
      */
+    @java.lang.Override
     public int getOneof1285() {
       if (hugeOneofCase_ == 1285) {
         return (java.lang.Integer) hugeOneof_;
@@ -25666,6 +25956,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1286 = 1286;</code>
      * @return The oneof1286.
      */
+    @java.lang.Override
     public int getOneof1286() {
       if (hugeOneofCase_ == 1286) {
         return (java.lang.Integer) hugeOneof_;
@@ -25678,6 +25969,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1287 = 1287;</code>
      * @return The oneof1287.
      */
+    @java.lang.Override
     public int getOneof1287() {
       if (hugeOneofCase_ == 1287) {
         return (java.lang.Integer) hugeOneof_;
@@ -25690,6 +25982,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1288 = 1288;</code>
      * @return The oneof1288.
      */
+    @java.lang.Override
     public int getOneof1288() {
       if (hugeOneofCase_ == 1288) {
         return (java.lang.Integer) hugeOneof_;
@@ -25702,6 +25995,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1289 = 1289;</code>
      * @return The oneof1289.
      */
+    @java.lang.Override
     public int getOneof1289() {
       if (hugeOneofCase_ == 1289) {
         return (java.lang.Integer) hugeOneof_;
@@ -25714,6 +26008,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1290 = 1290;</code>
      * @return The oneof1290.
      */
+    @java.lang.Override
     public int getOneof1290() {
       if (hugeOneofCase_ == 1290) {
         return (java.lang.Integer) hugeOneof_;
@@ -25726,6 +26021,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1291 = 1291;</code>
      * @return The oneof1291.
      */
+    @java.lang.Override
     public int getOneof1291() {
       if (hugeOneofCase_ == 1291) {
         return (java.lang.Integer) hugeOneof_;
@@ -25738,6 +26034,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1292 = 1292;</code>
      * @return The oneof1292.
      */
+    @java.lang.Override
     public int getOneof1292() {
       if (hugeOneofCase_ == 1292) {
         return (java.lang.Integer) hugeOneof_;
@@ -25750,6 +26047,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1293 = 1293;</code>
      * @return The oneof1293.
      */
+    @java.lang.Override
     public int getOneof1293() {
       if (hugeOneofCase_ == 1293) {
         return (java.lang.Integer) hugeOneof_;
@@ -25762,6 +26060,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1294 = 1294;</code>
      * @return The oneof1294.
      */
+    @java.lang.Override
     public int getOneof1294() {
       if (hugeOneofCase_ == 1294) {
         return (java.lang.Integer) hugeOneof_;
@@ -25774,6 +26073,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1295 = 1295;</code>
      * @return The oneof1295.
      */
+    @java.lang.Override
     public int getOneof1295() {
       if (hugeOneofCase_ == 1295) {
         return (java.lang.Integer) hugeOneof_;
@@ -25786,6 +26086,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1296 = 1296;</code>
      * @return The oneof1296.
      */
+    @java.lang.Override
     public int getOneof1296() {
       if (hugeOneofCase_ == 1296) {
         return (java.lang.Integer) hugeOneof_;
@@ -25798,6 +26099,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1297 = 1297;</code>
      * @return The oneof1297.
      */
+    @java.lang.Override
     public int getOneof1297() {
       if (hugeOneofCase_ == 1297) {
         return (java.lang.Integer) hugeOneof_;
@@ -25810,6 +26112,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1298 = 1298;</code>
      * @return The oneof1298.
      */
+    @java.lang.Override
     public int getOneof1298() {
       if (hugeOneofCase_ == 1298) {
         return (java.lang.Integer) hugeOneof_;
@@ -25822,6 +26125,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1299 = 1299;</code>
      * @return The oneof1299.
      */
+    @java.lang.Override
     public int getOneof1299() {
       if (hugeOneofCase_ == 1299) {
         return (java.lang.Integer) hugeOneof_;
@@ -25834,6 +26138,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1300 = 1300;</code>
      * @return The oneof1300.
      */
+    @java.lang.Override
     public int getOneof1300() {
       if (hugeOneofCase_ == 1300) {
         return (java.lang.Integer) hugeOneof_;
@@ -25846,6 +26151,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1301 = 1301;</code>
      * @return The oneof1301.
      */
+    @java.lang.Override
     public int getOneof1301() {
       if (hugeOneofCase_ == 1301) {
         return (java.lang.Integer) hugeOneof_;
@@ -25858,6 +26164,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1302 = 1302;</code>
      * @return The oneof1302.
      */
+    @java.lang.Override
     public int getOneof1302() {
       if (hugeOneofCase_ == 1302) {
         return (java.lang.Integer) hugeOneof_;
@@ -25870,6 +26177,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1303 = 1303;</code>
      * @return The oneof1303.
      */
+    @java.lang.Override
     public int getOneof1303() {
       if (hugeOneofCase_ == 1303) {
         return (java.lang.Integer) hugeOneof_;
@@ -25882,6 +26190,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1304 = 1304;</code>
      * @return The oneof1304.
      */
+    @java.lang.Override
     public int getOneof1304() {
       if (hugeOneofCase_ == 1304) {
         return (java.lang.Integer) hugeOneof_;
@@ -25894,6 +26203,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1305 = 1305;</code>
      * @return The oneof1305.
      */
+    @java.lang.Override
     public int getOneof1305() {
       if (hugeOneofCase_ == 1305) {
         return (java.lang.Integer) hugeOneof_;
@@ -25906,6 +26216,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1306 = 1306;</code>
      * @return The oneof1306.
      */
+    @java.lang.Override
     public int getOneof1306() {
       if (hugeOneofCase_ == 1306) {
         return (java.lang.Integer) hugeOneof_;
@@ -25918,6 +26229,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1307 = 1307;</code>
      * @return The oneof1307.
      */
+    @java.lang.Override
     public int getOneof1307() {
       if (hugeOneofCase_ == 1307) {
         return (java.lang.Integer) hugeOneof_;
@@ -25930,6 +26242,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1308 = 1308;</code>
      * @return The oneof1308.
      */
+    @java.lang.Override
     public int getOneof1308() {
       if (hugeOneofCase_ == 1308) {
         return (java.lang.Integer) hugeOneof_;
@@ -25942,6 +26255,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1309 = 1309;</code>
      * @return The oneof1309.
      */
+    @java.lang.Override
     public int getOneof1309() {
       if (hugeOneofCase_ == 1309) {
         return (java.lang.Integer) hugeOneof_;
@@ -25954,6 +26268,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1310 = 1310;</code>
      * @return The oneof1310.
      */
+    @java.lang.Override
     public int getOneof1310() {
       if (hugeOneofCase_ == 1310) {
         return (java.lang.Integer) hugeOneof_;
@@ -25966,6 +26281,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1311 = 1311;</code>
      * @return The oneof1311.
      */
+    @java.lang.Override
     public int getOneof1311() {
       if (hugeOneofCase_ == 1311) {
         return (java.lang.Integer) hugeOneof_;
@@ -25978,6 +26294,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1312 = 1312;</code>
      * @return The oneof1312.
      */
+    @java.lang.Override
     public int getOneof1312() {
       if (hugeOneofCase_ == 1312) {
         return (java.lang.Integer) hugeOneof_;
@@ -25990,6 +26307,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1313 = 1313;</code>
      * @return The oneof1313.
      */
+    @java.lang.Override
     public int getOneof1313() {
       if (hugeOneofCase_ == 1313) {
         return (java.lang.Integer) hugeOneof_;
@@ -26002,6 +26320,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1314 = 1314;</code>
      * @return The oneof1314.
      */
+    @java.lang.Override
     public int getOneof1314() {
       if (hugeOneofCase_ == 1314) {
         return (java.lang.Integer) hugeOneof_;
@@ -26014,6 +26333,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1315 = 1315;</code>
      * @return The oneof1315.
      */
+    @java.lang.Override
     public int getOneof1315() {
       if (hugeOneofCase_ == 1315) {
         return (java.lang.Integer) hugeOneof_;
@@ -26026,6 +26346,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1316 = 1316;</code>
      * @return The oneof1316.
      */
+    @java.lang.Override
     public int getOneof1316() {
       if (hugeOneofCase_ == 1316) {
         return (java.lang.Integer) hugeOneof_;
@@ -26038,6 +26359,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1317 = 1317;</code>
      * @return The oneof1317.
      */
+    @java.lang.Override
     public int getOneof1317() {
       if (hugeOneofCase_ == 1317) {
         return (java.lang.Integer) hugeOneof_;
@@ -26050,6 +26372,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1318 = 1318;</code>
      * @return The oneof1318.
      */
+    @java.lang.Override
     public int getOneof1318() {
       if (hugeOneofCase_ == 1318) {
         return (java.lang.Integer) hugeOneof_;
@@ -26062,6 +26385,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1319 = 1319;</code>
      * @return The oneof1319.
      */
+    @java.lang.Override
     public int getOneof1319() {
       if (hugeOneofCase_ == 1319) {
         return (java.lang.Integer) hugeOneof_;
@@ -26074,6 +26398,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1320 = 1320;</code>
      * @return The oneof1320.
      */
+    @java.lang.Override
     public int getOneof1320() {
       if (hugeOneofCase_ == 1320) {
         return (java.lang.Integer) hugeOneof_;
@@ -26086,6 +26411,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1321 = 1321;</code>
      * @return The oneof1321.
      */
+    @java.lang.Override
     public int getOneof1321() {
       if (hugeOneofCase_ == 1321) {
         return (java.lang.Integer) hugeOneof_;
@@ -26098,6 +26424,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1322 = 1322;</code>
      * @return The oneof1322.
      */
+    @java.lang.Override
     public int getOneof1322() {
       if (hugeOneofCase_ == 1322) {
         return (java.lang.Integer) hugeOneof_;
@@ -26110,6 +26437,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1323 = 1323;</code>
      * @return The oneof1323.
      */
+    @java.lang.Override
     public int getOneof1323() {
       if (hugeOneofCase_ == 1323) {
         return (java.lang.Integer) hugeOneof_;
@@ -26122,6 +26450,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1324 = 1324;</code>
      * @return The oneof1324.
      */
+    @java.lang.Override
     public int getOneof1324() {
       if (hugeOneofCase_ == 1324) {
         return (java.lang.Integer) hugeOneof_;
@@ -26134,6 +26463,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1325 = 1325;</code>
      * @return The oneof1325.
      */
+    @java.lang.Override
     public int getOneof1325() {
       if (hugeOneofCase_ == 1325) {
         return (java.lang.Integer) hugeOneof_;
@@ -26146,6 +26476,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1326 = 1326;</code>
      * @return The oneof1326.
      */
+    @java.lang.Override
     public int getOneof1326() {
       if (hugeOneofCase_ == 1326) {
         return (java.lang.Integer) hugeOneof_;
@@ -26158,6 +26489,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1327 = 1327;</code>
      * @return The oneof1327.
      */
+    @java.lang.Override
     public int getOneof1327() {
       if (hugeOneofCase_ == 1327) {
         return (java.lang.Integer) hugeOneof_;
@@ -26170,6 +26502,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1328 = 1328;</code>
      * @return The oneof1328.
      */
+    @java.lang.Override
     public int getOneof1328() {
       if (hugeOneofCase_ == 1328) {
         return (java.lang.Integer) hugeOneof_;
@@ -26182,6 +26515,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1329 = 1329;</code>
      * @return The oneof1329.
      */
+    @java.lang.Override
     public int getOneof1329() {
       if (hugeOneofCase_ == 1329) {
         return (java.lang.Integer) hugeOneof_;
@@ -26194,6 +26528,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1330 = 1330;</code>
      * @return The oneof1330.
      */
+    @java.lang.Override
     public int getOneof1330() {
       if (hugeOneofCase_ == 1330) {
         return (java.lang.Integer) hugeOneof_;
@@ -26206,6 +26541,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1331 = 1331;</code>
      * @return The oneof1331.
      */
+    @java.lang.Override
     public int getOneof1331() {
       if (hugeOneofCase_ == 1331) {
         return (java.lang.Integer) hugeOneof_;
@@ -26218,6 +26554,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1332 = 1332;</code>
      * @return The oneof1332.
      */
+    @java.lang.Override
     public int getOneof1332() {
       if (hugeOneofCase_ == 1332) {
         return (java.lang.Integer) hugeOneof_;
@@ -26230,6 +26567,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1333 = 1333;</code>
      * @return The oneof1333.
      */
+    @java.lang.Override
     public int getOneof1333() {
       if (hugeOneofCase_ == 1333) {
         return (java.lang.Integer) hugeOneof_;
@@ -26242,6 +26580,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1334 = 1334;</code>
      * @return The oneof1334.
      */
+    @java.lang.Override
     public int getOneof1334() {
       if (hugeOneofCase_ == 1334) {
         return (java.lang.Integer) hugeOneof_;
@@ -26254,6 +26593,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1335 = 1335;</code>
      * @return The oneof1335.
      */
+    @java.lang.Override
     public int getOneof1335() {
       if (hugeOneofCase_ == 1335) {
         return (java.lang.Integer) hugeOneof_;
@@ -26266,6 +26606,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1336 = 1336;</code>
      * @return The oneof1336.
      */
+    @java.lang.Override
     public int getOneof1336() {
       if (hugeOneofCase_ == 1336) {
         return (java.lang.Integer) hugeOneof_;
@@ -26278,6 +26619,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1337 = 1337;</code>
      * @return The oneof1337.
      */
+    @java.lang.Override
     public int getOneof1337() {
       if (hugeOneofCase_ == 1337) {
         return (java.lang.Integer) hugeOneof_;
@@ -26290,6 +26632,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1338 = 1338;</code>
      * @return The oneof1338.
      */
+    @java.lang.Override
     public int getOneof1338() {
       if (hugeOneofCase_ == 1338) {
         return (java.lang.Integer) hugeOneof_;
@@ -26302,6 +26645,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1339 = 1339;</code>
      * @return The oneof1339.
      */
+    @java.lang.Override
     public int getOneof1339() {
       if (hugeOneofCase_ == 1339) {
         return (java.lang.Integer) hugeOneof_;
@@ -26314,6 +26658,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1340 = 1340;</code>
      * @return The oneof1340.
      */
+    @java.lang.Override
     public int getOneof1340() {
       if (hugeOneofCase_ == 1340) {
         return (java.lang.Integer) hugeOneof_;
@@ -26326,6 +26671,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1341 = 1341;</code>
      * @return The oneof1341.
      */
+    @java.lang.Override
     public int getOneof1341() {
       if (hugeOneofCase_ == 1341) {
         return (java.lang.Integer) hugeOneof_;
@@ -26338,6 +26684,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1342 = 1342;</code>
      * @return The oneof1342.
      */
+    @java.lang.Override
     public int getOneof1342() {
       if (hugeOneofCase_ == 1342) {
         return (java.lang.Integer) hugeOneof_;
@@ -26350,6 +26697,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1343 = 1343;</code>
      * @return The oneof1343.
      */
+    @java.lang.Override
     public int getOneof1343() {
       if (hugeOneofCase_ == 1343) {
         return (java.lang.Integer) hugeOneof_;
@@ -26362,6 +26710,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1344 = 1344;</code>
      * @return The oneof1344.
      */
+    @java.lang.Override
     public int getOneof1344() {
       if (hugeOneofCase_ == 1344) {
         return (java.lang.Integer) hugeOneof_;
@@ -26374,6 +26723,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1345 = 1345;</code>
      * @return The oneof1345.
      */
+    @java.lang.Override
     public int getOneof1345() {
       if (hugeOneofCase_ == 1345) {
         return (java.lang.Integer) hugeOneof_;
@@ -26386,6 +26736,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1346 = 1346;</code>
      * @return The oneof1346.
      */
+    @java.lang.Override
     public int getOneof1346() {
       if (hugeOneofCase_ == 1346) {
         return (java.lang.Integer) hugeOneof_;
@@ -26398,6 +26749,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1347 = 1347;</code>
      * @return The oneof1347.
      */
+    @java.lang.Override
     public int getOneof1347() {
       if (hugeOneofCase_ == 1347) {
         return (java.lang.Integer) hugeOneof_;
@@ -26410,6 +26762,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1348 = 1348;</code>
      * @return The oneof1348.
      */
+    @java.lang.Override
     public int getOneof1348() {
       if (hugeOneofCase_ == 1348) {
         return (java.lang.Integer) hugeOneof_;
@@ -26422,6 +26775,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1349 = 1349;</code>
      * @return The oneof1349.
      */
+    @java.lang.Override
     public int getOneof1349() {
       if (hugeOneofCase_ == 1349) {
         return (java.lang.Integer) hugeOneof_;
@@ -26434,6 +26788,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1350 = 1350;</code>
      * @return The oneof1350.
      */
+    @java.lang.Override
     public int getOneof1350() {
       if (hugeOneofCase_ == 1350) {
         return (java.lang.Integer) hugeOneof_;
@@ -26446,6 +26801,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1351 = 1351;</code>
      * @return The oneof1351.
      */
+    @java.lang.Override
     public int getOneof1351() {
       if (hugeOneofCase_ == 1351) {
         return (java.lang.Integer) hugeOneof_;
@@ -26458,6 +26814,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1352 = 1352;</code>
      * @return The oneof1352.
      */
+    @java.lang.Override
     public int getOneof1352() {
       if (hugeOneofCase_ == 1352) {
         return (java.lang.Integer) hugeOneof_;
@@ -26470,6 +26827,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1353 = 1353;</code>
      * @return The oneof1353.
      */
+    @java.lang.Override
     public int getOneof1353() {
       if (hugeOneofCase_ == 1353) {
         return (java.lang.Integer) hugeOneof_;
@@ -26482,6 +26840,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1354 = 1354;</code>
      * @return The oneof1354.
      */
+    @java.lang.Override
     public int getOneof1354() {
       if (hugeOneofCase_ == 1354) {
         return (java.lang.Integer) hugeOneof_;
@@ -26494,6 +26853,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1355 = 1355;</code>
      * @return The oneof1355.
      */
+    @java.lang.Override
     public int getOneof1355() {
       if (hugeOneofCase_ == 1355) {
         return (java.lang.Integer) hugeOneof_;
@@ -26506,6 +26866,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1356 = 1356;</code>
      * @return The oneof1356.
      */
+    @java.lang.Override
     public int getOneof1356() {
       if (hugeOneofCase_ == 1356) {
         return (java.lang.Integer) hugeOneof_;
@@ -26518,6 +26879,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1357 = 1357;</code>
      * @return The oneof1357.
      */
+    @java.lang.Override
     public int getOneof1357() {
       if (hugeOneofCase_ == 1357) {
         return (java.lang.Integer) hugeOneof_;
@@ -26530,6 +26892,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1358 = 1358;</code>
      * @return The oneof1358.
      */
+    @java.lang.Override
     public int getOneof1358() {
       if (hugeOneofCase_ == 1358) {
         return (java.lang.Integer) hugeOneof_;
@@ -26542,6 +26905,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1359 = 1359;</code>
      * @return The oneof1359.
      */
+    @java.lang.Override
     public int getOneof1359() {
       if (hugeOneofCase_ == 1359) {
         return (java.lang.Integer) hugeOneof_;
@@ -26554,6 +26918,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1360 = 1360;</code>
      * @return The oneof1360.
      */
+    @java.lang.Override
     public int getOneof1360() {
       if (hugeOneofCase_ == 1360) {
         return (java.lang.Integer) hugeOneof_;
@@ -26566,6 +26931,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1361 = 1361;</code>
      * @return The oneof1361.
      */
+    @java.lang.Override
     public int getOneof1361() {
       if (hugeOneofCase_ == 1361) {
         return (java.lang.Integer) hugeOneof_;
@@ -26578,6 +26944,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1362 = 1362;</code>
      * @return The oneof1362.
      */
+    @java.lang.Override
     public int getOneof1362() {
       if (hugeOneofCase_ == 1362) {
         return (java.lang.Integer) hugeOneof_;
@@ -26590,6 +26957,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1363 = 1363;</code>
      * @return The oneof1363.
      */
+    @java.lang.Override
     public int getOneof1363() {
       if (hugeOneofCase_ == 1363) {
         return (java.lang.Integer) hugeOneof_;
@@ -26602,6 +26970,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1364 = 1364;</code>
      * @return The oneof1364.
      */
+    @java.lang.Override
     public int getOneof1364() {
       if (hugeOneofCase_ == 1364) {
         return (java.lang.Integer) hugeOneof_;
@@ -26614,6 +26983,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1365 = 1365;</code>
      * @return The oneof1365.
      */
+    @java.lang.Override
     public int getOneof1365() {
       if (hugeOneofCase_ == 1365) {
         return (java.lang.Integer) hugeOneof_;
@@ -26626,6 +26996,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1366 = 1366;</code>
      * @return The oneof1366.
      */
+    @java.lang.Override
     public int getOneof1366() {
       if (hugeOneofCase_ == 1366) {
         return (java.lang.Integer) hugeOneof_;
@@ -26638,6 +27009,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1367 = 1367;</code>
      * @return The oneof1367.
      */
+    @java.lang.Override
     public int getOneof1367() {
       if (hugeOneofCase_ == 1367) {
         return (java.lang.Integer) hugeOneof_;
@@ -26650,6 +27022,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1368 = 1368;</code>
      * @return The oneof1368.
      */
+    @java.lang.Override
     public int getOneof1368() {
       if (hugeOneofCase_ == 1368) {
         return (java.lang.Integer) hugeOneof_;
@@ -26662,6 +27035,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1369 = 1369;</code>
      * @return The oneof1369.
      */
+    @java.lang.Override
     public int getOneof1369() {
       if (hugeOneofCase_ == 1369) {
         return (java.lang.Integer) hugeOneof_;
@@ -26674,6 +27048,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1370 = 1370;</code>
      * @return The oneof1370.
      */
+    @java.lang.Override
     public int getOneof1370() {
       if (hugeOneofCase_ == 1370) {
         return (java.lang.Integer) hugeOneof_;
@@ -26686,6 +27061,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1371 = 1371;</code>
      * @return The oneof1371.
      */
+    @java.lang.Override
     public int getOneof1371() {
       if (hugeOneofCase_ == 1371) {
         return (java.lang.Integer) hugeOneof_;
@@ -26698,6 +27074,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1372 = 1372;</code>
      * @return The oneof1372.
      */
+    @java.lang.Override
     public int getOneof1372() {
       if (hugeOneofCase_ == 1372) {
         return (java.lang.Integer) hugeOneof_;
@@ -26710,6 +27087,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1373 = 1373;</code>
      * @return The oneof1373.
      */
+    @java.lang.Override
     public int getOneof1373() {
       if (hugeOneofCase_ == 1373) {
         return (java.lang.Integer) hugeOneof_;
@@ -26722,6 +27100,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1374 = 1374;</code>
      * @return The oneof1374.
      */
+    @java.lang.Override
     public int getOneof1374() {
       if (hugeOneofCase_ == 1374) {
         return (java.lang.Integer) hugeOneof_;
@@ -26734,6 +27113,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1375 = 1375;</code>
      * @return The oneof1375.
      */
+    @java.lang.Override
     public int getOneof1375() {
       if (hugeOneofCase_ == 1375) {
         return (java.lang.Integer) hugeOneof_;
@@ -26746,6 +27126,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1376 = 1376;</code>
      * @return The oneof1376.
      */
+    @java.lang.Override
     public int getOneof1376() {
       if (hugeOneofCase_ == 1376) {
         return (java.lang.Integer) hugeOneof_;
@@ -26758,6 +27139,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1377 = 1377;</code>
      * @return The oneof1377.
      */
+    @java.lang.Override
     public int getOneof1377() {
       if (hugeOneofCase_ == 1377) {
         return (java.lang.Integer) hugeOneof_;
@@ -26770,6 +27152,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1378 = 1378;</code>
      * @return The oneof1378.
      */
+    @java.lang.Override
     public int getOneof1378() {
       if (hugeOneofCase_ == 1378) {
         return (java.lang.Integer) hugeOneof_;
@@ -26782,6 +27165,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1379 = 1379;</code>
      * @return The oneof1379.
      */
+    @java.lang.Override
     public int getOneof1379() {
       if (hugeOneofCase_ == 1379) {
         return (java.lang.Integer) hugeOneof_;
@@ -26794,6 +27178,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1380 = 1380;</code>
      * @return The oneof1380.
      */
+    @java.lang.Override
     public int getOneof1380() {
       if (hugeOneofCase_ == 1380) {
         return (java.lang.Integer) hugeOneof_;
@@ -26806,6 +27191,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1381 = 1381;</code>
      * @return The oneof1381.
      */
+    @java.lang.Override
     public int getOneof1381() {
       if (hugeOneofCase_ == 1381) {
         return (java.lang.Integer) hugeOneof_;
@@ -26818,6 +27204,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1382 = 1382;</code>
      * @return The oneof1382.
      */
+    @java.lang.Override
     public int getOneof1382() {
       if (hugeOneofCase_ == 1382) {
         return (java.lang.Integer) hugeOneof_;
@@ -26830,6 +27217,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1383 = 1383;</code>
      * @return The oneof1383.
      */
+    @java.lang.Override
     public int getOneof1383() {
       if (hugeOneofCase_ == 1383) {
         return (java.lang.Integer) hugeOneof_;
@@ -26842,6 +27230,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1384 = 1384;</code>
      * @return The oneof1384.
      */
+    @java.lang.Override
     public int getOneof1384() {
       if (hugeOneofCase_ == 1384) {
         return (java.lang.Integer) hugeOneof_;
@@ -26854,6 +27243,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1385 = 1385;</code>
      * @return The oneof1385.
      */
+    @java.lang.Override
     public int getOneof1385() {
       if (hugeOneofCase_ == 1385) {
         return (java.lang.Integer) hugeOneof_;
@@ -26866,6 +27256,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1386 = 1386;</code>
      * @return The oneof1386.
      */
+    @java.lang.Override
     public int getOneof1386() {
       if (hugeOneofCase_ == 1386) {
         return (java.lang.Integer) hugeOneof_;
@@ -26878,6 +27269,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1387 = 1387;</code>
      * @return The oneof1387.
      */
+    @java.lang.Override
     public int getOneof1387() {
       if (hugeOneofCase_ == 1387) {
         return (java.lang.Integer) hugeOneof_;
@@ -26890,6 +27282,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1388 = 1388;</code>
      * @return The oneof1388.
      */
+    @java.lang.Override
     public int getOneof1388() {
       if (hugeOneofCase_ == 1388) {
         return (java.lang.Integer) hugeOneof_;
@@ -26902,6 +27295,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1389 = 1389;</code>
      * @return The oneof1389.
      */
+    @java.lang.Override
     public int getOneof1389() {
       if (hugeOneofCase_ == 1389) {
         return (java.lang.Integer) hugeOneof_;
@@ -26914,6 +27308,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1390 = 1390;</code>
      * @return The oneof1390.
      */
+    @java.lang.Override
     public int getOneof1390() {
       if (hugeOneofCase_ == 1390) {
         return (java.lang.Integer) hugeOneof_;
@@ -26926,6 +27321,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1391 = 1391;</code>
      * @return The oneof1391.
      */
+    @java.lang.Override
     public int getOneof1391() {
       if (hugeOneofCase_ == 1391) {
         return (java.lang.Integer) hugeOneof_;
@@ -26938,6 +27334,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1392 = 1392;</code>
      * @return The oneof1392.
      */
+    @java.lang.Override
     public int getOneof1392() {
       if (hugeOneofCase_ == 1392) {
         return (java.lang.Integer) hugeOneof_;
@@ -26950,6 +27347,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1393 = 1393;</code>
      * @return The oneof1393.
      */
+    @java.lang.Override
     public int getOneof1393() {
       if (hugeOneofCase_ == 1393) {
         return (java.lang.Integer) hugeOneof_;
@@ -26962,6 +27360,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1394 = 1394;</code>
      * @return The oneof1394.
      */
+    @java.lang.Override
     public int getOneof1394() {
       if (hugeOneofCase_ == 1394) {
         return (java.lang.Integer) hugeOneof_;
@@ -26974,6 +27373,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1395 = 1395;</code>
      * @return The oneof1395.
      */
+    @java.lang.Override
     public int getOneof1395() {
       if (hugeOneofCase_ == 1395) {
         return (java.lang.Integer) hugeOneof_;
@@ -26986,6 +27386,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1396 = 1396;</code>
      * @return The oneof1396.
      */
+    @java.lang.Override
     public int getOneof1396() {
       if (hugeOneofCase_ == 1396) {
         return (java.lang.Integer) hugeOneof_;
@@ -26998,6 +27399,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1397 = 1397;</code>
      * @return The oneof1397.
      */
+    @java.lang.Override
     public int getOneof1397() {
       if (hugeOneofCase_ == 1397) {
         return (java.lang.Integer) hugeOneof_;
@@ -27010,6 +27412,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1398 = 1398;</code>
      * @return The oneof1398.
      */
+    @java.lang.Override
     public int getOneof1398() {
       if (hugeOneofCase_ == 1398) {
         return (java.lang.Integer) hugeOneof_;
@@ -27022,6 +27425,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1399 = 1399;</code>
      * @return The oneof1399.
      */
+    @java.lang.Override
     public int getOneof1399() {
       if (hugeOneofCase_ == 1399) {
         return (java.lang.Integer) hugeOneof_;
@@ -27034,6 +27438,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1400 = 1400;</code>
      * @return The oneof1400.
      */
+    @java.lang.Override
     public int getOneof1400() {
       if (hugeOneofCase_ == 1400) {
         return (java.lang.Integer) hugeOneof_;
@@ -27046,6 +27451,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1401 = 1401;</code>
      * @return The oneof1401.
      */
+    @java.lang.Override
     public int getOneof1401() {
       if (hugeOneofCase_ == 1401) {
         return (java.lang.Integer) hugeOneof_;
@@ -27058,6 +27464,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1402 = 1402;</code>
      * @return The oneof1402.
      */
+    @java.lang.Override
     public int getOneof1402() {
       if (hugeOneofCase_ == 1402) {
         return (java.lang.Integer) hugeOneof_;
@@ -27070,6 +27477,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1403 = 1403;</code>
      * @return The oneof1403.
      */
+    @java.lang.Override
     public int getOneof1403() {
       if (hugeOneofCase_ == 1403) {
         return (java.lang.Integer) hugeOneof_;
@@ -27082,6 +27490,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1404 = 1404;</code>
      * @return The oneof1404.
      */
+    @java.lang.Override
     public int getOneof1404() {
       if (hugeOneofCase_ == 1404) {
         return (java.lang.Integer) hugeOneof_;
@@ -27094,6 +27503,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1405 = 1405;</code>
      * @return The oneof1405.
      */
+    @java.lang.Override
     public int getOneof1405() {
       if (hugeOneofCase_ == 1405) {
         return (java.lang.Integer) hugeOneof_;
@@ -27106,6 +27516,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1406 = 1406;</code>
      * @return The oneof1406.
      */
+    @java.lang.Override
     public int getOneof1406() {
       if (hugeOneofCase_ == 1406) {
         return (java.lang.Integer) hugeOneof_;
@@ -27118,6 +27529,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1407 = 1407;</code>
      * @return The oneof1407.
      */
+    @java.lang.Override
     public int getOneof1407() {
       if (hugeOneofCase_ == 1407) {
         return (java.lang.Integer) hugeOneof_;
@@ -27130,6 +27542,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1408 = 1408;</code>
      * @return The oneof1408.
      */
+    @java.lang.Override
     public int getOneof1408() {
       if (hugeOneofCase_ == 1408) {
         return (java.lang.Integer) hugeOneof_;
@@ -27142,6 +27555,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1409 = 1409;</code>
      * @return The oneof1409.
      */
+    @java.lang.Override
     public int getOneof1409() {
       if (hugeOneofCase_ == 1409) {
         return (java.lang.Integer) hugeOneof_;
@@ -27154,6 +27568,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1410 = 1410;</code>
      * @return The oneof1410.
      */
+    @java.lang.Override
     public int getOneof1410() {
       if (hugeOneofCase_ == 1410) {
         return (java.lang.Integer) hugeOneof_;
@@ -27166,6 +27581,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1411 = 1411;</code>
      * @return The oneof1411.
      */
+    @java.lang.Override
     public int getOneof1411() {
       if (hugeOneofCase_ == 1411) {
         return (java.lang.Integer) hugeOneof_;
@@ -27178,6 +27594,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1412 = 1412;</code>
      * @return The oneof1412.
      */
+    @java.lang.Override
     public int getOneof1412() {
       if (hugeOneofCase_ == 1412) {
         return (java.lang.Integer) hugeOneof_;
@@ -27190,6 +27607,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1413 = 1413;</code>
      * @return The oneof1413.
      */
+    @java.lang.Override
     public int getOneof1413() {
       if (hugeOneofCase_ == 1413) {
         return (java.lang.Integer) hugeOneof_;
@@ -27202,6 +27620,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1414 = 1414;</code>
      * @return The oneof1414.
      */
+    @java.lang.Override
     public int getOneof1414() {
       if (hugeOneofCase_ == 1414) {
         return (java.lang.Integer) hugeOneof_;
@@ -27214,6 +27633,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1415 = 1415;</code>
      * @return The oneof1415.
      */
+    @java.lang.Override
     public int getOneof1415() {
       if (hugeOneofCase_ == 1415) {
         return (java.lang.Integer) hugeOneof_;
@@ -27226,6 +27646,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1416 = 1416;</code>
      * @return The oneof1416.
      */
+    @java.lang.Override
     public int getOneof1416() {
       if (hugeOneofCase_ == 1416) {
         return (java.lang.Integer) hugeOneof_;
@@ -27238,6 +27659,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1417 = 1417;</code>
      * @return The oneof1417.
      */
+    @java.lang.Override
     public int getOneof1417() {
       if (hugeOneofCase_ == 1417) {
         return (java.lang.Integer) hugeOneof_;
@@ -27250,6 +27672,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1418 = 1418;</code>
      * @return The oneof1418.
      */
+    @java.lang.Override
     public int getOneof1418() {
       if (hugeOneofCase_ == 1418) {
         return (java.lang.Integer) hugeOneof_;
@@ -27262,6 +27685,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1419 = 1419;</code>
      * @return The oneof1419.
      */
+    @java.lang.Override
     public int getOneof1419() {
       if (hugeOneofCase_ == 1419) {
         return (java.lang.Integer) hugeOneof_;
@@ -27274,6 +27698,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1420 = 1420;</code>
      * @return The oneof1420.
      */
+    @java.lang.Override
     public int getOneof1420() {
       if (hugeOneofCase_ == 1420) {
         return (java.lang.Integer) hugeOneof_;
@@ -27286,6 +27711,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1421 = 1421;</code>
      * @return The oneof1421.
      */
+    @java.lang.Override
     public int getOneof1421() {
       if (hugeOneofCase_ == 1421) {
         return (java.lang.Integer) hugeOneof_;
@@ -27298,6 +27724,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1422 = 1422;</code>
      * @return The oneof1422.
      */
+    @java.lang.Override
     public int getOneof1422() {
       if (hugeOneofCase_ == 1422) {
         return (java.lang.Integer) hugeOneof_;
@@ -27310,6 +27737,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1423 = 1423;</code>
      * @return The oneof1423.
      */
+    @java.lang.Override
     public int getOneof1423() {
       if (hugeOneofCase_ == 1423) {
         return (java.lang.Integer) hugeOneof_;
@@ -27322,6 +27750,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1424 = 1424;</code>
      * @return The oneof1424.
      */
+    @java.lang.Override
     public int getOneof1424() {
       if (hugeOneofCase_ == 1424) {
         return (java.lang.Integer) hugeOneof_;
@@ -27334,6 +27763,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1425 = 1425;</code>
      * @return The oneof1425.
      */
+    @java.lang.Override
     public int getOneof1425() {
       if (hugeOneofCase_ == 1425) {
         return (java.lang.Integer) hugeOneof_;
@@ -27346,6 +27776,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1426 = 1426;</code>
      * @return The oneof1426.
      */
+    @java.lang.Override
     public int getOneof1426() {
       if (hugeOneofCase_ == 1426) {
         return (java.lang.Integer) hugeOneof_;
@@ -27358,6 +27789,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1427 = 1427;</code>
      * @return The oneof1427.
      */
+    @java.lang.Override
     public int getOneof1427() {
       if (hugeOneofCase_ == 1427) {
         return (java.lang.Integer) hugeOneof_;
@@ -27370,6 +27802,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1428 = 1428;</code>
      * @return The oneof1428.
      */
+    @java.lang.Override
     public int getOneof1428() {
       if (hugeOneofCase_ == 1428) {
         return (java.lang.Integer) hugeOneof_;
@@ -27382,6 +27815,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1429 = 1429;</code>
      * @return The oneof1429.
      */
+    @java.lang.Override
     public int getOneof1429() {
       if (hugeOneofCase_ == 1429) {
         return (java.lang.Integer) hugeOneof_;
@@ -27394,6 +27828,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1430 = 1430;</code>
      * @return The oneof1430.
      */
+    @java.lang.Override
     public int getOneof1430() {
       if (hugeOneofCase_ == 1430) {
         return (java.lang.Integer) hugeOneof_;
@@ -27406,6 +27841,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1431 = 1431;</code>
      * @return The oneof1431.
      */
+    @java.lang.Override
     public int getOneof1431() {
       if (hugeOneofCase_ == 1431) {
         return (java.lang.Integer) hugeOneof_;
@@ -27418,6 +27854,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1432 = 1432;</code>
      * @return The oneof1432.
      */
+    @java.lang.Override
     public int getOneof1432() {
       if (hugeOneofCase_ == 1432) {
         return (java.lang.Integer) hugeOneof_;
@@ -27430,6 +27867,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1433 = 1433;</code>
      * @return The oneof1433.
      */
+    @java.lang.Override
     public int getOneof1433() {
       if (hugeOneofCase_ == 1433) {
         return (java.lang.Integer) hugeOneof_;
@@ -27442,6 +27880,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1434 = 1434;</code>
      * @return The oneof1434.
      */
+    @java.lang.Override
     public int getOneof1434() {
       if (hugeOneofCase_ == 1434) {
         return (java.lang.Integer) hugeOneof_;
@@ -27454,6 +27893,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1435 = 1435;</code>
      * @return The oneof1435.
      */
+    @java.lang.Override
     public int getOneof1435() {
       if (hugeOneofCase_ == 1435) {
         return (java.lang.Integer) hugeOneof_;
@@ -27466,6 +27906,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1436 = 1436;</code>
      * @return The oneof1436.
      */
+    @java.lang.Override
     public int getOneof1436() {
       if (hugeOneofCase_ == 1436) {
         return (java.lang.Integer) hugeOneof_;
@@ -27478,6 +27919,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1437 = 1437;</code>
      * @return The oneof1437.
      */
+    @java.lang.Override
     public int getOneof1437() {
       if (hugeOneofCase_ == 1437) {
         return (java.lang.Integer) hugeOneof_;
@@ -27490,6 +27932,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1438 = 1438;</code>
      * @return The oneof1438.
      */
+    @java.lang.Override
     public int getOneof1438() {
       if (hugeOneofCase_ == 1438) {
         return (java.lang.Integer) hugeOneof_;
@@ -27502,6 +27945,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1439 = 1439;</code>
      * @return The oneof1439.
      */
+    @java.lang.Override
     public int getOneof1439() {
       if (hugeOneofCase_ == 1439) {
         return (java.lang.Integer) hugeOneof_;
@@ -27514,6 +27958,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1440 = 1440;</code>
      * @return The oneof1440.
      */
+    @java.lang.Override
     public int getOneof1440() {
       if (hugeOneofCase_ == 1440) {
         return (java.lang.Integer) hugeOneof_;
@@ -27526,6 +27971,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1441 = 1441;</code>
      * @return The oneof1441.
      */
+    @java.lang.Override
     public int getOneof1441() {
       if (hugeOneofCase_ == 1441) {
         return (java.lang.Integer) hugeOneof_;
@@ -27538,6 +27984,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1442 = 1442;</code>
      * @return The oneof1442.
      */
+    @java.lang.Override
     public int getOneof1442() {
       if (hugeOneofCase_ == 1442) {
         return (java.lang.Integer) hugeOneof_;
@@ -27550,6 +27997,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1443 = 1443;</code>
      * @return The oneof1443.
      */
+    @java.lang.Override
     public int getOneof1443() {
       if (hugeOneofCase_ == 1443) {
         return (java.lang.Integer) hugeOneof_;
@@ -27562,6 +28010,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1444 = 1444;</code>
      * @return The oneof1444.
      */
+    @java.lang.Override
     public int getOneof1444() {
       if (hugeOneofCase_ == 1444) {
         return (java.lang.Integer) hugeOneof_;
@@ -27574,6 +28023,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1445 = 1445;</code>
      * @return The oneof1445.
      */
+    @java.lang.Override
     public int getOneof1445() {
       if (hugeOneofCase_ == 1445) {
         return (java.lang.Integer) hugeOneof_;
@@ -27586,6 +28036,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1446 = 1446;</code>
      * @return The oneof1446.
      */
+    @java.lang.Override
     public int getOneof1446() {
       if (hugeOneofCase_ == 1446) {
         return (java.lang.Integer) hugeOneof_;
@@ -27598,6 +28049,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1447 = 1447;</code>
      * @return The oneof1447.
      */
+    @java.lang.Override
     public int getOneof1447() {
       if (hugeOneofCase_ == 1447) {
         return (java.lang.Integer) hugeOneof_;
@@ -27610,6 +28062,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1448 = 1448;</code>
      * @return The oneof1448.
      */
+    @java.lang.Override
     public int getOneof1448() {
       if (hugeOneofCase_ == 1448) {
         return (java.lang.Integer) hugeOneof_;
@@ -27622,6 +28075,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1449 = 1449;</code>
      * @return The oneof1449.
      */
+    @java.lang.Override
     public int getOneof1449() {
       if (hugeOneofCase_ == 1449) {
         return (java.lang.Integer) hugeOneof_;
@@ -27634,6 +28088,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1450 = 1450;</code>
      * @return The oneof1450.
      */
+    @java.lang.Override
     public int getOneof1450() {
       if (hugeOneofCase_ == 1450) {
         return (java.lang.Integer) hugeOneof_;
@@ -27646,6 +28101,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1451 = 1451;</code>
      * @return The oneof1451.
      */
+    @java.lang.Override
     public int getOneof1451() {
       if (hugeOneofCase_ == 1451) {
         return (java.lang.Integer) hugeOneof_;
@@ -27658,6 +28114,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1452 = 1452;</code>
      * @return The oneof1452.
      */
+    @java.lang.Override
     public int getOneof1452() {
       if (hugeOneofCase_ == 1452) {
         return (java.lang.Integer) hugeOneof_;
@@ -27670,6 +28127,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1453 = 1453;</code>
      * @return The oneof1453.
      */
+    @java.lang.Override
     public int getOneof1453() {
       if (hugeOneofCase_ == 1453) {
         return (java.lang.Integer) hugeOneof_;
@@ -27682,6 +28140,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1454 = 1454;</code>
      * @return The oneof1454.
      */
+    @java.lang.Override
     public int getOneof1454() {
       if (hugeOneofCase_ == 1454) {
         return (java.lang.Integer) hugeOneof_;
@@ -27694,6 +28153,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1455 = 1455;</code>
      * @return The oneof1455.
      */
+    @java.lang.Override
     public int getOneof1455() {
       if (hugeOneofCase_ == 1455) {
         return (java.lang.Integer) hugeOneof_;
@@ -27706,6 +28166,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1456 = 1456;</code>
      * @return The oneof1456.
      */
+    @java.lang.Override
     public int getOneof1456() {
       if (hugeOneofCase_ == 1456) {
         return (java.lang.Integer) hugeOneof_;
@@ -27718,6 +28179,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1457 = 1457;</code>
      * @return The oneof1457.
      */
+    @java.lang.Override
     public int getOneof1457() {
       if (hugeOneofCase_ == 1457) {
         return (java.lang.Integer) hugeOneof_;
@@ -27730,6 +28192,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1458 = 1458;</code>
      * @return The oneof1458.
      */
+    @java.lang.Override
     public int getOneof1458() {
       if (hugeOneofCase_ == 1458) {
         return (java.lang.Integer) hugeOneof_;
@@ -27742,6 +28205,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1459 = 1459;</code>
      * @return The oneof1459.
      */
+    @java.lang.Override
     public int getOneof1459() {
       if (hugeOneofCase_ == 1459) {
         return (java.lang.Integer) hugeOneof_;
@@ -27754,6 +28218,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1460 = 1460;</code>
      * @return The oneof1460.
      */
+    @java.lang.Override
     public int getOneof1460() {
       if (hugeOneofCase_ == 1460) {
         return (java.lang.Integer) hugeOneof_;
@@ -27766,6 +28231,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1461 = 1461;</code>
      * @return The oneof1461.
      */
+    @java.lang.Override
     public int getOneof1461() {
       if (hugeOneofCase_ == 1461) {
         return (java.lang.Integer) hugeOneof_;
@@ -27778,6 +28244,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1462 = 1462;</code>
      * @return The oneof1462.
      */
+    @java.lang.Override
     public int getOneof1462() {
       if (hugeOneofCase_ == 1462) {
         return (java.lang.Integer) hugeOneof_;
@@ -27790,6 +28257,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1463 = 1463;</code>
      * @return The oneof1463.
      */
+    @java.lang.Override
     public int getOneof1463() {
       if (hugeOneofCase_ == 1463) {
         return (java.lang.Integer) hugeOneof_;
@@ -27802,6 +28270,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1464 = 1464;</code>
      * @return The oneof1464.
      */
+    @java.lang.Override
     public int getOneof1464() {
       if (hugeOneofCase_ == 1464) {
         return (java.lang.Integer) hugeOneof_;
@@ -27814,6 +28283,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1465 = 1465;</code>
      * @return The oneof1465.
      */
+    @java.lang.Override
     public int getOneof1465() {
       if (hugeOneofCase_ == 1465) {
         return (java.lang.Integer) hugeOneof_;
@@ -27826,6 +28296,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1466 = 1466;</code>
      * @return The oneof1466.
      */
+    @java.lang.Override
     public int getOneof1466() {
       if (hugeOneofCase_ == 1466) {
         return (java.lang.Integer) hugeOneof_;
@@ -27838,6 +28309,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1467 = 1467;</code>
      * @return The oneof1467.
      */
+    @java.lang.Override
     public int getOneof1467() {
       if (hugeOneofCase_ == 1467) {
         return (java.lang.Integer) hugeOneof_;
@@ -27850,6 +28322,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1468 = 1468;</code>
      * @return The oneof1468.
      */
+    @java.lang.Override
     public int getOneof1468() {
       if (hugeOneofCase_ == 1468) {
         return (java.lang.Integer) hugeOneof_;
@@ -27862,6 +28335,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1469 = 1469;</code>
      * @return The oneof1469.
      */
+    @java.lang.Override
     public int getOneof1469() {
       if (hugeOneofCase_ == 1469) {
         return (java.lang.Integer) hugeOneof_;
@@ -27874,6 +28348,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1470 = 1470;</code>
      * @return The oneof1470.
      */
+    @java.lang.Override
     public int getOneof1470() {
       if (hugeOneofCase_ == 1470) {
         return (java.lang.Integer) hugeOneof_;
@@ -27886,6 +28361,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1471 = 1471;</code>
      * @return The oneof1471.
      */
+    @java.lang.Override
     public int getOneof1471() {
       if (hugeOneofCase_ == 1471) {
         return (java.lang.Integer) hugeOneof_;
@@ -27898,6 +28374,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1472 = 1472;</code>
      * @return The oneof1472.
      */
+    @java.lang.Override
     public int getOneof1472() {
       if (hugeOneofCase_ == 1472) {
         return (java.lang.Integer) hugeOneof_;
@@ -27910,6 +28387,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1473 = 1473;</code>
      * @return The oneof1473.
      */
+    @java.lang.Override
     public int getOneof1473() {
       if (hugeOneofCase_ == 1473) {
         return (java.lang.Integer) hugeOneof_;
@@ -27922,6 +28400,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1474 = 1474;</code>
      * @return The oneof1474.
      */
+    @java.lang.Override
     public int getOneof1474() {
       if (hugeOneofCase_ == 1474) {
         return (java.lang.Integer) hugeOneof_;
@@ -27934,6 +28413,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1475 = 1475;</code>
      * @return The oneof1475.
      */
+    @java.lang.Override
     public int getOneof1475() {
       if (hugeOneofCase_ == 1475) {
         return (java.lang.Integer) hugeOneof_;
@@ -27946,6 +28426,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1476 = 1476;</code>
      * @return The oneof1476.
      */
+    @java.lang.Override
     public int getOneof1476() {
       if (hugeOneofCase_ == 1476) {
         return (java.lang.Integer) hugeOneof_;
@@ -27958,6 +28439,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1477 = 1477;</code>
      * @return The oneof1477.
      */
+    @java.lang.Override
     public int getOneof1477() {
       if (hugeOneofCase_ == 1477) {
         return (java.lang.Integer) hugeOneof_;
@@ -27970,6 +28452,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1478 = 1478;</code>
      * @return The oneof1478.
      */
+    @java.lang.Override
     public int getOneof1478() {
       if (hugeOneofCase_ == 1478) {
         return (java.lang.Integer) hugeOneof_;
@@ -27982,6 +28465,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1479 = 1479;</code>
      * @return The oneof1479.
      */
+    @java.lang.Override
     public int getOneof1479() {
       if (hugeOneofCase_ == 1479) {
         return (java.lang.Integer) hugeOneof_;
@@ -27994,6 +28478,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1480 = 1480;</code>
      * @return The oneof1480.
      */
+    @java.lang.Override
     public int getOneof1480() {
       if (hugeOneofCase_ == 1480) {
         return (java.lang.Integer) hugeOneof_;
@@ -28006,6 +28491,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1481 = 1481;</code>
      * @return The oneof1481.
      */
+    @java.lang.Override
     public int getOneof1481() {
       if (hugeOneofCase_ == 1481) {
         return (java.lang.Integer) hugeOneof_;
@@ -28018,6 +28504,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1482 = 1482;</code>
      * @return The oneof1482.
      */
+    @java.lang.Override
     public int getOneof1482() {
       if (hugeOneofCase_ == 1482) {
         return (java.lang.Integer) hugeOneof_;
@@ -28030,6 +28517,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1483 = 1483;</code>
      * @return The oneof1483.
      */
+    @java.lang.Override
     public int getOneof1483() {
       if (hugeOneofCase_ == 1483) {
         return (java.lang.Integer) hugeOneof_;
@@ -28042,6 +28530,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1484 = 1484;</code>
      * @return The oneof1484.
      */
+    @java.lang.Override
     public int getOneof1484() {
       if (hugeOneofCase_ == 1484) {
         return (java.lang.Integer) hugeOneof_;
@@ -28054,6 +28543,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1485 = 1485;</code>
      * @return The oneof1485.
      */
+    @java.lang.Override
     public int getOneof1485() {
       if (hugeOneofCase_ == 1485) {
         return (java.lang.Integer) hugeOneof_;
@@ -28066,6 +28556,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1486 = 1486;</code>
      * @return The oneof1486.
      */
+    @java.lang.Override
     public int getOneof1486() {
       if (hugeOneofCase_ == 1486) {
         return (java.lang.Integer) hugeOneof_;
@@ -28078,6 +28569,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1487 = 1487;</code>
      * @return The oneof1487.
      */
+    @java.lang.Override
     public int getOneof1487() {
       if (hugeOneofCase_ == 1487) {
         return (java.lang.Integer) hugeOneof_;
@@ -28090,6 +28582,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1488 = 1488;</code>
      * @return The oneof1488.
      */
+    @java.lang.Override
     public int getOneof1488() {
       if (hugeOneofCase_ == 1488) {
         return (java.lang.Integer) hugeOneof_;
@@ -28102,6 +28595,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1489 = 1489;</code>
      * @return The oneof1489.
      */
+    @java.lang.Override
     public int getOneof1489() {
       if (hugeOneofCase_ == 1489) {
         return (java.lang.Integer) hugeOneof_;
@@ -28114,6 +28608,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1490 = 1490;</code>
      * @return The oneof1490.
      */
+    @java.lang.Override
     public int getOneof1490() {
       if (hugeOneofCase_ == 1490) {
         return (java.lang.Integer) hugeOneof_;
@@ -28126,6 +28621,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1491 = 1491;</code>
      * @return The oneof1491.
      */
+    @java.lang.Override
     public int getOneof1491() {
       if (hugeOneofCase_ == 1491) {
         return (java.lang.Integer) hugeOneof_;
@@ -28138,6 +28634,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1492 = 1492;</code>
      * @return The oneof1492.
      */
+    @java.lang.Override
     public int getOneof1492() {
       if (hugeOneofCase_ == 1492) {
         return (java.lang.Integer) hugeOneof_;
@@ -28150,6 +28647,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1493 = 1493;</code>
      * @return The oneof1493.
      */
+    @java.lang.Override
     public int getOneof1493() {
       if (hugeOneofCase_ == 1493) {
         return (java.lang.Integer) hugeOneof_;
@@ -28162,6 +28660,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1494 = 1494;</code>
      * @return The oneof1494.
      */
+    @java.lang.Override
     public int getOneof1494() {
       if (hugeOneofCase_ == 1494) {
         return (java.lang.Integer) hugeOneof_;
@@ -28174,6 +28673,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1495 = 1495;</code>
      * @return The oneof1495.
      */
+    @java.lang.Override
     public int getOneof1495() {
       if (hugeOneofCase_ == 1495) {
         return (java.lang.Integer) hugeOneof_;
@@ -28186,6 +28686,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1496 = 1496;</code>
      * @return The oneof1496.
      */
+    @java.lang.Override
     public int getOneof1496() {
       if (hugeOneofCase_ == 1496) {
         return (java.lang.Integer) hugeOneof_;
@@ -28198,6 +28699,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1497 = 1497;</code>
      * @return The oneof1497.
      */
+    @java.lang.Override
     public int getOneof1497() {
       if (hugeOneofCase_ == 1497) {
         return (java.lang.Integer) hugeOneof_;
@@ -28210,6 +28712,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1498 = 1498;</code>
      * @return The oneof1498.
      */
+    @java.lang.Override
     public int getOneof1498() {
       if (hugeOneofCase_ == 1498) {
         return (java.lang.Integer) hugeOneof_;
@@ -28222,6 +28725,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1499 = 1499;</code>
      * @return The oneof1499.
      */
+    @java.lang.Override
     public int getOneof1499() {
       if (hugeOneofCase_ == 1499) {
         return (java.lang.Integer) hugeOneof_;
@@ -28234,6 +28738,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1500 = 1500;</code>
      * @return The oneof1500.
      */
+    @java.lang.Override
     public int getOneof1500() {
       if (hugeOneofCase_ == 1500) {
         return (java.lang.Integer) hugeOneof_;
@@ -28246,6 +28751,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1501 = 1501;</code>
      * @return The oneof1501.
      */
+    @java.lang.Override
     public int getOneof1501() {
       if (hugeOneofCase_ == 1501) {
         return (java.lang.Integer) hugeOneof_;
@@ -28258,6 +28764,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1502 = 1502;</code>
      * @return The oneof1502.
      */
+    @java.lang.Override
     public int getOneof1502() {
       if (hugeOneofCase_ == 1502) {
         return (java.lang.Integer) hugeOneof_;
@@ -28270,6 +28777,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1503 = 1503;</code>
      * @return The oneof1503.
      */
+    @java.lang.Override
     public int getOneof1503() {
       if (hugeOneofCase_ == 1503) {
         return (java.lang.Integer) hugeOneof_;
@@ -28282,6 +28790,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1504 = 1504;</code>
      * @return The oneof1504.
      */
+    @java.lang.Override
     public int getOneof1504() {
       if (hugeOneofCase_ == 1504) {
         return (java.lang.Integer) hugeOneof_;
@@ -28294,6 +28803,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1505 = 1505;</code>
      * @return The oneof1505.
      */
+    @java.lang.Override
     public int getOneof1505() {
       if (hugeOneofCase_ == 1505) {
         return (java.lang.Integer) hugeOneof_;
@@ -28306,6 +28816,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1506 = 1506;</code>
      * @return The oneof1506.
      */
+    @java.lang.Override
     public int getOneof1506() {
       if (hugeOneofCase_ == 1506) {
         return (java.lang.Integer) hugeOneof_;
@@ -28318,6 +28829,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1507 = 1507;</code>
      * @return The oneof1507.
      */
+    @java.lang.Override
     public int getOneof1507() {
       if (hugeOneofCase_ == 1507) {
         return (java.lang.Integer) hugeOneof_;
@@ -28330,6 +28842,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1508 = 1508;</code>
      * @return The oneof1508.
      */
+    @java.lang.Override
     public int getOneof1508() {
       if (hugeOneofCase_ == 1508) {
         return (java.lang.Integer) hugeOneof_;
@@ -28342,6 +28855,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1509 = 1509;</code>
      * @return The oneof1509.
      */
+    @java.lang.Override
     public int getOneof1509() {
       if (hugeOneofCase_ == 1509) {
         return (java.lang.Integer) hugeOneof_;
@@ -28354,6 +28868,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1510 = 1510;</code>
      * @return The oneof1510.
      */
+    @java.lang.Override
     public int getOneof1510() {
       if (hugeOneofCase_ == 1510) {
         return (java.lang.Integer) hugeOneof_;
@@ -28366,6 +28881,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1511 = 1511;</code>
      * @return The oneof1511.
      */
+    @java.lang.Override
     public int getOneof1511() {
       if (hugeOneofCase_ == 1511) {
         return (java.lang.Integer) hugeOneof_;
@@ -28378,6 +28894,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1512 = 1512;</code>
      * @return The oneof1512.
      */
+    @java.lang.Override
     public int getOneof1512() {
       if (hugeOneofCase_ == 1512) {
         return (java.lang.Integer) hugeOneof_;
@@ -28390,6 +28907,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1513 = 1513;</code>
      * @return The oneof1513.
      */
+    @java.lang.Override
     public int getOneof1513() {
       if (hugeOneofCase_ == 1513) {
         return (java.lang.Integer) hugeOneof_;
@@ -28402,6 +28920,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1514 = 1514;</code>
      * @return The oneof1514.
      */
+    @java.lang.Override
     public int getOneof1514() {
       if (hugeOneofCase_ == 1514) {
         return (java.lang.Integer) hugeOneof_;
@@ -28414,6 +28933,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1515 = 1515;</code>
      * @return The oneof1515.
      */
+    @java.lang.Override
     public int getOneof1515() {
       if (hugeOneofCase_ == 1515) {
         return (java.lang.Integer) hugeOneof_;
@@ -28426,6 +28946,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1516 = 1516;</code>
      * @return The oneof1516.
      */
+    @java.lang.Override
     public int getOneof1516() {
       if (hugeOneofCase_ == 1516) {
         return (java.lang.Integer) hugeOneof_;
@@ -28438,6 +28959,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1517 = 1517;</code>
      * @return The oneof1517.
      */
+    @java.lang.Override
     public int getOneof1517() {
       if (hugeOneofCase_ == 1517) {
         return (java.lang.Integer) hugeOneof_;
@@ -28450,6 +28972,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1518 = 1518;</code>
      * @return The oneof1518.
      */
+    @java.lang.Override
     public int getOneof1518() {
       if (hugeOneofCase_ == 1518) {
         return (java.lang.Integer) hugeOneof_;
@@ -28462,6 +28985,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1519 = 1519;</code>
      * @return The oneof1519.
      */
+    @java.lang.Override
     public int getOneof1519() {
       if (hugeOneofCase_ == 1519) {
         return (java.lang.Integer) hugeOneof_;
@@ -28474,6 +28998,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1520 = 1520;</code>
      * @return The oneof1520.
      */
+    @java.lang.Override
     public int getOneof1520() {
       if (hugeOneofCase_ == 1520) {
         return (java.lang.Integer) hugeOneof_;
@@ -28486,6 +29011,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1521 = 1521;</code>
      * @return The oneof1521.
      */
+    @java.lang.Override
     public int getOneof1521() {
       if (hugeOneofCase_ == 1521) {
         return (java.lang.Integer) hugeOneof_;
@@ -28498,6 +29024,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1522 = 1522;</code>
      * @return The oneof1522.
      */
+    @java.lang.Override
     public int getOneof1522() {
       if (hugeOneofCase_ == 1522) {
         return (java.lang.Integer) hugeOneof_;
@@ -28510,6 +29037,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1523 = 1523;</code>
      * @return The oneof1523.
      */
+    @java.lang.Override
     public int getOneof1523() {
       if (hugeOneofCase_ == 1523) {
         return (java.lang.Integer) hugeOneof_;
@@ -28522,6 +29050,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1524 = 1524;</code>
      * @return The oneof1524.
      */
+    @java.lang.Override
     public int getOneof1524() {
       if (hugeOneofCase_ == 1524) {
         return (java.lang.Integer) hugeOneof_;
@@ -28534,6 +29063,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1525 = 1525;</code>
      * @return The oneof1525.
      */
+    @java.lang.Override
     public int getOneof1525() {
       if (hugeOneofCase_ == 1525) {
         return (java.lang.Integer) hugeOneof_;
@@ -28546,6 +29076,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1526 = 1526;</code>
      * @return The oneof1526.
      */
+    @java.lang.Override
     public int getOneof1526() {
       if (hugeOneofCase_ == 1526) {
         return (java.lang.Integer) hugeOneof_;
@@ -28558,6 +29089,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1527 = 1527;</code>
      * @return The oneof1527.
      */
+    @java.lang.Override
     public int getOneof1527() {
       if (hugeOneofCase_ == 1527) {
         return (java.lang.Integer) hugeOneof_;
@@ -28570,6 +29102,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1528 = 1528;</code>
      * @return The oneof1528.
      */
+    @java.lang.Override
     public int getOneof1528() {
       if (hugeOneofCase_ == 1528) {
         return (java.lang.Integer) hugeOneof_;
@@ -28582,6 +29115,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1529 = 1529;</code>
      * @return The oneof1529.
      */
+    @java.lang.Override
     public int getOneof1529() {
       if (hugeOneofCase_ == 1529) {
         return (java.lang.Integer) hugeOneof_;
@@ -28594,6 +29128,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1530 = 1530;</code>
      * @return The oneof1530.
      */
+    @java.lang.Override
     public int getOneof1530() {
       if (hugeOneofCase_ == 1530) {
         return (java.lang.Integer) hugeOneof_;
@@ -28606,6 +29141,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1531 = 1531;</code>
      * @return The oneof1531.
      */
+    @java.lang.Override
     public int getOneof1531() {
       if (hugeOneofCase_ == 1531) {
         return (java.lang.Integer) hugeOneof_;
@@ -28618,6 +29154,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1532 = 1532;</code>
      * @return The oneof1532.
      */
+    @java.lang.Override
     public int getOneof1532() {
       if (hugeOneofCase_ == 1532) {
         return (java.lang.Integer) hugeOneof_;
@@ -28630,6 +29167,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1533 = 1533;</code>
      * @return The oneof1533.
      */
+    @java.lang.Override
     public int getOneof1533() {
       if (hugeOneofCase_ == 1533) {
         return (java.lang.Integer) hugeOneof_;
@@ -28642,6 +29180,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1534 = 1534;</code>
      * @return The oneof1534.
      */
+    @java.lang.Override
     public int getOneof1534() {
       if (hugeOneofCase_ == 1534) {
         return (java.lang.Integer) hugeOneof_;
@@ -28654,6 +29193,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1535 = 1535;</code>
      * @return The oneof1535.
      */
+    @java.lang.Override
     public int getOneof1535() {
       if (hugeOneofCase_ == 1535) {
         return (java.lang.Integer) hugeOneof_;
@@ -28666,6 +29206,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1536 = 1536;</code>
      * @return The oneof1536.
      */
+    @java.lang.Override
     public int getOneof1536() {
       if (hugeOneofCase_ == 1536) {
         return (java.lang.Integer) hugeOneof_;
@@ -28678,6 +29219,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1537 = 1537;</code>
      * @return The oneof1537.
      */
+    @java.lang.Override
     public int getOneof1537() {
       if (hugeOneofCase_ == 1537) {
         return (java.lang.Integer) hugeOneof_;
@@ -28690,6 +29232,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1538 = 1538;</code>
      * @return The oneof1538.
      */
+    @java.lang.Override
     public int getOneof1538() {
       if (hugeOneofCase_ == 1538) {
         return (java.lang.Integer) hugeOneof_;
@@ -28702,6 +29245,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1539 = 1539;</code>
      * @return The oneof1539.
      */
+    @java.lang.Override
     public int getOneof1539() {
       if (hugeOneofCase_ == 1539) {
         return (java.lang.Integer) hugeOneof_;
@@ -28714,6 +29258,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1540 = 1540;</code>
      * @return The oneof1540.
      */
+    @java.lang.Override
     public int getOneof1540() {
       if (hugeOneofCase_ == 1540) {
         return (java.lang.Integer) hugeOneof_;
@@ -28726,6 +29271,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1541 = 1541;</code>
      * @return The oneof1541.
      */
+    @java.lang.Override
     public int getOneof1541() {
       if (hugeOneofCase_ == 1541) {
         return (java.lang.Integer) hugeOneof_;
@@ -28738,6 +29284,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1542 = 1542;</code>
      * @return The oneof1542.
      */
+    @java.lang.Override
     public int getOneof1542() {
       if (hugeOneofCase_ == 1542) {
         return (java.lang.Integer) hugeOneof_;
@@ -28750,6 +29297,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1543 = 1543;</code>
      * @return The oneof1543.
      */
+    @java.lang.Override
     public int getOneof1543() {
       if (hugeOneofCase_ == 1543) {
         return (java.lang.Integer) hugeOneof_;
@@ -28762,6 +29310,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1544 = 1544;</code>
      * @return The oneof1544.
      */
+    @java.lang.Override
     public int getOneof1544() {
       if (hugeOneofCase_ == 1544) {
         return (java.lang.Integer) hugeOneof_;
@@ -28774,6 +29323,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1545 = 1545;</code>
      * @return The oneof1545.
      */
+    @java.lang.Override
     public int getOneof1545() {
       if (hugeOneofCase_ == 1545) {
         return (java.lang.Integer) hugeOneof_;
@@ -28786,6 +29336,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1546 = 1546;</code>
      * @return The oneof1546.
      */
+    @java.lang.Override
     public int getOneof1546() {
       if (hugeOneofCase_ == 1546) {
         return (java.lang.Integer) hugeOneof_;
@@ -28798,6 +29349,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1547 = 1547;</code>
      * @return The oneof1547.
      */
+    @java.lang.Override
     public int getOneof1547() {
       if (hugeOneofCase_ == 1547) {
         return (java.lang.Integer) hugeOneof_;
@@ -28810,6 +29362,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1548 = 1548;</code>
      * @return The oneof1548.
      */
+    @java.lang.Override
     public int getOneof1548() {
       if (hugeOneofCase_ == 1548) {
         return (java.lang.Integer) hugeOneof_;
@@ -28822,6 +29375,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1549 = 1549;</code>
      * @return The oneof1549.
      */
+    @java.lang.Override
     public int getOneof1549() {
       if (hugeOneofCase_ == 1549) {
         return (java.lang.Integer) hugeOneof_;
@@ -28834,6 +29388,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1550 = 1550;</code>
      * @return The oneof1550.
      */
+    @java.lang.Override
     public int getOneof1550() {
       if (hugeOneofCase_ == 1550) {
         return (java.lang.Integer) hugeOneof_;
@@ -28846,6 +29401,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1551 = 1551;</code>
      * @return The oneof1551.
      */
+    @java.lang.Override
     public int getOneof1551() {
       if (hugeOneofCase_ == 1551) {
         return (java.lang.Integer) hugeOneof_;
@@ -28858,6 +29414,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1552 = 1552;</code>
      * @return The oneof1552.
      */
+    @java.lang.Override
     public int getOneof1552() {
       if (hugeOneofCase_ == 1552) {
         return (java.lang.Integer) hugeOneof_;
@@ -28870,6 +29427,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1553 = 1553;</code>
      * @return The oneof1553.
      */
+    @java.lang.Override
     public int getOneof1553() {
       if (hugeOneofCase_ == 1553) {
         return (java.lang.Integer) hugeOneof_;
@@ -28882,6 +29440,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1554 = 1554;</code>
      * @return The oneof1554.
      */
+    @java.lang.Override
     public int getOneof1554() {
       if (hugeOneofCase_ == 1554) {
         return (java.lang.Integer) hugeOneof_;
@@ -28894,6 +29453,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1555 = 1555;</code>
      * @return The oneof1555.
      */
+    @java.lang.Override
     public int getOneof1555() {
       if (hugeOneofCase_ == 1555) {
         return (java.lang.Integer) hugeOneof_;
@@ -28906,6 +29466,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1556 = 1556;</code>
      * @return The oneof1556.
      */
+    @java.lang.Override
     public int getOneof1556() {
       if (hugeOneofCase_ == 1556) {
         return (java.lang.Integer) hugeOneof_;
@@ -28918,6 +29479,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1557 = 1557;</code>
      * @return The oneof1557.
      */
+    @java.lang.Override
     public int getOneof1557() {
       if (hugeOneofCase_ == 1557) {
         return (java.lang.Integer) hugeOneof_;
@@ -28930,6 +29492,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1558 = 1558;</code>
      * @return The oneof1558.
      */
+    @java.lang.Override
     public int getOneof1558() {
       if (hugeOneofCase_ == 1558) {
         return (java.lang.Integer) hugeOneof_;
@@ -28942,6 +29505,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1559 = 1559;</code>
      * @return The oneof1559.
      */
+    @java.lang.Override
     public int getOneof1559() {
       if (hugeOneofCase_ == 1559) {
         return (java.lang.Integer) hugeOneof_;
@@ -28954,6 +29518,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1560 = 1560;</code>
      * @return The oneof1560.
      */
+    @java.lang.Override
     public int getOneof1560() {
       if (hugeOneofCase_ == 1560) {
         return (java.lang.Integer) hugeOneof_;
@@ -28966,6 +29531,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1561 = 1561;</code>
      * @return The oneof1561.
      */
+    @java.lang.Override
     public int getOneof1561() {
       if (hugeOneofCase_ == 1561) {
         return (java.lang.Integer) hugeOneof_;
@@ -28978,6 +29544,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1562 = 1562;</code>
      * @return The oneof1562.
      */
+    @java.lang.Override
     public int getOneof1562() {
       if (hugeOneofCase_ == 1562) {
         return (java.lang.Integer) hugeOneof_;
@@ -28990,6 +29557,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1563 = 1563;</code>
      * @return The oneof1563.
      */
+    @java.lang.Override
     public int getOneof1563() {
       if (hugeOneofCase_ == 1563) {
         return (java.lang.Integer) hugeOneof_;
@@ -29002,6 +29570,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1564 = 1564;</code>
      * @return The oneof1564.
      */
+    @java.lang.Override
     public int getOneof1564() {
       if (hugeOneofCase_ == 1564) {
         return (java.lang.Integer) hugeOneof_;
@@ -29014,6 +29583,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1565 = 1565;</code>
      * @return The oneof1565.
      */
+    @java.lang.Override
     public int getOneof1565() {
       if (hugeOneofCase_ == 1565) {
         return (java.lang.Integer) hugeOneof_;
@@ -29026,6 +29596,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1566 = 1566;</code>
      * @return The oneof1566.
      */
+    @java.lang.Override
     public int getOneof1566() {
       if (hugeOneofCase_ == 1566) {
         return (java.lang.Integer) hugeOneof_;
@@ -29038,6 +29609,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1567 = 1567;</code>
      * @return The oneof1567.
      */
+    @java.lang.Override
     public int getOneof1567() {
       if (hugeOneofCase_ == 1567) {
         return (java.lang.Integer) hugeOneof_;
@@ -29050,6 +29622,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1568 = 1568;</code>
      * @return The oneof1568.
      */
+    @java.lang.Override
     public int getOneof1568() {
       if (hugeOneofCase_ == 1568) {
         return (java.lang.Integer) hugeOneof_;
@@ -29062,6 +29635,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1569 = 1569;</code>
      * @return The oneof1569.
      */
+    @java.lang.Override
     public int getOneof1569() {
       if (hugeOneofCase_ == 1569) {
         return (java.lang.Integer) hugeOneof_;
@@ -29074,6 +29648,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1570 = 1570;</code>
      * @return The oneof1570.
      */
+    @java.lang.Override
     public int getOneof1570() {
       if (hugeOneofCase_ == 1570) {
         return (java.lang.Integer) hugeOneof_;
@@ -29086,6 +29661,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1571 = 1571;</code>
      * @return The oneof1571.
      */
+    @java.lang.Override
     public int getOneof1571() {
       if (hugeOneofCase_ == 1571) {
         return (java.lang.Integer) hugeOneof_;
@@ -29098,6 +29674,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1572 = 1572;</code>
      * @return The oneof1572.
      */
+    @java.lang.Override
     public int getOneof1572() {
       if (hugeOneofCase_ == 1572) {
         return (java.lang.Integer) hugeOneof_;
@@ -29110,6 +29687,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1573 = 1573;</code>
      * @return The oneof1573.
      */
+    @java.lang.Override
     public int getOneof1573() {
       if (hugeOneofCase_ == 1573) {
         return (java.lang.Integer) hugeOneof_;
@@ -29122,6 +29700,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1574 = 1574;</code>
      * @return The oneof1574.
      */
+    @java.lang.Override
     public int getOneof1574() {
       if (hugeOneofCase_ == 1574) {
         return (java.lang.Integer) hugeOneof_;
@@ -29134,6 +29713,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1575 = 1575;</code>
      * @return The oneof1575.
      */
+    @java.lang.Override
     public int getOneof1575() {
       if (hugeOneofCase_ == 1575) {
         return (java.lang.Integer) hugeOneof_;
@@ -29146,6 +29726,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1576 = 1576;</code>
      * @return The oneof1576.
      */
+    @java.lang.Override
     public int getOneof1576() {
       if (hugeOneofCase_ == 1576) {
         return (java.lang.Integer) hugeOneof_;
@@ -29158,6 +29739,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1577 = 1577;</code>
      * @return The oneof1577.
      */
+    @java.lang.Override
     public int getOneof1577() {
       if (hugeOneofCase_ == 1577) {
         return (java.lang.Integer) hugeOneof_;
@@ -29170,6 +29752,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1578 = 1578;</code>
      * @return The oneof1578.
      */
+    @java.lang.Override
     public int getOneof1578() {
       if (hugeOneofCase_ == 1578) {
         return (java.lang.Integer) hugeOneof_;
@@ -29182,6 +29765,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1579 = 1579;</code>
      * @return The oneof1579.
      */
+    @java.lang.Override
     public int getOneof1579() {
       if (hugeOneofCase_ == 1579) {
         return (java.lang.Integer) hugeOneof_;
@@ -29194,6 +29778,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1580 = 1580;</code>
      * @return The oneof1580.
      */
+    @java.lang.Override
     public int getOneof1580() {
       if (hugeOneofCase_ == 1580) {
         return (java.lang.Integer) hugeOneof_;
@@ -29206,6 +29791,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1581 = 1581;</code>
      * @return The oneof1581.
      */
+    @java.lang.Override
     public int getOneof1581() {
       if (hugeOneofCase_ == 1581) {
         return (java.lang.Integer) hugeOneof_;
@@ -29218,6 +29804,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1582 = 1582;</code>
      * @return The oneof1582.
      */
+    @java.lang.Override
     public int getOneof1582() {
       if (hugeOneofCase_ == 1582) {
         return (java.lang.Integer) hugeOneof_;
@@ -29230,6 +29817,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1583 = 1583;</code>
      * @return The oneof1583.
      */
+    @java.lang.Override
     public int getOneof1583() {
       if (hugeOneofCase_ == 1583) {
         return (java.lang.Integer) hugeOneof_;
@@ -29242,6 +29830,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1584 = 1584;</code>
      * @return The oneof1584.
      */
+    @java.lang.Override
     public int getOneof1584() {
       if (hugeOneofCase_ == 1584) {
         return (java.lang.Integer) hugeOneof_;
@@ -29254,6 +29843,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1585 = 1585;</code>
      * @return The oneof1585.
      */
+    @java.lang.Override
     public int getOneof1585() {
       if (hugeOneofCase_ == 1585) {
         return (java.lang.Integer) hugeOneof_;
@@ -29266,6 +29856,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1586 = 1586;</code>
      * @return The oneof1586.
      */
+    @java.lang.Override
     public int getOneof1586() {
       if (hugeOneofCase_ == 1586) {
         return (java.lang.Integer) hugeOneof_;
@@ -29278,6 +29869,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1587 = 1587;</code>
      * @return The oneof1587.
      */
+    @java.lang.Override
     public int getOneof1587() {
       if (hugeOneofCase_ == 1587) {
         return (java.lang.Integer) hugeOneof_;
@@ -29290,6 +29882,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1588 = 1588;</code>
      * @return The oneof1588.
      */
+    @java.lang.Override
     public int getOneof1588() {
       if (hugeOneofCase_ == 1588) {
         return (java.lang.Integer) hugeOneof_;
@@ -29302,6 +29895,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1589 = 1589;</code>
      * @return The oneof1589.
      */
+    @java.lang.Override
     public int getOneof1589() {
       if (hugeOneofCase_ == 1589) {
         return (java.lang.Integer) hugeOneof_;
@@ -29314,6 +29908,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1590 = 1590;</code>
      * @return The oneof1590.
      */
+    @java.lang.Override
     public int getOneof1590() {
       if (hugeOneofCase_ == 1590) {
         return (java.lang.Integer) hugeOneof_;
@@ -29326,6 +29921,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1591 = 1591;</code>
      * @return The oneof1591.
      */
+    @java.lang.Override
     public int getOneof1591() {
       if (hugeOneofCase_ == 1591) {
         return (java.lang.Integer) hugeOneof_;
@@ -29338,6 +29934,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1592 = 1592;</code>
      * @return The oneof1592.
      */
+    @java.lang.Override
     public int getOneof1592() {
       if (hugeOneofCase_ == 1592) {
         return (java.lang.Integer) hugeOneof_;
@@ -29350,6 +29947,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1593 = 1593;</code>
      * @return The oneof1593.
      */
+    @java.lang.Override
     public int getOneof1593() {
       if (hugeOneofCase_ == 1593) {
         return (java.lang.Integer) hugeOneof_;
@@ -29362,6 +29960,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1594 = 1594;</code>
      * @return The oneof1594.
      */
+    @java.lang.Override
     public int getOneof1594() {
       if (hugeOneofCase_ == 1594) {
         return (java.lang.Integer) hugeOneof_;
@@ -29374,6 +29973,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1595 = 1595;</code>
      * @return The oneof1595.
      */
+    @java.lang.Override
     public int getOneof1595() {
       if (hugeOneofCase_ == 1595) {
         return (java.lang.Integer) hugeOneof_;
@@ -29386,6 +29986,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1596 = 1596;</code>
      * @return The oneof1596.
      */
+    @java.lang.Override
     public int getOneof1596() {
       if (hugeOneofCase_ == 1596) {
         return (java.lang.Integer) hugeOneof_;
@@ -29398,6 +29999,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1597 = 1597;</code>
      * @return The oneof1597.
      */
+    @java.lang.Override
     public int getOneof1597() {
       if (hugeOneofCase_ == 1597) {
         return (java.lang.Integer) hugeOneof_;
@@ -29410,6 +30012,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1598 = 1598;</code>
      * @return The oneof1598.
      */
+    @java.lang.Override
     public int getOneof1598() {
       if (hugeOneofCase_ == 1598) {
         return (java.lang.Integer) hugeOneof_;
@@ -29422,6 +30025,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1599 = 1599;</code>
      * @return The oneof1599.
      */
+    @java.lang.Override
     public int getOneof1599() {
       if (hugeOneofCase_ == 1599) {
         return (java.lang.Integer) hugeOneof_;
@@ -29434,6 +30038,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1600 = 1600;</code>
      * @return The oneof1600.
      */
+    @java.lang.Override
     public int getOneof1600() {
       if (hugeOneofCase_ == 1600) {
         return (java.lang.Integer) hugeOneof_;
@@ -29446,6 +30051,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1601 = 1601;</code>
      * @return The oneof1601.
      */
+    @java.lang.Override
     public int getOneof1601() {
       if (hugeOneofCase_ == 1601) {
         return (java.lang.Integer) hugeOneof_;
@@ -29458,6 +30064,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1602 = 1602;</code>
      * @return The oneof1602.
      */
+    @java.lang.Override
     public int getOneof1602() {
       if (hugeOneofCase_ == 1602) {
         return (java.lang.Integer) hugeOneof_;
@@ -29470,6 +30077,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1603 = 1603;</code>
      * @return The oneof1603.
      */
+    @java.lang.Override
     public int getOneof1603() {
       if (hugeOneofCase_ == 1603) {
         return (java.lang.Integer) hugeOneof_;
@@ -29482,6 +30090,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1604 = 1604;</code>
      * @return The oneof1604.
      */
+    @java.lang.Override
     public int getOneof1604() {
       if (hugeOneofCase_ == 1604) {
         return (java.lang.Integer) hugeOneof_;
@@ -29494,6 +30103,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1605 = 1605;</code>
      * @return The oneof1605.
      */
+    @java.lang.Override
     public int getOneof1605() {
       if (hugeOneofCase_ == 1605) {
         return (java.lang.Integer) hugeOneof_;
@@ -29506,6 +30116,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1606 = 1606;</code>
      * @return The oneof1606.
      */
+    @java.lang.Override
     public int getOneof1606() {
       if (hugeOneofCase_ == 1606) {
         return (java.lang.Integer) hugeOneof_;
@@ -29518,6 +30129,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1607 = 1607;</code>
      * @return The oneof1607.
      */
+    @java.lang.Override
     public int getOneof1607() {
       if (hugeOneofCase_ == 1607) {
         return (java.lang.Integer) hugeOneof_;
@@ -29530,6 +30142,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1608 = 1608;</code>
      * @return The oneof1608.
      */
+    @java.lang.Override
     public int getOneof1608() {
       if (hugeOneofCase_ == 1608) {
         return (java.lang.Integer) hugeOneof_;
@@ -29542,6 +30155,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1609 = 1609;</code>
      * @return The oneof1609.
      */
+    @java.lang.Override
     public int getOneof1609() {
       if (hugeOneofCase_ == 1609) {
         return (java.lang.Integer) hugeOneof_;
@@ -29554,6 +30168,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1610 = 1610;</code>
      * @return The oneof1610.
      */
+    @java.lang.Override
     public int getOneof1610() {
       if (hugeOneofCase_ == 1610) {
         return (java.lang.Integer) hugeOneof_;
@@ -29566,6 +30181,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1611 = 1611;</code>
      * @return The oneof1611.
      */
+    @java.lang.Override
     public int getOneof1611() {
       if (hugeOneofCase_ == 1611) {
         return (java.lang.Integer) hugeOneof_;
@@ -29578,6 +30194,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1612 = 1612;</code>
      * @return The oneof1612.
      */
+    @java.lang.Override
     public int getOneof1612() {
       if (hugeOneofCase_ == 1612) {
         return (java.lang.Integer) hugeOneof_;
@@ -29590,6 +30207,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1613 = 1613;</code>
      * @return The oneof1613.
      */
+    @java.lang.Override
     public int getOneof1613() {
       if (hugeOneofCase_ == 1613) {
         return (java.lang.Integer) hugeOneof_;
@@ -29602,6 +30220,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1614 = 1614;</code>
      * @return The oneof1614.
      */
+    @java.lang.Override
     public int getOneof1614() {
       if (hugeOneofCase_ == 1614) {
         return (java.lang.Integer) hugeOneof_;
@@ -29614,6 +30233,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1615 = 1615;</code>
      * @return The oneof1615.
      */
+    @java.lang.Override
     public int getOneof1615() {
       if (hugeOneofCase_ == 1615) {
         return (java.lang.Integer) hugeOneof_;
@@ -29626,6 +30246,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1616 = 1616;</code>
      * @return The oneof1616.
      */
+    @java.lang.Override
     public int getOneof1616() {
       if (hugeOneofCase_ == 1616) {
         return (java.lang.Integer) hugeOneof_;
@@ -29638,6 +30259,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1617 = 1617;</code>
      * @return The oneof1617.
      */
+    @java.lang.Override
     public int getOneof1617() {
       if (hugeOneofCase_ == 1617) {
         return (java.lang.Integer) hugeOneof_;
@@ -29650,6 +30272,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1618 = 1618;</code>
      * @return The oneof1618.
      */
+    @java.lang.Override
     public int getOneof1618() {
       if (hugeOneofCase_ == 1618) {
         return (java.lang.Integer) hugeOneof_;
@@ -29662,6 +30285,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1619 = 1619;</code>
      * @return The oneof1619.
      */
+    @java.lang.Override
     public int getOneof1619() {
       if (hugeOneofCase_ == 1619) {
         return (java.lang.Integer) hugeOneof_;
@@ -29674,6 +30298,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1620 = 1620;</code>
      * @return The oneof1620.
      */
+    @java.lang.Override
     public int getOneof1620() {
       if (hugeOneofCase_ == 1620) {
         return (java.lang.Integer) hugeOneof_;
@@ -29686,6 +30311,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1621 = 1621;</code>
      * @return The oneof1621.
      */
+    @java.lang.Override
     public int getOneof1621() {
       if (hugeOneofCase_ == 1621) {
         return (java.lang.Integer) hugeOneof_;
@@ -29698,6 +30324,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1622 = 1622;</code>
      * @return The oneof1622.
      */
+    @java.lang.Override
     public int getOneof1622() {
       if (hugeOneofCase_ == 1622) {
         return (java.lang.Integer) hugeOneof_;
@@ -29710,6 +30337,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1623 = 1623;</code>
      * @return The oneof1623.
      */
+    @java.lang.Override
     public int getOneof1623() {
       if (hugeOneofCase_ == 1623) {
         return (java.lang.Integer) hugeOneof_;
@@ -29722,6 +30350,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1624 = 1624;</code>
      * @return The oneof1624.
      */
+    @java.lang.Override
     public int getOneof1624() {
       if (hugeOneofCase_ == 1624) {
         return (java.lang.Integer) hugeOneof_;
@@ -29734,6 +30363,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1625 = 1625;</code>
      * @return The oneof1625.
      */
+    @java.lang.Override
     public int getOneof1625() {
       if (hugeOneofCase_ == 1625) {
         return (java.lang.Integer) hugeOneof_;
@@ -29746,6 +30376,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1626 = 1626;</code>
      * @return The oneof1626.
      */
+    @java.lang.Override
     public int getOneof1626() {
       if (hugeOneofCase_ == 1626) {
         return (java.lang.Integer) hugeOneof_;
@@ -29758,6 +30389,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1627 = 1627;</code>
      * @return The oneof1627.
      */
+    @java.lang.Override
     public int getOneof1627() {
       if (hugeOneofCase_ == 1627) {
         return (java.lang.Integer) hugeOneof_;
@@ -29770,6 +30402,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1628 = 1628;</code>
      * @return The oneof1628.
      */
+    @java.lang.Override
     public int getOneof1628() {
       if (hugeOneofCase_ == 1628) {
         return (java.lang.Integer) hugeOneof_;
@@ -29782,6 +30415,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1629 = 1629;</code>
      * @return The oneof1629.
      */
+    @java.lang.Override
     public int getOneof1629() {
       if (hugeOneofCase_ == 1629) {
         return (java.lang.Integer) hugeOneof_;
@@ -29794,6 +30428,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1630 = 1630;</code>
      * @return The oneof1630.
      */
+    @java.lang.Override
     public int getOneof1630() {
       if (hugeOneofCase_ == 1630) {
         return (java.lang.Integer) hugeOneof_;
@@ -29806,6 +30441,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1631 = 1631;</code>
      * @return The oneof1631.
      */
+    @java.lang.Override
     public int getOneof1631() {
       if (hugeOneofCase_ == 1631) {
         return (java.lang.Integer) hugeOneof_;
@@ -29818,6 +30454,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1632 = 1632;</code>
      * @return The oneof1632.
      */
+    @java.lang.Override
     public int getOneof1632() {
       if (hugeOneofCase_ == 1632) {
         return (java.lang.Integer) hugeOneof_;
@@ -29830,6 +30467,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1633 = 1633;</code>
      * @return The oneof1633.
      */
+    @java.lang.Override
     public int getOneof1633() {
       if (hugeOneofCase_ == 1633) {
         return (java.lang.Integer) hugeOneof_;
@@ -29842,6 +30480,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1634 = 1634;</code>
      * @return The oneof1634.
      */
+    @java.lang.Override
     public int getOneof1634() {
       if (hugeOneofCase_ == 1634) {
         return (java.lang.Integer) hugeOneof_;
@@ -29854,6 +30493,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1635 = 1635;</code>
      * @return The oneof1635.
      */
+    @java.lang.Override
     public int getOneof1635() {
       if (hugeOneofCase_ == 1635) {
         return (java.lang.Integer) hugeOneof_;
@@ -29866,6 +30506,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1636 = 1636;</code>
      * @return The oneof1636.
      */
+    @java.lang.Override
     public int getOneof1636() {
       if (hugeOneofCase_ == 1636) {
         return (java.lang.Integer) hugeOneof_;
@@ -29878,6 +30519,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1637 = 1637;</code>
      * @return The oneof1637.
      */
+    @java.lang.Override
     public int getOneof1637() {
       if (hugeOneofCase_ == 1637) {
         return (java.lang.Integer) hugeOneof_;
@@ -29890,6 +30532,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1638 = 1638;</code>
      * @return The oneof1638.
      */
+    @java.lang.Override
     public int getOneof1638() {
       if (hugeOneofCase_ == 1638) {
         return (java.lang.Integer) hugeOneof_;
@@ -29902,6 +30545,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1639 = 1639;</code>
      * @return The oneof1639.
      */
+    @java.lang.Override
     public int getOneof1639() {
       if (hugeOneofCase_ == 1639) {
         return (java.lang.Integer) hugeOneof_;
@@ -29914,6 +30558,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1640 = 1640;</code>
      * @return The oneof1640.
      */
+    @java.lang.Override
     public int getOneof1640() {
       if (hugeOneofCase_ == 1640) {
         return (java.lang.Integer) hugeOneof_;
@@ -29926,6 +30571,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1641 = 1641;</code>
      * @return The oneof1641.
      */
+    @java.lang.Override
     public int getOneof1641() {
       if (hugeOneofCase_ == 1641) {
         return (java.lang.Integer) hugeOneof_;
@@ -29938,6 +30584,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1642 = 1642;</code>
      * @return The oneof1642.
      */
+    @java.lang.Override
     public int getOneof1642() {
       if (hugeOneofCase_ == 1642) {
         return (java.lang.Integer) hugeOneof_;
@@ -29950,6 +30597,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1643 = 1643;</code>
      * @return The oneof1643.
      */
+    @java.lang.Override
     public int getOneof1643() {
       if (hugeOneofCase_ == 1643) {
         return (java.lang.Integer) hugeOneof_;
@@ -29962,6 +30610,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1644 = 1644;</code>
      * @return The oneof1644.
      */
+    @java.lang.Override
     public int getOneof1644() {
       if (hugeOneofCase_ == 1644) {
         return (java.lang.Integer) hugeOneof_;
@@ -29974,6 +30623,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1645 = 1645;</code>
      * @return The oneof1645.
      */
+    @java.lang.Override
     public int getOneof1645() {
       if (hugeOneofCase_ == 1645) {
         return (java.lang.Integer) hugeOneof_;
@@ -29986,6 +30636,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1646 = 1646;</code>
      * @return The oneof1646.
      */
+    @java.lang.Override
     public int getOneof1646() {
       if (hugeOneofCase_ == 1646) {
         return (java.lang.Integer) hugeOneof_;
@@ -29998,6 +30649,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1647 = 1647;</code>
      * @return The oneof1647.
      */
+    @java.lang.Override
     public int getOneof1647() {
       if (hugeOneofCase_ == 1647) {
         return (java.lang.Integer) hugeOneof_;
@@ -30010,6 +30662,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1648 = 1648;</code>
      * @return The oneof1648.
      */
+    @java.lang.Override
     public int getOneof1648() {
       if (hugeOneofCase_ == 1648) {
         return (java.lang.Integer) hugeOneof_;
@@ -30022,6 +30675,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1649 = 1649;</code>
      * @return The oneof1649.
      */
+    @java.lang.Override
     public int getOneof1649() {
       if (hugeOneofCase_ == 1649) {
         return (java.lang.Integer) hugeOneof_;
@@ -30034,6 +30688,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1650 = 1650;</code>
      * @return The oneof1650.
      */
+    @java.lang.Override
     public int getOneof1650() {
       if (hugeOneofCase_ == 1650) {
         return (java.lang.Integer) hugeOneof_;
@@ -30046,6 +30701,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1651 = 1651;</code>
      * @return The oneof1651.
      */
+    @java.lang.Override
     public int getOneof1651() {
       if (hugeOneofCase_ == 1651) {
         return (java.lang.Integer) hugeOneof_;
@@ -30058,6 +30714,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1652 = 1652;</code>
      * @return The oneof1652.
      */
+    @java.lang.Override
     public int getOneof1652() {
       if (hugeOneofCase_ == 1652) {
         return (java.lang.Integer) hugeOneof_;
@@ -30070,6 +30727,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1653 = 1653;</code>
      * @return The oneof1653.
      */
+    @java.lang.Override
     public int getOneof1653() {
       if (hugeOneofCase_ == 1653) {
         return (java.lang.Integer) hugeOneof_;
@@ -30082,6 +30740,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1654 = 1654;</code>
      * @return The oneof1654.
      */
+    @java.lang.Override
     public int getOneof1654() {
       if (hugeOneofCase_ == 1654) {
         return (java.lang.Integer) hugeOneof_;
@@ -30094,6 +30753,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1655 = 1655;</code>
      * @return The oneof1655.
      */
+    @java.lang.Override
     public int getOneof1655() {
       if (hugeOneofCase_ == 1655) {
         return (java.lang.Integer) hugeOneof_;
@@ -30106,6 +30766,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1656 = 1656;</code>
      * @return The oneof1656.
      */
+    @java.lang.Override
     public int getOneof1656() {
       if (hugeOneofCase_ == 1656) {
         return (java.lang.Integer) hugeOneof_;
@@ -30118,6 +30779,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1657 = 1657;</code>
      * @return The oneof1657.
      */
+    @java.lang.Override
     public int getOneof1657() {
       if (hugeOneofCase_ == 1657) {
         return (java.lang.Integer) hugeOneof_;
@@ -30130,6 +30792,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1658 = 1658;</code>
      * @return The oneof1658.
      */
+    @java.lang.Override
     public int getOneof1658() {
       if (hugeOneofCase_ == 1658) {
         return (java.lang.Integer) hugeOneof_;
@@ -30142,6 +30805,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1659 = 1659;</code>
      * @return The oneof1659.
      */
+    @java.lang.Override
     public int getOneof1659() {
       if (hugeOneofCase_ == 1659) {
         return (java.lang.Integer) hugeOneof_;
@@ -30154,6 +30818,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1660 = 1660;</code>
      * @return The oneof1660.
      */
+    @java.lang.Override
     public int getOneof1660() {
       if (hugeOneofCase_ == 1660) {
         return (java.lang.Integer) hugeOneof_;
@@ -30166,6 +30831,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1661 = 1661;</code>
      * @return The oneof1661.
      */
+    @java.lang.Override
     public int getOneof1661() {
       if (hugeOneofCase_ == 1661) {
         return (java.lang.Integer) hugeOneof_;
@@ -30178,6 +30844,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1662 = 1662;</code>
      * @return The oneof1662.
      */
+    @java.lang.Override
     public int getOneof1662() {
       if (hugeOneofCase_ == 1662) {
         return (java.lang.Integer) hugeOneof_;
@@ -30190,6 +30857,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1663 = 1663;</code>
      * @return The oneof1663.
      */
+    @java.lang.Override
     public int getOneof1663() {
       if (hugeOneofCase_ == 1663) {
         return (java.lang.Integer) hugeOneof_;
@@ -30202,6 +30870,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1664 = 1664;</code>
      * @return The oneof1664.
      */
+    @java.lang.Override
     public int getOneof1664() {
       if (hugeOneofCase_ == 1664) {
         return (java.lang.Integer) hugeOneof_;
@@ -30214,6 +30883,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1665 = 1665;</code>
      * @return The oneof1665.
      */
+    @java.lang.Override
     public int getOneof1665() {
       if (hugeOneofCase_ == 1665) {
         return (java.lang.Integer) hugeOneof_;
@@ -30226,6 +30896,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1666 = 1666;</code>
      * @return The oneof1666.
      */
+    @java.lang.Override
     public int getOneof1666() {
       if (hugeOneofCase_ == 1666) {
         return (java.lang.Integer) hugeOneof_;
@@ -30238,6 +30909,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1667 = 1667;</code>
      * @return The oneof1667.
      */
+    @java.lang.Override
     public int getOneof1667() {
       if (hugeOneofCase_ == 1667) {
         return (java.lang.Integer) hugeOneof_;
@@ -30250,6 +30922,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1668 = 1668;</code>
      * @return The oneof1668.
      */
+    @java.lang.Override
     public int getOneof1668() {
       if (hugeOneofCase_ == 1668) {
         return (java.lang.Integer) hugeOneof_;
@@ -30262,6 +30935,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1669 = 1669;</code>
      * @return The oneof1669.
      */
+    @java.lang.Override
     public int getOneof1669() {
       if (hugeOneofCase_ == 1669) {
         return (java.lang.Integer) hugeOneof_;
@@ -30274,6 +30948,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1670 = 1670;</code>
      * @return The oneof1670.
      */
+    @java.lang.Override
     public int getOneof1670() {
       if (hugeOneofCase_ == 1670) {
         return (java.lang.Integer) hugeOneof_;
@@ -30286,6 +30961,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1671 = 1671;</code>
      * @return The oneof1671.
      */
+    @java.lang.Override
     public int getOneof1671() {
       if (hugeOneofCase_ == 1671) {
         return (java.lang.Integer) hugeOneof_;
@@ -30298,6 +30974,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1672 = 1672;</code>
      * @return The oneof1672.
      */
+    @java.lang.Override
     public int getOneof1672() {
       if (hugeOneofCase_ == 1672) {
         return (java.lang.Integer) hugeOneof_;
@@ -30310,6 +30987,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1673 = 1673;</code>
      * @return The oneof1673.
      */
+    @java.lang.Override
     public int getOneof1673() {
       if (hugeOneofCase_ == 1673) {
         return (java.lang.Integer) hugeOneof_;
@@ -30322,6 +31000,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1674 = 1674;</code>
      * @return The oneof1674.
      */
+    @java.lang.Override
     public int getOneof1674() {
       if (hugeOneofCase_ == 1674) {
         return (java.lang.Integer) hugeOneof_;
@@ -30334,6 +31013,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1675 = 1675;</code>
      * @return The oneof1675.
      */
+    @java.lang.Override
     public int getOneof1675() {
       if (hugeOneofCase_ == 1675) {
         return (java.lang.Integer) hugeOneof_;
@@ -30346,6 +31026,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1676 = 1676;</code>
      * @return The oneof1676.
      */
+    @java.lang.Override
     public int getOneof1676() {
       if (hugeOneofCase_ == 1676) {
         return (java.lang.Integer) hugeOneof_;
@@ -30358,6 +31039,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1677 = 1677;</code>
      * @return The oneof1677.
      */
+    @java.lang.Override
     public int getOneof1677() {
       if (hugeOneofCase_ == 1677) {
         return (java.lang.Integer) hugeOneof_;
@@ -30370,6 +31052,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1678 = 1678;</code>
      * @return The oneof1678.
      */
+    @java.lang.Override
     public int getOneof1678() {
       if (hugeOneofCase_ == 1678) {
         return (java.lang.Integer) hugeOneof_;
@@ -30382,6 +31065,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1679 = 1679;</code>
      * @return The oneof1679.
      */
+    @java.lang.Override
     public int getOneof1679() {
       if (hugeOneofCase_ == 1679) {
         return (java.lang.Integer) hugeOneof_;
@@ -30394,6 +31078,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1680 = 1680;</code>
      * @return The oneof1680.
      */
+    @java.lang.Override
     public int getOneof1680() {
       if (hugeOneofCase_ == 1680) {
         return (java.lang.Integer) hugeOneof_;
@@ -30406,6 +31091,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1681 = 1681;</code>
      * @return The oneof1681.
      */
+    @java.lang.Override
     public int getOneof1681() {
       if (hugeOneofCase_ == 1681) {
         return (java.lang.Integer) hugeOneof_;
@@ -30418,6 +31104,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1682 = 1682;</code>
      * @return The oneof1682.
      */
+    @java.lang.Override
     public int getOneof1682() {
       if (hugeOneofCase_ == 1682) {
         return (java.lang.Integer) hugeOneof_;
@@ -30430,6 +31117,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1683 = 1683;</code>
      * @return The oneof1683.
      */
+    @java.lang.Override
     public int getOneof1683() {
       if (hugeOneofCase_ == 1683) {
         return (java.lang.Integer) hugeOneof_;
@@ -30442,6 +31130,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1684 = 1684;</code>
      * @return The oneof1684.
      */
+    @java.lang.Override
     public int getOneof1684() {
       if (hugeOneofCase_ == 1684) {
         return (java.lang.Integer) hugeOneof_;
@@ -30454,6 +31143,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1685 = 1685;</code>
      * @return The oneof1685.
      */
+    @java.lang.Override
     public int getOneof1685() {
       if (hugeOneofCase_ == 1685) {
         return (java.lang.Integer) hugeOneof_;
@@ -30466,6 +31156,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1686 = 1686;</code>
      * @return The oneof1686.
      */
+    @java.lang.Override
     public int getOneof1686() {
       if (hugeOneofCase_ == 1686) {
         return (java.lang.Integer) hugeOneof_;
@@ -30478,6 +31169,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1687 = 1687;</code>
      * @return The oneof1687.
      */
+    @java.lang.Override
     public int getOneof1687() {
       if (hugeOneofCase_ == 1687) {
         return (java.lang.Integer) hugeOneof_;
@@ -30490,6 +31182,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1688 = 1688;</code>
      * @return The oneof1688.
      */
+    @java.lang.Override
     public int getOneof1688() {
       if (hugeOneofCase_ == 1688) {
         return (java.lang.Integer) hugeOneof_;
@@ -30502,6 +31195,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1689 = 1689;</code>
      * @return The oneof1689.
      */
+    @java.lang.Override
     public int getOneof1689() {
       if (hugeOneofCase_ == 1689) {
         return (java.lang.Integer) hugeOneof_;
@@ -30514,6 +31208,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1690 = 1690;</code>
      * @return The oneof1690.
      */
+    @java.lang.Override
     public int getOneof1690() {
       if (hugeOneofCase_ == 1690) {
         return (java.lang.Integer) hugeOneof_;
@@ -30526,6 +31221,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1691 = 1691;</code>
      * @return The oneof1691.
      */
+    @java.lang.Override
     public int getOneof1691() {
       if (hugeOneofCase_ == 1691) {
         return (java.lang.Integer) hugeOneof_;
@@ -30538,6 +31234,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1692 = 1692;</code>
      * @return The oneof1692.
      */
+    @java.lang.Override
     public int getOneof1692() {
       if (hugeOneofCase_ == 1692) {
         return (java.lang.Integer) hugeOneof_;
@@ -30550,6 +31247,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1693 = 1693;</code>
      * @return The oneof1693.
      */
+    @java.lang.Override
     public int getOneof1693() {
       if (hugeOneofCase_ == 1693) {
         return (java.lang.Integer) hugeOneof_;
@@ -30562,6 +31260,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1694 = 1694;</code>
      * @return The oneof1694.
      */
+    @java.lang.Override
     public int getOneof1694() {
       if (hugeOneofCase_ == 1694) {
         return (java.lang.Integer) hugeOneof_;
@@ -30574,6 +31273,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1695 = 1695;</code>
      * @return The oneof1695.
      */
+    @java.lang.Override
     public int getOneof1695() {
       if (hugeOneofCase_ == 1695) {
         return (java.lang.Integer) hugeOneof_;
@@ -30586,6 +31286,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1696 = 1696;</code>
      * @return The oneof1696.
      */
+    @java.lang.Override
     public int getOneof1696() {
       if (hugeOneofCase_ == 1696) {
         return (java.lang.Integer) hugeOneof_;
@@ -30598,6 +31299,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1697 = 1697;</code>
      * @return The oneof1697.
      */
+    @java.lang.Override
     public int getOneof1697() {
       if (hugeOneofCase_ == 1697) {
         return (java.lang.Integer) hugeOneof_;
@@ -30610,6 +31312,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1698 = 1698;</code>
      * @return The oneof1698.
      */
+    @java.lang.Override
     public int getOneof1698() {
       if (hugeOneofCase_ == 1698) {
         return (java.lang.Integer) hugeOneof_;
@@ -30622,6 +31325,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1699 = 1699;</code>
      * @return The oneof1699.
      */
+    @java.lang.Override
     public int getOneof1699() {
       if (hugeOneofCase_ == 1699) {
         return (java.lang.Integer) hugeOneof_;
@@ -30634,6 +31338,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1700 = 1700;</code>
      * @return The oneof1700.
      */
+    @java.lang.Override
     public int getOneof1700() {
       if (hugeOneofCase_ == 1700) {
         return (java.lang.Integer) hugeOneof_;
@@ -30646,6 +31351,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1701 = 1701;</code>
      * @return The oneof1701.
      */
+    @java.lang.Override
     public int getOneof1701() {
       if (hugeOneofCase_ == 1701) {
         return (java.lang.Integer) hugeOneof_;
@@ -30658,6 +31364,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1702 = 1702;</code>
      * @return The oneof1702.
      */
+    @java.lang.Override
     public int getOneof1702() {
       if (hugeOneofCase_ == 1702) {
         return (java.lang.Integer) hugeOneof_;
@@ -30670,6 +31377,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1703 = 1703;</code>
      * @return The oneof1703.
      */
+    @java.lang.Override
     public int getOneof1703() {
       if (hugeOneofCase_ == 1703) {
         return (java.lang.Integer) hugeOneof_;
@@ -30682,6 +31390,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1704 = 1704;</code>
      * @return The oneof1704.
      */
+    @java.lang.Override
     public int getOneof1704() {
       if (hugeOneofCase_ == 1704) {
         return (java.lang.Integer) hugeOneof_;
@@ -30694,6 +31403,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1705 = 1705;</code>
      * @return The oneof1705.
      */
+    @java.lang.Override
     public int getOneof1705() {
       if (hugeOneofCase_ == 1705) {
         return (java.lang.Integer) hugeOneof_;
@@ -30706,6 +31416,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1706 = 1706;</code>
      * @return The oneof1706.
      */
+    @java.lang.Override
     public int getOneof1706() {
       if (hugeOneofCase_ == 1706) {
         return (java.lang.Integer) hugeOneof_;
@@ -30718,6 +31429,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1707 = 1707;</code>
      * @return The oneof1707.
      */
+    @java.lang.Override
     public int getOneof1707() {
       if (hugeOneofCase_ == 1707) {
         return (java.lang.Integer) hugeOneof_;
@@ -30730,6 +31442,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1708 = 1708;</code>
      * @return The oneof1708.
      */
+    @java.lang.Override
     public int getOneof1708() {
       if (hugeOneofCase_ == 1708) {
         return (java.lang.Integer) hugeOneof_;
@@ -30742,6 +31455,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1709 = 1709;</code>
      * @return The oneof1709.
      */
+    @java.lang.Override
     public int getOneof1709() {
       if (hugeOneofCase_ == 1709) {
         return (java.lang.Integer) hugeOneof_;
@@ -30754,6 +31468,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1710 = 1710;</code>
      * @return The oneof1710.
      */
+    @java.lang.Override
     public int getOneof1710() {
       if (hugeOneofCase_ == 1710) {
         return (java.lang.Integer) hugeOneof_;
@@ -30766,6 +31481,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1711 = 1711;</code>
      * @return The oneof1711.
      */
+    @java.lang.Override
     public int getOneof1711() {
       if (hugeOneofCase_ == 1711) {
         return (java.lang.Integer) hugeOneof_;
@@ -30778,6 +31494,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1712 = 1712;</code>
      * @return The oneof1712.
      */
+    @java.lang.Override
     public int getOneof1712() {
       if (hugeOneofCase_ == 1712) {
         return (java.lang.Integer) hugeOneof_;
@@ -30790,6 +31507,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1713 = 1713;</code>
      * @return The oneof1713.
      */
+    @java.lang.Override
     public int getOneof1713() {
       if (hugeOneofCase_ == 1713) {
         return (java.lang.Integer) hugeOneof_;
@@ -30802,6 +31520,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1714 = 1714;</code>
      * @return The oneof1714.
      */
+    @java.lang.Override
     public int getOneof1714() {
       if (hugeOneofCase_ == 1714) {
         return (java.lang.Integer) hugeOneof_;
@@ -30814,6 +31533,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1715 = 1715;</code>
      * @return The oneof1715.
      */
+    @java.lang.Override
     public int getOneof1715() {
       if (hugeOneofCase_ == 1715) {
         return (java.lang.Integer) hugeOneof_;
@@ -30826,6 +31546,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1716 = 1716;</code>
      * @return The oneof1716.
      */
+    @java.lang.Override
     public int getOneof1716() {
       if (hugeOneofCase_ == 1716) {
         return (java.lang.Integer) hugeOneof_;
@@ -30838,6 +31559,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1717 = 1717;</code>
      * @return The oneof1717.
      */
+    @java.lang.Override
     public int getOneof1717() {
       if (hugeOneofCase_ == 1717) {
         return (java.lang.Integer) hugeOneof_;
@@ -30850,6 +31572,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1718 = 1718;</code>
      * @return The oneof1718.
      */
+    @java.lang.Override
     public int getOneof1718() {
       if (hugeOneofCase_ == 1718) {
         return (java.lang.Integer) hugeOneof_;
@@ -30862,6 +31585,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1719 = 1719;</code>
      * @return The oneof1719.
      */
+    @java.lang.Override
     public int getOneof1719() {
       if (hugeOneofCase_ == 1719) {
         return (java.lang.Integer) hugeOneof_;
@@ -30874,6 +31598,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1720 = 1720;</code>
      * @return The oneof1720.
      */
+    @java.lang.Override
     public int getOneof1720() {
       if (hugeOneofCase_ == 1720) {
         return (java.lang.Integer) hugeOneof_;
@@ -30886,6 +31611,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1721 = 1721;</code>
      * @return The oneof1721.
      */
+    @java.lang.Override
     public int getOneof1721() {
       if (hugeOneofCase_ == 1721) {
         return (java.lang.Integer) hugeOneof_;
@@ -30898,6 +31624,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1722 = 1722;</code>
      * @return The oneof1722.
      */
+    @java.lang.Override
     public int getOneof1722() {
       if (hugeOneofCase_ == 1722) {
         return (java.lang.Integer) hugeOneof_;
@@ -30910,6 +31637,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1723 = 1723;</code>
      * @return The oneof1723.
      */
+    @java.lang.Override
     public int getOneof1723() {
       if (hugeOneofCase_ == 1723) {
         return (java.lang.Integer) hugeOneof_;
@@ -30922,6 +31650,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1724 = 1724;</code>
      * @return The oneof1724.
      */
+    @java.lang.Override
     public int getOneof1724() {
       if (hugeOneofCase_ == 1724) {
         return (java.lang.Integer) hugeOneof_;
@@ -30934,6 +31663,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1725 = 1725;</code>
      * @return The oneof1725.
      */
+    @java.lang.Override
     public int getOneof1725() {
       if (hugeOneofCase_ == 1725) {
         return (java.lang.Integer) hugeOneof_;
@@ -30946,6 +31676,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1726 = 1726;</code>
      * @return The oneof1726.
      */
+    @java.lang.Override
     public int getOneof1726() {
       if (hugeOneofCase_ == 1726) {
         return (java.lang.Integer) hugeOneof_;
@@ -30958,6 +31689,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1727 = 1727;</code>
      * @return The oneof1727.
      */
+    @java.lang.Override
     public int getOneof1727() {
       if (hugeOneofCase_ == 1727) {
         return (java.lang.Integer) hugeOneof_;
@@ -30970,6 +31702,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1728 = 1728;</code>
      * @return The oneof1728.
      */
+    @java.lang.Override
     public int getOneof1728() {
       if (hugeOneofCase_ == 1728) {
         return (java.lang.Integer) hugeOneof_;
@@ -30982,6 +31715,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1729 = 1729;</code>
      * @return The oneof1729.
      */
+    @java.lang.Override
     public int getOneof1729() {
       if (hugeOneofCase_ == 1729) {
         return (java.lang.Integer) hugeOneof_;
@@ -30994,6 +31728,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1730 = 1730;</code>
      * @return The oneof1730.
      */
+    @java.lang.Override
     public int getOneof1730() {
       if (hugeOneofCase_ == 1730) {
         return (java.lang.Integer) hugeOneof_;
@@ -31006,6 +31741,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1731 = 1731;</code>
      * @return The oneof1731.
      */
+    @java.lang.Override
     public int getOneof1731() {
       if (hugeOneofCase_ == 1731) {
         return (java.lang.Integer) hugeOneof_;
@@ -31018,6 +31754,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1732 = 1732;</code>
      * @return The oneof1732.
      */
+    @java.lang.Override
     public int getOneof1732() {
       if (hugeOneofCase_ == 1732) {
         return (java.lang.Integer) hugeOneof_;
@@ -31030,6 +31767,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1733 = 1733;</code>
      * @return The oneof1733.
      */
+    @java.lang.Override
     public int getOneof1733() {
       if (hugeOneofCase_ == 1733) {
         return (java.lang.Integer) hugeOneof_;
@@ -31042,6 +31780,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1734 = 1734;</code>
      * @return The oneof1734.
      */
+    @java.lang.Override
     public int getOneof1734() {
       if (hugeOneofCase_ == 1734) {
         return (java.lang.Integer) hugeOneof_;
@@ -31054,6 +31793,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1735 = 1735;</code>
      * @return The oneof1735.
      */
+    @java.lang.Override
     public int getOneof1735() {
       if (hugeOneofCase_ == 1735) {
         return (java.lang.Integer) hugeOneof_;
@@ -31066,6 +31806,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1736 = 1736;</code>
      * @return The oneof1736.
      */
+    @java.lang.Override
     public int getOneof1736() {
       if (hugeOneofCase_ == 1736) {
         return (java.lang.Integer) hugeOneof_;
@@ -31078,6 +31819,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1737 = 1737;</code>
      * @return The oneof1737.
      */
+    @java.lang.Override
     public int getOneof1737() {
       if (hugeOneofCase_ == 1737) {
         return (java.lang.Integer) hugeOneof_;
@@ -31090,6 +31832,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1738 = 1738;</code>
      * @return The oneof1738.
      */
+    @java.lang.Override
     public int getOneof1738() {
       if (hugeOneofCase_ == 1738) {
         return (java.lang.Integer) hugeOneof_;
@@ -31102,6 +31845,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1739 = 1739;</code>
      * @return The oneof1739.
      */
+    @java.lang.Override
     public int getOneof1739() {
       if (hugeOneofCase_ == 1739) {
         return (java.lang.Integer) hugeOneof_;
@@ -31114,6 +31858,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1740 = 1740;</code>
      * @return The oneof1740.
      */
+    @java.lang.Override
     public int getOneof1740() {
       if (hugeOneofCase_ == 1740) {
         return (java.lang.Integer) hugeOneof_;
@@ -31126,6 +31871,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1741 = 1741;</code>
      * @return The oneof1741.
      */
+    @java.lang.Override
     public int getOneof1741() {
       if (hugeOneofCase_ == 1741) {
         return (java.lang.Integer) hugeOneof_;
@@ -31138,6 +31884,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1742 = 1742;</code>
      * @return The oneof1742.
      */
+    @java.lang.Override
     public int getOneof1742() {
       if (hugeOneofCase_ == 1742) {
         return (java.lang.Integer) hugeOneof_;
@@ -31150,6 +31897,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1743 = 1743;</code>
      * @return The oneof1743.
      */
+    @java.lang.Override
     public int getOneof1743() {
       if (hugeOneofCase_ == 1743) {
         return (java.lang.Integer) hugeOneof_;
@@ -31162,6 +31910,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1744 = 1744;</code>
      * @return The oneof1744.
      */
+    @java.lang.Override
     public int getOneof1744() {
       if (hugeOneofCase_ == 1744) {
         return (java.lang.Integer) hugeOneof_;
@@ -31174,6 +31923,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1745 = 1745;</code>
      * @return The oneof1745.
      */
+    @java.lang.Override
     public int getOneof1745() {
       if (hugeOneofCase_ == 1745) {
         return (java.lang.Integer) hugeOneof_;
@@ -31186,6 +31936,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1746 = 1746;</code>
      * @return The oneof1746.
      */
+    @java.lang.Override
     public int getOneof1746() {
       if (hugeOneofCase_ == 1746) {
         return (java.lang.Integer) hugeOneof_;
@@ -31198,6 +31949,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1747 = 1747;</code>
      * @return The oneof1747.
      */
+    @java.lang.Override
     public int getOneof1747() {
       if (hugeOneofCase_ == 1747) {
         return (java.lang.Integer) hugeOneof_;
@@ -31210,6 +31962,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1748 = 1748;</code>
      * @return The oneof1748.
      */
+    @java.lang.Override
     public int getOneof1748() {
       if (hugeOneofCase_ == 1748) {
         return (java.lang.Integer) hugeOneof_;
@@ -31222,6 +31975,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1749 = 1749;</code>
      * @return The oneof1749.
      */
+    @java.lang.Override
     public int getOneof1749() {
       if (hugeOneofCase_ == 1749) {
         return (java.lang.Integer) hugeOneof_;
@@ -31234,6 +31988,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1750 = 1750;</code>
      * @return The oneof1750.
      */
+    @java.lang.Override
     public int getOneof1750() {
       if (hugeOneofCase_ == 1750) {
         return (java.lang.Integer) hugeOneof_;
@@ -31246,6 +32001,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1751 = 1751;</code>
      * @return The oneof1751.
      */
+    @java.lang.Override
     public int getOneof1751() {
       if (hugeOneofCase_ == 1751) {
         return (java.lang.Integer) hugeOneof_;
@@ -31258,6 +32014,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1752 = 1752;</code>
      * @return The oneof1752.
      */
+    @java.lang.Override
     public int getOneof1752() {
       if (hugeOneofCase_ == 1752) {
         return (java.lang.Integer) hugeOneof_;
@@ -31270,6 +32027,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1753 = 1753;</code>
      * @return The oneof1753.
      */
+    @java.lang.Override
     public int getOneof1753() {
       if (hugeOneofCase_ == 1753) {
         return (java.lang.Integer) hugeOneof_;
@@ -31282,6 +32040,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1754 = 1754;</code>
      * @return The oneof1754.
      */
+    @java.lang.Override
     public int getOneof1754() {
       if (hugeOneofCase_ == 1754) {
         return (java.lang.Integer) hugeOneof_;
@@ -31294,6 +32053,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1755 = 1755;</code>
      * @return The oneof1755.
      */
+    @java.lang.Override
     public int getOneof1755() {
       if (hugeOneofCase_ == 1755) {
         return (java.lang.Integer) hugeOneof_;
@@ -31306,6 +32066,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1756 = 1756;</code>
      * @return The oneof1756.
      */
+    @java.lang.Override
     public int getOneof1756() {
       if (hugeOneofCase_ == 1756) {
         return (java.lang.Integer) hugeOneof_;
@@ -31318,6 +32079,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1757 = 1757;</code>
      * @return The oneof1757.
      */
+    @java.lang.Override
     public int getOneof1757() {
       if (hugeOneofCase_ == 1757) {
         return (java.lang.Integer) hugeOneof_;
@@ -31330,6 +32092,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1758 = 1758;</code>
      * @return The oneof1758.
      */
+    @java.lang.Override
     public int getOneof1758() {
       if (hugeOneofCase_ == 1758) {
         return (java.lang.Integer) hugeOneof_;
@@ -31342,6 +32105,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1759 = 1759;</code>
      * @return The oneof1759.
      */
+    @java.lang.Override
     public int getOneof1759() {
       if (hugeOneofCase_ == 1759) {
         return (java.lang.Integer) hugeOneof_;
@@ -31354,6 +32118,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1760 = 1760;</code>
      * @return The oneof1760.
      */
+    @java.lang.Override
     public int getOneof1760() {
       if (hugeOneofCase_ == 1760) {
         return (java.lang.Integer) hugeOneof_;
@@ -31366,6 +32131,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1761 = 1761;</code>
      * @return The oneof1761.
      */
+    @java.lang.Override
     public int getOneof1761() {
       if (hugeOneofCase_ == 1761) {
         return (java.lang.Integer) hugeOneof_;
@@ -31378,6 +32144,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1762 = 1762;</code>
      * @return The oneof1762.
      */
+    @java.lang.Override
     public int getOneof1762() {
       if (hugeOneofCase_ == 1762) {
         return (java.lang.Integer) hugeOneof_;
@@ -31390,6 +32157,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1763 = 1763;</code>
      * @return The oneof1763.
      */
+    @java.lang.Override
     public int getOneof1763() {
       if (hugeOneofCase_ == 1763) {
         return (java.lang.Integer) hugeOneof_;
@@ -31402,6 +32170,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1764 = 1764;</code>
      * @return The oneof1764.
      */
+    @java.lang.Override
     public int getOneof1764() {
       if (hugeOneofCase_ == 1764) {
         return (java.lang.Integer) hugeOneof_;
@@ -31414,6 +32183,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1765 = 1765;</code>
      * @return The oneof1765.
      */
+    @java.lang.Override
     public int getOneof1765() {
       if (hugeOneofCase_ == 1765) {
         return (java.lang.Integer) hugeOneof_;
@@ -31426,6 +32196,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1766 = 1766;</code>
      * @return The oneof1766.
      */
+    @java.lang.Override
     public int getOneof1766() {
       if (hugeOneofCase_ == 1766) {
         return (java.lang.Integer) hugeOneof_;
@@ -31438,6 +32209,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1767 = 1767;</code>
      * @return The oneof1767.
      */
+    @java.lang.Override
     public int getOneof1767() {
       if (hugeOneofCase_ == 1767) {
         return (java.lang.Integer) hugeOneof_;
@@ -31450,6 +32222,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1768 = 1768;</code>
      * @return The oneof1768.
      */
+    @java.lang.Override
     public int getOneof1768() {
       if (hugeOneofCase_ == 1768) {
         return (java.lang.Integer) hugeOneof_;
@@ -31462,6 +32235,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1769 = 1769;</code>
      * @return The oneof1769.
      */
+    @java.lang.Override
     public int getOneof1769() {
       if (hugeOneofCase_ == 1769) {
         return (java.lang.Integer) hugeOneof_;
@@ -31474,6 +32248,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1770 = 1770;</code>
      * @return The oneof1770.
      */
+    @java.lang.Override
     public int getOneof1770() {
       if (hugeOneofCase_ == 1770) {
         return (java.lang.Integer) hugeOneof_;
@@ -31486,6 +32261,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1771 = 1771;</code>
      * @return The oneof1771.
      */
+    @java.lang.Override
     public int getOneof1771() {
       if (hugeOneofCase_ == 1771) {
         return (java.lang.Integer) hugeOneof_;
@@ -31498,6 +32274,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1772 = 1772;</code>
      * @return The oneof1772.
      */
+    @java.lang.Override
     public int getOneof1772() {
       if (hugeOneofCase_ == 1772) {
         return (java.lang.Integer) hugeOneof_;
@@ -31510,6 +32287,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1773 = 1773;</code>
      * @return The oneof1773.
      */
+    @java.lang.Override
     public int getOneof1773() {
       if (hugeOneofCase_ == 1773) {
         return (java.lang.Integer) hugeOneof_;
@@ -31522,6 +32300,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1774 = 1774;</code>
      * @return The oneof1774.
      */
+    @java.lang.Override
     public int getOneof1774() {
       if (hugeOneofCase_ == 1774) {
         return (java.lang.Integer) hugeOneof_;
@@ -31534,6 +32313,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1775 = 1775;</code>
      * @return The oneof1775.
      */
+    @java.lang.Override
     public int getOneof1775() {
       if (hugeOneofCase_ == 1775) {
         return (java.lang.Integer) hugeOneof_;
@@ -31546,6 +32326,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1776 = 1776;</code>
      * @return The oneof1776.
      */
+    @java.lang.Override
     public int getOneof1776() {
       if (hugeOneofCase_ == 1776) {
         return (java.lang.Integer) hugeOneof_;
@@ -31558,6 +32339,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1777 = 1777;</code>
      * @return The oneof1777.
      */
+    @java.lang.Override
     public int getOneof1777() {
       if (hugeOneofCase_ == 1777) {
         return (java.lang.Integer) hugeOneof_;
@@ -31570,6 +32352,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1778 = 1778;</code>
      * @return The oneof1778.
      */
+    @java.lang.Override
     public int getOneof1778() {
       if (hugeOneofCase_ == 1778) {
         return (java.lang.Integer) hugeOneof_;
@@ -31582,6 +32365,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1779 = 1779;</code>
      * @return The oneof1779.
      */
+    @java.lang.Override
     public int getOneof1779() {
       if (hugeOneofCase_ == 1779) {
         return (java.lang.Integer) hugeOneof_;
@@ -31594,6 +32378,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1780 = 1780;</code>
      * @return The oneof1780.
      */
+    @java.lang.Override
     public int getOneof1780() {
       if (hugeOneofCase_ == 1780) {
         return (java.lang.Integer) hugeOneof_;
@@ -31606,6 +32391,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1781 = 1781;</code>
      * @return The oneof1781.
      */
+    @java.lang.Override
     public int getOneof1781() {
       if (hugeOneofCase_ == 1781) {
         return (java.lang.Integer) hugeOneof_;
@@ -31618,6 +32404,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1782 = 1782;</code>
      * @return The oneof1782.
      */
+    @java.lang.Override
     public int getOneof1782() {
       if (hugeOneofCase_ == 1782) {
         return (java.lang.Integer) hugeOneof_;
@@ -31630,6 +32417,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1783 = 1783;</code>
      * @return The oneof1783.
      */
+    @java.lang.Override
     public int getOneof1783() {
       if (hugeOneofCase_ == 1783) {
         return (java.lang.Integer) hugeOneof_;
@@ -31642,6 +32430,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1784 = 1784;</code>
      * @return The oneof1784.
      */
+    @java.lang.Override
     public int getOneof1784() {
       if (hugeOneofCase_ == 1784) {
         return (java.lang.Integer) hugeOneof_;
@@ -31654,6 +32443,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1785 = 1785;</code>
      * @return The oneof1785.
      */
+    @java.lang.Override
     public int getOneof1785() {
       if (hugeOneofCase_ == 1785) {
         return (java.lang.Integer) hugeOneof_;
@@ -31666,6 +32456,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1786 = 1786;</code>
      * @return The oneof1786.
      */
+    @java.lang.Override
     public int getOneof1786() {
       if (hugeOneofCase_ == 1786) {
         return (java.lang.Integer) hugeOneof_;
@@ -31678,6 +32469,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1787 = 1787;</code>
      * @return The oneof1787.
      */
+    @java.lang.Override
     public int getOneof1787() {
       if (hugeOneofCase_ == 1787) {
         return (java.lang.Integer) hugeOneof_;
@@ -31690,6 +32482,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1788 = 1788;</code>
      * @return The oneof1788.
      */
+    @java.lang.Override
     public int getOneof1788() {
       if (hugeOneofCase_ == 1788) {
         return (java.lang.Integer) hugeOneof_;
@@ -31702,6 +32495,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1789 = 1789;</code>
      * @return The oneof1789.
      */
+    @java.lang.Override
     public int getOneof1789() {
       if (hugeOneofCase_ == 1789) {
         return (java.lang.Integer) hugeOneof_;
@@ -31714,6 +32508,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1790 = 1790;</code>
      * @return The oneof1790.
      */
+    @java.lang.Override
     public int getOneof1790() {
       if (hugeOneofCase_ == 1790) {
         return (java.lang.Integer) hugeOneof_;
@@ -31726,6 +32521,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1791 = 1791;</code>
      * @return The oneof1791.
      */
+    @java.lang.Override
     public int getOneof1791() {
       if (hugeOneofCase_ == 1791) {
         return (java.lang.Integer) hugeOneof_;
@@ -31738,6 +32534,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1792 = 1792;</code>
      * @return The oneof1792.
      */
+    @java.lang.Override
     public int getOneof1792() {
       if (hugeOneofCase_ == 1792) {
         return (java.lang.Integer) hugeOneof_;
@@ -31750,6 +32547,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1793 = 1793;</code>
      * @return The oneof1793.
      */
+    @java.lang.Override
     public int getOneof1793() {
       if (hugeOneofCase_ == 1793) {
         return (java.lang.Integer) hugeOneof_;
@@ -31762,6 +32560,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1794 = 1794;</code>
      * @return The oneof1794.
      */
+    @java.lang.Override
     public int getOneof1794() {
       if (hugeOneofCase_ == 1794) {
         return (java.lang.Integer) hugeOneof_;
@@ -31774,6 +32573,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1795 = 1795;</code>
      * @return The oneof1795.
      */
+    @java.lang.Override
     public int getOneof1795() {
       if (hugeOneofCase_ == 1795) {
         return (java.lang.Integer) hugeOneof_;
@@ -31786,6 +32586,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1796 = 1796;</code>
      * @return The oneof1796.
      */
+    @java.lang.Override
     public int getOneof1796() {
       if (hugeOneofCase_ == 1796) {
         return (java.lang.Integer) hugeOneof_;
@@ -31798,6 +32599,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1797 = 1797;</code>
      * @return The oneof1797.
      */
+    @java.lang.Override
     public int getOneof1797() {
       if (hugeOneofCase_ == 1797) {
         return (java.lang.Integer) hugeOneof_;
@@ -31810,6 +32612,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1798 = 1798;</code>
      * @return The oneof1798.
      */
+    @java.lang.Override
     public int getOneof1798() {
       if (hugeOneofCase_ == 1798) {
         return (java.lang.Integer) hugeOneof_;
@@ -31822,6 +32625,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1799 = 1799;</code>
      * @return The oneof1799.
      */
+    @java.lang.Override
     public int getOneof1799() {
       if (hugeOneofCase_ == 1799) {
         return (java.lang.Integer) hugeOneof_;
@@ -31834,6 +32638,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1800 = 1800;</code>
      * @return The oneof1800.
      */
+    @java.lang.Override
     public int getOneof1800() {
       if (hugeOneofCase_ == 1800) {
         return (java.lang.Integer) hugeOneof_;
@@ -31846,6 +32651,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1801 = 1801;</code>
      * @return The oneof1801.
      */
+    @java.lang.Override
     public int getOneof1801() {
       if (hugeOneofCase_ == 1801) {
         return (java.lang.Integer) hugeOneof_;
@@ -31858,6 +32664,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1802 = 1802;</code>
      * @return The oneof1802.
      */
+    @java.lang.Override
     public int getOneof1802() {
       if (hugeOneofCase_ == 1802) {
         return (java.lang.Integer) hugeOneof_;
@@ -31870,6 +32677,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1803 = 1803;</code>
      * @return The oneof1803.
      */
+    @java.lang.Override
     public int getOneof1803() {
       if (hugeOneofCase_ == 1803) {
         return (java.lang.Integer) hugeOneof_;
@@ -31882,6 +32690,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1804 = 1804;</code>
      * @return The oneof1804.
      */
+    @java.lang.Override
     public int getOneof1804() {
       if (hugeOneofCase_ == 1804) {
         return (java.lang.Integer) hugeOneof_;
@@ -31894,6 +32703,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1805 = 1805;</code>
      * @return The oneof1805.
      */
+    @java.lang.Override
     public int getOneof1805() {
       if (hugeOneofCase_ == 1805) {
         return (java.lang.Integer) hugeOneof_;
@@ -31906,6 +32716,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1806 = 1806;</code>
      * @return The oneof1806.
      */
+    @java.lang.Override
     public int getOneof1806() {
       if (hugeOneofCase_ == 1806) {
         return (java.lang.Integer) hugeOneof_;
@@ -31918,6 +32729,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1807 = 1807;</code>
      * @return The oneof1807.
      */
+    @java.lang.Override
     public int getOneof1807() {
       if (hugeOneofCase_ == 1807) {
         return (java.lang.Integer) hugeOneof_;
@@ -31930,6 +32742,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1808 = 1808;</code>
      * @return The oneof1808.
      */
+    @java.lang.Override
     public int getOneof1808() {
       if (hugeOneofCase_ == 1808) {
         return (java.lang.Integer) hugeOneof_;
@@ -31942,6 +32755,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1809 = 1809;</code>
      * @return The oneof1809.
      */
+    @java.lang.Override
     public int getOneof1809() {
       if (hugeOneofCase_ == 1809) {
         return (java.lang.Integer) hugeOneof_;
@@ -31954,6 +32768,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1810 = 1810;</code>
      * @return The oneof1810.
      */
+    @java.lang.Override
     public int getOneof1810() {
       if (hugeOneofCase_ == 1810) {
         return (java.lang.Integer) hugeOneof_;
@@ -31966,6 +32781,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1811 = 1811;</code>
      * @return The oneof1811.
      */
+    @java.lang.Override
     public int getOneof1811() {
       if (hugeOneofCase_ == 1811) {
         return (java.lang.Integer) hugeOneof_;
@@ -31978,6 +32794,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1812 = 1812;</code>
      * @return The oneof1812.
      */
+    @java.lang.Override
     public int getOneof1812() {
       if (hugeOneofCase_ == 1812) {
         return (java.lang.Integer) hugeOneof_;
@@ -31990,6 +32807,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1813 = 1813;</code>
      * @return The oneof1813.
      */
+    @java.lang.Override
     public int getOneof1813() {
       if (hugeOneofCase_ == 1813) {
         return (java.lang.Integer) hugeOneof_;
@@ -32002,6 +32820,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1814 = 1814;</code>
      * @return The oneof1814.
      */
+    @java.lang.Override
     public int getOneof1814() {
       if (hugeOneofCase_ == 1814) {
         return (java.lang.Integer) hugeOneof_;
@@ -32014,6 +32833,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1815 = 1815;</code>
      * @return The oneof1815.
      */
+    @java.lang.Override
     public int getOneof1815() {
       if (hugeOneofCase_ == 1815) {
         return (java.lang.Integer) hugeOneof_;
@@ -32026,6 +32846,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1816 = 1816;</code>
      * @return The oneof1816.
      */
+    @java.lang.Override
     public int getOneof1816() {
       if (hugeOneofCase_ == 1816) {
         return (java.lang.Integer) hugeOneof_;
@@ -32038,6 +32859,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1817 = 1817;</code>
      * @return The oneof1817.
      */
+    @java.lang.Override
     public int getOneof1817() {
       if (hugeOneofCase_ == 1817) {
         return (java.lang.Integer) hugeOneof_;
@@ -32050,6 +32872,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1818 = 1818;</code>
      * @return The oneof1818.
      */
+    @java.lang.Override
     public int getOneof1818() {
       if (hugeOneofCase_ == 1818) {
         return (java.lang.Integer) hugeOneof_;
@@ -32062,6 +32885,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1819 = 1819;</code>
      * @return The oneof1819.
      */
+    @java.lang.Override
     public int getOneof1819() {
       if (hugeOneofCase_ == 1819) {
         return (java.lang.Integer) hugeOneof_;
@@ -32074,6 +32898,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1820 = 1820;</code>
      * @return The oneof1820.
      */
+    @java.lang.Override
     public int getOneof1820() {
       if (hugeOneofCase_ == 1820) {
         return (java.lang.Integer) hugeOneof_;
@@ -32086,6 +32911,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1821 = 1821;</code>
      * @return The oneof1821.
      */
+    @java.lang.Override
     public int getOneof1821() {
       if (hugeOneofCase_ == 1821) {
         return (java.lang.Integer) hugeOneof_;
@@ -32098,6 +32924,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1822 = 1822;</code>
      * @return The oneof1822.
      */
+    @java.lang.Override
     public int getOneof1822() {
       if (hugeOneofCase_ == 1822) {
         return (java.lang.Integer) hugeOneof_;
@@ -32110,6 +32937,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1823 = 1823;</code>
      * @return The oneof1823.
      */
+    @java.lang.Override
     public int getOneof1823() {
       if (hugeOneofCase_ == 1823) {
         return (java.lang.Integer) hugeOneof_;
@@ -32122,6 +32950,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1824 = 1824;</code>
      * @return The oneof1824.
      */
+    @java.lang.Override
     public int getOneof1824() {
       if (hugeOneofCase_ == 1824) {
         return (java.lang.Integer) hugeOneof_;
@@ -32134,6 +32963,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1825 = 1825;</code>
      * @return The oneof1825.
      */
+    @java.lang.Override
     public int getOneof1825() {
       if (hugeOneofCase_ == 1825) {
         return (java.lang.Integer) hugeOneof_;
@@ -32146,6 +32976,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1826 = 1826;</code>
      * @return The oneof1826.
      */
+    @java.lang.Override
     public int getOneof1826() {
       if (hugeOneofCase_ == 1826) {
         return (java.lang.Integer) hugeOneof_;
@@ -32158,6 +32989,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1827 = 1827;</code>
      * @return The oneof1827.
      */
+    @java.lang.Override
     public int getOneof1827() {
       if (hugeOneofCase_ == 1827) {
         return (java.lang.Integer) hugeOneof_;
@@ -32170,6 +33002,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1828 = 1828;</code>
      * @return The oneof1828.
      */
+    @java.lang.Override
     public int getOneof1828() {
       if (hugeOneofCase_ == 1828) {
         return (java.lang.Integer) hugeOneof_;
@@ -32182,6 +33015,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1829 = 1829;</code>
      * @return The oneof1829.
      */
+    @java.lang.Override
     public int getOneof1829() {
       if (hugeOneofCase_ == 1829) {
         return (java.lang.Integer) hugeOneof_;
@@ -32194,6 +33028,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1830 = 1830;</code>
      * @return The oneof1830.
      */
+    @java.lang.Override
     public int getOneof1830() {
       if (hugeOneofCase_ == 1830) {
         return (java.lang.Integer) hugeOneof_;
@@ -32206,6 +33041,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1831 = 1831;</code>
      * @return The oneof1831.
      */
+    @java.lang.Override
     public int getOneof1831() {
       if (hugeOneofCase_ == 1831) {
         return (java.lang.Integer) hugeOneof_;
@@ -32218,6 +33054,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1832 = 1832;</code>
      * @return The oneof1832.
      */
+    @java.lang.Override
     public int getOneof1832() {
       if (hugeOneofCase_ == 1832) {
         return (java.lang.Integer) hugeOneof_;
@@ -32230,6 +33067,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1833 = 1833;</code>
      * @return The oneof1833.
      */
+    @java.lang.Override
     public int getOneof1833() {
       if (hugeOneofCase_ == 1833) {
         return (java.lang.Integer) hugeOneof_;
@@ -32242,6 +33080,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1834 = 1834;</code>
      * @return The oneof1834.
      */
+    @java.lang.Override
     public int getOneof1834() {
       if (hugeOneofCase_ == 1834) {
         return (java.lang.Integer) hugeOneof_;
@@ -32254,6 +33093,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1835 = 1835;</code>
      * @return The oneof1835.
      */
+    @java.lang.Override
     public int getOneof1835() {
       if (hugeOneofCase_ == 1835) {
         return (java.lang.Integer) hugeOneof_;
@@ -32266,6 +33106,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1836 = 1836;</code>
      * @return The oneof1836.
      */
+    @java.lang.Override
     public int getOneof1836() {
       if (hugeOneofCase_ == 1836) {
         return (java.lang.Integer) hugeOneof_;
@@ -32278,6 +33119,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1837 = 1837;</code>
      * @return The oneof1837.
      */
+    @java.lang.Override
     public int getOneof1837() {
       if (hugeOneofCase_ == 1837) {
         return (java.lang.Integer) hugeOneof_;
@@ -32290,6 +33132,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1838 = 1838;</code>
      * @return The oneof1838.
      */
+    @java.lang.Override
     public int getOneof1838() {
       if (hugeOneofCase_ == 1838) {
         return (java.lang.Integer) hugeOneof_;
@@ -32302,6 +33145,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1839 = 1839;</code>
      * @return The oneof1839.
      */
+    @java.lang.Override
     public int getOneof1839() {
       if (hugeOneofCase_ == 1839) {
         return (java.lang.Integer) hugeOneof_;
@@ -32314,6 +33158,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1840 = 1840;</code>
      * @return The oneof1840.
      */
+    @java.lang.Override
     public int getOneof1840() {
       if (hugeOneofCase_ == 1840) {
         return (java.lang.Integer) hugeOneof_;
@@ -32326,6 +33171,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1841 = 1841;</code>
      * @return The oneof1841.
      */
+    @java.lang.Override
     public int getOneof1841() {
       if (hugeOneofCase_ == 1841) {
         return (java.lang.Integer) hugeOneof_;
@@ -32338,6 +33184,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1842 = 1842;</code>
      * @return The oneof1842.
      */
+    @java.lang.Override
     public int getOneof1842() {
       if (hugeOneofCase_ == 1842) {
         return (java.lang.Integer) hugeOneof_;
@@ -32350,6 +33197,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1843 = 1843;</code>
      * @return The oneof1843.
      */
+    @java.lang.Override
     public int getOneof1843() {
       if (hugeOneofCase_ == 1843) {
         return (java.lang.Integer) hugeOneof_;
@@ -32362,6 +33210,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1844 = 1844;</code>
      * @return The oneof1844.
      */
+    @java.lang.Override
     public int getOneof1844() {
       if (hugeOneofCase_ == 1844) {
         return (java.lang.Integer) hugeOneof_;
@@ -32374,6 +33223,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1845 = 1845;</code>
      * @return The oneof1845.
      */
+    @java.lang.Override
     public int getOneof1845() {
       if (hugeOneofCase_ == 1845) {
         return (java.lang.Integer) hugeOneof_;
@@ -32386,6 +33236,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1846 = 1846;</code>
      * @return The oneof1846.
      */
+    @java.lang.Override
     public int getOneof1846() {
       if (hugeOneofCase_ == 1846) {
         return (java.lang.Integer) hugeOneof_;
@@ -32398,6 +33249,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1847 = 1847;</code>
      * @return The oneof1847.
      */
+    @java.lang.Override
     public int getOneof1847() {
       if (hugeOneofCase_ == 1847) {
         return (java.lang.Integer) hugeOneof_;
@@ -32410,6 +33262,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1848 = 1848;</code>
      * @return The oneof1848.
      */
+    @java.lang.Override
     public int getOneof1848() {
       if (hugeOneofCase_ == 1848) {
         return (java.lang.Integer) hugeOneof_;
@@ -32422,6 +33275,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1849 = 1849;</code>
      * @return The oneof1849.
      */
+    @java.lang.Override
     public int getOneof1849() {
       if (hugeOneofCase_ == 1849) {
         return (java.lang.Integer) hugeOneof_;
@@ -32434,6 +33288,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1850 = 1850;</code>
      * @return The oneof1850.
      */
+    @java.lang.Override
     public int getOneof1850() {
       if (hugeOneofCase_ == 1850) {
         return (java.lang.Integer) hugeOneof_;
@@ -32446,6 +33301,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1851 = 1851;</code>
      * @return The oneof1851.
      */
+    @java.lang.Override
     public int getOneof1851() {
       if (hugeOneofCase_ == 1851) {
         return (java.lang.Integer) hugeOneof_;
@@ -32458,6 +33314,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1852 = 1852;</code>
      * @return The oneof1852.
      */
+    @java.lang.Override
     public int getOneof1852() {
       if (hugeOneofCase_ == 1852) {
         return (java.lang.Integer) hugeOneof_;
@@ -32470,6 +33327,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1853 = 1853;</code>
      * @return The oneof1853.
      */
+    @java.lang.Override
     public int getOneof1853() {
       if (hugeOneofCase_ == 1853) {
         return (java.lang.Integer) hugeOneof_;
@@ -32482,6 +33340,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1854 = 1854;</code>
      * @return The oneof1854.
      */
+    @java.lang.Override
     public int getOneof1854() {
       if (hugeOneofCase_ == 1854) {
         return (java.lang.Integer) hugeOneof_;
@@ -32494,6 +33353,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1855 = 1855;</code>
      * @return The oneof1855.
      */
+    @java.lang.Override
     public int getOneof1855() {
       if (hugeOneofCase_ == 1855) {
         return (java.lang.Integer) hugeOneof_;
@@ -32506,6 +33366,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1856 = 1856;</code>
      * @return The oneof1856.
      */
+    @java.lang.Override
     public int getOneof1856() {
       if (hugeOneofCase_ == 1856) {
         return (java.lang.Integer) hugeOneof_;
@@ -32518,6 +33379,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1857 = 1857;</code>
      * @return The oneof1857.
      */
+    @java.lang.Override
     public int getOneof1857() {
       if (hugeOneofCase_ == 1857) {
         return (java.lang.Integer) hugeOneof_;
@@ -32530,6 +33392,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1858 = 1858;</code>
      * @return The oneof1858.
      */
+    @java.lang.Override
     public int getOneof1858() {
       if (hugeOneofCase_ == 1858) {
         return (java.lang.Integer) hugeOneof_;
@@ -32542,6 +33405,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1859 = 1859;</code>
      * @return The oneof1859.
      */
+    @java.lang.Override
     public int getOneof1859() {
       if (hugeOneofCase_ == 1859) {
         return (java.lang.Integer) hugeOneof_;
@@ -32554,6 +33418,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1860 = 1860;</code>
      * @return The oneof1860.
      */
+    @java.lang.Override
     public int getOneof1860() {
       if (hugeOneofCase_ == 1860) {
         return (java.lang.Integer) hugeOneof_;
@@ -32566,6 +33431,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1861 = 1861;</code>
      * @return The oneof1861.
      */
+    @java.lang.Override
     public int getOneof1861() {
       if (hugeOneofCase_ == 1861) {
         return (java.lang.Integer) hugeOneof_;
@@ -32578,6 +33444,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1862 = 1862;</code>
      * @return The oneof1862.
      */
+    @java.lang.Override
     public int getOneof1862() {
       if (hugeOneofCase_ == 1862) {
         return (java.lang.Integer) hugeOneof_;
@@ -32590,6 +33457,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1863 = 1863;</code>
      * @return The oneof1863.
      */
+    @java.lang.Override
     public int getOneof1863() {
       if (hugeOneofCase_ == 1863) {
         return (java.lang.Integer) hugeOneof_;
@@ -32602,6 +33470,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1864 = 1864;</code>
      * @return The oneof1864.
      */
+    @java.lang.Override
     public int getOneof1864() {
       if (hugeOneofCase_ == 1864) {
         return (java.lang.Integer) hugeOneof_;
@@ -32614,6 +33483,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1865 = 1865;</code>
      * @return The oneof1865.
      */
+    @java.lang.Override
     public int getOneof1865() {
       if (hugeOneofCase_ == 1865) {
         return (java.lang.Integer) hugeOneof_;
@@ -32626,6 +33496,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1866 = 1866;</code>
      * @return The oneof1866.
      */
+    @java.lang.Override
     public int getOneof1866() {
       if (hugeOneofCase_ == 1866) {
         return (java.lang.Integer) hugeOneof_;
@@ -32638,6 +33509,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1867 = 1867;</code>
      * @return The oneof1867.
      */
+    @java.lang.Override
     public int getOneof1867() {
       if (hugeOneofCase_ == 1867) {
         return (java.lang.Integer) hugeOneof_;
@@ -32650,6 +33522,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1868 = 1868;</code>
      * @return The oneof1868.
      */
+    @java.lang.Override
     public int getOneof1868() {
       if (hugeOneofCase_ == 1868) {
         return (java.lang.Integer) hugeOneof_;
@@ -32662,6 +33535,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1869 = 1869;</code>
      * @return The oneof1869.
      */
+    @java.lang.Override
     public int getOneof1869() {
       if (hugeOneofCase_ == 1869) {
         return (java.lang.Integer) hugeOneof_;
@@ -32674,6 +33548,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1870 = 1870;</code>
      * @return The oneof1870.
      */
+    @java.lang.Override
     public int getOneof1870() {
       if (hugeOneofCase_ == 1870) {
         return (java.lang.Integer) hugeOneof_;
@@ -32686,6 +33561,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1871 = 1871;</code>
      * @return The oneof1871.
      */
+    @java.lang.Override
     public int getOneof1871() {
       if (hugeOneofCase_ == 1871) {
         return (java.lang.Integer) hugeOneof_;
@@ -32698,6 +33574,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1872 = 1872;</code>
      * @return The oneof1872.
      */
+    @java.lang.Override
     public int getOneof1872() {
       if (hugeOneofCase_ == 1872) {
         return (java.lang.Integer) hugeOneof_;
@@ -32710,6 +33587,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1873 = 1873;</code>
      * @return The oneof1873.
      */
+    @java.lang.Override
     public int getOneof1873() {
       if (hugeOneofCase_ == 1873) {
         return (java.lang.Integer) hugeOneof_;
@@ -32722,6 +33600,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1874 = 1874;</code>
      * @return The oneof1874.
      */
+    @java.lang.Override
     public int getOneof1874() {
       if (hugeOneofCase_ == 1874) {
         return (java.lang.Integer) hugeOneof_;
@@ -32734,6 +33613,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1875 = 1875;</code>
      * @return The oneof1875.
      */
+    @java.lang.Override
     public int getOneof1875() {
       if (hugeOneofCase_ == 1875) {
         return (java.lang.Integer) hugeOneof_;
@@ -32746,6 +33626,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1876 = 1876;</code>
      * @return The oneof1876.
      */
+    @java.lang.Override
     public int getOneof1876() {
       if (hugeOneofCase_ == 1876) {
         return (java.lang.Integer) hugeOneof_;
@@ -32758,6 +33639,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1877 = 1877;</code>
      * @return The oneof1877.
      */
+    @java.lang.Override
     public int getOneof1877() {
       if (hugeOneofCase_ == 1877) {
         return (java.lang.Integer) hugeOneof_;
@@ -32770,6 +33652,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1878 = 1878;</code>
      * @return The oneof1878.
      */
+    @java.lang.Override
     public int getOneof1878() {
       if (hugeOneofCase_ == 1878) {
         return (java.lang.Integer) hugeOneof_;
@@ -32782,6 +33665,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1879 = 1879;</code>
      * @return The oneof1879.
      */
+    @java.lang.Override
     public int getOneof1879() {
       if (hugeOneofCase_ == 1879) {
         return (java.lang.Integer) hugeOneof_;
@@ -32794,6 +33678,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1880 = 1880;</code>
      * @return The oneof1880.
      */
+    @java.lang.Override
     public int getOneof1880() {
       if (hugeOneofCase_ == 1880) {
         return (java.lang.Integer) hugeOneof_;
@@ -32806,6 +33691,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1881 = 1881;</code>
      * @return The oneof1881.
      */
+    @java.lang.Override
     public int getOneof1881() {
       if (hugeOneofCase_ == 1881) {
         return (java.lang.Integer) hugeOneof_;
@@ -32818,6 +33704,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1882 = 1882;</code>
      * @return The oneof1882.
      */
+    @java.lang.Override
     public int getOneof1882() {
       if (hugeOneofCase_ == 1882) {
         return (java.lang.Integer) hugeOneof_;
@@ -32830,6 +33717,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1883 = 1883;</code>
      * @return The oneof1883.
      */
+    @java.lang.Override
     public int getOneof1883() {
       if (hugeOneofCase_ == 1883) {
         return (java.lang.Integer) hugeOneof_;
@@ -32842,6 +33730,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1884 = 1884;</code>
      * @return The oneof1884.
      */
+    @java.lang.Override
     public int getOneof1884() {
       if (hugeOneofCase_ == 1884) {
         return (java.lang.Integer) hugeOneof_;
@@ -32854,6 +33743,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1885 = 1885;</code>
      * @return The oneof1885.
      */
+    @java.lang.Override
     public int getOneof1885() {
       if (hugeOneofCase_ == 1885) {
         return (java.lang.Integer) hugeOneof_;
@@ -32866,6 +33756,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1886 = 1886;</code>
      * @return The oneof1886.
      */
+    @java.lang.Override
     public int getOneof1886() {
       if (hugeOneofCase_ == 1886) {
         return (java.lang.Integer) hugeOneof_;
@@ -32878,6 +33769,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1887 = 1887;</code>
      * @return The oneof1887.
      */
+    @java.lang.Override
     public int getOneof1887() {
       if (hugeOneofCase_ == 1887) {
         return (java.lang.Integer) hugeOneof_;
@@ -32890,6 +33782,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1888 = 1888;</code>
      * @return The oneof1888.
      */
+    @java.lang.Override
     public int getOneof1888() {
       if (hugeOneofCase_ == 1888) {
         return (java.lang.Integer) hugeOneof_;
@@ -32902,6 +33795,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1889 = 1889;</code>
      * @return The oneof1889.
      */
+    @java.lang.Override
     public int getOneof1889() {
       if (hugeOneofCase_ == 1889) {
         return (java.lang.Integer) hugeOneof_;
@@ -32914,6 +33808,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1890 = 1890;</code>
      * @return The oneof1890.
      */
+    @java.lang.Override
     public int getOneof1890() {
       if (hugeOneofCase_ == 1890) {
         return (java.lang.Integer) hugeOneof_;
@@ -32926,6 +33821,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1891 = 1891;</code>
      * @return The oneof1891.
      */
+    @java.lang.Override
     public int getOneof1891() {
       if (hugeOneofCase_ == 1891) {
         return (java.lang.Integer) hugeOneof_;
@@ -32938,6 +33834,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1892 = 1892;</code>
      * @return The oneof1892.
      */
+    @java.lang.Override
     public int getOneof1892() {
       if (hugeOneofCase_ == 1892) {
         return (java.lang.Integer) hugeOneof_;
@@ -32950,6 +33847,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1893 = 1893;</code>
      * @return The oneof1893.
      */
+    @java.lang.Override
     public int getOneof1893() {
       if (hugeOneofCase_ == 1893) {
         return (java.lang.Integer) hugeOneof_;
@@ -32962,6 +33860,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1894 = 1894;</code>
      * @return The oneof1894.
      */
+    @java.lang.Override
     public int getOneof1894() {
       if (hugeOneofCase_ == 1894) {
         return (java.lang.Integer) hugeOneof_;
@@ -32974,6 +33873,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1895 = 1895;</code>
      * @return The oneof1895.
      */
+    @java.lang.Override
     public int getOneof1895() {
       if (hugeOneofCase_ == 1895) {
         return (java.lang.Integer) hugeOneof_;
@@ -32986,6 +33886,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1896 = 1896;</code>
      * @return The oneof1896.
      */
+    @java.lang.Override
     public int getOneof1896() {
       if (hugeOneofCase_ == 1896) {
         return (java.lang.Integer) hugeOneof_;
@@ -32998,6 +33899,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1897 = 1897;</code>
      * @return The oneof1897.
      */
+    @java.lang.Override
     public int getOneof1897() {
       if (hugeOneofCase_ == 1897) {
         return (java.lang.Integer) hugeOneof_;
@@ -33010,6 +33912,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1898 = 1898;</code>
      * @return The oneof1898.
      */
+    @java.lang.Override
     public int getOneof1898() {
       if (hugeOneofCase_ == 1898) {
         return (java.lang.Integer) hugeOneof_;
@@ -33022,6 +33925,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1899 = 1899;</code>
      * @return The oneof1899.
      */
+    @java.lang.Override
     public int getOneof1899() {
       if (hugeOneofCase_ == 1899) {
         return (java.lang.Integer) hugeOneof_;
@@ -33034,6 +33938,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1900 = 1900;</code>
      * @return The oneof1900.
      */
+    @java.lang.Override
     public int getOneof1900() {
       if (hugeOneofCase_ == 1900) {
         return (java.lang.Integer) hugeOneof_;
@@ -33046,6 +33951,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1901 = 1901;</code>
      * @return The oneof1901.
      */
+    @java.lang.Override
     public int getOneof1901() {
       if (hugeOneofCase_ == 1901) {
         return (java.lang.Integer) hugeOneof_;
@@ -33058,6 +33964,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1902 = 1902;</code>
      * @return The oneof1902.
      */
+    @java.lang.Override
     public int getOneof1902() {
       if (hugeOneofCase_ == 1902) {
         return (java.lang.Integer) hugeOneof_;
@@ -33070,6 +33977,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1903 = 1903;</code>
      * @return The oneof1903.
      */
+    @java.lang.Override
     public int getOneof1903() {
       if (hugeOneofCase_ == 1903) {
         return (java.lang.Integer) hugeOneof_;
@@ -33082,6 +33990,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1904 = 1904;</code>
      * @return The oneof1904.
      */
+    @java.lang.Override
     public int getOneof1904() {
       if (hugeOneofCase_ == 1904) {
         return (java.lang.Integer) hugeOneof_;
@@ -33094,6 +34003,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1905 = 1905;</code>
      * @return The oneof1905.
      */
+    @java.lang.Override
     public int getOneof1905() {
       if (hugeOneofCase_ == 1905) {
         return (java.lang.Integer) hugeOneof_;
@@ -33106,6 +34016,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1906 = 1906;</code>
      * @return The oneof1906.
      */
+    @java.lang.Override
     public int getOneof1906() {
       if (hugeOneofCase_ == 1906) {
         return (java.lang.Integer) hugeOneof_;
@@ -33118,6 +34029,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1907 = 1907;</code>
      * @return The oneof1907.
      */
+    @java.lang.Override
     public int getOneof1907() {
       if (hugeOneofCase_ == 1907) {
         return (java.lang.Integer) hugeOneof_;
@@ -33130,6 +34042,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1908 = 1908;</code>
      * @return The oneof1908.
      */
+    @java.lang.Override
     public int getOneof1908() {
       if (hugeOneofCase_ == 1908) {
         return (java.lang.Integer) hugeOneof_;
@@ -33142,6 +34055,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1909 = 1909;</code>
      * @return The oneof1909.
      */
+    @java.lang.Override
     public int getOneof1909() {
       if (hugeOneofCase_ == 1909) {
         return (java.lang.Integer) hugeOneof_;
@@ -33154,6 +34068,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1910 = 1910;</code>
      * @return The oneof1910.
      */
+    @java.lang.Override
     public int getOneof1910() {
       if (hugeOneofCase_ == 1910) {
         return (java.lang.Integer) hugeOneof_;
@@ -33166,6 +34081,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1911 = 1911;</code>
      * @return The oneof1911.
      */
+    @java.lang.Override
     public int getOneof1911() {
       if (hugeOneofCase_ == 1911) {
         return (java.lang.Integer) hugeOneof_;
@@ -33178,6 +34094,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1912 = 1912;</code>
      * @return The oneof1912.
      */
+    @java.lang.Override
     public int getOneof1912() {
       if (hugeOneofCase_ == 1912) {
         return (java.lang.Integer) hugeOneof_;
@@ -33190,6 +34107,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1913 = 1913;</code>
      * @return The oneof1913.
      */
+    @java.lang.Override
     public int getOneof1913() {
       if (hugeOneofCase_ == 1913) {
         return (java.lang.Integer) hugeOneof_;
@@ -33202,6 +34120,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1914 = 1914;</code>
      * @return The oneof1914.
      */
+    @java.lang.Override
     public int getOneof1914() {
       if (hugeOneofCase_ == 1914) {
         return (java.lang.Integer) hugeOneof_;
@@ -33214,6 +34133,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1915 = 1915;</code>
      * @return The oneof1915.
      */
+    @java.lang.Override
     public int getOneof1915() {
       if (hugeOneofCase_ == 1915) {
         return (java.lang.Integer) hugeOneof_;
@@ -33226,6 +34146,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1916 = 1916;</code>
      * @return The oneof1916.
      */
+    @java.lang.Override
     public int getOneof1916() {
       if (hugeOneofCase_ == 1916) {
         return (java.lang.Integer) hugeOneof_;
@@ -33238,6 +34159,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1917 = 1917;</code>
      * @return The oneof1917.
      */
+    @java.lang.Override
     public int getOneof1917() {
       if (hugeOneofCase_ == 1917) {
         return (java.lang.Integer) hugeOneof_;
@@ -33250,6 +34172,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1918 = 1918;</code>
      * @return The oneof1918.
      */
+    @java.lang.Override
     public int getOneof1918() {
       if (hugeOneofCase_ == 1918) {
         return (java.lang.Integer) hugeOneof_;
@@ -33262,6 +34185,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1919 = 1919;</code>
      * @return The oneof1919.
      */
+    @java.lang.Override
     public int getOneof1919() {
       if (hugeOneofCase_ == 1919) {
         return (java.lang.Integer) hugeOneof_;
@@ -33274,6 +34198,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1920 = 1920;</code>
      * @return The oneof1920.
      */
+    @java.lang.Override
     public int getOneof1920() {
       if (hugeOneofCase_ == 1920) {
         return (java.lang.Integer) hugeOneof_;
@@ -33286,6 +34211,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1921 = 1921;</code>
      * @return The oneof1921.
      */
+    @java.lang.Override
     public int getOneof1921() {
       if (hugeOneofCase_ == 1921) {
         return (java.lang.Integer) hugeOneof_;
@@ -33298,6 +34224,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1922 = 1922;</code>
      * @return The oneof1922.
      */
+    @java.lang.Override
     public int getOneof1922() {
       if (hugeOneofCase_ == 1922) {
         return (java.lang.Integer) hugeOneof_;
@@ -33310,6 +34237,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1923 = 1923;</code>
      * @return The oneof1923.
      */
+    @java.lang.Override
     public int getOneof1923() {
       if (hugeOneofCase_ == 1923) {
         return (java.lang.Integer) hugeOneof_;
@@ -33322,6 +34250,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1924 = 1924;</code>
      * @return The oneof1924.
      */
+    @java.lang.Override
     public int getOneof1924() {
       if (hugeOneofCase_ == 1924) {
         return (java.lang.Integer) hugeOneof_;
@@ -33334,6 +34263,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1925 = 1925;</code>
      * @return The oneof1925.
      */
+    @java.lang.Override
     public int getOneof1925() {
       if (hugeOneofCase_ == 1925) {
         return (java.lang.Integer) hugeOneof_;
@@ -33346,6 +34276,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1926 = 1926;</code>
      * @return The oneof1926.
      */
+    @java.lang.Override
     public int getOneof1926() {
       if (hugeOneofCase_ == 1926) {
         return (java.lang.Integer) hugeOneof_;
@@ -33358,6 +34289,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1927 = 1927;</code>
      * @return The oneof1927.
      */
+    @java.lang.Override
     public int getOneof1927() {
       if (hugeOneofCase_ == 1927) {
         return (java.lang.Integer) hugeOneof_;
@@ -33370,6 +34302,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1928 = 1928;</code>
      * @return The oneof1928.
      */
+    @java.lang.Override
     public int getOneof1928() {
       if (hugeOneofCase_ == 1928) {
         return (java.lang.Integer) hugeOneof_;
@@ -33382,6 +34315,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1929 = 1929;</code>
      * @return The oneof1929.
      */
+    @java.lang.Override
     public int getOneof1929() {
       if (hugeOneofCase_ == 1929) {
         return (java.lang.Integer) hugeOneof_;
@@ -33394,6 +34328,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1930 = 1930;</code>
      * @return The oneof1930.
      */
+    @java.lang.Override
     public int getOneof1930() {
       if (hugeOneofCase_ == 1930) {
         return (java.lang.Integer) hugeOneof_;
@@ -33406,6 +34341,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1931 = 1931;</code>
      * @return The oneof1931.
      */
+    @java.lang.Override
     public int getOneof1931() {
       if (hugeOneofCase_ == 1931) {
         return (java.lang.Integer) hugeOneof_;
@@ -33418,6 +34354,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1932 = 1932;</code>
      * @return The oneof1932.
      */
+    @java.lang.Override
     public int getOneof1932() {
       if (hugeOneofCase_ == 1932) {
         return (java.lang.Integer) hugeOneof_;
@@ -33430,6 +34367,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1933 = 1933;</code>
      * @return The oneof1933.
      */
+    @java.lang.Override
     public int getOneof1933() {
       if (hugeOneofCase_ == 1933) {
         return (java.lang.Integer) hugeOneof_;
@@ -33442,6 +34380,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1934 = 1934;</code>
      * @return The oneof1934.
      */
+    @java.lang.Override
     public int getOneof1934() {
       if (hugeOneofCase_ == 1934) {
         return (java.lang.Integer) hugeOneof_;
@@ -33454,6 +34393,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1935 = 1935;</code>
      * @return The oneof1935.
      */
+    @java.lang.Override
     public int getOneof1935() {
       if (hugeOneofCase_ == 1935) {
         return (java.lang.Integer) hugeOneof_;
@@ -33466,6 +34406,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1936 = 1936;</code>
      * @return The oneof1936.
      */
+    @java.lang.Override
     public int getOneof1936() {
       if (hugeOneofCase_ == 1936) {
         return (java.lang.Integer) hugeOneof_;
@@ -33478,6 +34419,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1937 = 1937;</code>
      * @return The oneof1937.
      */
+    @java.lang.Override
     public int getOneof1937() {
       if (hugeOneofCase_ == 1937) {
         return (java.lang.Integer) hugeOneof_;
@@ -33490,6 +34432,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1938 = 1938;</code>
      * @return The oneof1938.
      */
+    @java.lang.Override
     public int getOneof1938() {
       if (hugeOneofCase_ == 1938) {
         return (java.lang.Integer) hugeOneof_;
@@ -33502,6 +34445,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1939 = 1939;</code>
      * @return The oneof1939.
      */
+    @java.lang.Override
     public int getOneof1939() {
       if (hugeOneofCase_ == 1939) {
         return (java.lang.Integer) hugeOneof_;
@@ -33514,6 +34458,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1940 = 1940;</code>
      * @return The oneof1940.
      */
+    @java.lang.Override
     public int getOneof1940() {
       if (hugeOneofCase_ == 1940) {
         return (java.lang.Integer) hugeOneof_;
@@ -33526,6 +34471,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1941 = 1941;</code>
      * @return The oneof1941.
      */
+    @java.lang.Override
     public int getOneof1941() {
       if (hugeOneofCase_ == 1941) {
         return (java.lang.Integer) hugeOneof_;
@@ -33538,6 +34484,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1942 = 1942;</code>
      * @return The oneof1942.
      */
+    @java.lang.Override
     public int getOneof1942() {
       if (hugeOneofCase_ == 1942) {
         return (java.lang.Integer) hugeOneof_;
@@ -33550,6 +34497,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1943 = 1943;</code>
      * @return The oneof1943.
      */
+    @java.lang.Override
     public int getOneof1943() {
       if (hugeOneofCase_ == 1943) {
         return (java.lang.Integer) hugeOneof_;
@@ -33562,6 +34510,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1944 = 1944;</code>
      * @return The oneof1944.
      */
+    @java.lang.Override
     public int getOneof1944() {
       if (hugeOneofCase_ == 1944) {
         return (java.lang.Integer) hugeOneof_;
@@ -33574,6 +34523,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1945 = 1945;</code>
      * @return The oneof1945.
      */
+    @java.lang.Override
     public int getOneof1945() {
       if (hugeOneofCase_ == 1945) {
         return (java.lang.Integer) hugeOneof_;
@@ -33586,6 +34536,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1946 = 1946;</code>
      * @return The oneof1946.
      */
+    @java.lang.Override
     public int getOneof1946() {
       if (hugeOneofCase_ == 1946) {
         return (java.lang.Integer) hugeOneof_;
@@ -33598,6 +34549,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1947 = 1947;</code>
      * @return The oneof1947.
      */
+    @java.lang.Override
     public int getOneof1947() {
       if (hugeOneofCase_ == 1947) {
         return (java.lang.Integer) hugeOneof_;
@@ -33610,6 +34562,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1948 = 1948;</code>
      * @return The oneof1948.
      */
+    @java.lang.Override
     public int getOneof1948() {
       if (hugeOneofCase_ == 1948) {
         return (java.lang.Integer) hugeOneof_;
@@ -33622,6 +34575,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1949 = 1949;</code>
      * @return The oneof1949.
      */
+    @java.lang.Override
     public int getOneof1949() {
       if (hugeOneofCase_ == 1949) {
         return (java.lang.Integer) hugeOneof_;
@@ -33634,6 +34588,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1950 = 1950;</code>
      * @return The oneof1950.
      */
+    @java.lang.Override
     public int getOneof1950() {
       if (hugeOneofCase_ == 1950) {
         return (java.lang.Integer) hugeOneof_;
@@ -33646,6 +34601,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1951 = 1951;</code>
      * @return The oneof1951.
      */
+    @java.lang.Override
     public int getOneof1951() {
       if (hugeOneofCase_ == 1951) {
         return (java.lang.Integer) hugeOneof_;
@@ -33658,6 +34614,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1952 = 1952;</code>
      * @return The oneof1952.
      */
+    @java.lang.Override
     public int getOneof1952() {
       if (hugeOneofCase_ == 1952) {
         return (java.lang.Integer) hugeOneof_;
@@ -33670,6 +34627,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1953 = 1953;</code>
      * @return The oneof1953.
      */
+    @java.lang.Override
     public int getOneof1953() {
       if (hugeOneofCase_ == 1953) {
         return (java.lang.Integer) hugeOneof_;
@@ -33682,6 +34640,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1954 = 1954;</code>
      * @return The oneof1954.
      */
+    @java.lang.Override
     public int getOneof1954() {
       if (hugeOneofCase_ == 1954) {
         return (java.lang.Integer) hugeOneof_;
@@ -33694,6 +34653,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1955 = 1955;</code>
      * @return The oneof1955.
      */
+    @java.lang.Override
     public int getOneof1955() {
       if (hugeOneofCase_ == 1955) {
         return (java.lang.Integer) hugeOneof_;
@@ -33706,6 +34666,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1956 = 1956;</code>
      * @return The oneof1956.
      */
+    @java.lang.Override
     public int getOneof1956() {
       if (hugeOneofCase_ == 1956) {
         return (java.lang.Integer) hugeOneof_;
@@ -33718,6 +34679,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1957 = 1957;</code>
      * @return The oneof1957.
      */
+    @java.lang.Override
     public int getOneof1957() {
       if (hugeOneofCase_ == 1957) {
         return (java.lang.Integer) hugeOneof_;
@@ -33730,6 +34692,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1958 = 1958;</code>
      * @return The oneof1958.
      */
+    @java.lang.Override
     public int getOneof1958() {
       if (hugeOneofCase_ == 1958) {
         return (java.lang.Integer) hugeOneof_;
@@ -33742,6 +34705,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1959 = 1959;</code>
      * @return The oneof1959.
      */
+    @java.lang.Override
     public int getOneof1959() {
       if (hugeOneofCase_ == 1959) {
         return (java.lang.Integer) hugeOneof_;
@@ -33754,6 +34718,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1960 = 1960;</code>
      * @return The oneof1960.
      */
+    @java.lang.Override
     public int getOneof1960() {
       if (hugeOneofCase_ == 1960) {
         return (java.lang.Integer) hugeOneof_;
@@ -33766,6 +34731,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1961 = 1961;</code>
      * @return The oneof1961.
      */
+    @java.lang.Override
     public int getOneof1961() {
       if (hugeOneofCase_ == 1961) {
         return (java.lang.Integer) hugeOneof_;
@@ -33778,6 +34744,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1962 = 1962;</code>
      * @return The oneof1962.
      */
+    @java.lang.Override
     public int getOneof1962() {
       if (hugeOneofCase_ == 1962) {
         return (java.lang.Integer) hugeOneof_;
@@ -33790,6 +34757,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1963 = 1963;</code>
      * @return The oneof1963.
      */
+    @java.lang.Override
     public int getOneof1963() {
       if (hugeOneofCase_ == 1963) {
         return (java.lang.Integer) hugeOneof_;
@@ -33802,6 +34770,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1964 = 1964;</code>
      * @return The oneof1964.
      */
+    @java.lang.Override
     public int getOneof1964() {
       if (hugeOneofCase_ == 1964) {
         return (java.lang.Integer) hugeOneof_;
@@ -33814,6 +34783,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1965 = 1965;</code>
      * @return The oneof1965.
      */
+    @java.lang.Override
     public int getOneof1965() {
       if (hugeOneofCase_ == 1965) {
         return (java.lang.Integer) hugeOneof_;
@@ -33826,6 +34796,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1966 = 1966;</code>
      * @return The oneof1966.
      */
+    @java.lang.Override
     public int getOneof1966() {
       if (hugeOneofCase_ == 1966) {
         return (java.lang.Integer) hugeOneof_;
@@ -33838,6 +34809,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1967 = 1967;</code>
      * @return The oneof1967.
      */
+    @java.lang.Override
     public int getOneof1967() {
       if (hugeOneofCase_ == 1967) {
         return (java.lang.Integer) hugeOneof_;
@@ -33850,6 +34822,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1968 = 1968;</code>
      * @return The oneof1968.
      */
+    @java.lang.Override
     public int getOneof1968() {
       if (hugeOneofCase_ == 1968) {
         return (java.lang.Integer) hugeOneof_;
@@ -33862,6 +34835,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1969 = 1969;</code>
      * @return The oneof1969.
      */
+    @java.lang.Override
     public int getOneof1969() {
       if (hugeOneofCase_ == 1969) {
         return (java.lang.Integer) hugeOneof_;
@@ -33874,6 +34848,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1970 = 1970;</code>
      * @return The oneof1970.
      */
+    @java.lang.Override
     public int getOneof1970() {
       if (hugeOneofCase_ == 1970) {
         return (java.lang.Integer) hugeOneof_;
@@ -33886,6 +34861,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1971 = 1971;</code>
      * @return The oneof1971.
      */
+    @java.lang.Override
     public int getOneof1971() {
       if (hugeOneofCase_ == 1971) {
         return (java.lang.Integer) hugeOneof_;
@@ -33898,6 +34874,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1972 = 1972;</code>
      * @return The oneof1972.
      */
+    @java.lang.Override
     public int getOneof1972() {
       if (hugeOneofCase_ == 1972) {
         return (java.lang.Integer) hugeOneof_;
@@ -33910,6 +34887,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1973 = 1973;</code>
      * @return The oneof1973.
      */
+    @java.lang.Override
     public int getOneof1973() {
       if (hugeOneofCase_ == 1973) {
         return (java.lang.Integer) hugeOneof_;
@@ -33922,6 +34900,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1974 = 1974;</code>
      * @return The oneof1974.
      */
+    @java.lang.Override
     public int getOneof1974() {
       if (hugeOneofCase_ == 1974) {
         return (java.lang.Integer) hugeOneof_;
@@ -33934,6 +34913,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1975 = 1975;</code>
      * @return The oneof1975.
      */
+    @java.lang.Override
     public int getOneof1975() {
       if (hugeOneofCase_ == 1975) {
         return (java.lang.Integer) hugeOneof_;
@@ -33946,6 +34926,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1976 = 1976;</code>
      * @return The oneof1976.
      */
+    @java.lang.Override
     public int getOneof1976() {
       if (hugeOneofCase_ == 1976) {
         return (java.lang.Integer) hugeOneof_;
@@ -33958,6 +34939,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1977 = 1977;</code>
      * @return The oneof1977.
      */
+    @java.lang.Override
     public int getOneof1977() {
       if (hugeOneofCase_ == 1977) {
         return (java.lang.Integer) hugeOneof_;
@@ -33970,6 +34952,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1978 = 1978;</code>
      * @return The oneof1978.
      */
+    @java.lang.Override
     public int getOneof1978() {
       if (hugeOneofCase_ == 1978) {
         return (java.lang.Integer) hugeOneof_;
@@ -33982,6 +34965,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1979 = 1979;</code>
      * @return The oneof1979.
      */
+    @java.lang.Override
     public int getOneof1979() {
       if (hugeOneofCase_ == 1979) {
         return (java.lang.Integer) hugeOneof_;
@@ -33994,6 +34978,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1980 = 1980;</code>
      * @return The oneof1980.
      */
+    @java.lang.Override
     public int getOneof1980() {
       if (hugeOneofCase_ == 1980) {
         return (java.lang.Integer) hugeOneof_;
@@ -34006,6 +34991,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1981 = 1981;</code>
      * @return The oneof1981.
      */
+    @java.lang.Override
     public int getOneof1981() {
       if (hugeOneofCase_ == 1981) {
         return (java.lang.Integer) hugeOneof_;
@@ -34018,6 +35004,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1982 = 1982;</code>
      * @return The oneof1982.
      */
+    @java.lang.Override
     public int getOneof1982() {
       if (hugeOneofCase_ == 1982) {
         return (java.lang.Integer) hugeOneof_;
@@ -34030,6 +35017,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1983 = 1983;</code>
      * @return The oneof1983.
      */
+    @java.lang.Override
     public int getOneof1983() {
       if (hugeOneofCase_ == 1983) {
         return (java.lang.Integer) hugeOneof_;
@@ -34042,6 +35030,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1984 = 1984;</code>
      * @return The oneof1984.
      */
+    @java.lang.Override
     public int getOneof1984() {
       if (hugeOneofCase_ == 1984) {
         return (java.lang.Integer) hugeOneof_;
@@ -34054,6 +35043,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1985 = 1985;</code>
      * @return The oneof1985.
      */
+    @java.lang.Override
     public int getOneof1985() {
       if (hugeOneofCase_ == 1985) {
         return (java.lang.Integer) hugeOneof_;
@@ -34066,6 +35056,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1986 = 1986;</code>
      * @return The oneof1986.
      */
+    @java.lang.Override
     public int getOneof1986() {
       if (hugeOneofCase_ == 1986) {
         return (java.lang.Integer) hugeOneof_;
@@ -34078,6 +35069,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1987 = 1987;</code>
      * @return The oneof1987.
      */
+    @java.lang.Override
     public int getOneof1987() {
       if (hugeOneofCase_ == 1987) {
         return (java.lang.Integer) hugeOneof_;
@@ -34090,6 +35082,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1988 = 1988;</code>
      * @return The oneof1988.
      */
+    @java.lang.Override
     public int getOneof1988() {
       if (hugeOneofCase_ == 1988) {
         return (java.lang.Integer) hugeOneof_;
@@ -34102,6 +35095,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1989 = 1989;</code>
      * @return The oneof1989.
      */
+    @java.lang.Override
     public int getOneof1989() {
       if (hugeOneofCase_ == 1989) {
         return (java.lang.Integer) hugeOneof_;
@@ -34114,6 +35108,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1990 = 1990;</code>
      * @return The oneof1990.
      */
+    @java.lang.Override
     public int getOneof1990() {
       if (hugeOneofCase_ == 1990) {
         return (java.lang.Integer) hugeOneof_;
@@ -34126,6 +35121,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1991 = 1991;</code>
      * @return The oneof1991.
      */
+    @java.lang.Override
     public int getOneof1991() {
       if (hugeOneofCase_ == 1991) {
         return (java.lang.Integer) hugeOneof_;
@@ -34138,6 +35134,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1992 = 1992;</code>
      * @return The oneof1992.
      */
+    @java.lang.Override
     public int getOneof1992() {
       if (hugeOneofCase_ == 1992) {
         return (java.lang.Integer) hugeOneof_;
@@ -34150,6 +35147,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1993 = 1993;</code>
      * @return The oneof1993.
      */
+    @java.lang.Override
     public int getOneof1993() {
       if (hugeOneofCase_ == 1993) {
         return (java.lang.Integer) hugeOneof_;
@@ -34162,6 +35160,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1994 = 1994;</code>
      * @return The oneof1994.
      */
+    @java.lang.Override
     public int getOneof1994() {
       if (hugeOneofCase_ == 1994) {
         return (java.lang.Integer) hugeOneof_;
@@ -34174,6 +35173,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1995 = 1995;</code>
      * @return The oneof1995.
      */
+    @java.lang.Override
     public int getOneof1995() {
       if (hugeOneofCase_ == 1995) {
         return (java.lang.Integer) hugeOneof_;
@@ -34186,6 +35186,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1996 = 1996;</code>
      * @return The oneof1996.
      */
+    @java.lang.Override
     public int getOneof1996() {
       if (hugeOneofCase_ == 1996) {
         return (java.lang.Integer) hugeOneof_;
@@ -34198,6 +35199,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1997 = 1997;</code>
      * @return The oneof1997.
      */
+    @java.lang.Override
     public int getOneof1997() {
       if (hugeOneofCase_ == 1997) {
         return (java.lang.Integer) hugeOneof_;
@@ -34210,6 +35212,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1998 = 1998;</code>
      * @return The oneof1998.
      */
+    @java.lang.Override
     public int getOneof1998() {
       if (hugeOneofCase_ == 1998) {
         return (java.lang.Integer) hugeOneof_;
@@ -34222,6 +35225,7 @@ public final class TestCompilerLimits {
      * <code>int32 oneof_1999 = 1999;</code>
      * @return The oneof1999.
      */
+    @java.lang.Override
     public int getOneof1999() {
       if (hugeOneofCase_ == 1999) {
         return (java.lang.Integer) hugeOneof_;

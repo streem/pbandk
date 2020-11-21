@@ -514,11 +514,7 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 extract it to a local directory, and then run:
 
 ```
-./gradlew -Dprotoc.path=path/to/protobuf/install/directory \
-    :runtime:generateWellKnownTypes 
-    :runtime:generateTestTypes
-    :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto
-    :conformance:conformance-lib:generateProto
+./gradlew -Dprotoc.path=path/to/protobuf/install/directory    :runtime:generateWellKnownTypes    :runtime:generateTestTypes    :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto    :conformance:conformance-lib:generateProto
 ```
 
 Important: If making changes in both the `:protoc-gen-kotlin:protoc-gen-kotlin-lib` _and_ `:runtime` projects at the

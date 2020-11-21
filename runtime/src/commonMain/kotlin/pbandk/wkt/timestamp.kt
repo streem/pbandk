@@ -10,12 +10,12 @@ data class Timestamp(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Timestamp> {
-        val defaultInstance by lazy { Timestamp() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Timestamp.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
+        val defaultInstance by lazy { pbandk.wkt.Timestamp() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Timestamp> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Timestamp, *>>(2).apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Timestamp, *>>(2).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -23,7 +23,7 @@ data class Timestamp(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "seconds",
-                        value = Timestamp::seconds
+                        value = pbandk.wkt.Timestamp::seconds
                     )
                 )
                 add(
@@ -33,12 +33,12 @@ data class Timestamp(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "nanos",
-                        value = Timestamp::nanos
+                        value = pbandk.wkt.Timestamp::nanos
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Timestamp::class,
+                messageClass = pbandk.wkt.Timestamp::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
