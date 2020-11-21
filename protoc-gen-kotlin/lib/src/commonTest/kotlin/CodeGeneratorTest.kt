@@ -1,5 +1,7 @@
-package pbandk.gen
+package pbandk
 
+import pbandk.gen.CodeGenerator
+import pbandk.gen.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
