@@ -29,10 +29,10 @@ class CodeGeneratorTest {
             1,
             listOf(
                 File.Type.Message(
-                    "Person",
+                    "Value",
                     listOf(
                         File.Field.OneOf(
-                            "Person", listOf(
+                            "Value", listOf(
                                 stdField(1, "int_val", File.Field.Type.INT32, "intVal", "IntVal"),
                                 stdField(2, "str_val", File.Field.Type.STRING, "strVal", "StrVal")
                             ),
@@ -40,13 +40,13 @@ class CodeGeneratorTest {
                                 "int_val" to "IntVal",
                                 "str_val" to "StrVal"
                             ),
-                            "person",
-                            "Person"
+                            "value",
+                            "Value"
                         )
                     ),
                     emptyList(),
                     false,
-                    "Person"
+                    "Value"
                 )
             )
         )
@@ -56,29 +56,29 @@ class CodeGeneratorTest {
 
             package foobar
 
-            data class Person(
-                val person: Person<*>? = null,
+            data class Value(
+                val value: Value<*>? = null,
                 override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ) : pbandk.Message {
-                sealed class Person<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-                    class IntVal(intVal: IntVal = 0) : Person<IntVal>(intVal)
-                    class StrVal(strVal: StrVal = "") : Person<StrVal>(strVal)
+                sealed class Value<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+                    class IntVal(intVal: IntVal = 0) : Value<IntVal>(intVal)
+                    class StrVal(strVal: StrVal = "") : Value<StrVal>(strVal)
                 }
 
                 val intVal: IntVal?
-                    get() = (person as? Person.IntVal)?.value
+                    get() = (value as? Value.IntVal)?.value
                 val strVal: StrVal?
-                    get() = (person as? Person.StrVal)?.value
+                    get() = (value as? Value.StrVal)?.value
 
                 override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
                 override val descriptor get() = Companion.descriptor
                 override val protoSize by lazy { super.protoSize }
-                companion object : pbandk.Message.Companion<foobar.Person> {
-                    val defaultInstance by lazy { foobar.Person() }
-                    override fun decodeWith(u: pbandk.MessageDecoder) = foobar.Person.decodeWithImpl(u)
+                companion object : pbandk.Message.Companion<foobar.Value> {
+                    val defaultInstance by lazy { foobar.Value() }
+                    override fun decodeWith(u: pbandk.MessageDecoder) = foobar.Value.decodeWithImpl(u)
 
-                    override val descriptor: pbandk.MessageDescriptor<foobar.Person> by lazy {
-                        val fieldsList = ArrayList<pbandk.FieldDescriptor<foobar.Person, *>>(2).apply {
+                    override val descriptor: pbandk.MessageDescriptor<foobar.Value> by lazy {
+                        val fieldsList = ArrayList<pbandk.FieldDescriptor<foobar.Value, *>>(2).apply {
                             add(
                                 pbandk.FieldDescriptor(
                                     messageDescriptor = this@Companion::descriptor,
@@ -87,7 +87,7 @@ class CodeGeneratorTest {
                                     type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                                     oneofMember = true,
                                     jsonName = "intVal",
-                                    value = foobar.Person::intVal
+                                    value = foobar.Value::intVal
                                 )
                             )
                             add(
@@ -98,12 +98,12 @@ class CodeGeneratorTest {
                                     type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                                     oneofMember = true,
                                     jsonName = "strVal",
-                                    value = foobar.Person::strVal
+                                    value = foobar.Value::strVal
                                 )
                             )
                         }
                         pbandk.MessageDescriptor(
-                            messageClass = foobar.Person::class,
+                            messageClass = foobar.Value::class,
                             messageCompanion = this,
                             fields = fieldsList
                         )
@@ -111,24 +111,24 @@ class CodeGeneratorTest {
                 }
             }
 
-            fun Person?.orDefault() = this ?: Person.defaultInstance
+            fun Value?.orDefault() = this ?: Value.defaultInstance
 
-            private fun Person.protoMergeImpl(plus: pbandk.Message?): Person = (plus as? Person)?.copy(
-                person = plus.person ?: person,
+            private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.copy(
+                value = plus.value ?: value,
                 unknownFields = unknownFields + plus.unknownFields
             ) ?: this
 
             @Suppress("UNCHECKED_CAST")
-            private fun Person.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Person {
-                var person: Person.Person<*>? = null
+            private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
+                var value: Value.Value<*>? = null
 
                 val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
                     when (_fieldNumber) {
-                        1 -> person = Person.Person.IntVal(_fieldValue as IntVal)
-                        2 -> person = Person.Person.StrVal(_fieldValue as StrVal)
+                        1 -> value = Value.Value.IntVal(_fieldValue as IntVal)
+                        2 -> value = Value.Value.StrVal(_fieldValue as StrVal)
                     }
                 }
-                return Person(person, unknownFields)
+                return Value(value, unknownFields)
             }
             
             """.trimIndent()
