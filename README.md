@@ -564,6 +564,14 @@ Then, from the root directory:
 ./conformance/test-conformance.sh
 ```
 
+Note that by default, the `test-conformance.sh` script will run the conformance test for `jvm`, `js` and `linux`. This will fail when running them on `MacOS` due to missing linux binaries. So in that case, run the tests for each platform individually:
+
+```
+./conformance/test-conformance.sh jvm
+./conformance/test-conformance.sh js
+./conformance/test-conformance.sh macos
+```
+
 ## Releasing
 
 Releases are handled automatically via CI. To create a new release:
