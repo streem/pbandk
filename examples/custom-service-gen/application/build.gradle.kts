@@ -17,7 +17,6 @@ application {
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     implementation("pro.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
 }
