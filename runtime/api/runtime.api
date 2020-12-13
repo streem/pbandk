@@ -349,82 +349,28 @@ public abstract interface annotation class pbandk/PublicForGeneratedCode : java/
 }
 
 public final class pbandk/UnknownField {
-	public fun <init> (ILpbandk/UnknownField$Value;)V
+	public fun <init> (ILjava/util/List;)V
 	public final fun component1 ()I
-	public final fun component2 ()Lpbandk/UnknownField$Value;
-	public final fun copy (ILpbandk/UnknownField$Value;)Lpbandk/UnknownField;
-	public static synthetic fun copy$default (Lpbandk/UnknownField;ILpbandk/UnknownField$Value;ILjava/lang/Object;)Lpbandk/UnknownField;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (ILjava/util/List;)Lpbandk/UnknownField;
+	public static synthetic fun copy$default (Lpbandk/UnknownField;ILjava/util/List;ILjava/lang/Object;)Lpbandk/UnknownField;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFieldNum ()I
-	public final fun getValue ()Lpbandk/UnknownField$Value;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public abstract class pbandk/UnknownField$Value {
-}
-
-public final class pbandk/UnknownField$Value$Composite : pbandk/UnknownField$Value {
-	public fun <init> (Ljava/util/List;)V
-	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lpbandk/UnknownField$Value$Composite;
-	public static synthetic fun copy$default (Lpbandk/UnknownField$Value$Composite;Ljava/util/List;ILjava/lang/Object;)Lpbandk/UnknownField$Value$Composite;
-	public fun equals (Ljava/lang/Object;)Z
 	public final fun getValues ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class pbandk/UnknownField$Value$EndGroup : pbandk/UnknownField$Value {
-	public static final field INSTANCE Lpbandk/UnknownField$Value$EndGroup;
-	public synthetic fun size$runtime ()I
-}
-
-public final class pbandk/UnknownField$Value$Fixed32 : pbandk/UnknownField$Value {
-	public fun <init> (I)V
+public final class pbandk/UnknownField$Value {
+	public fun <init> (ILpbandk/ByteArr;)V
+	public fun <init> (I[B)V
 	public final fun component1 ()I
-	public final fun copy (I)Lpbandk/UnknownField$Value$Fixed32;
-	public static synthetic fun copy$default (Lpbandk/UnknownField$Value$Fixed32;IILjava/lang/Object;)Lpbandk/UnknownField$Value$Fixed32;
+	public final fun component2 ()Lpbandk/ByteArr;
+	public final fun copy (ILpbandk/ByteArr;)Lpbandk/UnknownField$Value;
+	public static synthetic fun copy$default (Lpbandk/UnknownField$Value;ILpbandk/ByteArr;ILjava/lang/Object;)Lpbandk/UnknownField$Value;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getFixed32 ()I
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class pbandk/UnknownField$Value$Fixed64 : pbandk/UnknownField$Value {
-	public fun <init> (J)V
-	public final fun component1 ()J
-	public final fun copy (J)Lpbandk/UnknownField$Value$Fixed64;
-	public static synthetic fun copy$default (Lpbandk/UnknownField$Value$Fixed64;JILjava/lang/Object;)Lpbandk/UnknownField$Value$Fixed64;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getFixed64 ()J
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class pbandk/UnknownField$Value$LengthDelimited : pbandk/UnknownField$Value {
-	public fun <init> (Lpbandk/ByteArr;)V
-	public final fun component1 ()Lpbandk/ByteArr;
-	public final fun copy (Lpbandk/ByteArr;)Lpbandk/UnknownField$Value$LengthDelimited;
-	public static synthetic fun copy$default (Lpbandk/UnknownField$Value$LengthDelimited;Lpbandk/ByteArr;ILjava/lang/Object;)Lpbandk/UnknownField$Value$LengthDelimited;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBytes ()Lpbandk/ByteArr;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class pbandk/UnknownField$Value$StartGroup : pbandk/UnknownField$Value {
-	public static final field INSTANCE Lpbandk/UnknownField$Value$StartGroup;
-	public synthetic fun size$runtime ()I
-}
-
-public final class pbandk/UnknownField$Value$Varint : pbandk/UnknownField$Value {
-	public fun <init> (J)V
-	public final fun component1 ()J
-	public final fun copy (J)Lpbandk/UnknownField$Value$Varint;
-	public static synthetic fun copy$default (Lpbandk/UnknownField$Value$Varint;JILjava/lang/Object;)Lpbandk/UnknownField$Value$Varint;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getVarint ()J
+	public final fun getRawBytes ()Lpbandk/ByteArr;
+	public final fun getWireType ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

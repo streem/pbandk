@@ -3,7 +3,13 @@ package pbandk.wkt
 import com.google.protobuf.ByteString
 import com.google.protobuf.MessageLite
 import com.google.protobuf.UnknownFieldSet
-import pbandk.*
+import pbandk.ByteArr
+import pbandk.Message
+import pbandk.UnknownField
+import pbandk.internal.binary.WireType
+import pbandk.decodeFromByteArray
+import pbandk.encodeToByteArray
+import pbandk.internal.Util
 import pbandk.testpb.Wrappers
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -21,26 +27,36 @@ class WellKnownTypesTest {
     @Test
     fun testAny() {
         Any.assertMessageEquals(
-                Any(
-                    typeUrl = "foo",
-                    value = ByteArr("bar".toByteArray())
-                ),
-                com.google.protobuf.Any.newBuilder()
-                    .setTypeUrl("foo")
-                    .setValue(ByteString.copyFromUtf8("bar"))
-                    .build()
+            Any(
+                typeUrl = "foo",
+                value = ByteArr("bar".toByteArray())
+            ),
+            com.google.protobuf.Any.newBuilder()
+                .setTypeUrl("foo")
+                .setValue(ByteString.copyFromUtf8("bar"))
+                .build()
         )
         Any.assertMessageEquals(
-                Any(
-                    typeUrl = "foo",
-                    value = ByteArr("bar".toByteArray()),
-                    unknownFields = kotlinUnknownFields(35, "baz")
-                ),
-                com.google.protobuf.Any.newBuilder()
-                    .setTypeUrl("foo")
-                    .setValue(ByteString.copyFromUtf8("bar"))
-                    .setUnknownFields(javaUnknownFields(35, "baz"))
-                    .build()
+            Any(
+                typeUrl = "foo",
+                value = ByteArr("bar".toByteArray()),
+                unknownFields = mapOf(
+                    35 to UnknownField(
+                        35,
+                        listOf(
+                            UnknownField.Value(
+                                WireType.LENGTH_DELIMITED.value,
+                                byteArrayOf(3) + Util.stringToUtf8("baz")
+                            )
+                        )
+                    )
+                )
+            ),
+            com.google.protobuf.Any.newBuilder()
+                .setTypeUrl("foo")
+                .setValue(ByteString.copyFromUtf8("bar"))
+                .setUnknownFields(javaUnknownFields(35, "baz"))
+                .build()
         )
     }
 
@@ -86,9 +102,6 @@ class WellKnownTypesTest {
     }
 
     companion object {
-        private fun kotlinUnknownFields(fieldNum: Int, value: String) =
-            mapOf(fieldNum to UnknownField(fieldNum, value))
-
         private fun javaUnknownFields(fieldNum: Int, value: String) =
             UnknownFieldSet.newBuilder().mergeLengthDelimitedField(fieldNum, ByteString.copyFromUtf8(value)).build()
     }

@@ -4,6 +4,7 @@ package pbandk.protobufjs
 import org.khronos.webgl.Uint8Array
 
 external class Reader {
+    val buf: Uint8Array
     val len: Int
     val pos: Int
 
