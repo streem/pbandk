@@ -5,7 +5,6 @@ import "google/protobuf/timestamp.proto";
 import "pbandk/testpb/validate.proto";
 
 message SingleRequiredCustomOption {
-    option (testpb.disabled) = true;
     string single = 1 [(testpb.rules).message.required = true];
 }
 

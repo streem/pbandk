@@ -17,6 +17,7 @@ It is built to work across multiple Kotlin platforms.
 * JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for best performance
 * JS platform leverages [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) for best performance
 * Support for custom service/gRPC code generator
+* Support for [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions)
 
 **Experimental**
 
@@ -25,7 +26,6 @@ It is built to work across multiple Kotlin platforms.
 **Not Yet Implemented**
 
 * Specialized support for more of the well known types (e.g. `Any`)
-* Support for protobuf custom options/annotations
 * Access to the protobuf descriptor from generated code
 * Code comments on generated code
 * Specialized support for the `deprecated` option

@@ -14,7 +14,8 @@ data class SingleRequiredCustomOption(
         override fun decodeWith(u: pbandk.MessageDecoder) = SingleRequiredCustomOption.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SingleRequiredCustomOption> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SingleRequiredCustomOption, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SingleRequiredCustomOption, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -57,7 +58,8 @@ data class MultipleCustomOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = MultipleCustomOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MultipleCustomOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MultipleCustomOptions, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MultipleCustomOptions, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -101,7 +103,8 @@ data class MultipleCustomOptionsPlusDeprecated(
         override fun decodeWith(u: pbandk.MessageDecoder) = MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MultipleCustomOptionsPlusDeprecated> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MultipleCustomOptionsPlusDeprecated, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MultipleCustomOptionsPlusDeprecated, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

@@ -53,7 +53,8 @@ data class FailureSet(
         override fun decodeWith(u: pbandk.MessageDecoder) = FailureSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FailureSet> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FailureSet, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FailureSet, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -107,7 +108,8 @@ data class ConformanceRequest(
         override fun decodeWith(u: pbandk.MessageDecoder) = ConformanceRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ConformanceRequest> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ConformanceRequest, *>>(9).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ConformanceRequest, *>>(9)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -252,7 +254,8 @@ data class ConformanceResponse(
         override fun decodeWith(u: pbandk.MessageDecoder) = ConformanceResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ConformanceResponse> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ConformanceResponse, *>>(8).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ConformanceResponse, *>>(8)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -363,7 +366,8 @@ data class JspbEncodingConfig(
         override fun decodeWith(u: pbandk.MessageDecoder) = JspbEncodingConfig.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<JspbEncodingConfig> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<JspbEncodingConfig, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<JspbEncodingConfig, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

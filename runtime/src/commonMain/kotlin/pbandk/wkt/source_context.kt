@@ -14,7 +14,8 @@ data class SourceContext(
         override fun decodeWith(u: pbandk.MessageDecoder) = SourceContext.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SourceContext> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceContext, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceContext, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

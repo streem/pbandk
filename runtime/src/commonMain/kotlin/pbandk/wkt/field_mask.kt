@@ -14,7 +14,8 @@ data class FieldMask(
         override fun decodeWith(u: pbandk.MessageDecoder) = FieldMask.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldMask> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldMask, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldMask, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

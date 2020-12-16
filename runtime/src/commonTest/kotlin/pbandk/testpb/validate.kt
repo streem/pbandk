@@ -99,7 +99,8 @@ data class FieldRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = FieldRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldRules, *>>(22).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldRules, *>>(22)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -369,7 +370,8 @@ data class FloatRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = FloatRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FloatRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FloatRules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FloatRules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -468,7 +470,8 @@ data class DoubleRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = DoubleRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<DoubleRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<DoubleRules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<DoubleRules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -567,7 +570,8 @@ data class Int32Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = Int32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Int32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int32Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int32Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -666,7 +670,8 @@ data class Int64Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = Int64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Int64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int64Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int64Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -765,7 +770,8 @@ data class UInt32Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = UInt32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UInt32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt32Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt32Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -864,7 +870,8 @@ data class UInt64Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = UInt64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UInt64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt64Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt64Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -963,7 +970,8 @@ data class SInt32Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = SInt32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SInt32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SInt32Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SInt32Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1062,7 +1070,8 @@ data class SInt64Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = SInt64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SInt64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SInt64Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SInt64Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1161,7 +1170,8 @@ data class Fixed32Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = Fixed32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Fixed32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Fixed32Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Fixed32Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1260,7 +1270,8 @@ data class Fixed64Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = Fixed64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Fixed64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Fixed64Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Fixed64Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1359,7 +1370,8 @@ data class SFixed32Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = SFixed32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SFixed32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SFixed32Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SFixed32Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1458,7 +1470,8 @@ data class SFixed64Rules(
         override fun decodeWith(u: pbandk.MessageDecoder) = SFixed64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SFixed64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SFixed64Rules, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SFixed64Rules, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1551,7 +1564,8 @@ data class BoolRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = BoolRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<BoolRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<BoolRules, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<BoolRules, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1633,7 +1647,8 @@ data class StringRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = StringRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<StringRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<StringRules, *>>(25).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<StringRules, *>>(25)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1939,7 +1954,8 @@ data class BytesRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = BytesRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<BytesRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<BytesRules, *>>(13).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<BytesRules, *>>(13)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2098,7 +2114,8 @@ data class EnumRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = EnumRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumRules, *>>(4).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumRules, *>>(4)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2162,7 +2179,8 @@ data class MessageRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = MessageRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MessageRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageRules, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageRules, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2208,7 +2226,8 @@ data class RepeatedRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = RepeatedRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<RepeatedRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<RepeatedRules, *>>(4).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<RepeatedRules, *>>(4)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2275,7 +2294,8 @@ data class MapRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = MapRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MapRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MapRules, *>>(5).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MapRules, *>>(5)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2350,7 +2370,8 @@ data class AnyRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = AnyRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<AnyRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<AnyRules, *>>(3).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<AnyRules, *>>(3)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2410,7 +2431,8 @@ data class DurationRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = DurationRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<DurationRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<DurationRules, *>>(8).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<DurationRules, *>>(8)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2521,7 +2543,8 @@ data class TimestampRules(
         override fun decodeWith(u: pbandk.MessageDecoder) = TimestampRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<TimestampRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<TimestampRules, *>>(9).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<TimestampRules, *>>(9)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2621,6 +2644,39 @@ data class TimestampRules(
         }
     }
 }
+val pbandk.wkt.MessageOptions.disabled: Boolean? 
+    get() = getExtension(pbandk.testpb.disabled)
+
+val disabled = pbandk.FieldDescriptor(
+    messageDescriptor = pbandk.wkt.MessageOptions.Companion::descriptor,
+    name = "disabled",
+    number = 1071,
+    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+    jsonName = "disabled",
+    value = pbandk.wkt.MessageOptions::disabled
+)
+val pbandk.wkt.OneofOptions.required: Boolean? 
+    get() = getExtension(pbandk.testpb.required)
+
+val required = pbandk.FieldDescriptor(
+    messageDescriptor = pbandk.wkt.OneofOptions.Companion::descriptor,
+    name = "required",
+    number = 1071,
+    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
+    jsonName = "required",
+    value = pbandk.wkt.OneofOptions::required
+)
+val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules? 
+    get() = getExtension(pbandk.testpb.rules)
+
+val rules = pbandk.FieldDescriptor(
+    messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
+    name = "rules",
+    number = 1071,
+    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FieldRules.Companion),
+    jsonName = "rules",
+    value = pbandk.wkt.FieldOptions::rules
+)
 
 fun FieldRules?.orDefault() = this ?: FieldRules.defaultInstance
 
@@ -3579,36 +3635,3 @@ private fun TimestampRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): T
         gt, gte, ltNow, gtNow,
         within, unknownFields)
 }
-val pbandk.wkt.MessageOptions.disabled: Boolean?? get() =
-    getExtension(pbandk.testpb.disabled)
-
-val disabled = pbandk.FieldDescriptor(
-    messageDescriptor = pbandk.wkt.MessageOptions.Companion::descriptor,
-    name = "disabled",
-    number = 1071,
-    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-    jsonName = "disabled",
-    value = pbandk.wkt.MessageOptions::disabled
-)
-val pbandk.wkt.OneofOptions.required: Boolean?? get() =
-    getExtension(pbandk.testpb.required)
-
-val required = pbandk.FieldDescriptor(
-    messageDescriptor = pbandk.wkt.OneofOptions.Companion::descriptor,
-    name = "required",
-    number = 1071,
-    type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
-    jsonName = "required",
-    value = pbandk.wkt.OneofOptions::required
-)
-val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules?? get() =
-    getExtension(pbandk.testpb.rules)
-
-val rules = pbandk.FieldDescriptor(
-    messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
-    name = "rules",
-    number = 1071,
-    type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FieldRules.Companion),
-    jsonName = "rules",
-    value = pbandk.wkt.FieldOptions::rules
-)

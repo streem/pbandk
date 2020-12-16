@@ -14,7 +14,8 @@ data class Foo(
         override fun decodeWith(u: pbandk.MessageDecoder) = Foo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Foo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Foo, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Foo, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -48,7 +49,8 @@ data class Bar(
         override fun decodeWith(u: pbandk.MessageDecoder) = Bar.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Bar> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Bar, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Bar, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -91,7 +93,8 @@ data class MessageWithMap(
         override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MessageWithMap> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithMap, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithMap, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -124,7 +127,8 @@ data class MessageWithMap(
             override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<MessageWithMap.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithMap.MapEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithMap.MapEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -168,7 +172,8 @@ data class FooMap(
         override fun decodeWith(u: pbandk.MessageDecoder) = FooMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FooMap> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMap, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMap, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -201,7 +206,8 @@ data class FooMap(
             override fun decodeWith(u: pbandk.MessageDecoder) = FooMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<FooMap.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMap.MapEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMap.MapEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -245,7 +251,8 @@ data class FooMapEntries(
         override fun decodeWith(u: pbandk.MessageDecoder) = FooMapEntries.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FooMapEntries> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMapEntries, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMapEntries, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -278,7 +285,8 @@ data class FooMapEntries(
             override fun decodeWith(u: pbandk.MessageDecoder) = FooMapEntries.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<FooMapEntries.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMapEntries.MapEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMapEntries.MapEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -323,7 +331,8 @@ data class Wrappers(
         override fun decodeWith(u: pbandk.MessageDecoder) = Wrappers.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Wrappers> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Wrappers, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Wrappers, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

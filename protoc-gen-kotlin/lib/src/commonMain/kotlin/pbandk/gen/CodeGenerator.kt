@@ -15,8 +15,8 @@ open class CodeGenerator(
         line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach { writeType(it) }
-        file.types.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
         file.extensions.forEach { writeExtension(it) }
+        file.types.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
         return bld.toString()
     }
 
@@ -34,19 +34,18 @@ open class CodeGenerator(
         when (field) {
             is File.Field.Numbered -> {
                 line(
-                    "val ${file.kotlinTypeMappings()[field.extendee!!]}.${field.kotlinFieldName}: ${
+                    "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
                         field.kotlinValueType(true)
-                    }? get() ="
+                    } "
                 ).indented {
-                    line("getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
-                }
-                line()
+                    line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
+                }.line()
                 line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
                     generateFieldDescriptorConstructorValues(
                         field,
-                        file.kotlinTypeMappings()[field.extendee!!]!!,
+                        field.extendeeKotlinType!!,
                         null,
-                        "${file.kotlinTypeMappings()[field.extendee!!]!!}.Companion::descriptor"
+                        "${field.extendeeKotlinType}.Companion::descriptor"
                     )
                 }
                 line(")")
@@ -159,14 +158,13 @@ open class CodeGenerator(
     }
 
     protected fun writeMessageDescriptor(type: File.Type.Message, fullTypeName: String) {
-        // Messages can have circular references to each other (e.g. `pbandk.wkt.Struct` includes a `pbandk.wkt.Value`
-        // field, but `pbandk.wkt.Value` includes a `pbandk.wkt.Struct` field). On Kotlin/Native the companion object
-        // (e.g. `pbandk.wkt.Value.Companion`) is automatically frozen because it's a singleton. But Kotlin/Native
-
         val allFields = type.sortedStandardFieldsWithOneOfs()
         val chunkSize = 200
         val needToChunk = allFields.size > chunkSize
 
+        // Messages can have circular references to each other (e.g. `pbandk.wkt.Struct` includes a `pbandk.wkt.Value`
+        // field, but `pbandk.wkt.Value` includes a `pbandk.wkt.Struct` field). On Kotlin/Native the companion object
+        // (e.g. `pbandk.wkt.Value.Companion`) is automatically frozen because it's a singleton. But Kotlin/Native
         // doesn't allow cyclic frozen structures:
         // https://kotlinlang.org/docs/reference/native/concurrency.html#global-variables-and-singletons. In order to
         // break the circular references, `descriptor` needs to be a `lazy` field.
@@ -176,17 +174,13 @@ open class CodeGenerator(
             // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.10).
             // As a workaround, we generate methods to generate each fieldDescriptor in chunks, as many as needed, with
             // a max size of $chunkSize to limit the size of the methods.
+            line("val fieldsList = ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>(${allFields.size})")
             if (needToChunk) {
-                line("val fieldsList = ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>(${allFields.size})")
                 allFields.chunked(chunkSize).forEachIndexed { index, _ ->
                     line("addFields${index}(fieldsList)")
                 }
             } else {
-                addFields(
-                    allFields,
-                    fullTypeName,
-                    line("val fieldsList = ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>(${allFields.size}).apply {")
-                )
+                addFields(allFields, fullTypeName)
             }
 
             line("pbandk.MessageDescriptor(").indented {
@@ -199,7 +193,7 @@ open class CodeGenerator(
         if (needToChunk) {
             allFields.chunked(chunkSize).forEachIndexed { index, chunk ->
                 line("fun addFields${index}(fieldsList: ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>) {").indented {
-                    addFields(chunk, fullTypeName, line("fieldsList.apply {"))
+                    addFields(chunk, fullTypeName)
                 }.line("}")
             }
         }
@@ -207,10 +201,9 @@ open class CodeGenerator(
 
     private fun addFields(
         chunk: List<Pair<File.Field.Numbered, File.Field.OneOf?>>,
-        fullTypeName: String,
-        beginningLine: CodeGenerator
-    ): CodeGenerator {
-        return beginningLine.indented {
+        fullTypeName: String
+    ) {
+        line("fieldsList.apply {").indented {
             chunk.forEach { (field, oneof) ->
                 line("add(").indented {
                     line("pbandk.FieldDescriptor(").indented {
@@ -227,25 +220,16 @@ open class CodeGenerator(
     }
 
     private fun generateFieldOptions(fieldOptions: FieldOptions) {
-        val optionalFields = mutableListOf<() -> Unit>()
-        fieldOptions.deprecated?.let {
-            optionalFields.add {
-                lineBegin("deprecated = $it")
-            }
-        }
-        if (fieldOptions.unknownFields.isNotEmpty()) {
-            optionalFields.add { generateUnknownFields(fieldOptions.unknownFields) }
-        }
-        if (optionalFields.isNotEmpty()) {
-            val fieldsToGenerate = optionalFields.listIterator()
+        // We don't use/support other field option values currently. Once we support all of the options, this check
+        // should change to `fieldOptions != FieldOptions.defaultInstance`
+        if (fieldOptions.deprecated != null || fieldOptions.unknownFields.isNotEmpty()) {
             line("options = pbandk.wkt.FieldOptions(").indented {
-                while (fieldsToGenerate.hasNext()) {
-                    fieldsToGenerate.next()()
-                    if (fieldsToGenerate.hasNext()) {
-                        lineEnd(",")
-                    } else {
-                        lineEnd()
-                    }
+                fieldOptions.deprecated?.let {
+                    lineBegin("deprecated = $it")
+                    if (fieldOptions.unknownFields.isEmpty()) lineEnd() else lineEnd(",")
+                }
+                if (fieldOptions.unknownFields.isNotEmpty()) {
+                    generateUnknownFields(fieldOptions.unknownFields)
                 }
             }.line("),")
         }
@@ -270,7 +254,7 @@ open class CodeGenerator(
                 }.lineBegin(")")
                 if (fieldIndex != lastFieldIndex) lineEnd(",") else lineEnd()
             }
-        }.lineBegin(")")
+        }.line(")")
     }
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
@@ -471,6 +455,9 @@ open class CodeGenerator(
         is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage)
     }
 
+    protected val File.Field.Numbered.extendeeKotlinType
+        get() = extendee?.let { kotlinTypeMappings[it] }
+
     protected val File.Field.Numbered.defaultValue
         get() = when (this) {
             is File.Field.Numbered.Standard -> defaultValue
@@ -640,7 +627,7 @@ open class CodeGenerator(
         line("type = ${field.fieldDescriptorType(oneof != null)},")
         oneof?.let { line("oneofMember = true,") }
         field.jsonName?.let { line("jsonName = \"$it\",") }
-        field.options?.let { generateFieldOptions(it) }
+        generateFieldOptions(field.options)
         line("value = $fullTypeName::${field.kotlinFieldName}")
     }
 }

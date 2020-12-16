@@ -15,7 +15,8 @@ data class Timestamp(
         override fun decodeWith(u: pbandk.MessageDecoder) = Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Timestamp> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Timestamp, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Timestamp, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

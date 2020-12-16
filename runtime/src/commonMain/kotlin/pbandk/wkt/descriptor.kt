@@ -14,7 +14,8 @@ data class FileDescriptorSet(
         override fun decodeWith(u: pbandk.MessageDecoder) = FileDescriptorSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FileDescriptorSet> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FileDescriptorSet, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FileDescriptorSet, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -58,7 +59,8 @@ data class FileDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = FileDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FileDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FileDescriptorProto, *>>(12).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FileDescriptorProto, *>>(12)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -210,7 +212,8 @@ data class DescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = DescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<DescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<DescriptorProto, *>>(10).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<DescriptorProto, *>>(10)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -334,7 +337,8 @@ data class DescriptorProto(
             override fun decodeWith(u: pbandk.MessageDecoder) = DescriptorProto.ExtensionRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<DescriptorProto.ExtensionRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<DescriptorProto.ExtensionRange, *>>(3).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<DescriptorProto.ExtensionRange, *>>(3)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -388,7 +392,8 @@ data class DescriptorProto(
             override fun decodeWith(u: pbandk.MessageDecoder) = DescriptorProto.ReservedRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<DescriptorProto.ReservedRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<DescriptorProto.ReservedRange, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<DescriptorProto.ReservedRange, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -434,7 +439,8 @@ data class ExtensionRangeOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = ExtensionRangeOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ExtensionRangeOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ExtensionRangeOptions, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ExtensionRangeOptions, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -476,7 +482,8 @@ data class FieldDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = FieldDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldDescriptorProto, *>>(10).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldDescriptorProto, *>>(10)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -649,7 +656,8 @@ data class OneofDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = OneofDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<OneofDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<OneofDescriptorProto, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<OneofDescriptorProto, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -696,7 +704,8 @@ data class EnumDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = EnumDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumDescriptorProto, *>>(5).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumDescriptorProto, *>>(5)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -769,7 +778,8 @@ data class EnumDescriptorProto(
             override fun decodeWith(u: pbandk.MessageDecoder) = EnumDescriptorProto.EnumReservedRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<EnumDescriptorProto.EnumReservedRange> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumDescriptorProto.EnumReservedRange, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumDescriptorProto.EnumReservedRange, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -815,7 +825,8 @@ data class EnumValueDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = EnumValueDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumValueDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumValueDescriptorProto, *>>(3).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumValueDescriptorProto, *>>(3)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -870,7 +881,8 @@ data class ServiceDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = ServiceDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ServiceDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ServiceDescriptorProto, *>>(3).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ServiceDescriptorProto, *>>(3)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -928,7 +940,8 @@ data class MethodDescriptorProto(
         override fun decodeWith(u: pbandk.MessageDecoder) = MethodDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MethodDescriptorProto> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MethodDescriptorProto, *>>(6).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MethodDescriptorProto, *>>(6)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1033,7 +1046,8 @@ data class FileOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = FileOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FileOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FileOptions, *>>(21).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FileOptions, *>>(21)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1292,7 +1306,8 @@ data class MessageOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = MessageOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MessageOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageOptions, *>>(5).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageOptions, *>>(5)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1373,7 +1388,8 @@ data class FieldOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = FieldOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldOptions, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldOptions, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1502,7 +1518,8 @@ data class OneofOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = OneofOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<OneofOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<OneofOptions, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<OneofOptions, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1539,7 +1556,8 @@ data class EnumOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = EnumOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumOptions, *>>(3).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumOptions, *>>(3)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1595,7 +1613,8 @@ data class EnumValueOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = EnumValueOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<EnumValueOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumValueOptions, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumValueOptions, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1641,7 +1660,8 @@ data class ServiceOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = ServiceOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ServiceOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ServiceOptions, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ServiceOptions, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1688,7 +1708,8 @@ data class MethodOptions(
         override fun decodeWith(u: pbandk.MessageDecoder) = MethodOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<MethodOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MethodOptions, *>>(3).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<MethodOptions, *>>(3)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1764,7 +1785,8 @@ data class UninterpretedOption(
         override fun decodeWith(u: pbandk.MessageDecoder) = UninterpretedOption.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<UninterpretedOption> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UninterpretedOption, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<UninterpretedOption, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1857,7 +1879,8 @@ data class UninterpretedOption(
             override fun decodeWith(u: pbandk.MessageDecoder) = UninterpretedOption.NamePart.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<UninterpretedOption.NamePart> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<UninterpretedOption.NamePart, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<UninterpretedOption.NamePart, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1901,7 +1924,8 @@ data class SourceCodeInfo(
         override fun decodeWith(u: pbandk.MessageDecoder) = SourceCodeInfo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<SourceCodeInfo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceCodeInfo, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceCodeInfo, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1937,7 +1961,8 @@ data class SourceCodeInfo(
             override fun decodeWith(u: pbandk.MessageDecoder) = SourceCodeInfo.Location.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<SourceCodeInfo.Location> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceCodeInfo.Location, *>>(5).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<SourceCodeInfo.Location, *>>(5)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2011,7 +2036,8 @@ data class GeneratedCodeInfo(
         override fun decodeWith(u: pbandk.MessageDecoder) = GeneratedCodeInfo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<GeneratedCodeInfo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<GeneratedCodeInfo, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<GeneratedCodeInfo, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2046,7 +2072,8 @@ data class GeneratedCodeInfo(
             override fun decodeWith(u: pbandk.MessageDecoder) = GeneratedCodeInfo.Annotation.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<GeneratedCodeInfo.Annotation> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<GeneratedCodeInfo.Annotation, *>>(4).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<GeneratedCodeInfo.Annotation, *>>(4)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,

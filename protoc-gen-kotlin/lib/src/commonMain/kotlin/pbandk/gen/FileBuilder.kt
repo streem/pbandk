@@ -5,6 +5,7 @@ import pbandk.internal.Util
 import pbandk.wkt.DescriptorProto
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.FieldDescriptorProto
+import pbandk.wkt.FieldOptions
 import pbandk.wkt.FileDescriptorProto
 
 open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
@@ -145,7 +146,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName,
                 wrappedType = wrappedType,
-                options = fieldDesc.options,
+                options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee
             )
         } else {
@@ -168,7 +169,7 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                 kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
                     namer.newTypeName(it, emptySet())
                 },
-                options = fieldDesc.options,
+                options = fieldDesc.options ?: FieldOptions.defaultInstance,
                 extendee = fieldDesc.extendee
             )
         }

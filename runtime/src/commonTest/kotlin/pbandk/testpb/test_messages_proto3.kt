@@ -202,7 +202,8 @@ data class TestAllTypesProto3(
         override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3, *>>(149).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3, *>>(149)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -1762,7 +1763,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.NestedMessage.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.NestedMessage> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.NestedMessage, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.NestedMessage, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1806,7 +1808,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt32Int32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt32Int32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32Int32Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32Int32Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1850,7 +1853,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt64Int64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt64Int64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt64Int64Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt64Int64Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1894,7 +1898,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapUint32Uint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapUint32Uint32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapUint32Uint32Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapUint32Uint32Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1938,7 +1943,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapUint64Uint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapUint64Uint64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapUint64Uint64Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapUint64Uint64Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -1982,7 +1988,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSint32Sint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSint32Sint32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSint32Sint32Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSint32Sint32Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2026,7 +2033,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSint64Sint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSint64Sint64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSint64Sint64Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSint64Sint64Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2070,7 +2078,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapFixed32Fixed32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapFixed32Fixed32Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapFixed32Fixed32Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2114,7 +2123,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapFixed64Fixed64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapFixed64Fixed64Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapFixed64Fixed64Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2158,7 +2168,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSfixed32Sfixed32Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSfixed32Sfixed32Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSfixed32Sfixed32Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2202,7 +2213,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapSfixed64Sfixed64Entry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSfixed64Sfixed64Entry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapSfixed64Sfixed64Entry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2246,7 +2258,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt32FloatEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt32FloatEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32FloatEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32FloatEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2290,7 +2303,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapInt32DoubleEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapInt32DoubleEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32DoubleEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapInt32DoubleEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2334,7 +2348,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapBoolBoolEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapBoolBoolEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapBoolBoolEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapBoolBoolEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2378,7 +2393,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringStringEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringStringEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringStringEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringStringEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2422,7 +2438,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringBytesEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringBytesEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringBytesEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringBytesEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2466,7 +2483,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringNestedMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringNestedMessageEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringNestedMessageEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringNestedMessageEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2510,7 +2528,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringForeignMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringForeignMessageEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringForeignMessageEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringForeignMessageEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2554,7 +2573,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringNestedEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringNestedEnumEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringNestedEnumEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringNestedEnumEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2598,7 +2618,8 @@ data class TestAllTypesProto3(
             override fun decodeWith(u: pbandk.MessageDecoder) = TestAllTypesProto3.MapStringForeignEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<TestAllTypesProto3.MapStringForeignEnumEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringForeignEnumEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<TestAllTypesProto3.MapStringForeignEnumEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -2642,7 +2663,8 @@ data class ForeignMessage(
         override fun decodeWith(u: pbandk.MessageDecoder) = ForeignMessage.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ForeignMessage> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ForeignMessage, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ForeignMessage, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

@@ -17,7 +17,8 @@ data class Version(
         override fun decodeWith(u: pbandk.MessageDecoder) = Version.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Version> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Version, *>>(4).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Version, *>>(4)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -83,7 +84,8 @@ data class CodeGeneratorRequest(
         override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<CodeGeneratorRequest> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorRequest, *>>(4).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorRequest, *>>(4)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -147,7 +149,8 @@ data class CodeGeneratorResponse(
         override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorResponse, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorResponse, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -191,7 +194,8 @@ data class CodeGeneratorResponse(
             override fun decodeWith(u: pbandk.MessageDecoder) = CodeGeneratorResponse.File.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<CodeGeneratorResponse.File> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorResponse.File, *>>(3).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<CodeGeneratorResponse.File, *>>(3)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,

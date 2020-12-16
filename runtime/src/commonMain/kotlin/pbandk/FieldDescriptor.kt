@@ -7,19 +7,17 @@ import kotlin.reflect.KProperty1
 
 class FieldDescriptor<M : Message, T>(
     messageDescriptor: KProperty0<MessageDescriptor<M>>,
-    @PublicForGeneratedCode
     val name: String,
     @PublicForGeneratedCode
     val number: Int,
     @PublicForGeneratedCode
     val type: Type,
-    @PublicForGeneratedCode
     val value: KProperty1<M, T>,
     @PublicForGeneratedCode
     val oneofMember: Boolean = false,
     @PublicForGeneratedCode
     val jsonName: String? = null,
-    val options: FieldOptions? = null
+    val options: FieldOptions = FieldOptions.defaultInstance
 ) {
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the

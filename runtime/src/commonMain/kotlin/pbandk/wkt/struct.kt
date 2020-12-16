@@ -29,7 +29,8 @@ data class Struct(
         override fun decodeWith(u: pbandk.MessageDecoder) = Struct.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Struct> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Struct, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Struct, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -62,7 +63,8 @@ data class Struct(
             override fun decodeWith(u: pbandk.MessageDecoder) = Struct.FieldsEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<Struct.FieldsEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<Struct.FieldsEntry, *>>(2).apply {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<Struct.FieldsEntry, *>>(2)
+                fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
                             messageDescriptor = this@Companion::descriptor,
@@ -128,7 +130,8 @@ data class Value(
         override fun decodeWith(u: pbandk.MessageDecoder) = Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Value, *>>(6).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Value, *>>(6)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -217,7 +220,8 @@ data class ListValue(
         override fun decodeWith(u: pbandk.MessageDecoder) = ListValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<ListValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<ListValue, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<ListValue, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

@@ -13,7 +13,6 @@ class CustomOptionsTest {
     @Test
     fun testSingleRequiredCustomOption() {
         assertTrue(SingleRequiredCustomOption().descriptor.fields.find { it.name == "single" }?.options?.rules?.message?.required!!)
-        assertTrue(SingleRequiredCustomOption().descriptor.fields.find { it.name == "single" }?.options?.rules?.message?.required!!)
     }
 
     @Test

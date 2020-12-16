@@ -13,7 +13,8 @@ data class Empty(
         override fun decodeWith(u: pbandk.MessageDecoder) = Empty.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Empty> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Empty, *>>(0).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Empty, *>>(0)
+            fieldsList.apply {
             }
             pbandk.MessageDescriptor(
                 messageClass = Empty::class,

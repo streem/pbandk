@@ -15,7 +15,8 @@ data class Any(
         override fun decodeWith(u: pbandk.MessageDecoder) = Any.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Any> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Any, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Any, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

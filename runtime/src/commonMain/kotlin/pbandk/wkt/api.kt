@@ -20,7 +20,8 @@ data class Api(
         override fun decodeWith(u: pbandk.MessageDecoder) = Api.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Api> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Api, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Api, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -119,7 +120,8 @@ data class Method(
         override fun decodeWith(u: pbandk.MessageDecoder) = Method.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Method> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Method, *>>(7).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Method, *>>(7)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -213,7 +215,8 @@ data class Mixin(
         override fun decodeWith(u: pbandk.MessageDecoder) = Mixin.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Mixin> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Mixin, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Mixin, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,

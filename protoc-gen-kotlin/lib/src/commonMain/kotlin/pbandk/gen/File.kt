@@ -27,16 +27,7 @@ data class File(
             (t as? Type.Message)?.nestedTypes?.forEach { applyType(it, protobufTypeName, kotlinTypeName) }
         }
 
-        fun applyExtension(f: Field) {
-            if (f is Field.Numbered) {
-                if (!ret.containsKey(f.extendee!!)) {
-                    ret += f.extendee!! to f.extendee!!.trimStart('.').replace("google.protobuf", "pbandk.wkt")
-                }
-            }
-        }
-
         types.forEach { applyType(it) }
-        extensions.forEach { applyExtension(it) }
     }
 
     sealed class Type {
@@ -70,7 +61,7 @@ data class File(
             abstract val type: Type
             abstract val repeated: Boolean
             abstract val jsonName: String?
-            abstract val options: FieldOptions?
+            abstract val options: FieldOptions
             abstract val extendee: String?
 
             data class Standard(
@@ -88,7 +79,7 @@ data class File(
                 override val kotlinFieldName: String,
                 // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
                 val kotlinLocalTypeName: String?,
-                override val options : FieldOptions? = null,
+                override val options : FieldOptions = FieldOptions.defaultInstance,
                 override val extendee: String? = null
             ) : Numbered()
 
@@ -99,7 +90,7 @@ data class File(
                 override val repeated: Boolean,
                 override val jsonName: String?,
                 val wrappedType: Type,
-                override val options : FieldOptions? = null,
+                override val options : FieldOptions = FieldOptions.defaultInstance,
                 override val extendee: String? = null
             ) : Numbered() {
                 override val type = Type.MESSAGE

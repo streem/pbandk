@@ -37,7 +37,7 @@
 
 syntax = "proto2";
 
-package pbandk.conformance.pb;
+package protobuf_test_messages.proto2;
 
 option java_package = "com.google.protobuf_test_messages.proto2";
 
