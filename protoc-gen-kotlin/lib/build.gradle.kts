@@ -54,16 +54,6 @@ tasks {
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
     }
-
-    val generateKotlinTestTypes by registering(KotlinProtocTask::class) {
-        outputDir.set(project.file("src/commonTest/kotlin"))
-        kotlinPackage.set("pbandk.gen.pb")
-        logLevel.set("debug")
-    }
-
-    val generateTestTypes by registering {
-        dependsOn(generateKotlinTestTypes)
-    }
 }
 
 publishing {
