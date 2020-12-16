@@ -20,6 +20,12 @@ internal class ProtobufjsBinaryWireDecoder(private val reader: Reader) : BinaryW
         }
     }
 
+    override fun readRawBytes(type: WireType): ByteArray {
+        val oldPos = reader.pos
+        reader.skipType(type.value)
+        return reader.buf.subarray(oldPos, reader.pos).asByteArray()
+    }
+
     override fun readDouble(): Double = reader.double()
 
     override fun readFloat(): Float = reader.float()
@@ -72,17 +78,4 @@ internal class ProtobufjsBinaryWireDecoder(private val reader: Reader) : BinaryW
         while (reader.pos < endPos) yield(readFn())
     }
 
-    override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
-        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
-        //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
-        return when (wireType) {
-            WireType.VARINT -> UnknownField.Value.Varint(readInt64())
-            WireType.FIXED64 -> UnknownField.Value.Fixed64(readFixed64())
-            WireType.LENGTH_DELIMITED -> UnknownField.Value.LengthDelimited(readBytes())
-            WireType.START_GROUP -> UnknownField.Value.StartGroup
-            WireType.END_GROUP -> UnknownField.Value.EndGroup
-            WireType.FIXED32 -> UnknownField.Value.Fixed32(readFixed32())
-            else -> throw InvalidProtocolBufferException("Unrecognized wire type: $wireType")
-        }
-    }
 }

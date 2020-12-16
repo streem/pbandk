@@ -1,6 +1,9 @@
 package pbandk.protobufjs
 
-import pbandk.*
+import pbandk.ByteArr
+import pbandk.FieldDescriptor
+import pbandk.ListWithSize
+import pbandk.Message
 import pbandk.internal.asUint8Array
 import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.Tag
@@ -33,6 +36,13 @@ private fun Writer.writeValueNoTag(type: FieldDescriptor.Type, value: Any) {
 internal class ProtobufjsBinaryWireEncoder(private val writer: Writer) : BinaryWireEncoder {
     private fun writeTag(fieldNum: Int, wireType: WireType) {
         writer.uint32(Tag(fieldNum, wireType).value)
+    }
+
+    override fun writeRawBytes(fieldNum: Int, wireType: WireType, value: ByteArray) {
+        writeTag(fieldNum, wireType)
+        writer._push({ bytes, buf, pos ->
+            buf.asUint8Array().set(bytes, pos)
+        }, value.size, value.asUint8Array())
     }
 
     override fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int) {

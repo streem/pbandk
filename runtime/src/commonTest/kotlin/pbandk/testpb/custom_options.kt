@@ -26,8 +26,8 @@ data class SingleRequiredCustomOption(
                             unknownFields = mapOf(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
-                                    value = pbandk.UnknownField.Value.LengthDelimited(
-                                        bytes=pbandk.ByteArr(byteArrayOf(-118, 1, 2, 16, 1))
+                                    values = listOf(
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(5, -118, 1, 2, 16, 1))
                                     )
                                 )
                             )
@@ -69,15 +69,9 @@ data class MultipleCustomOptions(
                             unknownFields = mapOf(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
-                                    value = pbandk.UnknownField.Value.Composite(
-                                        values=listOf(
-                                            pbandk.UnknownField.Value.LengthDelimited(
-                                                bytes=pbandk.ByteArr(byteArrayOf(-118, 1, 2, 16, 1))
-                                            ),
-                                            pbandk.UnknownField.Value.LengthDelimited(
-                                                bytes=pbandk.ByteArr(byteArrayOf(114, 2, 16, 10))
-                                            )
-                                        )
+                                    values = listOf(
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(5, -118, 1, 2, 16, 1)),
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 16, 10))
                                     )
                                 )
                             )
@@ -120,15 +114,9 @@ data class MultipleCustomOptionsPlusDeprecated(
                             unknownFields = mapOf(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
-                                    value = pbandk.UnknownField.Value.Composite(
-                                        values=listOf(
-                                            pbandk.UnknownField.Value.LengthDelimited(
-                                                bytes=pbandk.ByteArr(byteArrayOf(114, 2, 24, 32))
-                                            ),
-                                            pbandk.UnknownField.Value.LengthDelimited(
-                                                bytes=pbandk.ByteArr(byteArrayOf(114, 2, 16, 10))
-                                            )
-                                        )
+                                    values = listOf(
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 24, 32)),
+                                        pbandk.UnknownField.Value(wireType = 2, rawBytes = byteArrayOf(4, 114, 2, 16, 10))
                                     )
                                 )
                             )

@@ -32,6 +32,11 @@ private fun CodedOutputStream.writeValueNoTag(type: FieldDescriptor.Type, value:
 }
 
 internal open class CodedStreamBinaryWireEncoder(private val stream: CodedOutputStream) : BinaryWireEncoder {
+    override fun writeRawBytes(fieldNum: Int, wireType: WireType, value: ByteArray) {
+        stream.writeTag(fieldNum, wireType.value)
+        stream.write(value, 0, value.size)
+    }
+
     override fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int) {
         stream.writeTag(fieldNum, WireFormat.WIRETYPE_LENGTH_DELIMITED)
         stream.writeUInt32NoTag(protoSize)

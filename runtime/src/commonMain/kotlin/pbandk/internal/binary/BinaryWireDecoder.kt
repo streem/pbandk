@@ -7,6 +7,8 @@ import pbandk.UnknownField
 internal interface BinaryWireDecoder {
     /** Returns 0 when there is no next tag (e.g. at EOF) */
     fun readTag(): Tag
+    /** Reads a value of [type] and returns its bytes without decoding them */
+    fun readRawBytes(type: WireType): ByteArray
 
     fun readDouble(): Double
     fun readFloat(): Float
@@ -27,5 +29,9 @@ internal interface BinaryWireDecoder {
     fun <T : Message> readMessage(messageCompanion: Message.Companion<T>): T
     fun <T : Any> readPackedRepeated(readFn: BinaryWireDecoder.() -> T): Sequence<T>
 
-    fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value?
+    fun readUnknownFieldValue(wireType: WireType): UnknownField.Value? {
+        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
+        //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
+        return UnknownField.Value(wireType.value, readRawBytes(wireType))
+    }
 }

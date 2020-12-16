@@ -5,6 +5,8 @@ import pbandk.FieldDescriptor
 import pbandk.Message
 
 internal interface BinaryWireEncoder {
+    fun writeRawBytes(fieldNum: Int, wireType: WireType, value: ByteArray)
+
     fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int)
 
     fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type)

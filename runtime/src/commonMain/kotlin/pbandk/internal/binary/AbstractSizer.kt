@@ -134,7 +134,7 @@ internal abstract class AbstractSizer {
             }
         }
 
-        protoSize += message.unknownFields.entries.sumBy { it.value.size() }
+        protoSize += message.unknownFields.values.sumBy { it.size }
         return protoSize
     }
 

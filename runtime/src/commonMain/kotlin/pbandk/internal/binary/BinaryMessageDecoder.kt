@@ -4,34 +4,11 @@ import kotlin.Any
 import pbandk.*
 import pbandk.wkt.*
 
-private val FieldDescriptor.Type.wireType: WireType
-    get() = when (this) {
-        is FieldDescriptor.Type.Primitive.Double -> WireType.FIXED64
-        is FieldDescriptor.Type.Primitive.Float -> WireType.FIXED32
-        is FieldDescriptor.Type.Primitive.Int64 -> WireType.VARINT
-        is FieldDescriptor.Type.Primitive.UInt64 -> WireType.VARINT
-        is FieldDescriptor.Type.Primitive.Int32 -> WireType.VARINT
-        is FieldDescriptor.Type.Primitive.Fixed64 -> WireType.FIXED64
-        is FieldDescriptor.Type.Primitive.Fixed32 -> WireType.FIXED32
-        is FieldDescriptor.Type.Primitive.Bool -> WireType.VARINT
-        is FieldDescriptor.Type.Primitive.String -> WireType.LENGTH_DELIMITED
-        is FieldDescriptor.Type.Primitive.Bytes -> WireType.LENGTH_DELIMITED
-        is FieldDescriptor.Type.Primitive.UInt32 -> WireType.VARINT
-        is FieldDescriptor.Type.Primitive.SFixed32 -> WireType.FIXED32
-        is FieldDescriptor.Type.Primitive.SFixed64 -> WireType.FIXED64
-        is FieldDescriptor.Type.Primitive.SInt32 -> WireType.VARINT
-        is FieldDescriptor.Type.Primitive.SInt64 -> WireType.VARINT
-        is FieldDescriptor.Type.Message<*> -> WireType.LENGTH_DELIMITED
-        is FieldDescriptor.Type.Enum<*> -> WireType.VARINT
-        is FieldDescriptor.Type.Repeated<*> -> valueType.wireType
-        is FieldDescriptor.Type.Map<*, *> -> WireType.LENGTH_DELIMITED
-    }
-
-private fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
+internal fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
     this.wireType == wireType ||
             (this is FieldDescriptor.Type.Repeated<*> && valueType.isPackable && wireType == WireType.LENGTH_DELIMITED)
 
-private val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
+internal val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
     get() {
         // XXX: The "useless" casts below are required in order to work around a compiler bug in Kotlin 1.3 (see
         // https://youtrack.jetbrains.com/issue/KT-12693 and linked issues). Without the cast, the compiler crashes
@@ -102,7 +79,7 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
                 addUnknownField(fieldNum, wireType, unknownFields)
             } else {
                 val value = if (fd.type is FieldDescriptor.Type.Repeated<*>) {
-                    readRepeated(fd.type, wireType)
+                    readRepeatedField(fd.type, wireType, wireDecoder)
                 } else {
                     fd.type.binaryReadFn(wireDecoder)
                 }
@@ -117,28 +94,29 @@ internal class BinaryMessageDecoder(private val wireDecoder: BinaryWireDecoder) 
     }
 
     private fun addUnknownField(fieldNum: Int, wireType: WireType, unknownFields: MutableMap<Int, UnknownField>) {
-        val unknownField = wireDecoder.readUnknownField(fieldNum, wireType) ?: return
-        unknownFields[fieldNum] = UnknownField(fieldNum, unknownFields[fieldNum]?.let { prevField ->
-            if (prevField.value is UnknownField.Value.Composite) {
-                // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of the list with
-                // each new element.
-                prevField.value.copy(values = prevField.value.values + unknownField)
-            } else {
-                UnknownField.Value.Composite(listOf(prevField.value, unknownField))
-            }
-        } ?: unknownField)
+        val unknownFieldValue = wireDecoder.readUnknownFieldValue(wireType) ?: return
+        unknownFields[fieldNum] = unknownFields[fieldNum]?.let { prevValue ->
+            // TODO: make parsing of repeated unknown fields more efficient by not creating a copy of the list with
+            // each new element.
+            prevValue.copy(values = prevValue.values + unknownFieldValue)
+        } ?: UnknownField(fieldNum, listOf(unknownFieldValue))
     }
 
-    private fun readRepeated(type: FieldDescriptor.Type.Repeated<*>, wireType: WireType): Any {
-        val valueDecoder = type.valueType.binaryReadFn
-        return if (wireType == WireType.LENGTH_DELIMITED && type.valueType.isPackable) {
-            wireDecoder.readPackedRepeated(valueDecoder)
-        } else {
-            sequenceOf(valueDecoder(wireDecoder))
+    companion object {
+        fun <T : Any> readRepeatedField(
+            type: FieldDescriptor.Type.Repeated<T>,
+            wireType: WireType,
+            wireDecoder: BinaryWireDecoder
+        ): Sequence<T> {
+            @Suppress("UNCHECKED_CAST")
+            val valueDecoder = type.valueType.binaryReadFn as BinaryWireDecoder.() -> T
+            return if (wireType == WireType.LENGTH_DELIMITED && type.valueType.isPackable) {
+                wireDecoder.readPackedRepeated(valueDecoder)
+            } else {
+                sequenceOf(valueDecoder(wireDecoder))
+            }
         }
     }
-
-    companion object
 }
 
 internal expect fun BinaryMessageDecoder.Companion.fromByteArray(arr: ByteArray): MessageDecoder

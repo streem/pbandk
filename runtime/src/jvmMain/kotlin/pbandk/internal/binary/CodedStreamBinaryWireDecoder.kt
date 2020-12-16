@@ -4,10 +4,44 @@ import com.google.protobuf.CodedInputStream
 import pbandk.ByteArr
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
-import pbandk.UnknownField
 
 internal class CodedStreamBinaryWireDecoder(private val stream: CodedInputStream) : BinaryWireDecoder {
     override fun readTag(): Tag = Tag(stream.readTag())
+
+    private fun readVarintRawBytes(): ByteArray {
+        val result = ByteArray(MAX_VARINT_SIZE)
+        for (i in 0 until MAX_VARINT_SIZE) {
+            val b = stream.readRawByte()
+            result[i] = b
+            if (b >= 0) return result.copyOf(i + 1)
+        }
+        throw InvalidProtocolBufferException("Encountered a malformed varint.")
+    }
+
+    private fun readLengthDelimitedRawBytes(): ByteArray {
+        val lengthBytes = readRawBytes(WireType.VARINT)
+        val length = CodedInputStream.newInstance(lengthBytes).readRawVarint32()
+        val data = stream.readRawBytes(length)
+        return lengthBytes.plus(data)
+    }
+
+    private fun readGroupRawBytes(): ByteArray {
+        // TODO: properly read in the bytes instead of just skipping them
+        stream.skipMessage()
+        if (Tag(stream.lastTag).wireType != WireType.END_GROUP) {
+            throw InvalidProtocolBufferException("Encountered a malformed START_GROUP tag with no matching END_GROUP tag")
+        }
+        return byteArrayOf()
+    }
+
+    override fun readRawBytes(type: WireType): ByteArray = when (type) {
+        WireType.VARINT -> readVarintRawBytes()
+        WireType.FIXED64 -> stream.readRawBytes(8)
+        WireType.LENGTH_DELIMITED -> readLengthDelimitedRawBytes()
+        WireType.START_GROUP -> readGroupRawBytes()
+        WireType.FIXED32 -> stream.readRawBytes(4)
+        else -> throw InvalidProtocolBufferException("Unrecognized wire type: $type")
+    }
 
     override fun readDouble(): Double = stream.readDouble()
 
@@ -57,20 +91,6 @@ internal class CodedStreamBinaryWireDecoder(private val stream: CodedInputStream
             val oldLimit = stream.pushLimit(stream.readRawVarint32())
             while (!stream.isAtEnd) yield(readFn())
             stream.popLimit(oldLimit)
-        }
-    }
-
-    override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
-        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
-        //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
-        return when (wireType) {
-            WireType.VARINT -> UnknownField.Value.Varint(stream.readInt64())
-            WireType.FIXED64 -> UnknownField.Value.Fixed64(stream.readFixed64())
-            WireType.LENGTH_DELIMITED -> UnknownField.Value.LengthDelimited(ByteArr(stream.readByteArray()))
-            WireType.START_GROUP -> UnknownField.Value.StartGroup
-            WireType.END_GROUP -> UnknownField.Value.EndGroup
-            WireType.FIXED32 -> UnknownField.Value.Fixed32(stream.readFixed32())
-            else -> throw InvalidProtocolBufferException("Unrecognized wire type: $wireType")
         }
     }
 }

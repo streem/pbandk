@@ -1,144 +1,79 @@
 package pbandk
 
-import pbandk.internal.Util
+import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.Sizer
+import pbandk.internal.binary.WireType
+import pbandk.internal.binary.allowedWireType
+import pbandk.internal.binary.binaryReadFn
+import pbandk.internal.binary.kotlin.ByteArrayWireReader
+import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
 
-data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val value: Value) {
-    internal constructor(fieldNum: Int, value: Long, fixed: Boolean = false) :
-        this(fieldNum, if (fixed) Value.Fixed64(value) else Value.Varint(value))
-    internal constructor(fieldNum: Int, value: Int, fixed: Boolean = false) :
-        this(fieldNum, if (fixed) Value.Fixed32(value) else Value.Varint(value.toLong()))
-    internal constructor(fieldNum: Int, value: ByteArr) :
-        this(fieldNum, Value.LengthDelimited(value))
-    internal constructor(fieldNum: Int, value: ByteArray) :
-        this(fieldNum, Value.LengthDelimited(ByteArr(value)))
-    internal constructor(fieldNum: Int, value: String) :
-        this(fieldNum, Value.LengthDelimited(ByteArr(Util.stringToUtf8(value))))
+data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
 
-    internal fun size() =
-        if (value is Value.Composite) (Sizer.tagSize(fieldNum) * value.values.size) + value.size()
-        else Sizer.tagSize(fieldNum) + value.size()
+    internal val size get() = (Sizer.tagSize(fieldNum) * values.size) + values.sumBy { it.size }
 
-    sealed class Value {
-        internal abstract fun size(): Int
+    data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {
+        @PublicForGeneratedCode
+        constructor(wireType: Int, rawBytes: ByteArray) : this(wireType, ByteArr(rawBytes))
 
-        data class Varint(val varint: Long) : Value() {
-            override fun size() = Sizer.uInt64Size(varint)
-        }
-        data class Fixed64(val fixed64: Long) : Value() {
-            override fun size() = Sizer.fixed64Size(fixed64)
-        }
-        data class LengthDelimited(val bytes: ByteArr) : Value() {
-            override fun size() = Sizer.bytesSize(bytes)
-        }
-        object StartGroup : Value() {
-            override fun size() = TODO()
-        }
-        object EndGroup : Value() {
-            override fun size() = TODO()
-        }
-        data class Fixed32(val fixed32: Int) : Value() {
-            override fun size() = Sizer.fixed32Size(fixed32)
-        }
-        data class Composite(val values: List<Value>) : Value() {
-            override fun size() = values.sumBy { it.size() }
-        }
+        internal val size get() = rawBytes.array.size
     }
 }
 
 @Suppress("UNCHECKED_CAST")
-internal fun <M : Message, T> pbandk.UnknownField.Value.parseUnknownField  (
-    fieldDescriptor: FieldDescriptor<M, T>
-): T {
-    return when (fieldDescriptor.type) {
-        is FieldDescriptor.Type.Enum<*> -> parseUnknownFieldForTypeEnum(fieldDescriptor.type, this) as T
-        is FieldDescriptor.Type.Map<*,*> -> parseUnknownFieldForTypeMap(fieldDescriptor.type, this) as T
-        is FieldDescriptor.Type.Message<*> -> parseUnknownFieldForTypeMessage(fieldDescriptor.type, this) as T
-        is FieldDescriptor.Type.Primitive<*> -> parseUnknownFieldForPrimitiveOrComposite(fieldDescriptor.type, this) as T
-        is FieldDescriptor.Type.Repeated<*> -> parseUnknownFieldForTypeRepeated(fieldDescriptor.type, this) as T
+internal fun <M : Message, T> UnknownField.decodeAs(fieldDescriptor: FieldDescriptor<M, T>): T =
+    when (fieldDescriptor.type) {
+        is FieldDescriptor.Type.Enum<*> -> decodeAsEnum(fieldDescriptor.type) as T
+        is FieldDescriptor.Type.Map<*, *> -> decodeAsMap(fieldDescriptor.type) as T
+        is FieldDescriptor.Type.Message<*> -> decodeAsMessage(fieldDescriptor.type) as T
+        is FieldDescriptor.Type.Primitive<*> -> decodeAsPrimitive(fieldDescriptor.type)
+        is FieldDescriptor.Type.Repeated<*> -> decodeAsRepeated(fieldDescriptor.type) as T
     }
+
+private fun <T> UnknownField.Value.decodeAs(type: FieldDescriptor.Type): T {
+    if (!type.allowedWireType(WireType(wireType))) {
+        throw InvalidProtocolBufferException("Unknown field with wire type $wireType can't be decoded as a '$type' field")
+    }
+    val decoder = KotlinBinaryWireDecoder(ByteArrayWireReader(rawBytes.array))
+
+    @Suppress("UNCHECKED_CAST")
+    return type.binaryReadFn(decoder) as T
 }
 
-private fun <T> parseUnknownFieldForPrimitiveOrComposite(type: FieldDescriptor.Type.Primitive<*>, unknownField: UnknownField.Value): T {
-    return if (unknownField is UnknownField.Value.Composite) {
-        // Protobuf states it will only used the last value for multiple primitive types.
-        parseUnknownFieldForPrimitive(type, unknownField.values.last())
-    } else {
-        parseUnknownFieldForPrimitive(type, unknownField)
-    }
-}
-
-// TODO Exception handling....
-@Suppress("UNCHECKED_CAST")
-private fun <T> parseUnknownFieldForPrimitive(type: FieldDescriptor.Type.Primitive<*>, unknownField: UnknownField.Value) : T {
-    return when (type) {
-        is FieldDescriptor.Type.Primitive.Bool -> ((unknownField as UnknownField.Value.Varint).varint  == 0L ) as T
-        is FieldDescriptor.Type.Primitive.String -> Util.utf8ToString((unknownField as UnknownField.Value.LengthDelimited).bytes.array) as T
-        is FieldDescriptor.Type.Primitive.Bytes -> ByteArr((unknownField as UnknownField.Value.LengthDelimited).bytes.array) as T
-        is FieldDescriptor.Type.Primitive.Double -> Double.fromBits((unknownField as UnknownField.Value.Fixed64).fixed64) as T
-        is FieldDescriptor.Type.Primitive.Float -> Float.fromBits((unknownField as UnknownField.Value.Fixed32).fixed32) as T
-        is FieldDescriptor.Type.Primitive.Fixed32 -> (unknownField as UnknownField.Value.Fixed32).fixed32 as T
-        is FieldDescriptor.Type.Primitive.SFixed32 -> (unknownField as UnknownField.Value.Fixed32).fixed32 as T
-        is FieldDescriptor.Type.Primitive.Fixed64 -> (unknownField as UnknownField.Value.Fixed64).fixed64 as T
-        is FieldDescriptor.Type.Primitive.SFixed64 -> (unknownField as UnknownField.Value.Fixed64).fixed64 as T
-        is FieldDescriptor.Type.Primitive.Int32 -> (unknownField as UnknownField.Value.Varint).varint.toInt() as T
-        is FieldDescriptor.Type.Primitive.SInt32 -> (unknownField as UnknownField.Value.Varint).varint.toInt() as T //TODO
-        is FieldDescriptor.Type.Primitive.Int64 -> (unknownField as UnknownField.Value.Varint).varint as T
-        is FieldDescriptor.Type.Primitive.SInt64 -> (unknownField as UnknownField.Value.Varint).varint as T //TODO
-        is FieldDescriptor.Type.Primitive.UInt32 -> (unknownField as UnknownField.Value.Varint).varint.toInt() as T
-        is FieldDescriptor.Type.Primitive.UInt64 -> (unknownField as UnknownField.Value.Varint).varint as T
-    }
-}
-
-@Suppress("UNCHECKED_CAST")
-private fun <T : Message> parseUnknownFieldForTypeMessage(
-    type: FieldDescriptor.Type.Message<T>,
-    unknownField: UnknownField.Value
-): T {
-    return when (unknownField) {
-        is UnknownField.Value.Composite -> {
-            unknownField.values
-                .map { value ->
-                    type.messageCompanion.decodeFromByteArray((value as UnknownField.Value.LengthDelimited).bytes.array)
-                }
-                .reduce { acc, it -> acc.plus(it) as T }
-
+private fun <T : Any> UnknownField.decodeAsRepeated(type: FieldDescriptor.Type.Repeated<T>): List<T> {
+    return values.asSequence()
+        .flatMap {
+            if (!type.allowedWireType(WireType(it.wireType))) {
+                throw InvalidProtocolBufferException("Unknown field with wire type ${it.wireType} can't be decoded as a '$type' field")
+            }
+            val decoder = KotlinBinaryWireDecoder(ByteArrayWireReader(it.rawBytes.array))
+            BinaryMessageDecoder.readRepeatedField(type, WireType(it.wireType), decoder)
         }
-        is UnknownField.Value.LengthDelimited -> type.messageCompanion.decodeFromByteArray(unknownField.bytes.array)
-        else -> throw UnsupportedOperationException("unknown field is not supported: '${unknownField}'")
-    }
+        .toList()
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun <T : pbandk.Message.Enum> parseUnknownFieldForTypeEnum(
-    type: FieldDescriptor.Type.Enum<T>,
-    unknownField: UnknownField.Value
-): T {
-    return when (unknownField) {
-        is UnknownField.Value.Composite -> type.enumCompanion.fromValue((unknownField.values.last() as UnknownField.Value.Varint).varint.toInt())
-        is UnknownField.Value.LengthDelimited -> type.enumCompanion.fromValue((unknownField as UnknownField.Value.Varint).varint.toInt())
-        else -> throw UnsupportedOperationException("unknown field is not supported: '${unknownField}'")
-    }
+private fun <T> UnknownField.decodeAsPrimitive(type: FieldDescriptor.Type.Primitive<*>): T {
+    // Protobuf states it will only use the last value for multiple primitive types.
+    return values.last().decodeAs(type)
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun <K,V> parseUnknownFieldForTypeMap(
-    type: FieldDescriptor.Type.Map<K, V>,
-    unknownField: UnknownField.Value
-): MessageMap.Entry<K, V> {
-    return when (unknownField) {
-        is UnknownField.Value.Composite -> type.entryCompanion.decodeFromByteArray((unknownField.values.last() as UnknownField.Value.LengthDelimited).bytes.array)
-        is UnknownField.Value.LengthDelimited -> type.entryCompanion.decodeFromByteArray(unknownField.bytes.array)
-        else -> throw UnsupportedOperationException("unknown field is not supported: '${unknownField}'")
-    }
+private fun <T : Message> UnknownField.decodeAsMessage(type: FieldDescriptor.Type.Message<T>): T {
+    return values.asSequence()
+        .map { it.decodeAs<T>(type) }
+        .reduce { acc, t ->
+            @Suppress("UNCHECKED_CAST")
+            acc.plus(t) as T
+        }
 }
 
+private fun <T : Message.Enum> UnknownField.decodeAsEnum(type: FieldDescriptor.Type.Enum<T>): T {
+    // Protobuf states it will only use the last value for multiple primitive types.
+    return values.last().decodeAs(type)
+}
 
-@Suppress("UNCHECKED_CAST")
-private fun <T : Any> parseUnknownFieldForTypeRepeated(
-    type: FieldDescriptor.Type.Repeated<T>,
-    unknownField: UnknownField.Value
-): Sequence<T> {
-    //TODO help
-    return sequence {  }
+private fun <K, V> UnknownField.decodeAsMap(type: FieldDescriptor.Type.Map<K, V>): Map<K, V> {
+    val builder = MessageMap.Builder<K, V>()
+    val messageType = FieldDescriptor.Type.Message(type.entryCompanion)
+    values.mapTo(builder.entries) { it.decodeAs(messageType) }
+    return builder.fixed()
 }

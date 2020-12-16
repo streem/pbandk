@@ -35,9 +35,7 @@ open class CodeGenerator(
             is File.Field.Numbered -> {
                 line(
                     "val ${file.kotlinTypeMappings()[field.extendee!!]}.${field.kotlinFieldName}: ${
-                        field.kotlinValueType(
-                            true
-                        )
+                        field.kotlinValueType(true)
                     }? get() ="
                 ).indented {
                     line("getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
@@ -255,39 +253,25 @@ open class CodeGenerator(
 
     private fun generateUnknownFields(unknownFields: Map<Int, UnknownField>) {
         line("unknownFields = mapOf(").indented {
-            unknownFields.entries.forEach { (fieldNum, value) ->
-                line("${fieldNum} to pbandk.UnknownField(").indented {
-                    line("fieldNum = ${value.fieldNum},")
-                    generateUnknownFieldValue(value.value)
-                }.line(")")
+            val lastFieldIndex = unknownFields.size - 1
+            unknownFields.values.forEachIndexed { fieldIndex, field ->
+                line("${field.fieldNum} to pbandk.UnknownField(").indented {
+                    line("fieldNum = ${field.fieldNum},")
+                    val lastValueIndex = field.values.size - 1
+                    line("values = listOf(").indented {
+                        field.values.forEachIndexed { valueIndex, value ->
+                            lineBegin("pbandk.UnknownField.Value(")
+                            lineMid("wireType = ${value.wireType}, ")
+                            lineMid("rawBytes = byteArrayOf(${value.rawBytes.array.joinToString()})")
+                            lineMid(")")
+                            if (valueIndex != lastValueIndex) lineEnd(",") else lineEnd()
+                        }
+                    }.line(")")
+                }.lineBegin(")")
+                if (fieldIndex != lastFieldIndex) lineEnd(",") else lineEnd()
             }
         }.lineBegin(")")
     }
-
-    private fun generateUnknownFieldValue(value: UnknownField.Value) =
-        when (value) {
-            is UnknownField.Value.LengthDelimited -> line("value = pbandk.UnknownField.Value.LengthDelimited(").indented {
-                line("bytes=pbandk.ByteArr(byteArrayOf(${value.bytes.array.joinToString()}))")
-            }.line(")")
-            is UnknownField.Value.Composite -> line("value = pbandk.UnknownField.Value.Composite(").indented {
-                line("values=listOf(").indented {
-                    getValues(value)
-                }.line(")")
-            }.line(")")
-            else -> throw UnsupportedOperationException("Unsupported unknown field type: '${value}'")
-        }
-
-    private fun getValues(value: UnknownField.Value) =
-        (value as UnknownField.Value.Composite).values.forEachIndexed { index, compositeValue ->
-            line("pbandk.UnknownField.Value.LengthDelimited(").indented {
-                line("bytes=pbandk.ByteArr(byteArrayOf(${(compositeValue as UnknownField.Value.LengthDelimited).bytes.array.joinToString()}))")
-            }
-            if (value.values.lastIndex != index) {
-                line("),")
-            } else {
-                line(")")
-            }
-        }
 
     fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
         val fullTypeName = if (parentType == null) type.kotlinTypeName else "$parentType.${type.kotlinTypeName}"
