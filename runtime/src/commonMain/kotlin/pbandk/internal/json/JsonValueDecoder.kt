@@ -98,7 +98,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
 
         body(contentWithoutTrailingZero)
     } catch (e: Exception) {
-        throw InvalidProtocolBufferException("field did not contain a number in JSON ${e.message}", e)
+        throw InvalidProtocolBufferException("field did not contain a number in JSON", e)
     }
 
     fun readInteger32(value: JsonElement, isMapKey: Boolean = false): Int =
