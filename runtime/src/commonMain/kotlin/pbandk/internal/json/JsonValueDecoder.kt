@@ -146,7 +146,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
                 floatValue
             }
             (value as JsonLiteral).isString -> {
-                value.float
+                floatValue
             }
             else -> {
                 throw IllegalArgumentException("non finite values must be quoted")
@@ -163,7 +163,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
                 doubleValue
             }
             (value as JsonLiteral).isString -> {
-                value.double
+                doubleValue
             }
             else -> {
                 throw IllegalArgumentException("non finite values must be quoted")

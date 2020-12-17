@@ -130,4 +130,32 @@ class FloatTest {
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedFloat, testAllTypesProto3.optionalFloat)
     }
+
+    @Test
+    fun testFloatField_DecodeAboveMaximum() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":3.502823e+38}""")
+        }
+    }
+
+    @Test
+    fun testFloatField_DecodeBelowMinimum() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":-3.502823e+38}""")
+        }
+    }
+
+    @Test
+    fun testDoubleField_DecodeAboveMaximum() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalDouble":1.89769e+308}""")
+        }
+    }
+
+    @Test
+    fun testDoubleField_DecodeBelowMinimum() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalDouble":-1.89769e+308}""")
+        }
+    }
 }
