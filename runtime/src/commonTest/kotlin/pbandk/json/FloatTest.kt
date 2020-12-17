@@ -113,7 +113,7 @@ class FloatTest {
     }
 
     @Test
-    fun testFloatField_EncodeExponentialNotation() {
+    fun testFloatField_EncodeExponentNotation() {
         val input = TestAllTypesProto3(optionalFloat = 2e-12F)
 
         val expected = json { "optionalFloat" to 2e-12F }.toString()
@@ -123,7 +123,7 @@ class FloatTest {
     }
 
     @Test
-    fun testFloatField_DecodeExponentialNotation() {
+    fun testFloatField_DecodeExponentNotation() {
         val json = json { "optionalFloat" to "2e-12" }.toString()
         val expectedFloat = 2e-12F
 

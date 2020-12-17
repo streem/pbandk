@@ -11,7 +11,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFails
 import kotlin.test.assertFailsWith
 
-class IntegerTest {
+class IntTest {
 
     private val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
 
@@ -43,7 +43,7 @@ class IntegerTest {
     }
 
     @Test
-    fun testInt32Field_DecodeScientificNotation_PassesOnValidNumber() {
+    fun testInt32Field_DecodeExponentNotation_PassesOnValidNumber() {
         val json = json { "optionalInt32" to "1e0" }.toString()
         val expectedInt = 1
 
@@ -52,7 +52,7 @@ class IntegerTest {
     }
 
     @Test
-    fun testInt32Field_DecodeScientificNotation_PassesOnValidNumberCapitalized() {
+    fun testInt32Field_DecodeExponentNotation_PassesOnValidNumberCapitalized() {
         val json = json { "optionalInt32" to "1E2" }.toString()
         val expectedInt = 100
 
@@ -61,7 +61,7 @@ class IntegerTest {
     }
 
     @Test
-    fun testInt32Field_DecodeScientificNotation_PassesOnValidFloat() {
+    fun testInt32Field_DecodeExponentNotation_PassesOnValidFloat() {
         val json = json { "optionalInt32" to "-1.2e1" }.toString()
         val expectedInt = -12
 
@@ -70,7 +70,7 @@ class IntegerTest {
     }
 
     @Test
-    fun testInt32Field_DecodeScientificNotation_FailsOnInvalidNumber() {
+    fun testInt32Field_DecodeExponentNotation_FailsOnInvalidNumber() {
         val json = json { "optionalInt32" to "1e2e2" }.toString()
 
         assertFailsWith<InvalidProtocolBufferException> {
