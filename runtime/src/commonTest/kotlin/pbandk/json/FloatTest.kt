@@ -2,12 +2,14 @@ package pbandk.json
 
 import kotlinx.serialization.json.json
 import kotlinx.serialization.json.jsonArray
+import pbandk.InvalidProtocolBufferException
 import pbandk.testpb.TestAllTypesProto3
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
+import kotlin.test.assertFailsWith
 
 class FloatTest {
 
@@ -52,6 +54,13 @@ class FloatTest {
     }
 
     @Test
+    fun testFloatField_DecodeNaNUnquoted() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":NaN}""")
+        }
+    }
+
+    @Test
     fun testFloatField_EncodePositiveInfinity() {
         val input = TestAllTypesProto3(optionalFloat = Float.POSITIVE_INFINITY)
 
@@ -71,6 +80,13 @@ class FloatTest {
     }
 
     @Test
+    fun testFloatField_DecodePositiveInfinityUnquoted() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":Infinity}""")
+        }
+    }
+
+    @Test
     fun testFloatField_EncodeNegativeInfinity() {
         val input = TestAllTypesProto3(optionalFloat = Float.NEGATIVE_INFINITY)
 
@@ -87,6 +103,13 @@ class FloatTest {
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedFloat, testAllTypesProto3.optionalFloat)
+    }
+
+    @Test
+    fun testFloatField_DecodeNegativeInfinityUnquoted() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":-Infinity}""")
+        }
     }
 
     @Test

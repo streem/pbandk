@@ -140,15 +140,35 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     }
 
     fun readFloat(value: JsonElement): Float = try {
-        // TODO handle Inf and NaN
-        value.float
+        val floatValue = value.float
+        when {
+            floatValue.isFinite() -> {
+                floatValue
+            }
+            (value as JsonLiteral).isString -> {
+                value.float
+            }
+            else -> {
+                throw IllegalArgumentException("non finite values must be quoted")
+            }
+        }
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("float field did not contain a float value in JSON", e)
     }
 
     fun readDouble(value: JsonElement): Double = try {
-        // TODO handle Inf and NaN
-        value.double
+        val doubleValue = value.double
+        when {
+            doubleValue.isFinite() -> {
+                doubleValue
+            }
+            (value as JsonLiteral).isString -> {
+                value.double
+            }
+            else -> {
+                throw IllegalArgumentException("non finite values must be quoted")
+            }
+        }
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("double field did not contain a double value in JSON", e)
     }
