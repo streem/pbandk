@@ -64,6 +64,9 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         // The protobuf conformance test suite is pretty strict about requiring parsers to reject parsable numeric
         // values that don't conform to the spec.
         when (content.getOrNull(0)) {
+            ' ' -> throw NumberFormatException(
+                "Integers must not have preceding space"
+            )
             '+' -> throw NumberFormatException(
                 "Positive integers must not include the '+' sign"
             )
@@ -74,9 +77,28 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
                 "Integers with leading zeros are not allowed"
             )
         }
-        body(content)
+
+        if (content.last() == ' ') {
+            throw NumberFormatException(
+                "Integers must not have trailing space"
+            )
+        }
+
+        val numberTrailingZeroes = "\\.0+$".toRegex()
+        val numberScientificNotation = "-?(?:\\d+)(\\.\\d+)?[eE](\\d+)$".toRegex()
+
+        var contentWithoutTrailingZero = content.replace(numberTrailingZeroes, "")
+        numberScientificNotation.find(contentWithoutTrailingZero)?.let {
+            val mantissaDigits = it.groupValues[1].length - 1
+            val decade = it.groupValues[2].toInt()
+            if (decade >= mantissaDigits) {
+                contentWithoutTrailingZero = contentWithoutTrailingZero.toDouble().toLong().toString()
+            }
+        }
+
+        body(contentWithoutTrailingZero)
     } catch (e: Exception) {
-        throw InvalidProtocolBufferException("field did not contain a number in JSON", e)
+        throw InvalidProtocolBufferException("field did not contain a number in JSON ${e.message}", e)
     }
 
     fun readInteger32(value: JsonElement, isMapKey: Boolean = false): Int =
