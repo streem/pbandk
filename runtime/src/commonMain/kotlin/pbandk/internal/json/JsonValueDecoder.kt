@@ -88,8 +88,8 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
             )
         }
 
-        val numberTrailingZeroes = "\\.0+$".toRegex()
-        val numberScientificNotation = "-?(?:\\d+)(\\.\\d+)?[eE](\\d+)$".toRegex()
+        val numberTrailingZeroes = """\.0+$""".toRegex()
+        val numberScientificNotation = """-?(?:\d+)(\.\d+)?[eE](\d+)$""".toRegex()
 
         var contentWithoutTrailingZero = content.replace(numberTrailingZeroes, "")
         numberScientificNotation.find(contentWithoutTrailingZero)?.let {
