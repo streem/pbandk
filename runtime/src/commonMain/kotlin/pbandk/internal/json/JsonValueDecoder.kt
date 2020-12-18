@@ -9,6 +9,10 @@ import kotlin.Any
 
 @OptIn(ExperimentalUnsignedTypes::class)
 internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
+
+    val FLOAT_MIN = -3.4028235E38F
+    val FLOAT_MAX = 3.4028235E38F
+
     /**
      * Returns `null` if the value was parseable but is invalid. This currently only happens for enum fields with
      * unknown values.
@@ -143,6 +147,10 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         val floatValue = value.float
         when {
             floatValue.isFinite() -> {
+                if (floatValue < FLOAT_MIN || floatValue > FLOAT_MAX) {
+                    throw NumberFormatException("value out of bounds")
+                }
+
                 floatValue
             }
             (value as JsonLiteral).isString -> {
