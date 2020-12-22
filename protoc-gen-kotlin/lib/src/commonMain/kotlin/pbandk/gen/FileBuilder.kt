@@ -5,6 +5,7 @@ import pbandk.internal.Util
 import pbandk.wkt.DescriptorProto
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.FieldDescriptorProto
+import pbandk.wkt.FieldOptions
 import pbandk.wkt.FileDescriptorProto
 
 open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
@@ -13,7 +14,8 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() },
         kotlinPackageName = packageName(ctx),
         version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
-        types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType, mutableSetOf())
+        types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType, mutableSetOf()),
+        extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
     )
 
     @OptIn(PbandkInternal::class)
@@ -68,7 +70,8 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
             mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
             kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
                 usedTypeNames += it
-            }
+            },
+            extensionRange = msgDesc.extensionRange
         )
     }
 
@@ -142,7 +145,9 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                 },
                 repeated = fieldDesc.label == FieldDescriptorProto.Label.REPEATED,
                 jsonName = fieldDesc.jsonName,
-                wrappedType = wrappedType
+                wrappedType = wrappedType,
+                options = fieldDesc.options ?: FieldOptions.defaultInstance,
+                extendee = fieldDesc.extendee
             )
         } else {
             File.Field.Numbered.Standard(
@@ -163,7 +168,9 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
                 },
                 kotlinLocalTypeName = fieldDesc.typeName?.takeUnless { it.startsWith('.') }?.let {
                     namer.newTypeName(it, emptySet())
-                }
+                },
+                options = fieldDesc.options ?: FieldOptions.defaultInstance,
+                extendee = fieldDesc.extendee
             )
         }
     }

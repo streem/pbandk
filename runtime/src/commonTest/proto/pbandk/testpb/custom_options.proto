@@ -1,0 +1,17 @@
+syntax = "proto3";
+package pbandk.testpb;
+
+import "google/protobuf/timestamp.proto";
+import "pbandk/testpb/validate.proto";
+
+message SingleRequiredCustomOption {
+    string single = 1 [(testpb.rules).message.required = true];
+}
+
+message MultipleCustomOptions {
+    string multiple = 1 [(testpb.rules).message.required = true, (testpb.rules).string.min_len = 10];
+}
+
+message MultipleCustomOptionsPlusDeprecated {
+    string multiple_deprecated = 1 [(testpb.rules).string.max_len = 32, deprecated = true, (testpb.rules).string.min_len = 10];
+}

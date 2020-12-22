@@ -2,7 +2,7 @@ package pbandk
 
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR, message = "This API should only be used by generated code.")
 @Retention(AnnotationRetention.BINARY)
-@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY)
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY, AnnotationTarget.CONSTRUCTOR)
 annotation class PublicForGeneratedCode
 
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR, message = "This API should only be used internally by pbandk.")

@@ -1,11 +1,14 @@
 package pbandk.gen
 
+import pbandk.wkt.FieldOptions
+
 data class File(
     val name: String,
     val packageName: String?,
     val kotlinPackageName: String?,
     val version: Int,
-    val types: List<Type>
+    val types: List<Type>,
+    val extensions: List<Field>
 ) {
     // Map is keyed by protobuf names (qualified starting w/ a dot if packageName is non-null) with value of Kotlin FQCN
     fun kotlinTypeMappings() = mutableMapOf<String, String>().also { ret ->
@@ -23,6 +26,7 @@ data class File(
             ret += protobufTypeName to kotlinTypeName
             (t as? Type.Message)?.nestedTypes?.forEach { applyType(it, protobufTypeName, kotlinTypeName) }
         }
+
         types.forEach { applyType(it) }
     }
 
@@ -35,7 +39,8 @@ data class File(
             val fields: List<Field>,
             val nestedTypes: List<Type>,
             val mapEntry: Boolean,
-            override val kotlinTypeName: String
+            override val kotlinTypeName: String,
+            val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
         ) : Type()
 
         data class Enum(
@@ -56,6 +61,8 @@ data class File(
             abstract val type: Type
             abstract val repeated: Boolean
             abstract val jsonName: String?
+            abstract val options: FieldOptions
+            abstract val extendee: String?
 
             data class Standard(
                 override val number: Int,
@@ -71,7 +78,9 @@ data class File(
                 val map: Boolean,
                 override val kotlinFieldName: String,
                 // This can be null when localTypeName is not null which means it is fully qualified and should be looked up
-                val kotlinLocalTypeName: String?
+                val kotlinLocalTypeName: String?,
+                override val options : FieldOptions = FieldOptions.defaultInstance,
+                override val extendee: String? = null
             ) : Numbered()
 
             data class Wrapper(
@@ -80,7 +89,9 @@ data class File(
                 override val kotlinFieldName: String,
                 override val repeated: Boolean,
                 override val jsonName: String?,
-                val wrappedType: Type
+                val wrappedType: Type,
+                override val options : FieldOptions = FieldOptions.defaultInstance,
+                override val extendee: String? = null
             ) : Numbered() {
                 override val type = Type.MESSAGE
             }

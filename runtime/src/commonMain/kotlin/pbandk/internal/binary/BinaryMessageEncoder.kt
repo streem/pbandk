@@ -21,7 +21,7 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
         }
 
         for (field in message.unknownFields.values) {
-            writeUnknownFieldValue(field.fieldNum, field.value)
+            writeUnknownField(field)
         }
     }
 
@@ -100,15 +100,12 @@ internal open class BinaryMessageEncoder(private val wireEncoder: BinaryWireEnco
         }
     }
 
-    private fun writeUnknownFieldValue(fieldNum: Int, value: UnknownField.Value) {
-        when (value) {
-            is UnknownField.Value.Varint -> wireEncoder.writeUInt64(fieldNum, value.varint)
-            is UnknownField.Value.Fixed64 -> wireEncoder.writeFixed64(fieldNum, value.fixed64)
-            is UnknownField.Value.LengthDelimited -> wireEncoder.writeBytes(fieldNum, value.bytes)
-            UnknownField.Value.StartGroup -> throw UnsupportedOperationException()
-            UnknownField.Value.EndGroup -> throw UnsupportedOperationException()
-            is UnknownField.Value.Fixed32 -> wireEncoder.writeFixed32(fieldNum, value.fixed32)
-            is UnknownField.Value.Composite -> value.values.forEach { writeUnknownFieldValue(fieldNum, it) }
+    private fun writeUnknownField(field: UnknownField) {
+        field.values.forEach {
+            if (WireType(it.wireType) == WireType.START_GROUP || WireType(it.wireType) == WireType.END_GROUP) {
+                throw UnsupportedOperationException()
+            }
+            wireEncoder.writeRawBytes(field.fieldNum, WireType(it.wireType), it.rawBytes.array)
         }
     }
 

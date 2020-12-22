@@ -15,7 +15,8 @@ data class Timestamp(
         override fun decodeWith(u: pbandk.MessageDecoder) = Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Timestamp> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Timestamp, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Timestamp, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -48,9 +49,11 @@ data class Timestamp(
 
 fun Timestamp?.orDefault() = this ?: Timestamp.defaultInstance
 
-private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Timestamp {

@@ -1,14 +1,10 @@
 package pbandk.json
 
-import kotlinx.serialization.json.*
-import pbandk.ByteArr
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.json
 import pbandk.encodeToByteArray
 import pbandk.testpb.Bar
 import pbandk.testpb.TestAllTypesProto3
-import pbandk.wkt.ListValue
-import pbandk.wkt.Struct
-import pbandk.wkt.Timestamp
-import pbandk.wkt.Value
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -16,7 +12,7 @@ import kotlin.test.assertNull
 class JsonTest {
     @Test
     fun testMessageField_null() {
-        val json = "{ \"single_foo\": null }"
+        val json = "{ \"singleFoo\": null }"
         val bar = Bar.decodeFromJsonString(json)
         assertNull(bar.singleFoo)
 

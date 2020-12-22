@@ -176,6 +176,41 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
         return lastTag
     }
 
+    private fun readVarintRawBytes(): ByteArray {
+        val result = ByteArray(MAX_VARINT_SIZE)
+        for (i in 0 until MAX_VARINT_SIZE) {
+            val b = readRawByte()
+            result[i] = b
+            if (b >= 0) return result.copyOf(i + 1)
+        }
+        throw InvalidProtocolBufferException("Encountered a malformed varint.")
+    }
+
+    private fun readLengthDelimitedRawBytes(): ByteArray {
+        val lengthBytes = readRawBytes(WireType.VARINT)
+        val length = KotlinBinaryWireDecoder(ByteArrayWireReader(lengthBytes)).readRawVarint32()
+        val data = readRawBytes(length)
+        return lengthBytes.plus(data)
+    }
+
+    private fun readGroupRawBytes(): ByteArray {
+        // TODO: properly read in the bytes instead of just skipping them
+        skipMessage()
+        if (lastTag.wireType != WireType.END_GROUP) {
+            throw InvalidProtocolBufferException("Encountered a malformed START_GROUP tag with no matching END_GROUP tag")
+        }
+        return byteArrayOf()
+    }
+
+    override fun readRawBytes(type: WireType): ByteArray = when (type) {
+        WireType.VARINT -> readVarintRawBytes()
+        WireType.FIXED64 -> readRawBytes(8)
+        WireType.LENGTH_DELIMITED -> readLengthDelimitedRawBytes()
+        WireType.START_GROUP -> readGroupRawBytes()
+        WireType.FIXED32 -> readRawBytes(4)
+        else -> throw InvalidProtocolBufferException("Unrecognized wire type: $type")
+    }
+
     override fun readDouble(): Double = Double.fromBits(readRawLittleEndian64())
 
     override fun readFloat(): Float = Float.fromBits(readRawLittleEndian32())
@@ -226,19 +261,4 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
             popLimit(oldLimit)
         }
     }
-
-    override fun readUnknownField(fieldNum: Int, wireType: WireType): UnknownField.Value? {
-        // TODO: support a `discardUnknownFields` option in the BinaryMessageDecoder
-        //val unknownFields = currentUnknownFields ?: return run { stream.skipField(tag) }
-        return when (wireType) {
-            WireType.VARINT -> UnknownField.Value.Varint(readInt64())
-            WireType.FIXED64 -> UnknownField.Value.Fixed64(readFixed64())
-            WireType.LENGTH_DELIMITED -> UnknownField.Value.LengthDelimited(readBytes())
-            WireType.START_GROUP -> UnknownField.Value.StartGroup
-            WireType.END_GROUP -> UnknownField.Value.EndGroup
-            WireType.FIXED32 -> UnknownField.Value.Fixed32(readFixed32())
-            else -> throw InvalidProtocolBufferException("Unrecognized wire type: $wireType")
-        }
-    }
-
 }

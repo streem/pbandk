@@ -15,7 +15,8 @@ data class Any(
         override fun decodeWith(u: pbandk.MessageDecoder) = Any.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Any> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Any, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Any, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -48,9 +49,11 @@ data class Any(
 
 fun Any?.orDefault() = this ?: Any.defaultInstance
 
-private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {

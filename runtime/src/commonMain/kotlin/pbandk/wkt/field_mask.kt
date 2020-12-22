@@ -14,7 +14,8 @@ data class FieldMask(
         override fun decodeWith(u: pbandk.MessageDecoder) = FieldMask.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<FieldMask> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldMask, *>>(1).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldMask, *>>(1)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -37,10 +38,12 @@ data class FieldMask(
 
 fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
 
-private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.copy(
-    paths = paths + plus.paths,
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.let {
+    it.copy(
+        paths = paths + plus.paths,
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldMask {

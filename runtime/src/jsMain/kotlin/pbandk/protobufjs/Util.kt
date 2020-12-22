@@ -11,7 +11,13 @@ internal val Long.protobufjsLong: dynamic
         return ret
     }
 
-internal fun Long.Companion.fromProtobufjsLong(l: dynamic) = js("Kotlin").Long.fromBits(l.low, l.high) as Long
+internal fun Long.Companion.fromProtobufjsLong(l: dynamic): Long {
+    return if (l.low == null || l.high == null) {
+        (l as Int).toLong()
+    } else {
+        js("Kotlin").Long.fromBits(l.low, l.high) as Long
+    }
+}
 
 object Util : AbstractUtil() {
     fun stringToUtf8(str: String): ByteArray = ByteArray(util.utf8.length(str)).also {

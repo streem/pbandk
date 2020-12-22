@@ -98,6 +98,11 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
         writeUInt32NoTag(Tag(fieldNum, wireType).value)
     }
 
+    override fun writeRawBytes(fieldNum: Int, wireType: WireType, value: ByteArray) {
+        writeTag(fieldNum, wireType)
+        wireWriter.write(value, 0, value.size)
+    }
+
     override fun writeLengthDelimitedHeader(fieldNum: Int, protoSize: Int) {
         writeTag(fieldNum, WireType.LENGTH_DELIMITED)
         writeUInt32NoTag(protoSize)

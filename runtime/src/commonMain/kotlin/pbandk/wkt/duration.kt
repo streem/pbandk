@@ -15,7 +15,8 @@ data class Duration(
         override fun decodeWith(u: pbandk.MessageDecoder) = Duration.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<Duration> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Duration, *>>(2).apply {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<Duration, *>>(2)
+            fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -48,9 +49,11 @@ data class Duration(
 
 fun Duration?.orDefault() = this ?: Duration.defaultInstance
 
-private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.copy(
-    unknownFields = unknownFields + plus.unknownFields
-) ?: this
+private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.let {
+    it.copy(
+        unknownFields = unknownFields + plus.unknownFields
+    )
+} ?: this
 
 @Suppress("UNCHECKED_CAST")
 private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duration {
