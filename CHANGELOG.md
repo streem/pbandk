@@ -4,9 +4,37 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [0.10.0] - Unreleased
+
+[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.0...HEAD
+
+### Added
+
+* Support for protobuf [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions) on fields. Remaining work is tracked in [#65]. (PR [#103])
+    * Protobuf messages that declare an extension range now extend from `ExtendableMessage` rather than `Message`. `ExtendableMessage` defines a `getExtension(FieldDescriptor)` method that can be used to read an extension field (described by the provided `FieldDescriptor`) from a message.
+    * Protobuf extension fields are defined as Kotlin extension properties on the extended class and can be accessed like any other Kotlin property.
+* `MessageDescriptor` (available via `Message.descriptor` or `Message.Companion.descriptor`) is now part of the public API. Initially only `MessageDescriptor.fields` is public, which provides access to descriptors for all of the message's fields. Additional properties of the message descriptor will be exposed in future versions. Please file an issue on GitHub if there are specific properties you would like to have access to. (PR [#103])
+* `FieldDescriptor` (available via `MessageDescriptor.fields`) is now part of the public API. Initially, the field's `name` and `options` are public, allowing access to custom options defined on the field in the `.proto` file. The field's `value` accessor is also public, though this API will probably change before the final 0.10.0 release. (PR [#103])
+
+### Changed
+
+* **[BREAKING CHANGE]** The API and implementation of `UnknownField` changed significantly. If you access the contents of unknown fields in your code, you will need to update to the new API. The unknown field no longer provides access to a decoded version of the field's wire type. Instead it only provides access to the raw binary encoding of the field. (PR [#103])
+
+### Fixed
+
+* Added workaround for an error in the Kotlin/JS implementation of `protoMergeImpl()` caused by a Kotlin compiler bug (PR [#103])
+* Improved the code generated for messages with a large number of fields to handle even more fields (PR [#103])
+* Binary decoding of 64-bit numbers under Kotlin/JS with certain inputs that would previously cause a crash. (PR [#103])
+
+[#65]: https://github.com/streem/pbandk/issues/65
+[#103]: https://github.com/streem/pbandk/pull/103
+
+
 ## [0.9.1] - Unreleased
 
 [0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...HEAD
+
 
 ## [0.9.0] - 2020-12-23
 
@@ -82,6 +110,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#99]: https://github.com/streem/pbandk/pull/99
 [#100]: https://github.com/streem/pbandk/pull/100
 [#101]: https://github.com/streem/pbandk/pull/101
+
 
 ## [0.8.1] - 2020-05-22
 
