@@ -6,6 +6,8 @@
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
+*NOTE*: This is the documentation for the version of pbandk currently in development. Documentation for the latest stable version is available at https://github.com/streem/pbandk/blob/v0.9.0/README.md.
+
 **Features**
 
 * Clean data class generation
@@ -574,16 +576,31 @@ Note that by default, the `test-conformance.sh` script will run the conformance 
 
 ## Releasing
 
-Releases are handled automatically via CI. To create a new release:
+Releases are handled automatically via CI once the git tag is created.
 
+Setup a couple shell variables to simplify the rest of the commands below:
+
+```sh
+export VERSION="0.9.0"
+export NEXT_VERSION="0.9.1"
+```
+
+To create a new release:
+1. Update `CHANGELOG.md`: add a date for the release version, and update the release version's GitHub compare link with a tag instead of `HEAD`.
+    * Note: if you are releasing a pre-release version (alpha, beta, rc) then you don't need to update `CHANGELOG.md`
 1. Update the pbandk version number in `gradle.properties`, `README.md`, and `examples/*/build.gradle.kts` to remove the `SNAPSHOT` suffix. For example, if the current version is `0.9.0-SNAPSHOT`, then update it to be `0.9.0`.
-1. Commit the change. E.g.: `git commit -m "Bump to 0.9.0" -a`.
-1. Tag the new version. E.g.: `git tag -a v0.9.0`. Include the release notes for this version in the tag's description. See one of the previous tags for examples.
-1. Increment the pbandk version number in the files from step 1 to the next minor release and add the `SNAPSHOT` suffix. For example, if the tag was created for version `0.9.0`, then the new version should be `0.9.1-SNAPSHOT`.
-1. Commit the change. E.g.: `git commit -m "Bump to 0.9.1-SNAPSHOT" -a`.
+1. Commit the change. E.g.: `git commit -m "Bump to ${VERSION}" -a`.
+1. Tag the new version. E.g.: `git tag -a -m "See https://github.com/streem/pbandk/blob/v${VERSION}/CHANGELOG.md" "v${VERSION}"`.
 1. Push the changes to GitHub: `git push origin --follow-tags master`.
 1. Wait for CI to notice the new tag, build it, and upload it to Bintray.
-1. Create a new release on GitHub. Use the contents of the tag description as the release description. E.g.: `hub release create -F <(git tag -l --format='%(contents)' v0.9.0) v0.9.0`.
+1. Create a new release on GitHub. Use the contents of the tag description as the release description. E.g.: `gh release create "v${VERSION}" -F <(git tag -l --format='%(contents)' "v${VERSION}")`.
+
+Then prepare the repository for development of the next version:
+1. Update `CHANGELOG.md`: add a section for `NEXT_VERSION` that will follow the released version (e.g. if releasing `0.9.0` then add a section for `0.9.1`).
+    * Note: if you are releasing a pre-release version (alpha, beta, rc) then you don't need to update `CHANGELOG.md`
+1. Update the pbandk version number in `gradle.properties`, `README.md`, and `examples/*/build.gradle.kts` to `${NEXT_VERSION}-SNAPSHOT`. For example, `0.9.1-SNAPSHOT`.
+1. Commit the change. E.g.: `git commit -m "Bump to ${NEXT_VERSION}-SNAPSHOT" -a`.
+1. Push the changes to GitHub: `git push origin master`.
 
 ## Credits
 
