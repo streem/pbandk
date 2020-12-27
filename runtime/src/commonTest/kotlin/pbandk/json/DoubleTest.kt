@@ -2,12 +2,14 @@ package pbandk.json
 
 import kotlinx.serialization.json.json
 import kotlinx.serialization.json.jsonArray
+import pbandk.InvalidProtocolBufferException
 import pbandk.testpb.TestAllTypesProto3
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
+import kotlin.test.assertFailsWith
 
 class DoubleTest {
 
@@ -106,5 +108,19 @@ class DoubleTest {
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedDouble, testAllTypesProto3.optionalDouble)
+    }
+
+    @Test
+    fun testDoubleField_DecodeAboveMaximum() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalDouble":1.89769e+308}""")
+        }
+    }
+
+    @Test
+    fun testDoubleField_DecodeBelowMinimum() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalDouble":-1.89769e+308}""")
+        }
     }
 }

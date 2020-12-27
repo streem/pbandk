@@ -1,19 +1,13 @@
 package pbandk.json
 
 import kotlinx.serialization.json.json
-import kotlinx.serialization.json.jsonArray
 import pbandk.InvalidProtocolBufferException
 import pbandk.testpb.TestAllTypesProto3
-import pbandk.wkt.Duration
-import pbandk.wkt.Timestamp
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFails
 import kotlin.test.assertFailsWith
 
 class IntTest {
-
-    private val jsonConfig = JsonConfig.DEFAULT.copy(compactOutput = true)
 
     @Test
     fun testInt32Field_DecodeTrailingZero_PassesOnValidNumber() {
@@ -70,8 +64,44 @@ class IntTest {
     }
 
     @Test
+    fun testInt32Field_DecodeExponentNotation_PassesOnValidFloatTrailingZero() {
+        val json = json { "optionalInt32" to "-1.200e1" }.toString()
+        val expectedInt = -12
+
+        val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
+        assertEquals(expectedInt, testAllTypesProto3.optionalInt32)
+    }
+
+    @Test
     fun testInt32Field_DecodeExponentNotation_FailsOnInvalidNumber() {
         val json = json { "optionalInt32" to "1e2e2" }.toString()
+
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString(json)
+        }
+    }
+
+    @Test
+    fun testInt32Field_DecodeMinFloatValue_Success() {
+        val json = json { "optionalInt32" to "-2.147483648e9" }.toString()
+        val expectedInt = -2147483648
+
+        val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
+        assertEquals(expectedInt, testAllTypesProto3.optionalInt32)
+    }
+
+    @Test
+    fun testInt64Field_DecodeFieldTooLarge_Fails() {
+        val json = json { "optionalInt64" to "9223372036854775808" }.toString()
+
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString(json)
+        }
+    }
+
+    @Test
+    fun testUInt64Field_DecodeFieldTooLarge_Fails() {
+        val json = json { "optionalUint64" to "18446744073709551616" }.toString()
 
         assertFailsWith<InvalidProtocolBufferException> {
             TestAllTypesProto3.decodeFromJsonString(json)

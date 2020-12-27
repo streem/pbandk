@@ -144,18 +144,4 @@ class FloatTest {
             TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":-3.502823e+38}""")
         }
     }
-
-    @Test
-    fun testDoubleField_DecodeAboveMaximum() {
-        assertFailsWith<InvalidProtocolBufferException> {
-            TestAllTypesProto3.decodeFromJsonString("""{"optionalDouble":1.89769e+308}""")
-        }
-    }
-
-    @Test
-    fun testDoubleField_DecodeBelowMinimum() {
-        assertFailsWith<InvalidProtocolBufferException> {
-            TestAllTypesProto3.decodeFromJsonString("""{"optionalDouble":-1.89769e+308}""")
-        }
-    }
 }
