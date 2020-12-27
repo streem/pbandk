@@ -9,9 +9,11 @@ import kotlin.Any
 
 @OptIn(ExperimentalUnsignedTypes::class)
 internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
+    private val FLOAT_MIN = -3.4028235E38F
+    private val FLOAT_MAX = 3.4028235E38F
 
-    val FLOAT_MIN = -3.4028235E38F
-    val FLOAT_MAX = 3.4028235E38F
+    private val numberTrailingZeroes = """\.0+$""".toRegex()
+    private val numberScientificNotation = """-?(?:\d+)(\.\d+?)?0*[eE](\d+)$""".toRegex()
 
     /**
      * Returns `null` if the value was parseable but is invalid. This currently only happens for enum fields with
@@ -88,19 +90,21 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
             )
         }
 
-        val numberTrailingZeroes = """\.0+$""".toRegex()
-        val numberScientificNotation = """-?(?:\d+)(\.\d+)?[eE](\d+)$""".toRegex()
-
-        var contentWithoutTrailingZero = content.replace(numberTrailingZeroes, "")
-        numberScientificNotation.find(contentWithoutTrailingZero)?.let {
-            val mantissaDigits = it.groupValues[1].length - 1
-            val decade = it.groupValues[2].toInt()
-            if (decade >= mantissaDigits) {
-                contentWithoutTrailingZero = contentWithoutTrailingZero.toDouble().toLong().toString()
+        try {
+            body(content)
+        } catch (e: Exception) {
+            var contentWithoutTrailingZero = content.replace(numberTrailingZeroes, "")
+            numberScientificNotation.find(contentWithoutTrailingZero)?.let {
+                val mantissaFraction = it.groupValues[1].trimStart('.')
+                val mantissaDigits = mantissaFraction.length
+                val decade = it.groupValues[2].toLong()
+                if (mantissaFraction.toULong() == 0UL || decade >= mantissaDigits) {
+                    contentWithoutTrailingZero = contentWithoutTrailingZero.toDouble().toLong().toString()
+                }
             }
-        }
 
-        body(contentWithoutTrailingZero)
+            body(contentWithoutTrailingZero)
+        }
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("field did not contain a number in JSON", e)
     }
@@ -168,6 +172,10 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         val doubleValue = value.double
         when {
             doubleValue.isFinite() -> {
+                if (doubleValue < Double.MIN_VALUE || doubleValue > Double.MAX_VALUE) {
+                    throw NumberFormatException("value out of bounds")
+                }
+
                 doubleValue
             }
             (value as JsonLiteral).isString -> {

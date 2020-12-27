@@ -65,8 +65,17 @@ class IntTest {
 
     @Test
     fun testInt32Field_DecodeExponentNotation_PassesOnValidFloatTrailingZero() {
-        val json = json { "optionalInt32" to "-1.200e1" }.toString()
-        val expectedInt = -12
+        val json = json { "optionalInt32" to "-1.200e2" }.toString()
+        val expectedInt = -120
+
+        val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
+        assertEquals(expectedInt, testAllTypesProto3.optionalInt32)
+    }
+
+    @Test
+    fun testInt32Field_DecodeExponentNotation_PassesOnValidIntTrailingZero() {
+        val json = json { "optionalInt32" to "-1.000e0" }.toString()
+        val expectedInt = -1
 
         val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expectedInt, testAllTypesProto3.optionalInt32)
