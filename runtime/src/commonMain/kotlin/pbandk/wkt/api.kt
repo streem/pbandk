@@ -15,12 +15,12 @@ data class Api(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Api> {
-        val defaultInstance by lazy { Api() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Api.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
+        val defaultInstance by lazy { pbandk.wkt.Api() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Api.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Api> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Api, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Api, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -29,7 +29,7 @@ data class Api(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = Api::name
+                        value = pbandk.wkt.Api::name
                     )
                 )
                 add(
@@ -39,7 +39,7 @@ data class Api(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Method>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Method.Companion)),
                         jsonName = "methods",
-                        value = Api::methods
+                        value = pbandk.wkt.Api::methods
                     )
                 )
                 add(
@@ -49,7 +49,7 @@ data class Api(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = Api::options
+                        value = pbandk.wkt.Api::options
                     )
                 )
                 add(
@@ -59,7 +59,7 @@ data class Api(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "version",
-                        value = Api::version
+                        value = pbandk.wkt.Api::version
                     )
                 )
                 add(
@@ -69,7 +69,7 @@ data class Api(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.SourceContext.Companion),
                         jsonName = "sourceContext",
-                        value = Api::sourceContext
+                        value = pbandk.wkt.Api::sourceContext
                     )
                 )
                 add(
@@ -79,7 +79,7 @@ data class Api(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Mixin>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Mixin.Companion)),
                         jsonName = "mixins",
-                        value = Api::mixins
+                        value = pbandk.wkt.Api::mixins
                     )
                 )
                 add(
@@ -89,12 +89,12 @@ data class Api(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = Api::syntax
+                        value = pbandk.wkt.Api::syntax
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Api::class,
+                messageClass = pbandk.wkt.Api::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -115,12 +115,12 @@ data class Method(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Method> {
-        val defaultInstance by lazy { Method() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Method.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
+        val defaultInstance by lazy { pbandk.wkt.Method() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Method.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Method> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Method, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Method, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -129,7 +129,7 @@ data class Method(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = Method::name
+                        value = pbandk.wkt.Method::name
                     )
                 )
                 add(
@@ -139,7 +139,7 @@ data class Method(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "requestTypeUrl",
-                        value = Method::requestTypeUrl
+                        value = pbandk.wkt.Method::requestTypeUrl
                     )
                 )
                 add(
@@ -149,7 +149,7 @@ data class Method(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "requestStreaming",
-                        value = Method::requestStreaming
+                        value = pbandk.wkt.Method::requestStreaming
                     )
                 )
                 add(
@@ -159,7 +159,7 @@ data class Method(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "responseTypeUrl",
-                        value = Method::responseTypeUrl
+                        value = pbandk.wkt.Method::responseTypeUrl
                     )
                 )
                 add(
@@ -169,7 +169,7 @@ data class Method(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "responseStreaming",
-                        value = Method::responseStreaming
+                        value = pbandk.wkt.Method::responseStreaming
                     )
                 )
                 add(
@@ -179,7 +179,7 @@ data class Method(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Option>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Option.Companion)),
                         jsonName = "options",
-                        value = Method::options
+                        value = pbandk.wkt.Method::options
                     )
                 )
                 add(
@@ -189,12 +189,12 @@ data class Method(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.wkt.Syntax.Companion),
                         jsonName = "syntax",
-                        value = Method::syntax
+                        value = pbandk.wkt.Method::syntax
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Method::class,
+                messageClass = pbandk.wkt.Method::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -210,12 +210,12 @@ data class Mixin(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Mixin> {
-        val defaultInstance by lazy { Mixin() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Mixin.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
+        val defaultInstance by lazy { pbandk.wkt.Mixin() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Mixin.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Mixin> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Mixin, *>>(2)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Mixin, *>>(2)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -224,7 +224,7 @@ data class Mixin(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "name",
-                        value = Mixin::name
+                        value = pbandk.wkt.Mixin::name
                     )
                 )
                 add(
@@ -234,12 +234,12 @@ data class Mixin(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "root",
-                        value = Mixin::root
+                        value = pbandk.wkt.Mixin::root
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Mixin::class,
+                messageClass = pbandk.wkt.Mixin::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

@@ -9,12 +9,12 @@ data class DoubleValue(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<DoubleValue> {
-        val defaultInstance by lazy { DoubleValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = DoubleValue.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
+        val defaultInstance by lazy { pbandk.wkt.DoubleValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<DoubleValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<DoubleValue, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.DoubleValue, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -23,12 +23,12 @@ data class DoubleValue(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(),
                         jsonName = "value",
-                        value = DoubleValue::value
+                        value = pbandk.wkt.DoubleValue::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = DoubleValue::class,
+                messageClass = pbandk.wkt.DoubleValue::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -43,12 +43,12 @@ data class FloatValue(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<FloatValue> {
-        val defaultInstance by lazy { FloatValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = FloatValue.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
+        val defaultInstance by lazy { pbandk.wkt.FloatValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<FloatValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FloatValue, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FloatValue, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -57,12 +57,12 @@ data class FloatValue(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(),
                         jsonName = "value",
-                        value = FloatValue::value
+                        value = pbandk.wkt.FloatValue::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = FloatValue::class,
+                messageClass = pbandk.wkt.FloatValue::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -77,12 +77,12 @@ data class Int64Value(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Int64Value> {
-        val defaultInstance by lazy { Int64Value() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Int64Value.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
+        val defaultInstance by lazy { pbandk.wkt.Int64Value() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Int64Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int64Value, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Int64Value, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -91,12 +91,12 @@ data class Int64Value(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(),
                         jsonName = "value",
-                        value = Int64Value::value
+                        value = pbandk.wkt.Int64Value::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Int64Value::class,
+                messageClass = pbandk.wkt.Int64Value::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -111,12 +111,12 @@ data class UInt64Value(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<UInt64Value> {
-        val defaultInstance by lazy { UInt64Value() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = UInt64Value.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
+        val defaultInstance by lazy { pbandk.wkt.UInt64Value() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<UInt64Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt64Value, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UInt64Value, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -125,12 +125,12 @@ data class UInt64Value(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(),
                         jsonName = "value",
-                        value = UInt64Value::value
+                        value = pbandk.wkt.UInt64Value::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = UInt64Value::class,
+                messageClass = pbandk.wkt.UInt64Value::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -145,12 +145,12 @@ data class Int32Value(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Int32Value> {
-        val defaultInstance by lazy { Int32Value() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Int32Value.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
+        val defaultInstance by lazy { pbandk.wkt.Int32Value() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Int32Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int32Value, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Int32Value, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -159,12 +159,12 @@ data class Int32Value(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
                         jsonName = "value",
-                        value = Int32Value::value
+                        value = pbandk.wkt.Int32Value::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Int32Value::class,
+                messageClass = pbandk.wkt.Int32Value::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -179,12 +179,12 @@ data class UInt32Value(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<UInt32Value> {
-        val defaultInstance by lazy { UInt32Value() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = UInt32Value.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
+        val defaultInstance by lazy { pbandk.wkt.UInt32Value() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<UInt32Value> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt32Value, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.UInt32Value, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -193,12 +193,12 @@ data class UInt32Value(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(),
                         jsonName = "value",
-                        value = UInt32Value::value
+                        value = pbandk.wkt.UInt32Value::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = UInt32Value::class,
+                messageClass = pbandk.wkt.UInt32Value::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -213,12 +213,12 @@ data class BoolValue(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<BoolValue> {
-        val defaultInstance by lazy { BoolValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = BoolValue.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
+        val defaultInstance by lazy { pbandk.wkt.BoolValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<BoolValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<BoolValue, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.BoolValue, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -227,12 +227,12 @@ data class BoolValue(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
                         jsonName = "value",
-                        value = BoolValue::value
+                        value = pbandk.wkt.BoolValue::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = BoolValue::class,
+                messageClass = pbandk.wkt.BoolValue::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -247,12 +247,12 @@ data class StringValue(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<StringValue> {
-        val defaultInstance by lazy { StringValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = StringValue.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
+        val defaultInstance by lazy { pbandk.wkt.StringValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.StringValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<StringValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<StringValue, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.StringValue, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -261,12 +261,12 @@ data class StringValue(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "value",
-                        value = StringValue::value
+                        value = pbandk.wkt.StringValue::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = StringValue::class,
+                messageClass = pbandk.wkt.StringValue::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -281,12 +281,12 @@ data class BytesValue(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<BytesValue> {
-        val defaultInstance by lazy { BytesValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = BytesValue.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
+        val defaultInstance by lazy { pbandk.wkt.BytesValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<BytesValue> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<BytesValue, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.BytesValue, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -295,12 +295,12 @@ data class BytesValue(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(),
                         jsonName = "value",
-                        value = BytesValue::value
+                        value = pbandk.wkt.BytesValue::value
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = BytesValue::class,
+                messageClass = pbandk.wkt.BytesValue::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

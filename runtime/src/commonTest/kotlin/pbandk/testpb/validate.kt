@@ -94,12 +94,12 @@ data class FieldRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<FieldRules> {
-        val defaultInstance by lazy { FieldRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = FieldRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
+        val defaultInstance by lazy { pbandk.testpb.FieldRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FieldRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<FieldRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FieldRules, *>>(22)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FieldRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FieldRules, *>>(22)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -109,7 +109,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FloatRules.Companion),
                         oneofMember = true,
                         jsonName = "float",
-                        value = FieldRules::float
+                        value = pbandk.testpb.FieldRules::float
                     )
                 )
                 add(
@@ -120,7 +120,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.DoubleRules.Companion),
                         oneofMember = true,
                         jsonName = "double",
-                        value = FieldRules::double
+                        value = pbandk.testpb.FieldRules::double
                     )
                 )
                 add(
@@ -131,7 +131,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Int32Rules.Companion),
                         oneofMember = true,
                         jsonName = "int32",
-                        value = FieldRules::int32
+                        value = pbandk.testpb.FieldRules::int32
                     )
                 )
                 add(
@@ -142,7 +142,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Int64Rules.Companion),
                         oneofMember = true,
                         jsonName = "int64",
-                        value = FieldRules::int64
+                        value = pbandk.testpb.FieldRules::int64
                     )
                 )
                 add(
@@ -153,7 +153,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.UInt32Rules.Companion),
                         oneofMember = true,
                         jsonName = "uint32",
-                        value = FieldRules::uint32
+                        value = pbandk.testpb.FieldRules::uint32
                     )
                 )
                 add(
@@ -164,7 +164,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.UInt64Rules.Companion),
                         oneofMember = true,
                         jsonName = "uint64",
-                        value = FieldRules::uint64
+                        value = pbandk.testpb.FieldRules::uint64
                     )
                 )
                 add(
@@ -175,7 +175,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.SInt32Rules.Companion),
                         oneofMember = true,
                         jsonName = "sint32",
-                        value = FieldRules::sint32
+                        value = pbandk.testpb.FieldRules::sint32
                     )
                 )
                 add(
@@ -186,7 +186,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.SInt64Rules.Companion),
                         oneofMember = true,
                         jsonName = "sint64",
-                        value = FieldRules::sint64
+                        value = pbandk.testpb.FieldRules::sint64
                     )
                 )
                 add(
@@ -197,7 +197,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Fixed32Rules.Companion),
                         oneofMember = true,
                         jsonName = "fixed32",
-                        value = FieldRules::fixed32
+                        value = pbandk.testpb.FieldRules::fixed32
                     )
                 )
                 add(
@@ -208,7 +208,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Fixed64Rules.Companion),
                         oneofMember = true,
                         jsonName = "fixed64",
-                        value = FieldRules::fixed64
+                        value = pbandk.testpb.FieldRules::fixed64
                     )
                 )
                 add(
@@ -219,7 +219,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.SFixed32Rules.Companion),
                         oneofMember = true,
                         jsonName = "sfixed32",
-                        value = FieldRules::sfixed32
+                        value = pbandk.testpb.FieldRules::sfixed32
                     )
                 )
                 add(
@@ -230,7 +230,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.SFixed64Rules.Companion),
                         oneofMember = true,
                         jsonName = "sfixed64",
-                        value = FieldRules::sfixed64
+                        value = pbandk.testpb.FieldRules::sfixed64
                     )
                 )
                 add(
@@ -241,7 +241,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.BoolRules.Companion),
                         oneofMember = true,
                         jsonName = "bool",
-                        value = FieldRules::bool
+                        value = pbandk.testpb.FieldRules::bool
                     )
                 )
                 add(
@@ -252,7 +252,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.StringRules.Companion),
                         oneofMember = true,
                         jsonName = "string",
-                        value = FieldRules::string
+                        value = pbandk.testpb.FieldRules::string
                     )
                 )
                 add(
@@ -263,7 +263,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.BytesRules.Companion),
                         oneofMember = true,
                         jsonName = "bytes",
-                        value = FieldRules::bytes
+                        value = pbandk.testpb.FieldRules::bytes
                     )
                 )
                 add(
@@ -274,7 +274,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.EnumRules.Companion),
                         oneofMember = true,
                         jsonName = "enum",
-                        value = FieldRules::enum
+                        value = pbandk.testpb.FieldRules::enum
                     )
                 )
                 add(
@@ -284,7 +284,7 @@ data class FieldRules(
                         number = 17,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.MessageRules.Companion),
                         jsonName = "message",
-                        value = FieldRules::message
+                        value = pbandk.testpb.FieldRules::message
                     )
                 )
                 add(
@@ -295,7 +295,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.RepeatedRules.Companion),
                         oneofMember = true,
                         jsonName = "repeated",
-                        value = FieldRules::repeated
+                        value = pbandk.testpb.FieldRules::repeated
                     )
                 )
                 add(
@@ -306,7 +306,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.MapRules.Companion),
                         oneofMember = true,
                         jsonName = "map",
-                        value = FieldRules::map
+                        value = pbandk.testpb.FieldRules::map
                     )
                 )
                 add(
@@ -317,7 +317,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.AnyRules.Companion),
                         oneofMember = true,
                         jsonName = "any",
-                        value = FieldRules::any
+                        value = pbandk.testpb.FieldRules::any
                     )
                 )
                 add(
@@ -328,7 +328,7 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.DurationRules.Companion),
                         oneofMember = true,
                         jsonName = "duration",
-                        value = FieldRules::duration
+                        value = pbandk.testpb.FieldRules::duration
                     )
                 )
                 add(
@@ -339,12 +339,12 @@ data class FieldRules(
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.TimestampRules.Companion),
                         oneofMember = true,
                         jsonName = "timestamp",
-                        value = FieldRules::timestamp
+                        value = pbandk.testpb.FieldRules::timestamp
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = FieldRules::class,
+                messageClass = pbandk.testpb.FieldRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -365,12 +365,12 @@ data class FloatRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<FloatRules> {
-        val defaultInstance by lazy { FloatRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = FloatRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
+        val defaultInstance by lazy { pbandk.testpb.FloatRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FloatRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<FloatRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FloatRules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FloatRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FloatRules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -379,7 +379,7 @@ data class FloatRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         jsonName = "const",
-                        value = FloatRules::const
+                        value = pbandk.testpb.FloatRules::const
                     )
                 )
                 add(
@@ -389,7 +389,7 @@ data class FloatRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         jsonName = "lt",
-                        value = FloatRules::lt
+                        value = pbandk.testpb.FloatRules::lt
                     )
                 )
                 add(
@@ -399,7 +399,7 @@ data class FloatRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         jsonName = "lte",
-                        value = FloatRules::lte
+                        value = pbandk.testpb.FloatRules::lte
                     )
                 )
                 add(
@@ -409,7 +409,7 @@ data class FloatRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         jsonName = "gt",
-                        value = FloatRules::gt
+                        value = pbandk.testpb.FloatRules::gt
                     )
                 )
                 add(
@@ -419,7 +419,7 @@ data class FloatRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Float(hasPresence = true),
                         jsonName = "gte",
-                        value = FloatRules::gte
+                        value = pbandk.testpb.FloatRules::gte
                     )
                 )
                 add(
@@ -429,7 +429,7 @@ data class FloatRules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
                         jsonName = "in",
-                        value = FloatRules::`in`
+                        value = pbandk.testpb.FloatRules::`in`
                     )
                 )
                 add(
@@ -439,12 +439,12 @@ data class FloatRules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Float>(valueType = pbandk.FieldDescriptor.Type.Primitive.Float()),
                         jsonName = "notIn",
-                        value = FloatRules::notIn
+                        value = pbandk.testpb.FloatRules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = FloatRules::class,
+                messageClass = pbandk.testpb.FloatRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -465,12 +465,12 @@ data class DoubleRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<DoubleRules> {
-        val defaultInstance by lazy { DoubleRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = DoubleRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
+        val defaultInstance by lazy { pbandk.testpb.DoubleRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.DoubleRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<DoubleRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<DoubleRules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DoubleRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -479,7 +479,7 @@ data class DoubleRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         jsonName = "const",
-                        value = DoubleRules::const
+                        value = pbandk.testpb.DoubleRules::const
                     )
                 )
                 add(
@@ -489,7 +489,7 @@ data class DoubleRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         jsonName = "lt",
-                        value = DoubleRules::lt
+                        value = pbandk.testpb.DoubleRules::lt
                     )
                 )
                 add(
@@ -499,7 +499,7 @@ data class DoubleRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         jsonName = "lte",
-                        value = DoubleRules::lte
+                        value = pbandk.testpb.DoubleRules::lte
                     )
                 )
                 add(
@@ -509,7 +509,7 @@ data class DoubleRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         jsonName = "gt",
-                        value = DoubleRules::gt
+                        value = pbandk.testpb.DoubleRules::gt
                     )
                 )
                 add(
@@ -519,7 +519,7 @@ data class DoubleRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Double(hasPresence = true),
                         jsonName = "gte",
-                        value = DoubleRules::gte
+                        value = pbandk.testpb.DoubleRules::gte
                     )
                 )
                 add(
@@ -529,7 +529,7 @@ data class DoubleRules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
                         jsonName = "in",
-                        value = DoubleRules::`in`
+                        value = pbandk.testpb.DoubleRules::`in`
                     )
                 )
                 add(
@@ -539,12 +539,12 @@ data class DoubleRules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Double>(valueType = pbandk.FieldDescriptor.Type.Primitive.Double()),
                         jsonName = "notIn",
-                        value = DoubleRules::notIn
+                        value = pbandk.testpb.DoubleRules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = DoubleRules::class,
+                messageClass = pbandk.testpb.DoubleRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -565,12 +565,12 @@ data class Int32Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Int32Rules> {
-        val defaultInstance by lazy { Int32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Int32Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
+        val defaultInstance by lazy { pbandk.testpb.Int32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Int32Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Int32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int32Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int32Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -579,7 +579,7 @@ data class Int32Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "const",
-                        value = Int32Rules::const
+                        value = pbandk.testpb.Int32Rules::const
                     )
                 )
                 add(
@@ -589,7 +589,7 @@ data class Int32Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "lt",
-                        value = Int32Rules::lt
+                        value = pbandk.testpb.Int32Rules::lt
                     )
                 )
                 add(
@@ -599,7 +599,7 @@ data class Int32Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "lte",
-                        value = Int32Rules::lte
+                        value = pbandk.testpb.Int32Rules::lte
                     )
                 )
                 add(
@@ -609,7 +609,7 @@ data class Int32Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "gt",
-                        value = Int32Rules::gt
+                        value = pbandk.testpb.Int32Rules::gt
                     )
                 )
                 add(
@@ -619,7 +619,7 @@ data class Int32Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "gte",
-                        value = Int32Rules::gte
+                        value = pbandk.testpb.Int32Rules::gte
                     )
                 )
                 add(
@@ -629,7 +629,7 @@ data class Int32Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "in",
-                        value = Int32Rules::`in`
+                        value = pbandk.testpb.Int32Rules::`in`
                     )
                 )
                 add(
@@ -639,12 +639,12 @@ data class Int32Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "notIn",
-                        value = Int32Rules::notIn
+                        value = pbandk.testpb.Int32Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Int32Rules::class,
+                messageClass = pbandk.testpb.Int32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -665,12 +665,12 @@ data class Int64Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Int64Rules> {
-        val defaultInstance by lazy { Int64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Int64Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
+        val defaultInstance by lazy { pbandk.testpb.Int64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Int64Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Int64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Int64Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int64Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -679,7 +679,7 @@ data class Int64Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                         jsonName = "const",
-                        value = Int64Rules::const
+                        value = pbandk.testpb.Int64Rules::const
                     )
                 )
                 add(
@@ -689,7 +689,7 @@ data class Int64Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                         jsonName = "lt",
-                        value = Int64Rules::lt
+                        value = pbandk.testpb.Int64Rules::lt
                     )
                 )
                 add(
@@ -699,7 +699,7 @@ data class Int64Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                         jsonName = "lte",
-                        value = Int64Rules::lte
+                        value = pbandk.testpb.Int64Rules::lte
                     )
                 )
                 add(
@@ -709,7 +709,7 @@ data class Int64Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                         jsonName = "gt",
-                        value = Int64Rules::gt
+                        value = pbandk.testpb.Int64Rules::gt
                     )
                 )
                 add(
@@ -719,7 +719,7 @@ data class Int64Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int64(hasPresence = true),
                         jsonName = "gte",
-                        value = Int64Rules::gte
+                        value = pbandk.testpb.Int64Rules::gte
                     )
                 )
                 add(
@@ -729,7 +729,7 @@ data class Int64Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
                         jsonName = "in",
-                        value = Int64Rules::`in`
+                        value = pbandk.testpb.Int64Rules::`in`
                     )
                 )
                 add(
@@ -739,12 +739,12 @@ data class Int64Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int64()),
                         jsonName = "notIn",
-                        value = Int64Rules::notIn
+                        value = pbandk.testpb.Int64Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Int64Rules::class,
+                messageClass = pbandk.testpb.Int64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -765,12 +765,12 @@ data class UInt32Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<UInt32Rules> {
-        val defaultInstance by lazy { UInt32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = UInt32Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
+        val defaultInstance by lazy { pbandk.testpb.UInt32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<UInt32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt32Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt32Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -779,7 +779,7 @@ data class UInt32Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         jsonName = "const",
-                        value = UInt32Rules::const
+                        value = pbandk.testpb.UInt32Rules::const
                     )
                 )
                 add(
@@ -789,7 +789,7 @@ data class UInt32Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         jsonName = "lt",
-                        value = UInt32Rules::lt
+                        value = pbandk.testpb.UInt32Rules::lt
                     )
                 )
                 add(
@@ -799,7 +799,7 @@ data class UInt32Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         jsonName = "lte",
-                        value = UInt32Rules::lte
+                        value = pbandk.testpb.UInt32Rules::lte
                     )
                 )
                 add(
@@ -809,7 +809,7 @@ data class UInt32Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         jsonName = "gt",
-                        value = UInt32Rules::gt
+                        value = pbandk.testpb.UInt32Rules::gt
                     )
                 )
                 add(
@@ -819,7 +819,7 @@ data class UInt32Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt32(hasPresence = true),
                         jsonName = "gte",
-                        value = UInt32Rules::gte
+                        value = pbandk.testpb.UInt32Rules::gte
                     )
                 )
                 add(
@@ -829,7 +829,7 @@ data class UInt32Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
                         jsonName = "in",
-                        value = UInt32Rules::`in`
+                        value = pbandk.testpb.UInt32Rules::`in`
                     )
                 )
                 add(
@@ -839,12 +839,12 @@ data class UInt32Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt32()),
                         jsonName = "notIn",
-                        value = UInt32Rules::notIn
+                        value = pbandk.testpb.UInt32Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = UInt32Rules::class,
+                messageClass = pbandk.testpb.UInt32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -865,12 +865,12 @@ data class UInt64Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<UInt64Rules> {
-        val defaultInstance by lazy { UInt64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = UInt64Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
+        val defaultInstance by lazy { pbandk.testpb.UInt64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<UInt64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<UInt64Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt64Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -879,7 +879,7 @@ data class UInt64Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "const",
-                        value = UInt64Rules::const
+                        value = pbandk.testpb.UInt64Rules::const
                     )
                 )
                 add(
@@ -889,7 +889,7 @@ data class UInt64Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "lt",
-                        value = UInt64Rules::lt
+                        value = pbandk.testpb.UInt64Rules::lt
                     )
                 )
                 add(
@@ -899,7 +899,7 @@ data class UInt64Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "lte",
-                        value = UInt64Rules::lte
+                        value = pbandk.testpb.UInt64Rules::lte
                     )
                 )
                 add(
@@ -909,7 +909,7 @@ data class UInt64Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "gt",
-                        value = UInt64Rules::gt
+                        value = pbandk.testpb.UInt64Rules::gt
                     )
                 )
                 add(
@@ -919,7 +919,7 @@ data class UInt64Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "gte",
-                        value = UInt64Rules::gte
+                        value = pbandk.testpb.UInt64Rules::gte
                     )
                 )
                 add(
@@ -929,7 +929,7 @@ data class UInt64Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
                         jsonName = "in",
-                        value = UInt64Rules::`in`
+                        value = pbandk.testpb.UInt64Rules::`in`
                     )
                 )
                 add(
@@ -939,12 +939,12 @@ data class UInt64Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.UInt64()),
                         jsonName = "notIn",
-                        value = UInt64Rules::notIn
+                        value = pbandk.testpb.UInt64Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = UInt64Rules::class,
+                messageClass = pbandk.testpb.UInt64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -965,12 +965,12 @@ data class SInt32Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<SInt32Rules> {
-        val defaultInstance by lazy { SInt32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = SInt32Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
+        val defaultInstance by lazy { pbandk.testpb.SInt32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<SInt32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SInt32Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt32Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -979,7 +979,7 @@ data class SInt32Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                         jsonName = "const",
-                        value = SInt32Rules::const
+                        value = pbandk.testpb.SInt32Rules::const
                     )
                 )
                 add(
@@ -989,7 +989,7 @@ data class SInt32Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                         jsonName = "lt",
-                        value = SInt32Rules::lt
+                        value = pbandk.testpb.SInt32Rules::lt
                     )
                 )
                 add(
@@ -999,7 +999,7 @@ data class SInt32Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                         jsonName = "lte",
-                        value = SInt32Rules::lte
+                        value = pbandk.testpb.SInt32Rules::lte
                     )
                 )
                 add(
@@ -1009,7 +1009,7 @@ data class SInt32Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                         jsonName = "gt",
-                        value = SInt32Rules::gt
+                        value = pbandk.testpb.SInt32Rules::gt
                     )
                 )
                 add(
@@ -1019,7 +1019,7 @@ data class SInt32Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt32(hasPresence = true),
                         jsonName = "gte",
-                        value = SInt32Rules::gte
+                        value = pbandk.testpb.SInt32Rules::gte
                     )
                 )
                 add(
@@ -1029,7 +1029,7 @@ data class SInt32Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
                         jsonName = "in",
-                        value = SInt32Rules::`in`
+                        value = pbandk.testpb.SInt32Rules::`in`
                     )
                 )
                 add(
@@ -1039,12 +1039,12 @@ data class SInt32Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt32()),
                         jsonName = "notIn",
-                        value = SInt32Rules::notIn
+                        value = pbandk.testpb.SInt32Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = SInt32Rules::class,
+                messageClass = pbandk.testpb.SInt32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1065,12 +1065,12 @@ data class SInt64Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<SInt64Rules> {
-        val defaultInstance by lazy { SInt64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = SInt64Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
+        val defaultInstance by lazy { pbandk.testpb.SInt64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<SInt64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SInt64Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt64Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1079,7 +1079,7 @@ data class SInt64Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                         jsonName = "const",
-                        value = SInt64Rules::const
+                        value = pbandk.testpb.SInt64Rules::const
                     )
                 )
                 add(
@@ -1089,7 +1089,7 @@ data class SInt64Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                         jsonName = "lt",
-                        value = SInt64Rules::lt
+                        value = pbandk.testpb.SInt64Rules::lt
                     )
                 )
                 add(
@@ -1099,7 +1099,7 @@ data class SInt64Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                         jsonName = "lte",
-                        value = SInt64Rules::lte
+                        value = pbandk.testpb.SInt64Rules::lte
                     )
                 )
                 add(
@@ -1109,7 +1109,7 @@ data class SInt64Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                         jsonName = "gt",
-                        value = SInt64Rules::gt
+                        value = pbandk.testpb.SInt64Rules::gt
                     )
                 )
                 add(
@@ -1119,7 +1119,7 @@ data class SInt64Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.SInt64(hasPresence = true),
                         jsonName = "gte",
-                        value = SInt64Rules::gte
+                        value = pbandk.testpb.SInt64Rules::gte
                     )
                 )
                 add(
@@ -1129,7 +1129,7 @@ data class SInt64Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
                         jsonName = "in",
-                        value = SInt64Rules::`in`
+                        value = pbandk.testpb.SInt64Rules::`in`
                     )
                 )
                 add(
@@ -1139,12 +1139,12 @@ data class SInt64Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SInt64()),
                         jsonName = "notIn",
-                        value = SInt64Rules::notIn
+                        value = pbandk.testpb.SInt64Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = SInt64Rules::class,
+                messageClass = pbandk.testpb.SInt64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1165,12 +1165,12 @@ data class Fixed32Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Fixed32Rules> {
-        val defaultInstance by lazy { Fixed32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Fixed32Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
+        val defaultInstance by lazy { pbandk.testpb.Fixed32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Fixed32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Fixed32Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed32Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1179,7 +1179,7 @@ data class Fixed32Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                         jsonName = "const",
-                        value = Fixed32Rules::const
+                        value = pbandk.testpb.Fixed32Rules::const
                     )
                 )
                 add(
@@ -1189,7 +1189,7 @@ data class Fixed32Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                         jsonName = "lt",
-                        value = Fixed32Rules::lt
+                        value = pbandk.testpb.Fixed32Rules::lt
                     )
                 )
                 add(
@@ -1199,7 +1199,7 @@ data class Fixed32Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                         jsonName = "lte",
-                        value = Fixed32Rules::lte
+                        value = pbandk.testpb.Fixed32Rules::lte
                     )
                 )
                 add(
@@ -1209,7 +1209,7 @@ data class Fixed32Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                         jsonName = "gt",
-                        value = Fixed32Rules::gt
+                        value = pbandk.testpb.Fixed32Rules::gt
                     )
                 )
                 add(
@@ -1219,7 +1219,7 @@ data class Fixed32Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed32(hasPresence = true),
                         jsonName = "gte",
-                        value = Fixed32Rules::gte
+                        value = pbandk.testpb.Fixed32Rules::gte
                     )
                 )
                 add(
@@ -1229,7 +1229,7 @@ data class Fixed32Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
                         jsonName = "in",
-                        value = Fixed32Rules::`in`
+                        value = pbandk.testpb.Fixed32Rules::`in`
                     )
                 )
                 add(
@@ -1239,12 +1239,12 @@ data class Fixed32Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed32()),
                         jsonName = "notIn",
-                        value = Fixed32Rules::notIn
+                        value = pbandk.testpb.Fixed32Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Fixed32Rules::class,
+                messageClass = pbandk.testpb.Fixed32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1265,12 +1265,12 @@ data class Fixed64Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Fixed64Rules> {
-        val defaultInstance by lazy { Fixed64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Fixed64Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
+        val defaultInstance by lazy { pbandk.testpb.Fixed64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Fixed64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Fixed64Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed64Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1279,7 +1279,7 @@ data class Fixed64Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                         jsonName = "const",
-                        value = Fixed64Rules::const
+                        value = pbandk.testpb.Fixed64Rules::const
                     )
                 )
                 add(
@@ -1289,7 +1289,7 @@ data class Fixed64Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                         jsonName = "lt",
-                        value = Fixed64Rules::lt
+                        value = pbandk.testpb.Fixed64Rules::lt
                     )
                 )
                 add(
@@ -1299,7 +1299,7 @@ data class Fixed64Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                         jsonName = "lte",
-                        value = Fixed64Rules::lte
+                        value = pbandk.testpb.Fixed64Rules::lte
                     )
                 )
                 add(
@@ -1309,7 +1309,7 @@ data class Fixed64Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                         jsonName = "gt",
-                        value = Fixed64Rules::gt
+                        value = pbandk.testpb.Fixed64Rules::gt
                     )
                 )
                 add(
@@ -1319,7 +1319,7 @@ data class Fixed64Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Fixed64(hasPresence = true),
                         jsonName = "gte",
-                        value = Fixed64Rules::gte
+                        value = pbandk.testpb.Fixed64Rules::gte
                     )
                 )
                 add(
@@ -1329,7 +1329,7 @@ data class Fixed64Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
                         jsonName = "in",
-                        value = Fixed64Rules::`in`
+                        value = pbandk.testpb.Fixed64Rules::`in`
                     )
                 )
                 add(
@@ -1339,12 +1339,12 @@ data class Fixed64Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.Fixed64()),
                         jsonName = "notIn",
-                        value = Fixed64Rules::notIn
+                        value = pbandk.testpb.Fixed64Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Fixed64Rules::class,
+                messageClass = pbandk.testpb.Fixed64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1365,12 +1365,12 @@ data class SFixed32Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<SFixed32Rules> {
-        val defaultInstance by lazy { SFixed32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = SFixed32Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
+        val defaultInstance by lazy { pbandk.testpb.SFixed32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<SFixed32Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SFixed32Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed32Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1379,7 +1379,7 @@ data class SFixed32Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                         jsonName = "const",
-                        value = SFixed32Rules::const
+                        value = pbandk.testpb.SFixed32Rules::const
                     )
                 )
                 add(
@@ -1389,7 +1389,7 @@ data class SFixed32Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                         jsonName = "lt",
-                        value = SFixed32Rules::lt
+                        value = pbandk.testpb.SFixed32Rules::lt
                     )
                 )
                 add(
@@ -1399,7 +1399,7 @@ data class SFixed32Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                         jsonName = "lte",
-                        value = SFixed32Rules::lte
+                        value = pbandk.testpb.SFixed32Rules::lte
                     )
                 )
                 add(
@@ -1409,7 +1409,7 @@ data class SFixed32Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                         jsonName = "gt",
-                        value = SFixed32Rules::gt
+                        value = pbandk.testpb.SFixed32Rules::gt
                     )
                 )
                 add(
@@ -1419,7 +1419,7 @@ data class SFixed32Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed32(hasPresence = true),
                         jsonName = "gte",
-                        value = SFixed32Rules::gte
+                        value = pbandk.testpb.SFixed32Rules::gte
                     )
                 )
                 add(
@@ -1429,7 +1429,7 @@ data class SFixed32Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
                         jsonName = "in",
-                        value = SFixed32Rules::`in`
+                        value = pbandk.testpb.SFixed32Rules::`in`
                     )
                 )
                 add(
@@ -1439,12 +1439,12 @@ data class SFixed32Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed32()),
                         jsonName = "notIn",
-                        value = SFixed32Rules::notIn
+                        value = pbandk.testpb.SFixed32Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = SFixed32Rules::class,
+                messageClass = pbandk.testpb.SFixed32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1465,12 +1465,12 @@ data class SFixed64Rules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<SFixed64Rules> {
-        val defaultInstance by lazy { SFixed64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = SFixed64Rules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
+        val defaultInstance by lazy { pbandk.testpb.SFixed64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<SFixed64Rules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SFixed64Rules, *>>(7)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed64Rules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, *>>(7)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1479,7 +1479,7 @@ data class SFixed64Rules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                         jsonName = "const",
-                        value = SFixed64Rules::const
+                        value = pbandk.testpb.SFixed64Rules::const
                     )
                 )
                 add(
@@ -1489,7 +1489,7 @@ data class SFixed64Rules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                         jsonName = "lt",
-                        value = SFixed64Rules::lt
+                        value = pbandk.testpb.SFixed64Rules::lt
                     )
                 )
                 add(
@@ -1499,7 +1499,7 @@ data class SFixed64Rules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                         jsonName = "lte",
-                        value = SFixed64Rules::lte
+                        value = pbandk.testpb.SFixed64Rules::lte
                     )
                 )
                 add(
@@ -1509,7 +1509,7 @@ data class SFixed64Rules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                         jsonName = "gt",
-                        value = SFixed64Rules::gt
+                        value = pbandk.testpb.SFixed64Rules::gt
                     )
                 )
                 add(
@@ -1519,7 +1519,7 @@ data class SFixed64Rules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.SFixed64(hasPresence = true),
                         jsonName = "gte",
-                        value = SFixed64Rules::gte
+                        value = pbandk.testpb.SFixed64Rules::gte
                     )
                 )
                 add(
@@ -1529,7 +1529,7 @@ data class SFixed64Rules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
                         jsonName = "in",
-                        value = SFixed64Rules::`in`
+                        value = pbandk.testpb.SFixed64Rules::`in`
                     )
                 )
                 add(
@@ -1539,12 +1539,12 @@ data class SFixed64Rules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Primitive.SFixed64()),
                         jsonName = "notIn",
-                        value = SFixed64Rules::notIn
+                        value = pbandk.testpb.SFixed64Rules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = SFixed64Rules::class,
+                messageClass = pbandk.testpb.SFixed64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1559,12 +1559,12 @@ data class BoolRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<BoolRules> {
-        val defaultInstance by lazy { BoolRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = BoolRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
+        val defaultInstance by lazy { pbandk.testpb.BoolRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.BoolRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<BoolRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<BoolRules, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BoolRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.BoolRules, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1573,12 +1573,12 @@ data class BoolRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "const",
-                        value = BoolRules::const
+                        value = pbandk.testpb.BoolRules::const
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = BoolRules::class,
+                messageClass = pbandk.testpb.BoolRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1642,12 +1642,12 @@ data class StringRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<StringRules> {
-        val defaultInstance by lazy { StringRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = StringRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
+        val defaultInstance by lazy { pbandk.testpb.StringRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.StringRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<StringRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<StringRules, *>>(25)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.StringRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.StringRules, *>>(25)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1656,7 +1656,7 @@ data class StringRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "const",
-                        value = StringRules::const
+                        value = pbandk.testpb.StringRules::const
                     )
                 )
                 add(
@@ -1666,7 +1666,7 @@ data class StringRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "minLen",
-                        value = StringRules::minLen
+                        value = pbandk.testpb.StringRules::minLen
                     )
                 )
                 add(
@@ -1676,7 +1676,7 @@ data class StringRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "maxLen",
-                        value = StringRules::maxLen
+                        value = pbandk.testpb.StringRules::maxLen
                     )
                 )
                 add(
@@ -1686,7 +1686,7 @@ data class StringRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "minBytes",
-                        value = StringRules::minBytes
+                        value = pbandk.testpb.StringRules::minBytes
                     )
                 )
                 add(
@@ -1696,7 +1696,7 @@ data class StringRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "maxBytes",
-                        value = StringRules::maxBytes
+                        value = pbandk.testpb.StringRules::maxBytes
                     )
                 )
                 add(
@@ -1706,7 +1706,7 @@ data class StringRules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "pattern",
-                        value = StringRules::pattern
+                        value = pbandk.testpb.StringRules::pattern
                     )
                 )
                 add(
@@ -1716,7 +1716,7 @@ data class StringRules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "prefix",
-                        value = StringRules::prefix
+                        value = pbandk.testpb.StringRules::prefix
                     )
                 )
                 add(
@@ -1726,7 +1726,7 @@ data class StringRules(
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "suffix",
-                        value = StringRules::suffix
+                        value = pbandk.testpb.StringRules::suffix
                     )
                 )
                 add(
@@ -1736,7 +1736,7 @@ data class StringRules(
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "contains",
-                        value = StringRules::contains
+                        value = pbandk.testpb.StringRules::contains
                     )
                 )
                 add(
@@ -1746,7 +1746,7 @@ data class StringRules(
                         number = 10,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "in",
-                        value = StringRules::`in`
+                        value = pbandk.testpb.StringRules::`in`
                     )
                 )
                 add(
@@ -1756,7 +1756,7 @@ data class StringRules(
                         number = 11,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "notIn",
-                        value = StringRules::notIn
+                        value = pbandk.testpb.StringRules::notIn
                     )
                 )
                 add(
@@ -1767,7 +1767,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "email",
-                        value = StringRules::email
+                        value = pbandk.testpb.StringRules::email
                     )
                 )
                 add(
@@ -1778,7 +1778,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "hostname",
-                        value = StringRules::hostname
+                        value = pbandk.testpb.StringRules::hostname
                     )
                 )
                 add(
@@ -1789,7 +1789,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "ip",
-                        value = StringRules::ip
+                        value = pbandk.testpb.StringRules::ip
                     )
                 )
                 add(
@@ -1800,7 +1800,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "ipv4",
-                        value = StringRules::ipv4
+                        value = pbandk.testpb.StringRules::ipv4
                     )
                 )
                 add(
@@ -1811,7 +1811,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "ipv6",
-                        value = StringRules::ipv6
+                        value = pbandk.testpb.StringRules::ipv6
                     )
                 )
                 add(
@@ -1822,7 +1822,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "uri",
-                        value = StringRules::uri
+                        value = pbandk.testpb.StringRules::uri
                     )
                 )
                 add(
@@ -1833,7 +1833,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "uriRef",
-                        value = StringRules::uriRef
+                        value = pbandk.testpb.StringRules::uriRef
                     )
                 )
                 add(
@@ -1843,7 +1843,7 @@ data class StringRules(
                         number = 19,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "len",
-                        value = StringRules::len
+                        value = pbandk.testpb.StringRules::len
                     )
                 )
                 add(
@@ -1853,7 +1853,7 @@ data class StringRules(
                         number = 20,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "lenBytes",
-                        value = StringRules::lenBytes
+                        value = pbandk.testpb.StringRules::lenBytes
                     )
                 )
                 add(
@@ -1864,7 +1864,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "address",
-                        value = StringRules::address
+                        value = pbandk.testpb.StringRules::address
                     )
                 )
                 add(
@@ -1875,7 +1875,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "uuid",
-                        value = StringRules::uuid
+                        value = pbandk.testpb.StringRules::uuid
                     )
                 )
                 add(
@@ -1885,7 +1885,7 @@ data class StringRules(
                         number = 23,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "notContains",
-                        value = StringRules::notContains
+                        value = pbandk.testpb.StringRules::notContains
                     )
                 )
                 add(
@@ -1896,7 +1896,7 @@ data class StringRules(
                         type = pbandk.FieldDescriptor.Type.Enum(enumCompanion = pbandk.testpb.KnownRegex.Companion, hasPresence = true),
                         oneofMember = true,
                         jsonName = "wellKnownRegex",
-                        value = StringRules::wellKnownRegex
+                        value = pbandk.testpb.StringRules::wellKnownRegex
                     )
                 )
                 add(
@@ -1906,12 +1906,12 @@ data class StringRules(
                         number = 25,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "strict",
-                        value = StringRules::strict
+                        value = pbandk.testpb.StringRules::strict
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = StringRules::class,
+                messageClass = pbandk.testpb.StringRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -1949,12 +1949,12 @@ data class BytesRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<BytesRules> {
-        val defaultInstance by lazy { BytesRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = BytesRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
+        val defaultInstance by lazy { pbandk.testpb.BytesRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.BytesRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<BytesRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<BytesRules, *>>(13)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BytesRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.BytesRules, *>>(13)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -1963,7 +1963,7 @@ data class BytesRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                         jsonName = "const",
-                        value = BytesRules::const
+                        value = pbandk.testpb.BytesRules::const
                     )
                 )
                 add(
@@ -1973,7 +1973,7 @@ data class BytesRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "minLen",
-                        value = BytesRules::minLen
+                        value = pbandk.testpb.BytesRules::minLen
                     )
                 )
                 add(
@@ -1983,7 +1983,7 @@ data class BytesRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "maxLen",
-                        value = BytesRules::maxLen
+                        value = pbandk.testpb.BytesRules::maxLen
                     )
                 )
                 add(
@@ -1993,7 +1993,7 @@ data class BytesRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "pattern",
-                        value = BytesRules::pattern
+                        value = pbandk.testpb.BytesRules::pattern
                     )
                 )
                 add(
@@ -2003,7 +2003,7 @@ data class BytesRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                         jsonName = "prefix",
-                        value = BytesRules::prefix
+                        value = pbandk.testpb.BytesRules::prefix
                     )
                 )
                 add(
@@ -2013,7 +2013,7 @@ data class BytesRules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                         jsonName = "suffix",
-                        value = BytesRules::suffix
+                        value = pbandk.testpb.BytesRules::suffix
                     )
                 )
                 add(
@@ -2023,7 +2023,7 @@ data class BytesRules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bytes(hasPresence = true),
                         jsonName = "contains",
-                        value = BytesRules::contains
+                        value = pbandk.testpb.BytesRules::contains
                     )
                 )
                 add(
@@ -2033,7 +2033,7 @@ data class BytesRules(
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
                         jsonName = "in",
-                        value = BytesRules::`in`
+                        value = pbandk.testpb.BytesRules::`in`
                     )
                 )
                 add(
@@ -2043,7 +2043,7 @@ data class BytesRules(
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.ByteArr>(valueType = pbandk.FieldDescriptor.Type.Primitive.Bytes()),
                         jsonName = "notIn",
-                        value = BytesRules::notIn
+                        value = pbandk.testpb.BytesRules::notIn
                     )
                 )
                 add(
@@ -2054,7 +2054,7 @@ data class BytesRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "ip",
-                        value = BytesRules::ip
+                        value = pbandk.testpb.BytesRules::ip
                     )
                 )
                 add(
@@ -2065,7 +2065,7 @@ data class BytesRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "ipv4",
-                        value = BytesRules::ipv4
+                        value = pbandk.testpb.BytesRules::ipv4
                     )
                 )
                 add(
@@ -2076,7 +2076,7 @@ data class BytesRules(
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         oneofMember = true,
                         jsonName = "ipv6",
-                        value = BytesRules::ipv6
+                        value = pbandk.testpb.BytesRules::ipv6
                     )
                 )
                 add(
@@ -2086,12 +2086,12 @@ data class BytesRules(
                         number = 13,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "len",
-                        value = BytesRules::len
+                        value = pbandk.testpb.BytesRules::len
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = BytesRules::class,
+                messageClass = pbandk.testpb.BytesRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2109,12 +2109,12 @@ data class EnumRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<EnumRules> {
-        val defaultInstance by lazy { EnumRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = EnumRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
+        val defaultInstance by lazy { pbandk.testpb.EnumRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.EnumRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<EnumRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<EnumRules, *>>(4)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.EnumRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.EnumRules, *>>(4)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2123,7 +2123,7 @@ data class EnumRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         jsonName = "const",
-                        value = EnumRules::const
+                        value = pbandk.testpb.EnumRules::const
                     )
                 )
                 add(
@@ -2133,7 +2133,7 @@ data class EnumRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "definedOnly",
-                        value = EnumRules::definedOnly
+                        value = pbandk.testpb.EnumRules::definedOnly
                     )
                 )
                 add(
@@ -2143,7 +2143,7 @@ data class EnumRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "in",
-                        value = EnumRules::`in`
+                        value = pbandk.testpb.EnumRules::`in`
                     )
                 )
                 add(
@@ -2153,12 +2153,12 @@ data class EnumRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Repeated<Int>(valueType = pbandk.FieldDescriptor.Type.Primitive.Int32()),
                         jsonName = "notIn",
-                        value = EnumRules::notIn
+                        value = pbandk.testpb.EnumRules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = EnumRules::class,
+                messageClass = pbandk.testpb.EnumRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2174,12 +2174,12 @@ data class MessageRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<MessageRules> {
-        val defaultInstance by lazy { MessageRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = MessageRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
+        val defaultInstance by lazy { pbandk.testpb.MessageRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<MessageRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageRules, *>>(2)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageRules, *>>(2)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2188,7 +2188,7 @@ data class MessageRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "skip",
-                        value = MessageRules::skip
+                        value = pbandk.testpb.MessageRules::skip
                     )
                 )
                 add(
@@ -2198,12 +2198,12 @@ data class MessageRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "required",
-                        value = MessageRules::required
+                        value = pbandk.testpb.MessageRules::required
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = MessageRules::class,
+                messageClass = pbandk.testpb.MessageRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2221,12 +2221,12 @@ data class RepeatedRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<RepeatedRules> {
-        val defaultInstance by lazy { RepeatedRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = RepeatedRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
+        val defaultInstance by lazy { pbandk.testpb.RepeatedRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<RepeatedRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<RepeatedRules, *>>(4)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.RepeatedRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.RepeatedRules, *>>(4)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2235,7 +2235,7 @@ data class RepeatedRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "minItems",
-                        value = RepeatedRules::minItems
+                        value = pbandk.testpb.RepeatedRules::minItems
                     )
                 )
                 add(
@@ -2245,7 +2245,7 @@ data class RepeatedRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "maxItems",
-                        value = RepeatedRules::maxItems
+                        value = pbandk.testpb.RepeatedRules::maxItems
                     )
                 )
                 add(
@@ -2255,7 +2255,7 @@ data class RepeatedRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "unique",
-                        value = RepeatedRules::unique
+                        value = pbandk.testpb.RepeatedRules::unique
                     )
                 )
                 add(
@@ -2265,12 +2265,12 @@ data class RepeatedRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FieldRules.Companion),
                         jsonName = "items",
-                        value = RepeatedRules::items
+                        value = pbandk.testpb.RepeatedRules::items
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = RepeatedRules::class,
+                messageClass = pbandk.testpb.RepeatedRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2289,12 +2289,12 @@ data class MapRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<MapRules> {
-        val defaultInstance by lazy { MapRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = MapRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
+        val defaultInstance by lazy { pbandk.testpb.MapRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MapRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<MapRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MapRules, *>>(5)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MapRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MapRules, *>>(5)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2303,7 +2303,7 @@ data class MapRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "minPairs",
-                        value = MapRules::minPairs
+                        value = pbandk.testpb.MapRules::minPairs
                     )
                 )
                 add(
@@ -2313,7 +2313,7 @@ data class MapRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
                         jsonName = "maxPairs",
-                        value = MapRules::maxPairs
+                        value = pbandk.testpb.MapRules::maxPairs
                     )
                 )
                 add(
@@ -2323,7 +2323,7 @@ data class MapRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "noSparse",
-                        value = MapRules::noSparse
+                        value = pbandk.testpb.MapRules::noSparse
                     )
                 )
                 add(
@@ -2333,7 +2333,7 @@ data class MapRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FieldRules.Companion),
                         jsonName = "keys",
-                        value = MapRules::keys
+                        value = pbandk.testpb.MapRules::keys
                     )
                 )
                 add(
@@ -2343,12 +2343,12 @@ data class MapRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FieldRules.Companion),
                         jsonName = "values",
-                        value = MapRules::values
+                        value = pbandk.testpb.MapRules::values
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = MapRules::class,
+                messageClass = pbandk.testpb.MapRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2365,12 +2365,12 @@ data class AnyRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<AnyRules> {
-        val defaultInstance by lazy { AnyRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = AnyRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
+        val defaultInstance by lazy { pbandk.testpb.AnyRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.AnyRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<AnyRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<AnyRules, *>>(3)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.AnyRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.AnyRules, *>>(3)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2379,7 +2379,7 @@ data class AnyRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "required",
-                        value = AnyRules::required
+                        value = pbandk.testpb.AnyRules::required
                     )
                 )
                 add(
@@ -2389,7 +2389,7 @@ data class AnyRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "in",
-                        value = AnyRules::`in`
+                        value = pbandk.testpb.AnyRules::`in`
                     )
                 )
                 add(
@@ -2399,12 +2399,12 @@ data class AnyRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Repeated<String>(valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "notIn",
-                        value = AnyRules::notIn
+                        value = pbandk.testpb.AnyRules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = AnyRules::class,
+                messageClass = pbandk.testpb.AnyRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2426,12 +2426,12 @@ data class DurationRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<DurationRules> {
-        val defaultInstance by lazy { DurationRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = DurationRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
+        val defaultInstance by lazy { pbandk.testpb.DurationRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.DurationRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<DurationRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<DurationRules, *>>(8)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DurationRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.DurationRules, *>>(8)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2440,7 +2440,7 @@ data class DurationRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "required",
-                        value = DurationRules::required
+                        value = pbandk.testpb.DurationRules::required
                     )
                 )
                 add(
@@ -2450,7 +2450,7 @@ data class DurationRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "const",
-                        value = DurationRules::const
+                        value = pbandk.testpb.DurationRules::const
                     )
                 )
                 add(
@@ -2460,7 +2460,7 @@ data class DurationRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "lt",
-                        value = DurationRules::lt
+                        value = pbandk.testpb.DurationRules::lt
                     )
                 )
                 add(
@@ -2470,7 +2470,7 @@ data class DurationRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "lte",
-                        value = DurationRules::lte
+                        value = pbandk.testpb.DurationRules::lte
                     )
                 )
                 add(
@@ -2480,7 +2480,7 @@ data class DurationRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "gt",
-                        value = DurationRules::gt
+                        value = pbandk.testpb.DurationRules::gt
                     )
                 )
                 add(
@@ -2490,7 +2490,7 @@ data class DurationRules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "gte",
-                        value = DurationRules::gte
+                        value = pbandk.testpb.DurationRules::gte
                     )
                 )
                 add(
@@ -2500,7 +2500,7 @@ data class DurationRules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Duration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion)),
                         jsonName = "in",
-                        value = DurationRules::`in`
+                        value = pbandk.testpb.DurationRules::`in`
                     )
                 )
                 add(
@@ -2510,12 +2510,12 @@ data class DurationRules(
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.wkt.Duration>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion)),
                         jsonName = "notIn",
-                        value = DurationRules::notIn
+                        value = pbandk.testpb.DurationRules::notIn
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = DurationRules::class,
+                messageClass = pbandk.testpb.DurationRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -2538,12 +2538,12 @@ data class TimestampRules(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<TimestampRules> {
-        val defaultInstance by lazy { TimestampRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = TimestampRules.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
+        val defaultInstance by lazy { pbandk.testpb.TimestampRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.TimestampRules.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<TimestampRules> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<TimestampRules, *>>(9)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TimestampRules> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, *>>(9)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -2552,7 +2552,7 @@ data class TimestampRules(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "required",
-                        value = TimestampRules::required
+                        value = pbandk.testpb.TimestampRules::required
                     )
                 )
                 add(
@@ -2562,7 +2562,7 @@ data class TimestampRules(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "const",
-                        value = TimestampRules::const
+                        value = pbandk.testpb.TimestampRules::const
                     )
                 )
                 add(
@@ -2572,7 +2572,7 @@ data class TimestampRules(
                         number = 3,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "lt",
-                        value = TimestampRules::lt
+                        value = pbandk.testpb.TimestampRules::lt
                     )
                 )
                 add(
@@ -2582,7 +2582,7 @@ data class TimestampRules(
                         number = 4,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "lte",
-                        value = TimestampRules::lte
+                        value = pbandk.testpb.TimestampRules::lte
                     )
                 )
                 add(
@@ -2592,7 +2592,7 @@ data class TimestampRules(
                         number = 5,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "gt",
-                        value = TimestampRules::gt
+                        value = pbandk.testpb.TimestampRules::gt
                     )
                 )
                 add(
@@ -2602,7 +2602,7 @@ data class TimestampRules(
                         number = 6,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Timestamp.Companion),
                         jsonName = "gte",
-                        value = TimestampRules::gte
+                        value = pbandk.testpb.TimestampRules::gte
                     )
                 )
                 add(
@@ -2612,7 +2612,7 @@ data class TimestampRules(
                         number = 7,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "ltNow",
-                        value = TimestampRules::ltNow
+                        value = pbandk.testpb.TimestampRules::ltNow
                     )
                 )
                 add(
@@ -2622,7 +2622,7 @@ data class TimestampRules(
                         number = 8,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "gtNow",
-                        value = TimestampRules::gtNow
+                        value = pbandk.testpb.TimestampRules::gtNow
                     )
                 )
                 add(
@@ -2632,12 +2632,12 @@ data class TimestampRules(
                         number = 9,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.Duration.Companion),
                         jsonName = "within",
-                        value = TimestampRules::within
+                        value = pbandk.testpb.TimestampRules::within
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = TimestampRules::class,
+                messageClass = pbandk.testpb.TimestampRules::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
