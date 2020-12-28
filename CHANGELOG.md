@@ -6,7 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.9.1] - Unreleased
 
-[0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...HEAD
+[0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...v0.9.x
+
+### Fixed
+
+* Compile error when proto contains a oneof field with same name as the enclosing message (PR [#104], fixes [#47]) (thanks @nbaztec)
+
+[#47]: https://github.com/streem/pbandk/issues/47
+[#104]: https://github.com/streem/pbandk/pull/104
 
 ## [0.9.0] - 2020-12-23
 
