@@ -1,0 +1,12 @@
+syntax = "proto3";
+package testpb;
+
+option java_package = "pbandk.testpb.java";
+
+message Value {
+  oneof value {
+    string string_value = 1;
+    bool boolean_value = 2;
+    int32 integer_value = 3;
+  }
+}

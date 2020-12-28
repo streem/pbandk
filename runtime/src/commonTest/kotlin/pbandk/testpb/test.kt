@@ -9,12 +9,12 @@ data class Foo(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Foo> {
-        val defaultInstance by lazy { Foo() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Foo.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
+        val defaultInstance by lazy { pbandk.testpb.Foo() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Foo.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Foo> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Foo, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Foo, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -23,12 +23,12 @@ data class Foo(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "val",
-                        value = Foo::`val`
+                        value = pbandk.testpb.Foo::`val`
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Foo::class,
+                messageClass = pbandk.testpb.Foo::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -44,12 +44,12 @@ data class Bar(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Bar> {
-        val defaultInstance by lazy { Bar() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Bar.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
+        val defaultInstance by lazy { pbandk.testpb.Bar() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Bar.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Bar> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Bar, *>>(2)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Bar, *>>(2)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -58,7 +58,7 @@ data class Bar(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.Foo>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
                         jsonName = "foos",
-                        value = Bar::foos
+                        value = pbandk.testpb.Bar::foos
                     )
                 )
                 add(
@@ -68,12 +68,12 @@ data class Bar(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
                         jsonName = "singleFoo",
-                        value = Bar::singleFoo
+                        value = pbandk.testpb.Bar::singleFoo
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Bar::class,
+                messageClass = pbandk.testpb.Bar::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -88,12 +88,12 @@ data class MessageWithMap(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<MessageWithMap> {
-        val defaultInstance by lazy { MessageWithMap() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithMap.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
+        val defaultInstance by lazy { pbandk.testpb.MessageWithMap() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<MessageWithMap> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithMap, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -102,12 +102,12 @@ data class MessageWithMap(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Map<String, String>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Primitive.String()),
                         jsonName = "map",
-                        value = MessageWithMap::map
+                        value = pbandk.testpb.MessageWithMap::map
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = MessageWithMap::class,
+                messageClass = pbandk.testpb.MessageWithMap::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -122,12 +122,12 @@ data class MessageWithMap(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<MessageWithMap.MapEntry> {
-            val defaultInstance by lazy { MessageWithMap.MapEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithMap.MapEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap.MapEntry> {
+            val defaultInstance by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<MessageWithMap.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithMap.MapEntry, *>>(2)
+            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap.MapEntry, *>>(2)
                 fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
@@ -136,7 +136,7 @@ data class MessageWithMap(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
-                            value = MessageWithMap.MapEntry::key
+                            value = pbandk.testpb.MessageWithMap.MapEntry::key
                         )
                     )
                     add(
@@ -146,12 +146,12 @@ data class MessageWithMap(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "value",
-                            value = MessageWithMap.MapEntry::value
+                            value = pbandk.testpb.MessageWithMap.MapEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = MessageWithMap.MapEntry::class,
+                    messageClass = pbandk.testpb.MessageWithMap.MapEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -167,12 +167,12 @@ data class FooMap(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<FooMap> {
-        val defaultInstance by lazy { FooMap() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = FooMap.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
+        val defaultInstance by lazy { pbandk.testpb.FooMap() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMap.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<FooMap> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMap, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -181,12 +181,12 @@ data class FooMap(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Map<String, pbandk.testpb.Foo?>(keyType = pbandk.FieldDescriptor.Type.Primitive.String(), valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion)),
                         jsonName = "map",
-                        value = FooMap::map
+                        value = pbandk.testpb.FooMap::map
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = FooMap::class,
+                messageClass = pbandk.testpb.FooMap::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -201,12 +201,12 @@ data class FooMap(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<FooMap.MapEntry> {
-            val defaultInstance by lazy { FooMap.MapEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = FooMap.MapEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.testpb.FooMap.MapEntry> {
+            val defaultInstance by lazy { pbandk.testpb.FooMap.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<FooMap.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMap.MapEntry, *>>(2)
+            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap.MapEntry, *>>(2)
                 fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
@@ -215,7 +215,7 @@ data class FooMap(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
-                            value = FooMap.MapEntry::key
+                            value = pbandk.testpb.FooMap.MapEntry::key
                         )
                     )
                     add(
@@ -225,12 +225,12 @@ data class FooMap(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
                             jsonName = "value",
-                            value = FooMap.MapEntry::value
+                            value = pbandk.testpb.FooMap.MapEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = FooMap.MapEntry::class,
+                    messageClass = pbandk.testpb.FooMap.MapEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -246,12 +246,12 @@ data class FooMapEntries(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<FooMapEntries> {
-        val defaultInstance by lazy { FooMapEntries() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = FooMapEntries.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
+        val defaultInstance by lazy { pbandk.testpb.FooMapEntries() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<FooMapEntries> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMapEntries, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -260,12 +260,12 @@ data class FooMapEntries(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Repeated<pbandk.testpb.FooMapEntries.MapEntry>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.FooMapEntries.MapEntry.Companion)),
                         jsonName = "map",
-                        value = FooMapEntries::map
+                        value = pbandk.testpb.FooMapEntries::map
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = FooMapEntries::class,
+                messageClass = pbandk.testpb.FooMapEntries::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -280,12 +280,12 @@ data class FooMapEntries(
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
         override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<FooMapEntries.MapEntry> {
-            val defaultInstance by lazy { FooMapEntries.MapEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = FooMapEntries.MapEntry.decodeWithImpl(u)
+        companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
+            val defaultInstance by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
-            override val descriptor: pbandk.MessageDescriptor<FooMapEntries.MapEntry> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<FooMapEntries.MapEntry, *>>(2)
+            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, *>>(2)
                 fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
@@ -294,7 +294,7 @@ data class FooMapEntries(
                             number = 1,
                             type = pbandk.FieldDescriptor.Type.Primitive.String(),
                             jsonName = "key",
-                            value = FooMapEntries.MapEntry::key
+                            value = pbandk.testpb.FooMapEntries.MapEntry::key
                         )
                     )
                     add(
@@ -304,12 +304,12 @@ data class FooMapEntries(
                             number = 2,
                             type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.testpb.Foo.Companion),
                             jsonName = "value",
-                            value = FooMapEntries.MapEntry::value
+                            value = pbandk.testpb.FooMapEntries.MapEntry::value
                         )
                     )
                 }
                 pbandk.MessageDescriptor(
-                    messageClass = FooMapEntries.MapEntry::class,
+                    messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
                 )
@@ -326,12 +326,12 @@ data class Wrappers(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Wrappers> {
-        val defaultInstance by lazy { Wrappers() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Wrappers.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
+        val defaultInstance by lazy { pbandk.testpb.Wrappers() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Wrappers> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Wrappers, *>>(2)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Wrappers, *>>(2)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -340,7 +340,7 @@ data class Wrappers(
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.StringValue.Companion),
                         jsonName = "stringValue",
-                        value = Wrappers::stringValue
+                        value = pbandk.testpb.Wrappers::stringValue
                     )
                 )
                 add(
@@ -350,12 +350,12 @@ data class Wrappers(
                         number = 2,
                         type = pbandk.FieldDescriptor.Type.Repeated<Long>(valueType = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.UInt64Value.Companion)),
                         jsonName = "uint64Values",
-                        value = Wrappers::uint64Values
+                        value = pbandk.testpb.Wrappers::uint64Values
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Wrappers::class,
+                messageClass = pbandk.testpb.Wrappers::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

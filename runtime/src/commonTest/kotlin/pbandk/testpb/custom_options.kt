@@ -9,12 +9,12 @@ data class SingleRequiredCustomOption(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<SingleRequiredCustomOption> {
-        val defaultInstance by lazy { SingleRequiredCustomOption() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = SingleRequiredCustomOption.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
+        val defaultInstance by lazy { pbandk.testpb.SingleRequiredCustomOption() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<SingleRequiredCustomOption> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<SingleRequiredCustomOption, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -33,12 +33,12 @@ data class SingleRequiredCustomOption(
                                 )
                             )
                         ),
-                        value = SingleRequiredCustomOption::single
+                        value = pbandk.testpb.SingleRequiredCustomOption::single
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = SingleRequiredCustomOption::class,
+                messageClass = pbandk.testpb.SingleRequiredCustomOption::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -53,12 +53,12 @@ data class MultipleCustomOptions(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<MultipleCustomOptions> {
-        val defaultInstance by lazy { MultipleCustomOptions() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = MultipleCustomOptions.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
+        val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptions() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<MultipleCustomOptions> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MultipleCustomOptions, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -78,12 +78,12 @@ data class MultipleCustomOptions(
                                 )
                             )
                         ),
-                        value = MultipleCustomOptions::multiple
+                        value = pbandk.testpb.MultipleCustomOptions::multiple
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = MultipleCustomOptions::class,
+                messageClass = pbandk.testpb.MultipleCustomOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -98,12 +98,12 @@ data class MultipleCustomOptionsPlusDeprecated(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<MultipleCustomOptionsPlusDeprecated> {
-        val defaultInstance by lazy { MultipleCustomOptionsPlusDeprecated() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
+        val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<MultipleCustomOptionsPlusDeprecated> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MultipleCustomOptionsPlusDeprecated, *>>(1)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, *>>(1)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -124,12 +124,12 @@ data class MultipleCustomOptionsPlusDeprecated(
                                 )
                             )
                         ),
-                        value = MultipleCustomOptionsPlusDeprecated::multipleDeprecated
+                        value = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::multipleDeprecated
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = MultipleCustomOptionsPlusDeprecated::class,
+                messageClass = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::class,
                 messageCompanion = this,
                 fields = fieldsList
             )

@@ -86,7 +86,7 @@ open class CodeGenerator(
         type: File.Type.Message,
         parentType: String? = null
     ) {
-        val parentPrefix = parentType?.let { "${it}." }.orEmpty()
+        val parentPrefix = parentType?.let { "${it}." }.orEmpty().ifEmpty { "${file.kotlinPackageName}." }
         val typeName = "${parentPrefix}${type.kotlinTypeName}"
         var messageInterface = if (type.extensionRange.isNotEmpty()) "pbandk.ExtendableMessage" else "pbandk.Message"
 

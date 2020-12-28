@@ -8,16 +8,16 @@ data class Empty(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Empty> {
-        val defaultInstance by lazy { Empty() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Empty.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
+        val defaultInstance by lazy { pbandk.wkt.Empty() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Empty.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<Empty> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<Empty, *>>(0)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Empty, *>>(0)
             fieldsList.apply {
             }
             pbandk.MessageDescriptor(
-                messageClass = Empty::class,
+                messageClass = pbandk.wkt.Empty::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
