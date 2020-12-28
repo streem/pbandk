@@ -4028,12 +4028,12 @@ data class MessageWithHugeOneof(
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
     override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<MessageWithHugeOneof> {
-        val defaultInstance by lazy { MessageWithHugeOneof() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = MessageWithHugeOneof.decodeWithImpl(u)
+    companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithHugeOneof> {
+        val defaultInstance by lazy { pbandk.testpb.MessageWithHugeOneof() }
+        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageWithHugeOneof.decodeWithImpl(u)
 
-        override val descriptor: pbandk.MessageDescriptor<MessageWithHugeOneof> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<MessageWithHugeOneof, *>>(1000).apply {
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithHugeOneof> by lazy {
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithHugeOneof, *>>(1000).apply {
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -4042,7 +4042,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1000",
-                        value = MessageWithHugeOneof::oneof1000
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1000
                     )
                 )
                 add(
@@ -4053,7 +4053,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1001",
-                        value = MessageWithHugeOneof::oneof1001
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1001
                     )
                 )
                 add(
@@ -4064,7 +4064,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1002",
-                        value = MessageWithHugeOneof::oneof1002
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1002
                     )
                 )
                 add(
@@ -4075,7 +4075,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1003",
-                        value = MessageWithHugeOneof::oneof1003
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1003
                     )
                 )
                 add(
@@ -4086,7 +4086,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1004",
-                        value = MessageWithHugeOneof::oneof1004
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1004
                     )
                 )
                 add(
@@ -4097,7 +4097,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1005",
-                        value = MessageWithHugeOneof::oneof1005
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1005
                     )
                 )
                 add(
@@ -4108,7 +4108,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1006",
-                        value = MessageWithHugeOneof::oneof1006
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1006
                     )
                 )
                 add(
@@ -4119,7 +4119,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1007",
-                        value = MessageWithHugeOneof::oneof1007
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1007
                     )
                 )
                 add(
@@ -4130,7 +4130,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1008",
-                        value = MessageWithHugeOneof::oneof1008
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1008
                     )
                 )
                 add(
@@ -4141,7 +4141,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1009",
-                        value = MessageWithHugeOneof::oneof1009
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1009
                     )
                 )
                 add(
@@ -4152,7 +4152,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1010",
-                        value = MessageWithHugeOneof::oneof1010
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1010
                     )
                 )
                 add(
@@ -4163,7 +4163,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1011",
-                        value = MessageWithHugeOneof::oneof1011
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1011
                     )
                 )
                 add(
@@ -4174,7 +4174,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1012",
-                        value = MessageWithHugeOneof::oneof1012
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1012
                     )
                 )
                 add(
@@ -4185,7 +4185,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1013",
-                        value = MessageWithHugeOneof::oneof1013
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1013
                     )
                 )
                 add(
@@ -4196,7 +4196,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1014",
-                        value = MessageWithHugeOneof::oneof1014
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1014
                     )
                 )
                 add(
@@ -4207,7 +4207,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1015",
-                        value = MessageWithHugeOneof::oneof1015
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1015
                     )
                 )
                 add(
@@ -4218,7 +4218,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1016",
-                        value = MessageWithHugeOneof::oneof1016
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1016
                     )
                 )
                 add(
@@ -4229,7 +4229,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1017",
-                        value = MessageWithHugeOneof::oneof1017
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1017
                     )
                 )
                 add(
@@ -4240,7 +4240,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1018",
-                        value = MessageWithHugeOneof::oneof1018
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1018
                     )
                 )
                 add(
@@ -4251,7 +4251,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1019",
-                        value = MessageWithHugeOneof::oneof1019
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1019
                     )
                 )
                 add(
@@ -4262,7 +4262,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1020",
-                        value = MessageWithHugeOneof::oneof1020
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1020
                     )
                 )
                 add(
@@ -4273,7 +4273,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1021",
-                        value = MessageWithHugeOneof::oneof1021
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1021
                     )
                 )
                 add(
@@ -4284,7 +4284,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1022",
-                        value = MessageWithHugeOneof::oneof1022
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1022
                     )
                 )
                 add(
@@ -4295,7 +4295,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1023",
-                        value = MessageWithHugeOneof::oneof1023
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1023
                     )
                 )
                 add(
@@ -4306,7 +4306,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1024",
-                        value = MessageWithHugeOneof::oneof1024
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1024
                     )
                 )
                 add(
@@ -4317,7 +4317,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1025",
-                        value = MessageWithHugeOneof::oneof1025
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1025
                     )
                 )
                 add(
@@ -4328,7 +4328,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1026",
-                        value = MessageWithHugeOneof::oneof1026
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1026
                     )
                 )
                 add(
@@ -4339,7 +4339,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1027",
-                        value = MessageWithHugeOneof::oneof1027
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1027
                     )
                 )
                 add(
@@ -4350,7 +4350,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1028",
-                        value = MessageWithHugeOneof::oneof1028
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1028
                     )
                 )
                 add(
@@ -4361,7 +4361,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1029",
-                        value = MessageWithHugeOneof::oneof1029
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1029
                     )
                 )
                 add(
@@ -4372,7 +4372,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1030",
-                        value = MessageWithHugeOneof::oneof1030
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1030
                     )
                 )
                 add(
@@ -4383,7 +4383,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1031",
-                        value = MessageWithHugeOneof::oneof1031
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1031
                     )
                 )
                 add(
@@ -4394,7 +4394,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1032",
-                        value = MessageWithHugeOneof::oneof1032
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1032
                     )
                 )
                 add(
@@ -4405,7 +4405,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1033",
-                        value = MessageWithHugeOneof::oneof1033
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1033
                     )
                 )
                 add(
@@ -4416,7 +4416,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1034",
-                        value = MessageWithHugeOneof::oneof1034
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1034
                     )
                 )
                 add(
@@ -4427,7 +4427,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1035",
-                        value = MessageWithHugeOneof::oneof1035
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1035
                     )
                 )
                 add(
@@ -4438,7 +4438,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1036",
-                        value = MessageWithHugeOneof::oneof1036
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1036
                     )
                 )
                 add(
@@ -4449,7 +4449,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1037",
-                        value = MessageWithHugeOneof::oneof1037
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1037
                     )
                 )
                 add(
@@ -4460,7 +4460,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1038",
-                        value = MessageWithHugeOneof::oneof1038
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1038
                     )
                 )
                 add(
@@ -4471,7 +4471,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1039",
-                        value = MessageWithHugeOneof::oneof1039
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1039
                     )
                 )
                 add(
@@ -4482,7 +4482,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1040",
-                        value = MessageWithHugeOneof::oneof1040
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1040
                     )
                 )
                 add(
@@ -4493,7 +4493,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1041",
-                        value = MessageWithHugeOneof::oneof1041
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1041
                     )
                 )
                 add(
@@ -4504,7 +4504,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1042",
-                        value = MessageWithHugeOneof::oneof1042
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1042
                     )
                 )
                 add(
@@ -4515,7 +4515,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1043",
-                        value = MessageWithHugeOneof::oneof1043
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1043
                     )
                 )
                 add(
@@ -4526,7 +4526,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1044",
-                        value = MessageWithHugeOneof::oneof1044
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1044
                     )
                 )
                 add(
@@ -4537,7 +4537,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1045",
-                        value = MessageWithHugeOneof::oneof1045
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1045
                     )
                 )
                 add(
@@ -4548,7 +4548,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1046",
-                        value = MessageWithHugeOneof::oneof1046
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1046
                     )
                 )
                 add(
@@ -4559,7 +4559,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1047",
-                        value = MessageWithHugeOneof::oneof1047
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1047
                     )
                 )
                 add(
@@ -4570,7 +4570,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1048",
-                        value = MessageWithHugeOneof::oneof1048
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1048
                     )
                 )
                 add(
@@ -4581,7 +4581,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1049",
-                        value = MessageWithHugeOneof::oneof1049
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1049
                     )
                 )
                 add(
@@ -4592,7 +4592,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1050",
-                        value = MessageWithHugeOneof::oneof1050
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1050
                     )
                 )
                 add(
@@ -4603,7 +4603,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1051",
-                        value = MessageWithHugeOneof::oneof1051
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1051
                     )
                 )
                 add(
@@ -4614,7 +4614,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1052",
-                        value = MessageWithHugeOneof::oneof1052
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1052
                     )
                 )
                 add(
@@ -4625,7 +4625,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1053",
-                        value = MessageWithHugeOneof::oneof1053
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1053
                     )
                 )
                 add(
@@ -4636,7 +4636,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1054",
-                        value = MessageWithHugeOneof::oneof1054
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1054
                     )
                 )
                 add(
@@ -4647,7 +4647,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1055",
-                        value = MessageWithHugeOneof::oneof1055
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1055
                     )
                 )
                 add(
@@ -4658,7 +4658,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1056",
-                        value = MessageWithHugeOneof::oneof1056
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1056
                     )
                 )
                 add(
@@ -4669,7 +4669,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1057",
-                        value = MessageWithHugeOneof::oneof1057
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1057
                     )
                 )
                 add(
@@ -4680,7 +4680,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1058",
-                        value = MessageWithHugeOneof::oneof1058
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1058
                     )
                 )
                 add(
@@ -4691,7 +4691,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1059",
-                        value = MessageWithHugeOneof::oneof1059
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1059
                     )
                 )
                 add(
@@ -4702,7 +4702,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1060",
-                        value = MessageWithHugeOneof::oneof1060
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1060
                     )
                 )
                 add(
@@ -4713,7 +4713,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1061",
-                        value = MessageWithHugeOneof::oneof1061
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1061
                     )
                 )
                 add(
@@ -4724,7 +4724,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1062",
-                        value = MessageWithHugeOneof::oneof1062
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1062
                     )
                 )
                 add(
@@ -4735,7 +4735,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1063",
-                        value = MessageWithHugeOneof::oneof1063
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1063
                     )
                 )
                 add(
@@ -4746,7 +4746,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1064",
-                        value = MessageWithHugeOneof::oneof1064
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1064
                     )
                 )
                 add(
@@ -4757,7 +4757,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1065",
-                        value = MessageWithHugeOneof::oneof1065
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1065
                     )
                 )
                 add(
@@ -4768,7 +4768,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1066",
-                        value = MessageWithHugeOneof::oneof1066
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1066
                     )
                 )
                 add(
@@ -4779,7 +4779,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1067",
-                        value = MessageWithHugeOneof::oneof1067
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1067
                     )
                 )
                 add(
@@ -4790,7 +4790,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1068",
-                        value = MessageWithHugeOneof::oneof1068
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1068
                     )
                 )
                 add(
@@ -4801,7 +4801,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1069",
-                        value = MessageWithHugeOneof::oneof1069
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1069
                     )
                 )
                 add(
@@ -4812,7 +4812,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1070",
-                        value = MessageWithHugeOneof::oneof1070
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1070
                     )
                 )
                 add(
@@ -4823,7 +4823,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1071",
-                        value = MessageWithHugeOneof::oneof1071
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1071
                     )
                 )
                 add(
@@ -4834,7 +4834,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1072",
-                        value = MessageWithHugeOneof::oneof1072
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1072
                     )
                 )
                 add(
@@ -4845,7 +4845,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1073",
-                        value = MessageWithHugeOneof::oneof1073
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1073
                     )
                 )
                 add(
@@ -4856,7 +4856,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1074",
-                        value = MessageWithHugeOneof::oneof1074
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1074
                     )
                 )
                 add(
@@ -4867,7 +4867,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1075",
-                        value = MessageWithHugeOneof::oneof1075
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1075
                     )
                 )
                 add(
@@ -4878,7 +4878,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1076",
-                        value = MessageWithHugeOneof::oneof1076
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1076
                     )
                 )
                 add(
@@ -4889,7 +4889,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1077",
-                        value = MessageWithHugeOneof::oneof1077
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1077
                     )
                 )
                 add(
@@ -4900,7 +4900,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1078",
-                        value = MessageWithHugeOneof::oneof1078
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1078
                     )
                 )
                 add(
@@ -4911,7 +4911,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1079",
-                        value = MessageWithHugeOneof::oneof1079
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1079
                     )
                 )
                 add(
@@ -4922,7 +4922,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1080",
-                        value = MessageWithHugeOneof::oneof1080
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1080
                     )
                 )
                 add(
@@ -4933,7 +4933,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1081",
-                        value = MessageWithHugeOneof::oneof1081
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1081
                     )
                 )
                 add(
@@ -4944,7 +4944,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1082",
-                        value = MessageWithHugeOneof::oneof1082
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1082
                     )
                 )
                 add(
@@ -4955,7 +4955,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1083",
-                        value = MessageWithHugeOneof::oneof1083
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1083
                     )
                 )
                 add(
@@ -4966,7 +4966,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1084",
-                        value = MessageWithHugeOneof::oneof1084
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1084
                     )
                 )
                 add(
@@ -4977,7 +4977,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1085",
-                        value = MessageWithHugeOneof::oneof1085
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1085
                     )
                 )
                 add(
@@ -4988,7 +4988,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1086",
-                        value = MessageWithHugeOneof::oneof1086
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1086
                     )
                 )
                 add(
@@ -4999,7 +4999,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1087",
-                        value = MessageWithHugeOneof::oneof1087
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1087
                     )
                 )
                 add(
@@ -5010,7 +5010,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1088",
-                        value = MessageWithHugeOneof::oneof1088
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1088
                     )
                 )
                 add(
@@ -5021,7 +5021,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1089",
-                        value = MessageWithHugeOneof::oneof1089
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1089
                     )
                 )
                 add(
@@ -5032,7 +5032,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1090",
-                        value = MessageWithHugeOneof::oneof1090
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1090
                     )
                 )
                 add(
@@ -5043,7 +5043,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1091",
-                        value = MessageWithHugeOneof::oneof1091
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1091
                     )
                 )
                 add(
@@ -5054,7 +5054,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1092",
-                        value = MessageWithHugeOneof::oneof1092
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1092
                     )
                 )
                 add(
@@ -5065,7 +5065,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1093",
-                        value = MessageWithHugeOneof::oneof1093
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1093
                     )
                 )
                 add(
@@ -5076,7 +5076,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1094",
-                        value = MessageWithHugeOneof::oneof1094
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1094
                     )
                 )
                 add(
@@ -5087,7 +5087,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1095",
-                        value = MessageWithHugeOneof::oneof1095
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1095
                     )
                 )
                 add(
@@ -5098,7 +5098,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1096",
-                        value = MessageWithHugeOneof::oneof1096
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1096
                     )
                 )
                 add(
@@ -5109,7 +5109,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1097",
-                        value = MessageWithHugeOneof::oneof1097
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1097
                     )
                 )
                 add(
@@ -5120,7 +5120,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1098",
-                        value = MessageWithHugeOneof::oneof1098
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1098
                     )
                 )
                 add(
@@ -5131,7 +5131,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1099",
-                        value = MessageWithHugeOneof::oneof1099
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1099
                     )
                 )
                 add(
@@ -5142,7 +5142,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1100",
-                        value = MessageWithHugeOneof::oneof1100
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1100
                     )
                 )
                 add(
@@ -5153,7 +5153,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1101",
-                        value = MessageWithHugeOneof::oneof1101
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1101
                     )
                 )
                 add(
@@ -5164,7 +5164,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1102",
-                        value = MessageWithHugeOneof::oneof1102
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1102
                     )
                 )
                 add(
@@ -5175,7 +5175,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1103",
-                        value = MessageWithHugeOneof::oneof1103
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1103
                     )
                 )
                 add(
@@ -5186,7 +5186,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1104",
-                        value = MessageWithHugeOneof::oneof1104
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1104
                     )
                 )
                 add(
@@ -5197,7 +5197,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1105",
-                        value = MessageWithHugeOneof::oneof1105
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1105
                     )
                 )
                 add(
@@ -5208,7 +5208,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1106",
-                        value = MessageWithHugeOneof::oneof1106
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1106
                     )
                 )
                 add(
@@ -5219,7 +5219,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1107",
-                        value = MessageWithHugeOneof::oneof1107
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1107
                     )
                 )
                 add(
@@ -5230,7 +5230,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1108",
-                        value = MessageWithHugeOneof::oneof1108
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1108
                     )
                 )
                 add(
@@ -5241,7 +5241,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1109",
-                        value = MessageWithHugeOneof::oneof1109
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1109
                     )
                 )
                 add(
@@ -5252,7 +5252,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1110",
-                        value = MessageWithHugeOneof::oneof1110
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1110
                     )
                 )
                 add(
@@ -5263,7 +5263,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1111",
-                        value = MessageWithHugeOneof::oneof1111
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1111
                     )
                 )
                 add(
@@ -5274,7 +5274,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1112",
-                        value = MessageWithHugeOneof::oneof1112
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1112
                     )
                 )
                 add(
@@ -5285,7 +5285,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1113",
-                        value = MessageWithHugeOneof::oneof1113
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1113
                     )
                 )
                 add(
@@ -5296,7 +5296,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1114",
-                        value = MessageWithHugeOneof::oneof1114
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1114
                     )
                 )
                 add(
@@ -5307,7 +5307,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1115",
-                        value = MessageWithHugeOneof::oneof1115
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1115
                     )
                 )
                 add(
@@ -5318,7 +5318,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1116",
-                        value = MessageWithHugeOneof::oneof1116
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1116
                     )
                 )
                 add(
@@ -5329,7 +5329,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1117",
-                        value = MessageWithHugeOneof::oneof1117
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1117
                     )
                 )
                 add(
@@ -5340,7 +5340,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1118",
-                        value = MessageWithHugeOneof::oneof1118
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1118
                     )
                 )
                 add(
@@ -5351,7 +5351,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1119",
-                        value = MessageWithHugeOneof::oneof1119
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1119
                     )
                 )
                 add(
@@ -5362,7 +5362,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1120",
-                        value = MessageWithHugeOneof::oneof1120
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1120
                     )
                 )
                 add(
@@ -5373,7 +5373,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1121",
-                        value = MessageWithHugeOneof::oneof1121
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1121
                     )
                 )
                 add(
@@ -5384,7 +5384,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1122",
-                        value = MessageWithHugeOneof::oneof1122
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1122
                     )
                 )
                 add(
@@ -5395,7 +5395,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1123",
-                        value = MessageWithHugeOneof::oneof1123
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1123
                     )
                 )
                 add(
@@ -5406,7 +5406,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1124",
-                        value = MessageWithHugeOneof::oneof1124
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1124
                     )
                 )
                 add(
@@ -5417,7 +5417,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1125",
-                        value = MessageWithHugeOneof::oneof1125
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1125
                     )
                 )
                 add(
@@ -5428,7 +5428,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1126",
-                        value = MessageWithHugeOneof::oneof1126
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1126
                     )
                 )
                 add(
@@ -5439,7 +5439,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1127",
-                        value = MessageWithHugeOneof::oneof1127
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1127
                     )
                 )
                 add(
@@ -5450,7 +5450,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1128",
-                        value = MessageWithHugeOneof::oneof1128
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1128
                     )
                 )
                 add(
@@ -5461,7 +5461,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1129",
-                        value = MessageWithHugeOneof::oneof1129
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1129
                     )
                 )
                 add(
@@ -5472,7 +5472,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1130",
-                        value = MessageWithHugeOneof::oneof1130
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1130
                     )
                 )
                 add(
@@ -5483,7 +5483,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1131",
-                        value = MessageWithHugeOneof::oneof1131
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1131
                     )
                 )
                 add(
@@ -5494,7 +5494,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1132",
-                        value = MessageWithHugeOneof::oneof1132
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1132
                     )
                 )
                 add(
@@ -5505,7 +5505,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1133",
-                        value = MessageWithHugeOneof::oneof1133
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1133
                     )
                 )
                 add(
@@ -5516,7 +5516,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1134",
-                        value = MessageWithHugeOneof::oneof1134
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1134
                     )
                 )
                 add(
@@ -5527,7 +5527,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1135",
-                        value = MessageWithHugeOneof::oneof1135
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1135
                     )
                 )
                 add(
@@ -5538,7 +5538,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1136",
-                        value = MessageWithHugeOneof::oneof1136
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1136
                     )
                 )
                 add(
@@ -5549,7 +5549,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1137",
-                        value = MessageWithHugeOneof::oneof1137
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1137
                     )
                 )
                 add(
@@ -5560,7 +5560,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1138",
-                        value = MessageWithHugeOneof::oneof1138
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1138
                     )
                 )
                 add(
@@ -5571,7 +5571,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1139",
-                        value = MessageWithHugeOneof::oneof1139
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1139
                     )
                 )
                 add(
@@ -5582,7 +5582,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1140",
-                        value = MessageWithHugeOneof::oneof1140
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1140
                     )
                 )
                 add(
@@ -5593,7 +5593,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1141",
-                        value = MessageWithHugeOneof::oneof1141
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1141
                     )
                 )
                 add(
@@ -5604,7 +5604,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1142",
-                        value = MessageWithHugeOneof::oneof1142
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1142
                     )
                 )
                 add(
@@ -5615,7 +5615,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1143",
-                        value = MessageWithHugeOneof::oneof1143
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1143
                     )
                 )
                 add(
@@ -5626,7 +5626,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1144",
-                        value = MessageWithHugeOneof::oneof1144
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1144
                     )
                 )
                 add(
@@ -5637,7 +5637,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1145",
-                        value = MessageWithHugeOneof::oneof1145
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1145
                     )
                 )
                 add(
@@ -5648,7 +5648,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1146",
-                        value = MessageWithHugeOneof::oneof1146
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1146
                     )
                 )
                 add(
@@ -5659,7 +5659,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1147",
-                        value = MessageWithHugeOneof::oneof1147
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1147
                     )
                 )
                 add(
@@ -5670,7 +5670,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1148",
-                        value = MessageWithHugeOneof::oneof1148
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1148
                     )
                 )
                 add(
@@ -5681,7 +5681,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1149",
-                        value = MessageWithHugeOneof::oneof1149
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1149
                     )
                 )
                 add(
@@ -5692,7 +5692,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1150",
-                        value = MessageWithHugeOneof::oneof1150
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1150
                     )
                 )
                 add(
@@ -5703,7 +5703,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1151",
-                        value = MessageWithHugeOneof::oneof1151
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1151
                     )
                 )
                 add(
@@ -5714,7 +5714,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1152",
-                        value = MessageWithHugeOneof::oneof1152
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1152
                     )
                 )
                 add(
@@ -5725,7 +5725,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1153",
-                        value = MessageWithHugeOneof::oneof1153
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1153
                     )
                 )
                 add(
@@ -5736,7 +5736,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1154",
-                        value = MessageWithHugeOneof::oneof1154
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1154
                     )
                 )
                 add(
@@ -5747,7 +5747,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1155",
-                        value = MessageWithHugeOneof::oneof1155
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1155
                     )
                 )
                 add(
@@ -5758,7 +5758,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1156",
-                        value = MessageWithHugeOneof::oneof1156
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1156
                     )
                 )
                 add(
@@ -5769,7 +5769,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1157",
-                        value = MessageWithHugeOneof::oneof1157
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1157
                     )
                 )
                 add(
@@ -5780,7 +5780,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1158",
-                        value = MessageWithHugeOneof::oneof1158
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1158
                     )
                 )
                 add(
@@ -5791,7 +5791,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1159",
-                        value = MessageWithHugeOneof::oneof1159
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1159
                     )
                 )
                 add(
@@ -5802,7 +5802,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1160",
-                        value = MessageWithHugeOneof::oneof1160
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1160
                     )
                 )
                 add(
@@ -5813,7 +5813,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1161",
-                        value = MessageWithHugeOneof::oneof1161
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1161
                     )
                 )
                 add(
@@ -5824,7 +5824,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1162",
-                        value = MessageWithHugeOneof::oneof1162
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1162
                     )
                 )
                 add(
@@ -5835,7 +5835,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1163",
-                        value = MessageWithHugeOneof::oneof1163
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1163
                     )
                 )
                 add(
@@ -5846,7 +5846,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1164",
-                        value = MessageWithHugeOneof::oneof1164
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1164
                     )
                 )
                 add(
@@ -5857,7 +5857,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1165",
-                        value = MessageWithHugeOneof::oneof1165
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1165
                     )
                 )
                 add(
@@ -5868,7 +5868,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1166",
-                        value = MessageWithHugeOneof::oneof1166
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1166
                     )
                 )
                 add(
@@ -5879,7 +5879,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1167",
-                        value = MessageWithHugeOneof::oneof1167
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1167
                     )
                 )
                 add(
@@ -5890,7 +5890,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1168",
-                        value = MessageWithHugeOneof::oneof1168
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1168
                     )
                 )
                 add(
@@ -5901,7 +5901,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1169",
-                        value = MessageWithHugeOneof::oneof1169
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1169
                     )
                 )
                 add(
@@ -5912,7 +5912,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1170",
-                        value = MessageWithHugeOneof::oneof1170
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1170
                     )
                 )
                 add(
@@ -5923,7 +5923,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1171",
-                        value = MessageWithHugeOneof::oneof1171
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1171
                     )
                 )
                 add(
@@ -5934,7 +5934,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1172",
-                        value = MessageWithHugeOneof::oneof1172
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1172
                     )
                 )
                 add(
@@ -5945,7 +5945,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1173",
-                        value = MessageWithHugeOneof::oneof1173
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1173
                     )
                 )
                 add(
@@ -5956,7 +5956,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1174",
-                        value = MessageWithHugeOneof::oneof1174
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1174
                     )
                 )
                 add(
@@ -5967,7 +5967,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1175",
-                        value = MessageWithHugeOneof::oneof1175
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1175
                     )
                 )
                 add(
@@ -5978,7 +5978,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1176",
-                        value = MessageWithHugeOneof::oneof1176
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1176
                     )
                 )
                 add(
@@ -5989,7 +5989,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1177",
-                        value = MessageWithHugeOneof::oneof1177
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1177
                     )
                 )
                 add(
@@ -6000,7 +6000,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1178",
-                        value = MessageWithHugeOneof::oneof1178
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1178
                     )
                 )
                 add(
@@ -6011,7 +6011,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1179",
-                        value = MessageWithHugeOneof::oneof1179
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1179
                     )
                 )
                 add(
@@ -6022,7 +6022,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1180",
-                        value = MessageWithHugeOneof::oneof1180
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1180
                     )
                 )
                 add(
@@ -6033,7 +6033,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1181",
-                        value = MessageWithHugeOneof::oneof1181
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1181
                     )
                 )
                 add(
@@ -6044,7 +6044,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1182",
-                        value = MessageWithHugeOneof::oneof1182
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1182
                     )
                 )
                 add(
@@ -6055,7 +6055,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1183",
-                        value = MessageWithHugeOneof::oneof1183
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1183
                     )
                 )
                 add(
@@ -6066,7 +6066,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1184",
-                        value = MessageWithHugeOneof::oneof1184
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1184
                     )
                 )
                 add(
@@ -6077,7 +6077,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1185",
-                        value = MessageWithHugeOneof::oneof1185
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1185
                     )
                 )
                 add(
@@ -6088,7 +6088,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1186",
-                        value = MessageWithHugeOneof::oneof1186
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1186
                     )
                 )
                 add(
@@ -6099,7 +6099,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1187",
-                        value = MessageWithHugeOneof::oneof1187
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1187
                     )
                 )
                 add(
@@ -6110,7 +6110,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1188",
-                        value = MessageWithHugeOneof::oneof1188
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1188
                     )
                 )
                 add(
@@ -6121,7 +6121,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1189",
-                        value = MessageWithHugeOneof::oneof1189
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1189
                     )
                 )
                 add(
@@ -6132,7 +6132,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1190",
-                        value = MessageWithHugeOneof::oneof1190
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1190
                     )
                 )
                 add(
@@ -6143,7 +6143,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1191",
-                        value = MessageWithHugeOneof::oneof1191
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1191
                     )
                 )
                 add(
@@ -6154,7 +6154,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1192",
-                        value = MessageWithHugeOneof::oneof1192
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1192
                     )
                 )
                 add(
@@ -6165,7 +6165,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1193",
-                        value = MessageWithHugeOneof::oneof1193
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1193
                     )
                 )
                 add(
@@ -6176,7 +6176,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1194",
-                        value = MessageWithHugeOneof::oneof1194
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1194
                     )
                 )
                 add(
@@ -6187,7 +6187,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1195",
-                        value = MessageWithHugeOneof::oneof1195
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1195
                     )
                 )
                 add(
@@ -6198,7 +6198,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1196",
-                        value = MessageWithHugeOneof::oneof1196
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1196
                     )
                 )
                 add(
@@ -6209,7 +6209,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1197",
-                        value = MessageWithHugeOneof::oneof1197
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1197
                     )
                 )
                 add(
@@ -6220,7 +6220,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1198",
-                        value = MessageWithHugeOneof::oneof1198
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1198
                     )
                 )
                 add(
@@ -6231,7 +6231,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1199",
-                        value = MessageWithHugeOneof::oneof1199
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1199
                     )
                 )
                 add(
@@ -6242,7 +6242,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1200",
-                        value = MessageWithHugeOneof::oneof1200
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1200
                     )
                 )
                 add(
@@ -6253,7 +6253,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1201",
-                        value = MessageWithHugeOneof::oneof1201
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1201
                     )
                 )
                 add(
@@ -6264,7 +6264,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1202",
-                        value = MessageWithHugeOneof::oneof1202
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1202
                     )
                 )
                 add(
@@ -6275,7 +6275,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1203",
-                        value = MessageWithHugeOneof::oneof1203
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1203
                     )
                 )
                 add(
@@ -6286,7 +6286,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1204",
-                        value = MessageWithHugeOneof::oneof1204
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1204
                     )
                 )
                 add(
@@ -6297,7 +6297,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1205",
-                        value = MessageWithHugeOneof::oneof1205
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1205
                     )
                 )
                 add(
@@ -6308,7 +6308,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1206",
-                        value = MessageWithHugeOneof::oneof1206
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1206
                     )
                 )
                 add(
@@ -6319,7 +6319,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1207",
-                        value = MessageWithHugeOneof::oneof1207
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1207
                     )
                 )
                 add(
@@ -6330,7 +6330,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1208",
-                        value = MessageWithHugeOneof::oneof1208
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1208
                     )
                 )
                 add(
@@ -6341,7 +6341,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1209",
-                        value = MessageWithHugeOneof::oneof1209
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1209
                     )
                 )
                 add(
@@ -6352,7 +6352,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1210",
-                        value = MessageWithHugeOneof::oneof1210
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1210
                     )
                 )
                 add(
@@ -6363,7 +6363,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1211",
-                        value = MessageWithHugeOneof::oneof1211
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1211
                     )
                 )
                 add(
@@ -6374,7 +6374,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1212",
-                        value = MessageWithHugeOneof::oneof1212
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1212
                     )
                 )
                 add(
@@ -6385,7 +6385,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1213",
-                        value = MessageWithHugeOneof::oneof1213
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1213
                     )
                 )
                 add(
@@ -6396,7 +6396,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1214",
-                        value = MessageWithHugeOneof::oneof1214
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1214
                     )
                 )
                 add(
@@ -6407,7 +6407,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1215",
-                        value = MessageWithHugeOneof::oneof1215
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1215
                     )
                 )
                 add(
@@ -6418,7 +6418,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1216",
-                        value = MessageWithHugeOneof::oneof1216
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1216
                     )
                 )
                 add(
@@ -6429,7 +6429,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1217",
-                        value = MessageWithHugeOneof::oneof1217
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1217
                     )
                 )
                 add(
@@ -6440,7 +6440,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1218",
-                        value = MessageWithHugeOneof::oneof1218
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1218
                     )
                 )
                 add(
@@ -6451,7 +6451,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1219",
-                        value = MessageWithHugeOneof::oneof1219
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1219
                     )
                 )
                 add(
@@ -6462,7 +6462,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1220",
-                        value = MessageWithHugeOneof::oneof1220
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1220
                     )
                 )
                 add(
@@ -6473,7 +6473,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1221",
-                        value = MessageWithHugeOneof::oneof1221
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1221
                     )
                 )
                 add(
@@ -6484,7 +6484,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1222",
-                        value = MessageWithHugeOneof::oneof1222
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1222
                     )
                 )
                 add(
@@ -6495,7 +6495,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1223",
-                        value = MessageWithHugeOneof::oneof1223
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1223
                     )
                 )
                 add(
@@ -6506,7 +6506,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1224",
-                        value = MessageWithHugeOneof::oneof1224
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1224
                     )
                 )
                 add(
@@ -6517,7 +6517,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1225",
-                        value = MessageWithHugeOneof::oneof1225
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1225
                     )
                 )
                 add(
@@ -6528,7 +6528,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1226",
-                        value = MessageWithHugeOneof::oneof1226
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1226
                     )
                 )
                 add(
@@ -6539,7 +6539,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1227",
-                        value = MessageWithHugeOneof::oneof1227
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1227
                     )
                 )
                 add(
@@ -6550,7 +6550,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1228",
-                        value = MessageWithHugeOneof::oneof1228
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1228
                     )
                 )
                 add(
@@ -6561,7 +6561,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1229",
-                        value = MessageWithHugeOneof::oneof1229
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1229
                     )
                 )
                 add(
@@ -6572,7 +6572,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1230",
-                        value = MessageWithHugeOneof::oneof1230
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1230
                     )
                 )
                 add(
@@ -6583,7 +6583,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1231",
-                        value = MessageWithHugeOneof::oneof1231
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1231
                     )
                 )
                 add(
@@ -6594,7 +6594,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1232",
-                        value = MessageWithHugeOneof::oneof1232
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1232
                     )
                 )
                 add(
@@ -6605,7 +6605,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1233",
-                        value = MessageWithHugeOneof::oneof1233
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1233
                     )
                 )
                 add(
@@ -6616,7 +6616,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1234",
-                        value = MessageWithHugeOneof::oneof1234
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1234
                     )
                 )
                 add(
@@ -6627,7 +6627,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1235",
-                        value = MessageWithHugeOneof::oneof1235
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1235
                     )
                 )
                 add(
@@ -6638,7 +6638,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1236",
-                        value = MessageWithHugeOneof::oneof1236
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1236
                     )
                 )
                 add(
@@ -6649,7 +6649,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1237",
-                        value = MessageWithHugeOneof::oneof1237
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1237
                     )
                 )
                 add(
@@ -6660,7 +6660,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1238",
-                        value = MessageWithHugeOneof::oneof1238
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1238
                     )
                 )
                 add(
@@ -6671,7 +6671,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1239",
-                        value = MessageWithHugeOneof::oneof1239
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1239
                     )
                 )
                 add(
@@ -6682,7 +6682,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1240",
-                        value = MessageWithHugeOneof::oneof1240
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1240
                     )
                 )
                 add(
@@ -6693,7 +6693,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1241",
-                        value = MessageWithHugeOneof::oneof1241
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1241
                     )
                 )
                 add(
@@ -6704,7 +6704,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1242",
-                        value = MessageWithHugeOneof::oneof1242
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1242
                     )
                 )
                 add(
@@ -6715,7 +6715,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1243",
-                        value = MessageWithHugeOneof::oneof1243
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1243
                     )
                 )
                 add(
@@ -6726,7 +6726,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1244",
-                        value = MessageWithHugeOneof::oneof1244
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1244
                     )
                 )
                 add(
@@ -6737,7 +6737,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1245",
-                        value = MessageWithHugeOneof::oneof1245
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1245
                     )
                 )
                 add(
@@ -6748,7 +6748,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1246",
-                        value = MessageWithHugeOneof::oneof1246
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1246
                     )
                 )
                 add(
@@ -6759,7 +6759,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1247",
-                        value = MessageWithHugeOneof::oneof1247
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1247
                     )
                 )
                 add(
@@ -6770,7 +6770,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1248",
-                        value = MessageWithHugeOneof::oneof1248
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1248
                     )
                 )
                 add(
@@ -6781,7 +6781,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1249",
-                        value = MessageWithHugeOneof::oneof1249
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1249
                     )
                 )
                 add(
@@ -6792,7 +6792,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1250",
-                        value = MessageWithHugeOneof::oneof1250
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1250
                     )
                 )
                 add(
@@ -6803,7 +6803,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1251",
-                        value = MessageWithHugeOneof::oneof1251
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1251
                     )
                 )
                 add(
@@ -6814,7 +6814,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1252",
-                        value = MessageWithHugeOneof::oneof1252
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1252
                     )
                 )
                 add(
@@ -6825,7 +6825,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1253",
-                        value = MessageWithHugeOneof::oneof1253
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1253
                     )
                 )
                 add(
@@ -6836,7 +6836,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1254",
-                        value = MessageWithHugeOneof::oneof1254
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1254
                     )
                 )
                 add(
@@ -6847,7 +6847,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1255",
-                        value = MessageWithHugeOneof::oneof1255
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1255
                     )
                 )
                 add(
@@ -6858,7 +6858,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1256",
-                        value = MessageWithHugeOneof::oneof1256
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1256
                     )
                 )
                 add(
@@ -6869,7 +6869,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1257",
-                        value = MessageWithHugeOneof::oneof1257
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1257
                     )
                 )
                 add(
@@ -6880,7 +6880,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1258",
-                        value = MessageWithHugeOneof::oneof1258
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1258
                     )
                 )
                 add(
@@ -6891,7 +6891,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1259",
-                        value = MessageWithHugeOneof::oneof1259
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1259
                     )
                 )
                 add(
@@ -6902,7 +6902,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1260",
-                        value = MessageWithHugeOneof::oneof1260
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1260
                     )
                 )
                 add(
@@ -6913,7 +6913,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1261",
-                        value = MessageWithHugeOneof::oneof1261
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1261
                     )
                 )
                 add(
@@ -6924,7 +6924,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1262",
-                        value = MessageWithHugeOneof::oneof1262
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1262
                     )
                 )
                 add(
@@ -6935,7 +6935,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1263",
-                        value = MessageWithHugeOneof::oneof1263
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1263
                     )
                 )
                 add(
@@ -6946,7 +6946,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1264",
-                        value = MessageWithHugeOneof::oneof1264
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1264
                     )
                 )
                 add(
@@ -6957,7 +6957,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1265",
-                        value = MessageWithHugeOneof::oneof1265
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1265
                     )
                 )
                 add(
@@ -6968,7 +6968,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1266",
-                        value = MessageWithHugeOneof::oneof1266
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1266
                     )
                 )
                 add(
@@ -6979,7 +6979,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1267",
-                        value = MessageWithHugeOneof::oneof1267
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1267
                     )
                 )
                 add(
@@ -6990,7 +6990,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1268",
-                        value = MessageWithHugeOneof::oneof1268
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1268
                     )
                 )
                 add(
@@ -7001,7 +7001,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1269",
-                        value = MessageWithHugeOneof::oneof1269
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1269
                     )
                 )
                 add(
@@ -7012,7 +7012,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1270",
-                        value = MessageWithHugeOneof::oneof1270
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1270
                     )
                 )
                 add(
@@ -7023,7 +7023,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1271",
-                        value = MessageWithHugeOneof::oneof1271
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1271
                     )
                 )
                 add(
@@ -7034,7 +7034,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1272",
-                        value = MessageWithHugeOneof::oneof1272
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1272
                     )
                 )
                 add(
@@ -7045,7 +7045,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1273",
-                        value = MessageWithHugeOneof::oneof1273
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1273
                     )
                 )
                 add(
@@ -7056,7 +7056,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1274",
-                        value = MessageWithHugeOneof::oneof1274
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1274
                     )
                 )
                 add(
@@ -7067,7 +7067,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1275",
-                        value = MessageWithHugeOneof::oneof1275
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1275
                     )
                 )
                 add(
@@ -7078,7 +7078,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1276",
-                        value = MessageWithHugeOneof::oneof1276
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1276
                     )
                 )
                 add(
@@ -7089,7 +7089,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1277",
-                        value = MessageWithHugeOneof::oneof1277
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1277
                     )
                 )
                 add(
@@ -7100,7 +7100,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1278",
-                        value = MessageWithHugeOneof::oneof1278
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1278
                     )
                 )
                 add(
@@ -7111,7 +7111,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1279",
-                        value = MessageWithHugeOneof::oneof1279
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1279
                     )
                 )
                 add(
@@ -7122,7 +7122,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1280",
-                        value = MessageWithHugeOneof::oneof1280
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1280
                     )
                 )
                 add(
@@ -7133,7 +7133,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1281",
-                        value = MessageWithHugeOneof::oneof1281
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1281
                     )
                 )
                 add(
@@ -7144,7 +7144,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1282",
-                        value = MessageWithHugeOneof::oneof1282
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1282
                     )
                 )
                 add(
@@ -7155,7 +7155,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1283",
-                        value = MessageWithHugeOneof::oneof1283
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1283
                     )
                 )
                 add(
@@ -7166,7 +7166,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1284",
-                        value = MessageWithHugeOneof::oneof1284
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1284
                     )
                 )
                 add(
@@ -7177,7 +7177,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1285",
-                        value = MessageWithHugeOneof::oneof1285
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1285
                     )
                 )
                 add(
@@ -7188,7 +7188,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1286",
-                        value = MessageWithHugeOneof::oneof1286
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1286
                     )
                 )
                 add(
@@ -7199,7 +7199,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1287",
-                        value = MessageWithHugeOneof::oneof1287
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1287
                     )
                 )
                 add(
@@ -7210,7 +7210,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1288",
-                        value = MessageWithHugeOneof::oneof1288
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1288
                     )
                 )
                 add(
@@ -7221,7 +7221,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1289",
-                        value = MessageWithHugeOneof::oneof1289
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1289
                     )
                 )
                 add(
@@ -7232,7 +7232,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1290",
-                        value = MessageWithHugeOneof::oneof1290
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1290
                     )
                 )
                 add(
@@ -7243,7 +7243,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1291",
-                        value = MessageWithHugeOneof::oneof1291
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1291
                     )
                 )
                 add(
@@ -7254,7 +7254,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1292",
-                        value = MessageWithHugeOneof::oneof1292
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1292
                     )
                 )
                 add(
@@ -7265,7 +7265,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1293",
-                        value = MessageWithHugeOneof::oneof1293
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1293
                     )
                 )
                 add(
@@ -7276,7 +7276,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1294",
-                        value = MessageWithHugeOneof::oneof1294
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1294
                     )
                 )
                 add(
@@ -7287,7 +7287,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1295",
-                        value = MessageWithHugeOneof::oneof1295
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1295
                     )
                 )
                 add(
@@ -7298,7 +7298,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1296",
-                        value = MessageWithHugeOneof::oneof1296
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1296
                     )
                 )
                 add(
@@ -7309,7 +7309,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1297",
-                        value = MessageWithHugeOneof::oneof1297
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1297
                     )
                 )
                 add(
@@ -7320,7 +7320,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1298",
-                        value = MessageWithHugeOneof::oneof1298
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1298
                     )
                 )
                 add(
@@ -7331,7 +7331,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1299",
-                        value = MessageWithHugeOneof::oneof1299
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1299
                     )
                 )
                 add(
@@ -7342,7 +7342,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1300",
-                        value = MessageWithHugeOneof::oneof1300
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1300
                     )
                 )
                 add(
@@ -7353,7 +7353,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1301",
-                        value = MessageWithHugeOneof::oneof1301
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1301
                     )
                 )
                 add(
@@ -7364,7 +7364,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1302",
-                        value = MessageWithHugeOneof::oneof1302
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1302
                     )
                 )
                 add(
@@ -7375,7 +7375,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1303",
-                        value = MessageWithHugeOneof::oneof1303
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1303
                     )
                 )
                 add(
@@ -7386,7 +7386,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1304",
-                        value = MessageWithHugeOneof::oneof1304
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1304
                     )
                 )
                 add(
@@ -7397,7 +7397,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1305",
-                        value = MessageWithHugeOneof::oneof1305
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1305
                     )
                 )
                 add(
@@ -7408,7 +7408,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1306",
-                        value = MessageWithHugeOneof::oneof1306
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1306
                     )
                 )
                 add(
@@ -7419,7 +7419,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1307",
-                        value = MessageWithHugeOneof::oneof1307
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1307
                     )
                 )
                 add(
@@ -7430,7 +7430,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1308",
-                        value = MessageWithHugeOneof::oneof1308
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1308
                     )
                 )
                 add(
@@ -7441,7 +7441,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1309",
-                        value = MessageWithHugeOneof::oneof1309
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1309
                     )
                 )
                 add(
@@ -7452,7 +7452,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1310",
-                        value = MessageWithHugeOneof::oneof1310
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1310
                     )
                 )
                 add(
@@ -7463,7 +7463,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1311",
-                        value = MessageWithHugeOneof::oneof1311
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1311
                     )
                 )
                 add(
@@ -7474,7 +7474,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1312",
-                        value = MessageWithHugeOneof::oneof1312
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1312
                     )
                 )
                 add(
@@ -7485,7 +7485,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1313",
-                        value = MessageWithHugeOneof::oneof1313
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1313
                     )
                 )
                 add(
@@ -7496,7 +7496,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1314",
-                        value = MessageWithHugeOneof::oneof1314
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1314
                     )
                 )
                 add(
@@ -7507,7 +7507,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1315",
-                        value = MessageWithHugeOneof::oneof1315
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1315
                     )
                 )
                 add(
@@ -7518,7 +7518,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1316",
-                        value = MessageWithHugeOneof::oneof1316
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1316
                     )
                 )
                 add(
@@ -7529,7 +7529,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1317",
-                        value = MessageWithHugeOneof::oneof1317
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1317
                     )
                 )
                 add(
@@ -7540,7 +7540,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1318",
-                        value = MessageWithHugeOneof::oneof1318
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1318
                     )
                 )
                 add(
@@ -7551,7 +7551,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1319",
-                        value = MessageWithHugeOneof::oneof1319
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1319
                     )
                 )
                 add(
@@ -7562,7 +7562,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1320",
-                        value = MessageWithHugeOneof::oneof1320
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1320
                     )
                 )
                 add(
@@ -7573,7 +7573,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1321",
-                        value = MessageWithHugeOneof::oneof1321
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1321
                     )
                 )
                 add(
@@ -7584,7 +7584,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1322",
-                        value = MessageWithHugeOneof::oneof1322
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1322
                     )
                 )
                 add(
@@ -7595,7 +7595,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1323",
-                        value = MessageWithHugeOneof::oneof1323
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1323
                     )
                 )
                 add(
@@ -7606,7 +7606,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1324",
-                        value = MessageWithHugeOneof::oneof1324
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1324
                     )
                 )
                 add(
@@ -7617,7 +7617,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1325",
-                        value = MessageWithHugeOneof::oneof1325
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1325
                     )
                 )
                 add(
@@ -7628,7 +7628,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1326",
-                        value = MessageWithHugeOneof::oneof1326
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1326
                     )
                 )
                 add(
@@ -7639,7 +7639,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1327",
-                        value = MessageWithHugeOneof::oneof1327
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1327
                     )
                 )
                 add(
@@ -7650,7 +7650,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1328",
-                        value = MessageWithHugeOneof::oneof1328
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1328
                     )
                 )
                 add(
@@ -7661,7 +7661,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1329",
-                        value = MessageWithHugeOneof::oneof1329
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1329
                     )
                 )
                 add(
@@ -7672,7 +7672,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1330",
-                        value = MessageWithHugeOneof::oneof1330
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1330
                     )
                 )
                 add(
@@ -7683,7 +7683,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1331",
-                        value = MessageWithHugeOneof::oneof1331
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1331
                     )
                 )
                 add(
@@ -7694,7 +7694,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1332",
-                        value = MessageWithHugeOneof::oneof1332
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1332
                     )
                 )
                 add(
@@ -7705,7 +7705,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1333",
-                        value = MessageWithHugeOneof::oneof1333
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1333
                     )
                 )
                 add(
@@ -7716,7 +7716,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1334",
-                        value = MessageWithHugeOneof::oneof1334
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1334
                     )
                 )
                 add(
@@ -7727,7 +7727,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1335",
-                        value = MessageWithHugeOneof::oneof1335
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1335
                     )
                 )
                 add(
@@ -7738,7 +7738,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1336",
-                        value = MessageWithHugeOneof::oneof1336
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1336
                     )
                 )
                 add(
@@ -7749,7 +7749,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1337",
-                        value = MessageWithHugeOneof::oneof1337
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1337
                     )
                 )
                 add(
@@ -7760,7 +7760,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1338",
-                        value = MessageWithHugeOneof::oneof1338
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1338
                     )
                 )
                 add(
@@ -7771,7 +7771,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1339",
-                        value = MessageWithHugeOneof::oneof1339
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1339
                     )
                 )
                 add(
@@ -7782,7 +7782,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1340",
-                        value = MessageWithHugeOneof::oneof1340
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1340
                     )
                 )
                 add(
@@ -7793,7 +7793,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1341",
-                        value = MessageWithHugeOneof::oneof1341
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1341
                     )
                 )
                 add(
@@ -7804,7 +7804,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1342",
-                        value = MessageWithHugeOneof::oneof1342
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1342
                     )
                 )
                 add(
@@ -7815,7 +7815,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1343",
-                        value = MessageWithHugeOneof::oneof1343
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1343
                     )
                 )
                 add(
@@ -7826,7 +7826,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1344",
-                        value = MessageWithHugeOneof::oneof1344
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1344
                     )
                 )
                 add(
@@ -7837,7 +7837,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1345",
-                        value = MessageWithHugeOneof::oneof1345
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1345
                     )
                 )
                 add(
@@ -7848,7 +7848,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1346",
-                        value = MessageWithHugeOneof::oneof1346
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1346
                     )
                 )
                 add(
@@ -7859,7 +7859,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1347",
-                        value = MessageWithHugeOneof::oneof1347
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1347
                     )
                 )
                 add(
@@ -7870,7 +7870,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1348",
-                        value = MessageWithHugeOneof::oneof1348
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1348
                     )
                 )
                 add(
@@ -7881,7 +7881,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1349",
-                        value = MessageWithHugeOneof::oneof1349
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1349
                     )
                 )
                 add(
@@ -7892,7 +7892,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1350",
-                        value = MessageWithHugeOneof::oneof1350
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1350
                     )
                 )
                 add(
@@ -7903,7 +7903,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1351",
-                        value = MessageWithHugeOneof::oneof1351
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1351
                     )
                 )
                 add(
@@ -7914,7 +7914,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1352",
-                        value = MessageWithHugeOneof::oneof1352
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1352
                     )
                 )
                 add(
@@ -7925,7 +7925,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1353",
-                        value = MessageWithHugeOneof::oneof1353
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1353
                     )
                 )
                 add(
@@ -7936,7 +7936,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1354",
-                        value = MessageWithHugeOneof::oneof1354
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1354
                     )
                 )
                 add(
@@ -7947,7 +7947,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1355",
-                        value = MessageWithHugeOneof::oneof1355
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1355
                     )
                 )
                 add(
@@ -7958,7 +7958,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1356",
-                        value = MessageWithHugeOneof::oneof1356
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1356
                     )
                 )
                 add(
@@ -7969,7 +7969,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1357",
-                        value = MessageWithHugeOneof::oneof1357
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1357
                     )
                 )
                 add(
@@ -7980,7 +7980,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1358",
-                        value = MessageWithHugeOneof::oneof1358
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1358
                     )
                 )
                 add(
@@ -7991,7 +7991,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1359",
-                        value = MessageWithHugeOneof::oneof1359
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1359
                     )
                 )
                 add(
@@ -8002,7 +8002,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1360",
-                        value = MessageWithHugeOneof::oneof1360
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1360
                     )
                 )
                 add(
@@ -8013,7 +8013,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1361",
-                        value = MessageWithHugeOneof::oneof1361
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1361
                     )
                 )
                 add(
@@ -8024,7 +8024,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1362",
-                        value = MessageWithHugeOneof::oneof1362
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1362
                     )
                 )
                 add(
@@ -8035,7 +8035,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1363",
-                        value = MessageWithHugeOneof::oneof1363
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1363
                     )
                 )
                 add(
@@ -8046,7 +8046,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1364",
-                        value = MessageWithHugeOneof::oneof1364
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1364
                     )
                 )
                 add(
@@ -8057,7 +8057,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1365",
-                        value = MessageWithHugeOneof::oneof1365
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1365
                     )
                 )
                 add(
@@ -8068,7 +8068,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1366",
-                        value = MessageWithHugeOneof::oneof1366
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1366
                     )
                 )
                 add(
@@ -8079,7 +8079,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1367",
-                        value = MessageWithHugeOneof::oneof1367
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1367
                     )
                 )
                 add(
@@ -8090,7 +8090,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1368",
-                        value = MessageWithHugeOneof::oneof1368
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1368
                     )
                 )
                 add(
@@ -8101,7 +8101,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1369",
-                        value = MessageWithHugeOneof::oneof1369
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1369
                     )
                 )
                 add(
@@ -8112,7 +8112,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1370",
-                        value = MessageWithHugeOneof::oneof1370
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1370
                     )
                 )
                 add(
@@ -8123,7 +8123,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1371",
-                        value = MessageWithHugeOneof::oneof1371
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1371
                     )
                 )
                 add(
@@ -8134,7 +8134,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1372",
-                        value = MessageWithHugeOneof::oneof1372
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1372
                     )
                 )
                 add(
@@ -8145,7 +8145,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1373",
-                        value = MessageWithHugeOneof::oneof1373
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1373
                     )
                 )
                 add(
@@ -8156,7 +8156,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1374",
-                        value = MessageWithHugeOneof::oneof1374
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1374
                     )
                 )
                 add(
@@ -8167,7 +8167,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1375",
-                        value = MessageWithHugeOneof::oneof1375
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1375
                     )
                 )
                 add(
@@ -8178,7 +8178,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1376",
-                        value = MessageWithHugeOneof::oneof1376
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1376
                     )
                 )
                 add(
@@ -8189,7 +8189,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1377",
-                        value = MessageWithHugeOneof::oneof1377
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1377
                     )
                 )
                 add(
@@ -8200,7 +8200,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1378",
-                        value = MessageWithHugeOneof::oneof1378
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1378
                     )
                 )
                 add(
@@ -8211,7 +8211,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1379",
-                        value = MessageWithHugeOneof::oneof1379
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1379
                     )
                 )
                 add(
@@ -8222,7 +8222,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1380",
-                        value = MessageWithHugeOneof::oneof1380
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1380
                     )
                 )
                 add(
@@ -8233,7 +8233,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1381",
-                        value = MessageWithHugeOneof::oneof1381
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1381
                     )
                 )
                 add(
@@ -8244,7 +8244,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1382",
-                        value = MessageWithHugeOneof::oneof1382
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1382
                     )
                 )
                 add(
@@ -8255,7 +8255,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1383",
-                        value = MessageWithHugeOneof::oneof1383
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1383
                     )
                 )
                 add(
@@ -8266,7 +8266,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1384",
-                        value = MessageWithHugeOneof::oneof1384
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1384
                     )
                 )
                 add(
@@ -8277,7 +8277,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1385",
-                        value = MessageWithHugeOneof::oneof1385
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1385
                     )
                 )
                 add(
@@ -8288,7 +8288,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1386",
-                        value = MessageWithHugeOneof::oneof1386
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1386
                     )
                 )
                 add(
@@ -8299,7 +8299,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1387",
-                        value = MessageWithHugeOneof::oneof1387
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1387
                     )
                 )
                 add(
@@ -8310,7 +8310,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1388",
-                        value = MessageWithHugeOneof::oneof1388
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1388
                     )
                 )
                 add(
@@ -8321,7 +8321,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1389",
-                        value = MessageWithHugeOneof::oneof1389
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1389
                     )
                 )
                 add(
@@ -8332,7 +8332,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1390",
-                        value = MessageWithHugeOneof::oneof1390
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1390
                     )
                 )
                 add(
@@ -8343,7 +8343,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1391",
-                        value = MessageWithHugeOneof::oneof1391
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1391
                     )
                 )
                 add(
@@ -8354,7 +8354,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1392",
-                        value = MessageWithHugeOneof::oneof1392
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1392
                     )
                 )
                 add(
@@ -8365,7 +8365,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1393",
-                        value = MessageWithHugeOneof::oneof1393
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1393
                     )
                 )
                 add(
@@ -8376,7 +8376,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1394",
-                        value = MessageWithHugeOneof::oneof1394
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1394
                     )
                 )
                 add(
@@ -8387,7 +8387,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1395",
-                        value = MessageWithHugeOneof::oneof1395
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1395
                     )
                 )
                 add(
@@ -8398,7 +8398,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1396",
-                        value = MessageWithHugeOneof::oneof1396
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1396
                     )
                 )
                 add(
@@ -8409,7 +8409,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1397",
-                        value = MessageWithHugeOneof::oneof1397
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1397
                     )
                 )
                 add(
@@ -8420,7 +8420,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1398",
-                        value = MessageWithHugeOneof::oneof1398
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1398
                     )
                 )
                 add(
@@ -8431,7 +8431,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1399",
-                        value = MessageWithHugeOneof::oneof1399
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1399
                     )
                 )
                 add(
@@ -8442,7 +8442,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1400",
-                        value = MessageWithHugeOneof::oneof1400
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1400
                     )
                 )
                 add(
@@ -8453,7 +8453,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1401",
-                        value = MessageWithHugeOneof::oneof1401
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1401
                     )
                 )
                 add(
@@ -8464,7 +8464,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1402",
-                        value = MessageWithHugeOneof::oneof1402
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1402
                     )
                 )
                 add(
@@ -8475,7 +8475,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1403",
-                        value = MessageWithHugeOneof::oneof1403
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1403
                     )
                 )
                 add(
@@ -8486,7 +8486,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1404",
-                        value = MessageWithHugeOneof::oneof1404
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1404
                     )
                 )
                 add(
@@ -8497,7 +8497,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1405",
-                        value = MessageWithHugeOneof::oneof1405
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1405
                     )
                 )
                 add(
@@ -8508,7 +8508,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1406",
-                        value = MessageWithHugeOneof::oneof1406
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1406
                     )
                 )
                 add(
@@ -8519,7 +8519,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1407",
-                        value = MessageWithHugeOneof::oneof1407
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1407
                     )
                 )
                 add(
@@ -8530,7 +8530,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1408",
-                        value = MessageWithHugeOneof::oneof1408
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1408
                     )
                 )
                 add(
@@ -8541,7 +8541,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1409",
-                        value = MessageWithHugeOneof::oneof1409
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1409
                     )
                 )
                 add(
@@ -8552,7 +8552,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1410",
-                        value = MessageWithHugeOneof::oneof1410
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1410
                     )
                 )
                 add(
@@ -8563,7 +8563,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1411",
-                        value = MessageWithHugeOneof::oneof1411
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1411
                     )
                 )
                 add(
@@ -8574,7 +8574,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1412",
-                        value = MessageWithHugeOneof::oneof1412
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1412
                     )
                 )
                 add(
@@ -8585,7 +8585,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1413",
-                        value = MessageWithHugeOneof::oneof1413
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1413
                     )
                 )
                 add(
@@ -8596,7 +8596,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1414",
-                        value = MessageWithHugeOneof::oneof1414
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1414
                     )
                 )
                 add(
@@ -8607,7 +8607,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1415",
-                        value = MessageWithHugeOneof::oneof1415
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1415
                     )
                 )
                 add(
@@ -8618,7 +8618,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1416",
-                        value = MessageWithHugeOneof::oneof1416
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1416
                     )
                 )
                 add(
@@ -8629,7 +8629,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1417",
-                        value = MessageWithHugeOneof::oneof1417
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1417
                     )
                 )
                 add(
@@ -8640,7 +8640,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1418",
-                        value = MessageWithHugeOneof::oneof1418
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1418
                     )
                 )
                 add(
@@ -8651,7 +8651,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1419",
-                        value = MessageWithHugeOneof::oneof1419
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1419
                     )
                 )
                 add(
@@ -8662,7 +8662,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1420",
-                        value = MessageWithHugeOneof::oneof1420
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1420
                     )
                 )
                 add(
@@ -8673,7 +8673,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1421",
-                        value = MessageWithHugeOneof::oneof1421
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1421
                     )
                 )
                 add(
@@ -8684,7 +8684,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1422",
-                        value = MessageWithHugeOneof::oneof1422
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1422
                     )
                 )
                 add(
@@ -8695,7 +8695,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1423",
-                        value = MessageWithHugeOneof::oneof1423
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1423
                     )
                 )
                 add(
@@ -8706,7 +8706,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1424",
-                        value = MessageWithHugeOneof::oneof1424
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1424
                     )
                 )
                 add(
@@ -8717,7 +8717,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1425",
-                        value = MessageWithHugeOneof::oneof1425
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1425
                     )
                 )
                 add(
@@ -8728,7 +8728,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1426",
-                        value = MessageWithHugeOneof::oneof1426
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1426
                     )
                 )
                 add(
@@ -8739,7 +8739,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1427",
-                        value = MessageWithHugeOneof::oneof1427
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1427
                     )
                 )
                 add(
@@ -8750,7 +8750,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1428",
-                        value = MessageWithHugeOneof::oneof1428
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1428
                     )
                 )
                 add(
@@ -8761,7 +8761,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1429",
-                        value = MessageWithHugeOneof::oneof1429
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1429
                     )
                 )
                 add(
@@ -8772,7 +8772,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1430",
-                        value = MessageWithHugeOneof::oneof1430
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1430
                     )
                 )
                 add(
@@ -8783,7 +8783,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1431",
-                        value = MessageWithHugeOneof::oneof1431
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1431
                     )
                 )
                 add(
@@ -8794,7 +8794,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1432",
-                        value = MessageWithHugeOneof::oneof1432
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1432
                     )
                 )
                 add(
@@ -8805,7 +8805,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1433",
-                        value = MessageWithHugeOneof::oneof1433
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1433
                     )
                 )
                 add(
@@ -8816,7 +8816,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1434",
-                        value = MessageWithHugeOneof::oneof1434
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1434
                     )
                 )
                 add(
@@ -8827,7 +8827,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1435",
-                        value = MessageWithHugeOneof::oneof1435
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1435
                     )
                 )
                 add(
@@ -8838,7 +8838,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1436",
-                        value = MessageWithHugeOneof::oneof1436
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1436
                     )
                 )
                 add(
@@ -8849,7 +8849,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1437",
-                        value = MessageWithHugeOneof::oneof1437
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1437
                     )
                 )
                 add(
@@ -8860,7 +8860,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1438",
-                        value = MessageWithHugeOneof::oneof1438
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1438
                     )
                 )
                 add(
@@ -8871,7 +8871,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1439",
-                        value = MessageWithHugeOneof::oneof1439
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1439
                     )
                 )
                 add(
@@ -8882,7 +8882,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1440",
-                        value = MessageWithHugeOneof::oneof1440
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1440
                     )
                 )
                 add(
@@ -8893,7 +8893,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1441",
-                        value = MessageWithHugeOneof::oneof1441
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1441
                     )
                 )
                 add(
@@ -8904,7 +8904,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1442",
-                        value = MessageWithHugeOneof::oneof1442
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1442
                     )
                 )
                 add(
@@ -8915,7 +8915,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1443",
-                        value = MessageWithHugeOneof::oneof1443
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1443
                     )
                 )
                 add(
@@ -8926,7 +8926,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1444",
-                        value = MessageWithHugeOneof::oneof1444
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1444
                     )
                 )
                 add(
@@ -8937,7 +8937,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1445",
-                        value = MessageWithHugeOneof::oneof1445
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1445
                     )
                 )
                 add(
@@ -8948,7 +8948,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1446",
-                        value = MessageWithHugeOneof::oneof1446
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1446
                     )
                 )
                 add(
@@ -8959,7 +8959,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1447",
-                        value = MessageWithHugeOneof::oneof1447
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1447
                     )
                 )
                 add(
@@ -8970,7 +8970,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1448",
-                        value = MessageWithHugeOneof::oneof1448
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1448
                     )
                 )
                 add(
@@ -8981,7 +8981,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1449",
-                        value = MessageWithHugeOneof::oneof1449
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1449
                     )
                 )
                 add(
@@ -8992,7 +8992,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1450",
-                        value = MessageWithHugeOneof::oneof1450
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1450
                     )
                 )
                 add(
@@ -9003,7 +9003,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1451",
-                        value = MessageWithHugeOneof::oneof1451
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1451
                     )
                 )
                 add(
@@ -9014,7 +9014,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1452",
-                        value = MessageWithHugeOneof::oneof1452
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1452
                     )
                 )
                 add(
@@ -9025,7 +9025,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1453",
-                        value = MessageWithHugeOneof::oneof1453
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1453
                     )
                 )
                 add(
@@ -9036,7 +9036,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1454",
-                        value = MessageWithHugeOneof::oneof1454
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1454
                     )
                 )
                 add(
@@ -9047,7 +9047,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1455",
-                        value = MessageWithHugeOneof::oneof1455
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1455
                     )
                 )
                 add(
@@ -9058,7 +9058,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1456",
-                        value = MessageWithHugeOneof::oneof1456
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1456
                     )
                 )
                 add(
@@ -9069,7 +9069,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1457",
-                        value = MessageWithHugeOneof::oneof1457
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1457
                     )
                 )
                 add(
@@ -9080,7 +9080,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1458",
-                        value = MessageWithHugeOneof::oneof1458
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1458
                     )
                 )
                 add(
@@ -9091,7 +9091,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1459",
-                        value = MessageWithHugeOneof::oneof1459
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1459
                     )
                 )
                 add(
@@ -9102,7 +9102,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1460",
-                        value = MessageWithHugeOneof::oneof1460
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1460
                     )
                 )
                 add(
@@ -9113,7 +9113,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1461",
-                        value = MessageWithHugeOneof::oneof1461
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1461
                     )
                 )
                 add(
@@ -9124,7 +9124,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1462",
-                        value = MessageWithHugeOneof::oneof1462
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1462
                     )
                 )
                 add(
@@ -9135,7 +9135,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1463",
-                        value = MessageWithHugeOneof::oneof1463
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1463
                     )
                 )
                 add(
@@ -9146,7 +9146,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1464",
-                        value = MessageWithHugeOneof::oneof1464
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1464
                     )
                 )
                 add(
@@ -9157,7 +9157,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1465",
-                        value = MessageWithHugeOneof::oneof1465
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1465
                     )
                 )
                 add(
@@ -9168,7 +9168,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1466",
-                        value = MessageWithHugeOneof::oneof1466
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1466
                     )
                 )
                 add(
@@ -9179,7 +9179,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1467",
-                        value = MessageWithHugeOneof::oneof1467
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1467
                     )
                 )
                 add(
@@ -9190,7 +9190,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1468",
-                        value = MessageWithHugeOneof::oneof1468
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1468
                     )
                 )
                 add(
@@ -9201,7 +9201,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1469",
-                        value = MessageWithHugeOneof::oneof1469
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1469
                     )
                 )
                 add(
@@ -9212,7 +9212,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1470",
-                        value = MessageWithHugeOneof::oneof1470
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1470
                     )
                 )
                 add(
@@ -9223,7 +9223,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1471",
-                        value = MessageWithHugeOneof::oneof1471
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1471
                     )
                 )
                 add(
@@ -9234,7 +9234,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1472",
-                        value = MessageWithHugeOneof::oneof1472
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1472
                     )
                 )
                 add(
@@ -9245,7 +9245,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1473",
-                        value = MessageWithHugeOneof::oneof1473
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1473
                     )
                 )
                 add(
@@ -9256,7 +9256,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1474",
-                        value = MessageWithHugeOneof::oneof1474
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1474
                     )
                 )
                 add(
@@ -9267,7 +9267,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1475",
-                        value = MessageWithHugeOneof::oneof1475
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1475
                     )
                 )
                 add(
@@ -9278,7 +9278,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1476",
-                        value = MessageWithHugeOneof::oneof1476
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1476
                     )
                 )
                 add(
@@ -9289,7 +9289,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1477",
-                        value = MessageWithHugeOneof::oneof1477
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1477
                     )
                 )
                 add(
@@ -9300,7 +9300,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1478",
-                        value = MessageWithHugeOneof::oneof1478
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1478
                     )
                 )
                 add(
@@ -9311,7 +9311,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1479",
-                        value = MessageWithHugeOneof::oneof1479
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1479
                     )
                 )
                 add(
@@ -9322,7 +9322,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1480",
-                        value = MessageWithHugeOneof::oneof1480
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1480
                     )
                 )
                 add(
@@ -9333,7 +9333,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1481",
-                        value = MessageWithHugeOneof::oneof1481
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1481
                     )
                 )
                 add(
@@ -9344,7 +9344,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1482",
-                        value = MessageWithHugeOneof::oneof1482
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1482
                     )
                 )
                 add(
@@ -9355,7 +9355,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1483",
-                        value = MessageWithHugeOneof::oneof1483
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1483
                     )
                 )
                 add(
@@ -9366,7 +9366,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1484",
-                        value = MessageWithHugeOneof::oneof1484
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1484
                     )
                 )
                 add(
@@ -9377,7 +9377,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1485",
-                        value = MessageWithHugeOneof::oneof1485
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1485
                     )
                 )
                 add(
@@ -9388,7 +9388,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1486",
-                        value = MessageWithHugeOneof::oneof1486
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1486
                     )
                 )
                 add(
@@ -9399,7 +9399,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1487",
-                        value = MessageWithHugeOneof::oneof1487
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1487
                     )
                 )
                 add(
@@ -9410,7 +9410,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1488",
-                        value = MessageWithHugeOneof::oneof1488
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1488
                     )
                 )
                 add(
@@ -9421,7 +9421,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1489",
-                        value = MessageWithHugeOneof::oneof1489
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1489
                     )
                 )
                 add(
@@ -9432,7 +9432,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1490",
-                        value = MessageWithHugeOneof::oneof1490
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1490
                     )
                 )
                 add(
@@ -9443,7 +9443,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1491",
-                        value = MessageWithHugeOneof::oneof1491
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1491
                     )
                 )
                 add(
@@ -9454,7 +9454,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1492",
-                        value = MessageWithHugeOneof::oneof1492
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1492
                     )
                 )
                 add(
@@ -9465,7 +9465,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1493",
-                        value = MessageWithHugeOneof::oneof1493
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1493
                     )
                 )
                 add(
@@ -9476,7 +9476,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1494",
-                        value = MessageWithHugeOneof::oneof1494
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1494
                     )
                 )
                 add(
@@ -9487,7 +9487,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1495",
-                        value = MessageWithHugeOneof::oneof1495
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1495
                     )
                 )
                 add(
@@ -9498,7 +9498,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1496",
-                        value = MessageWithHugeOneof::oneof1496
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1496
                     )
                 )
                 add(
@@ -9509,7 +9509,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1497",
-                        value = MessageWithHugeOneof::oneof1497
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1497
                     )
                 )
                 add(
@@ -9520,7 +9520,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1498",
-                        value = MessageWithHugeOneof::oneof1498
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1498
                     )
                 )
                 add(
@@ -9531,7 +9531,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1499",
-                        value = MessageWithHugeOneof::oneof1499
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1499
                     )
                 )
                 add(
@@ -9542,7 +9542,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1500",
-                        value = MessageWithHugeOneof::oneof1500
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1500
                     )
                 )
                 add(
@@ -9553,7 +9553,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1501",
-                        value = MessageWithHugeOneof::oneof1501
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1501
                     )
                 )
                 add(
@@ -9564,7 +9564,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1502",
-                        value = MessageWithHugeOneof::oneof1502
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1502
                     )
                 )
                 add(
@@ -9575,7 +9575,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1503",
-                        value = MessageWithHugeOneof::oneof1503
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1503
                     )
                 )
                 add(
@@ -9586,7 +9586,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1504",
-                        value = MessageWithHugeOneof::oneof1504
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1504
                     )
                 )
                 add(
@@ -9597,7 +9597,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1505",
-                        value = MessageWithHugeOneof::oneof1505
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1505
                     )
                 )
                 add(
@@ -9608,7 +9608,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1506",
-                        value = MessageWithHugeOneof::oneof1506
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1506
                     )
                 )
                 add(
@@ -9619,7 +9619,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1507",
-                        value = MessageWithHugeOneof::oneof1507
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1507
                     )
                 )
                 add(
@@ -9630,7 +9630,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1508",
-                        value = MessageWithHugeOneof::oneof1508
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1508
                     )
                 )
                 add(
@@ -9641,7 +9641,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1509",
-                        value = MessageWithHugeOneof::oneof1509
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1509
                     )
                 )
                 add(
@@ -9652,7 +9652,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1510",
-                        value = MessageWithHugeOneof::oneof1510
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1510
                     )
                 )
                 add(
@@ -9663,7 +9663,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1511",
-                        value = MessageWithHugeOneof::oneof1511
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1511
                     )
                 )
                 add(
@@ -9674,7 +9674,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1512",
-                        value = MessageWithHugeOneof::oneof1512
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1512
                     )
                 )
                 add(
@@ -9685,7 +9685,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1513",
-                        value = MessageWithHugeOneof::oneof1513
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1513
                     )
                 )
                 add(
@@ -9696,7 +9696,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1514",
-                        value = MessageWithHugeOneof::oneof1514
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1514
                     )
                 )
                 add(
@@ -9707,7 +9707,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1515",
-                        value = MessageWithHugeOneof::oneof1515
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1515
                     )
                 )
                 add(
@@ -9718,7 +9718,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1516",
-                        value = MessageWithHugeOneof::oneof1516
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1516
                     )
                 )
                 add(
@@ -9729,7 +9729,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1517",
-                        value = MessageWithHugeOneof::oneof1517
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1517
                     )
                 )
                 add(
@@ -9740,7 +9740,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1518",
-                        value = MessageWithHugeOneof::oneof1518
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1518
                     )
                 )
                 add(
@@ -9751,7 +9751,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1519",
-                        value = MessageWithHugeOneof::oneof1519
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1519
                     )
                 )
                 add(
@@ -9762,7 +9762,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1520",
-                        value = MessageWithHugeOneof::oneof1520
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1520
                     )
                 )
                 add(
@@ -9773,7 +9773,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1521",
-                        value = MessageWithHugeOneof::oneof1521
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1521
                     )
                 )
                 add(
@@ -9784,7 +9784,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1522",
-                        value = MessageWithHugeOneof::oneof1522
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1522
                     )
                 )
                 add(
@@ -9795,7 +9795,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1523",
-                        value = MessageWithHugeOneof::oneof1523
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1523
                     )
                 )
                 add(
@@ -9806,7 +9806,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1524",
-                        value = MessageWithHugeOneof::oneof1524
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1524
                     )
                 )
                 add(
@@ -9817,7 +9817,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1525",
-                        value = MessageWithHugeOneof::oneof1525
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1525
                     )
                 )
                 add(
@@ -9828,7 +9828,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1526",
-                        value = MessageWithHugeOneof::oneof1526
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1526
                     )
                 )
                 add(
@@ -9839,7 +9839,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1527",
-                        value = MessageWithHugeOneof::oneof1527
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1527
                     )
                 )
                 add(
@@ -9850,7 +9850,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1528",
-                        value = MessageWithHugeOneof::oneof1528
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1528
                     )
                 )
                 add(
@@ -9861,7 +9861,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1529",
-                        value = MessageWithHugeOneof::oneof1529
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1529
                     )
                 )
                 add(
@@ -9872,7 +9872,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1530",
-                        value = MessageWithHugeOneof::oneof1530
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1530
                     )
                 )
                 add(
@@ -9883,7 +9883,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1531",
-                        value = MessageWithHugeOneof::oneof1531
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1531
                     )
                 )
                 add(
@@ -9894,7 +9894,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1532",
-                        value = MessageWithHugeOneof::oneof1532
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1532
                     )
                 )
                 add(
@@ -9905,7 +9905,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1533",
-                        value = MessageWithHugeOneof::oneof1533
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1533
                     )
                 )
                 add(
@@ -9916,7 +9916,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1534",
-                        value = MessageWithHugeOneof::oneof1534
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1534
                     )
                 )
                 add(
@@ -9927,7 +9927,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1535",
-                        value = MessageWithHugeOneof::oneof1535
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1535
                     )
                 )
                 add(
@@ -9938,7 +9938,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1536",
-                        value = MessageWithHugeOneof::oneof1536
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1536
                     )
                 )
                 add(
@@ -9949,7 +9949,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1537",
-                        value = MessageWithHugeOneof::oneof1537
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1537
                     )
                 )
                 add(
@@ -9960,7 +9960,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1538",
-                        value = MessageWithHugeOneof::oneof1538
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1538
                     )
                 )
                 add(
@@ -9971,7 +9971,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1539",
-                        value = MessageWithHugeOneof::oneof1539
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1539
                     )
                 )
                 add(
@@ -9982,7 +9982,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1540",
-                        value = MessageWithHugeOneof::oneof1540
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1540
                     )
                 )
                 add(
@@ -9993,7 +9993,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1541",
-                        value = MessageWithHugeOneof::oneof1541
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1541
                     )
                 )
                 add(
@@ -10004,7 +10004,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1542",
-                        value = MessageWithHugeOneof::oneof1542
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1542
                     )
                 )
                 add(
@@ -10015,7 +10015,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1543",
-                        value = MessageWithHugeOneof::oneof1543
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1543
                     )
                 )
                 add(
@@ -10026,7 +10026,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1544",
-                        value = MessageWithHugeOneof::oneof1544
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1544
                     )
                 )
                 add(
@@ -10037,7 +10037,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1545",
-                        value = MessageWithHugeOneof::oneof1545
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1545
                     )
                 )
                 add(
@@ -10048,7 +10048,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1546",
-                        value = MessageWithHugeOneof::oneof1546
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1546
                     )
                 )
                 add(
@@ -10059,7 +10059,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1547",
-                        value = MessageWithHugeOneof::oneof1547
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1547
                     )
                 )
                 add(
@@ -10070,7 +10070,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1548",
-                        value = MessageWithHugeOneof::oneof1548
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1548
                     )
                 )
                 add(
@@ -10081,7 +10081,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1549",
-                        value = MessageWithHugeOneof::oneof1549
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1549
                     )
                 )
                 add(
@@ -10092,7 +10092,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1550",
-                        value = MessageWithHugeOneof::oneof1550
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1550
                     )
                 )
                 add(
@@ -10103,7 +10103,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1551",
-                        value = MessageWithHugeOneof::oneof1551
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1551
                     )
                 )
                 add(
@@ -10114,7 +10114,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1552",
-                        value = MessageWithHugeOneof::oneof1552
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1552
                     )
                 )
                 add(
@@ -10125,7 +10125,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1553",
-                        value = MessageWithHugeOneof::oneof1553
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1553
                     )
                 )
                 add(
@@ -10136,7 +10136,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1554",
-                        value = MessageWithHugeOneof::oneof1554
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1554
                     )
                 )
                 add(
@@ -10147,7 +10147,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1555",
-                        value = MessageWithHugeOneof::oneof1555
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1555
                     )
                 )
                 add(
@@ -10158,7 +10158,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1556",
-                        value = MessageWithHugeOneof::oneof1556
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1556
                     )
                 )
                 add(
@@ -10169,7 +10169,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1557",
-                        value = MessageWithHugeOneof::oneof1557
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1557
                     )
                 )
                 add(
@@ -10180,7 +10180,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1558",
-                        value = MessageWithHugeOneof::oneof1558
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1558
                     )
                 )
                 add(
@@ -10191,7 +10191,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1559",
-                        value = MessageWithHugeOneof::oneof1559
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1559
                     )
                 )
                 add(
@@ -10202,7 +10202,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1560",
-                        value = MessageWithHugeOneof::oneof1560
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1560
                     )
                 )
                 add(
@@ -10213,7 +10213,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1561",
-                        value = MessageWithHugeOneof::oneof1561
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1561
                     )
                 )
                 add(
@@ -10224,7 +10224,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1562",
-                        value = MessageWithHugeOneof::oneof1562
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1562
                     )
                 )
                 add(
@@ -10235,7 +10235,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1563",
-                        value = MessageWithHugeOneof::oneof1563
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1563
                     )
                 )
                 add(
@@ -10246,7 +10246,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1564",
-                        value = MessageWithHugeOneof::oneof1564
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1564
                     )
                 )
                 add(
@@ -10257,7 +10257,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1565",
-                        value = MessageWithHugeOneof::oneof1565
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1565
                     )
                 )
                 add(
@@ -10268,7 +10268,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1566",
-                        value = MessageWithHugeOneof::oneof1566
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1566
                     )
                 )
                 add(
@@ -10279,7 +10279,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1567",
-                        value = MessageWithHugeOneof::oneof1567
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1567
                     )
                 )
                 add(
@@ -10290,7 +10290,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1568",
-                        value = MessageWithHugeOneof::oneof1568
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1568
                     )
                 )
                 add(
@@ -10301,7 +10301,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1569",
-                        value = MessageWithHugeOneof::oneof1569
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1569
                     )
                 )
                 add(
@@ -10312,7 +10312,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1570",
-                        value = MessageWithHugeOneof::oneof1570
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1570
                     )
                 )
                 add(
@@ -10323,7 +10323,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1571",
-                        value = MessageWithHugeOneof::oneof1571
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1571
                     )
                 )
                 add(
@@ -10334,7 +10334,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1572",
-                        value = MessageWithHugeOneof::oneof1572
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1572
                     )
                 )
                 add(
@@ -10345,7 +10345,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1573",
-                        value = MessageWithHugeOneof::oneof1573
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1573
                     )
                 )
                 add(
@@ -10356,7 +10356,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1574",
-                        value = MessageWithHugeOneof::oneof1574
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1574
                     )
                 )
                 add(
@@ -10367,7 +10367,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1575",
-                        value = MessageWithHugeOneof::oneof1575
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1575
                     )
                 )
                 add(
@@ -10378,7 +10378,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1576",
-                        value = MessageWithHugeOneof::oneof1576
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1576
                     )
                 )
                 add(
@@ -10389,7 +10389,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1577",
-                        value = MessageWithHugeOneof::oneof1577
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1577
                     )
                 )
                 add(
@@ -10400,7 +10400,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1578",
-                        value = MessageWithHugeOneof::oneof1578
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1578
                     )
                 )
                 add(
@@ -10411,7 +10411,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1579",
-                        value = MessageWithHugeOneof::oneof1579
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1579
                     )
                 )
                 add(
@@ -10422,7 +10422,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1580",
-                        value = MessageWithHugeOneof::oneof1580
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1580
                     )
                 )
                 add(
@@ -10433,7 +10433,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1581",
-                        value = MessageWithHugeOneof::oneof1581
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1581
                     )
                 )
                 add(
@@ -10444,7 +10444,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1582",
-                        value = MessageWithHugeOneof::oneof1582
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1582
                     )
                 )
                 add(
@@ -10455,7 +10455,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1583",
-                        value = MessageWithHugeOneof::oneof1583
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1583
                     )
                 )
                 add(
@@ -10466,7 +10466,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1584",
-                        value = MessageWithHugeOneof::oneof1584
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1584
                     )
                 )
                 add(
@@ -10477,7 +10477,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1585",
-                        value = MessageWithHugeOneof::oneof1585
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1585
                     )
                 )
                 add(
@@ -10488,7 +10488,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1586",
-                        value = MessageWithHugeOneof::oneof1586
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1586
                     )
                 )
                 add(
@@ -10499,7 +10499,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1587",
-                        value = MessageWithHugeOneof::oneof1587
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1587
                     )
                 )
                 add(
@@ -10510,7 +10510,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1588",
-                        value = MessageWithHugeOneof::oneof1588
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1588
                     )
                 )
                 add(
@@ -10521,7 +10521,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1589",
-                        value = MessageWithHugeOneof::oneof1589
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1589
                     )
                 )
                 add(
@@ -10532,7 +10532,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1590",
-                        value = MessageWithHugeOneof::oneof1590
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1590
                     )
                 )
                 add(
@@ -10543,7 +10543,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1591",
-                        value = MessageWithHugeOneof::oneof1591
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1591
                     )
                 )
                 add(
@@ -10554,7 +10554,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1592",
-                        value = MessageWithHugeOneof::oneof1592
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1592
                     )
                 )
                 add(
@@ -10565,7 +10565,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1593",
-                        value = MessageWithHugeOneof::oneof1593
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1593
                     )
                 )
                 add(
@@ -10576,7 +10576,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1594",
-                        value = MessageWithHugeOneof::oneof1594
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1594
                     )
                 )
                 add(
@@ -10587,7 +10587,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1595",
-                        value = MessageWithHugeOneof::oneof1595
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1595
                     )
                 )
                 add(
@@ -10598,7 +10598,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1596",
-                        value = MessageWithHugeOneof::oneof1596
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1596
                     )
                 )
                 add(
@@ -10609,7 +10609,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1597",
-                        value = MessageWithHugeOneof::oneof1597
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1597
                     )
                 )
                 add(
@@ -10620,7 +10620,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1598",
-                        value = MessageWithHugeOneof::oneof1598
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1598
                     )
                 )
                 add(
@@ -10631,7 +10631,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1599",
-                        value = MessageWithHugeOneof::oneof1599
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1599
                     )
                 )
                 add(
@@ -10642,7 +10642,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1600",
-                        value = MessageWithHugeOneof::oneof1600
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1600
                     )
                 )
                 add(
@@ -10653,7 +10653,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1601",
-                        value = MessageWithHugeOneof::oneof1601
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1601
                     )
                 )
                 add(
@@ -10664,7 +10664,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1602",
-                        value = MessageWithHugeOneof::oneof1602
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1602
                     )
                 )
                 add(
@@ -10675,7 +10675,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1603",
-                        value = MessageWithHugeOneof::oneof1603
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1603
                     )
                 )
                 add(
@@ -10686,7 +10686,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1604",
-                        value = MessageWithHugeOneof::oneof1604
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1604
                     )
                 )
                 add(
@@ -10697,7 +10697,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1605",
-                        value = MessageWithHugeOneof::oneof1605
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1605
                     )
                 )
                 add(
@@ -10708,7 +10708,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1606",
-                        value = MessageWithHugeOneof::oneof1606
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1606
                     )
                 )
                 add(
@@ -10719,7 +10719,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1607",
-                        value = MessageWithHugeOneof::oneof1607
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1607
                     )
                 )
                 add(
@@ -10730,7 +10730,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1608",
-                        value = MessageWithHugeOneof::oneof1608
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1608
                     )
                 )
                 add(
@@ -10741,7 +10741,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1609",
-                        value = MessageWithHugeOneof::oneof1609
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1609
                     )
                 )
                 add(
@@ -10752,7 +10752,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1610",
-                        value = MessageWithHugeOneof::oneof1610
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1610
                     )
                 )
                 add(
@@ -10763,7 +10763,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1611",
-                        value = MessageWithHugeOneof::oneof1611
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1611
                     )
                 )
                 add(
@@ -10774,7 +10774,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1612",
-                        value = MessageWithHugeOneof::oneof1612
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1612
                     )
                 )
                 add(
@@ -10785,7 +10785,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1613",
-                        value = MessageWithHugeOneof::oneof1613
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1613
                     )
                 )
                 add(
@@ -10796,7 +10796,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1614",
-                        value = MessageWithHugeOneof::oneof1614
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1614
                     )
                 )
                 add(
@@ -10807,7 +10807,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1615",
-                        value = MessageWithHugeOneof::oneof1615
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1615
                     )
                 )
                 add(
@@ -10818,7 +10818,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1616",
-                        value = MessageWithHugeOneof::oneof1616
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1616
                     )
                 )
                 add(
@@ -10829,7 +10829,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1617",
-                        value = MessageWithHugeOneof::oneof1617
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1617
                     )
                 )
                 add(
@@ -10840,7 +10840,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1618",
-                        value = MessageWithHugeOneof::oneof1618
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1618
                     )
                 )
                 add(
@@ -10851,7 +10851,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1619",
-                        value = MessageWithHugeOneof::oneof1619
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1619
                     )
                 )
                 add(
@@ -10862,7 +10862,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1620",
-                        value = MessageWithHugeOneof::oneof1620
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1620
                     )
                 )
                 add(
@@ -10873,7 +10873,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1621",
-                        value = MessageWithHugeOneof::oneof1621
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1621
                     )
                 )
                 add(
@@ -10884,7 +10884,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1622",
-                        value = MessageWithHugeOneof::oneof1622
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1622
                     )
                 )
                 add(
@@ -10895,7 +10895,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1623",
-                        value = MessageWithHugeOneof::oneof1623
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1623
                     )
                 )
                 add(
@@ -10906,7 +10906,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1624",
-                        value = MessageWithHugeOneof::oneof1624
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1624
                     )
                 )
                 add(
@@ -10917,7 +10917,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1625",
-                        value = MessageWithHugeOneof::oneof1625
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1625
                     )
                 )
                 add(
@@ -10928,7 +10928,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1626",
-                        value = MessageWithHugeOneof::oneof1626
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1626
                     )
                 )
                 add(
@@ -10939,7 +10939,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1627",
-                        value = MessageWithHugeOneof::oneof1627
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1627
                     )
                 )
                 add(
@@ -10950,7 +10950,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1628",
-                        value = MessageWithHugeOneof::oneof1628
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1628
                     )
                 )
                 add(
@@ -10961,7 +10961,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1629",
-                        value = MessageWithHugeOneof::oneof1629
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1629
                     )
                 )
                 add(
@@ -10972,7 +10972,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1630",
-                        value = MessageWithHugeOneof::oneof1630
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1630
                     )
                 )
                 add(
@@ -10983,7 +10983,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1631",
-                        value = MessageWithHugeOneof::oneof1631
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1631
                     )
                 )
                 add(
@@ -10994,7 +10994,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1632",
-                        value = MessageWithHugeOneof::oneof1632
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1632
                     )
                 )
                 add(
@@ -11005,7 +11005,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1633",
-                        value = MessageWithHugeOneof::oneof1633
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1633
                     )
                 )
                 add(
@@ -11016,7 +11016,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1634",
-                        value = MessageWithHugeOneof::oneof1634
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1634
                     )
                 )
                 add(
@@ -11027,7 +11027,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1635",
-                        value = MessageWithHugeOneof::oneof1635
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1635
                     )
                 )
                 add(
@@ -11038,7 +11038,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1636",
-                        value = MessageWithHugeOneof::oneof1636
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1636
                     )
                 )
                 add(
@@ -11049,7 +11049,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1637",
-                        value = MessageWithHugeOneof::oneof1637
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1637
                     )
                 )
                 add(
@@ -11060,7 +11060,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1638",
-                        value = MessageWithHugeOneof::oneof1638
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1638
                     )
                 )
                 add(
@@ -11071,7 +11071,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1639",
-                        value = MessageWithHugeOneof::oneof1639
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1639
                     )
                 )
                 add(
@@ -11082,7 +11082,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1640",
-                        value = MessageWithHugeOneof::oneof1640
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1640
                     )
                 )
                 add(
@@ -11093,7 +11093,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1641",
-                        value = MessageWithHugeOneof::oneof1641
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1641
                     )
                 )
                 add(
@@ -11104,7 +11104,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1642",
-                        value = MessageWithHugeOneof::oneof1642
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1642
                     )
                 )
                 add(
@@ -11115,7 +11115,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1643",
-                        value = MessageWithHugeOneof::oneof1643
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1643
                     )
                 )
                 add(
@@ -11126,7 +11126,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1644",
-                        value = MessageWithHugeOneof::oneof1644
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1644
                     )
                 )
                 add(
@@ -11137,7 +11137,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1645",
-                        value = MessageWithHugeOneof::oneof1645
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1645
                     )
                 )
                 add(
@@ -11148,7 +11148,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1646",
-                        value = MessageWithHugeOneof::oneof1646
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1646
                     )
                 )
                 add(
@@ -11159,7 +11159,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1647",
-                        value = MessageWithHugeOneof::oneof1647
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1647
                     )
                 )
                 add(
@@ -11170,7 +11170,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1648",
-                        value = MessageWithHugeOneof::oneof1648
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1648
                     )
                 )
                 add(
@@ -11181,7 +11181,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1649",
-                        value = MessageWithHugeOneof::oneof1649
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1649
                     )
                 )
                 add(
@@ -11192,7 +11192,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1650",
-                        value = MessageWithHugeOneof::oneof1650
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1650
                     )
                 )
                 add(
@@ -11203,7 +11203,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1651",
-                        value = MessageWithHugeOneof::oneof1651
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1651
                     )
                 )
                 add(
@@ -11214,7 +11214,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1652",
-                        value = MessageWithHugeOneof::oneof1652
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1652
                     )
                 )
                 add(
@@ -11225,7 +11225,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1653",
-                        value = MessageWithHugeOneof::oneof1653
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1653
                     )
                 )
                 add(
@@ -11236,7 +11236,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1654",
-                        value = MessageWithHugeOneof::oneof1654
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1654
                     )
                 )
                 add(
@@ -11247,7 +11247,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1655",
-                        value = MessageWithHugeOneof::oneof1655
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1655
                     )
                 )
                 add(
@@ -11258,7 +11258,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1656",
-                        value = MessageWithHugeOneof::oneof1656
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1656
                     )
                 )
                 add(
@@ -11269,7 +11269,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1657",
-                        value = MessageWithHugeOneof::oneof1657
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1657
                     )
                 )
                 add(
@@ -11280,7 +11280,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1658",
-                        value = MessageWithHugeOneof::oneof1658
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1658
                     )
                 )
                 add(
@@ -11291,7 +11291,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1659",
-                        value = MessageWithHugeOneof::oneof1659
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1659
                     )
                 )
                 add(
@@ -11302,7 +11302,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1660",
-                        value = MessageWithHugeOneof::oneof1660
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1660
                     )
                 )
                 add(
@@ -11313,7 +11313,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1661",
-                        value = MessageWithHugeOneof::oneof1661
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1661
                     )
                 )
                 add(
@@ -11324,7 +11324,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1662",
-                        value = MessageWithHugeOneof::oneof1662
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1662
                     )
                 )
                 add(
@@ -11335,7 +11335,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1663",
-                        value = MessageWithHugeOneof::oneof1663
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1663
                     )
                 )
                 add(
@@ -11346,7 +11346,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1664",
-                        value = MessageWithHugeOneof::oneof1664
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1664
                     )
                 )
                 add(
@@ -11357,7 +11357,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1665",
-                        value = MessageWithHugeOneof::oneof1665
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1665
                     )
                 )
                 add(
@@ -11368,7 +11368,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1666",
-                        value = MessageWithHugeOneof::oneof1666
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1666
                     )
                 )
                 add(
@@ -11379,7 +11379,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1667",
-                        value = MessageWithHugeOneof::oneof1667
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1667
                     )
                 )
                 add(
@@ -11390,7 +11390,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1668",
-                        value = MessageWithHugeOneof::oneof1668
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1668
                     )
                 )
                 add(
@@ -11401,7 +11401,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1669",
-                        value = MessageWithHugeOneof::oneof1669
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1669
                     )
                 )
                 add(
@@ -11412,7 +11412,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1670",
-                        value = MessageWithHugeOneof::oneof1670
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1670
                     )
                 )
                 add(
@@ -11423,7 +11423,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1671",
-                        value = MessageWithHugeOneof::oneof1671
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1671
                     )
                 )
                 add(
@@ -11434,7 +11434,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1672",
-                        value = MessageWithHugeOneof::oneof1672
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1672
                     )
                 )
                 add(
@@ -11445,7 +11445,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1673",
-                        value = MessageWithHugeOneof::oneof1673
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1673
                     )
                 )
                 add(
@@ -11456,7 +11456,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1674",
-                        value = MessageWithHugeOneof::oneof1674
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1674
                     )
                 )
                 add(
@@ -11467,7 +11467,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1675",
-                        value = MessageWithHugeOneof::oneof1675
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1675
                     )
                 )
                 add(
@@ -11478,7 +11478,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1676",
-                        value = MessageWithHugeOneof::oneof1676
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1676
                     )
                 )
                 add(
@@ -11489,7 +11489,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1677",
-                        value = MessageWithHugeOneof::oneof1677
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1677
                     )
                 )
                 add(
@@ -11500,7 +11500,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1678",
-                        value = MessageWithHugeOneof::oneof1678
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1678
                     )
                 )
                 add(
@@ -11511,7 +11511,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1679",
-                        value = MessageWithHugeOneof::oneof1679
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1679
                     )
                 )
                 add(
@@ -11522,7 +11522,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1680",
-                        value = MessageWithHugeOneof::oneof1680
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1680
                     )
                 )
                 add(
@@ -11533,7 +11533,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1681",
-                        value = MessageWithHugeOneof::oneof1681
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1681
                     )
                 )
                 add(
@@ -11544,7 +11544,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1682",
-                        value = MessageWithHugeOneof::oneof1682
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1682
                     )
                 )
                 add(
@@ -11555,7 +11555,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1683",
-                        value = MessageWithHugeOneof::oneof1683
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1683
                     )
                 )
                 add(
@@ -11566,7 +11566,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1684",
-                        value = MessageWithHugeOneof::oneof1684
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1684
                     )
                 )
                 add(
@@ -11577,7 +11577,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1685",
-                        value = MessageWithHugeOneof::oneof1685
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1685
                     )
                 )
                 add(
@@ -11588,7 +11588,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1686",
-                        value = MessageWithHugeOneof::oneof1686
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1686
                     )
                 )
                 add(
@@ -11599,7 +11599,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1687",
-                        value = MessageWithHugeOneof::oneof1687
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1687
                     )
                 )
                 add(
@@ -11610,7 +11610,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1688",
-                        value = MessageWithHugeOneof::oneof1688
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1688
                     )
                 )
                 add(
@@ -11621,7 +11621,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1689",
-                        value = MessageWithHugeOneof::oneof1689
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1689
                     )
                 )
                 add(
@@ -11632,7 +11632,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1690",
-                        value = MessageWithHugeOneof::oneof1690
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1690
                     )
                 )
                 add(
@@ -11643,7 +11643,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1691",
-                        value = MessageWithHugeOneof::oneof1691
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1691
                     )
                 )
                 add(
@@ -11654,7 +11654,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1692",
-                        value = MessageWithHugeOneof::oneof1692
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1692
                     )
                 )
                 add(
@@ -11665,7 +11665,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1693",
-                        value = MessageWithHugeOneof::oneof1693
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1693
                     )
                 )
                 add(
@@ -11676,7 +11676,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1694",
-                        value = MessageWithHugeOneof::oneof1694
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1694
                     )
                 )
                 add(
@@ -11687,7 +11687,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1695",
-                        value = MessageWithHugeOneof::oneof1695
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1695
                     )
                 )
                 add(
@@ -11698,7 +11698,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1696",
-                        value = MessageWithHugeOneof::oneof1696
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1696
                     )
                 )
                 add(
@@ -11709,7 +11709,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1697",
-                        value = MessageWithHugeOneof::oneof1697
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1697
                     )
                 )
                 add(
@@ -11720,7 +11720,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1698",
-                        value = MessageWithHugeOneof::oneof1698
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1698
                     )
                 )
                 add(
@@ -11731,7 +11731,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1699",
-                        value = MessageWithHugeOneof::oneof1699
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1699
                     )
                 )
                 add(
@@ -11742,7 +11742,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1700",
-                        value = MessageWithHugeOneof::oneof1700
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1700
                     )
                 )
                 add(
@@ -11753,7 +11753,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1701",
-                        value = MessageWithHugeOneof::oneof1701
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1701
                     )
                 )
                 add(
@@ -11764,7 +11764,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1702",
-                        value = MessageWithHugeOneof::oneof1702
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1702
                     )
                 )
                 add(
@@ -11775,7 +11775,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1703",
-                        value = MessageWithHugeOneof::oneof1703
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1703
                     )
                 )
                 add(
@@ -11786,7 +11786,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1704",
-                        value = MessageWithHugeOneof::oneof1704
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1704
                     )
                 )
                 add(
@@ -11797,7 +11797,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1705",
-                        value = MessageWithHugeOneof::oneof1705
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1705
                     )
                 )
                 add(
@@ -11808,7 +11808,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1706",
-                        value = MessageWithHugeOneof::oneof1706
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1706
                     )
                 )
                 add(
@@ -11819,7 +11819,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1707",
-                        value = MessageWithHugeOneof::oneof1707
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1707
                     )
                 )
                 add(
@@ -11830,7 +11830,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1708",
-                        value = MessageWithHugeOneof::oneof1708
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1708
                     )
                 )
                 add(
@@ -11841,7 +11841,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1709",
-                        value = MessageWithHugeOneof::oneof1709
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1709
                     )
                 )
                 add(
@@ -11852,7 +11852,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1710",
-                        value = MessageWithHugeOneof::oneof1710
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1710
                     )
                 )
                 add(
@@ -11863,7 +11863,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1711",
-                        value = MessageWithHugeOneof::oneof1711
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1711
                     )
                 )
                 add(
@@ -11874,7 +11874,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1712",
-                        value = MessageWithHugeOneof::oneof1712
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1712
                     )
                 )
                 add(
@@ -11885,7 +11885,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1713",
-                        value = MessageWithHugeOneof::oneof1713
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1713
                     )
                 )
                 add(
@@ -11896,7 +11896,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1714",
-                        value = MessageWithHugeOneof::oneof1714
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1714
                     )
                 )
                 add(
@@ -11907,7 +11907,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1715",
-                        value = MessageWithHugeOneof::oneof1715
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1715
                     )
                 )
                 add(
@@ -11918,7 +11918,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1716",
-                        value = MessageWithHugeOneof::oneof1716
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1716
                     )
                 )
                 add(
@@ -11929,7 +11929,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1717",
-                        value = MessageWithHugeOneof::oneof1717
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1717
                     )
                 )
                 add(
@@ -11940,7 +11940,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1718",
-                        value = MessageWithHugeOneof::oneof1718
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1718
                     )
                 )
                 add(
@@ -11951,7 +11951,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1719",
-                        value = MessageWithHugeOneof::oneof1719
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1719
                     )
                 )
                 add(
@@ -11962,7 +11962,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1720",
-                        value = MessageWithHugeOneof::oneof1720
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1720
                     )
                 )
                 add(
@@ -11973,7 +11973,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1721",
-                        value = MessageWithHugeOneof::oneof1721
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1721
                     )
                 )
                 add(
@@ -11984,7 +11984,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1722",
-                        value = MessageWithHugeOneof::oneof1722
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1722
                     )
                 )
                 add(
@@ -11995,7 +11995,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1723",
-                        value = MessageWithHugeOneof::oneof1723
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1723
                     )
                 )
                 add(
@@ -12006,7 +12006,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1724",
-                        value = MessageWithHugeOneof::oneof1724
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1724
                     )
                 )
                 add(
@@ -12017,7 +12017,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1725",
-                        value = MessageWithHugeOneof::oneof1725
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1725
                     )
                 )
                 add(
@@ -12028,7 +12028,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1726",
-                        value = MessageWithHugeOneof::oneof1726
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1726
                     )
                 )
                 add(
@@ -12039,7 +12039,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1727",
-                        value = MessageWithHugeOneof::oneof1727
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1727
                     )
                 )
                 add(
@@ -12050,7 +12050,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1728",
-                        value = MessageWithHugeOneof::oneof1728
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1728
                     )
                 )
                 add(
@@ -12061,7 +12061,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1729",
-                        value = MessageWithHugeOneof::oneof1729
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1729
                     )
                 )
                 add(
@@ -12072,7 +12072,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1730",
-                        value = MessageWithHugeOneof::oneof1730
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1730
                     )
                 )
                 add(
@@ -12083,7 +12083,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1731",
-                        value = MessageWithHugeOneof::oneof1731
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1731
                     )
                 )
                 add(
@@ -12094,7 +12094,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1732",
-                        value = MessageWithHugeOneof::oneof1732
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1732
                     )
                 )
                 add(
@@ -12105,7 +12105,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1733",
-                        value = MessageWithHugeOneof::oneof1733
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1733
                     )
                 )
                 add(
@@ -12116,7 +12116,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1734",
-                        value = MessageWithHugeOneof::oneof1734
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1734
                     )
                 )
                 add(
@@ -12127,7 +12127,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1735",
-                        value = MessageWithHugeOneof::oneof1735
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1735
                     )
                 )
                 add(
@@ -12138,7 +12138,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1736",
-                        value = MessageWithHugeOneof::oneof1736
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1736
                     )
                 )
                 add(
@@ -12149,7 +12149,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1737",
-                        value = MessageWithHugeOneof::oneof1737
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1737
                     )
                 )
                 add(
@@ -12160,7 +12160,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1738",
-                        value = MessageWithHugeOneof::oneof1738
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1738
                     )
                 )
                 add(
@@ -12171,7 +12171,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1739",
-                        value = MessageWithHugeOneof::oneof1739
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1739
                     )
                 )
                 add(
@@ -12182,7 +12182,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1740",
-                        value = MessageWithHugeOneof::oneof1740
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1740
                     )
                 )
                 add(
@@ -12193,7 +12193,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1741",
-                        value = MessageWithHugeOneof::oneof1741
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1741
                     )
                 )
                 add(
@@ -12204,7 +12204,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1742",
-                        value = MessageWithHugeOneof::oneof1742
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1742
                     )
                 )
                 add(
@@ -12215,7 +12215,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1743",
-                        value = MessageWithHugeOneof::oneof1743
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1743
                     )
                 )
                 add(
@@ -12226,7 +12226,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1744",
-                        value = MessageWithHugeOneof::oneof1744
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1744
                     )
                 )
                 add(
@@ -12237,7 +12237,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1745",
-                        value = MessageWithHugeOneof::oneof1745
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1745
                     )
                 )
                 add(
@@ -12248,7 +12248,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1746",
-                        value = MessageWithHugeOneof::oneof1746
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1746
                     )
                 )
                 add(
@@ -12259,7 +12259,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1747",
-                        value = MessageWithHugeOneof::oneof1747
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1747
                     )
                 )
                 add(
@@ -12270,7 +12270,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1748",
-                        value = MessageWithHugeOneof::oneof1748
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1748
                     )
                 )
                 add(
@@ -12281,7 +12281,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1749",
-                        value = MessageWithHugeOneof::oneof1749
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1749
                     )
                 )
                 add(
@@ -12292,7 +12292,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1750",
-                        value = MessageWithHugeOneof::oneof1750
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1750
                     )
                 )
                 add(
@@ -12303,7 +12303,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1751",
-                        value = MessageWithHugeOneof::oneof1751
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1751
                     )
                 )
                 add(
@@ -12314,7 +12314,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1752",
-                        value = MessageWithHugeOneof::oneof1752
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1752
                     )
                 )
                 add(
@@ -12325,7 +12325,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1753",
-                        value = MessageWithHugeOneof::oneof1753
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1753
                     )
                 )
                 add(
@@ -12336,7 +12336,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1754",
-                        value = MessageWithHugeOneof::oneof1754
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1754
                     )
                 )
                 add(
@@ -12347,7 +12347,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1755",
-                        value = MessageWithHugeOneof::oneof1755
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1755
                     )
                 )
                 add(
@@ -12358,7 +12358,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1756",
-                        value = MessageWithHugeOneof::oneof1756
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1756
                     )
                 )
                 add(
@@ -12369,7 +12369,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1757",
-                        value = MessageWithHugeOneof::oneof1757
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1757
                     )
                 )
                 add(
@@ -12380,7 +12380,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1758",
-                        value = MessageWithHugeOneof::oneof1758
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1758
                     )
                 )
                 add(
@@ -12391,7 +12391,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1759",
-                        value = MessageWithHugeOneof::oneof1759
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1759
                     )
                 )
                 add(
@@ -12402,7 +12402,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1760",
-                        value = MessageWithHugeOneof::oneof1760
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1760
                     )
                 )
                 add(
@@ -12413,7 +12413,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1761",
-                        value = MessageWithHugeOneof::oneof1761
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1761
                     )
                 )
                 add(
@@ -12424,7 +12424,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1762",
-                        value = MessageWithHugeOneof::oneof1762
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1762
                     )
                 )
                 add(
@@ -12435,7 +12435,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1763",
-                        value = MessageWithHugeOneof::oneof1763
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1763
                     )
                 )
                 add(
@@ -12446,7 +12446,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1764",
-                        value = MessageWithHugeOneof::oneof1764
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1764
                     )
                 )
                 add(
@@ -12457,7 +12457,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1765",
-                        value = MessageWithHugeOneof::oneof1765
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1765
                     )
                 )
                 add(
@@ -12468,7 +12468,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1766",
-                        value = MessageWithHugeOneof::oneof1766
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1766
                     )
                 )
                 add(
@@ -12479,7 +12479,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1767",
-                        value = MessageWithHugeOneof::oneof1767
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1767
                     )
                 )
                 add(
@@ -12490,7 +12490,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1768",
-                        value = MessageWithHugeOneof::oneof1768
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1768
                     )
                 )
                 add(
@@ -12501,7 +12501,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1769",
-                        value = MessageWithHugeOneof::oneof1769
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1769
                     )
                 )
                 add(
@@ -12512,7 +12512,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1770",
-                        value = MessageWithHugeOneof::oneof1770
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1770
                     )
                 )
                 add(
@@ -12523,7 +12523,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1771",
-                        value = MessageWithHugeOneof::oneof1771
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1771
                     )
                 )
                 add(
@@ -12534,7 +12534,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1772",
-                        value = MessageWithHugeOneof::oneof1772
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1772
                     )
                 )
                 add(
@@ -12545,7 +12545,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1773",
-                        value = MessageWithHugeOneof::oneof1773
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1773
                     )
                 )
                 add(
@@ -12556,7 +12556,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1774",
-                        value = MessageWithHugeOneof::oneof1774
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1774
                     )
                 )
                 add(
@@ -12567,7 +12567,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1775",
-                        value = MessageWithHugeOneof::oneof1775
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1775
                     )
                 )
                 add(
@@ -12578,7 +12578,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1776",
-                        value = MessageWithHugeOneof::oneof1776
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1776
                     )
                 )
                 add(
@@ -12589,7 +12589,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1777",
-                        value = MessageWithHugeOneof::oneof1777
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1777
                     )
                 )
                 add(
@@ -12600,7 +12600,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1778",
-                        value = MessageWithHugeOneof::oneof1778
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1778
                     )
                 )
                 add(
@@ -12611,7 +12611,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1779",
-                        value = MessageWithHugeOneof::oneof1779
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1779
                     )
                 )
                 add(
@@ -12622,7 +12622,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1780",
-                        value = MessageWithHugeOneof::oneof1780
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1780
                     )
                 )
                 add(
@@ -12633,7 +12633,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1781",
-                        value = MessageWithHugeOneof::oneof1781
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1781
                     )
                 )
                 add(
@@ -12644,7 +12644,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1782",
-                        value = MessageWithHugeOneof::oneof1782
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1782
                     )
                 )
                 add(
@@ -12655,7 +12655,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1783",
-                        value = MessageWithHugeOneof::oneof1783
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1783
                     )
                 )
                 add(
@@ -12666,7 +12666,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1784",
-                        value = MessageWithHugeOneof::oneof1784
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1784
                     )
                 )
                 add(
@@ -12677,7 +12677,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1785",
-                        value = MessageWithHugeOneof::oneof1785
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1785
                     )
                 )
                 add(
@@ -12688,7 +12688,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1786",
-                        value = MessageWithHugeOneof::oneof1786
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1786
                     )
                 )
                 add(
@@ -12699,7 +12699,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1787",
-                        value = MessageWithHugeOneof::oneof1787
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1787
                     )
                 )
                 add(
@@ -12710,7 +12710,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1788",
-                        value = MessageWithHugeOneof::oneof1788
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1788
                     )
                 )
                 add(
@@ -12721,7 +12721,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1789",
-                        value = MessageWithHugeOneof::oneof1789
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1789
                     )
                 )
                 add(
@@ -12732,7 +12732,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1790",
-                        value = MessageWithHugeOneof::oneof1790
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1790
                     )
                 )
                 add(
@@ -12743,7 +12743,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1791",
-                        value = MessageWithHugeOneof::oneof1791
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1791
                     )
                 )
                 add(
@@ -12754,7 +12754,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1792",
-                        value = MessageWithHugeOneof::oneof1792
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1792
                     )
                 )
                 add(
@@ -12765,7 +12765,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1793",
-                        value = MessageWithHugeOneof::oneof1793
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1793
                     )
                 )
                 add(
@@ -12776,7 +12776,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1794",
-                        value = MessageWithHugeOneof::oneof1794
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1794
                     )
                 )
                 add(
@@ -12787,7 +12787,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1795",
-                        value = MessageWithHugeOneof::oneof1795
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1795
                     )
                 )
                 add(
@@ -12798,7 +12798,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1796",
-                        value = MessageWithHugeOneof::oneof1796
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1796
                     )
                 )
                 add(
@@ -12809,7 +12809,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1797",
-                        value = MessageWithHugeOneof::oneof1797
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1797
                     )
                 )
                 add(
@@ -12820,7 +12820,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1798",
-                        value = MessageWithHugeOneof::oneof1798
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1798
                     )
                 )
                 add(
@@ -12831,7 +12831,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1799",
-                        value = MessageWithHugeOneof::oneof1799
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1799
                     )
                 )
                 add(
@@ -12842,7 +12842,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1800",
-                        value = MessageWithHugeOneof::oneof1800
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1800
                     )
                 )
                 add(
@@ -12853,7 +12853,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1801",
-                        value = MessageWithHugeOneof::oneof1801
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1801
                     )
                 )
                 add(
@@ -12864,7 +12864,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1802",
-                        value = MessageWithHugeOneof::oneof1802
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1802
                     )
                 )
                 add(
@@ -12875,7 +12875,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1803",
-                        value = MessageWithHugeOneof::oneof1803
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1803
                     )
                 )
                 add(
@@ -12886,7 +12886,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1804",
-                        value = MessageWithHugeOneof::oneof1804
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1804
                     )
                 )
                 add(
@@ -12897,7 +12897,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1805",
-                        value = MessageWithHugeOneof::oneof1805
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1805
                     )
                 )
                 add(
@@ -12908,7 +12908,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1806",
-                        value = MessageWithHugeOneof::oneof1806
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1806
                     )
                 )
                 add(
@@ -12919,7 +12919,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1807",
-                        value = MessageWithHugeOneof::oneof1807
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1807
                     )
                 )
                 add(
@@ -12930,7 +12930,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1808",
-                        value = MessageWithHugeOneof::oneof1808
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1808
                     )
                 )
                 add(
@@ -12941,7 +12941,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1809",
-                        value = MessageWithHugeOneof::oneof1809
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1809
                     )
                 )
                 add(
@@ -12952,7 +12952,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1810",
-                        value = MessageWithHugeOneof::oneof1810
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1810
                     )
                 )
                 add(
@@ -12963,7 +12963,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1811",
-                        value = MessageWithHugeOneof::oneof1811
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1811
                     )
                 )
                 add(
@@ -12974,7 +12974,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1812",
-                        value = MessageWithHugeOneof::oneof1812
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1812
                     )
                 )
                 add(
@@ -12985,7 +12985,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1813",
-                        value = MessageWithHugeOneof::oneof1813
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1813
                     )
                 )
                 add(
@@ -12996,7 +12996,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1814",
-                        value = MessageWithHugeOneof::oneof1814
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1814
                     )
                 )
                 add(
@@ -13007,7 +13007,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1815",
-                        value = MessageWithHugeOneof::oneof1815
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1815
                     )
                 )
                 add(
@@ -13018,7 +13018,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1816",
-                        value = MessageWithHugeOneof::oneof1816
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1816
                     )
                 )
                 add(
@@ -13029,7 +13029,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1817",
-                        value = MessageWithHugeOneof::oneof1817
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1817
                     )
                 )
                 add(
@@ -13040,7 +13040,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1818",
-                        value = MessageWithHugeOneof::oneof1818
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1818
                     )
                 )
                 add(
@@ -13051,7 +13051,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1819",
-                        value = MessageWithHugeOneof::oneof1819
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1819
                     )
                 )
                 add(
@@ -13062,7 +13062,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1820",
-                        value = MessageWithHugeOneof::oneof1820
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1820
                     )
                 )
                 add(
@@ -13073,7 +13073,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1821",
-                        value = MessageWithHugeOneof::oneof1821
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1821
                     )
                 )
                 add(
@@ -13084,7 +13084,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1822",
-                        value = MessageWithHugeOneof::oneof1822
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1822
                     )
                 )
                 add(
@@ -13095,7 +13095,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1823",
-                        value = MessageWithHugeOneof::oneof1823
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1823
                     )
                 )
                 add(
@@ -13106,7 +13106,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1824",
-                        value = MessageWithHugeOneof::oneof1824
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1824
                     )
                 )
                 add(
@@ -13117,7 +13117,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1825",
-                        value = MessageWithHugeOneof::oneof1825
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1825
                     )
                 )
                 add(
@@ -13128,7 +13128,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1826",
-                        value = MessageWithHugeOneof::oneof1826
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1826
                     )
                 )
                 add(
@@ -13139,7 +13139,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1827",
-                        value = MessageWithHugeOneof::oneof1827
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1827
                     )
                 )
                 add(
@@ -13150,7 +13150,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1828",
-                        value = MessageWithHugeOneof::oneof1828
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1828
                     )
                 )
                 add(
@@ -13161,7 +13161,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1829",
-                        value = MessageWithHugeOneof::oneof1829
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1829
                     )
                 )
                 add(
@@ -13172,7 +13172,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1830",
-                        value = MessageWithHugeOneof::oneof1830
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1830
                     )
                 )
                 add(
@@ -13183,7 +13183,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1831",
-                        value = MessageWithHugeOneof::oneof1831
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1831
                     )
                 )
                 add(
@@ -13194,7 +13194,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1832",
-                        value = MessageWithHugeOneof::oneof1832
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1832
                     )
                 )
                 add(
@@ -13205,7 +13205,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1833",
-                        value = MessageWithHugeOneof::oneof1833
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1833
                     )
                 )
                 add(
@@ -13216,7 +13216,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1834",
-                        value = MessageWithHugeOneof::oneof1834
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1834
                     )
                 )
                 add(
@@ -13227,7 +13227,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1835",
-                        value = MessageWithHugeOneof::oneof1835
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1835
                     )
                 )
                 add(
@@ -13238,7 +13238,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1836",
-                        value = MessageWithHugeOneof::oneof1836
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1836
                     )
                 )
                 add(
@@ -13249,7 +13249,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1837",
-                        value = MessageWithHugeOneof::oneof1837
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1837
                     )
                 )
                 add(
@@ -13260,7 +13260,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1838",
-                        value = MessageWithHugeOneof::oneof1838
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1838
                     )
                 )
                 add(
@@ -13271,7 +13271,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1839",
-                        value = MessageWithHugeOneof::oneof1839
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1839
                     )
                 )
                 add(
@@ -13282,7 +13282,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1840",
-                        value = MessageWithHugeOneof::oneof1840
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1840
                     )
                 )
                 add(
@@ -13293,7 +13293,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1841",
-                        value = MessageWithHugeOneof::oneof1841
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1841
                     )
                 )
                 add(
@@ -13304,7 +13304,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1842",
-                        value = MessageWithHugeOneof::oneof1842
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1842
                     )
                 )
                 add(
@@ -13315,7 +13315,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1843",
-                        value = MessageWithHugeOneof::oneof1843
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1843
                     )
                 )
                 add(
@@ -13326,7 +13326,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1844",
-                        value = MessageWithHugeOneof::oneof1844
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1844
                     )
                 )
                 add(
@@ -13337,7 +13337,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1845",
-                        value = MessageWithHugeOneof::oneof1845
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1845
                     )
                 )
                 add(
@@ -13348,7 +13348,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1846",
-                        value = MessageWithHugeOneof::oneof1846
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1846
                     )
                 )
                 add(
@@ -13359,7 +13359,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1847",
-                        value = MessageWithHugeOneof::oneof1847
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1847
                     )
                 )
                 add(
@@ -13370,7 +13370,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1848",
-                        value = MessageWithHugeOneof::oneof1848
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1848
                     )
                 )
                 add(
@@ -13381,7 +13381,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1849",
-                        value = MessageWithHugeOneof::oneof1849
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1849
                     )
                 )
                 add(
@@ -13392,7 +13392,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1850",
-                        value = MessageWithHugeOneof::oneof1850
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1850
                     )
                 )
                 add(
@@ -13403,7 +13403,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1851",
-                        value = MessageWithHugeOneof::oneof1851
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1851
                     )
                 )
                 add(
@@ -13414,7 +13414,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1852",
-                        value = MessageWithHugeOneof::oneof1852
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1852
                     )
                 )
                 add(
@@ -13425,7 +13425,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1853",
-                        value = MessageWithHugeOneof::oneof1853
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1853
                     )
                 )
                 add(
@@ -13436,7 +13436,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1854",
-                        value = MessageWithHugeOneof::oneof1854
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1854
                     )
                 )
                 add(
@@ -13447,7 +13447,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1855",
-                        value = MessageWithHugeOneof::oneof1855
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1855
                     )
                 )
                 add(
@@ -13458,7 +13458,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1856",
-                        value = MessageWithHugeOneof::oneof1856
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1856
                     )
                 )
                 add(
@@ -13469,7 +13469,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1857",
-                        value = MessageWithHugeOneof::oneof1857
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1857
                     )
                 )
                 add(
@@ -13480,7 +13480,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1858",
-                        value = MessageWithHugeOneof::oneof1858
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1858
                     )
                 )
                 add(
@@ -13491,7 +13491,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1859",
-                        value = MessageWithHugeOneof::oneof1859
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1859
                     )
                 )
                 add(
@@ -13502,7 +13502,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1860",
-                        value = MessageWithHugeOneof::oneof1860
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1860
                     )
                 )
                 add(
@@ -13513,7 +13513,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1861",
-                        value = MessageWithHugeOneof::oneof1861
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1861
                     )
                 )
                 add(
@@ -13524,7 +13524,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1862",
-                        value = MessageWithHugeOneof::oneof1862
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1862
                     )
                 )
                 add(
@@ -13535,7 +13535,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1863",
-                        value = MessageWithHugeOneof::oneof1863
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1863
                     )
                 )
                 add(
@@ -13546,7 +13546,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1864",
-                        value = MessageWithHugeOneof::oneof1864
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1864
                     )
                 )
                 add(
@@ -13557,7 +13557,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1865",
-                        value = MessageWithHugeOneof::oneof1865
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1865
                     )
                 )
                 add(
@@ -13568,7 +13568,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1866",
-                        value = MessageWithHugeOneof::oneof1866
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1866
                     )
                 )
                 add(
@@ -13579,7 +13579,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1867",
-                        value = MessageWithHugeOneof::oneof1867
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1867
                     )
                 )
                 add(
@@ -13590,7 +13590,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1868",
-                        value = MessageWithHugeOneof::oneof1868
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1868
                     )
                 )
                 add(
@@ -13601,7 +13601,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1869",
-                        value = MessageWithHugeOneof::oneof1869
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1869
                     )
                 )
                 add(
@@ -13612,7 +13612,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1870",
-                        value = MessageWithHugeOneof::oneof1870
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1870
                     )
                 )
                 add(
@@ -13623,7 +13623,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1871",
-                        value = MessageWithHugeOneof::oneof1871
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1871
                     )
                 )
                 add(
@@ -13634,7 +13634,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1872",
-                        value = MessageWithHugeOneof::oneof1872
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1872
                     )
                 )
                 add(
@@ -13645,7 +13645,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1873",
-                        value = MessageWithHugeOneof::oneof1873
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1873
                     )
                 )
                 add(
@@ -13656,7 +13656,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1874",
-                        value = MessageWithHugeOneof::oneof1874
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1874
                     )
                 )
                 add(
@@ -13667,7 +13667,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1875",
-                        value = MessageWithHugeOneof::oneof1875
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1875
                     )
                 )
                 add(
@@ -13678,7 +13678,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1876",
-                        value = MessageWithHugeOneof::oneof1876
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1876
                     )
                 )
                 add(
@@ -13689,7 +13689,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1877",
-                        value = MessageWithHugeOneof::oneof1877
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1877
                     )
                 )
                 add(
@@ -13700,7 +13700,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1878",
-                        value = MessageWithHugeOneof::oneof1878
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1878
                     )
                 )
                 add(
@@ -13711,7 +13711,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1879",
-                        value = MessageWithHugeOneof::oneof1879
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1879
                     )
                 )
                 add(
@@ -13722,7 +13722,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1880",
-                        value = MessageWithHugeOneof::oneof1880
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1880
                     )
                 )
                 add(
@@ -13733,7 +13733,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1881",
-                        value = MessageWithHugeOneof::oneof1881
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1881
                     )
                 )
                 add(
@@ -13744,7 +13744,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1882",
-                        value = MessageWithHugeOneof::oneof1882
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1882
                     )
                 )
                 add(
@@ -13755,7 +13755,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1883",
-                        value = MessageWithHugeOneof::oneof1883
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1883
                     )
                 )
                 add(
@@ -13766,7 +13766,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1884",
-                        value = MessageWithHugeOneof::oneof1884
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1884
                     )
                 )
                 add(
@@ -13777,7 +13777,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1885",
-                        value = MessageWithHugeOneof::oneof1885
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1885
                     )
                 )
                 add(
@@ -13788,7 +13788,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1886",
-                        value = MessageWithHugeOneof::oneof1886
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1886
                     )
                 )
                 add(
@@ -13799,7 +13799,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1887",
-                        value = MessageWithHugeOneof::oneof1887
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1887
                     )
                 )
                 add(
@@ -13810,7 +13810,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1888",
-                        value = MessageWithHugeOneof::oneof1888
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1888
                     )
                 )
                 add(
@@ -13821,7 +13821,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1889",
-                        value = MessageWithHugeOneof::oneof1889
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1889
                     )
                 )
                 add(
@@ -13832,7 +13832,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1890",
-                        value = MessageWithHugeOneof::oneof1890
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1890
                     )
                 )
                 add(
@@ -13843,7 +13843,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1891",
-                        value = MessageWithHugeOneof::oneof1891
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1891
                     )
                 )
                 add(
@@ -13854,7 +13854,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1892",
-                        value = MessageWithHugeOneof::oneof1892
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1892
                     )
                 )
                 add(
@@ -13865,7 +13865,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1893",
-                        value = MessageWithHugeOneof::oneof1893
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1893
                     )
                 )
                 add(
@@ -13876,7 +13876,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1894",
-                        value = MessageWithHugeOneof::oneof1894
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1894
                     )
                 )
                 add(
@@ -13887,7 +13887,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1895",
-                        value = MessageWithHugeOneof::oneof1895
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1895
                     )
                 )
                 add(
@@ -13898,7 +13898,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1896",
-                        value = MessageWithHugeOneof::oneof1896
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1896
                     )
                 )
                 add(
@@ -13909,7 +13909,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1897",
-                        value = MessageWithHugeOneof::oneof1897
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1897
                     )
                 )
                 add(
@@ -13920,7 +13920,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1898",
-                        value = MessageWithHugeOneof::oneof1898
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1898
                     )
                 )
                 add(
@@ -13931,7 +13931,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1899",
-                        value = MessageWithHugeOneof::oneof1899
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1899
                     )
                 )
                 add(
@@ -13942,7 +13942,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1900",
-                        value = MessageWithHugeOneof::oneof1900
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1900
                     )
                 )
                 add(
@@ -13953,7 +13953,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1901",
-                        value = MessageWithHugeOneof::oneof1901
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1901
                     )
                 )
                 add(
@@ -13964,7 +13964,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1902",
-                        value = MessageWithHugeOneof::oneof1902
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1902
                     )
                 )
                 add(
@@ -13975,7 +13975,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1903",
-                        value = MessageWithHugeOneof::oneof1903
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1903
                     )
                 )
                 add(
@@ -13986,7 +13986,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1904",
-                        value = MessageWithHugeOneof::oneof1904
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1904
                     )
                 )
                 add(
@@ -13997,7 +13997,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1905",
-                        value = MessageWithHugeOneof::oneof1905
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1905
                     )
                 )
                 add(
@@ -14008,7 +14008,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1906",
-                        value = MessageWithHugeOneof::oneof1906
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1906
                     )
                 )
                 add(
@@ -14019,7 +14019,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1907",
-                        value = MessageWithHugeOneof::oneof1907
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1907
                     )
                 )
                 add(
@@ -14030,7 +14030,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1908",
-                        value = MessageWithHugeOneof::oneof1908
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1908
                     )
                 )
                 add(
@@ -14041,7 +14041,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1909",
-                        value = MessageWithHugeOneof::oneof1909
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1909
                     )
                 )
                 add(
@@ -14052,7 +14052,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1910",
-                        value = MessageWithHugeOneof::oneof1910
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1910
                     )
                 )
                 add(
@@ -14063,7 +14063,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1911",
-                        value = MessageWithHugeOneof::oneof1911
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1911
                     )
                 )
                 add(
@@ -14074,7 +14074,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1912",
-                        value = MessageWithHugeOneof::oneof1912
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1912
                     )
                 )
                 add(
@@ -14085,7 +14085,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1913",
-                        value = MessageWithHugeOneof::oneof1913
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1913
                     )
                 )
                 add(
@@ -14096,7 +14096,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1914",
-                        value = MessageWithHugeOneof::oneof1914
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1914
                     )
                 )
                 add(
@@ -14107,7 +14107,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1915",
-                        value = MessageWithHugeOneof::oneof1915
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1915
                     )
                 )
                 add(
@@ -14118,7 +14118,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1916",
-                        value = MessageWithHugeOneof::oneof1916
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1916
                     )
                 )
                 add(
@@ -14129,7 +14129,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1917",
-                        value = MessageWithHugeOneof::oneof1917
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1917
                     )
                 )
                 add(
@@ -14140,7 +14140,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1918",
-                        value = MessageWithHugeOneof::oneof1918
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1918
                     )
                 )
                 add(
@@ -14151,7 +14151,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1919",
-                        value = MessageWithHugeOneof::oneof1919
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1919
                     )
                 )
                 add(
@@ -14162,7 +14162,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1920",
-                        value = MessageWithHugeOneof::oneof1920
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1920
                     )
                 )
                 add(
@@ -14173,7 +14173,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1921",
-                        value = MessageWithHugeOneof::oneof1921
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1921
                     )
                 )
                 add(
@@ -14184,7 +14184,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1922",
-                        value = MessageWithHugeOneof::oneof1922
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1922
                     )
                 )
                 add(
@@ -14195,7 +14195,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1923",
-                        value = MessageWithHugeOneof::oneof1923
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1923
                     )
                 )
                 add(
@@ -14206,7 +14206,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1924",
-                        value = MessageWithHugeOneof::oneof1924
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1924
                     )
                 )
                 add(
@@ -14217,7 +14217,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1925",
-                        value = MessageWithHugeOneof::oneof1925
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1925
                     )
                 )
                 add(
@@ -14228,7 +14228,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1926",
-                        value = MessageWithHugeOneof::oneof1926
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1926
                     )
                 )
                 add(
@@ -14239,7 +14239,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1927",
-                        value = MessageWithHugeOneof::oneof1927
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1927
                     )
                 )
                 add(
@@ -14250,7 +14250,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1928",
-                        value = MessageWithHugeOneof::oneof1928
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1928
                     )
                 )
                 add(
@@ -14261,7 +14261,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1929",
-                        value = MessageWithHugeOneof::oneof1929
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1929
                     )
                 )
                 add(
@@ -14272,7 +14272,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1930",
-                        value = MessageWithHugeOneof::oneof1930
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1930
                     )
                 )
                 add(
@@ -14283,7 +14283,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1931",
-                        value = MessageWithHugeOneof::oneof1931
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1931
                     )
                 )
                 add(
@@ -14294,7 +14294,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1932",
-                        value = MessageWithHugeOneof::oneof1932
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1932
                     )
                 )
                 add(
@@ -14305,7 +14305,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1933",
-                        value = MessageWithHugeOneof::oneof1933
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1933
                     )
                 )
                 add(
@@ -14316,7 +14316,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1934",
-                        value = MessageWithHugeOneof::oneof1934
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1934
                     )
                 )
                 add(
@@ -14327,7 +14327,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1935",
-                        value = MessageWithHugeOneof::oneof1935
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1935
                     )
                 )
                 add(
@@ -14338,7 +14338,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1936",
-                        value = MessageWithHugeOneof::oneof1936
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1936
                     )
                 )
                 add(
@@ -14349,7 +14349,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1937",
-                        value = MessageWithHugeOneof::oneof1937
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1937
                     )
                 )
                 add(
@@ -14360,7 +14360,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1938",
-                        value = MessageWithHugeOneof::oneof1938
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1938
                     )
                 )
                 add(
@@ -14371,7 +14371,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1939",
-                        value = MessageWithHugeOneof::oneof1939
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1939
                     )
                 )
                 add(
@@ -14382,7 +14382,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1940",
-                        value = MessageWithHugeOneof::oneof1940
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1940
                     )
                 )
                 add(
@@ -14393,7 +14393,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1941",
-                        value = MessageWithHugeOneof::oneof1941
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1941
                     )
                 )
                 add(
@@ -14404,7 +14404,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1942",
-                        value = MessageWithHugeOneof::oneof1942
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1942
                     )
                 )
                 add(
@@ -14415,7 +14415,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1943",
-                        value = MessageWithHugeOneof::oneof1943
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1943
                     )
                 )
                 add(
@@ -14426,7 +14426,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1944",
-                        value = MessageWithHugeOneof::oneof1944
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1944
                     )
                 )
                 add(
@@ -14437,7 +14437,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1945",
-                        value = MessageWithHugeOneof::oneof1945
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1945
                     )
                 )
                 add(
@@ -14448,7 +14448,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1946",
-                        value = MessageWithHugeOneof::oneof1946
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1946
                     )
                 )
                 add(
@@ -14459,7 +14459,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1947",
-                        value = MessageWithHugeOneof::oneof1947
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1947
                     )
                 )
                 add(
@@ -14470,7 +14470,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1948",
-                        value = MessageWithHugeOneof::oneof1948
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1948
                     )
                 )
                 add(
@@ -14481,7 +14481,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1949",
-                        value = MessageWithHugeOneof::oneof1949
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1949
                     )
                 )
                 add(
@@ -14492,7 +14492,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1950",
-                        value = MessageWithHugeOneof::oneof1950
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1950
                     )
                 )
                 add(
@@ -14503,7 +14503,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1951",
-                        value = MessageWithHugeOneof::oneof1951
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1951
                     )
                 )
                 add(
@@ -14514,7 +14514,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1952",
-                        value = MessageWithHugeOneof::oneof1952
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1952
                     )
                 )
                 add(
@@ -14525,7 +14525,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1953",
-                        value = MessageWithHugeOneof::oneof1953
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1953
                     )
                 )
                 add(
@@ -14536,7 +14536,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1954",
-                        value = MessageWithHugeOneof::oneof1954
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1954
                     )
                 )
                 add(
@@ -14547,7 +14547,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1955",
-                        value = MessageWithHugeOneof::oneof1955
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1955
                     )
                 )
                 add(
@@ -14558,7 +14558,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1956",
-                        value = MessageWithHugeOneof::oneof1956
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1956
                     )
                 )
                 add(
@@ -14569,7 +14569,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1957",
-                        value = MessageWithHugeOneof::oneof1957
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1957
                     )
                 )
                 add(
@@ -14580,7 +14580,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1958",
-                        value = MessageWithHugeOneof::oneof1958
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1958
                     )
                 )
                 add(
@@ -14591,7 +14591,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1959",
-                        value = MessageWithHugeOneof::oneof1959
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1959
                     )
                 )
                 add(
@@ -14602,7 +14602,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1960",
-                        value = MessageWithHugeOneof::oneof1960
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1960
                     )
                 )
                 add(
@@ -14613,7 +14613,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1961",
-                        value = MessageWithHugeOneof::oneof1961
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1961
                     )
                 )
                 add(
@@ -14624,7 +14624,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1962",
-                        value = MessageWithHugeOneof::oneof1962
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1962
                     )
                 )
                 add(
@@ -14635,7 +14635,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1963",
-                        value = MessageWithHugeOneof::oneof1963
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1963
                     )
                 )
                 add(
@@ -14646,7 +14646,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1964",
-                        value = MessageWithHugeOneof::oneof1964
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1964
                     )
                 )
                 add(
@@ -14657,7 +14657,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1965",
-                        value = MessageWithHugeOneof::oneof1965
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1965
                     )
                 )
                 add(
@@ -14668,7 +14668,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1966",
-                        value = MessageWithHugeOneof::oneof1966
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1966
                     )
                 )
                 add(
@@ -14679,7 +14679,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1967",
-                        value = MessageWithHugeOneof::oneof1967
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1967
                     )
                 )
                 add(
@@ -14690,7 +14690,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1968",
-                        value = MessageWithHugeOneof::oneof1968
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1968
                     )
                 )
                 add(
@@ -14701,7 +14701,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1969",
-                        value = MessageWithHugeOneof::oneof1969
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1969
                     )
                 )
                 add(
@@ -14712,7 +14712,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1970",
-                        value = MessageWithHugeOneof::oneof1970
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1970
                     )
                 )
                 add(
@@ -14723,7 +14723,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1971",
-                        value = MessageWithHugeOneof::oneof1971
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1971
                     )
                 )
                 add(
@@ -14734,7 +14734,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1972",
-                        value = MessageWithHugeOneof::oneof1972
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1972
                     )
                 )
                 add(
@@ -14745,7 +14745,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1973",
-                        value = MessageWithHugeOneof::oneof1973
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1973
                     )
                 )
                 add(
@@ -14756,7 +14756,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1974",
-                        value = MessageWithHugeOneof::oneof1974
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1974
                     )
                 )
                 add(
@@ -14767,7 +14767,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1975",
-                        value = MessageWithHugeOneof::oneof1975
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1975
                     )
                 )
                 add(
@@ -14778,7 +14778,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1976",
-                        value = MessageWithHugeOneof::oneof1976
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1976
                     )
                 )
                 add(
@@ -14789,7 +14789,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1977",
-                        value = MessageWithHugeOneof::oneof1977
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1977
                     )
                 )
                 add(
@@ -14800,7 +14800,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1978",
-                        value = MessageWithHugeOneof::oneof1978
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1978
                     )
                 )
                 add(
@@ -14811,7 +14811,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1979",
-                        value = MessageWithHugeOneof::oneof1979
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1979
                     )
                 )
                 add(
@@ -14822,7 +14822,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1980",
-                        value = MessageWithHugeOneof::oneof1980
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1980
                     )
                 )
                 add(
@@ -14833,7 +14833,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1981",
-                        value = MessageWithHugeOneof::oneof1981
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1981
                     )
                 )
                 add(
@@ -14844,7 +14844,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1982",
-                        value = MessageWithHugeOneof::oneof1982
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1982
                     )
                 )
                 add(
@@ -14855,7 +14855,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1983",
-                        value = MessageWithHugeOneof::oneof1983
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1983
                     )
                 )
                 add(
@@ -14866,7 +14866,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1984",
-                        value = MessageWithHugeOneof::oneof1984
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1984
                     )
                 )
                 add(
@@ -14877,7 +14877,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1985",
-                        value = MessageWithHugeOneof::oneof1985
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1985
                     )
                 )
                 add(
@@ -14888,7 +14888,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1986",
-                        value = MessageWithHugeOneof::oneof1986
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1986
                     )
                 )
                 add(
@@ -14899,7 +14899,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1987",
-                        value = MessageWithHugeOneof::oneof1987
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1987
                     )
                 )
                 add(
@@ -14910,7 +14910,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1988",
-                        value = MessageWithHugeOneof::oneof1988
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1988
                     )
                 )
                 add(
@@ -14921,7 +14921,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1989",
-                        value = MessageWithHugeOneof::oneof1989
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1989
                     )
                 )
                 add(
@@ -14932,7 +14932,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1990",
-                        value = MessageWithHugeOneof::oneof1990
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1990
                     )
                 )
                 add(
@@ -14943,7 +14943,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1991",
-                        value = MessageWithHugeOneof::oneof1991
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1991
                     )
                 )
                 add(
@@ -14954,7 +14954,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1992",
-                        value = MessageWithHugeOneof::oneof1992
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1992
                     )
                 )
                 add(
@@ -14965,7 +14965,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1993",
-                        value = MessageWithHugeOneof::oneof1993
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1993
                     )
                 )
                 add(
@@ -14976,7 +14976,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1994",
-                        value = MessageWithHugeOneof::oneof1994
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1994
                     )
                 )
                 add(
@@ -14987,7 +14987,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1995",
-                        value = MessageWithHugeOneof::oneof1995
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1995
                     )
                 )
                 add(
@@ -14998,7 +14998,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1996",
-                        value = MessageWithHugeOneof::oneof1996
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1996
                     )
                 )
                 add(
@@ -15009,7 +15009,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1997",
-                        value = MessageWithHugeOneof::oneof1997
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1997
                     )
                 )
                 add(
@@ -15020,7 +15020,7 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1998",
-                        value = MessageWithHugeOneof::oneof1998
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1998
                     )
                 )
                 add(
@@ -15031,12 +15031,12 @@ data class MessageWithHugeOneof(
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(hasPresence = true),
                         oneofMember = true,
                         jsonName = "oneof1999",
-                        value = MessageWithHugeOneof::oneof1999
+                        value = pbandk.testpb.MessageWithHugeOneof::oneof1999
                     )
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = MessageWithHugeOneof::class,
+                messageClass = pbandk.testpb.MessageWithHugeOneof::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
