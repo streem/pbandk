@@ -11,6 +11,10 @@ import kotlin.Any
 internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     private val FLOAT_MIN = -3.4028235E38F
     private val FLOAT_MAX = 3.4028235E38F
+    private val DOUBLE_MIN_POSITIVE = 2.22507e-308
+    private val DOUBLE_MAX_POSITIVE = 1.79769e+308
+    private val DOUBLE_MIN_NEGATIVE = -1.79769e+308
+    private val DOUBLE_MAX_NEGATIVE = -2.22507e-308
 
     private val numberTrailingZeroes = """\.0+$""".toRegex()
     private val numberScientificNotation = """-?(?:\d+)(\.\d+?)?0*[eE](\d+)$""".toRegex()
@@ -174,7 +178,10 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         val doubleValue = value.double
         when {
             doubleValue.isFinite() -> {
-                if (doubleValue < Double.MIN_VALUE || doubleValue > Double.MAX_VALUE) {
+                if (doubleValue > 0.0 && (doubleValue < DOUBLE_MIN_POSITIVE|| doubleValue > DOUBLE_MAX_POSITIVE)) {
+                    throw NumberFormatException("value out of bounds")
+                }
+                if (doubleValue < 0.0 && (doubleValue < DOUBLE_MIN_NEGATIVE || doubleValue > DOUBLE_MAX_NEGATIVE)) {
                     throw NumberFormatException("value out of bounds")
                 }
 

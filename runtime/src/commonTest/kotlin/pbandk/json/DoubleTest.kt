@@ -35,6 +35,24 @@ class DoubleTest {
     }
 
     @Test
+    fun testDoubleField_DecodeMinNegative() {
+        val json = json { "optionalDouble" to "-2.22507e-308" }.toString()
+        val expectedDouble = -2.22507e-308
+
+        val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
+        assertEquals(expectedDouble, testAllTypesProto3.optionalDouble)
+    }
+
+    @Test
+    fun testOneOfDoubleField_Zero() {
+        val json = json { "oneofDouble" to 0.0 }.toString()
+        val expectedDouble = 0.0
+
+        val testAllTypesProto3 = TestAllTypesProto3.decodeFromJsonString(json)
+        assertEquals(expectedDouble, testAllTypesProto3.oneofDouble)
+    }
+
+    @Test
     fun testDoubleField_EncodeNaN() {
         val input = TestAllTypesProto3(optionalDouble = Double.NaN)
 
