@@ -92,13 +92,15 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
 
         try {
             body(content)
-        } catch (e: Exception) {
+        } catch (e: NumberFormatException) {
             var contentWithoutTrailingZero = content.replace(numberTrailingZeroes, "")
             numberScientificNotation.find(contentWithoutTrailingZero)?.let {
                 val mantissaFraction = it.groupValues[1].trimStart('.')
                 val mantissaDigits = mantissaFraction.length
+                val isMantissaFractionZero = mantissaFraction.isEmpty() || mantissaFraction.toULong() == 0UL
                 val decade = it.groupValues[2].toLong()
-                if (mantissaFraction.toULong() == 0UL || decade >= mantissaDigits) {
+
+                if (isMantissaFractionZero || decade >= mantissaDigits) {
                     contentWithoutTrailingZero = contentWithoutTrailingZero.toDouble().toLong().toString()
                 }
             }
