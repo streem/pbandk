@@ -1,0 +1,11 @@
+name: Test Changes
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Dummy job
+        run: echo "Hello world"
