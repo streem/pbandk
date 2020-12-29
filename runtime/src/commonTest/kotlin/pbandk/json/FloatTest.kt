@@ -139,6 +139,13 @@ class FloatTest {
     }
 
     @Test
+    fun testFloatField_DecodeAboveMaximumString() {
+        assertFailsWith<InvalidProtocolBufferException> {
+            TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":"3.502823e+38"}""")
+        }
+    }
+
+    @Test
     fun testFloatField_DecodeBelowMinimum() {
         assertFailsWith<InvalidProtocolBufferException> {
             TestAllTypesProto3.decodeFromJsonString("""{"optionalFloat":-3.502823e+38}""")
