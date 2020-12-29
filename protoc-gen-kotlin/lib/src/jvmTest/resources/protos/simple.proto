@@ -1,0 +1,10 @@
+syntax = "proto3";
+package foobar;
+
+message Message1 {
+    int32 int_val = 1;
+}
+
+message Message2 {
+    string str_val = 1;
+}

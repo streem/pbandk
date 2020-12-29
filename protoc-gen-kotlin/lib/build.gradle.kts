@@ -3,6 +3,8 @@ plugins {
     `maven-publish`
 }
 
+//tasks["jvmTest"].dependsOn(":protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist")
+
 kotlin {
     jvm {
         compilations.all {
@@ -42,6 +44,7 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.12")
+                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.2.9")
             }
         }
     }
@@ -54,6 +57,8 @@ tasks {
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
     }
+
+    getByName("jvmTest").dependsOn(":protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist")
 }
 
 publishing {
