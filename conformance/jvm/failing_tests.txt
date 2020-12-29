@@ -7,12 +7,6 @@ Recommended.FieldMaskPathsDontRoundTrip.JsonOutput
 Recommended.FieldMaskTooManyUnderscore.JsonOutput
 Recommended.Proto3.JsonInput.BytesFieldBase64Url.JsonOutput
 Recommended.Proto3.JsonInput.BytesFieldBase64Url.ProtobufOutput
-Recommended.Proto3.JsonInput.DoubleFieldInfinityNotQuoted
-Recommended.Proto3.JsonInput.DoubleFieldNanNotQuoted
-Recommended.Proto3.JsonInput.DoubleFieldNegativeInfinityNotQuoted
-Recommended.Proto3.JsonInput.FloatFieldInfinityNotQuoted
-Recommended.Proto3.JsonInput.FloatFieldNanNotQuoted
-Recommended.Proto3.JsonInput.FloatFieldNegativeInfinityNotQuoted
 Recommended.Proto3.JsonInput.StringFieldSurrogateInWrongOrder
 Recommended.Proto3.JsonInput.StringFieldUnpairedHighSurrogate
 Recommended.Proto3.JsonInput.StringFieldUnpairedLowSurrogate
@@ -36,25 +30,11 @@ Required.Proto3.JsonInput.AnyWithValueForInteger.JsonOutput
 Required.Proto3.JsonInput.AnyWithValueForInteger.ProtobufOutput
 Required.Proto3.JsonInput.AnyWithValueForJsonObject.JsonOutput
 Required.Proto3.JsonInput.AnyWithValueForJsonObject.ProtobufOutput
-Required.Proto3.JsonInput.DoubleFieldTooLarge
-Required.Proto3.JsonInput.DoubleFieldTooSmall
 Required.Proto3.JsonInput.EmptyFieldMask.JsonOutput
 Required.Proto3.JsonInput.EmptyFieldMask.ProtobufOutput
 Required.Proto3.JsonInput.FieldMask.JsonOutput
 Required.Proto3.JsonInput.FieldMask.ProtobufOutput
-Required.Proto3.JsonInput.FloatFieldTooLarge
-Required.Proto3.JsonInput.FloatFieldTooSmall
-Required.Proto3.JsonInput.Int32FieldExponentialFormat.JsonOutput
-Required.Proto3.JsonInput.Int32FieldExponentialFormat.ProtobufOutput
-Required.Proto3.JsonInput.Int32FieldFloatTrailingZero.JsonOutput
-Required.Proto3.JsonInput.Int32FieldFloatTrailingZero.ProtobufOutput
-Required.Proto3.JsonInput.Int32FieldMaxFloatValue.JsonOutput
-Required.Proto3.JsonInput.Int32FieldMaxFloatValue.ProtobufOutput
-Required.Proto3.JsonInput.Int32FieldMinFloatValue.JsonOutput
-Required.Proto3.JsonInput.Int32FieldMinFloatValue.ProtobufOutput
 Required.Proto3.JsonInput.OneofFieldDuplicate
-Required.Proto3.JsonInput.Uint32FieldMaxFloatValue.JsonOutput
-Required.Proto3.JsonInput.Uint32FieldMaxFloatValue.ProtobufOutput
 ##
 ## These failures need to be investigated
 ## See https://github.com/streem/pbandk/issues/22
