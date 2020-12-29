@@ -1,11 +1,11 @@
 package pbandk.json
 
-import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.json
-import kotlinx.serialization.json.jsonArray
-import pbandk.*
+import kotlinx.serialization.json.add
+import kotlinx.serialization.json.buildJsonArray
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
+import pbandk.InvalidProtocolBufferException
 import pbandk.testpb.ForeignEnum
-import pbandk.testpb.ForeignMessage
 import pbandk.testpb.TestAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -14,8 +14,8 @@ import kotlin.test.assertFailsWith
 class IgnoreUnknownFieldsTest {
     @Test
     fun testEnumWithUnknownValue() {
-        val json = json {
-            "optionalForeignEnum" to "XXX"
+        val json = buildJsonObject {
+            put("optionalForeignEnum", "XXX")
         }.toString()
 
         // Without [ignoreUnknownFieldsInInput], a known enum field with an unknown enum value should fail to decode.
@@ -34,8 +34,8 @@ class IgnoreUnknownFieldsTest {
 
     @Test
     fun testEnumWithUnknownNumericValue() {
-        val json = json {
-            "optionalForeignEnum" to 1234
+        val json = buildJsonObject {
+            put("optionalForeignEnum", 1234)
         }.toString()
 
         val expected = TestAllTypesProto3(optionalForeignEnum = ForeignEnum.UNRECOGNIZED(1234))
@@ -53,12 +53,12 @@ class IgnoreUnknownFieldsTest {
 
     @Test
     fun testRepeatedEnumWithUnknownValue() {
-        val json = json {
-            "repeatedForeignEnum" to jsonArray {
-                +"FOREIGN_FOO"
-                +"XXX"
-                +"FOREIGN_BAR"
-            }
+        val json = buildJsonObject {
+            put("repeatedForeignEnum", buildJsonArray {
+                add("FOREIGN_FOO")
+                add("XXX")
+                add("FOREIGN_BAR")
+            })
         }.toString()
 
         // Without [ignoreUnknownFieldsInInput], a repeated enum field with some known and some unknown values should
@@ -80,11 +80,11 @@ class IgnoreUnknownFieldsTest {
 
     @Test
     fun testMapEnumWithUnknownValue() {
-        val json = json {
-            "mapStringForeignEnum" to json {
-                "a" to "FOREIGN_FOO"
-                "b" to "XXX"
-            }
+        val json = buildJsonObject {
+            put("mapStringForeignEnum", buildJsonObject {
+                put("a", "FOREIGN_FOO")
+                put("b", "XXX")
+            })
         }.toString()
 
         // Without [ignoreUnknownFieldsInInput], a map field with some known and some unknown enum values should fail

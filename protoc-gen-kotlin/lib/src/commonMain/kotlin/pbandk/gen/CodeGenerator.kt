@@ -171,7 +171,7 @@ open class CodeGenerator(
         line("override val descriptor: pbandk.MessageDescriptor<$fullTypeName> by lazy {").indented {
             // XXX: When a message has lots of fields (e.g. `TestAllTypesProto3`), declaring the list of field
             // descriptors directly in the [MessageDescriptor] constructor can cause a
-            // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.10).
+            // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.20).
             // As a workaround, we generate methods to generate each fieldDescriptor in chunks, as many as needed, with
             // a max size of $chunkSize to limit the size of the methods.
             line("val fieldsList = ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>(${allFields.size})")

@@ -1,12 +1,11 @@
 package pbandk.gen
 
 import com.google.protobuf.compiler.PluginProtos
+import pbandk.decodeFromByteArray
+import pbandk.encodeToByteArray
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
-import pbandk.encodeToByteArray
-import pbandk.decodeFromByteArray
 import java.io.File
-import java.lang.RuntimeException
 import java.net.URLClassLoader
 import java.util.*
 
@@ -19,6 +18,7 @@ actual object Platform {
         if (useJvmProto) BootstrapConverter.fromReq(PluginProtos.CodeGeneratorRequest.parseFrom(bytes))
         else CodeGeneratorRequest.decodeFromByteArray(bytes)
     }
+
     actual fun stdoutWriteResponse(resp: CodeGeneratorResponse) =
         if (useJvmProto) BootstrapConverter.toResp(resp).writeTo(System.out)
         else System.out.write(resp.encodeToByteArray())
@@ -41,10 +41,12 @@ actual object Platform {
             )
             // Create the given name if present
             if (serviceClassName != null)
-                return Class.forName(serviceClassName, true, loader).newInstance() as ServiceGenerator
+                return Class.forName(serviceClassName, true, loader)
+                    .getDeclaredConstructor()
+                    .newInstance() as ServiceGenerator
             // Otherwise, use the service loader to just get the first
-            return ServiceLoader.load(ServiceGenerator::class.java, loader).firstOrNull() ?:
-                error("Unable to find service generator in given JARs")
+            return ServiceLoader.load(ServiceGenerator::class.java, loader).firstOrNull()
+                ?: error("Unable to find service generator in given JARs")
         } catch (e: Exception) {
             throw RuntimeException("Failed generating service with generator param: $serviceGenParam", e)
         }

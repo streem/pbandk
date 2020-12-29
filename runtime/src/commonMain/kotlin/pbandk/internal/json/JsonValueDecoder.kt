@@ -2,12 +2,15 @@ package pbandk.internal.json
 
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonLiteral
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.content
+import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.double
 import kotlinx.serialization.json.float
+import kotlinx.serialization.json.intOrNull
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
@@ -83,7 +86,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         @Suppress("UNUSED_PARAMETER") isMapKey: Boolean,
         body: (String) -> T
     ) = try {
-        val content = value.content
+        val content = value.jsonPrimitive.content
         // The protobuf conformance test suite is pretty strict about requiring parsers to reject parsable numeric
         // values that don't conform to the spec.
         when (content.getOrNull(0)) {
@@ -144,18 +147,18 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     // The protobuf conformance test suite is pretty strict about requiring parsers to reject any other variations
     // (such as upper-case or quoted) aside from the two below.
     fun readBool(value: JsonElement, isMapKey: Boolean = false): Boolean =
-        if (!isMapKey && value is JsonLiteral && value.isString) {
+        if (!isMapKey && value is JsonPrimitive && value.isString) {
             throw InvalidProtocolBufferException("bool field must not be quoted in JSON")
-        } else when (value.content) {
+        } else when (value.jsonPrimitive.content) {
             "true" -> true
             "false" -> false
             else -> throw InvalidProtocolBufferException("bool field did not contain a boolean value in JSON")
         }
 
     fun readEnum(value: JsonElement, enumCompanion: Message.Enum.Companion<*>): Message.Enum? = try {
-        val p = value.primitive
+        val p = value.jsonPrimitive
         p.intOrNull?.let { return enumCompanion.fromValue(it) }
-        require(p is JsonLiteral && p.isString) { "Non-numeric enum values must be quoted" }
+        require(p.isString) { "Non-numeric enum values must be quoted" }
         enumCompanion.fromName(p.content)
     } catch (e: Exception) {
         // See https://github.com/protocolbuffers/protobuf/issues/7392 and
@@ -169,7 +172,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
 
     fun readFloat(value: JsonElement): Float {
         try {
-            if (value is JsonLiteral && value.isString) {
+            if (value is JsonPrimitive && value.isString) {
                 when (value.content) {
                     "Infinity" -> return Float.POSITIVE_INFINITY
                     "-Infinity" -> return Float.NEGATIVE_INFINITY
@@ -177,7 +180,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
                 }
             }
 
-            val floatValue = value.float
+            val floatValue = value.jsonPrimitive.float
             return when {
                 !floatValue.isFinite() ->
                     throw NumberFormatException("value out of bounds")
@@ -195,7 +198,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
 
     fun readDouble(value: JsonElement): Double {
         try {
-            if (value is JsonLiteral && value.isString) {
+            if (value is JsonPrimitive && value.isString) {
                 when (value.content) {
                     "Infinity" -> return Double.POSITIVE_INFINITY
                     "-Infinity" -> return Double.NEGATIVE_INFINITY
@@ -203,7 +206,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
                 }
             }
 
-            val doubleValue = value.double
+            val doubleValue = value.jsonPrimitive.double
             return when {
                 !doubleValue.isFinite() ->
                     throw NumberFormatException("value out of bounds")
@@ -220,14 +223,14 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     }
 
     fun readString(value: JsonElement, @Suppress("UNUSED_PARAMETER") isMapKey: Boolean = false): String = try {
-        require(value is JsonLiteral && value.isString) { "string field wasn't quoted" }
+        require(value is JsonPrimitive && value.isString) { "string field wasn't quoted" }
         value.content
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("string field did not contain a string value in JSON", e)
     }
 
     fun readBytes(value: JsonElement): ByteArr = try {
-        ByteArr(Util.base64ToBytes(value.content))
+        ByteArr(Util.base64ToBytes(value.jsonPrimitive.content))
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("bytes field did not contain a base64-encoded string value in JSON", e)
     }
@@ -254,7 +257,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
     ): Sequence<Map.Entry<*, *>> = try {
         value.jsonObject.asSequence()
             .mapNotNull { (k, v) ->
-                val entryKey = readValue(JsonLiteral(k), type.entryCompanion.keyType, true)
+                val entryKey = readValue(JsonPrimitive(k), type.entryCompanion.keyType, true)
                 // When `readValue` returns `null` that means the map entry's value is invalid (e.g. unknown
                 // enum). In that case we skip the entire map entry.
                 readValue(v, type.entryCompanion.valueType)?.let { entryValue ->
@@ -284,7 +287,7 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
 
     fun readDynamicValue(value: JsonElement): Value = when (value) {
         is JsonNull -> Value(kind = Value.Kind.NullValue())
-        is JsonLiteral -> runCatching { Value(kind = Value.Kind.StringValue(readString(value))) }
+        is JsonPrimitive -> runCatching { Value(kind = Value.Kind.StringValue(readString(value))) }
             .recoverCatching { Value(kind = Value.Kind.NumberValue(readDouble(value))) }
             .recoverCatching { Value(kind = Value.Kind.BoolValue(readBool(value))) }
             .getOrElse { throw InvalidProtocolBufferException("dynamically typed value did not contain a valid primitive object") }

@@ -16,7 +16,7 @@ inline fun debug(fn: () -> String) {
     if (logDebug) Platform.stderrPrintln(fn())
 }
 
-fun main(args: Array<String>) = runBlockingMain {
+fun main() = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
