@@ -3,8 +3,6 @@ plugins {
     `maven-publish`
 }
 
-//tasks["jvmTest"].dependsOn(":protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist")
-
 kotlin {
     jvm {
         compilations.all {
