@@ -11,9 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 * Compile error when proto contains a oneof field with same name as the enclosing message (PR [#104], fixes [#47]) (thanks @nbaztec)
+* All remaining JSON conformance test failures for numeric values (PR [#105], partially fixes [#72]) (thanks @nbaztec)
 
 [#47]: https://github.com/streem/pbandk/issues/47
+[#72]: https://github.com/streem/pbandk/issues/72
 [#104]: https://github.com/streem/pbandk/pull/104
+[#105]: https://github.com/streem/pbandk/pull/105
 
 ## [0.9.0] - 2020-12-23
 
