@@ -3,14 +3,14 @@ package pbandk.internal
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
-abstract class AbstractUtil {
+internal abstract class AbstractUtil {
     open fun base64ToBytes(str: String): ByteArray {
         return str.decodeBase64ToArray()
             ?: throw RuntimeException("Unable to base64-decode string: $str")
     }
 
     open fun bytesToBase64(bytes: ByteArray): String {
-        return Util.utf8ToString(bytes.encodeBase64())
+        return bytes.encodeBase64().decodeToString()
     }
 
     fun timestampToString(ts: Timestamp): String = formatTime(ts.seconds, ts.nanos)

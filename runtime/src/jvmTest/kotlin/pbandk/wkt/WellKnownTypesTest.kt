@@ -9,7 +9,6 @@ import pbandk.UnknownField
 import pbandk.internal.binary.WireType
 import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
-import pbandk.internal.Util
 import pbandk.testpb.Wrappers
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -46,7 +45,7 @@ class WellKnownTypesTest {
                         listOf(
                             UnknownField.Value(
                                 WireType.LENGTH_DELIMITED.value,
-                                byteArrayOf(3) + Util.stringToUtf8("baz")
+                                byteArrayOf(3) + "baz".encodeToByteArray()
                             )
                         )
                     )

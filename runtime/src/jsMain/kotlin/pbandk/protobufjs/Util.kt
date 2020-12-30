@@ -19,13 +19,7 @@ internal fun Long.Companion.fromProtobufjsLong(l: dynamic): Long {
     }
 }
 
-object Util : AbstractUtil() {
-    fun stringToUtf8(str: String): ByteArray = ByteArray(util.utf8.length(str)).also {
-        util.utf8.write(str, it.asUint8Array(), 0)
-    }
-
-    fun utf8ToString(bytes: ByteArray): String = bytes.asUint8Array().let { util.utf8.read(it, 0, it.length) }
-
+internal object Util : AbstractUtil() {
     override fun base64ToBytes(str: String): ByteArray = ByteArray(util.base64.length(str)).also {
         util.base64.decode(str, it.asUint8Array(), 0)
     }

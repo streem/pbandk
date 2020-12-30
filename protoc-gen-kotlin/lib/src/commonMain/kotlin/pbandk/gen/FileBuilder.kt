@@ -1,7 +1,5 @@
 package pbandk.gen
 
-import pbandk.PbandkInternal
-import pbandk.internal.Util
 import pbandk.wkt.DescriptorProto
 import pbandk.wkt.EnumDescriptorProto
 import pbandk.wkt.FieldDescriptorProto
@@ -18,12 +16,11 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
     )
 
-    @OptIn(PbandkInternal::class)
     protected fun packageName(ctx: Context) =
         ctx.params["kotlin_package"]
             ?: ctx.fileDesc.options?.uninterpretedOption?.find {
                 it.name.singleOrNull()?.namePart == "kotlin_package"
-            }?.stringValue?.array?.let(Util::utf8ToString)
+            }?.stringValue?.array?.decodeToString()
             ?: ctx.packageMappings[ctx.fileDesc.`package`]
             ?: ctx.fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
             ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
