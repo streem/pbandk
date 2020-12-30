@@ -1,11 +1,34 @@
 package pbandk.internal.json
 
-import kotlinx.serialization.json.*
-import pbandk.*
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonLiteral
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.content
+import kotlinx.serialization.json.double
+import kotlinx.serialization.json.float
+import pbandk.ByteArr
+import pbandk.FieldDescriptor
+import pbandk.InvalidProtocolBufferException
+import pbandk.Message
+import pbandk.MessageMap
 import pbandk.internal.Util
 import pbandk.json.JsonConfig
-import pbandk.wkt.*
-import kotlin.Any
+import pbandk.wkt.BoolValue
+import pbandk.wkt.BytesValue
+import pbandk.wkt.DoubleValue
+import pbandk.wkt.Duration
+import pbandk.wkt.FloatValue
+import pbandk.wkt.Int32Value
+import pbandk.wkt.Int64Value
+import pbandk.wkt.ListValue
+import pbandk.wkt.StringValue
+import pbandk.wkt.Struct
+import pbandk.wkt.Timestamp
+import pbandk.wkt.UInt32Value
+import pbandk.wkt.UInt64Value
+import pbandk.wkt.Value
 
 @OptIn(ExperimentalUnsignedTypes::class)
 internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
@@ -64,6 +87,9 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         // The protobuf conformance test suite is pretty strict about requiring parsers to reject parsable numeric
         // values that don't conform to the spec.
         when (content.getOrNull(0)) {
+            ' ' -> throw NumberFormatException(
+                "Integers must not have preceding space"
+            )
             '+' -> throw NumberFormatException(
                 "Positive integers must not include the '+' sign"
             )
@@ -74,7 +100,31 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
                 "Integers with leading zeros are not allowed"
             )
         }
-        body(content)
+
+        if (content.last() == ' ') {
+            throw NumberFormatException(
+                "Integers must not have trailing space"
+            )
+        }
+
+        try {
+            body(content)
+        } catch (e: NumberFormatException) {
+            // try parsing integers having trailing zeroes or in exponent notation
+            var contentExpandedInteger = content.replace(NUMBER_TRAILING_ZEROES, "")
+            NUMBER_SCIENTIFIC_NOTATION.find(contentExpandedInteger)?.let {
+                val mantissaFraction = it.groupValues[1].trimStart('.')
+                val mantissaDigits = mantissaFraction.length
+                val isMantissaFractionZero = mantissaFraction.isEmpty() || mantissaFraction.toULong() == 0UL
+                val decade = it.groupValues[2].toLong()
+
+                if (isMantissaFractionZero || decade >= mantissaDigits) {
+                    contentExpandedInteger = contentExpandedInteger.toDouble().toLong().toString()
+                }
+            }
+
+            body(contentExpandedInteger)
+        }
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("field did not contain a number in JSON", e)
     }
@@ -117,18 +167,56 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         }
     }
 
-    fun readFloat(value: JsonElement): Float = try {
-        // TODO handle Inf and NaN
-        value.float
-    } catch (e: Exception) {
-        throw InvalidProtocolBufferException("float field did not contain a float value in JSON", e)
+    fun readFloat(value: JsonElement): Float {
+        try {
+            if (value is JsonLiteral && value.isString) {
+                when (value.content) {
+                    "Infinity" -> return Float.POSITIVE_INFINITY
+                    "-Infinity" -> return Float.NEGATIVE_INFINITY
+                    "NaN" -> return Float.NaN
+                }
+            }
+
+            val floatValue = value.float
+            return when {
+                !floatValue.isFinite() ->
+                    throw NumberFormatException("value out of bounds")
+                floatValue > 0.0 && floatValue !in FLOAT_MIN_POSITIVE..FLOAT_MAX_POSITIVE ->
+                    throw NumberFormatException("value out of bounds")
+                floatValue < 0.0 && floatValue !in FLOAT_MIN_NEGATIVE..FLOAT_MAX_NEGATIVE ->
+                    throw NumberFormatException("value out of bounds")
+
+                else -> floatValue
+            }
+        } catch (e: Exception) {
+            throw InvalidProtocolBufferException("float field did not contain a float value in JSON", e)
+        }
     }
 
-    fun readDouble(value: JsonElement): Double = try {
-        // TODO handle Inf and NaN
-        value.double
-    } catch (e: Exception) {
-        throw InvalidProtocolBufferException("double field did not contain a double value in JSON", e)
+    fun readDouble(value: JsonElement): Double {
+        try {
+            if (value is JsonLiteral && value.isString) {
+                when (value.content) {
+                    "Infinity" -> return Double.POSITIVE_INFINITY
+                    "-Infinity" -> return Double.NEGATIVE_INFINITY
+                    "NaN" -> return Double.NaN
+                }
+            }
+
+            val doubleValue = value.double
+            return when {
+                !doubleValue.isFinite() ->
+                    throw NumberFormatException("value out of bounds")
+                doubleValue > 0.0 && doubleValue !in DOUBLE_MIN_POSITIVE..DOUBLE_MAX_POSITIVE ->
+                    throw NumberFormatException("value out of bounds")
+                doubleValue < 0.0 && doubleValue !in DOUBLE_MIN_NEGATIVE..DOUBLE_MAX_NEGATIVE ->
+                    throw NumberFormatException("value out of bounds")
+
+                else -> doubleValue
+            }
+        } catch (e: Exception) {
+            throw InvalidProtocolBufferException("double field did not contain a double value in JSON", e)
+        }
     }
 
     fun readString(value: JsonElement, @Suppress("UNUSED_PARAMETER") isMapKey: Boolean = false): String = try {
@@ -220,5 +308,19 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         throw e
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("dynamically typed list value did not contain a valid object", e)
+    }
+
+    companion object {
+        private const val FLOAT_MIN_POSITIVE = 1.175494e-38f
+        private const val FLOAT_MAX_POSITIVE = 3.4028235e+38f
+        private const val FLOAT_MIN_NEGATIVE = -3.402823e+38f
+        private const val FLOAT_MAX_NEGATIVE = -1.175494e-38f
+        private const val DOUBLE_MIN_POSITIVE = 2.22507e-308
+        private const val DOUBLE_MAX_POSITIVE = 1.79769e+308
+        private const val DOUBLE_MIN_NEGATIVE = -1.79769e+308
+        private const val DOUBLE_MAX_NEGATIVE = -2.22507e-308
+
+        private val NUMBER_TRAILING_ZEROES = """\.0+$""".toRegex()
+        private val NUMBER_SCIENTIFIC_NOTATION = """-?(?:\d+)(\.\d+?)?0*[eE](\d+)$""".toRegex()
     }
 }
