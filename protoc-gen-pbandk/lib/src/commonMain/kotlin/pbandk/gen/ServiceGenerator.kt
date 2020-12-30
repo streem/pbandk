@@ -4,22 +4,22 @@ import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.wkt.MethodDescriptorProto
 import pbandk.wkt.ServiceDescriptorProto
 
-interface ServiceGenerator {
+public interface ServiceGenerator {
 
-    fun generate(service: Service): List<Result>
+    public fun generate(service: Service): List<Result>
 
-    class Service(
-        val name: String,
-        val methods: List<Method>,
-        val file: File,
-        val filePath: String,
-        val existingCode: String,
-        val kotlinTypeMappings: Map<String, String>,
-        val raw: ServiceDescriptorProto,
-        val rawRequest: CodeGeneratorRequest,
-        val debugFn: (() -> String) -> Unit
+    public class Service(
+        public val name: String,
+        public val methods: List<Method>,
+        public val file: File,
+        public val filePath: String,
+        public val existingCode: String,
+        public val kotlinTypeMappings: Map<String, String>,
+        public val raw: ServiceDescriptorProto,
+        public val rawRequest: CodeGeneratorRequest,
+        public val debugFn: (() -> String) -> Unit
     ) {
-        constructor(
+        internal constructor(
             file: File,
             filePath: String,
             existingCode: String,
@@ -30,10 +30,10 @@ interface ServiceGenerator {
         ) : this(raw.name!!, raw.method.map(::Method),
             file, filePath, existingCode, kotlinTypeMappings, raw, rawRequest, debugFn)
 
-        fun debug(fn: () -> String) { debugFn(fn) }
+        public fun debug(fn: () -> String) { debugFn(fn) }
     }
 
-    data class Method(
+    public data class Method(
         val name: String,
         // Use kotlinTypeMappings to look these up
         val inputType: String?,
@@ -41,11 +41,11 @@ interface ServiceGenerator {
         val inputStreaming: Boolean,
         val outputStreaming: Boolean
     ) {
-        constructor(raw: MethodDescriptorProto) :
+        internal constructor(raw: MethodDescriptorProto) :
             this(raw.name!!, raw.inputType, raw.outputType, raw.clientStreaming ?: false, raw.serverStreaming ?: false)
     }
 
-    data class Result(
+    public data class Result(
         val code: String,
         val otherFilePath: String? = null,
         val otherFileInsertionPoint: String? = null

@@ -1,6 +1,6 @@
 package pbandk.gen
 
-fun underscoreToCamelCase(str: String): String {
+public fun underscoreToCamelCase(str: String): String {
     var ret = str
     var lastIndex = -1
     while (true) {
@@ -9,28 +9,28 @@ fun underscoreToCamelCase(str: String): String {
     }
 }
 
-fun splitWordsToSnakeCase(str: String) =
+public fun splitWordsToSnakeCase(str: String): String =
     str.replace(Regex("(?<=[a-z])([A-Z0-9])"), "_$1").lowercase()
 
-interface Namer {
-    fun newTypeName(preferred: String, nameSet: Collection<String>): String
-    fun newFieldName(preferred: String, nameSet: Collection<String>): String
-    fun newEnumValueTypeName(enumTypeName: String, preferred: String, nameSet: Collection<String>): String
+public interface Namer {
+    public fun newTypeName(preferred: String, nameSet: Collection<String>): String
+    public fun newFieldName(preferred: String, nameSet: Collection<String>): String
+    public fun newEnumValueTypeName(enumTypeName: String, preferred: String, nameSet: Collection<String>): String
 
-    open class Standard : Namer {
-        val disallowedTypeNames = setOf(
+    public open class Standard : Namer {
+        private val disallowedTypeNames = setOf(
             "Boolean", "Companion", "Double", "Float", "Int", "List", "Long", "Map", "String"
         )
-        val disallowedFieldNames = setOf(
+        private val disallowedFieldNames = setOf(
             "decodeWith", "descriptor", "emptyList", "encodeWith", "pbandk", "plus", "protoSize", "unknownFields"
         )
-        val disallowedFieldNamePrefixes = setOf(
+        private val disallowedFieldNamePrefixes = setOf(
             "decodeFrom", "encodeTo"
         )
-        val disallowedValueTypeNames = disallowedTypeNames + setOf(
+        private val disallowedValueTypeNames = disallowedTypeNames + setOf(
             "UNRECOGNIZED"
         )
-        val kotlinKeywords = setOf(
+        private val kotlinKeywords = setOf(
             "as", "break", "class", "continue", "do", "else", "false", "for", "fun", "if", "in",
             "interface", "is", "null", "object", "package", "return", "super", "this", "throw",
             "true", "try", "typealias", "typeof", "val", "var", "when", "while"
@@ -63,6 +63,6 @@ interface Namer {
             return name
         }
 
-        companion object : Standard()
+        public companion object : Standard()
     }
 }

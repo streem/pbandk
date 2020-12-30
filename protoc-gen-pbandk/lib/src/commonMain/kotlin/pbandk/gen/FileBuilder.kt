@@ -6,7 +6,7 @@ import pbandk.wkt.FieldDescriptorProto
 import pbandk.wkt.FieldOptions
 import pbandk.wkt.FileDescriptorProto
 
-open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
+internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
     fun buildFile(ctx: Context): File {
         val packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
         return File(

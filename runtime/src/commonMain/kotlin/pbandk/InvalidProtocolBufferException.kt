@@ -3,7 +3,7 @@ package pbandk
 import kotlin.js.JsExport
 
 @JsExport
-class InvalidProtocolBufferException : RuntimeException {
+public class InvalidProtocolBufferException : RuntimeException {
     internal constructor(message: String) : super(message)
     internal constructor(message: String, cause: Throwable) : super(message, cause)
 

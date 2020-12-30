@@ -10,9 +10,9 @@ import java.net.URLClassLoader
 import java.util.*
 
 // Set this to false to use the JVM encode/decode for code gen proto
-const val useJvmProto = false
+private const val useJvmProto = false
 
-actual object Platform {
+internal actual object Platform {
     actual fun stderrPrintln(str: String) = System.err.println(str)
     actual fun stdinReadRequest() = System.`in`.readBytes().let { bytes ->
         if (useJvmProto) BootstrapConverter.fromReq(PluginProtos.CodeGeneratorRequest.parseFrom(bytes))

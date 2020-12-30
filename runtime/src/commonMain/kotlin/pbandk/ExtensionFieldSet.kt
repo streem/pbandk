@@ -3,7 +3,7 @@ package pbandk
 import pbandk.internal.AtomicReference
 
 @PublicForGeneratedCode
-class ExtensionFieldSet {
+public class ExtensionFieldSet {
     private val map = AtomicReference<Map<Int, Any>>(emptyMap())
 
     internal operator fun get(fieldNumber: Int): Any? {

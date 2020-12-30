@@ -7,6 +7,8 @@ plugins {
 description = "Kotlin code generator for Protocol Buffers and library for writing code generator plugins."
 
 kotlin {
+    explicitApi()
+
     jvm {
         compilations.all {
             kotlinOptions {

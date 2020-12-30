@@ -328,8 +328,7 @@ public final class pbandk/MessageMap$Entry : java/util/Map$Entry, kotlin/jvm/int
 	public fun getProtoSize ()I
 	public fun getUnknownFields ()Ljava/util/Map;
 	public fun getValue ()Ljava/lang/Object;
-	public fun plus (Lpbandk/Message;)Ljava/lang/Void;
-	public synthetic fun plus (Lpbandk/Message;)Lpbandk/Message;
+	public fun plus (Lpbandk/Message;)Lpbandk/Message;
 	public fun setValue (Ljava/lang/Object;)Ljava/lang/Object;
 }
 

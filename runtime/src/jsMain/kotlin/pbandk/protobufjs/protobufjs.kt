@@ -4,7 +4,7 @@ package pbandk.protobufjs
 
 import org.khronos.webgl.Uint8Array
 
-external class Reader {
+internal external class Reader {
     val buf: Uint8Array
     val len: Int
     val pos: Int
@@ -32,7 +32,7 @@ external class Reader {
     }
 }
 
-external class Writer {
+internal external class Writer {
     val len: Int
 
     fun bool(value: Boolean): Writer
@@ -63,7 +63,7 @@ external class Writer {
     }
 }
 
-external class util {
+internal external class util {
     class base64 {
         companion object {
             fun decode(string: String, buffer: Uint8Array, offset: Int): Int

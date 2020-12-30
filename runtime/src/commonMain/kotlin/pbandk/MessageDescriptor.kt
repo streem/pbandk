@@ -4,7 +4,7 @@ import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
 @JsExport
-class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
+public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
     /**
      * The message type's fully-qualified name, within the proto language's namespace. This differs from
      * the Kotlin name. For example, given this `.proto`:
@@ -22,10 +22,10 @@ class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
     internal val messageClass: KClass<T>,
 
     @ExperimentalProtoReflection
-    val messageCompanion: Message.Companion<T>,
+    public val messageCompanion: Message.Companion<T>,
 
     @ExperimentalProtoReflection
-    val fields: Collection<FieldDescriptor<T, *>>
+    public val fields: Collection<FieldDescriptor<T, *>>
 ) {
     /** The message type's unqualified name. */
     internal val name = fullName.substringAfterLast('.')

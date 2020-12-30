@@ -3,14 +3,14 @@ package pbandk.gen
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
 
-var logDebug = false
-inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
+private var logDebug = false
+private inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
-fun main() {
+public fun main() {
     Platform.stdoutWriteResponse(runGenerator(Platform.stdinReadRequest()))
 }
 
-fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
+internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     // Parse the parameters
     val params =
         if (request.parameter == null || request.parameter.isEmpty()) emptyMap()

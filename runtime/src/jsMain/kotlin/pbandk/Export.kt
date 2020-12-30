@@ -1,5 +1,5 @@
 package pbandk
 
-actual typealias Export = JsExport
+public actual typealias Export = JsExport
 
-actual typealias JsName = kotlin.js.JsName
+public actual typealias JsName = kotlin.js.JsName

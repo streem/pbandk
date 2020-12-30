@@ -7,17 +7,17 @@ import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
 @JsExport
-class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
+public class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
     messageDescriptor: KProperty0<MessageDescriptor<M>>,
     @ExperimentalProtoReflection
-    val name: String,
+    public val name: String,
     internal val number: Int,
     internal val type: Type,
     internal val value: KProperty1<M, T>,
     internal val oneofMember: Boolean = false,
     internal val jsonName: String? = null,
     @ExperimentalProtoReflection
-    val options: FieldOptions = FieldOptions.defaultInstance
+    public val options: FieldOptions = FieldOptions.defaultInstance
 ) {
     // At the time that the [FieldDescriptor] constructor is called, the parent [MessageDescriptor] has not been
     // constructed yet. This is because this [FieldDescriptor] is one of the parameters that will be passed to the
@@ -25,7 +25,7 @@ class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
     internal val messageDescriptor: MessageDescriptor<M> by lazy { messageDescriptor.get() }
 
     @PublicForGeneratedCode
-    sealed class Type {
+    public sealed class Type {
         internal abstract val hasPresence: Boolean
         internal abstract val isPackable: Boolean
         internal abstract val wireType: WireType
@@ -34,7 +34,7 @@ class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
         internal abstract fun isDefaultValue(value: Any?): Boolean
 
         @PublicForGeneratedCode
-        sealed class Primitive<KotlinT : Any>(override val defaultValue: KotlinT) : Type() {
+        public sealed class Primitive<KotlinT : Any>(override val defaultValue: KotlinT) : Type() {
 
             override val isPackable: Boolean get() = wireType != WireType.LENGTH_DELIMITED
 
@@ -43,83 +43,83 @@ class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
                 if (hasPresence) value == null else (value as? KotlinT) == defaultValue
 
             @PublicForGeneratedCode
-            class Double(override val hasPresence: Boolean = false) : Primitive<kotlin.Double>(0.0) {
+            public class Double(override val hasPresence: Boolean = false) : Primitive<kotlin.Double>(0.0) {
                 override val wireType: WireType get() = WireType.FIXED64
             }
 
             @PublicForGeneratedCode
-            class Float(override val hasPresence: Boolean = false) : Primitive<kotlin.Float>(0.0f) {
+            public class Float(override val hasPresence: Boolean = false) : Primitive<kotlin.Float>(0.0f) {
                 override val wireType: WireType get() = WireType.FIXED32
             }
 
             @PublicForGeneratedCode
-            class Int64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
+            public class Int64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
                 override val wireType: WireType get() = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            class UInt64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
+            public class UInt64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
                 override val wireType: WireType get() = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            class Int32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
+            public class Int32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
                 override val wireType: WireType get() = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            class Fixed64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
+            public class Fixed64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
                 override val wireType: WireType get() = WireType.FIXED64
             }
 
             @PublicForGeneratedCode
-            class Fixed32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
+            public class Fixed32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
                 override val wireType: WireType get() = WireType.FIXED32
             }
 
             @PublicForGeneratedCode
-            class Bool(override val hasPresence: Boolean = false) : Primitive<Boolean>(false) {
+            public class Bool(override val hasPresence: Boolean = false) : Primitive<Boolean>(false) {
                 override val wireType: WireType get() = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            class String(override val hasPresence: Boolean = false) : Primitive<kotlin.String>("") {
+            public class String(override val hasPresence: Boolean = false) : Primitive<kotlin.String>("") {
                 override val wireType: WireType get() = WireType.LENGTH_DELIMITED
             }
 
             @PublicForGeneratedCode
-            class Bytes(override val hasPresence: Boolean = false) : Primitive<ByteArr>(ByteArr.empty) {
+            public class Bytes(override val hasPresence: Boolean = false) : Primitive<ByteArr>(ByteArr.empty) {
                 override val wireType: WireType get() = WireType.LENGTH_DELIMITED
             }
 
             @PublicForGeneratedCode
-            class UInt32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
+            public class UInt32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
                 override val wireType: WireType get() = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            class SFixed32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
+            public class SFixed32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
                 override val wireType: WireType get() = WireType.FIXED32
             }
 
             @PublicForGeneratedCode
-            class SFixed64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
+            public class SFixed64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
                 override val wireType: WireType get() = WireType.FIXED64
             }
 
             @PublicForGeneratedCode
-            class SInt32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
+            public class SInt32(override val hasPresence: Boolean = false) : Primitive<Int>(0) {
                 override val wireType: WireType get() = WireType.VARINT
             }
 
             @PublicForGeneratedCode
-            class SInt64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
+            public class SInt64(override val hasPresence: Boolean = false) : Primitive<Long>(0L) {
                 override val wireType: WireType get() = WireType.VARINT
             }
         }
 
         @PublicForGeneratedCode
-        class Message<T : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<T>) : Type() {
+        public class Message<T : pbandk.Message>(internal val messageCompanion: pbandk.Message.Companion<T>) : Type() {
             override val hasPresence get() = true
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = WireType.LENGTH_DELIMITED
@@ -128,7 +128,7 @@ class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
         }
 
         @PublicForGeneratedCode
-        class Enum<T : pbandk.Message.Enum>(
+        public class Enum<T : pbandk.Message.Enum>(
             internal val enumCompanion: pbandk.Message.Enum.Companion<T>,
             override val hasPresence: Boolean = false
         ) : Type() {
@@ -140,7 +140,7 @@ class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
 
         // TODO: replace [packed] with [FieldOptions] to be able to support custom options in the future
         @PublicForGeneratedCode
-        class Repeated<T : Any>(internal val valueType: Type, val packed: Boolean = false) : Type() {
+        public class Repeated<T : Any>(internal val valueType: Type, public val packed: Boolean = false) : Type() {
             override val hasPresence get() = false
             override val isPackable: Boolean get() = false
             override val wireType: WireType get() = valueType.wireType
@@ -149,7 +149,7 @@ class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
         }
 
         @PublicForGeneratedCode
-        class Map<K, V>(keyType: Type, valueType: Type) : Type() {
+        public class Map<K, V>(keyType: Type, valueType: Type) : Type() {
             internal val entryCompanion: MessageMap.Entry.Companion<K, V> =
                 MessageMap.Entry.Companion(keyType, valueType)
             override val hasPresence get() = false

@@ -3,32 +3,32 @@ package pbandk
 import pbandk.internal.TypeRegistryImpl
 
 @DslMarker
-annotation class TypeRegistryDsl
+public annotation class TypeRegistryDsl
 
 /**
  * A `TypeRegistry` is used to resolve `Any` messages in the JSON conversion. You must provide a `TypeRegistry`
  * containing all message types used in `Any` message fields, or the JSON conversion will fail because data in `Any`
  * message fields is unrecognizable. You don't need to supply a `TypeRegistry` if you don't use `Any` message fields.
  */
-interface TypeRegistry {
-    operator fun contains(typeName: String): Boolean
+public interface TypeRegistry {
+    public operator fun contains(typeName: String): Boolean
 
     /**
      * Get a type by its full name. Returns null if it cannot be found in this [TypeRegistry].
      */
-    operator fun get(typeName: String): MessageDescriptor<*>?
+    public operator fun get(typeName: String): MessageDescriptor<*>?
 
     @TypeRegistryDsl
-    interface Builder : TypeRegistry {
+    public interface Builder : TypeRegistry {
         /**
          * Add message [descriptor] to the registry and recursively add the descriptors of all fields referenced by
          * this message descriptor.
          */
-        fun add(descriptor: MessageDescriptor<*>)
+        public fun add(descriptor: MessageDescriptor<*>)
     }
 
-    companion object {
-        val EMPTY: TypeRegistry = TypeRegistryImpl()
+    public companion object {
+        public val EMPTY: TypeRegistry = TypeRegistryImpl()
     }
 }
 
@@ -49,26 +49,28 @@ internal fun getTypePrefixFromTypeUrl(typeUrl: String): String {
 /**
  * Checks if the type represented by [typeUrl] is contained in this registry.
  */
-fun TypeRegistry.containsTypeUrl(typeUrl: String): Boolean = contains(getTypeNameFromTypeUrl(typeUrl))
+public fun TypeRegistry.containsTypeUrl(typeUrl: String): Boolean = contains(getTypeNameFromTypeUrl(typeUrl))
 
 /**
  * Returns the type represented by [typeUrl] from this registry, or `null` if not found.
  */
-fun TypeRegistry.getTypeUrl(typeUrl: String): MessageDescriptor<*>? = get(getTypeNameFromTypeUrl(typeUrl))
+public fun TypeRegistry.getTypeUrl(typeUrl: String): MessageDescriptor<*>? = get(getTypeNameFromTypeUrl(typeUrl))
 
-operator fun TypeRegistry.contains(descriptor: MessageDescriptor<*>) = get(descriptor.fullName) == descriptor
+public operator fun TypeRegistry.contains(descriptor: MessageDescriptor<*>): Boolean =
+    get(descriptor.fullName) == descriptor
 
-operator fun TypeRegistry.contains(messageCompanion: Message.Companion<*>) = contains(messageCompanion.descriptor)
+public operator fun TypeRegistry.contains(messageCompanion: Message.Companion<*>): Boolean =
+    contains(messageCompanion.descriptor)
 
 /**
  * Add the descriptor from [messageCompanion] to the registry and recursively add the descriptors of all fields
  * referenced by this message descriptor.
  */
-fun TypeRegistry.Builder.add(messageCompanion: Message.Companion<*>) {
+public fun TypeRegistry.Builder.add(messageCompanion: Message.Companion<*>) {
     add(messageCompanion.descriptor)
 }
 
-fun typeRegistry(builderAction: TypeRegistry.Builder.() -> Unit): TypeRegistry {
+public fun typeRegistry(builderAction: TypeRegistry.Builder.() -> Unit): TypeRegistry {
     val typeRegistry = TypeRegistryImpl()
     typeRegistry.builderAction()
     return typeRegistry
