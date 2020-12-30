@@ -20,11 +20,11 @@ open class CodeGenerator(
         return bld.toString()
     }
 
-    protected fun line() = also { bld.append("\n") }
-    protected fun line(str: String) = also { bld.append(indent).append(str).append("\n") }
+    protected fun line() = also { bld.appendLine() }
+    protected fun line(str: String) = also { bld.append(indent).appendLine(str) }
     protected fun lineBegin(str: String = "") = also { bld.append(indent).append(str) }
     protected fun lineMid(str: String) = also { bld.append(str) }
-    protected fun lineEnd(str: String = "") = also { bld.append(str).append("\n") }
+    protected fun lineEnd(str: String = "") = also { bld.appendLine(str) }
     protected fun indented(fn: () -> Any?) = also {
         indent += "    "
         fn().also { indent = indent.dropLast(4) }
