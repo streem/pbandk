@@ -1,23 +1,56 @@
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.KotlinCompilation.ExitCode
 import com.tschuchort.compiletesting.SourceFile
-import pbandk.decodeFromStream
+import pbandk.decodeFromByteArray
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.runGenerator
 import pbandk.wkt.FileDescriptorProto
 import pbandk.wkt.FileDescriptorSet
 import java.io.File
-import java.lang.IllegalArgumentException
 import java.lang.ProcessBuilder.Redirect
+import java.net.URL
 import java.util.concurrent.TimeUnit
 import kotlin.test.Test
 import kotlin.test.assertEquals
+
 
 class CodeGeneratorTest {
     companion object {
         const val PROTOC_PLUGIN_PATH = "../jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
         const val PROTO_PATH = "src/jvmTest/resources/protos"
         const val DESCRIPTOR_SET_OUT = "build/tmp/fileDescriptor.protoset"
+        private const val PROTOC_VERSION = "3.10.1"
+
+        val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc").let { protoc ->
+            ProcessBuilder(protoc)
+                .start()
+                .also { it.waitFor(2, TimeUnit.SECONDS) }
+                .takeIf { it.exitValue() == 0 }?.let { protoc }
+                ?: downloadProtoc()
+        }
+
+        private fun downloadProtoc() = try {
+            val filename = "protoc-$PROTOC_VERSION-${getOS()}-${System.getProperty("os.arch")}.exe"
+            val protocTemp = File.createTempFile("protoc", "tmp")
+            val protoUrl =
+                URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$PROTOC_VERSION/$filename")
+            protocTemp.writeBytes(protoUrl.readBytes())
+            protocTemp.setExecutable(true)
+            protocTemp.absolutePath
+        } catch (e: Exception) {
+            throw Exception("failed to download protoc version $PROTOC_VERSION: ${e.message}")
+        }
+
+        private fun getOS(): String {
+            val osName = System.getProperty("os.name").toLowerCase()
+            return if (osName.contains("windows")) {
+                "windows"
+            } else if (osName.contains("mac os x") || osName.contains("darwin") || osName.contains("osx")) {
+                "osx"
+            } else {
+                "linux"
+            }
+        }
     }
 
     @Test
@@ -42,9 +75,8 @@ class CodeGeneratorTest {
 
     private fun getFileDescriptorProto(protoFile: String): List<FileDescriptorProto> {
         val plugin = File(PROTOC_PLUGIN_PATH + ".bat".takeIf {
-            System.getProperty("os.name").startsWith("Windows")
+            getOS() == "windows"
         }.orEmpty())
-        val protoc = System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc"
 
         val proc = ProcessBuilder(
             protoc,
@@ -62,7 +94,7 @@ class CodeGeneratorTest {
             throw IllegalArgumentException("failed generating proto descriptor set for '$protoFile'")
         }
 
-        return FileDescriptorSet.decodeFromStream(File(DESCRIPTOR_SET_OUT).inputStream()).file
+        return FileDescriptorSet.decodeFromByteArray(File(DESCRIPTOR_SET_OUT).inputStream().readAllBytes()).file
     }
 
     private fun compileProto(inputProto: String): KotlinCompilation.Result {
