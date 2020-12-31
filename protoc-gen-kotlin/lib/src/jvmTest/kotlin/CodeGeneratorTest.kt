@@ -19,7 +19,7 @@ class CodeGeneratorTest {
         const val PROTOC_PLUGIN_PATH = "../jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
         const val PROTO_PATH = "src/jvmTest/resources/protos"
         const val DESCRIPTOR_SET_OUT = "build/tmp/fileDescriptor.protoset"
-        private const val PROTOC_VERSION = "3.10.1"
+        private const val DOWNLOAD_PROTOC_VERSION = "3.10.1"
 
         val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc").let { protoc ->
             ProcessBuilder(protoc)
@@ -30,15 +30,15 @@ class CodeGeneratorTest {
         }
 
         private fun downloadProtoc() = try {
-            val filename = "protoc-$PROTOC_VERSION-${getOS()}-${System.getProperty("os.arch")}.exe"
+            val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${System.getProperty("os.arch")}.exe"
             val protocTemp = File.createTempFile("protoc", "tmp")
             val protoUrl =
-                URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$PROTOC_VERSION/$filename")
+                URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$DOWNLOAD_PROTOC_VERSION/$filename")
             protocTemp.writeBytes(protoUrl.readBytes())
             protocTemp.setExecutable(true)
             protocTemp.absolutePath
         } catch (e: Exception) {
-            throw Exception("failed to download protoc version $PROTOC_VERSION: ${e.message}")
+            throw Exception("failed to download protoc version $DOWNLOAD_PROTOC_VERSION: ${e.message}")
         }
 
         private fun getOS(): String {
