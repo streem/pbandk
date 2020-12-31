@@ -22,11 +22,12 @@ class CodeGeneratorTest {
         private const val DOWNLOAD_PROTOC_VERSION = "3.10.1"
 
         val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc").let { protoc ->
-            ProcessBuilder(protoc)
-                .start()
-                .also { it.waitFor(2, TimeUnit.SECONDS) }
-                .takeIf { it.exitValue() == 0 }?.let { protoc }
-                ?: downloadProtoc()
+            try {
+                ProcessBuilder(protoc).start()
+                protoc
+            } catch (e: Exception) {
+                downloadProtoc()
+            }
         }
 
         private fun downloadProtoc() = try {
