@@ -15,6 +15,26 @@ import kotlin.test.assertEquals
 
 
 class CodeGeneratorTest {
+    @Test
+    fun testSimple() {
+        val result = compileProto("simple.proto")
+
+        assertEquals(result.exitCode, ExitCode.OK)
+        val message1Clazz = result.classLoader.loadClass("foobar.Message1")
+        val message2Clazz = result.classLoader.loadClass("foobar.Message2")
+        message1Clazz.getDeclaredField("intVal")
+        message2Clazz.getDeclaredField("strVal")
+    }
+
+    @Test
+    fun testOneOf_SameNameField() {
+        val result = compileProto("oneof_same_name.proto")
+
+        assertEquals(result.exitCode, ExitCode.OK)
+        val valueClazz = result.classLoader.loadClass("foobar.Value")
+        valueClazz.classLoader.loadClass("foobar.Value\$Value")
+    }
+
     companion object {
         const val PROTOC_PLUGIN_PATH = "../jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
         const val PROTO_PATH = "src/jvmTest/resources/protos"
@@ -23,7 +43,6 @@ class CodeGeneratorTest {
 
         val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc").let { protoc ->
             try {
-                downloadProtoc()
                 ProcessBuilder(protoc).start()
                 protoc
             } catch (e: Exception) {
@@ -57,26 +76,6 @@ class CodeGeneratorTest {
                 else -> "x86_32"
             }
         }
-    }
-
-    @Test
-    fun testSimple() {
-        val result = compileProto("simple.proto")
-
-        assertEquals(result.exitCode, ExitCode.OK)
-        val message1Clazz = result.classLoader.loadClass("foobar.Message1")
-        val message2Clazz = result.classLoader.loadClass("foobar.Message2")
-        message1Clazz.getDeclaredField("intVal")
-        message2Clazz.getDeclaredField("strVal")
-    }
-
-    @Test
-    fun testOneOf_SameNameField() {
-        val result = compileProto("oneof_same_name.proto")
-
-        assertEquals(result.exitCode, ExitCode.OK)
-        val valueClazz = result.classLoader.loadClass("foobar.Value")
-        valueClazz.classLoader.loadClass("foobar.Value\$Value")
     }
 
     private fun getFileDescriptorProto(protoFile: String): List<FileDescriptorProto> {
