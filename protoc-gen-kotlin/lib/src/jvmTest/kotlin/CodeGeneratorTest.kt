@@ -23,6 +23,7 @@ class CodeGeneratorTest {
 
         val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc").let { protoc ->
             try {
+                downloadProtoc()
                 ProcessBuilder(protoc).start()
                 protoc
             } catch (e: Exception) {
@@ -31,7 +32,7 @@ class CodeGeneratorTest {
         }
 
         private fun downloadProtoc() = try {
-            val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${System.getProperty("os.arch")}.exe"
+            val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${getArch()}.exe"
             val protocTemp = File.createTempFile("protoc", "tmp")
             val protoUrl =
                 URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$DOWNLOAD_PROTOC_VERSION/$filename")
@@ -39,17 +40,21 @@ class CodeGeneratorTest {
             protocTemp.setExecutable(true)
             protocTemp.absolutePath
         } catch (e: Exception) {
-            throw Exception("failed to download protoc version $DOWNLOAD_PROTOC_VERSION: ${e.message}")
+            throw Exception("failed to download protoc version $DOWNLOAD_PROTOC_VERSION", e)
         }
 
-        private fun getOS(): String {
-            val osName = System.getProperty("os.name").toLowerCase()
-            return if (osName.contains("windows")) {
-                "windows"
-            } else if (osName.contains("mac os x") || osName.contains("darwin") || osName.contains("osx")) {
-                "osx"
-            } else {
-                "linux"
+        private fun getOS() = System.getProperty("os.name").toLowerCase().let {
+            when {
+                it.contains("windows") -> "windows"
+                it.contains("mac os x") || it.contains("darwin") || it.contains("osx") -> "osx"
+                else -> "linux"
+            }
+        }
+
+        private fun getArch() = System.getProperty("os.arch").toLowerCase().let {
+            when {
+                it.contains("amd64") || it.contains("x86_64") -> "x86_64"
+                else -> "x86_32"
             }
         }
     }
