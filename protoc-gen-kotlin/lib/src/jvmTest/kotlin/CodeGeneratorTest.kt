@@ -41,16 +41,18 @@ class CodeGeneratorTest {
         const val DESCRIPTOR_SET_OUT = "build/tmp/fileDescriptor.protoset"
         private const val DOWNLOAD_PROTOC_VERSION = "3.10.1"
 
-        val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc").let { protoc ->
-            try {
-                ProcessBuilder(protoc).start()
-                protoc
-            } catch (e: Exception) {
-                downloadProtoc()
+        val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc")
+            .let { protoc ->
+                try {
+                    // try executing the protoc binary, this code throws an exception if it cannot be found
+                    ProcessBuilder(protoc).start()
+                    protoc
+                } catch (e: Exception) {
+                    downloadedProtoc()
+                }
             }
-        }
 
-        private fun downloadProtoc() = try {
+        private fun downloadedProtoc() = try {
             val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${getArch()}.exe"
             val protocTemp = File.createTempFile("protoc", "tmp")
             val protoUrl =
