@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.10.0] - Unreleased
 
-[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.0...HEAD
+[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.1...HEAD
 
 ### Added
 
@@ -34,9 +34,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#114]: https://github.com/streem/pbandk/pull/114
 
 
-## [0.9.1] - Unreleased
+## [0.9.1] - 2021-01-07
 
-[0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...v0.9.x
+[0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...v0.9.1
 
 ### Fixed
 
