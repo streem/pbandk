@@ -10,26 +10,22 @@ internal fun FieldDescriptor.Type.allowedWireType(wireType: WireType) =
 
 internal val FieldDescriptor.Type.binaryReadFn: BinaryWireDecoder.() -> Any
     get() {
-        // XXX: The "useless" casts below are required in order to work around a compiler bug in Kotlin 1.3 (see
-        // https://youtrack.jetbrains.com/issue/KT-12693 and linked issues). Without the cast, the compiler crashes
-        // with an obscure error. This is supposedly fixed in Kotlin 1.4.
-        @Suppress("USELESS_CAST")
         return when (this) {
-            is FieldDescriptor.Type.Primitive.Double -> BinaryWireDecoder::readDouble as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Float -> BinaryWireDecoder::readFloat as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Int64 -> BinaryWireDecoder::readInt64 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.UInt64 -> BinaryWireDecoder::readUInt64 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Int32 -> BinaryWireDecoder::readInt32 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Fixed64 -> BinaryWireDecoder::readFixed64 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Fixed32 -> BinaryWireDecoder::readFixed32 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Bool -> BinaryWireDecoder::readBool as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.String -> BinaryWireDecoder::readString as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.Bytes -> BinaryWireDecoder::readBytes as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.UInt32 -> BinaryWireDecoder::readUInt32 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.SFixed32 -> BinaryWireDecoder::readSFixed32 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.SFixed64 -> BinaryWireDecoder::readSFixed64 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.SInt32 -> BinaryWireDecoder::readSInt32 as BinaryWireDecoder.() -> Any
-            is FieldDescriptor.Type.Primitive.SInt64 -> BinaryWireDecoder::readSInt64 as BinaryWireDecoder.() -> Any
+            is FieldDescriptor.Type.Primitive.Double -> BinaryWireDecoder::readDouble
+            is FieldDescriptor.Type.Primitive.Float -> BinaryWireDecoder::readFloat
+            is FieldDescriptor.Type.Primitive.Int64 -> BinaryWireDecoder::readInt64
+            is FieldDescriptor.Type.Primitive.UInt64 -> BinaryWireDecoder::readUInt64
+            is FieldDescriptor.Type.Primitive.Int32 -> BinaryWireDecoder::readInt32
+            is FieldDescriptor.Type.Primitive.Fixed64 -> BinaryWireDecoder::readFixed64
+            is FieldDescriptor.Type.Primitive.Fixed32 -> BinaryWireDecoder::readFixed32
+            is FieldDescriptor.Type.Primitive.Bool -> BinaryWireDecoder::readBool
+            is FieldDescriptor.Type.Primitive.String -> BinaryWireDecoder::readString
+            is FieldDescriptor.Type.Primitive.Bytes -> BinaryWireDecoder::readBytes
+            is FieldDescriptor.Type.Primitive.UInt32 -> BinaryWireDecoder::readUInt32
+            is FieldDescriptor.Type.Primitive.SFixed32 -> BinaryWireDecoder::readSFixed32
+            is FieldDescriptor.Type.Primitive.SFixed64 -> BinaryWireDecoder::readSFixed64
+            is FieldDescriptor.Type.Primitive.SInt32 -> BinaryWireDecoder::readSInt32
+            is FieldDescriptor.Type.Primitive.SInt64 -> BinaryWireDecoder::readSInt64
             is FieldDescriptor.Type.Message<*> -> when (messageCompanion) {
                 DoubleValue.Companion -> fun BinaryWireDecoder.(): Any =
                     (readMessage(this@binaryReadFn.messageCompanion) as DoubleValue).value

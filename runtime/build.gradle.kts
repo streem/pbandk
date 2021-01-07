@@ -27,19 +27,7 @@ kotlin {
     macosX64()
     linuxX64()
 
-    targets.withType<KotlinNativeTarget> {
-        val main by compilations.getting {
-            defaultSourceSet {
-                kotlin.srcDir("src/nativeMain/kotlin")
-            }
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Versions.kotlinSerialization}")
-            }
-        }
-    }
-
-
-    sourceSets {
+   sourceSets {
         all {
             languageSettings.enableLanguageFeature("InlineClasses")
 
@@ -51,8 +39,7 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Versions.kotlinSerialization}")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
             }
         }
 
@@ -65,8 +52,6 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation(kotlin("stdlib"))
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}")
                 api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
         }
@@ -81,8 +66,6 @@ kotlin {
 
         val jsMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-js"))
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${Versions.kotlinSerialization}")
                 implementation(npm("protobufjs", "^${Versions.protobufJs}"))
             }
         }
@@ -90,6 +73,19 @@ kotlin {
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
+            }
+        }
+
+        val nativeMain by creating {
+            dependsOn(commonMain)
+        }
+    }
+
+    targets.withType<KotlinNativeTarget> {
+        val main by compilations.getting {
+            defaultSourceSet {
+                val nativeMain by sourceSets.getting
+                dependsOn(nativeMain)
             }
         }
     }
@@ -127,7 +123,7 @@ tasks {
         dependsOn(generateKotlinTestTypes, generateJavaTestTypes)
     }
 
-    // DCE is now enable by default in Kotlin 1.3.7x
+    // DCE is now enabled by default in Kotlin 1.3.7x
     // and it doesn't work well with commonJS modules
     // Use of commonJs could be removed since default module is now UMD
     // but would require some code change

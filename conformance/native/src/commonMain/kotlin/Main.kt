@@ -1,1 +1,1 @@
-fun main() = pbandk.conformance.main(emptyArray())
+fun main() = pbandk.conformance.main()

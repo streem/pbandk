@@ -4,12 +4,7 @@ import pbandk.PbandkInternal
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 
-// This is public only so that it can be used from protoc-gen-kotlin
-@PbandkInternal
-expect object Util {
-    fun stringToUtf8(str: String): ByteArray
-    fun utf8ToString(bytes: ByteArray): String
-
+internal expect object Util {
     fun base64ToBytes(str: String): ByteArray
     fun bytesToBase64(bytes: ByteArray): String
 

@@ -44,7 +44,7 @@ internal class JsonMessageDecoder internal constructor(
                     throw InvalidProtocolBufferException("Unknown field name and ignoreUnknownFieldsInInput=false: $key")
                 }
 
-            if (jsonValue.isNull) {
+            if (jsonValue is JsonNull) {
                 // JSON messages can be primitive wrappers, where null signifies a default value
                 // https://developers.google.com/protocol-buffers/docs/proto3#default
                 if (fd.type is FieldDescriptor.Type.Message<*>) {
@@ -63,8 +63,7 @@ internal class JsonMessageDecoder internal constructor(
 
     companion object {
         fun fromString(data: String, jsonConfig: JsonConfig = JsonConfig.DEFAULT): JsonMessageDecoder {
-            val json = Json(JsonConfiguration.Stable)
-            val content = json.parse(JsonElementSerializer, data)
+            val content = Json.decodeFromString(JsonElement.serializer(), data)
             return JsonMessageDecoder(content, jsonConfig)
         }
     }

@@ -1,6 +1,5 @@
-package pbandk
+package pbandk.internal
 
-import pbandk.internal.Util
 import pbandk.wkt.Timestamp
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -4,7 +4,7 @@ import org.khronos.webgl.Int8Array
 import org.khronos.webgl.Uint8Array
 import pbandk.PbandkInternal
 
-actual typealias Util = pbandk.protobufjs.Util
+internal actual typealias Util = pbandk.protobufjs.Util
 
 @PbandkInternal
 @Suppress("NOTHING_TO_INLINE")
