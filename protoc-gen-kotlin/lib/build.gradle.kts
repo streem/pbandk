@@ -56,7 +56,12 @@ tasks {
         logLevel.set("debug")
     }
 
-    getByName("jvmTest").dependsOn(":protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist")
+    val generateTestProto by registering(DescriptorProtocTask::class) {
+        includeDir.set(project.file("src/jvmTest/resources/protos"))
+        outputDir.set(temporaryDir)
+    }
+
+    getByName("jvmTest").dependsOn(generateTestProto)
 }
 
 publishing {

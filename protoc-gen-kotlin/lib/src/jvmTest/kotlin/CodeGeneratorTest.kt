@@ -4,17 +4,21 @@ import com.tschuchort.compiletesting.SourceFile
 import pbandk.decodeFromByteArray
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.runGenerator
-import pbandk.wkt.FileDescriptorProto
 import pbandk.wkt.FileDescriptorSet
 import java.io.File
-import java.lang.ProcessBuilder.Redirect
-import java.net.URL
-import java.util.concurrent.TimeUnit
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 
 class CodeGeneratorTest {
+    private val descriptorSetOutput = File("build/tmp/generateTestProto/fileDescriptor.protoset")
+    private val fileDescriptorSet by lazy {
+        check(descriptorSetOutput.exists()) {
+            "${descriptorSetOutput.absolutePath} does not exist, make sure it is generated via :generateTestProto"
+        }
+        FileDescriptorSet.decodeFromByteArray(descriptorSetOutput.inputStream().readAllBytes()).file
+    }
+
     @Test
     fun testSimple() {
         val result = compileProto("simple.proto")
@@ -35,80 +39,57 @@ class CodeGeneratorTest {
         valueClazz.classLoader.loadClass("foobar.Value\$Value")
     }
 
-    companion object {
-        const val PROTOC_PLUGIN_PATH = "../jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
-        const val PROTO_PATH = "src/jvmTest/resources/protos"
-        const val DESCRIPTOR_SET_OUT = "build/tmp/fileDescriptor.protoset"
-        private const val DOWNLOAD_PROTOC_VERSION = "3.10.1"
+//    companion object {
+//        const val PROTOC_PLUGIN_PATH = "../jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
+//        const val PROTO_PATH = "src/jvmTest/resources/protos"
+//        const val DESCRIPTOR_SET_OUT = "build/tmp/generateTestProto/fileDescriptor.protoset"
+//        private const val DOWNLOAD_PROTOC_VERSION = "3.10.1"
+//
+//        val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc")
+//            .let { protoc ->
+//                try {
+//                    // try executing the protoc binary, this code throws an exception if it cannot be found
+//                    ProcessBuilder(protoc).start()
+//                    protoc
+//                } catch (e: Exception) {
+//                    downloadedProtoc()
+//                }
+//            }
+//
+//        private fun downloadedProtoc() = try {
+//            val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${getArch()}.exe"
+//            val protocTemp = File.createTempFile("protoc", "tmp")
+//            val protoUrl =
+//                URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$DOWNLOAD_PROTOC_VERSION/$filename")
+//            protocTemp.writeBytes(protoUrl.readBytes())
+//            protocTemp.setExecutable(true)
+//            protocTemp.absolutePath
+//        } catch (e: Exception) {
+//            throw Exception("failed to download protoc version $DOWNLOAD_PROTOC_VERSION", e)
+//        }
+//
+//        private fun getOS() = System.getProperty("os.name").toLowerCase().let {
+//            when {
+//                it.contains("windows") -> "windows"
+//                it.contains("mac os x") || it.contains("darwin") || it.contains("osx") -> "osx"
+//                else -> "linux"
+//            }
+//        }
+//
+//        private fun getArch() = System.getProperty("os.arch").toLowerCase().let {
+//            when {
+//                it.contains("amd64") || it.contains("x86_64") -> "x86_64"
+//                else -> "x86_32"
+//            }
+//        }
+//    }
 
-        val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc")
-            .let { protoc ->
-                try {
-                    // try executing the protoc binary, this code throws an exception if it cannot be found
-                    ProcessBuilder(protoc).start()
-                    protoc
-                } catch (e: Exception) {
-                    downloadedProtoc()
-                }
-            }
-
-        private fun downloadedProtoc() = try {
-            val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${getArch()}.exe"
-            val protocTemp = File.createTempFile("protoc", "tmp")
-            val protoUrl =
-                URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$DOWNLOAD_PROTOC_VERSION/$filename")
-            protocTemp.writeBytes(protoUrl.readBytes())
-            protocTemp.setExecutable(true)
-            protocTemp.absolutePath
-        } catch (e: Exception) {
-            throw Exception("failed to download protoc version $DOWNLOAD_PROTOC_VERSION", e)
-        }
-
-        private fun getOS() = System.getProperty("os.name").toLowerCase().let {
-            when {
-                it.contains("windows") -> "windows"
-                it.contains("mac os x") || it.contains("darwin") || it.contains("osx") -> "osx"
-                else -> "linux"
-            }
-        }
-
-        private fun getArch() = System.getProperty("os.arch").toLowerCase().let {
-            when {
-                it.contains("amd64") || it.contains("x86_64") -> "x86_64"
-                else -> "x86_32"
-            }
-        }
-    }
-
-    private fun getFileDescriptorProto(protoFile: String): List<FileDescriptorProto> {
-        val plugin = File(PROTOC_PLUGIN_PATH + ".bat".takeIf {
-            getOS() == "windows"
-        }.orEmpty())
-
-        val proc = ProcessBuilder(
-            protoc,
-            "--proto_path=$PROTO_PATH",
-            "--plugin=protoc-gen-kotlin=${plugin.absoluteFile}",
-            "--descriptor_set_out=$DESCRIPTOR_SET_OUT",
-            protoFile
-        )
-            .redirectOutput(Redirect.PIPE)
-            .redirectError(Redirect.PIPE)
-            .start()
-            .also { it.waitFor(10, TimeUnit.SECONDS) }
-
-        if (proc.exitValue() != 0) {
-            throw IllegalArgumentException("failed generating proto descriptor set for '$protoFile'")
-        }
-
-        return FileDescriptorSet.decodeFromByteArray(File(DESCRIPTOR_SET_OUT).inputStream().readAllBytes()).file
-    }
 
     private fun compileProto(inputProto: String): KotlinCompilation.Result {
         val gen = runGenerator(
             CodeGeneratorRequest(
                 fileToGenerate = listOf(inputProto),
-                protoFile = getFileDescriptorProto(inputProto)
+                protoFile = fileDescriptorSet
             )
         )
 
