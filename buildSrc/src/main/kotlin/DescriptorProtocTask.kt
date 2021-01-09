@@ -13,14 +13,7 @@ open class DescriptorProtocTask : AbstractExecTask<DescriptorProtocTask>(Descrip
     val outputDir: DirectoryProperty = project.objects.directoryProperty()
 
     @Input
-    val protoc: Property<String> = project.objects.property<String>().apply {
-        convention(
-            project.providers.systemProperty("protoc.path")
-                .map { project.layout.projectDirectory.dir(it).file("bin/protoc") }
-                .map { it.asFile.absolutePath }
-                .orElse("protoc")
-        )
-    }
+    val protoc: Property<String> = project.objects.property()
 
     @Input
     val descriptorSetOutput: Property<String> = project.objects.property()
@@ -37,6 +30,7 @@ open class DescriptorProtocTask : AbstractExecTask<DescriptorProtocTask>(Descrip
 
     init {
         descriptorSetOutput.set("fileDescriptor.protoset")
+        protoc.set("protoc")
     }
 
     override fun exec() {
