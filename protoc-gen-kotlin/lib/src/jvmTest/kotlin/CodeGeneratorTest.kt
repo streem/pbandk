@@ -39,52 +39,6 @@ class CodeGeneratorTest {
         valueClazz.classLoader.loadClass("foobar.Value\$Value")
     }
 
-//    companion object {
-//        const val PROTOC_PLUGIN_PATH = "../jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin"
-//        const val PROTO_PATH = "src/jvmTest/resources/protos"
-//        const val DESCRIPTOR_SET_OUT = "build/tmp/generateTestProto/fileDescriptor.protoset"
-//        private const val DOWNLOAD_PROTOC_VERSION = "3.10.1"
-//
-//        val protoc: String = (System.getProperty("protoc.path")?.let { "$it/bin/protoc" } ?: "protoc")
-//            .let { protoc ->
-//                try {
-//                    // try executing the protoc binary, this code throws an exception if it cannot be found
-//                    ProcessBuilder(protoc).start()
-//                    protoc
-//                } catch (e: Exception) {
-//                    downloadedProtoc()
-//                }
-//            }
-//
-//        private fun downloadedProtoc() = try {
-//            val filename = "protoc-$DOWNLOAD_PROTOC_VERSION-${getOS()}-${getArch()}.exe"
-//            val protocTemp = File.createTempFile("protoc", "tmp")
-//            val protoUrl =
-//                URL("https://repo1.maven.org/maven2/com/google/protobuf/protoc/$DOWNLOAD_PROTOC_VERSION/$filename")
-//            protocTemp.writeBytes(protoUrl.readBytes())
-//            protocTemp.setExecutable(true)
-//            protocTemp.absolutePath
-//        } catch (e: Exception) {
-//            throw Exception("failed to download protoc version $DOWNLOAD_PROTOC_VERSION", e)
-//        }
-//
-//        private fun getOS() = System.getProperty("os.name").toLowerCase().let {
-//            when {
-//                it.contains("windows") -> "windows"
-//                it.contains("mac os x") || it.contains("darwin") || it.contains("osx") -> "osx"
-//                else -> "linux"
-//            }
-//        }
-//
-//        private fun getArch() = System.getProperty("os.arch").toLowerCase().let {
-//            when {
-//                it.contains("amd64") || it.contains("x86_64") -> "x86_64"
-//                else -> "x86_32"
-//            }
-//        }
-//    }
-
-
     private fun compileProto(inputProto: String): KotlinCompilation.Result {
         val gen = runGenerator(
             CodeGeneratorRequest(
@@ -93,7 +47,7 @@ class CodeGeneratorTest {
             )
         )
 
-        val kotlinSource = SourceFile.kotlin("test.kt", gen.file.first().content!!)
+        val kotlinSource = SourceFile.kotlin(File(gen.file.first().name!!).name, gen.file.first().content!!)
         return KotlinCompilation().apply {
             this.kaptSourceDir
             sources = listOf(kotlinSource)
