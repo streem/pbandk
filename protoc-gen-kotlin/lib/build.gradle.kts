@@ -65,10 +65,10 @@ tasks {
     }
 
     val generateTestProtoDescriptor by registering(DescriptorProtocTask::class) {
-        val outputDir = File(project.buildDir, name).also { it.mkdirs() }
+        val out = File(project.buildDir, name).also { it.mkdirs() }
 
         includeDir.set(project.file("src/jvmTest/resources/protos"))
-        outputDir.set(outputDir)
+        outputDir.set(out)
 
         val protocBin = downloadProtoc.singleFile
             .also { it.setExecutable(true) }
