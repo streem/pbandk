@@ -12,7 +12,7 @@ import kotlin.test.assertEquals
 
 
 class CodeGeneratorTest {
-    private val descriptorSetOutput = File("build/tmp/generateTestProto/fileDescriptor.protoset")
+    private val descriptorSetOutput = File("build/generateTestProtoDescriptor/fileDescriptor.protoset")
     private val fileDescriptorSet by lazy {
         check(descriptorSetOutput.exists()) {
             "${descriptorSetOutput.absolutePath} does not exist, make sure it is generated via :generateTestProto"
