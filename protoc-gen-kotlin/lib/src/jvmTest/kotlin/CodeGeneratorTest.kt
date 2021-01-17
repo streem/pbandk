@@ -2,6 +2,7 @@ import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.KotlinCompilation.ExitCode
 import com.tschuchort.compiletesting.SourceFile
 import pbandk.decodeFromByteArray
+import pbandk.decodeFromStream
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.runGenerator
 import pbandk.wkt.FileDescriptorSet
@@ -16,7 +17,7 @@ class CodeGeneratorTest {
         check(descriptorSetOutput.exists()) {
             "${descriptorSetOutput.absolutePath} does not exist, make sure it is generated via :generateTestProto"
         }
-        FileDescriptorSet.decodeFromByteArray(descriptorSetOutput.inputStream().readAllBytes()).file
+        FileDescriptorSet.decodeFromStream(descriptorSetOutput.inputStream()).file
     }
 
     @Test
@@ -49,7 +50,6 @@ class CodeGeneratorTest {
 
         val kotlinSource = SourceFile.kotlin(File(gen.file.first().name!!).name, gen.file.first().content!!)
         return KotlinCompilation().apply {
-            this.kaptSourceDir
             sources = listOf(kotlinSource)
             inheritClassPath = true
             messageOutputStream = System.out
