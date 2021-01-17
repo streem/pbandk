@@ -13,10 +13,14 @@ open class DescriptorProtocTask : AbstractExecTask<DescriptorProtocTask>(Descrip
     val outputDir: DirectoryProperty = project.objects.directoryProperty()
 
     @Input
-    val protoc: Property<String> = project.objects.property()
+    val protoc: Property<String> = project.objects.property<String>().apply {
+        convention("protoc")
+    }
 
     @Input
-    val descriptorSetOutput: Property<String> = project.objects.property()
+    val descriptorSetOutput: Property<String> = project.objects.property<String>().apply {
+        convention("fileDescriptor.protoset")
+    }
 
     private val protoFileDir: DirectoryProperty = project.objects.directoryProperty().apply {
         convention(includeDir)
@@ -26,11 +30,6 @@ open class DescriptorProtocTask : AbstractExecTask<DescriptorProtocTask>(Descrip
     @SkipWhenEmpty
     val protoFiles: FileCollection = protoFileDir.asFileTree.matching {
         this.include("*.proto")
-    }
-
-    init {
-        descriptorSetOutput.set("fileDescriptor.protoset")
-        protoc.set("protoc")
     }
 
     override fun exec() {
