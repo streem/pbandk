@@ -263,32 +263,42 @@ workflows:
     jobs:
       - build:
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /.*/
+              only: /^v[0-9]+(\.[0-9]+)+([-+].+)*/
       - conformance_jvm:
           requires:
             - build
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /.*/
+              only: /^v[0-9]+(\.[0-9]+)+([-+].+)*/
       - conformance_js:
           requires:
             - build
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /.*/
+              only: /^v[0-9]+(\.[0-9]+)+([-+].+)*/
       - conformance_native:
           requires:
             - build
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /.*/
+              only: /^v[0-9]+(\.[0-9]+)+([-+].+)*/
       - build_examples:
           requires:
             - build
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /.*/
+              only: /^v[0-9]+(\.[0-9]+)+([-+].+)*/
       - publish:
           requires:
             - build

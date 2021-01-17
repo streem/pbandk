@@ -12,9 +12,6 @@ syntax = "proto3";
 
 package pbandk.testpb;
 
-/* XXX: This message causes a StackOverflowError in Kotlin/Native 1.3.70 (only
- * on Native, on JVM and JS this compiles fine). It is resolved in Kotlin 1.4
- * and can be uncommented once pbandk upgrades to Kotlin 1.4.
 message MessageWithLotsOfFields {
     string field_1000 = 1000;
     string field_1001 = 1001;
@@ -1017,7 +1014,6 @@ message MessageWithLotsOfFields {
     string field_1998 = 1998;
     string field_1999 = 1999;
 }
-*/
 
 message MessageWithHugeOneof {
     oneof huge_oneof {

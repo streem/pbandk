@@ -30,7 +30,6 @@
 package pbandk.internal.binary.kotlin
 
 import pbandk.*
-import pbandk.internal.Util
 import pbandk.internal.binary.*
 import pbandk.internal.binary.BinaryWireEncoder
 import pbandk.internal.binary.WireType
@@ -238,7 +237,7 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
     }
 
     private fun writeStringNoTag(value: String) {
-        writeBytesNoTag(ByteArr(Util.stringToUtf8(value)))
+        writeBytesNoTag(ByteArr(value.encodeToByteArray()))
     }
 
     override fun writeString(fieldNum: Int, value: String) {

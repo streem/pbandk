@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.10.0] - Unreleased
 
-[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.0...HEAD
+[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.1...HEAD
 
 ### Added
 
@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
+* Updated to Kotlin 1.4. Projects that are still on Kotlin 1.3 should be able to continue using pbandk, but this configuration is only supported on a best-effort basis (please file a GitHub issue with any problems). Projects are encouraged to update to Kotlin 1.4. (PR [#114], fixes [#86])
 * **[BREAKING CHANGE]** The API and implementation of `UnknownField` changed significantly. If you access the contents of unknown fields in your code, you will need to update to the new API. The unknown field no longer provides access to a decoded version of the field's wire type. Instead it only provides access to the raw binary encoding of the field. (PR [#103])
 
 ### Fixed
@@ -28,19 +29,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Binary decoding of 64-bit numbers under Kotlin/JS with certain inputs that would previously cause a crash. (PR [#103])
 
 [#65]: https://github.com/streem/pbandk/issues/65
+[#86]: https://github.com/streem/pbandk/issues/86
 [#103]: https://github.com/streem/pbandk/pull/103
+[#114]: https://github.com/streem/pbandk/pull/114
 
 
-## [0.9.1] - Unreleased
+## [0.9.1] - 2021-01-07
 
-[0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...v0.9.x
+[0.9.1]: https://github.com/streem/pbandk/compare/v0.9.0...v0.9.1
 
 ### Fixed
 
 * Compile error when proto contains a oneof field with same name as the enclosing message (PR [#104], fixes [#47]) (thanks @nbaztec)
+* All remaining JSON conformance test failures for numeric values (PR [#105], partially fixes [#72]) (thanks @nbaztec)
 
 [#47]: https://github.com/streem/pbandk/issues/47
+[#72]: https://github.com/streem/pbandk/issues/72
 [#104]: https://github.com/streem/pbandk/pull/104
+[#105]: https://github.com/streem/pbandk/pull/105
 
 
 ## [0.9.0] - 2020-12-23

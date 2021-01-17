@@ -30,7 +30,6 @@
 package pbandk.internal.binary.kotlin
 
 import pbandk.*
-import pbandk.internal.Util
 import pbandk.internal.binary.*
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.BinaryWireDecoder
@@ -237,7 +236,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
 
     override fun readBool(): Boolean = readRawVarint64() != 0L
 
-    override fun readString(): String = Util.utf8ToString(readBytes().array)
+    override fun readString(): String = readBytes().array.decodeToString()
 
     override fun readBytes(): ByteArr = ByteArr(readRawBytes(readRawVarint32()))
 

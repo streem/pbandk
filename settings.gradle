@@ -10,18 +10,16 @@ pluginManagement {
 
 rootProject.name = "pbandk"
 
-enableFeaturePreview("GRADLE_METADATA")
+include(":runtime")
 
-include ":runtime"
-
-include ":protoc-gen-kotlin:lib"
+include(":protoc-gen-kotlin:lib")
 project(":protoc-gen-kotlin:lib").name = "protoc-gen-kotlin-lib"
-include ":protoc-gen-kotlin:jvm"
+include(":protoc-gen-kotlin:jvm")
 project(":protoc-gen-kotlin:jvm").name = "protoc-gen-kotlin-jvm"
 
-include ":conformance:lib"
+include(":conformance:lib")
 project(":conformance:lib").name = "conformance-lib"
-include ":conformance:jvm"
+include(":conformance:jvm")
 project(":conformance:jvm").name = "conformance-jvm"
-include ":conformance:native"
+include(":conformance:native")
 project(":conformance:native").name = "conformance-native"

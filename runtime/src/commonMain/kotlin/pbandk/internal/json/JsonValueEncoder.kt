@@ -59,49 +59,49 @@ internal class JsonValueEncoder(private val jsonConfig: JsonConfig) {
     }
 
     fun writeInteger32(value: Int): JsonElement =
-        JsonLiteral(value)
+        JsonPrimitive(value)
 
     fun writeInteger64(value: Long): JsonElement =
-        JsonLiteral(value.toString())
+        JsonPrimitive(value.toString())
 
-    // XXX: [JsonLiteral] does not support unsigned number types currently (they do not inherit from [Number]
+    // XXX: [JsonPrimitive] does not support unsigned number types currently (they do not inherit from [Number]
     // because of limitations with Kotlin inline classes). To work around this, output unsigned integers that are
     // outside of the range of signed integers as strings rather than numeric literals. While the Proto3 JSON spec
     // does say that these should be output as numeric literals, it also requires conforming implementations to
     // accept numeric strings when parsing the JSON.
     fun writeUnsignedInteger32(value: Int): JsonElement =
-        if (value < 0) JsonLiteral(value.toUInt().toString()) else JsonLiteral(value)
+        if (value < 0) JsonPrimitive(value.toUInt().toString()) else JsonPrimitive(value)
 
     fun writeUnsignedInteger64(value: Long): JsonElement =
-        JsonLiteral(value.toULong().toString())
+        JsonPrimitive(value.toULong().toString())
 
     fun writeBool(value: Boolean): JsonElement =
-        JsonLiteral(value)
+        JsonPrimitive(value)
 
     fun writeEnum(value: Message.Enum): JsonElement =
         // Unrecognized enum values must be serialized as their numeric value
         value.name?.let { JsonPrimitive(it) } ?: JsonPrimitive(value.value)
 
     fun writeFloat(value: Float): JsonElement =
-        if (value.isFinite()) JsonLiteral(value) else JsonLiteral(value.toString())
+        if (value.isFinite()) JsonPrimitive(value) else JsonPrimitive(value.toString())
 
     fun writeDouble(value: Double): JsonElement =
-        if (value.isFinite()) JsonLiteral(value) else JsonLiteral(value.toString())
+        if (value.isFinite()) JsonPrimitive(value) else JsonPrimitive(value.toString())
 
     fun writeString(value: String): JsonElement =
-        JsonLiteral(value)
+        JsonPrimitive(value)
 
     fun writeBytes(value: ByteArr): JsonElement =
-        JsonLiteral(Util.bytesToBase64(value.array))
+        JsonPrimitive(Util.bytesToBase64(value.array))
 
     fun writeMessage(value: Message): JsonElement =
         JsonMessageEncoder(jsonConfig).also { it.writeMessage(value) }.toJsonElement()
 
     fun writeRepeated(list: List<*>, valueType: FieldDescriptor.Type): JsonElement =
-        jsonArray {
+        buildJsonArray {
             for (v in list) {
                 if (v == null) continue
-                +writeValue(v, valueType)
+                add(writeValue(v, valueType))
             }
         }
 
@@ -109,10 +109,10 @@ internal class JsonValueEncoder(private val jsonConfig: JsonConfig) {
         map: Map<*, *>,
         keyType: FieldDescriptor.Type,
         valueType: FieldDescriptor.Type
-    ): JsonElement = json {
+    ): JsonElement = buildJsonObject {
         for ((k, v) in map) {
             if (k == null || v == null) continue
-            writeValue(k, keyType).content to writeValue(v, valueType)
+            put(writeValue(k, keyType).jsonPrimitive.content, writeValue(v, valueType))
         }
     }
 

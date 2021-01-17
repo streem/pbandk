@@ -6,7 +6,7 @@ import pbandk.gen.pb.CodeGeneratorResponse
 var logDebug = false
 inline fun debug(fn: () -> String) { if (logDebug) Platform.stderrPrintln(fn()) }
 
-fun main(args: Array<String>) {
+fun main() {
     Platform.stdoutWriteResponse(runGenerator(Platform.stdinReadRequest()))
 }
 

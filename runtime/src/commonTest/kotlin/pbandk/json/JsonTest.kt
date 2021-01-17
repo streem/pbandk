@@ -1,13 +1,11 @@
 package pbandk.json
 
 import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.json
+import kotlinx.serialization.json.buildJsonObject
 import pbandk.encodeToByteArray
 import pbandk.testpb.Bar
 import pbandk.testpb.TestAllTypesProto3
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNull
+import kotlin.test.*
 
 class JsonTest {
     @Test
@@ -22,11 +20,11 @@ class JsonTest {
 
     @Test
     fun testNullValues() {
-        val json = json {
-            "optionalInt32" to JsonNull
-            "mapBoolBool" to JsonNull
-            "repeatedString" to JsonNull
-            "optionalNestedMessage" to JsonNull
+        val json = buildJsonObject {
+            put("optionalInt32", JsonNull)
+            put("mapBoolBool", JsonNull)
+            put("repeatedString", JsonNull)
+            put("optionalNestedMessage", JsonNull)
         }.toString()
         val expectedMessage = TestAllTypesProto3.defaultInstance
 
@@ -46,3 +44,4 @@ class JsonTest {
         assertEquals(1, compactJson.lines().size)
     }
 }
+

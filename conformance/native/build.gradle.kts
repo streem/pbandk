@@ -11,13 +11,16 @@ kotlin {
     targets.withType<KotlinNativeTarget> {
         binaries {
             executable("conformance")
+            configureEach {
+                // See https://youtrack.jetbrains.com/issue/KT-44148
+                freeCompilerArgs += "-Xdisable-phases=EscapeAnalysis"
+            }
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 api(project(":conformance:conformance-lib"))
             }
         }

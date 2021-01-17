@@ -9,15 +9,13 @@ import kotlin.Any
 import kotlin.reflect.KProperty1
 
 internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageEncoder {
-    private val json = Json(
-        JsonConfiguration.Stable.copy(
-            prettyPrint = !jsonConfig.compactOutput
-        )
-    )
+    private val json = Json {
+        prettyPrint = !jsonConfig.compactOutput
+    }
     private val jsonValueEncoder = JsonValueEncoder(jsonConfig)
     private var currentMessage: JsonElement? = null
 
-    fun toJsonString(): String = currentMessage?.let { json.stringify(JsonElementSerializer, it) }.orEmpty()
+    fun toJsonString(): String = currentMessage?.let { json.encodeToString(JsonElement.serializer(), it) }.orEmpty()
 
     internal fun toJsonElement(): JsonElement =
         currentMessage ?: error("Must call writeMessage() before toJsonElement()")
