@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     `maven-publish`
+    id("com.google.osdetector") version "1.6.2"
 }
 
 kotlin {
@@ -48,27 +49,18 @@ kotlin {
     }
 }
 
-configurations {
-    create("downloadProtoc") {
-        isTransitive = false
-    }
+val downloadProtoc: Configuration by configurations.creating {
+    isTransitive = false
 }
 
 dependencies {
-    val arch = System.getProperty("os.arch").toLowerCase().let {
-        when {
-            it.contains("amd64") || it.contains("x86_64") -> "x86_64"
-            else -> "x86_32"
-        }
-    }
-    val os = System.getProperty("os.name").toLowerCase().let {
-        when {
-            it.contains("windows") -> "windows"
-            it.contains("mac os x") || it.contains("darwin") || it.contains("osx") -> "osx"
-            else -> "linux"
-        }
-    }
-    "downloadProtoc"(group="com.google.protobuf", name="protoc", version="3.10.1", classifier = "$os-$arch", ext = "exe")
+    downloadProtoc(
+        group = "com.google.protobuf",
+        name = "protoc",
+        version = Versions.protoc,
+        classifier = osdetector.classifier,
+        ext = "exe"
+    )
 }
 
 tasks {
@@ -79,18 +71,20 @@ tasks {
         logLevel.set("debug")
     }
 
-    val generateTestProto by registering(DescriptorProtocTask::class) {
-        includeDir.set(project.file("src/jvmTest/resources/protos"))
-        outputDir.set(temporaryDir)
+    val generateTestProtoDescriptor by registering(DescriptorProtocTask::class) {
+        val outputDir = File(project.buildDir, name).also { it.mkdirs() }
 
-        val protocBin = configurations["downloadProtoc"].singleFile
+        includeDir.set(project.file("src/jvmTest/resources/protos"))
+        outputDir.set(outputDir)
+
+        val protocBin = downloadProtoc.singleFile
             .also { it.setExecutable(true) }
             .absolutePath
 
         protoc.set(protocBin)
     }
 
-    getByName("jvmTest").dependsOn(generateTestProto)
+    getByName("jvmTest").dependsOn(generateTestProtoDescriptor)
 }
 
 publishing {
