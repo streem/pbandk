@@ -1,7 +1,6 @@
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.KotlinCompilation.ExitCode
 import com.tschuchort.compiletesting.SourceFile
-import pbandk.decodeFromByteArray
 import pbandk.decodeFromStream
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.runGenerator
