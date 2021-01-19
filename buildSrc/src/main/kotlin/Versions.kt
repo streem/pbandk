@@ -7,4 +7,5 @@ object Versions {
     const val protobufJava = "3.11.1"
     const val protobufJs = "6.10.2"
     const val springBootGradlePlugin = "2.3.7.RELEASE"
+    const val osDetectorGradlePlugin = "1.6.2"
 }

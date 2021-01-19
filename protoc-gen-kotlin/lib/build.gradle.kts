@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform")
     `maven-publish`
-    id("com.google.osdetector") version "1.6.2"
+    id("com.google.osdetector")
 }
 
 kotlin {

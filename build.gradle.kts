@@ -7,6 +7,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     kotlin("multiplatform") version Versions.kotlin apply false
     id("org.springframework.boot") version Versions.springBootGradlePlugin apply false
+    id("com.google.osdetector") version Versions.osDetectorGradlePlugin apply false
 
     id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
 }
