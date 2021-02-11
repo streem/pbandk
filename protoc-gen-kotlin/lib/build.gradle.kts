@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     `maven-publish`
+    id("com.google.osdetector")
 }
 
 kotlin {
@@ -35,9 +36,24 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.12")
+                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.2.9")
             }
         }
     }
+}
+
+val downloadProtoc: Configuration by configurations.creating {
+    isTransitive = false
+}
+
+dependencies {
+    downloadProtoc(
+        group = "com.google.protobuf",
+        name = "protoc",
+        version = Versions.protoc,
+        classifier = osdetector.classifier,
+        ext = "exe"
+    )
 }
 
 tasks {
@@ -47,6 +63,21 @@ tasks {
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
     }
+
+    val generateTestProtoDescriptor by registering(DescriptorProtocTask::class) {
+        val out = File(project.buildDir, name).also { it.mkdirs() }
+
+        includeDir.set(project.file("src/jvmTest/resources/protos"))
+        outputDir.set(out)
+
+        val protocBin = downloadProtoc.singleFile
+            .also { it.setExecutable(true) }
+            .absolutePath
+
+        protoc.set(protocBin)
+    }
+
+    getByName("jvmTest").dependsOn(generateTestProtoDescriptor)
 }
 
 publishing {
