@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     * Protobuf extension fields are defined as Kotlin extension properties on the extended class and can be accessed like any other Kotlin property.
 * `MessageDescriptor` (available via `Message.descriptor` or `Message.Companion.descriptor`) is now part of the public API. Initially only `MessageDescriptor.fields` is public, which provides access to descriptors for all of the message's fields. Additional properties of the message descriptor will be exposed in future versions. Please file an issue on GitHub if there are specific properties you would like to have access to. (PR [#103])
 * `FieldDescriptor` (available via `MessageDescriptor.fields`) is now part of the public API. Initially, the field's `name` and `options` are public, allowing access to custom options defined on the field in the `.proto` file. The field's `value` accessor is also public, though this API will probably change before the final 0.10.0 release. (PR [#103])
+* Add the ability to unit test the output of `CodeGenerator` (PR [#117], fixes [#48]) (thanks @nbaztec)
 
 ### Changed
 
@@ -28,10 +29,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Improved the code generated for messages with a large number of fields to handle even more fields (PR [#103])
 * Binary decoding of 64-bit numbers under Kotlin/JS with certain inputs that would previously cause a crash. (PR [#103])
 
+[#48]: https://github.com/streem/pbandk/issues/48
 [#65]: https://github.com/streem/pbandk/issues/65
 [#86]: https://github.com/streem/pbandk/issues/86
 [#103]: https://github.com/streem/pbandk/pull/103
 [#114]: https://github.com/streem/pbandk/pull/114
+[#117]: https://github.com/streem/pbandk/pull/117
 
 
 ## [0.9.1] - 2021-01-07
