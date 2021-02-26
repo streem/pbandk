@@ -14,6 +14,7 @@ on:
       - v[0-9]+.[0-9]+.[0-9]+
       - v[0-9]+.[0-9]+.[0-9]+[-+]*
 
+# All jobs, except publish, need to be kept in sync with their counterparts in pull-request.yaml
 jobs:
   build:
     runs-on: ubuntu-18.04
