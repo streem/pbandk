@@ -9,9 +9,9 @@ env:
   BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
 
 on:
-  release:
-    types:
-      - created
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+[-+]*
 
 jobs:
   build:
