@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 * Updated to Kotlin 1.4. Projects that are still on Kotlin 1.3 should be able to continue using pbandk, but this configuration is only supported on a best-effort basis (please file a GitHub issue with any problems). Projects are encouraged to update to Kotlin 1.4. (PR [#114], fixes [#86])
 * **[BREAKING CHANGE]** The API and implementation of `UnknownField` changed significantly. If you access the contents of unknown fields in your code, you will need to update to the new API. The unknown field no longer provides access to a decoded version of the field's wire type. Instead it only provides access to the raw binary encoding of the field. (PR [#103])
+* Android now uses `protobuf-javalite` (instead of `protobuf-java`) to avoid dependency conflicts with other Android libraries such as `com.google.firebase:firebase-perf`. (PR [#124], fixes [#91]) (thanks @jeroenmols)
 
 ### Fixed
 
@@ -34,10 +35,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#65]: https://github.com/streem/pbandk/issues/65
 [#75]: https://github.com/streem/pbandk/issues/75
 [#86]: https://github.com/streem/pbandk/issues/86
+[#91]: https://github.com/streem/pbandk/issues/91
 [#103]: https://github.com/streem/pbandk/pull/103
 [#114]: https://github.com/streem/pbandk/pull/114
 [#117]: https://github.com/streem/pbandk/pull/117
 [#124]: https://github.com/streem/pbandk/pull/124
+[#125]: https://github.com/streem/pbandk/pull/125
 
 
 ## [0.9.1] - 2021-01-07
