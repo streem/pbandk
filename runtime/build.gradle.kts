@@ -2,14 +2,19 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
+    id("com.android.library")
     `maven-publish`
+}
+
+repositories {
+    google()
 }
 
 kotlin {
 
-    jvm {
-        withJava()
-    }
+    android()
+
+    jvm()
 
     js {
         useCommonJs()
@@ -27,7 +32,7 @@ kotlin {
     macosX64()
     linuxX64()
 
-   sourceSets {
+    sourceSets {
         all {
             languageSettings.enableLanguageFeature("InlineClasses")
 
@@ -50,7 +55,19 @@ kotlin {
             }
         }
 
+        val commonJvmAndroid = create("commonJvmAndroid") {
+            dependsOn(commonMain)
+        }
+
+        val androidMain by getting {
+            dependsOn(commonJvmAndroid)
+            dependencies {
+                api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+            }
+        }
+
         val jvmMain by getting {
+            dependsOn(commonJvmAndroid)
             dependencies {
                 api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
@@ -88,6 +105,15 @@ kotlin {
                 dependsOn(nativeMain)
             }
         }
+    }
+}
+
+android {
+    compileSdkVersion(Versions.androidTargetSdk)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(Versions.androidMinSdk)
+        targetSdkVersion(Versions.androidTargetSdk)
     }
 }
 

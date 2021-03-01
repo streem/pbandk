@@ -8,4 +8,7 @@ object Versions {
     const val protobufJs = "6.10.2"
     const val springBootGradlePlugin = "2.3.7.RELEASE"
     const val osDetectorGradlePlugin = "1.6.2"
+    const val androidGradlePlugin = "4.1.2"
+    const val androidMinSdk = 14
+    const val androidTargetSdk = 30
 }
