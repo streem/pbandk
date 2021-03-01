@@ -12,7 +12,12 @@ repositories {
 
 kotlin {
 
-    android()
+    android {
+        publishLibraryVariants("release")
+        mavenPublication {
+            this.artifactId = "pbandk-$artifactId"
+        }
+    }
 
     jvm()
 
