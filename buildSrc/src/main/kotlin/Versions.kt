@@ -1,6 +1,6 @@
 object Versions {
     const val binaryCompatibilityValidatorGradlePlugin = "0.2.3"
-    const val kotlin = "1.4.21"
+    const val kotlin = "1.4.30"
     const val kotlinCoroutines = "1.4.2"
     const val kotlinSerialization = "1.0.1"
     const val protoc = "3.10.1"
