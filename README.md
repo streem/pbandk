@@ -1,12 +1,13 @@
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/streem/pbandk)
-![CircleCI](https://img.shields.io/circleci/build/github/streem/pbandk)
+[![License](https://img.shields.io/github/license/streem/pbandk)](https://github.com/streem/pbandk/blob/master/LICENSE)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/streem/pbandk?sort=semver)](https://github.com/streem/pbandk/releases)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/streem/pbandk/master)
 
 # Pbandk
 
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
-*NOTE*: This is the documentation for the version of pbandk currently in development. Documentation for the latest stable version is available at https://github.com/streem/pbandk/blob/v0.9.0/README.md.
+*NOTE*: This is the documentation for the version of pbandk currently in development. Documentation for the latest stable version is available at https://github.com/streem/pbandk/blob/v0.9.1/README.md.
 
 **Features**
 
@@ -38,7 +39,7 @@ Read below for more information and see the [examples](examples).
 
 This project is currently in beta. It has the core set of protobuf features implemented and is being used in production. But it is still under active development and new versions might introduce backwards-incompatible changes to support new features or to improve the library's usability in Kotlin. Pull requests are welcome for any of the "Not Yet Implemented" features above.
 
-This project follows semantic versioning. After v1.0.0 is released (mid-2020 at the earliest), future versions will preserve backwards compatibility.
+This project follows semantic versioning. After v1.0.0 is released (mid-2021 at the earliest), future versions will preserve backwards compatibility.
 
 ## Summary
 
