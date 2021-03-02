@@ -154,7 +154,8 @@ tasks {
 
     val generateJavaTestTypes by registering(ProtocTask::class) {
         includeDir.set(project.file("src/commonTest/proto"))
-        outputDir.set(project.file("src/jvmTest/java"))
+        val outputProject = rootProject.findProject("jvm-test-types" )!!
+        outputDir.set(outputProject.file("src/main/java"))
         plugin.set("java")
         protoFileSubdir("pbandk/testpb")
     }
