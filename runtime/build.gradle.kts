@@ -71,6 +71,14 @@ kotlin {
             }
         }
 
+        val androidTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.12")
+            }
+        }
+
         val jvmMain by getting {
             dependsOn(commonJvmAndroid)
             dependencies {
