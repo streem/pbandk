@@ -11,6 +11,7 @@ pluginManagement {
 rootProject.name = "pbandk"
 
 include(":runtime")
+include(":jvm-test-helpers")
 
 include(":protoc-gen-kotlin:lib")
 project(":protoc-gen-kotlin:lib").name = "protoc-gen-kotlin-lib"

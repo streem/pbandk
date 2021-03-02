@@ -83,6 +83,7 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.12")
+                implementation(project(":jvm-test-helpers"))
             }
         }
 
