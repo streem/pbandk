@@ -4,18 +4,9 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 // Top-level build configuration
 
-buildscript {
-    repositories {
-        google()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:${Versions.androidGradlePlugin}")
-    }
-}
-
 plugins {
     kotlin("multiplatform") version Versions.kotlin apply false
+    id("com.android.library") version Versions.androidGradlePlugin apply false
     id("org.springframework.boot") version Versions.springBootGradlePlugin apply false
     id("com.google.osdetector") version Versions.osDetectorGradlePlugin apply false
 
