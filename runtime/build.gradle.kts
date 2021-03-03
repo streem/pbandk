@@ -60,12 +60,8 @@ kotlin {
             }
         }
 
-        val commonJvmAndroid = create("commonJvmAndroid") {
-            dependsOn(commonMain)
-        }
-
         val androidMain by getting {
-            dependsOn(commonJvmAndroid)
+            kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
                 api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
@@ -80,7 +76,7 @@ kotlin {
         }
 
         val jvmMain by getting {
-            dependsOn(commonJvmAndroid)
+            kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
                 api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
