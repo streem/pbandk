@@ -72,6 +72,7 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.12")
+                runtimeOnly("org.robolectric:android-all:10-robolectric-5803371")
             }
         }
 
