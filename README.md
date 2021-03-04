@@ -340,6 +340,9 @@ dependencies {
     // For Kotlin/JVM sourcesets/projects:
     implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.10.0-SNAPSHOT")
 
+    // For Android sourcesets/projects:
+    implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0-SNAPSHOT")
+
     // For Kotlin/JS sourcesets/projects:
     implementation("pro.streem.pbandk:pbandk-runtime-js:0.10.0-SNAPSHOT")
 
@@ -348,7 +351,7 @@ dependencies {
 }
 ```
 
-It has a dependency on the Google Protobuf Java library. The code targets Java 1.6 to be Android friendly.
+It has a dependency on the Google Protobuf Java library. The Android artifact supports SDK 21 or higher.
 
 In addition, support for [Kotlin's `@OptIn` annotation](https://kotlinlang.org/docs/reference/opt-in-requirements.html)
 should be enabled in order to avoid compiler warnings in the generated code:
