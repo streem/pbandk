@@ -9,6 +9,6 @@ object Versions {
     const val springBootGradlePlugin = "2.3.7.RELEASE"
     const val osDetectorGradlePlugin = "1.6.2"
     const val androidGradlePlugin = "4.1.2"
-    const val androidMinSdk = 14
+    const val androidMinSdk = 21
     const val androidTargetSdk = 30
 }
