@@ -71,7 +71,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.12")
+                implementation("junit:junit:${Versions.junit}")
                 runtimeOnly("org.robolectric:android-all:${Versions.robolectric}")
             }
         }
@@ -88,7 +88,7 @@ kotlin {
                 implementation(project(":jvm-test-types"))
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.12")
+                implementation("junit:junit:${Versions.junit}")
             }
         }
 
