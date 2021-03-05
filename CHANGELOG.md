@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * `MessageDescriptor` (available via `Message.descriptor` or `Message.Companion.descriptor`) is now part of the public API. Initially only `MessageDescriptor.fields` is public, which provides access to descriptors for all of the message's fields. Additional properties of the message descriptor will be exposed in future versions. Please file an issue on GitHub if there are specific properties you would like to have access to. (PR [#103])
 * `FieldDescriptor` (available via `MessageDescriptor.fields`) is now part of the public API. Initially, the field's `name` and `options` are public, allowing access to custom options defined on the field in the `.proto` file. The field's `value` accessor is also public, though this API will probably change before the final 0.10.0 release. (PR [#103])
 * Add the ability to unit test the output of `CodeGenerator` (PR [#117], fixes [#48]) (thanks @nbaztec)
-* Added a dedicated Android artifact `pbandk-runtime-android` of the `PBandK` runtime. To migrate to this new artifact, replace `implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.1")` with `implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.10.0")` (PR [#124], fixes [#75]) (thanks @jeroenmols)
+* Added a dedicated Android artifact `pbandk-runtime-android` of the `PBandK` runtime. To migrate to this new artifact, replace `implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.1")` with `implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0")` (PR [#124], fixes [#75]) (thanks @jeroenmols)
 
 ### Changed
 
