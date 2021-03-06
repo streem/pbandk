@@ -2,14 +2,24 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
+    id("com.android.library")
     `maven-publish`
+}
+
+repositories {
+    google()
 }
 
 kotlin {
 
-    jvm {
-        withJava()
+    android {
+        publishLibraryVariants("release")
+        mavenPublication {
+            this.artifactId = "pbandk-$artifactId"
+        }
     }
+
+    jvm()
 
     js {
         useCommonJs()
@@ -27,7 +37,7 @@ kotlin {
     macosX64()
     linuxX64()
 
-   sourceSets {
+    sourceSets {
         all {
             languageSettings.enableLanguageFeature("InlineClasses")
 
@@ -50,7 +60,24 @@ kotlin {
             }
         }
 
+        val androidMain by getting {
+            kotlin.srcDir("src/commonJvmAndroid/kotlin")
+            dependencies {
+                api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+            }
+        }
+
+        val androidTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:${Versions.junit}")
+                runtimeOnly("org.robolectric:android-all:${Versions.robolectric}")
+            }
+        }
+
         val jvmMain by getting {
+            kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
                 api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
             }
@@ -58,9 +85,10 @@ kotlin {
 
         val jvmTest by getting {
             dependencies {
+                implementation(project(":jvm-test-types"))
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.12")
+                implementation("junit:junit:${Versions.junit}")
             }
         }
 
@@ -91,6 +119,15 @@ kotlin {
     }
 }
 
+android {
+    compileSdkVersion(Versions.androidTargetSdk)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(Versions.androidMinSdk)
+        targetSdkVersion(Versions.androidTargetSdk)
+    }
+}
+
 tasks {
     val generateWellKnownTypes by registering(KotlinProtocTask::class) {
         val protocPath = provider {
@@ -114,7 +151,8 @@ tasks {
 
     val generateJavaTestTypes by registering(ProtocTask::class) {
         includeDir.set(project.file("src/commonTest/proto"))
-        outputDir.set(project.file("src/jvmTest/java"))
+        val outputProject = rootProject.findProject("jvm-test-types" )!!
+        outputDir.set(outputProject.file("src/main/java"))
         plugin.set("java")
         protoFileSubdir("pbandk/testpb")
     }
