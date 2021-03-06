@@ -336,19 +336,19 @@ repositories {
 
 dependencies {
     // For the `common` sourceset in a Kotlin Multiplatform project:
-    implementation("pro.streem.pbandk:pbandk-runtime-common:0.10.0-beta.1")
+    implementation("pro.streem.pbandk:pbandk-runtime-common:0.10.0-SNAPSHOT")
 
     // For Kotlin/JVM sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.10.0-beta.1")
+    implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.10.0-SNAPSHOT")
 
     // For Android sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0-beta.1")
+    implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0-SNAPSHOT")
 
     // For Kotlin/JS sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-js:0.10.0-beta.1")
+    implementation("pro.streem.pbandk:pbandk-runtime-js:0.10.0-SNAPSHOT")
 
     // For Kotlin/Native sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-native:0.10.0-beta.1")
+    implementation("pro.streem.pbandk:pbandk-runtime-native:0.10.0-SNAPSHOT")
 }
 ```
 
@@ -374,7 +374,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.10.0-beta.1")
+    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib-jvm:0.10.0-SNAPSHOT")
 }
 ```
 
