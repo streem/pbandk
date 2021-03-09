@@ -1,6 +1,5 @@
 package pbandk.internal
 
-import pbandk.PbandkInternal
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
 

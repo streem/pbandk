@@ -15,12 +15,9 @@ plugins {
 
 configure<ApiValidationExtension> {
     ignoredProjects.addAll(
-        project.subprojects.map { it.name }.minus(
-            listOf(
-                "runtime"
-            )
-        )
+        project.subprojects.map { it.name }.minus(listOf("runtime"))
     )
+    nonPublicMarkers.add("pbandk.PbandkInternal")
 }
 
 allprojects {
