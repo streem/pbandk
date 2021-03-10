@@ -6,10 +6,13 @@ pluginManagement {
     }
     resolutionStrategy {
         eachPlugin {
-            if (requested.id.id == "binary-compatibility-validator") {
-                useModule("org.jetbrains.kotlinx:binary-compatibility-validator:${requested.version}")
-            } else if (requested.id.id == "com.android.application" || requested.id.id == "com.android.library") {
-                useModule("com.android.tools.build:gradle:${requested.version}")
+            when (requested.id.id) {
+                "binary-compatibility-validator" -> {
+                    useModule("org.jetbrains.kotlinx:binary-compatibility-validator:${requested.version}")
+                }
+                "com.android.application", "com.android.library" -> {
+                    useModule("com.android.tools.build:gradle:${requested.version}")
+                }
             }
         }
     }

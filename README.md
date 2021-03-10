@@ -12,7 +12,7 @@ It is built to work across multiple Kotlin platforms.
 **Features**
 
 * Clean data class generation
-* Works for JVM and JS, with experimental support for Native
+* Works for JVM, Android, and JS, with experimental support for Native
 * Support for proto2 and proto3 syntaxes
 * JSON serialization/deserialization following the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) (see https://github.com/streem/pbandk/issues/72 for some corner cases and Well-Known Types that are not handled yet)
 * Oneof's are properly handled as sealed classes
@@ -326,7 +326,7 @@ protoc \
 
 ### Runtime Library
 
-Pbandk's runtime library is a thin layer over the preferred Protobuf library for each platform. The libraries are
+Pbandk's runtime library provides a Kotlin layer over the preferred Protobuf library for each platform. The libraries are
 present on JCenter. Using Gradle:
 
 ```
@@ -342,7 +342,7 @@ dependencies {
     implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.10.0-SNAPSHOT")
 
     // For Android sourcesets/projects:
-    implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.10.0-SNAPSHOT")
 
     // For Kotlin/JS sourcesets/projects:
     implementation("pro.streem.pbandk:pbandk-runtime-js:0.10.0-SNAPSHOT")
@@ -352,7 +352,12 @@ dependencies {
 }
 ```
 
-It has a dependency on the Google Protobuf Java library. The Android artifact supports SDK 21 or higher.
+Pbandk has a dependency on the preferred Protobuf library on each platform:
+
+- JVM: Google Protobuf Java library.
+- Android: Google Protobuf Javalite library. The Android artifact supports SDK 21 or higher.
+- JS: protobuf.js.
+- Native: Pbandk uses its own pure-Kotlin protobuf implementation that is heavily based on the Google Protobuf Java library.
 
 In addition, support for [Kotlin's `@OptIn` annotation](https://kotlinlang.org/docs/reference/opt-in-requirements.html)
 should be enabled in order to avoid compiler warnings in the generated code:

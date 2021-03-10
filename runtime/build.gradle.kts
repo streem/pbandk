@@ -13,7 +13,7 @@ repositories {
 kotlin {
 
     android {
-        publishLibraryVariants("release")
+        publishAllLibraryVariants()
     }
 
     jvm()

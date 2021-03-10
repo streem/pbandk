@@ -4,7 +4,7 @@ object Versions {
     const val kotlinCoroutines = "1.4.2"
     const val kotlinSerialization = "1.1.0"
     const val protoc = "3.10.1"
-    const val protobufJava = "3.11.1"
+    const val protobufJava = "3.15.5"
     const val protobufJs = "6.10.2"
     const val springBootGradlePlugin = "2.3.7.RELEASE"
     const val osDetectorGradlePlugin = "1.6.2"
