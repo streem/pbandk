@@ -8,7 +8,7 @@ object Versions {
     const val protobufJs = "6.10.2"
     const val springBootGradlePlugin = "2.3.7.RELEASE"
     const val osDetectorGradlePlugin = "1.6.2"
-    const val robolectric = "10-robolectric-5803371" // Only update when Android Studio supports Java 11 (10-x requires Java 9)
+    const val robolectric = "10-robolectric-5803371" // Only update when Android Studio supports Java 11 (11-x requires Java 9)
     const val junit = "4.12"
     const val androidGradlePlugin = "4.1.2"
     const val androidMinSdk = 21
