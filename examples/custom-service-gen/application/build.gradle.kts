@@ -18,7 +18,7 @@ application {
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
-    implementation("pro.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
+    implementation("pro.streem.pbandk:pbandk-runtime:$pbandkVersion")
 }
 
 protobuf {
