@@ -23,7 +23,7 @@ application {
 }
 
 dependencies {
-    implementation("pro.streem.pbandk:pbandk-runtime-jvm:$pbandkVersion")
+    implementation("pro.streem.pbandk:pbandk-runtime:$pbandkVersion")
 }
 
 protobuf {
