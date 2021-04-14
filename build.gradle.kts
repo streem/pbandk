@@ -22,7 +22,7 @@ configure<ApiValidationExtension> {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 
     tasks.withType<AbstractTestTask> {
