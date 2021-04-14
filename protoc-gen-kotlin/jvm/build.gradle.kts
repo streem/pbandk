@@ -5,6 +5,7 @@ plugins {
     kotlin("jvm")
     application
     `maven-publish`
+    signing
     id("org.springframework.boot")
 }
 
@@ -38,5 +39,9 @@ publishing {
 
             addMavenCentralRepository(project, this)
         }
+    }
+
+    signing {
+        addMavenCentralSigning()
     }
 }

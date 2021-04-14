@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     `maven-publish`
+    signing
     id("com.google.osdetector")
 }
 
@@ -87,5 +88,9 @@ publishing {
             configureForPbandk()
         }
         addMavenCentralRepository(project, this)
+    }
+
+    signing {
+        addMavenCentralSigning()
     }
 }
