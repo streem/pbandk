@@ -14,7 +14,7 @@ repositories {
     if (System.getenv("CI") == "true") {
         mavenLocal()
     }
-    jcenter()
+    mavenCentral()
 }
 
 application {

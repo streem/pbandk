@@ -12,7 +12,7 @@ subprojects {
         if (System.getenv("CI") == "true") {
             mavenLocal()
         }
-        jcenter()
+        mavenCentral()
     }
 
     tasks.withType<KotlinCompile>().configureEach {

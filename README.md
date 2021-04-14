@@ -333,7 +333,7 @@ present on JCenter. Using Gradle:
 
 ```
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
