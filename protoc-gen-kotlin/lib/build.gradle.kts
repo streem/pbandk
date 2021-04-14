@@ -86,6 +86,6 @@ publishing {
         pom {
             configureForPbandk()
         }
-        addBintrayRepository(project, this)
+        addMavenCentralRepository(project, this)
     }
 }

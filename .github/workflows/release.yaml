@@ -5,8 +5,8 @@ env:
   JAVA_VERSION: 11
   NODEJS_VERSION: 14
   PROTOBUF_VERSION: 3.10.1
-  BINTRAY_API_USER: ${{ secrets.BINTRAY_API_USER }}
-  BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+  SONATYPE_API_USER: ${{ secrets.SONATYPE_API_USER }}
+  SONATYPE_API_KEY: ${{ secrets.SONATYPE_API_KEY }}
 
 on:
   push:
@@ -241,5 +241,5 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
 
-      - name: Publish to Bintray
-        run: ./gradlew clean publishToBintrayRepository
+      - name: Publish to Maven Central
+        run: ./gradlew clean publishToMavenCentralRepository
