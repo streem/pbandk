@@ -22,7 +22,7 @@ fun PublishingExtension.addMavenCentralRepository(project: Project, publication:
 
     val mavenRepo = repositories.maven {
         name = "sonatype$camelCaseArtifactId"
-        url = URI("https://oss.sonatype.org/service/local/staging/deploy/maven2")
+        url = URI("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
 
         credentials {
             username = sonatypeApiUser.get()
