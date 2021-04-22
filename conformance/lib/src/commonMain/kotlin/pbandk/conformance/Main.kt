@@ -9,6 +9,7 @@ import pbandk.json.encodeToJsonString
 import pbandk.json.decodeFromJsonString
 import pbandk.encodeToByteArray
 import pbandk.decodeFromByteArray
+import kotlin.js.JsExport
 
 var logDebug = false
 
@@ -16,6 +17,7 @@ inline fun debug(fn: () -> String) {
     if (logDebug) Platform.stderrPrintln(fn())
 }
 
+@JsExport
 fun main() = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
