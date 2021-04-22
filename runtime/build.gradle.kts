@@ -45,6 +45,7 @@ kotlin {
             languageSettings.useExperimentalAnnotation("pbandk.PbandkInternal")
             languageSettings.useExperimentalAnnotation("pbandk.PublicForGeneratedCode")
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+            languageSettings.useExperimentalAnnotation("kotlin.js.ExperimentalJsExport")
         }
 
         val commonMain by getting {

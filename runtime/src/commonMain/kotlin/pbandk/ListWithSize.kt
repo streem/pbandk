@@ -1,7 +1,12 @@
 package pbandk
 
+import kotlin.js.JsExport
+import kotlin.js.JsName
+
 @PublicForGeneratedCode
+@JsExport
 class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int?) : List<T> by list {
+    @JsName("initWithSizeFn")
     constructor(list: List<T>, sizeFn: (T) -> Int) : this(list, list.sumBy(sizeFn))
 
     override fun equals(other: Any?) = list == other
@@ -10,6 +15,7 @@ class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int
 
     @PublicForGeneratedCode
     class Builder<T> private constructor(val list: ArrayList<T>): MutableList<T> by list {
+        @JsName("init")
         constructor() : this(ArrayList())
 
         fun fixed() = ListWithSize(list.also { it.trimToSize() }, protoSize = null)
