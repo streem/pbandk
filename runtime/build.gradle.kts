@@ -177,11 +177,6 @@ afterEvaluate {
             pom {
                 configureForPbandk()
             }
-            addMavenCentralRepository(project, this)
         }
-    }
-
-    signing {
-        addMavenCentralSigning()
     }
 }

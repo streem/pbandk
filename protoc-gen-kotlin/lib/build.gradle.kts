@@ -87,10 +87,5 @@ publishing {
         pom {
             configureForPbandk()
         }
-        addMavenCentralRepository(project, this)
-    }
-
-    signing {
-        addMavenCentralSigning()
     }
 }
