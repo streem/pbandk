@@ -12,7 +12,8 @@ open class CodeGenerator(
     protected var indent = ""
 
     fun generate(): String {
-        line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
+        line("@file:OptIn(pbandk.PublicForGeneratedCode::class, kotlin.js.ExperimentalJsExport::class)")
+        line("@file:kotlin.js.JsExport").line()
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach { writeType(it) }
         file.extensions.forEach { writeExtension(it) }
