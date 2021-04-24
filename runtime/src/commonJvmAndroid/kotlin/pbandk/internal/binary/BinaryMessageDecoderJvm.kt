@@ -9,8 +9,12 @@ internal actual fun BinaryMessageDecoder.Companion.fromByteArray(arr: ByteArray)
     return BinaryMessageDecoder(CodedStreamBinaryWireDecoder(CodedInputStream.newInstance(arr)))
 }
 
-internal fun BinaryMessageDecoder.Companion.fromInputStream(stream: InputStream): MessageDecoder {
-    return BinaryMessageDecoder(CodedStreamBinaryWireDecoder(CodedInputStream.newInstance(stream)))
+internal fun BinaryMessageDecoder.Companion.fromInputStream(stream: InputStream, expectedSize: Int = -1): MessageDecoder {
+    val codedInputStream = CodedInputStream.newInstance(stream)
+    if (expectedSize != -1) {
+        codedInputStream.setSizeLimit(expectedSize)
+    }
+    return BinaryMessageDecoder(CodedStreamBinaryWireDecoder(codedInputStream))
 }
 
 internal fun BinaryMessageDecoder.Companion.fromByteBuffer(buffer: ByteBuffer): MessageDecoder {

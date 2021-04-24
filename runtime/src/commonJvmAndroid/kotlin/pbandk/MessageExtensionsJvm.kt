@@ -12,8 +12,8 @@ fun <T : Message> T.encodeToStream(stream: OutputStream) {
     codedOutputStream.flush()
 }
 
-fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStream): T =
-    decodeWith(BinaryMessageDecoder.fromInputStream(stream))
+fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStream, expectedSize: Int = -1): T =
+    decodeWith(BinaryMessageDecoder.fromInputStream(stream, expectedSize))
 
 fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteBuffer): T =
     decodeWith(BinaryMessageDecoder.fromByteBuffer(buffer))
