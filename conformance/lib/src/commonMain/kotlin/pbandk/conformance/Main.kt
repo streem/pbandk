@@ -20,21 +20,17 @@ fun main() = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
-
-        ConformanceResponse(res).encodeToByteArray().also { bytes ->
-            Platform.stdoutWriteIntLE(bytes.size)
-            Platform.stdoutWriteFull(bytes)
-        }
+        Platform.stdoutWriteLengthDelimitedMessage(ConformanceResponse(res))
     }
 }
 
 @OptIn(ExperimentalProtoJson::class)
 suspend fun doTestIo(): ConformanceResponse.Result<*>? {
     // Read the request (starting with by size)
-    val req = Platform.doTry({
-        val size = Platform.stdinReadIntLE()?.also { debug { "Reading $it bytes" } } ?: return null
-        ConformanceRequest.decodeFromByteArray(Platform.stdinReadFull(size)).also { debug { "Request: $it" } }
-    }) { err -> return ConformanceResponse.Result.RuntimeError("Failed reading request: $err") }
+    val req = Platform.doTry({ Platform.stdinReadLengthDelimitedMessage(ConformanceRequest.Companion) }) { err ->
+        return ConformanceResponse.Result.RuntimeError("Failed reading request: $err")
+    } ?: return null
+    debug { "Request: $req" }
     // Parse
     val parsed = Platform.doTry({
         val typeComp = when (req.messageType) {

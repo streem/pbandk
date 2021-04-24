@@ -37,6 +37,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.runBlocking
+import pbandk.Message
+import pbandk.decodeFromByteArray
+import pbandk.encodeToByteArray
 
 internal class PosixException(val errno: Int) : RuntimeException(
     strerror(errno)?.toString() ?: "Error with unknown errno: $errno"
@@ -49,7 +52,7 @@ actual object Platform {
         write(2, cstr, cstr.size.toULong())
     }
 
-    actual suspend fun stdinReadIntLE() = withContext(Dispatchers.Main) {
+    private suspend fun stdinReadIntLE() = withContext(Dispatchers.Main) {
         ByteArray(4).let {
             if (readBytes(0, it) != 4) null else {
                 it.foldRight(0) { byte, acc ->
@@ -70,16 +73,22 @@ actual object Platform {
         }
     }
 
-    actual suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.Main) {
+    private suspend fun stdinReadFull(size: Int) = withContext(Dispatchers.Main) {
         ByteArray(size).also {
             require(readBytes(0, it) == it.size) { "Unable to read full byte array"}
         }
     }
 
-    actual fun stdoutWriteIntLE(v: Int) =
+    actual suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
+        val size = stdinReadIntLE() ?: return null
+        debug { "Reading $size bytes" }
+        return companion.decodeFromByteArray(stdinReadFull(size))
+    }
+
+    private fun stdoutWriteIntLE(v: Int) =
             stdoutWriteFull (ByteArray(4) { (v shr (8 * it)).toByte() })
 
-    actual fun stdoutWriteFull(arr: ByteArray) {
+    private fun stdoutWriteFull(arr: ByteArray) {
         arr.usePinned {
             val bytesWritten = write(1, it.addressOf(0), arr.size.toULong())
 
@@ -89,6 +98,13 @@ actual object Platform {
             } else if (bytesWritten < arr.size) {
                 throw RuntimeException("Tried to write ${arr.size} bytes but only wrote $bytesWritten bytes")
             }
+        }
+    }
+
+    actual fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
+        message.encodeToByteArray().also { bytes ->
+            stdoutWriteIntLE(bytes.size)
+            stdoutWriteFull(bytes)
         }
     }
 
