@@ -43,9 +43,15 @@ interface Message {
 
 fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 
+/**
+ * Encode this message to a ByteArray using the protocol buffer binary encoding.
+ */
 fun <T : Message> T.encodeToByteArray(): ByteArray =
     BinaryMessageEncoder.allocate(protoSize).also { encodeWith(it) }.toByteArray()
 
+/**
+ * Decode a binary protocol buffer message from [arr].
+ */
 fun <T : Message> Message.Companion<T>.decodeFromByteArray(arr: ByteArray): T =
     decodeWith(BinaryMessageDecoder.fromByteArray(arr))
 

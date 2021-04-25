@@ -61,8 +61,12 @@ actual object Platform {
                 }
             }
             "STREAM" -> {
-                stdoutWriteIntLE(message.protoSize)
-                message.encodeToStream(System.out)
+                val expectedSize = message.protoSize
+                stdoutWriteIntLE(expectedSize)
+                val actualSize = message.encodeToStream(System.out)
+                check(expectedSize == actualSize) {
+                    "Message was supposed to serialize to $expectedSize bytes but only used $actualSize bytes"
+                }
             }
             else -> throw IllegalArgumentException(
                 "Unknown value for PBANDK_CONFORMANCE_JVM_IO environment variable: $ioImplementation"

@@ -53,18 +53,11 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
             if (length == 0) {
                 return byteArrayOf()
             } else {
-                throw InvalidProtocolBufferException(
-                    "Encountered an embedded string or message which claimed to have negative size."
-                )
+                throw InvalidProtocolBufferException.negativeSize()
             }
         }
 
-        throw InvalidProtocolBufferException(
-            "While parsing a protocol message, the input ended unexpectedly "
-                    + "in the middle of a field.  This could mean either that the "
-                    + "input has been truncated or that an embedded message "
-                    + "misreported its own length."
-        )
+        throw InvalidProtocolBufferException.truncatedMessage()
     }
 
     private fun readRawByte(): Byte = readRawBytes(1)[0]
@@ -88,7 +81,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
                 return result
             }
         }
-        throw InvalidProtocolBufferException("Encountered a malformed varint.")
+        throw InvalidProtocolBufferException.malformedVarint()
     }
 
     private fun decodeZigZag32(n: Int): Int = n.ushr(1) xor -(n and 1)
@@ -114,7 +107,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
             if (readRawByte() >= 0)
                 return
         }
-        throw InvalidProtocolBufferException("Encountered a malformed varint.")
+        throw InvalidProtocolBufferException.malformedVarint()
     }
 
     private fun skipMessage() {
@@ -128,7 +121,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
 
     private fun checkLastTagWas(value: Tag) {
         if (lastTag != value) {
-            throw InvalidProtocolBufferException("Protocol message end-group tag did not match expected tag.")
+            throw InvalidProtocolBufferException.invalidEndTag()
         }
     }
 
@@ -156,7 +149,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
                 return true
             }
             WireType.END_GROUP -> return false
-            else -> throw InvalidProtocolBufferException("Protocol message tag had invalid wire type.")
+            else -> throw InvalidProtocolBufferException.invalidWireType()
         }
     }
 
@@ -170,7 +163,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
         if (lastTag.fieldNumber == 0) {
             // If we actually read zero (or any tag number corresponding to field
             // number zero), that's not a valid tag.
-            throw InvalidProtocolBufferException("Protocol message contained an invalid tag (zero).")
+            throw InvalidProtocolBufferException.invalidTag()
         }
         return lastTag
     }
@@ -182,7 +175,7 @@ internal class KotlinBinaryWireDecoder(private val wireReader: WireReader) : Bin
             result[i] = b
             if (b >= 0) return result.copyOf(i + 1)
         }
-        throw InvalidProtocolBufferException("Encountered a malformed varint.")
+        throw InvalidProtocolBufferException.malformedVarint()
     }
 
     private fun readLengthDelimitedRawBytes(): ByteArray {

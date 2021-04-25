@@ -160,8 +160,12 @@ public final class pbandk/FieldDescriptor$Type$Repeated : pbandk/FieldDescriptor
 }
 
 public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeException {
+	public static final field Companion Lpbandk/InvalidProtocolBufferException$Companion;
 	public fun <init> (Ljava/lang/String;)V
 	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class pbandk/InvalidProtocolBufferException$Companion {
 }
 
 public final class pbandk/ListWithSize : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
@@ -291,8 +295,9 @@ public abstract interface class pbandk/MessageEncoder {
 
 public final class pbandk/MessageExtensionsJvmKt {
 	public static final fun decodeFromByteBuffer (Lpbandk/Message$Companion;Ljava/nio/ByteBuffer;)Lpbandk/Message;
-	public static final fun decodeFromStream (Lpbandk/Message$Companion;Ljava/io/InputStream;)Lpbandk/Message;
-	public static final fun encodeToStream (Lpbandk/Message;Ljava/io/OutputStream;)V
+	public static final fun decodeFromStream (Lpbandk/Message$Companion;Ljava/io/InputStream;I)Lpbandk/Message;
+	public static synthetic fun decodeFromStream$default (Lpbandk/Message$Companion;Ljava/io/InputStream;IILjava/lang/Object;)Lpbandk/Message;
+	public static final fun encodeToStream (Lpbandk/Message;Ljava/io/OutputStream;)I
 }
 
 public final class pbandk/MessageKt {

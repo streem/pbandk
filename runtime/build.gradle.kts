@@ -61,9 +61,6 @@ kotlin {
 
         val androidMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
-            dependencies {
-                api("com.google.protobuf:protobuf-javalite:${Versions.protobufJava}")
-            }
         }
 
         val androidTest by getting {
@@ -77,9 +74,6 @@ kotlin {
 
         val jvmMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
-            dependencies {
-                api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
-            }
         }
 
         val jvmTest by getting {
