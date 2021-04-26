@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * `pbandk-runtime` on JVM and Android no longer depends on the `protobuf-java` library. It instead uses the same pure-Kotlin implementation of protobuf primitives that is used by the `pbandk-runtime` on Kotlin/Native. This avoids dependency conflicts with other libraries (such as `com.google.firebase:firebase-perf` on Android). (PRs [#124], [#148], [#151], fixes [#91], [#138]) (thanks @jeroenmols)
 * Updated protobuf well-known types to the versions shipped with protobuf 3.15.5.
 * Updated `pbandk-runtime-js` dependency on `protobuf.js` to `6.10.2`.
+* Building pbandk no longer requires downloading and compiling protobuf. Running conformance tests still requires compiling protobuf however.
 
 ### Fixed
 

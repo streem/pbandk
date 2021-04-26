@@ -10,8 +10,8 @@ object Versions {
     const val nexusPublishGradlePlugin = "1.1.0"
     const val robolectric = "10-robolectric-5803371" // Only update when Android Studio supports Java 11 (11-x requires Java 9)
     const val osDetectorGradlePlugin = "1.6.2"
-    const val protoc = "3.10.1"
-    const val protobufJava = "3.15.5"
+    const val protoc = "3.15.5"
+    const val protobufJava = protoc
     const val protobufJs = "6.10.2"
     const val springBootGradlePlugin = "2.3.7.RELEASE"
 }

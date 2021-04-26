@@ -4,7 +4,7 @@ env:
   GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dkotlin.compiler.execution.strategy=in-process'
   JAVA_VERSION: 11
   NODEJS_VERSION: 14
-  PROTOBUF_VERSION: 3.10.1
+  PROTOBUF_CONFORMANCE_VERSION: 3.10.1
 
 on:
   pull_request:
@@ -42,32 +42,9 @@ jobs:
       - name: Build project and run tests
         run: ./gradlew build --stacktrace
 
-      - name: Cache protobuf ${{ env.PROTOBUF_VERSION }}
-        uses: actions/cache@v2
-        id: cache-protobuf
-        with:
-          path: ~/protobuf
-          key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_VERSION }}
-
-      - name: Build protoc and protobuf conformance-test-runner
-        if: steps.cache-protobuf.outputs.cache-hit != 'true'
-        run: |
-          cd ~
-          curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v${{ env.PROTOBUF_VERSION }}/protobuf-all-${{ env.PROTOBUF_VERSION }}.tar.gz
-          tar xzvf protobuf-all-${{ env.PROTOBUF_VERSION }}.tar.gz
-          mv protobuf-${{ env.PROTOBUF_VERSION }} protobuf
-          cd protobuf
-          ./configure --prefix="$(pwd)/install"
-          make
-          make install
-          cd conformance
-          make
-
       - name: Ensure bundled types are up-to-date
         run: |
-          export PATH="$PATH:$HOME/protobuf/install/bin"
-          ./gradlew -Dprotoc.path=$HOME/protobuf/install \
-            :runtime:generateWellKnownTypes \
+          ./gradlew :runtime:generateWellKnownTypes \
             :runtime:generateTestTypes \
             :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto \
             :conformance:conformance-lib:generateProto
@@ -127,8 +104,32 @@ jobs:
           name: error-report
           path: build-reports.zip
 
+  build-conformance-test-runner:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Cache protobuf conformance-test-runner ${{ env.PROTOBUF_CONFORMANCE_VERSION }}
+        uses: actions/cache@v2
+        id: cache-protobuf
+        with:
+          path: ~/protobuf
+          key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }}
+
+      - name: Build protobuf conformance-test-runner
+        if: steps.cache-protobuf.outputs.cache-hit != 'true'
+        run: |
+          cd ~
+          curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v${{ env.PROTOBUF_CONFORMANCE_VERSION }}/protobuf-all-${{ env.PROTOBUF_CONFORMANCE_VERSION }}.tar.gz
+          tar xzvf protobuf-all-${{ env.PROTOBUF_CONFORMANCE_VERSION }}.tar.gz
+          mv protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }} protobuf
+          cd protobuf
+          ./configure
+          make
+          cd conformance
+          make
+
   conformance:
-    needs: build
+    needs: [build, build-conformance-test-runner]
     strategy:
       matrix:
         platform: [jvm, js, linux]
@@ -148,11 +149,11 @@ jobs:
         with:
           node-version: ${{ env.NODEJS_VERSION }}
 
-      - name: Cache protobuf ${{ env.PROTOBUF_VERSION }}
+      - name: Cache protobuf conformance-test-runner ${{ env.PROTOBUF_CONFORMANCE_VERSION }}
         uses: actions/cache@v2
         with:
           path: ~/protobuf
-          key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_VERSION }}
+          key: ${{ runner.os }}-protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }}
 
       - name: Download conformance test files
         uses: actions/download-artifact@v2
