@@ -13,6 +13,24 @@ repositories {
     google()
 }
 
+val wellKnownTypes by configurations.creating {
+    isTransitive = false
+}
+
+dependencies {
+    wellKnownTypes("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+}
+
+val extractWellKnownTypeProtos by tasks.registering(Sync::class) {
+    dependsOn(wellKnownTypes)
+    from({
+        wellKnownTypes.filter { it.extension == "jar" }.map { zipTree(it) }
+    })
+    include("**/*.proto")
+    includeEmptyDirs = false
+    into(layout.buildDirectory.dir("bundled-protos"))
+}
+
 kotlin {
     android {
         publishAllLibraryVariants()
@@ -47,6 +65,7 @@ kotlin {
         }
 
         val commonMain by getting {
+            resources.srcDir(extractWellKnownTypeProtos)
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
             }
