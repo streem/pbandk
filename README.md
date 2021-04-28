@@ -329,10 +329,13 @@ protoc \
 ### Runtime Library
 
 Pbandk's runtime library provides a Kotlin layer over the preferred Protobuf library for each platform. The libraries are
-present on JCenter. Using Gradle:
+present on Maven Central. Using Gradle:
 
 ```
 repositories {
+    // This repository is only needed if using a SNAPSHOT version of pbandk
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+
     mavenCentral()
 }
 

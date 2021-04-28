@@ -5,12 +5,15 @@ env:
   JAVA_VERSION: 11
   NODEJS_VERSION: 14
   PROTOBUF_VERSION: 3.10.1
-  SONATYPE_PGP_KEY_BASE64: ${{ secrets.SONATYPE_PGP_KEY_BASE64 }}
+  SIGNING_KEY_ASCII_ARMORED: ${{ secrets.SIGNING_KEY_ASCII_ARMORED }}
   SONATYPE_API_USER: ${{ secrets.SONATYPE_API_USER }}
   SONATYPE_API_KEY: ${{ secrets.SONATYPE_API_KEY }}
 
 on:
   push:
+    branches:
+      - master
+      - v[0-9]+.[0-9]+.x
     tags:
       - v[0-9]+.[0-9]+.[0-9]+
       - v[0-9]+.[0-9]+.[0-9]+-*
@@ -242,5 +245,9 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
 
+      # This will publish to the OSSRH Snapshot repository rather than Maven Central if the version
+      # name ends with -SNAPSHOT.
+      # The `closeAndReleaseSonatypeStagingRepository` task should be a no-op if publishing a
+      # snapshot.
       - name: Publish to Maven Central
-        run: ./gradlew clean publishToMavenCentralRepository
+        run: ./gradlew clean publishToSonatype closeAndReleaseSonatypeStagingRepository

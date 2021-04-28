@@ -5,6 +5,8 @@ plugins {
     id("com.google.osdetector")
 }
 
+description = "Kotlin code generator for Protocol Buffers and library for writing code generator plugins."
+
 kotlin {
     jvm {
         compilations.all {
@@ -81,11 +83,17 @@ tasks {
     getByName("jvmTest").dependsOn(generateTestProtoDescriptor)
 }
 
+// Stub javadoc artifact to satisfy Maven Central requirements. It's only required for the jvm target.
+// TODO: replace this with a real javadoc jar generated with Dokka
+val jvmJavadocJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
+}
+
 publishing {
     publications.withType<MavenPublication>().configureEach {
-        description = "Library for pbandk protoc plugin plugins"
-        pom {
-            configureForPbandk()
+        if (artifactId == "protoc-gen-kotlin-lib-jvm") {
+            artifact(jvmJavadocJar)
         }
+        configurePbandkPom(project.description!!)
     }
 }
