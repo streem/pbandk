@@ -13,6 +13,24 @@ repositories {
     google()
 }
 
+val wellKnownTypes by configurations.creating {
+    isTransitive = false
+}
+
+dependencies {
+    wellKnownTypes("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+}
+
+val extractWellKnownTypeProtos by tasks.registering(Sync::class) {
+    dependsOn(wellKnownTypes)
+    from({
+        wellKnownTypes.filter { it.extension == "jar" }.map { zipTree(it) }
+    })
+    include("**/*.proto")
+    includeEmptyDirs = false
+    into(layout.buildDirectory.dir("bundled-protos"))
+}
+
 kotlin {
     android {
         publishAllLibraryVariants()
@@ -47,6 +65,7 @@ kotlin {
         }
 
         val commonMain by getting {
+            resources.srcDir(extractWellKnownTypeProtos)
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
             }
@@ -61,9 +80,6 @@ kotlin {
 
         val androidMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
-            dependencies {
-                api("com.google.protobuf:protobuf-javalite:${Versions.protobufJava}")
-            }
         }
 
         val androidTest by getting {
@@ -77,9 +93,6 @@ kotlin {
 
         val jvmMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
-            dependencies {
-                api("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
-            }
         }
 
         val jvmTest by getting {
@@ -129,11 +142,7 @@ android {
 
 tasks {
     val generateWellKnownTypes by registering(KotlinProtocTask::class) {
-        val protocPath = provider {
-            System.getProperty("protoc.path")
-                ?: throw InvalidUserDataException("System property protoc.path must be set")
-        }.map { rootProject.layout.projectDirectory.dir(it) }
-        includeDir.set(protocPath.map { it.dir("include") })
+        includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.wkt")
         logLevel.set("debug")

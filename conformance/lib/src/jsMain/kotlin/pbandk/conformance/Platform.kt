@@ -8,6 +8,9 @@ import pbandk.internal.asUint8Array
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 import kotlinx.coroutines.*
+import pbandk.Message
+import pbandk.decodeFromByteArray
+import pbandk.encodeToByteArray
 
 internal external interface StdStream {
     val fd: Int
@@ -84,10 +87,16 @@ actual object Platform {
         }
     }
 
-    actual suspend fun stdinReadIntLE() = stdinReadBuffer(4)?.readInt32LE(0)
+    private suspend fun stdinReadIntLE() = stdinReadBuffer(4)?.readInt32LE(0)
 
-    actual suspend fun stdinReadFull(size: Int) =
+    private suspend fun stdinReadFull(size: Int) =
         stdinReadBuffer(size)?.asByteArray() ?: error("Failed to read $size bytes from stdin")
+
+    actual suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T? {
+        val size = stdinReadIntLE() ?: return null
+        debug { "Reading $size bytes" }
+        return companion.decodeFromByteArray(stdinReadFull(size))
+    }
 
     private fun stdoutWriteBuffer(buf: Uint8Array) {
         var total = 0
@@ -96,8 +105,15 @@ actual object Platform {
         }
     }
 
-    actual fun stdoutWriteIntLE(v: Int) = stdoutWriteBuffer(Buffer.alloc(4).also { it.writeInt32LE(v, 0) })
-    actual fun stdoutWriteFull(arr: ByteArray) = stdoutWriteBuffer(arr.asUint8Array())
+    private fun stdoutWriteIntLE(v: Int) = stdoutWriteBuffer(Buffer.alloc(4).also { it.writeInt32LE(v, 0) })
+    private fun stdoutWriteFull(arr: ByteArray) = stdoutWriteBuffer(arr.asUint8Array())
+
+    actual fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T) {
+        message.encodeToByteArray().also { bytes ->
+            stdoutWriteIntLE(bytes.size)
+            stdoutWriteFull(bytes)
+        }
+    }
 
     actual inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T) =
         try {

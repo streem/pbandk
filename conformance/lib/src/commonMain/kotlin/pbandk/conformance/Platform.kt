@@ -1,15 +1,12 @@
 package pbandk.conformance
 
 import kotlinx.coroutines.CoroutineScope
+import pbandk.Message
 
 expect object Platform {
     fun stderrPrintln(str: String)
-
-    suspend fun stdinReadIntLE(): Int?
-    suspend fun stdinReadFull(size: Int): ByteArray
-
-    fun stdoutWriteIntLE(v: Int)
-    fun stdoutWriteFull(arr: ByteArray)
+    suspend fun <T : Message> stdinReadLengthDelimitedMessage(companion: Message.Companion<T>): T?
+    fun <T : Message> stdoutWriteLengthDelimitedMessage(message: T)
 
     inline fun <T> doTry(fn: () -> T, errFn: (Any) -> T): T
 

@@ -34,6 +34,12 @@ kotlin {
             }
         }
 
+        val jvmMain by getting {
+            dependencies {
+                implementation("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+            }
+        }
+
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test"))
