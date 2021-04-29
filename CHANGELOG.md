@@ -11,19 +11,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-* Support for protobuf [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions) on fields. Remaining work is tracked in [#65]. (PR [#103])
+* Experimental support for protobuf [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions) on fields. Remaining work is tracked in [#65]. (PR [#103])
     * Protobuf messages that declare an extension range now extend from `ExtendableMessage` rather than `Message`. `ExtendableMessage` defines a `getExtension(FieldDescriptor)` method that can be used to read an extension field (described by the provided `FieldDescriptor`) from a message.
     * Protobuf extension fields are defined as Kotlin extension properties on the extended class and can be accessed like any other Kotlin property.
 * `MessageDescriptor` (available via `Message.descriptor` or `Message.Companion.descriptor`) is now part of the public API. Initially only `MessageDescriptor.fields` is public, which provides access to descriptors for all of the message's fields. Additional properties of the message descriptor will be exposed in future versions. Please file an issue on GitHub if there are specific properties you would like to have access to. (PR [#103])
 * `FieldDescriptor` (available via `MessageDescriptor.fields`) is now part of the public API. Initially, the field's `name` and `options` are public, allowing access to custom options defined on the field in the `.proto` file. The field's `value` accessor is also public, though this API will probably change before the final 0.10.0 release. (PR [#103])
+* `Message.Companion.decodeFromStream()` now takes an optional `expectedSize` parameter to allow reading multiple messages from a single `InputStream`. The method will not read more than `expectedSize` bytes from the stream when decoding the message. (PR [#148])
 * Add the ability to unit test the output of `CodeGenerator` (PR [#117], fixes [#48]) (thanks @nbaztec)
 * Added a dedicated Android artifact `pbandk-runtime-android` of the `PBandK` runtime. To migrate to this new artifact, replace `implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.1")` with `implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0")` (PR [#124], fixes [#75]) (thanks @jeroenmols)
+* SNAPSHOT builds of the latest code on `master` are now available by including the https://s01.oss.sonatype.org/content/repositories/snapshots/ maven repository in your `build.gradle.kts` files (PR [#148]).
+* Conformance tests running on Kotlin/JVM can now be configured to use `ByteBuffer` or `InputStream`/`OutputStream` for their I/O instead of `ByteArray` by setting the `PBANDK_CONFORMANCE_JVM_IO` environment variable. (PR [#148])
 
 ### Changed
 
 * Updated to Kotlin 1.4. Projects that are still on Kotlin 1.3 should be able to continue using pbandk, but this configuration is only supported on a best-effort basis (please file a GitHub issue with any problems). Projects are encouraged to update to Kotlin 1.4. (PR [#114], fixes [#86])
+* **[BREAKING CHANGE]** Migrated the library from JCenter to Maven Central. Please make sure you have the `mavenCentral()` repository configured in your `build.gradle.kts` files (PRs [#143], [#144], fixes [#120]) (thanks @jeroenmols).
 * **[BREAKING CHANGE]** The API and implementation of `UnknownField` changed significantly. If you access the contents of unknown fields in your code, you will need to update to the new API. The unknown field no longer provides access to a decoded version of the field's wire type. Instead it only provides access to the raw binary encoding of the field. (PR [#103])
-* `pbandk-runtime` on Android now uses `protobuf-javalite` (instead of `protobuf-java`) to avoid dependency conflicts with other Android libraries such as `com.google.firebase:firebase-perf`. (PR [#124], fixes [#91]) (thanks @jeroenmols)
+* `Message.encodeToStream()` now returns the number of bytes that were written to the stream (previously it didn't return anything). (PR [#148])
+* `pbandk-runtime` on JVM and Android no longer depends on the `protobuf-java` library. It instead uses the same pure-Kotlin implementation of protobuf primitives that is used by the `pbandk-runtime` on Kotlin/Native. This avoids dependency conflicts with other libraries (such as `com.google.firebase:firebase-perf` on Android). (PRs [#124], [#148], fixes [#91], [#138]) (thanks @jeroenmols)
 * Updated `pbandk-runtime-js` dependency on `protobuf.js` to `6.10.2`.
 * Updated `pbandk-runtime-jvm` dependency on `protobuf-java` to `3.15.5`.
 
@@ -38,11 +43,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#75]: https://github.com/streem/pbandk/issues/75
 [#86]: https://github.com/streem/pbandk/issues/86
 [#91]: https://github.com/streem/pbandk/issues/91
+[#120]: https://github.com/streem/pbandk/issues/120
+[#138]: https://github.com/streem/pbandk/issues/138
 [#103]: https://github.com/streem/pbandk/pull/103
 [#114]: https://github.com/streem/pbandk/pull/114
 [#117]: https://github.com/streem/pbandk/pull/117
 [#124]: https://github.com/streem/pbandk/pull/124
 [#125]: https://github.com/streem/pbandk/pull/125
+[#143]: https://github.com/streem/pbandk/pull/143
+[#144]: https://github.com/streem/pbandk/pull/144
+[#148]: https://github.com/streem/pbandk/pull/148
 
 
 ## [0.9.1] - 2021-01-07
