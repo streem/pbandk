@@ -7,7 +7,7 @@
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
-*NOTE*: This is the documentation for the version of pbandk currently in development. Documentation for the latest stable version is available at https://github.com/streem/pbandk/blob/v0.9.1/README.md.
+**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.9.1/README.md.
 
 **Features**
 
@@ -17,7 +17,6 @@ It is built to work across multiple Kotlin platforms.
 * JSON serialization/deserialization following the [proto3 JSON spec](https://developers.google.com/protocol-buffers/docs/proto3#json) (see https://github.com/streem/pbandk/issues/72 for some corner cases and Well-Known Types that are not handled yet)
 * Oneof's are properly handled as sealed classes
 * Specialized support to handle wrappers from the well-known types (e.g. `StringValue`, `BoolValue`) as nullable primitives (`String?`, `Boolean?`, etc.)
-* JVM platform leverages [Protobuf's Java library](https://developers.google.com/protocol-buffers/docs/javatutorial) for best performance
 * JS platform leverages [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) for best performance
 * Support for custom service/gRPC code generator
 * Support for [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions)
@@ -348,10 +347,9 @@ dependencies {
 
 Pbandk has a dependency on the preferred Protobuf library on each platform:
 
-- JVM: Google Protobuf Java library.
 - Android: Google Protobuf Javalite library. The Android artifact supports SDK 21 or higher.
 - JS: protobuf.js.
-- Native: Pbandk uses its own pure-Kotlin protobuf implementation that is heavily based on the Google Protobuf Java library.
+- JVM and Native: Pbandk uses its own pure-Kotlin protobuf implementation that is heavily based on the Google Protobuf Java library.
 
 In addition, support for [Kotlin's `@OptIn` annotation](https://kotlinlang.org/docs/reference/opt-in-requirements.html)
 should be enabled in order to avoid compiler warnings in the generated code:
