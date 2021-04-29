@@ -4,14 +4,16 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     `maven-publish`
+    signing
 }
+
+description = "Kotlin runtime library for Protocol Buffers. It is built to work across multiple Kotlin platforms."
 
 repositories {
     google()
 }
 
 kotlin {
-
     android {
         publishAllLibraryVariants()
     }
@@ -167,16 +169,21 @@ tasks {
     }
 }
 
+// Stub javadoc artifact to satisfy Maven Central requirements. It's only required for the jvm target.
+// TODO: replace this with a real javadoc jar generated with Dokka
+val jvmJavadocJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
+}
+
 afterEvaluate {
     // This needs to be inside of `afterEvaluate` to work correctly with the Android Gradle plugin
     publishing {
         publications.withType<MavenPublication>().configureEach {
-            artifactId = "pbandk-$artifactId"
-            description = "Library for pbandk runtime protobuf code"
-            pom {
-                configureForPbandk()
+            if (artifactId == "runtime-jvm") {
+                artifact(jvmJavadocJar)
             }
-            addBintrayRepository(project, this)
+            artifactId = "pbandk-$artifactId"
+            configurePbandkPom(project.description!!)
         }
     }
 }

@@ -5,8 +5,11 @@ plugins {
     kotlin("jvm")
     application
     `maven-publish`
+    signing
     id("org.springframework.boot")
 }
+
+description = "Kotlin code generator for Protocol Buffers. This executable runs as a protoc plugin."
 
 application {
     mainClassName = "pbandk.gen.MainKt"
@@ -21,7 +24,7 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-tasks.getByName<BootJar>("bootJar") {
+val bootJar by tasks.getting(BootJar::class) {
     archiveClassifier.set("jvm8")
     launchScript()
 }
@@ -29,14 +32,8 @@ tasks.getByName<BootJar>("bootJar") {
 publishing {
     publications {
         create<MavenPublication>("bootJar") {
-            artifact(tasks.getByName("bootJar"))
-
-            description = "Executable for pbandk protoc plugin"
-            pom {
-                configureForPbandk()
-            }
-
-            addBintrayRepository(project, this)
+            artifact(bootJar)
+            configurePbandkPom(project.description!!)
         }
     }
 }

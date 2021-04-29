@@ -280,6 +280,8 @@ section below under "Usage" for more details.
 
 ### Generating Code
 
+> TODO change to Sonatype link after migrating
+
 Pbandk's code generator leverages `protoc`. Download the [latest
 protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
 Then download the [latest protoc-gen-kotlin self-executing jar
@@ -327,11 +329,14 @@ protoc \
 ### Runtime Library
 
 Pbandk's runtime library provides a Kotlin layer over the preferred Protobuf library for each platform. The libraries are
-present on JCenter. Using Gradle:
+present on Maven Central. Using Gradle:
 
 ```
 repositories {
-    jcenter()
+    // This repository is only needed if using a SNAPSHOT version of pbandk
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+
+    mavenCentral()
 }
 
 dependencies {
@@ -590,7 +595,7 @@ To create a new release:
 1. Commit the change. E.g.: `git commit -m "Bump to ${VERSION}" -a`.
 1. Tag the new version. E.g.: `git tag -a -m "See https://github.com/streem/pbandk/blob/v${VERSION}/CHANGELOG.md" "v${VERSION}"`.
 1. Push the changes to GitHub: `git push origin --follow-tags master`.
-1. Wait for CI to notice the new tag, build it, and upload it to Bintray.
+1. Wait for CI to notice the new tag, build it, and upload it to Maven Central.
 1. Create a new release on GitHub. Use the contents of the tag description as the release description. E.g.: `gh release create "v${VERSION}" -F <(git tag -l --format='%(contents)' "v${VERSION}")`.
 
 Then prepare the repository for development of the next version:
