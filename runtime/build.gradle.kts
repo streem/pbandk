@@ -13,24 +13,6 @@ repositories {
     google()
 }
 
-val wellKnownTypes by configurations.creating {
-    isTransitive = false
-}
-
-dependencies {
-    wellKnownTypes("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
-}
-
-val extractWellKnownTypeProtos by tasks.registering(Sync::class) {
-    dependsOn(wellKnownTypes)
-    from({
-        wellKnownTypes.filter { it.extension == "jar" }.map { zipTree(it) }
-    })
-    include("**/*.proto")
-    includeEmptyDirs = false
-    into(layout.buildDirectory.dir("bundled-protos"))
-}
-
 kotlin {
     android {
         publishAllLibraryVariants()
@@ -65,7 +47,6 @@ kotlin {
         }
 
         val commonMain by getting {
-            resources.srcDir(extractWellKnownTypeProtos)
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
             }
@@ -80,6 +61,9 @@ kotlin {
 
         val androidMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
+            dependencies {
+                api(project(":protos"))
+            }
         }
 
         val androidTest by getting {
@@ -93,6 +77,9 @@ kotlin {
 
         val jvmMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
+            dependencies {
+                api(project(":protos"))
+            }
         }
 
         val jvmTest by getting {
@@ -132,13 +119,16 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(Versions.androidTargetSdk)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+
+    compileSdkVersion(Versions.androidTargetSdk)
     defaultConfig {
         minSdkVersion(Versions.androidMinSdk)
         targetSdkVersion(Versions.androidTargetSdk)
     }
 }
+
+val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
 
 tasks {
     val generateWellKnownTypes by registering(KotlinProtocTask::class) {
@@ -159,7 +149,7 @@ tasks {
 
     val generateJavaTestTypes by registering(ProtocTask::class) {
         includeDir.set(project.file("src/commonTest/proto"))
-        val outputProject = rootProject.findProject("jvm-test-types" )!!
+        val outputProject = rootProject.findProject("jvm-test-types")!!
         outputDir.set(outputProject.file("src/main/java"))
         plugin.set("java")
         protoFileSubdir("pbandk/testpb")
