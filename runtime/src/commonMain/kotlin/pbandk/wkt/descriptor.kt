@@ -429,7 +429,8 @@ data class ExtensionRangeOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1047,7 +1048,8 @@ data class FileOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1307,7 +1309,8 @@ data class MessageOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1389,7 +1392,8 @@ data class FieldOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1519,7 +1523,8 @@ data class OneofOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1557,7 +1562,8 @@ data class EnumOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1614,7 +1620,8 @@ data class EnumValueOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1661,7 +1668,8 @@ data class ServiceOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor
@@ -1709,7 +1717,8 @@ data class MethodOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
     override val descriptor get() = Companion.descriptor

@@ -131,7 +131,8 @@ data class TestAllTypesProto2(
     val oneofField: OneofField<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
     @pbandk.PbandkInternal
-    override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+    @get:pbandk.PbandkInternal
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     sealed class OneofField<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class OneofUint32(oneofUint32: Int = 0) : OneofField<Int>(oneofUint32)
@@ -2328,7 +2329,8 @@ data class TestAllTypesProto2(
     data class MessageSetCorrect(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
         @pbandk.PbandkInternal
-        override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())
+        @get:pbandk.PbandkInternal
+        override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
     ) : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
         override val descriptor get() = Companion.descriptor
@@ -2564,6 +2566,7 @@ data class UnknownToTestAllTypes(
         }
     }
 }
+
 val pbandk.conformance.pb.TestAllTypesProto2.extensionInt32: Int? 
     get() = getExtension(pbandk.conformance.pb.extensionInt32)
 

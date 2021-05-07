@@ -1,8 +1,8 @@
-package pbandk
+package pbandk.internal
 
 import kotlin.native.concurrent.freeze
 
-actual class AtomicReference<T> actual constructor(value_: T) {
+internal actual class AtomicReference<T> actual constructor(value_: T) {
     private val atomicReference = kotlin.native.concurrent.AtomicReference<T>(value_)
 
     actual fun set(value: T) {
