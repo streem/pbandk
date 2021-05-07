@@ -1,6 +1,6 @@
-package pbandk
+package pbandk.internal
 
-actual class AtomicReference<T> actual constructor(value_: T) {
+internal actual class AtomicReference<T> actual constructor(value_: T) {
     var value = value_
     actual fun set(value: T) {
         this.value = value

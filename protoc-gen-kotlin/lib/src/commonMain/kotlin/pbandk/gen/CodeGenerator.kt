@@ -33,7 +33,7 @@ open class CodeGenerator(
     private fun writeExtension(field: File.Field) {
         when (field) {
             is File.Field.Numbered -> {
-                line(
+                line().line(
                     "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
                         field.kotlinValueType(true)
                     } "
@@ -105,8 +105,12 @@ open class CodeGenerator(
 
             if (messageInterface.startsWith("pbandk.ExtendableMessage")) {
                 lineEnd(",")
+                // The binary-compatibility-validator plugin doesn't correctly exclude properties with a non-public
+                // annotation from the API dump unless the property's getter (& setter for mutable properties) is also
+                // annotated. See https://github.com/Kotlin/binary-compatibility-validator/issues/36.
                 line("@pbandk.PbandkInternal")
-                line("override val extensionFields: pbandk.AtomicReference<Map<Int, kotlin.Any>> = pbandk.AtomicReference(emptyMap())")
+                line("@get:pbandk.PbandkInternal")
+                line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
             } else {
                 lineEnd()
             }

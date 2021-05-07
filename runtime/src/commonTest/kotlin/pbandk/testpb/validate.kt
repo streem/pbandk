@@ -2644,6 +2644,7 @@ data class TimestampRules(
         }
     }
 }
+
 val pbandk.wkt.MessageOptions.disabled: Boolean? 
     get() = getExtension(pbandk.testpb.disabled)
 
@@ -2655,6 +2656,7 @@ val disabled = pbandk.FieldDescriptor(
     jsonName = "disabled",
     value = pbandk.wkt.MessageOptions::disabled
 )
+
 val pbandk.wkt.OneofOptions.required: Boolean? 
     get() = getExtension(pbandk.testpb.required)
 
@@ -2666,6 +2668,7 @@ val required = pbandk.FieldDescriptor(
     jsonName = "required",
     value = pbandk.wkt.OneofOptions::required
 )
+
 val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules? 
     get() = getExtension(pbandk.testpb.rules)
 

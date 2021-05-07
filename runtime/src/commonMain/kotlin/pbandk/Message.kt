@@ -5,11 +5,13 @@ import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate
 import pbandk.internal.binary.fromByteArray
+import kotlin.reflect.KProperty1
 
 interface Message {
     val unknownFields: Map<Int, UnknownField>
 
     val descriptor: MessageDescriptor<out Message>
+
     val protoSize: Int get() = Sizer.rawMessageSize(this)
 
     operator fun plus(other: Message?): Message
@@ -57,3 +59,17 @@ fun <T : Message> Message.Companion<T>.decodeFromByteArray(arr: ByteArray): T =
 
 @Suppress("UNCHECKED_CAST")
 operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: other
+
+/**
+ * Returns the value of the protocol buffer field from this message that is described by [fieldDescriptor]. If this
+ * message does not contain a value for this field, the field's default value will be returned.
+ *
+ * [fieldDescriptor] can be a descriptor for an extension field that was not defined on the original message, but it
+ * _MUST_ be a descriptor for fields in messages of type [T].
+ */
+@ExperimentalProtoReflection
+fun <T : Message, F> T.getFieldValue(fieldDescriptor: FieldDescriptor<out T, out F>): F {
+    @Suppress("UNCHECKED_CAST")
+    val property = fieldDescriptor.value as KProperty1<T, F>
+    return property.get(this)
+}

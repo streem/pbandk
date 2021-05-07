@@ -1,10 +1,10 @@
 package pbandk
 
 class InvalidProtocolBufferException : RuntimeException {
-    constructor(message: String) : super(message)
-    constructor(message: String, cause: Throwable) : super(message, cause)
+    internal constructor(message: String) : super(message)
+    internal constructor(message: String, cause: Throwable) : super(message, cause)
 
-    companion object {
+    internal companion object {
         internal fun truncatedMessage() = InvalidProtocolBufferException(
             "While parsing a protocol message, the input ended unexpectedly "
                     + "in the middle of a field.  This could mean either that the "

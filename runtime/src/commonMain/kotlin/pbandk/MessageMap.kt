@@ -4,11 +4,13 @@ import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
 class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V>>) : AbstractMap<K, V>() {
+    @PublicForGeneratedCode
     class Builder<K, V> {
         val entries = mutableSetOf<Entry<K, V>>()
 
         fun fixed() = MessageMap(entries)
 
+        @PublicForGeneratedCode
         companion object {
             @Suppress("UNCHECKED_CAST")
             fun <K, V> fixed(bld: Builder<K, V>?) = bld?.fixed() ?: Empty as MessageMap<K, V>
@@ -69,7 +71,7 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
         }
     }
 
-    companion object {
+    internal companion object {
         val Empty = MessageMap<Nothing, Nothing>(emptySet())
 
         internal fun <K, V> of(
