@@ -54,6 +54,24 @@ if (signingKeyAsciiArmored.isPresent) {
     logger.info("PGP signing key not defined, skipping signing configuration")
 }
 
+val wellKnownTypes by configurations.creating {
+    isTransitive = false
+}
+
+dependencies {
+    wellKnownTypes("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
+}
+
+val extractWellKnownTypeProtos by tasks.registering(Sync::class) {
+    dependsOn(wellKnownTypes)
+    from({
+        wellKnownTypes.filter { it.extension == "jar" }.map { zipTree(it) }
+    })
+    include("**/*.proto")
+    includeEmptyDirs = false
+    into(layout.buildDirectory.dir("bundled-protos"))
+}
+
 allprojects {
     repositories {
         mavenCentral()
