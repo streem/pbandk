@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * `FieldDescriptor` (available via `MessageDescriptor.fields`) is now part of the public API. Initially, the field's `name` and `options` are public, allowing access to custom options defined on the field in the `.proto` file. The field's `value` accessor is also public, though this API will probably change before the final 0.10.0 release. (PR [#103])
 * `Message.Companion.decodeFromStream()` now takes an optional `expectedSize` parameter to allow reading multiple messages from a single `InputStream`. The method will not read more than `expectedSize` bytes from the stream when decoding the message. (PR [#148])
 * Add the ability to unit test the output of `CodeGenerator` (PR [#117], fixes [#48]) (thanks @nbaztec)
-* Added a dedicated Android artifact `pbandk-runtime-android` of the `PBandK` runtime. To migrate to this new artifact, replace `implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.1")` with `implementation("pro.streem.pbandk:pbandk-runtime-android:0.10.0")` (PR [#124], fixes [#75]) (thanks @jeroenmols)
+* Added a dedicated Android artifact `pbandk-runtime-android` of the `PBandK` runtime. To migrate to this new artifact, replace `implementation("pro.streem.pbandk:pbandk-runtime-jvm:0.9.1")` with `implementation("pro.streem.pbandk:pbandk-runtime:0.10.0")` (PR [#124], fixes [#75]) (thanks @jeroenmols)
 * SNAPSHOT builds of the latest code on `master` are now available by including the https://s01.oss.sonatype.org/content/repositories/snapshots/ maven repository in your `build.gradle.kts` files (PR [#148]).
 * Conformance tests running on Kotlin/JVM can now be configured to use `ByteBuffer` or `InputStream`/`OutputStream` for their I/O instead of `ByteArray` by setting the `PBANDK_CONFORMANCE_JVM_IO` environment variable. (PR [#148])
 
@@ -28,9 +28,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * **[BREAKING CHANGE]** Migrated the library from JCenter to Maven Central. Please make sure you have the `mavenCentral()` repository configured in your `build.gradle.kts` files (PRs [#143], [#144], fixes [#120]) (thanks @jeroenmols).
 * **[BREAKING CHANGE]** The API and implementation of `UnknownField` changed significantly. If you access the contents of unknown fields in your code, you will need to update to the new API. The unknown field no longer provides access to a decoded version of the field's wire type. Instead it only provides access to the raw binary encoding of the field. (PR [#103])
 * `Message.encodeToStream()` now returns the number of bytes that were written to the stream (previously it didn't return anything). (PR [#148])
-* `pbandk-runtime` on JVM and Android no longer depends on the `protobuf-java` library. It instead uses the same pure-Kotlin implementation of protobuf primitives that is used by the `pbandk-runtime` on Kotlin/Native. This avoids dependency conflicts with other libraries (such as `com.google.firebase:firebase-perf` on Android). (PRs [#124], [#148], fixes [#91], [#138]) (thanks @jeroenmols)
+* `pbandk-runtime` on JVM and Android no longer depends on the `protobuf-java` library. It instead uses the same pure-Kotlin implementation of protobuf primitives that is used by the `pbandk-runtime` on Kotlin/Native. This avoids dependency conflicts with other libraries (such as `com.google.firebase:firebase-perf` on Android). (PRs [#124], [#148], [#151], fixes [#91], [#138]) (thanks @jeroenmols)
+* Updated protobuf well-known types to the versions shipped with protobuf 3.15.5.
 * Updated `pbandk-runtime-js` dependency on `protobuf.js` to `6.10.2`.
-* Updated `pbandk-runtime-jvm` dependency on `protobuf-java` to `3.15.5`.
 
 ### Fixed
 
@@ -53,6 +53,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#143]: https://github.com/streem/pbandk/pull/143
 [#144]: https://github.com/streem/pbandk/pull/144
 [#148]: https://github.com/streem/pbandk/pull/148
+[#151]: https://github.com/streem/pbandk/pull/151
 
 
 ## [0.9.1] - 2021-01-07
