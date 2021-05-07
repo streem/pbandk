@@ -282,7 +282,7 @@ section below under "Usage" for more details.
 Pbandk's code generator leverages `protoc`. Download the [latest
 protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
 Then download the [latest released protoc-gen-kotlin self-executing jar
-file](https://repo1.maven.org/maven2/pro/streem/pbandk/protoc-gen-kotlin-jvm/0.10.0-beta.4/protoc-gen-kotlin-jvm-0.10.0-beta.4-jvm8.jar) (if you're using a SNAPSHOT build of pbandk, you might want to instead download the [latest SNAPSHOT version of protoc-gen-kotlin-jvm-\*-jvm8.jar](https://s01.oss.sonatype.org/content/repositories/snapshots/pro/streem/pbandk/protoc-gen-kotlin-jvm/)),
+file](https://repo1.maven.org/maven2/pro/streem/pbandk/protoc-gen-kotlin-jvm/0.10.0/protoc-gen-kotlin-jvm-0.10.0-jvm8.jar) (if you're using a SNAPSHOT build of pbandk, you might want to instead download the [latest SNAPSHOT version of protoc-gen-kotlin-jvm-\*-jvm8.jar](https://s01.oss.sonatype.org/content/repositories/snapshots/pro/streem/pbandk/protoc-gen-kotlin-jvm/)),
 rename it to `protoc-gen-kotlin`, make the file executable (`chmod +x protoc-gen-kotlin`), and make sure it is on the `PATH`. To generate code from
 `sample.proto` and put the generated code in `src/main/kotlin`, run:
 
@@ -339,7 +339,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.10.0-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.10.0")
 }
 ```
 
@@ -369,7 +369,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib:0.10.0-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib:0.10.0")
 }
 ```
 

@@ -5,16 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.10.0] - Unreleased
+## [0.10.0] - 2021-05-07
 
-[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.1...HEAD
+[0.10.0]: https://github.com/streem/pbandk/compare/v0.9.1...v0.10.0
 
 ### Added
 
-* Experimental support for protobuf [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions) on fields. Remaining work is tracked in [#65]. (PR [#103])
+* Experimental support for protobuf [custom options](https://developers.google.com/protocol-buffers/docs/proto#customoptions) on fields. Remaining work is tracked in [#65]. (PRs [#103], [#152])
     * Protobuf messages that declare an extension range now extend from `ExtendableMessage` rather than `Message`.
     * Protobuf extension fields are defined as Kotlin extension properties on the extended class and can be accessed like any other Kotlin property.
-* Experimental support for protobuf reflection. All related APIs require opt-in to the `@ExperimentalProtoReflection` annotation for now.
+* Experimental support for protobuf reflection. All related APIs require opt-in to the `@ExperimentalProtoReflection` annotation for now. (PRs [#103], [#152])
     * `MessageDescriptor` (available via `Message.descriptor` or `Message.Companion.descriptor`) is now part of the public API. Initially only `MessageDescriptor.fields` is public, which provides access to descriptors for all of the message's fields. Additional properties of the message descriptor will be exposed in future versions. Please file an issue on GitHub if there are specific properties you would like to have access to. (PR [#103])
     * `FieldDescriptor` (available via `MessageDescriptor.fields`) is now part of the public API. Initially, the field's `name` and `options` are public, allowing access to custom options defined on the field in the `.proto` file. (PR [#103])
     * A new `Message.getFieldValue(FieldDescriptor)` method can be used to read the value of a protobuf field when iterating over fields generically using `Message.descriptor.fields`.
@@ -33,7 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * `pbandk-runtime` on JVM and Android no longer depends on the `protobuf-java` library. It instead uses the same pure-Kotlin implementation of protobuf primitives that is used by the `pbandk-runtime` on Kotlin/Native. This avoids dependency conflicts with other libraries (such as `com.google.firebase:firebase-perf` on Android). (PRs [#124], [#148], [#151], fixes [#91], [#138]) (thanks @jeroenmols)
 * Updated protobuf well-known types to the versions shipped with protobuf 3.15.5.
 * Updated `pbandk-runtime-js` dependency on `protobuf.js` to `6.10.2`.
-* Building pbandk no longer requires downloading and compiling protobuf. Running conformance tests still requires compiling protobuf however.
+* Building pbandk no longer requires downloading and compiling protobuf. Running conformance tests still requires compiling protobuf however. (PR [#150])
 
 ### Fixed
 
@@ -56,7 +56,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#143]: https://github.com/streem/pbandk/pull/143
 [#144]: https://github.com/streem/pbandk/pull/144
 [#148]: https://github.com/streem/pbandk/pull/148
+[#150]: https://github.com/streem/pbandk/pull/150
 [#151]: https://github.com/streem/pbandk/pull/151
+[#152]: https://github.com/streem/pbandk/pull/152
 
 
 ## [0.9.1] - 2021-01-07
