@@ -9,8 +9,8 @@ plugins {
     kotlin("multiplatform") version Versions.kotlin apply false
     id("com.android.library") version Versions.androidGradlePlugin apply false
     id("org.springframework.boot") version Versions.springBootGradlePlugin apply false
-    id("com.google.osdetector") version Versions.osDetectorGradlePlugin apply false
 
+    id("com.google.osdetector") version Versions.osDetectorGradlePlugin
     id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
     id("io.github.gradle-nexus.publish-plugin") version Versions.nexusPublishGradlePlugin
 }
@@ -54,11 +54,22 @@ if (signingKeyAsciiArmored.isPresent) {
     logger.info("PGP signing key not defined, skipping signing configuration")
 }
 
+val downloadProtoc by configurations.creating {
+    isTransitive = false
+}
+
 val wellKnownTypes by configurations.creating {
     isTransitive = false
 }
 
 dependencies {
+    downloadProtoc(
+        group = "com.google.protobuf",
+        name = "protoc",
+        version = Versions.protoc,
+        classifier = osdetector.classifier,
+        ext = "exe"
+    )
     wellKnownTypes("com.google.protobuf:protobuf-java:${Versions.protobufJava}")
 }
 

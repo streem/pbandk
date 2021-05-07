@@ -1,45 +1,7 @@
-import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.file.FileCollection
-import org.gradle.api.provider.Property
-import org.gradle.api.tasks.*
-import org.gradle.kotlin.dsl.property
-
 @Suppress("UnstableApiUsage")
-open class DescriptorProtocTask : AbstractExecTask<DescriptorProtocTask>(DescriptorProtocTask::class.java) {
-    @InputDirectory
-    val includeDir: DirectoryProperty = project.objects.directoryProperty()
-
-    @OutputDirectory
-    val outputDir: DirectoryProperty = project.objects.directoryProperty()
-
-    @Input
-    val protoc: Property<String> = project.objects.property<String>().apply {
-        convention("protoc")
-    }
-
-    @Input
-    val descriptorSetOutput: Property<String> = project.objects.property<String>().apply {
-        convention("fileDescriptor.protoset")
-    }
-
-    private val protoFileDir: DirectoryProperty = project.objects.directoryProperty().apply {
-        convention(includeDir)
-    }
-
-    @InputFiles
-    @SkipWhenEmpty
-    val protoFiles: FileCollection = protoFileDir.asFileTree.matching {
-        this.include("*.proto")
-    }
-
-    override fun exec() {
-        executable = protoc.get()
-
-        args("--proto_path=${includeDir.get()}")
-        args("--descriptor_set_out=${outputDir.get().file(descriptorSetOutput.get()).asFile.absolutePath}")
-
-        args(protoFiles.map { it.absolutePath })
-
-        super.exec()
+open class DescriptorProtocTask : ProtocTask() {
+    init {
+        plugin.set("descriptor_set")
+        outputFileName.convention("fileDescriptor.protoset")
     }
 }

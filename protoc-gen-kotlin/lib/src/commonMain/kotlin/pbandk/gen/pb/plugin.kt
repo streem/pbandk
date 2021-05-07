@@ -138,6 +138,7 @@ data class CodeGeneratorRequest(
 
 data class CodeGeneratorResponse(
     val error: String? = null,
+    val supportedFeatures: Long? = null,
     val file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
@@ -149,7 +150,7 @@ data class CodeGeneratorResponse(
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> by lazy {
-            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, *>>(2)
+            val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse, *>>(3)
             fieldsList.apply {
                 add(
                     pbandk.FieldDescriptor(
@@ -159,6 +160,16 @@ data class CodeGeneratorResponse(
                         type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                         jsonName = "error",
                         value = pbandk.gen.pb.CodeGeneratorResponse::error
+                    )
+                )
+                add(
+                    pbandk.FieldDescriptor(
+                        messageDescriptor = this@Companion::descriptor,
+                        name = "supported_features",
+                        number = 2,
+                        type = pbandk.FieldDescriptor.Type.Primitive.UInt64(hasPresence = true),
+                        jsonName = "supportedFeatures",
+                        value = pbandk.gen.pb.CodeGeneratorResponse::supportedFeatures
                     )
                 )
                 add(
@@ -180,10 +191,27 @@ data class CodeGeneratorResponse(
         }
     }
 
+    sealed class Feature(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?) = other is pbandk.gen.pb.CodeGeneratorResponse.Feature && other.value == value
+        override fun hashCode() = value.hashCode()
+        override fun toString() = "pbandk.gen.pb.CodeGeneratorResponse.Feature.${name ?: "UNRECOGNIZED"}(value=$value)"
+
+        object NONE : Feature(0, "FEATURE_NONE")
+        object PROTO3_OPTIONAL : Feature(1, "FEATURE_PROTO3_OPTIONAL")
+        class UNRECOGNIZED(value: Int) : pbandk.gen.pb.CodeGeneratorResponse.Feature(value)
+
+        companion object : pbandk.Message.Enum.Companion<pbandk.gen.pb.CodeGeneratorResponse.Feature> {
+            val values: List<pbandk.gen.pb.CodeGeneratorResponse.Feature> by lazy { listOf(NONE, PROTO3_OPTIONAL) }
+            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Feature with name: $name")
+        }
+    }
+
     data class File(
         val name: String? = null,
         val insertionPoint: String? = null,
         val content: String? = null,
+        val generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -194,7 +222,7 @@ data class CodeGeneratorResponse(
             override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> by lazy {
-                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, *>>(3)
+                val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File, *>>(4)
                 fieldsList.apply {
                     add(
                         pbandk.FieldDescriptor(
@@ -224,6 +252,16 @@ data class CodeGeneratorResponse(
                             type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "content",
                             value = pbandk.gen.pb.CodeGeneratorResponse.File::content
+                        )
+                    )
+                    add(
+                        pbandk.FieldDescriptor(
+                            messageDescriptor = this@Companion::descriptor,
+                            name = "generated_code_info",
+                            number = 16,
+                            type = pbandk.FieldDescriptor.Type.Message(messageCompanion = pbandk.wkt.GeneratedCodeInfo.Companion),
+                            jsonName = "generatedCodeInfo",
+                            value = pbandk.gen.pb.CodeGeneratorResponse.File::generatedCodeInfo
                         )
                     )
                 }
@@ -302,6 +340,7 @@ fun CodeGeneratorResponse?.orDefault() = this ?: CodeGeneratorResponse.defaultIn
 private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorResponse = (plus as? CodeGeneratorResponse)?.let {
     it.copy(
         error = plus.error ?: error,
+        supportedFeatures = plus.supportedFeatures ?: supportedFeatures,
         file = file + plus.file,
         unknownFields = unknownFields + plus.unknownFields
     )
@@ -310,15 +349,17 @@ private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGen
 @Suppress("UNCHECKED_CAST")
 private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDecoder): CodeGeneratorResponse {
     var error: String? = null
+    var supportedFeatures: Long? = null
     var file: pbandk.ListWithSize.Builder<pbandk.gen.pb.CodeGeneratorResponse.File>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> error = _fieldValue as String
+            2 -> supportedFeatures = _fieldValue as Long
             15 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.gen.pb.CodeGeneratorResponse.File> }
         }
     }
-    return CodeGeneratorResponse(error, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
+    return CodeGeneratorResponse(error, supportedFeatures, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
 fun CodeGeneratorResponse.File?.orDefault() = this ?: CodeGeneratorResponse.File.defaultInstance
@@ -328,6 +369,7 @@ private fun CodeGeneratorResponse.File.protoMergeImpl(plus: pbandk.Message?): Co
         name = plus.name ?: name,
         insertionPoint = plus.insertionPoint ?: insertionPoint,
         content = plus.content ?: content,
+        generatedCodeInfo = generatedCodeInfo?.plus(plus.generatedCodeInfo) ?: plus.generatedCodeInfo,
         unknownFields = unknownFields + plus.unknownFields
     )
 } ?: this
@@ -337,13 +379,15 @@ private fun CodeGeneratorResponse.File.Companion.decodeWithImpl(u: pbandk.Messag
     var name: String? = null
     var insertionPoint: String? = null
     var content: String? = null
+    var generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
             1 -> name = _fieldValue as String
             2 -> insertionPoint = _fieldValue as String
             15 -> content = _fieldValue as String
+            16 -> generatedCodeInfo = _fieldValue as pbandk.wkt.GeneratedCodeInfo
         }
     }
-    return CodeGeneratorResponse.File(name, insertionPoint, content, unknownFields)
+    return CodeGeneratorResponse.File(name, insertionPoint, content, generatedCodeInfo, unknownFields)
 }

@@ -2,7 +2,6 @@ plugins {
     kotlin("multiplatform")
     `maven-publish`
     signing
-    id("com.google.osdetector")
 }
 
 description = "Kotlin code generator for Protocol Buffers and library for writing code generator plugins."
@@ -51,26 +50,15 @@ kotlin {
     }
 }
 
-val downloadProtoc: Configuration by configurations.creating {
-    isTransitive = false
-}
-
-dependencies {
-    downloadProtoc(
-        group = "com.google.protobuf",
-        name = "protoc",
-        version = Versions.protoc,
-        classifier = osdetector.classifier,
-        ext = "exe"
-    )
-}
+val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
 
 tasks {
     val generateProto by registering(KotlinProtocTask::class) {
-        includeDir.set(project.file("src/commonMain/proto"))
+        includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
         outputDir.set(project.file("src/commonMain/kotlin"))
         kotlinPackage.set("pbandk.gen.pb")
         logLevel.set("debug")
+        protoFileSubdir("google/protobuf/compiler")
     }
 
     val generateTestProtoDescriptor by registering(DescriptorProtocTask::class) {
@@ -78,12 +66,6 @@ tasks {
 
         includeDir.set(project.file("src/jvmTest/resources/protos"))
         outputDir.set(out)
-
-        val protocBin = downloadProtoc.singleFile
-            .also { it.setExecutable(true) }
-            .absolutePath
-
-        protoc.set(protocBin)
     }
 
     getByName("jvmTest").dependsOn(generateTestProtoDescriptor)

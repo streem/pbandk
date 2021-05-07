@@ -166,7 +166,7 @@ public final class Validate {
      * Scalar Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+     * <code>.pbandk.testpb.FloatRules float = 1;</code>
      * @return Whether the float field is set.
      */
     boolean hasFloat();
@@ -175,7 +175,7 @@ public final class Validate {
      * Scalar Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+     * <code>.pbandk.testpb.FloatRules float = 1;</code>
      * @return The float.
      */
     pbandk.testpb.Validate.FloatRules getFloat();
@@ -184,217 +184,217 @@ public final class Validate {
      * Scalar Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+     * <code>.pbandk.testpb.FloatRules float = 1;</code>
      */
     pbandk.testpb.Validate.FloatRulesOrBuilder getFloatOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+     * <code>.pbandk.testpb.DoubleRules double = 2;</code>
      * @return Whether the double field is set.
      */
     boolean hasDouble();
     /**
-     * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+     * <code>.pbandk.testpb.DoubleRules double = 2;</code>
      * @return The double.
      */
     pbandk.testpb.Validate.DoubleRules getDouble();
     /**
-     * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+     * <code>.pbandk.testpb.DoubleRules double = 2;</code>
      */
     pbandk.testpb.Validate.DoubleRulesOrBuilder getDoubleOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+     * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
      * @return Whether the int32 field is set.
      */
     boolean hasInt32();
     /**
-     * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+     * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
      * @return The int32.
      */
     pbandk.testpb.Validate.Int32Rules getInt32();
     /**
-     * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+     * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
      */
     pbandk.testpb.Validate.Int32RulesOrBuilder getInt32OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+     * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
      * @return Whether the int64 field is set.
      */
     boolean hasInt64();
     /**
-     * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+     * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
      * @return The int64.
      */
     pbandk.testpb.Validate.Int64Rules getInt64();
     /**
-     * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+     * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
      */
     pbandk.testpb.Validate.Int64RulesOrBuilder getInt64OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+     * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
      * @return Whether the uint32 field is set.
      */
     boolean hasUint32();
     /**
-     * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+     * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
      * @return The uint32.
      */
     pbandk.testpb.Validate.UInt32Rules getUint32();
     /**
-     * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+     * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
      */
     pbandk.testpb.Validate.UInt32RulesOrBuilder getUint32OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+     * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
      * @return Whether the uint64 field is set.
      */
     boolean hasUint64();
     /**
-     * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+     * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
      * @return The uint64.
      */
     pbandk.testpb.Validate.UInt64Rules getUint64();
     /**
-     * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+     * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
      */
     pbandk.testpb.Validate.UInt64RulesOrBuilder getUint64OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+     * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
      * @return Whether the sint32 field is set.
      */
     boolean hasSint32();
     /**
-     * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+     * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
      * @return The sint32.
      */
     pbandk.testpb.Validate.SInt32Rules getSint32();
     /**
-     * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+     * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
      */
     pbandk.testpb.Validate.SInt32RulesOrBuilder getSint32OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+     * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
      * @return Whether the sint64 field is set.
      */
     boolean hasSint64();
     /**
-     * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+     * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
      * @return The sint64.
      */
     pbandk.testpb.Validate.SInt64Rules getSint64();
     /**
-     * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+     * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
      */
     pbandk.testpb.Validate.SInt64RulesOrBuilder getSint64OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+     * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
      * @return Whether the fixed32 field is set.
      */
     boolean hasFixed32();
     /**
-     * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+     * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
      * @return The fixed32.
      */
     pbandk.testpb.Validate.Fixed32Rules getFixed32();
     /**
-     * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+     * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
      */
     pbandk.testpb.Validate.Fixed32RulesOrBuilder getFixed32OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+     * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
      * @return Whether the fixed64 field is set.
      */
     boolean hasFixed64();
     /**
-     * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+     * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
      * @return The fixed64.
      */
     pbandk.testpb.Validate.Fixed64Rules getFixed64();
     /**
-     * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+     * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
      */
     pbandk.testpb.Validate.Fixed64RulesOrBuilder getFixed64OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+     * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
      * @return Whether the sfixed32 field is set.
      */
     boolean hasSfixed32();
     /**
-     * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+     * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
      * @return The sfixed32.
      */
     pbandk.testpb.Validate.SFixed32Rules getSfixed32();
     /**
-     * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+     * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
      */
     pbandk.testpb.Validate.SFixed32RulesOrBuilder getSfixed32OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+     * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
      * @return Whether the sfixed64 field is set.
      */
     boolean hasSfixed64();
     /**
-     * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+     * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
      * @return The sfixed64.
      */
     pbandk.testpb.Validate.SFixed64Rules getSfixed64();
     /**
-     * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+     * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
      */
     pbandk.testpb.Validate.SFixed64RulesOrBuilder getSfixed64OrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+     * <code>.pbandk.testpb.BoolRules bool = 13;</code>
      * @return Whether the bool field is set.
      */
     boolean hasBool();
     /**
-     * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+     * <code>.pbandk.testpb.BoolRules bool = 13;</code>
      * @return The bool.
      */
     pbandk.testpb.Validate.BoolRules getBool();
     /**
-     * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+     * <code>.pbandk.testpb.BoolRules bool = 13;</code>
      */
     pbandk.testpb.Validate.BoolRulesOrBuilder getBoolOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+     * <code>.pbandk.testpb.StringRules string = 14;</code>
      * @return Whether the string field is set.
      */
     boolean hasString();
     /**
-     * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+     * <code>.pbandk.testpb.StringRules string = 14;</code>
      * @return The string.
      */
     pbandk.testpb.Validate.StringRules getString();
     /**
-     * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+     * <code>.pbandk.testpb.StringRules string = 14;</code>
      */
     pbandk.testpb.Validate.StringRulesOrBuilder getStringOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+     * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
      * @return Whether the bytes field is set.
      */
     boolean hasBytes();
     /**
-     * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+     * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
      * @return The bytes.
      */
     pbandk.testpb.Validate.BytesRules getBytes();
     /**
-     * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+     * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
      */
     pbandk.testpb.Validate.BytesRulesOrBuilder getBytesOrBuilder();
 
@@ -403,7 +403,7 @@ public final class Validate {
      * Complex Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+     * <code>.pbandk.testpb.EnumRules enum = 16;</code>
      * @return Whether the enum field is set.
      */
     boolean hasEnum();
@@ -412,7 +412,7 @@ public final class Validate {
      * Complex Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+     * <code>.pbandk.testpb.EnumRules enum = 16;</code>
      * @return The enum.
      */
     pbandk.testpb.Validate.EnumRules getEnum();
@@ -421,37 +421,37 @@ public final class Validate {
      * Complex Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+     * <code>.pbandk.testpb.EnumRules enum = 16;</code>
      */
     pbandk.testpb.Validate.EnumRulesOrBuilder getEnumOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+     * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
      * @return Whether the repeated field is set.
      */
     boolean hasRepeated();
     /**
-     * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+     * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
      * @return The repeated.
      */
     pbandk.testpb.Validate.RepeatedRules getRepeated();
     /**
-     * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+     * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
      */
     pbandk.testpb.Validate.RepeatedRulesOrBuilder getRepeatedOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+     * <code>.pbandk.testpb.MapRules map = 19;</code>
      * @return Whether the map field is set.
      */
     boolean hasMap();
     /**
-     * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+     * <code>.pbandk.testpb.MapRules map = 19;</code>
      * @return The map.
      */
     pbandk.testpb.Validate.MapRules getMap();
     /**
-     * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+     * <code>.pbandk.testpb.MapRules map = 19;</code>
      */
     pbandk.testpb.Validate.MapRulesOrBuilder getMapOrBuilder();
 
@@ -460,7 +460,7 @@ public final class Validate {
      * Well-Known Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+     * <code>.pbandk.testpb.AnyRules any = 20;</code>
      * @return Whether the any field is set.
      */
     boolean hasAny();
@@ -469,7 +469,7 @@ public final class Validate {
      * Well-Known Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+     * <code>.pbandk.testpb.AnyRules any = 20;</code>
      * @return The any.
      */
     pbandk.testpb.Validate.AnyRules getAny();
@@ -478,37 +478,37 @@ public final class Validate {
      * Well-Known Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+     * <code>.pbandk.testpb.AnyRules any = 20;</code>
      */
     pbandk.testpb.Validate.AnyRulesOrBuilder getAnyOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+     * <code>.pbandk.testpb.DurationRules duration = 21;</code>
      * @return Whether the duration field is set.
      */
     boolean hasDuration();
     /**
-     * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+     * <code>.pbandk.testpb.DurationRules duration = 21;</code>
      * @return The duration.
      */
     pbandk.testpb.Validate.DurationRules getDuration();
     /**
-     * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+     * <code>.pbandk.testpb.DurationRules duration = 21;</code>
      */
     pbandk.testpb.Validate.DurationRulesOrBuilder getDurationOrBuilder();
 
     /**
-     * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+     * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
      * @return Whether the timestamp field is set.
      */
     boolean hasTimestamp();
     /**
-     * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+     * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
      * @return The timestamp.
      */
     pbandk.testpb.Validate.TimestampRules getTimestamp();
     /**
-     * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+     * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
      */
     pbandk.testpb.Validate.TimestampRulesOrBuilder getTimestampOrBuilder();
 
@@ -522,7 +522,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.FieldRules}
    */
-  public  static final class FieldRules extends
+  public static final class FieldRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.FieldRules)
       FieldRulesOrBuilder {
@@ -990,6 +990,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.MessageRules message = 17;</code>
      * @return Whether the message field is set.
      */
+    @java.lang.Override
     public boolean hasMessage() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -997,12 +998,14 @@ public final class Validate {
      * <code>optional .pbandk.testpb.MessageRules message = 17;</code>
      * @return The message.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.MessageRules getMessage() {
       return message_ == null ? pbandk.testpb.Validate.MessageRules.getDefaultInstance() : message_;
     }
     /**
      * <code>optional .pbandk.testpb.MessageRules message = 17;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.MessageRulesOrBuilder getMessageOrBuilder() {
       return message_ == null ? pbandk.testpb.Validate.MessageRules.getDefaultInstance() : message_;
     }
@@ -1013,9 +1016,10 @@ public final class Validate {
      * Scalar Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+     * <code>.pbandk.testpb.FloatRules float = 1;</code>
      * @return Whether the float field is set.
      */
+    @java.lang.Override
     public boolean hasFloat() {
       return typeCase_ == 1;
     }
@@ -1024,9 +1028,10 @@ public final class Validate {
      * Scalar Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+     * <code>.pbandk.testpb.FloatRules float = 1;</code>
      * @return The float.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FloatRules getFloat() {
       if (typeCase_ == 1) {
          return (pbandk.testpb.Validate.FloatRules) type_;
@@ -1038,8 +1043,9 @@ public final class Validate {
      * Scalar Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+     * <code>.pbandk.testpb.FloatRules float = 1;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FloatRulesOrBuilder getFloatOrBuilder() {
       if (typeCase_ == 1) {
          return (pbandk.testpb.Validate.FloatRules) type_;
@@ -1049,16 +1055,18 @@ public final class Validate {
 
     public static final int DOUBLE_FIELD_NUMBER = 2;
     /**
-     * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+     * <code>.pbandk.testpb.DoubleRules double = 2;</code>
      * @return Whether the double field is set.
      */
+    @java.lang.Override
     public boolean hasDouble() {
       return typeCase_ == 2;
     }
     /**
-     * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+     * <code>.pbandk.testpb.DoubleRules double = 2;</code>
      * @return The double.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.DoubleRules getDouble() {
       if (typeCase_ == 2) {
          return (pbandk.testpb.Validate.DoubleRules) type_;
@@ -1066,8 +1074,9 @@ public final class Validate {
       return pbandk.testpb.Validate.DoubleRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+     * <code>.pbandk.testpb.DoubleRules double = 2;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.DoubleRulesOrBuilder getDoubleOrBuilder() {
       if (typeCase_ == 2) {
          return (pbandk.testpb.Validate.DoubleRules) type_;
@@ -1077,16 +1086,18 @@ public final class Validate {
 
     public static final int INT32_FIELD_NUMBER = 3;
     /**
-     * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+     * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
      * @return Whether the int32 field is set.
      */
+    @java.lang.Override
     public boolean hasInt32() {
       return typeCase_ == 3;
     }
     /**
-     * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+     * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
      * @return The int32.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Int32Rules getInt32() {
       if (typeCase_ == 3) {
          return (pbandk.testpb.Validate.Int32Rules) type_;
@@ -1094,8 +1105,9 @@ public final class Validate {
       return pbandk.testpb.Validate.Int32Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+     * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Int32RulesOrBuilder getInt32OrBuilder() {
       if (typeCase_ == 3) {
          return (pbandk.testpb.Validate.Int32Rules) type_;
@@ -1105,16 +1117,18 @@ public final class Validate {
 
     public static final int INT64_FIELD_NUMBER = 4;
     /**
-     * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+     * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
      * @return Whether the int64 field is set.
      */
+    @java.lang.Override
     public boolean hasInt64() {
       return typeCase_ == 4;
     }
     /**
-     * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+     * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
      * @return The int64.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Int64Rules getInt64() {
       if (typeCase_ == 4) {
          return (pbandk.testpb.Validate.Int64Rules) type_;
@@ -1122,8 +1136,9 @@ public final class Validate {
       return pbandk.testpb.Validate.Int64Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+     * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Int64RulesOrBuilder getInt64OrBuilder() {
       if (typeCase_ == 4) {
          return (pbandk.testpb.Validate.Int64Rules) type_;
@@ -1133,16 +1148,18 @@ public final class Validate {
 
     public static final int UINT32_FIELD_NUMBER = 5;
     /**
-     * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+     * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
      * @return Whether the uint32 field is set.
      */
+    @java.lang.Override
     public boolean hasUint32() {
       return typeCase_ == 5;
     }
     /**
-     * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+     * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
      * @return The uint32.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.UInt32Rules getUint32() {
       if (typeCase_ == 5) {
          return (pbandk.testpb.Validate.UInt32Rules) type_;
@@ -1150,8 +1167,9 @@ public final class Validate {
       return pbandk.testpb.Validate.UInt32Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+     * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.UInt32RulesOrBuilder getUint32OrBuilder() {
       if (typeCase_ == 5) {
          return (pbandk.testpb.Validate.UInt32Rules) type_;
@@ -1161,16 +1179,18 @@ public final class Validate {
 
     public static final int UINT64_FIELD_NUMBER = 6;
     /**
-     * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+     * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
      * @return Whether the uint64 field is set.
      */
+    @java.lang.Override
     public boolean hasUint64() {
       return typeCase_ == 6;
     }
     /**
-     * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+     * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
      * @return The uint64.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.UInt64Rules getUint64() {
       if (typeCase_ == 6) {
          return (pbandk.testpb.Validate.UInt64Rules) type_;
@@ -1178,8 +1198,9 @@ public final class Validate {
       return pbandk.testpb.Validate.UInt64Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+     * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.UInt64RulesOrBuilder getUint64OrBuilder() {
       if (typeCase_ == 6) {
          return (pbandk.testpb.Validate.UInt64Rules) type_;
@@ -1189,16 +1210,18 @@ public final class Validate {
 
     public static final int SINT32_FIELD_NUMBER = 7;
     /**
-     * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+     * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
      * @return Whether the sint32 field is set.
      */
+    @java.lang.Override
     public boolean hasSint32() {
       return typeCase_ == 7;
     }
     /**
-     * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+     * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
      * @return The sint32.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SInt32Rules getSint32() {
       if (typeCase_ == 7) {
          return (pbandk.testpb.Validate.SInt32Rules) type_;
@@ -1206,8 +1229,9 @@ public final class Validate {
       return pbandk.testpb.Validate.SInt32Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+     * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SInt32RulesOrBuilder getSint32OrBuilder() {
       if (typeCase_ == 7) {
          return (pbandk.testpb.Validate.SInt32Rules) type_;
@@ -1217,16 +1241,18 @@ public final class Validate {
 
     public static final int SINT64_FIELD_NUMBER = 8;
     /**
-     * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+     * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
      * @return Whether the sint64 field is set.
      */
+    @java.lang.Override
     public boolean hasSint64() {
       return typeCase_ == 8;
     }
     /**
-     * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+     * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
      * @return The sint64.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SInt64Rules getSint64() {
       if (typeCase_ == 8) {
          return (pbandk.testpb.Validate.SInt64Rules) type_;
@@ -1234,8 +1260,9 @@ public final class Validate {
       return pbandk.testpb.Validate.SInt64Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+     * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SInt64RulesOrBuilder getSint64OrBuilder() {
       if (typeCase_ == 8) {
          return (pbandk.testpb.Validate.SInt64Rules) type_;
@@ -1245,16 +1272,18 @@ public final class Validate {
 
     public static final int FIXED32_FIELD_NUMBER = 9;
     /**
-     * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+     * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
      * @return Whether the fixed32 field is set.
      */
+    @java.lang.Override
     public boolean hasFixed32() {
       return typeCase_ == 9;
     }
     /**
-     * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+     * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
      * @return The fixed32.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Fixed32Rules getFixed32() {
       if (typeCase_ == 9) {
          return (pbandk.testpb.Validate.Fixed32Rules) type_;
@@ -1262,8 +1291,9 @@ public final class Validate {
       return pbandk.testpb.Validate.Fixed32Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+     * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Fixed32RulesOrBuilder getFixed32OrBuilder() {
       if (typeCase_ == 9) {
          return (pbandk.testpb.Validate.Fixed32Rules) type_;
@@ -1273,16 +1303,18 @@ public final class Validate {
 
     public static final int FIXED64_FIELD_NUMBER = 10;
     /**
-     * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+     * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
      * @return Whether the fixed64 field is set.
      */
+    @java.lang.Override
     public boolean hasFixed64() {
       return typeCase_ == 10;
     }
     /**
-     * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+     * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
      * @return The fixed64.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Fixed64Rules getFixed64() {
       if (typeCase_ == 10) {
          return (pbandk.testpb.Validate.Fixed64Rules) type_;
@@ -1290,8 +1322,9 @@ public final class Validate {
       return pbandk.testpb.Validate.Fixed64Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+     * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.Fixed64RulesOrBuilder getFixed64OrBuilder() {
       if (typeCase_ == 10) {
          return (pbandk.testpb.Validate.Fixed64Rules) type_;
@@ -1301,16 +1334,18 @@ public final class Validate {
 
     public static final int SFIXED32_FIELD_NUMBER = 11;
     /**
-     * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+     * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
      * @return Whether the sfixed32 field is set.
      */
+    @java.lang.Override
     public boolean hasSfixed32() {
       return typeCase_ == 11;
     }
     /**
-     * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+     * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
      * @return The sfixed32.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SFixed32Rules getSfixed32() {
       if (typeCase_ == 11) {
          return (pbandk.testpb.Validate.SFixed32Rules) type_;
@@ -1318,8 +1353,9 @@ public final class Validate {
       return pbandk.testpb.Validate.SFixed32Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+     * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SFixed32RulesOrBuilder getSfixed32OrBuilder() {
       if (typeCase_ == 11) {
          return (pbandk.testpb.Validate.SFixed32Rules) type_;
@@ -1329,16 +1365,18 @@ public final class Validate {
 
     public static final int SFIXED64_FIELD_NUMBER = 12;
     /**
-     * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+     * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
      * @return Whether the sfixed64 field is set.
      */
+    @java.lang.Override
     public boolean hasSfixed64() {
       return typeCase_ == 12;
     }
     /**
-     * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+     * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
      * @return The sfixed64.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SFixed64Rules getSfixed64() {
       if (typeCase_ == 12) {
          return (pbandk.testpb.Validate.SFixed64Rules) type_;
@@ -1346,8 +1384,9 @@ public final class Validate {
       return pbandk.testpb.Validate.SFixed64Rules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+     * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.SFixed64RulesOrBuilder getSfixed64OrBuilder() {
       if (typeCase_ == 12) {
          return (pbandk.testpb.Validate.SFixed64Rules) type_;
@@ -1357,16 +1396,18 @@ public final class Validate {
 
     public static final int BOOL_FIELD_NUMBER = 13;
     /**
-     * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+     * <code>.pbandk.testpb.BoolRules bool = 13;</code>
      * @return Whether the bool field is set.
      */
+    @java.lang.Override
     public boolean hasBool() {
       return typeCase_ == 13;
     }
     /**
-     * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+     * <code>.pbandk.testpb.BoolRules bool = 13;</code>
      * @return The bool.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.BoolRules getBool() {
       if (typeCase_ == 13) {
          return (pbandk.testpb.Validate.BoolRules) type_;
@@ -1374,8 +1415,9 @@ public final class Validate {
       return pbandk.testpb.Validate.BoolRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+     * <code>.pbandk.testpb.BoolRules bool = 13;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.BoolRulesOrBuilder getBoolOrBuilder() {
       if (typeCase_ == 13) {
          return (pbandk.testpb.Validate.BoolRules) type_;
@@ -1385,16 +1427,18 @@ public final class Validate {
 
     public static final int STRING_FIELD_NUMBER = 14;
     /**
-     * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+     * <code>.pbandk.testpb.StringRules string = 14;</code>
      * @return Whether the string field is set.
      */
+    @java.lang.Override
     public boolean hasString() {
       return typeCase_ == 14;
     }
     /**
-     * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+     * <code>.pbandk.testpb.StringRules string = 14;</code>
      * @return The string.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.StringRules getString() {
       if (typeCase_ == 14) {
          return (pbandk.testpb.Validate.StringRules) type_;
@@ -1402,8 +1446,9 @@ public final class Validate {
       return pbandk.testpb.Validate.StringRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+     * <code>.pbandk.testpb.StringRules string = 14;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.StringRulesOrBuilder getStringOrBuilder() {
       if (typeCase_ == 14) {
          return (pbandk.testpb.Validate.StringRules) type_;
@@ -1413,16 +1458,18 @@ public final class Validate {
 
     public static final int BYTES_FIELD_NUMBER = 15;
     /**
-     * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+     * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
      * @return Whether the bytes field is set.
      */
+    @java.lang.Override
     public boolean hasBytes() {
       return typeCase_ == 15;
     }
     /**
-     * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+     * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
      * @return The bytes.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.BytesRules getBytes() {
       if (typeCase_ == 15) {
          return (pbandk.testpb.Validate.BytesRules) type_;
@@ -1430,8 +1477,9 @@ public final class Validate {
       return pbandk.testpb.Validate.BytesRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+     * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.BytesRulesOrBuilder getBytesOrBuilder() {
       if (typeCase_ == 15) {
          return (pbandk.testpb.Validate.BytesRules) type_;
@@ -1445,9 +1493,10 @@ public final class Validate {
      * Complex Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+     * <code>.pbandk.testpb.EnumRules enum = 16;</code>
      * @return Whether the enum field is set.
      */
+    @java.lang.Override
     public boolean hasEnum() {
       return typeCase_ == 16;
     }
@@ -1456,9 +1505,10 @@ public final class Validate {
      * Complex Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+     * <code>.pbandk.testpb.EnumRules enum = 16;</code>
      * @return The enum.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.EnumRules getEnum() {
       if (typeCase_ == 16) {
          return (pbandk.testpb.Validate.EnumRules) type_;
@@ -1470,8 +1520,9 @@ public final class Validate {
      * Complex Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+     * <code>.pbandk.testpb.EnumRules enum = 16;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.EnumRulesOrBuilder getEnumOrBuilder() {
       if (typeCase_ == 16) {
          return (pbandk.testpb.Validate.EnumRules) type_;
@@ -1481,16 +1532,18 @@ public final class Validate {
 
     public static final int REPEATED_FIELD_NUMBER = 18;
     /**
-     * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+     * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
      * @return Whether the repeated field is set.
      */
+    @java.lang.Override
     public boolean hasRepeated() {
       return typeCase_ == 18;
     }
     /**
-     * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+     * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
      * @return The repeated.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.RepeatedRules getRepeated() {
       if (typeCase_ == 18) {
          return (pbandk.testpb.Validate.RepeatedRules) type_;
@@ -1498,8 +1551,9 @@ public final class Validate {
       return pbandk.testpb.Validate.RepeatedRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+     * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.RepeatedRulesOrBuilder getRepeatedOrBuilder() {
       if (typeCase_ == 18) {
          return (pbandk.testpb.Validate.RepeatedRules) type_;
@@ -1509,16 +1563,18 @@ public final class Validate {
 
     public static final int MAP_FIELD_NUMBER = 19;
     /**
-     * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+     * <code>.pbandk.testpb.MapRules map = 19;</code>
      * @return Whether the map field is set.
      */
+    @java.lang.Override
     public boolean hasMap() {
       return typeCase_ == 19;
     }
     /**
-     * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+     * <code>.pbandk.testpb.MapRules map = 19;</code>
      * @return The map.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.MapRules getMap() {
       if (typeCase_ == 19) {
          return (pbandk.testpb.Validate.MapRules) type_;
@@ -1526,8 +1582,9 @@ public final class Validate {
       return pbandk.testpb.Validate.MapRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+     * <code>.pbandk.testpb.MapRules map = 19;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.MapRulesOrBuilder getMapOrBuilder() {
       if (typeCase_ == 19) {
          return (pbandk.testpb.Validate.MapRules) type_;
@@ -1541,9 +1598,10 @@ public final class Validate {
      * Well-Known Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+     * <code>.pbandk.testpb.AnyRules any = 20;</code>
      * @return Whether the any field is set.
      */
+    @java.lang.Override
     public boolean hasAny() {
       return typeCase_ == 20;
     }
@@ -1552,9 +1610,10 @@ public final class Validate {
      * Well-Known Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+     * <code>.pbandk.testpb.AnyRules any = 20;</code>
      * @return The any.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.AnyRules getAny() {
       if (typeCase_ == 20) {
          return (pbandk.testpb.Validate.AnyRules) type_;
@@ -1566,8 +1625,9 @@ public final class Validate {
      * Well-Known Field Types
      * </pre>
      *
-     * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+     * <code>.pbandk.testpb.AnyRules any = 20;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.AnyRulesOrBuilder getAnyOrBuilder() {
       if (typeCase_ == 20) {
          return (pbandk.testpb.Validate.AnyRules) type_;
@@ -1577,16 +1637,18 @@ public final class Validate {
 
     public static final int DURATION_FIELD_NUMBER = 21;
     /**
-     * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+     * <code>.pbandk.testpb.DurationRules duration = 21;</code>
      * @return Whether the duration field is set.
      */
+    @java.lang.Override
     public boolean hasDuration() {
       return typeCase_ == 21;
     }
     /**
-     * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+     * <code>.pbandk.testpb.DurationRules duration = 21;</code>
      * @return The duration.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.DurationRules getDuration() {
       if (typeCase_ == 21) {
          return (pbandk.testpb.Validate.DurationRules) type_;
@@ -1594,8 +1656,9 @@ public final class Validate {
       return pbandk.testpb.Validate.DurationRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+     * <code>.pbandk.testpb.DurationRules duration = 21;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.DurationRulesOrBuilder getDurationOrBuilder() {
       if (typeCase_ == 21) {
          return (pbandk.testpb.Validate.DurationRules) type_;
@@ -1605,16 +1668,18 @@ public final class Validate {
 
     public static final int TIMESTAMP_FIELD_NUMBER = 22;
     /**
-     * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+     * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
      * @return Whether the timestamp field is set.
      */
+    @java.lang.Override
     public boolean hasTimestamp() {
       return typeCase_ == 22;
     }
     /**
-     * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+     * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
      * @return The timestamp.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.TimestampRules getTimestamp() {
       if (typeCase_ == 22) {
          return (pbandk.testpb.Validate.TimestampRules) type_;
@@ -1622,8 +1687,9 @@ public final class Validate {
       return pbandk.testpb.Validate.TimestampRules.getDefaultInstance();
     }
     /**
-     * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+     * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.TimestampRulesOrBuilder getTimestampOrBuilder() {
       if (typeCase_ == 22) {
          return (pbandk.testpb.Validate.TimestampRules) type_;
@@ -2664,9 +2730,10 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        * @return Whether the float field is set.
        */
+      @java.lang.Override
       public boolean hasFloat() {
         return typeCase_ == 1;
       }
@@ -2675,9 +2742,10 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        * @return The float.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.FloatRules getFloat() {
         if (floatBuilder_ == null) {
           if (typeCase_ == 1) {
@@ -2696,7 +2764,7 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
       public Builder setFloat(pbandk.testpb.Validate.FloatRules value) {
         if (floatBuilder_ == null) {
@@ -2716,7 +2784,7 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
       public Builder setFloat(
           pbandk.testpb.Validate.FloatRules.Builder builderForValue) {
@@ -2734,7 +2802,7 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
       public Builder mergeFloat(pbandk.testpb.Validate.FloatRules value) {
         if (floatBuilder_ == null) {
@@ -2760,7 +2828,7 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
       public Builder clearFloat() {
         if (floatBuilder_ == null) {
@@ -2783,7 +2851,7 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
       public pbandk.testpb.Validate.FloatRules.Builder getFloatBuilder() {
         return getFloatFieldBuilder().getBuilder();
@@ -2793,8 +2861,9 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.FloatRulesOrBuilder getFloatOrBuilder() {
         if ((typeCase_ == 1) && (floatBuilder_ != null)) {
           return floatBuilder_.getMessageOrBuilder();
@@ -2810,7 +2879,7 @@ public final class Validate {
        * Scalar Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.FloatRules float = 1;</code>
+       * <code>.pbandk.testpb.FloatRules float = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.FloatRules, pbandk.testpb.Validate.FloatRules.Builder, pbandk.testpb.Validate.FloatRulesOrBuilder> 
@@ -2834,16 +2903,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.DoubleRules, pbandk.testpb.Validate.DoubleRules.Builder, pbandk.testpb.Validate.DoubleRulesOrBuilder> doubleBuilder_;
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        * @return Whether the double field is set.
        */
+      @java.lang.Override
       public boolean hasDouble() {
         return typeCase_ == 2;
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        * @return The double.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.DoubleRules getDouble() {
         if (doubleBuilder_ == null) {
           if (typeCase_ == 2) {
@@ -2858,7 +2929,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
       public Builder setDouble(pbandk.testpb.Validate.DoubleRules value) {
         if (doubleBuilder_ == null) {
@@ -2874,7 +2945,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
       public Builder setDouble(
           pbandk.testpb.Validate.DoubleRules.Builder builderForValue) {
@@ -2888,7 +2959,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
       public Builder mergeDouble(pbandk.testpb.Validate.DoubleRules value) {
         if (doubleBuilder_ == null) {
@@ -2910,7 +2981,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
       public Builder clearDouble() {
         if (doubleBuilder_ == null) {
@@ -2929,14 +3000,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
       public pbandk.testpb.Validate.DoubleRules.Builder getDoubleBuilder() {
         return getDoubleFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.DoubleRulesOrBuilder getDoubleOrBuilder() {
         if ((typeCase_ == 2) && (doubleBuilder_ != null)) {
           return doubleBuilder_.getMessageOrBuilder();
@@ -2948,7 +3020,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.DoubleRules double = 2;</code>
+       * <code>.pbandk.testpb.DoubleRules double = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.DoubleRules, pbandk.testpb.Validate.DoubleRules.Builder, pbandk.testpb.Validate.DoubleRulesOrBuilder> 
@@ -2972,16 +3044,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Int32Rules, pbandk.testpb.Validate.Int32Rules.Builder, pbandk.testpb.Validate.Int32RulesOrBuilder> int32Builder_;
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        * @return Whether the int32 field is set.
        */
+      @java.lang.Override
       public boolean hasInt32() {
         return typeCase_ == 3;
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        * @return The int32.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Int32Rules getInt32() {
         if (int32Builder_ == null) {
           if (typeCase_ == 3) {
@@ -2996,7 +3070,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
       public Builder setInt32(pbandk.testpb.Validate.Int32Rules value) {
         if (int32Builder_ == null) {
@@ -3012,7 +3086,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
       public Builder setInt32(
           pbandk.testpb.Validate.Int32Rules.Builder builderForValue) {
@@ -3026,7 +3100,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
       public Builder mergeInt32(pbandk.testpb.Validate.Int32Rules value) {
         if (int32Builder_ == null) {
@@ -3048,7 +3122,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
       public Builder clearInt32() {
         if (int32Builder_ == null) {
@@ -3067,14 +3141,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
       public pbandk.testpb.Validate.Int32Rules.Builder getInt32Builder() {
         return getInt32FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Int32RulesOrBuilder getInt32OrBuilder() {
         if ((typeCase_ == 3) && (int32Builder_ != null)) {
           return int32Builder_.getMessageOrBuilder();
@@ -3086,7 +3161,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Int32Rules int32 = 3;</code>
+       * <code>.pbandk.testpb.Int32Rules int32 = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Int32Rules, pbandk.testpb.Validate.Int32Rules.Builder, pbandk.testpb.Validate.Int32RulesOrBuilder> 
@@ -3110,16 +3185,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Int64Rules, pbandk.testpb.Validate.Int64Rules.Builder, pbandk.testpb.Validate.Int64RulesOrBuilder> int64Builder_;
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        * @return Whether the int64 field is set.
        */
+      @java.lang.Override
       public boolean hasInt64() {
         return typeCase_ == 4;
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        * @return The int64.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Int64Rules getInt64() {
         if (int64Builder_ == null) {
           if (typeCase_ == 4) {
@@ -3134,7 +3211,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
       public Builder setInt64(pbandk.testpb.Validate.Int64Rules value) {
         if (int64Builder_ == null) {
@@ -3150,7 +3227,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
       public Builder setInt64(
           pbandk.testpb.Validate.Int64Rules.Builder builderForValue) {
@@ -3164,7 +3241,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
       public Builder mergeInt64(pbandk.testpb.Validate.Int64Rules value) {
         if (int64Builder_ == null) {
@@ -3186,7 +3263,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
       public Builder clearInt64() {
         if (int64Builder_ == null) {
@@ -3205,14 +3282,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
       public pbandk.testpb.Validate.Int64Rules.Builder getInt64Builder() {
         return getInt64FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Int64RulesOrBuilder getInt64OrBuilder() {
         if ((typeCase_ == 4) && (int64Builder_ != null)) {
           return int64Builder_.getMessageOrBuilder();
@@ -3224,7 +3302,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Int64Rules int64 = 4;</code>
+       * <code>.pbandk.testpb.Int64Rules int64 = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Int64Rules, pbandk.testpb.Validate.Int64Rules.Builder, pbandk.testpb.Validate.Int64RulesOrBuilder> 
@@ -3248,16 +3326,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.UInt32Rules, pbandk.testpb.Validate.UInt32Rules.Builder, pbandk.testpb.Validate.UInt32RulesOrBuilder> uint32Builder_;
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        * @return Whether the uint32 field is set.
        */
+      @java.lang.Override
       public boolean hasUint32() {
         return typeCase_ == 5;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        * @return The uint32.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.UInt32Rules getUint32() {
         if (uint32Builder_ == null) {
           if (typeCase_ == 5) {
@@ -3272,7 +3352,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
       public Builder setUint32(pbandk.testpb.Validate.UInt32Rules value) {
         if (uint32Builder_ == null) {
@@ -3288,7 +3368,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
       public Builder setUint32(
           pbandk.testpb.Validate.UInt32Rules.Builder builderForValue) {
@@ -3302,7 +3382,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
       public Builder mergeUint32(pbandk.testpb.Validate.UInt32Rules value) {
         if (uint32Builder_ == null) {
@@ -3324,7 +3404,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
       public Builder clearUint32() {
         if (uint32Builder_ == null) {
@@ -3343,14 +3423,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
       public pbandk.testpb.Validate.UInt32Rules.Builder getUint32Builder() {
         return getUint32FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.UInt32RulesOrBuilder getUint32OrBuilder() {
         if ((typeCase_ == 5) && (uint32Builder_ != null)) {
           return uint32Builder_.getMessageOrBuilder();
@@ -3362,7 +3443,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.UInt32Rules uint32 = 5;</code>
+       * <code>.pbandk.testpb.UInt32Rules uint32 = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.UInt32Rules, pbandk.testpb.Validate.UInt32Rules.Builder, pbandk.testpb.Validate.UInt32RulesOrBuilder> 
@@ -3386,16 +3467,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.UInt64Rules, pbandk.testpb.Validate.UInt64Rules.Builder, pbandk.testpb.Validate.UInt64RulesOrBuilder> uint64Builder_;
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        * @return Whether the uint64 field is set.
        */
+      @java.lang.Override
       public boolean hasUint64() {
         return typeCase_ == 6;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        * @return The uint64.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.UInt64Rules getUint64() {
         if (uint64Builder_ == null) {
           if (typeCase_ == 6) {
@@ -3410,7 +3493,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
       public Builder setUint64(pbandk.testpb.Validate.UInt64Rules value) {
         if (uint64Builder_ == null) {
@@ -3426,7 +3509,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
       public Builder setUint64(
           pbandk.testpb.Validate.UInt64Rules.Builder builderForValue) {
@@ -3440,7 +3523,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
       public Builder mergeUint64(pbandk.testpb.Validate.UInt64Rules value) {
         if (uint64Builder_ == null) {
@@ -3462,7 +3545,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
       public Builder clearUint64() {
         if (uint64Builder_ == null) {
@@ -3481,14 +3564,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
       public pbandk.testpb.Validate.UInt64Rules.Builder getUint64Builder() {
         return getUint64FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.UInt64RulesOrBuilder getUint64OrBuilder() {
         if ((typeCase_ == 6) && (uint64Builder_ != null)) {
           return uint64Builder_.getMessageOrBuilder();
@@ -3500,7 +3584,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.UInt64Rules uint64 = 6;</code>
+       * <code>.pbandk.testpb.UInt64Rules uint64 = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.UInt64Rules, pbandk.testpb.Validate.UInt64Rules.Builder, pbandk.testpb.Validate.UInt64RulesOrBuilder> 
@@ -3524,16 +3608,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SInt32Rules, pbandk.testpb.Validate.SInt32Rules.Builder, pbandk.testpb.Validate.SInt32RulesOrBuilder> sint32Builder_;
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        * @return Whether the sint32 field is set.
        */
+      @java.lang.Override
       public boolean hasSint32() {
         return typeCase_ == 7;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        * @return The sint32.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SInt32Rules getSint32() {
         if (sint32Builder_ == null) {
           if (typeCase_ == 7) {
@@ -3548,7 +3634,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
       public Builder setSint32(pbandk.testpb.Validate.SInt32Rules value) {
         if (sint32Builder_ == null) {
@@ -3564,7 +3650,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
       public Builder setSint32(
           pbandk.testpb.Validate.SInt32Rules.Builder builderForValue) {
@@ -3578,7 +3664,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
       public Builder mergeSint32(pbandk.testpb.Validate.SInt32Rules value) {
         if (sint32Builder_ == null) {
@@ -3600,7 +3686,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
       public Builder clearSint32() {
         if (sint32Builder_ == null) {
@@ -3619,14 +3705,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
       public pbandk.testpb.Validate.SInt32Rules.Builder getSint32Builder() {
         return getSint32FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SInt32RulesOrBuilder getSint32OrBuilder() {
         if ((typeCase_ == 7) && (sint32Builder_ != null)) {
           return sint32Builder_.getMessageOrBuilder();
@@ -3638,7 +3725,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SInt32Rules sint32 = 7;</code>
+       * <code>.pbandk.testpb.SInt32Rules sint32 = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SInt32Rules, pbandk.testpb.Validate.SInt32Rules.Builder, pbandk.testpb.Validate.SInt32RulesOrBuilder> 
@@ -3662,16 +3749,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SInt64Rules, pbandk.testpb.Validate.SInt64Rules.Builder, pbandk.testpb.Validate.SInt64RulesOrBuilder> sint64Builder_;
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        * @return Whether the sint64 field is set.
        */
+      @java.lang.Override
       public boolean hasSint64() {
         return typeCase_ == 8;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        * @return The sint64.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SInt64Rules getSint64() {
         if (sint64Builder_ == null) {
           if (typeCase_ == 8) {
@@ -3686,7 +3775,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
       public Builder setSint64(pbandk.testpb.Validate.SInt64Rules value) {
         if (sint64Builder_ == null) {
@@ -3702,7 +3791,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
       public Builder setSint64(
           pbandk.testpb.Validate.SInt64Rules.Builder builderForValue) {
@@ -3716,7 +3805,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
       public Builder mergeSint64(pbandk.testpb.Validate.SInt64Rules value) {
         if (sint64Builder_ == null) {
@@ -3738,7 +3827,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
       public Builder clearSint64() {
         if (sint64Builder_ == null) {
@@ -3757,14 +3846,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
       public pbandk.testpb.Validate.SInt64Rules.Builder getSint64Builder() {
         return getSint64FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SInt64RulesOrBuilder getSint64OrBuilder() {
         if ((typeCase_ == 8) && (sint64Builder_ != null)) {
           return sint64Builder_.getMessageOrBuilder();
@@ -3776,7 +3866,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SInt64Rules sint64 = 8;</code>
+       * <code>.pbandk.testpb.SInt64Rules sint64 = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SInt64Rules, pbandk.testpb.Validate.SInt64Rules.Builder, pbandk.testpb.Validate.SInt64RulesOrBuilder> 
@@ -3800,16 +3890,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Fixed32Rules, pbandk.testpb.Validate.Fixed32Rules.Builder, pbandk.testpb.Validate.Fixed32RulesOrBuilder> fixed32Builder_;
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        * @return Whether the fixed32 field is set.
        */
+      @java.lang.Override
       public boolean hasFixed32() {
         return typeCase_ == 9;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        * @return The fixed32.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Fixed32Rules getFixed32() {
         if (fixed32Builder_ == null) {
           if (typeCase_ == 9) {
@@ -3824,7 +3916,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
       public Builder setFixed32(pbandk.testpb.Validate.Fixed32Rules value) {
         if (fixed32Builder_ == null) {
@@ -3840,7 +3932,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
       public Builder setFixed32(
           pbandk.testpb.Validate.Fixed32Rules.Builder builderForValue) {
@@ -3854,7 +3946,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
       public Builder mergeFixed32(pbandk.testpb.Validate.Fixed32Rules value) {
         if (fixed32Builder_ == null) {
@@ -3876,7 +3968,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
       public Builder clearFixed32() {
         if (fixed32Builder_ == null) {
@@ -3895,14 +3987,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
       public pbandk.testpb.Validate.Fixed32Rules.Builder getFixed32Builder() {
         return getFixed32FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Fixed32RulesOrBuilder getFixed32OrBuilder() {
         if ((typeCase_ == 9) && (fixed32Builder_ != null)) {
           return fixed32Builder_.getMessageOrBuilder();
@@ -3914,7 +4007,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
+       * <code>.pbandk.testpb.Fixed32Rules fixed32 = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Fixed32Rules, pbandk.testpb.Validate.Fixed32Rules.Builder, pbandk.testpb.Validate.Fixed32RulesOrBuilder> 
@@ -3938,16 +4031,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Fixed64Rules, pbandk.testpb.Validate.Fixed64Rules.Builder, pbandk.testpb.Validate.Fixed64RulesOrBuilder> fixed64Builder_;
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        * @return Whether the fixed64 field is set.
        */
+      @java.lang.Override
       public boolean hasFixed64() {
         return typeCase_ == 10;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        * @return The fixed64.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Fixed64Rules getFixed64() {
         if (fixed64Builder_ == null) {
           if (typeCase_ == 10) {
@@ -3962,7 +4057,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
       public Builder setFixed64(pbandk.testpb.Validate.Fixed64Rules value) {
         if (fixed64Builder_ == null) {
@@ -3978,7 +4073,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
       public Builder setFixed64(
           pbandk.testpb.Validate.Fixed64Rules.Builder builderForValue) {
@@ -3992,7 +4087,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
       public Builder mergeFixed64(pbandk.testpb.Validate.Fixed64Rules value) {
         if (fixed64Builder_ == null) {
@@ -4014,7 +4109,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
       public Builder clearFixed64() {
         if (fixed64Builder_ == null) {
@@ -4033,14 +4128,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
       public pbandk.testpb.Validate.Fixed64Rules.Builder getFixed64Builder() {
         return getFixed64FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.Fixed64RulesOrBuilder getFixed64OrBuilder() {
         if ((typeCase_ == 10) && (fixed64Builder_ != null)) {
           return fixed64Builder_.getMessageOrBuilder();
@@ -4052,7 +4148,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
+       * <code>.pbandk.testpb.Fixed64Rules fixed64 = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.Fixed64Rules, pbandk.testpb.Validate.Fixed64Rules.Builder, pbandk.testpb.Validate.Fixed64RulesOrBuilder> 
@@ -4076,16 +4172,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SFixed32Rules, pbandk.testpb.Validate.SFixed32Rules.Builder, pbandk.testpb.Validate.SFixed32RulesOrBuilder> sfixed32Builder_;
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        * @return Whether the sfixed32 field is set.
        */
+      @java.lang.Override
       public boolean hasSfixed32() {
         return typeCase_ == 11;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        * @return The sfixed32.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SFixed32Rules getSfixed32() {
         if (sfixed32Builder_ == null) {
           if (typeCase_ == 11) {
@@ -4100,7 +4198,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
       public Builder setSfixed32(pbandk.testpb.Validate.SFixed32Rules value) {
         if (sfixed32Builder_ == null) {
@@ -4116,7 +4214,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
       public Builder setSfixed32(
           pbandk.testpb.Validate.SFixed32Rules.Builder builderForValue) {
@@ -4130,7 +4228,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
       public Builder mergeSfixed32(pbandk.testpb.Validate.SFixed32Rules value) {
         if (sfixed32Builder_ == null) {
@@ -4152,7 +4250,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
       public Builder clearSfixed32() {
         if (sfixed32Builder_ == null) {
@@ -4171,14 +4269,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
       public pbandk.testpb.Validate.SFixed32Rules.Builder getSfixed32Builder() {
         return getSfixed32FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SFixed32RulesOrBuilder getSfixed32OrBuilder() {
         if ((typeCase_ == 11) && (sfixed32Builder_ != null)) {
           return sfixed32Builder_.getMessageOrBuilder();
@@ -4190,7 +4289,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
+       * <code>.pbandk.testpb.SFixed32Rules sfixed32 = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SFixed32Rules, pbandk.testpb.Validate.SFixed32Rules.Builder, pbandk.testpb.Validate.SFixed32RulesOrBuilder> 
@@ -4214,16 +4313,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SFixed64Rules, pbandk.testpb.Validate.SFixed64Rules.Builder, pbandk.testpb.Validate.SFixed64RulesOrBuilder> sfixed64Builder_;
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        * @return Whether the sfixed64 field is set.
        */
+      @java.lang.Override
       public boolean hasSfixed64() {
         return typeCase_ == 12;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        * @return The sfixed64.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SFixed64Rules getSfixed64() {
         if (sfixed64Builder_ == null) {
           if (typeCase_ == 12) {
@@ -4238,7 +4339,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
       public Builder setSfixed64(pbandk.testpb.Validate.SFixed64Rules value) {
         if (sfixed64Builder_ == null) {
@@ -4254,7 +4355,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
       public Builder setSfixed64(
           pbandk.testpb.Validate.SFixed64Rules.Builder builderForValue) {
@@ -4268,7 +4369,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
       public Builder mergeSfixed64(pbandk.testpb.Validate.SFixed64Rules value) {
         if (sfixed64Builder_ == null) {
@@ -4290,7 +4391,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
       public Builder clearSfixed64() {
         if (sfixed64Builder_ == null) {
@@ -4309,14 +4410,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
       public pbandk.testpb.Validate.SFixed64Rules.Builder getSfixed64Builder() {
         return getSfixed64FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.SFixed64RulesOrBuilder getSfixed64OrBuilder() {
         if ((typeCase_ == 12) && (sfixed64Builder_ != null)) {
           return sfixed64Builder_.getMessageOrBuilder();
@@ -4328,7 +4430,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
+       * <code>.pbandk.testpb.SFixed64Rules sfixed64 = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.SFixed64Rules, pbandk.testpb.Validate.SFixed64Rules.Builder, pbandk.testpb.Validate.SFixed64RulesOrBuilder> 
@@ -4352,16 +4454,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.BoolRules, pbandk.testpb.Validate.BoolRules.Builder, pbandk.testpb.Validate.BoolRulesOrBuilder> boolBuilder_;
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        * @return Whether the bool field is set.
        */
+      @java.lang.Override
       public boolean hasBool() {
         return typeCase_ == 13;
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        * @return The bool.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.BoolRules getBool() {
         if (boolBuilder_ == null) {
           if (typeCase_ == 13) {
@@ -4376,7 +4480,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
       public Builder setBool(pbandk.testpb.Validate.BoolRules value) {
         if (boolBuilder_ == null) {
@@ -4392,7 +4496,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
       public Builder setBool(
           pbandk.testpb.Validate.BoolRules.Builder builderForValue) {
@@ -4406,7 +4510,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
       public Builder mergeBool(pbandk.testpb.Validate.BoolRules value) {
         if (boolBuilder_ == null) {
@@ -4428,7 +4532,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
       public Builder clearBool() {
         if (boolBuilder_ == null) {
@@ -4447,14 +4551,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
       public pbandk.testpb.Validate.BoolRules.Builder getBoolBuilder() {
         return getBoolFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.BoolRulesOrBuilder getBoolOrBuilder() {
         if ((typeCase_ == 13) && (boolBuilder_ != null)) {
           return boolBuilder_.getMessageOrBuilder();
@@ -4466,7 +4571,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.BoolRules bool = 13;</code>
+       * <code>.pbandk.testpb.BoolRules bool = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.BoolRules, pbandk.testpb.Validate.BoolRules.Builder, pbandk.testpb.Validate.BoolRulesOrBuilder> 
@@ -4490,16 +4595,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.StringRules, pbandk.testpb.Validate.StringRules.Builder, pbandk.testpb.Validate.StringRulesOrBuilder> stringBuilder_;
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        * @return Whether the string field is set.
        */
+      @java.lang.Override
       public boolean hasString() {
         return typeCase_ == 14;
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        * @return The string.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.StringRules getString() {
         if (stringBuilder_ == null) {
           if (typeCase_ == 14) {
@@ -4514,7 +4621,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
       public Builder setString(pbandk.testpb.Validate.StringRules value) {
         if (stringBuilder_ == null) {
@@ -4530,7 +4637,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
       public Builder setString(
           pbandk.testpb.Validate.StringRules.Builder builderForValue) {
@@ -4544,7 +4651,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
       public Builder mergeString(pbandk.testpb.Validate.StringRules value) {
         if (stringBuilder_ == null) {
@@ -4566,7 +4673,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
       public Builder clearString() {
         if (stringBuilder_ == null) {
@@ -4585,14 +4692,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
       public pbandk.testpb.Validate.StringRules.Builder getStringBuilder() {
         return getStringFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.StringRulesOrBuilder getStringOrBuilder() {
         if ((typeCase_ == 14) && (stringBuilder_ != null)) {
           return stringBuilder_.getMessageOrBuilder();
@@ -4604,7 +4712,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.StringRules string = 14;</code>
+       * <code>.pbandk.testpb.StringRules string = 14;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.StringRules, pbandk.testpb.Validate.StringRules.Builder, pbandk.testpb.Validate.StringRulesOrBuilder> 
@@ -4628,16 +4736,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.BytesRules, pbandk.testpb.Validate.BytesRules.Builder, pbandk.testpb.Validate.BytesRulesOrBuilder> bytesBuilder_;
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        * @return Whether the bytes field is set.
        */
+      @java.lang.Override
       public boolean hasBytes() {
         return typeCase_ == 15;
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        * @return The bytes.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.BytesRules getBytes() {
         if (bytesBuilder_ == null) {
           if (typeCase_ == 15) {
@@ -4652,7 +4762,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
       public Builder setBytes(pbandk.testpb.Validate.BytesRules value) {
         if (bytesBuilder_ == null) {
@@ -4668,7 +4778,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
       public Builder setBytes(
           pbandk.testpb.Validate.BytesRules.Builder builderForValue) {
@@ -4682,7 +4792,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
       public Builder mergeBytes(pbandk.testpb.Validate.BytesRules value) {
         if (bytesBuilder_ == null) {
@@ -4704,7 +4814,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
       public Builder clearBytes() {
         if (bytesBuilder_ == null) {
@@ -4723,14 +4833,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
       public pbandk.testpb.Validate.BytesRules.Builder getBytesBuilder() {
         return getBytesFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.BytesRulesOrBuilder getBytesOrBuilder() {
         if ((typeCase_ == 15) && (bytesBuilder_ != null)) {
           return bytesBuilder_.getMessageOrBuilder();
@@ -4742,7 +4853,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.BytesRules bytes = 15;</code>
+       * <code>.pbandk.testpb.BytesRules bytes = 15;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.BytesRules, pbandk.testpb.Validate.BytesRules.Builder, pbandk.testpb.Validate.BytesRulesOrBuilder> 
@@ -4770,9 +4881,10 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        * @return Whether the enum field is set.
        */
+      @java.lang.Override
       public boolean hasEnum() {
         return typeCase_ == 16;
       }
@@ -4781,9 +4893,10 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        * @return The enum.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.EnumRules getEnum() {
         if (enumBuilder_ == null) {
           if (typeCase_ == 16) {
@@ -4802,7 +4915,7 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
       public Builder setEnum(pbandk.testpb.Validate.EnumRules value) {
         if (enumBuilder_ == null) {
@@ -4822,7 +4935,7 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
       public Builder setEnum(
           pbandk.testpb.Validate.EnumRules.Builder builderForValue) {
@@ -4840,7 +4953,7 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
       public Builder mergeEnum(pbandk.testpb.Validate.EnumRules value) {
         if (enumBuilder_ == null) {
@@ -4866,7 +4979,7 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
       public Builder clearEnum() {
         if (enumBuilder_ == null) {
@@ -4889,7 +5002,7 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
       public pbandk.testpb.Validate.EnumRules.Builder getEnumBuilder() {
         return getEnumFieldBuilder().getBuilder();
@@ -4899,8 +5012,9 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.EnumRulesOrBuilder getEnumOrBuilder() {
         if ((typeCase_ == 16) && (enumBuilder_ != null)) {
           return enumBuilder_.getMessageOrBuilder();
@@ -4916,7 +5030,7 @@ public final class Validate {
        * Complex Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.EnumRules enum = 16;</code>
+       * <code>.pbandk.testpb.EnumRules enum = 16;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.EnumRules, pbandk.testpb.Validate.EnumRules.Builder, pbandk.testpb.Validate.EnumRulesOrBuilder> 
@@ -4940,16 +5054,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.RepeatedRules, pbandk.testpb.Validate.RepeatedRules.Builder, pbandk.testpb.Validate.RepeatedRulesOrBuilder> repeatedBuilder_;
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        * @return Whether the repeated field is set.
        */
+      @java.lang.Override
       public boolean hasRepeated() {
         return typeCase_ == 18;
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        * @return The repeated.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.RepeatedRules getRepeated() {
         if (repeatedBuilder_ == null) {
           if (typeCase_ == 18) {
@@ -4964,7 +5080,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
       public Builder setRepeated(pbandk.testpb.Validate.RepeatedRules value) {
         if (repeatedBuilder_ == null) {
@@ -4980,7 +5096,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
       public Builder setRepeated(
           pbandk.testpb.Validate.RepeatedRules.Builder builderForValue) {
@@ -4994,7 +5110,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
       public Builder mergeRepeated(pbandk.testpb.Validate.RepeatedRules value) {
         if (repeatedBuilder_ == null) {
@@ -5016,7 +5132,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
       public Builder clearRepeated() {
         if (repeatedBuilder_ == null) {
@@ -5035,14 +5151,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
       public pbandk.testpb.Validate.RepeatedRules.Builder getRepeatedBuilder() {
         return getRepeatedFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.RepeatedRulesOrBuilder getRepeatedOrBuilder() {
         if ((typeCase_ == 18) && (repeatedBuilder_ != null)) {
           return repeatedBuilder_.getMessageOrBuilder();
@@ -5054,7 +5171,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.RepeatedRules repeated = 18;</code>
+       * <code>.pbandk.testpb.RepeatedRules repeated = 18;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.RepeatedRules, pbandk.testpb.Validate.RepeatedRules.Builder, pbandk.testpb.Validate.RepeatedRulesOrBuilder> 
@@ -5078,16 +5195,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.MapRules, pbandk.testpb.Validate.MapRules.Builder, pbandk.testpb.Validate.MapRulesOrBuilder> mapBuilder_;
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        * @return Whether the map field is set.
        */
+      @java.lang.Override
       public boolean hasMap() {
         return typeCase_ == 19;
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        * @return The map.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.MapRules getMap() {
         if (mapBuilder_ == null) {
           if (typeCase_ == 19) {
@@ -5102,7 +5221,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
       public Builder setMap(pbandk.testpb.Validate.MapRules value) {
         if (mapBuilder_ == null) {
@@ -5118,7 +5237,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
       public Builder setMap(
           pbandk.testpb.Validate.MapRules.Builder builderForValue) {
@@ -5132,7 +5251,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
       public Builder mergeMap(pbandk.testpb.Validate.MapRules value) {
         if (mapBuilder_ == null) {
@@ -5154,7 +5273,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
       public Builder clearMap() {
         if (mapBuilder_ == null) {
@@ -5173,14 +5292,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
       public pbandk.testpb.Validate.MapRules.Builder getMapBuilder() {
         return getMapFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.MapRulesOrBuilder getMapOrBuilder() {
         if ((typeCase_ == 19) && (mapBuilder_ != null)) {
           return mapBuilder_.getMessageOrBuilder();
@@ -5192,7 +5312,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.MapRules map = 19;</code>
+       * <code>.pbandk.testpb.MapRules map = 19;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.MapRules, pbandk.testpb.Validate.MapRules.Builder, pbandk.testpb.Validate.MapRulesOrBuilder> 
@@ -5220,9 +5340,10 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        * @return Whether the any field is set.
        */
+      @java.lang.Override
       public boolean hasAny() {
         return typeCase_ == 20;
       }
@@ -5231,9 +5352,10 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        * @return The any.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.AnyRules getAny() {
         if (anyBuilder_ == null) {
           if (typeCase_ == 20) {
@@ -5252,7 +5374,7 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
       public Builder setAny(pbandk.testpb.Validate.AnyRules value) {
         if (anyBuilder_ == null) {
@@ -5272,7 +5394,7 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
       public Builder setAny(
           pbandk.testpb.Validate.AnyRules.Builder builderForValue) {
@@ -5290,7 +5412,7 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
       public Builder mergeAny(pbandk.testpb.Validate.AnyRules value) {
         if (anyBuilder_ == null) {
@@ -5316,7 +5438,7 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
       public Builder clearAny() {
         if (anyBuilder_ == null) {
@@ -5339,7 +5461,7 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
       public pbandk.testpb.Validate.AnyRules.Builder getAnyBuilder() {
         return getAnyFieldBuilder().getBuilder();
@@ -5349,8 +5471,9 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.AnyRulesOrBuilder getAnyOrBuilder() {
         if ((typeCase_ == 20) && (anyBuilder_ != null)) {
           return anyBuilder_.getMessageOrBuilder();
@@ -5366,7 +5489,7 @@ public final class Validate {
        * Well-Known Field Types
        * </pre>
        *
-       * <code>optional .pbandk.testpb.AnyRules any = 20;</code>
+       * <code>.pbandk.testpb.AnyRules any = 20;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.AnyRules, pbandk.testpb.Validate.AnyRules.Builder, pbandk.testpb.Validate.AnyRulesOrBuilder> 
@@ -5390,16 +5513,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.DurationRules, pbandk.testpb.Validate.DurationRules.Builder, pbandk.testpb.Validate.DurationRulesOrBuilder> durationBuilder_;
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        * @return Whether the duration field is set.
        */
+      @java.lang.Override
       public boolean hasDuration() {
         return typeCase_ == 21;
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        * @return The duration.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.DurationRules getDuration() {
         if (durationBuilder_ == null) {
           if (typeCase_ == 21) {
@@ -5414,7 +5539,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
       public Builder setDuration(pbandk.testpb.Validate.DurationRules value) {
         if (durationBuilder_ == null) {
@@ -5430,7 +5555,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
       public Builder setDuration(
           pbandk.testpb.Validate.DurationRules.Builder builderForValue) {
@@ -5444,7 +5569,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
       public Builder mergeDuration(pbandk.testpb.Validate.DurationRules value) {
         if (durationBuilder_ == null) {
@@ -5466,7 +5591,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
       public Builder clearDuration() {
         if (durationBuilder_ == null) {
@@ -5485,14 +5610,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
       public pbandk.testpb.Validate.DurationRules.Builder getDurationBuilder() {
         return getDurationFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.DurationRulesOrBuilder getDurationOrBuilder() {
         if ((typeCase_ == 21) && (durationBuilder_ != null)) {
           return durationBuilder_.getMessageOrBuilder();
@@ -5504,7 +5630,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.DurationRules duration = 21;</code>
+       * <code>.pbandk.testpb.DurationRules duration = 21;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.DurationRules, pbandk.testpb.Validate.DurationRules.Builder, pbandk.testpb.Validate.DurationRulesOrBuilder> 
@@ -5528,16 +5654,18 @@ public final class Validate {
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.TimestampRules, pbandk.testpb.Validate.TimestampRules.Builder, pbandk.testpb.Validate.TimestampRulesOrBuilder> timestampBuilder_;
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        * @return Whether the timestamp field is set.
        */
+      @java.lang.Override
       public boolean hasTimestamp() {
         return typeCase_ == 22;
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        * @return The timestamp.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.TimestampRules getTimestamp() {
         if (timestampBuilder_ == null) {
           if (typeCase_ == 22) {
@@ -5552,7 +5680,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
       public Builder setTimestamp(pbandk.testpb.Validate.TimestampRules value) {
         if (timestampBuilder_ == null) {
@@ -5568,7 +5696,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
       public Builder setTimestamp(
           pbandk.testpb.Validate.TimestampRules.Builder builderForValue) {
@@ -5582,7 +5710,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
       public Builder mergeTimestamp(pbandk.testpb.Validate.TimestampRules value) {
         if (timestampBuilder_ == null) {
@@ -5604,7 +5732,7 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
       public Builder clearTimestamp() {
         if (timestampBuilder_ == null) {
@@ -5623,14 +5751,15 @@ public final class Validate {
         return this;
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
       public pbandk.testpb.Validate.TimestampRules.Builder getTimestampBuilder() {
         return getTimestampFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.TimestampRulesOrBuilder getTimestampOrBuilder() {
         if ((typeCase_ == 22) && (timestampBuilder_ != null)) {
           return timestampBuilder_.getMessageOrBuilder();
@@ -5642,7 +5771,7 @@ public final class Validate {
         }
       }
       /**
-       * <code>optional .pbandk.testpb.TimestampRules timestamp = 22;</code>
+       * <code>.pbandk.testpb.TimestampRules timestamp = 22;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           pbandk.testpb.Validate.TimestampRules, pbandk.testpb.Validate.TimestampRules.Builder, pbandk.testpb.Validate.TimestampRulesOrBuilder> 
@@ -5897,7 +6026,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.FloatRules}
    */
-  public  static final class FloatRules extends
+  public static final class FloatRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.FloatRules)
       FloatRulesOrBuilder {
@@ -6058,6 +6187,7 @@ public final class Validate {
      * <code>optional float const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -6069,6 +6199,7 @@ public final class Validate {
      * <code>optional float const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public float getConst() {
       return const_;
     }
@@ -6084,6 +6215,7 @@ public final class Validate {
      * <code>optional float lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -6096,6 +6228,7 @@ public final class Validate {
      * <code>optional float lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public float getLt() {
       return lt_;
     }
@@ -6111,6 +6244,7 @@ public final class Validate {
      * <code>optional float lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -6123,6 +6257,7 @@ public final class Validate {
      * <code>optional float lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public float getLte() {
       return lte_;
     }
@@ -6139,6 +6274,7 @@ public final class Validate {
      * <code>optional float gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -6152,6 +6288,7 @@ public final class Validate {
      * <code>optional float gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public float getGt() {
       return gt_;
     }
@@ -6168,6 +6305,7 @@ public final class Validate {
      * <code>optional float gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -6181,6 +6319,7 @@ public final class Validate {
      * <code>optional float gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public float getGte() {
       return gte_;
     }
@@ -6196,6 +6335,7 @@ public final class Validate {
      * <code>repeated float in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getInList() {
       return in_;
@@ -6237,6 +6377,7 @@ public final class Validate {
      * <code>repeated float not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getNotInList() {
       return notIn_;
@@ -6768,6 +6909,7 @@ public final class Validate {
        * <code>optional float const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -6779,6 +6921,7 @@ public final class Validate {
        * <code>optional float const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public float getConst() {
         return const_;
       }
@@ -6822,6 +6965,7 @@ public final class Validate {
        * <code>optional float lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -6834,6 +6978,7 @@ public final class Validate {
        * <code>optional float lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public float getLt() {
         return lt_;
       }
@@ -6879,6 +7024,7 @@ public final class Validate {
        * <code>optional float lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -6891,6 +7037,7 @@ public final class Validate {
        * <code>optional float lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public float getLte() {
         return lte_;
       }
@@ -6937,6 +7084,7 @@ public final class Validate {
        * <code>optional float gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -6950,6 +7098,7 @@ public final class Validate {
        * <code>optional float gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public float getGt() {
         return gt_;
       }
@@ -6998,6 +7147,7 @@ public final class Validate {
        * <code>optional float gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -7011,6 +7161,7 @@ public final class Validate {
        * <code>optional float gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public float getGte() {
         return gte_;
       }
@@ -7510,7 +7661,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.DoubleRules}
    */
-  public  static final class DoubleRules extends
+  public static final class DoubleRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.DoubleRules)
       DoubleRulesOrBuilder {
@@ -7671,6 +7822,7 @@ public final class Validate {
      * <code>optional double const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -7682,6 +7834,7 @@ public final class Validate {
      * <code>optional double const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public double getConst() {
       return const_;
     }
@@ -7697,6 +7850,7 @@ public final class Validate {
      * <code>optional double lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -7709,6 +7863,7 @@ public final class Validate {
      * <code>optional double lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public double getLt() {
       return lt_;
     }
@@ -7724,6 +7879,7 @@ public final class Validate {
      * <code>optional double lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -7736,6 +7892,7 @@ public final class Validate {
      * <code>optional double lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public double getLte() {
       return lte_;
     }
@@ -7752,6 +7909,7 @@ public final class Validate {
      * <code>optional double gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -7765,6 +7923,7 @@ public final class Validate {
      * <code>optional double gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public double getGt() {
       return gt_;
     }
@@ -7781,6 +7940,7 @@ public final class Validate {
      * <code>optional double gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -7794,6 +7954,7 @@ public final class Validate {
      * <code>optional double gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public double getGte() {
       return gte_;
     }
@@ -7809,6 +7970,7 @@ public final class Validate {
      * <code>repeated double in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Double>
         getInList() {
       return in_;
@@ -7850,6 +8012,7 @@ public final class Validate {
      * <code>repeated double not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Double>
         getNotInList() {
       return notIn_;
@@ -8381,6 +8544,7 @@ public final class Validate {
        * <code>optional double const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -8392,6 +8556,7 @@ public final class Validate {
        * <code>optional double const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public double getConst() {
         return const_;
       }
@@ -8435,6 +8600,7 @@ public final class Validate {
        * <code>optional double lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -8447,6 +8613,7 @@ public final class Validate {
        * <code>optional double lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public double getLt() {
         return lt_;
       }
@@ -8492,6 +8659,7 @@ public final class Validate {
        * <code>optional double lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -8504,6 +8672,7 @@ public final class Validate {
        * <code>optional double lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public double getLte() {
         return lte_;
       }
@@ -8550,6 +8719,7 @@ public final class Validate {
        * <code>optional double gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -8563,6 +8733,7 @@ public final class Validate {
        * <code>optional double gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public double getGt() {
         return gt_;
       }
@@ -8611,6 +8782,7 @@ public final class Validate {
        * <code>optional double gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -8624,6 +8796,7 @@ public final class Validate {
        * <code>optional double gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public double getGte() {
         return gte_;
       }
@@ -9123,7 +9296,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.Int32Rules}
    */
-  public  static final class Int32Rules extends
+  public static final class Int32Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.Int32Rules)
       Int32RulesOrBuilder {
@@ -9284,6 +9457,7 @@ public final class Validate {
      * <code>optional int32 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -9295,6 +9469,7 @@ public final class Validate {
      * <code>optional int32 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public int getConst() {
       return const_;
     }
@@ -9310,6 +9485,7 @@ public final class Validate {
      * <code>optional int32 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -9322,6 +9498,7 @@ public final class Validate {
      * <code>optional int32 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public int getLt() {
       return lt_;
     }
@@ -9337,6 +9514,7 @@ public final class Validate {
      * <code>optional int32 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -9349,6 +9527,7 @@ public final class Validate {
      * <code>optional int32 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public int getLte() {
       return lte_;
     }
@@ -9365,6 +9544,7 @@ public final class Validate {
      * <code>optional int32 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -9378,6 +9558,7 @@ public final class Validate {
      * <code>optional int32 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public int getGt() {
       return gt_;
     }
@@ -9394,6 +9575,7 @@ public final class Validate {
      * <code>optional int32 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -9407,6 +9589,7 @@ public final class Validate {
      * <code>optional int32 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public int getGte() {
       return gte_;
     }
@@ -9422,6 +9605,7 @@ public final class Validate {
      * <code>repeated int32 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getInList() {
       return in_;
@@ -9463,6 +9647,7 @@ public final class Validate {
      * <code>repeated int32 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getNotInList() {
       return notIn_;
@@ -9990,6 +10175,7 @@ public final class Validate {
        * <code>optional int32 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -10001,6 +10187,7 @@ public final class Validate {
        * <code>optional int32 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public int getConst() {
         return const_;
       }
@@ -10044,6 +10231,7 @@ public final class Validate {
        * <code>optional int32 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -10056,6 +10244,7 @@ public final class Validate {
        * <code>optional int32 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public int getLt() {
         return lt_;
       }
@@ -10101,6 +10290,7 @@ public final class Validate {
        * <code>optional int32 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -10113,6 +10303,7 @@ public final class Validate {
        * <code>optional int32 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public int getLte() {
         return lte_;
       }
@@ -10159,6 +10350,7 @@ public final class Validate {
        * <code>optional int32 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -10172,6 +10364,7 @@ public final class Validate {
        * <code>optional int32 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public int getGt() {
         return gt_;
       }
@@ -10220,6 +10413,7 @@ public final class Validate {
        * <code>optional int32 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -10233,6 +10427,7 @@ public final class Validate {
        * <code>optional int32 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public int getGte() {
         return gte_;
       }
@@ -10732,7 +10927,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.Int64Rules}
    */
-  public  static final class Int64Rules extends
+  public static final class Int64Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.Int64Rules)
       Int64RulesOrBuilder {
@@ -10893,6 +11088,7 @@ public final class Validate {
      * <code>optional int64 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -10904,6 +11100,7 @@ public final class Validate {
      * <code>optional int64 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public long getConst() {
       return const_;
     }
@@ -10919,6 +11116,7 @@ public final class Validate {
      * <code>optional int64 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -10931,6 +11129,7 @@ public final class Validate {
      * <code>optional int64 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public long getLt() {
       return lt_;
     }
@@ -10946,6 +11145,7 @@ public final class Validate {
      * <code>optional int64 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -10958,6 +11158,7 @@ public final class Validate {
      * <code>optional int64 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public long getLte() {
       return lte_;
     }
@@ -10974,6 +11175,7 @@ public final class Validate {
      * <code>optional int64 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -10987,6 +11189,7 @@ public final class Validate {
      * <code>optional int64 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public long getGt() {
       return gt_;
     }
@@ -11003,6 +11206,7 @@ public final class Validate {
      * <code>optional int64 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -11016,6 +11220,7 @@ public final class Validate {
      * <code>optional int64 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public long getGte() {
       return gte_;
     }
@@ -11031,6 +11236,7 @@ public final class Validate {
      * <code>repeated int64 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getInList() {
       return in_;
@@ -11072,6 +11278,7 @@ public final class Validate {
      * <code>repeated int64 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getNotInList() {
       return notIn_;
@@ -11604,6 +11811,7 @@ public final class Validate {
        * <code>optional int64 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -11615,6 +11823,7 @@ public final class Validate {
        * <code>optional int64 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public long getConst() {
         return const_;
       }
@@ -11658,6 +11867,7 @@ public final class Validate {
        * <code>optional int64 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -11670,6 +11880,7 @@ public final class Validate {
        * <code>optional int64 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public long getLt() {
         return lt_;
       }
@@ -11715,6 +11926,7 @@ public final class Validate {
        * <code>optional int64 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -11727,6 +11939,7 @@ public final class Validate {
        * <code>optional int64 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public long getLte() {
         return lte_;
       }
@@ -11773,6 +11986,7 @@ public final class Validate {
        * <code>optional int64 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -11786,6 +12000,7 @@ public final class Validate {
        * <code>optional int64 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public long getGt() {
         return gt_;
       }
@@ -11834,6 +12049,7 @@ public final class Validate {
        * <code>optional int64 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -11847,6 +12063,7 @@ public final class Validate {
        * <code>optional int64 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public long getGte() {
         return gte_;
       }
@@ -12346,7 +12563,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.UInt32Rules}
    */
-  public  static final class UInt32Rules extends
+  public static final class UInt32Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.UInt32Rules)
       UInt32RulesOrBuilder {
@@ -12507,6 +12724,7 @@ public final class Validate {
      * <code>optional uint32 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -12518,6 +12736,7 @@ public final class Validate {
      * <code>optional uint32 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public int getConst() {
       return const_;
     }
@@ -12533,6 +12752,7 @@ public final class Validate {
      * <code>optional uint32 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -12545,6 +12765,7 @@ public final class Validate {
      * <code>optional uint32 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public int getLt() {
       return lt_;
     }
@@ -12560,6 +12781,7 @@ public final class Validate {
      * <code>optional uint32 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -12572,6 +12794,7 @@ public final class Validate {
      * <code>optional uint32 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public int getLte() {
       return lte_;
     }
@@ -12588,6 +12811,7 @@ public final class Validate {
      * <code>optional uint32 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -12601,6 +12825,7 @@ public final class Validate {
      * <code>optional uint32 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public int getGt() {
       return gt_;
     }
@@ -12617,6 +12842,7 @@ public final class Validate {
      * <code>optional uint32 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -12630,6 +12856,7 @@ public final class Validate {
      * <code>optional uint32 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public int getGte() {
       return gte_;
     }
@@ -12645,6 +12872,7 @@ public final class Validate {
      * <code>repeated uint32 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getInList() {
       return in_;
@@ -12686,6 +12914,7 @@ public final class Validate {
      * <code>repeated uint32 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getNotInList() {
       return notIn_;
@@ -13213,6 +13442,7 @@ public final class Validate {
        * <code>optional uint32 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -13224,6 +13454,7 @@ public final class Validate {
        * <code>optional uint32 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public int getConst() {
         return const_;
       }
@@ -13267,6 +13498,7 @@ public final class Validate {
        * <code>optional uint32 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -13279,6 +13511,7 @@ public final class Validate {
        * <code>optional uint32 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public int getLt() {
         return lt_;
       }
@@ -13324,6 +13557,7 @@ public final class Validate {
        * <code>optional uint32 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -13336,6 +13570,7 @@ public final class Validate {
        * <code>optional uint32 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public int getLte() {
         return lte_;
       }
@@ -13382,6 +13617,7 @@ public final class Validate {
        * <code>optional uint32 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -13395,6 +13631,7 @@ public final class Validate {
        * <code>optional uint32 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public int getGt() {
         return gt_;
       }
@@ -13443,6 +13680,7 @@ public final class Validate {
        * <code>optional uint32 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -13456,6 +13694,7 @@ public final class Validate {
        * <code>optional uint32 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public int getGte() {
         return gte_;
       }
@@ -13955,7 +14194,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.UInt64Rules}
    */
-  public  static final class UInt64Rules extends
+  public static final class UInt64Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.UInt64Rules)
       UInt64RulesOrBuilder {
@@ -14116,6 +14355,7 @@ public final class Validate {
      * <code>optional uint64 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -14127,6 +14367,7 @@ public final class Validate {
      * <code>optional uint64 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public long getConst() {
       return const_;
     }
@@ -14142,6 +14383,7 @@ public final class Validate {
      * <code>optional uint64 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -14154,6 +14396,7 @@ public final class Validate {
      * <code>optional uint64 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public long getLt() {
       return lt_;
     }
@@ -14169,6 +14412,7 @@ public final class Validate {
      * <code>optional uint64 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -14181,6 +14425,7 @@ public final class Validate {
      * <code>optional uint64 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public long getLte() {
       return lte_;
     }
@@ -14197,6 +14442,7 @@ public final class Validate {
      * <code>optional uint64 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -14210,6 +14456,7 @@ public final class Validate {
      * <code>optional uint64 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public long getGt() {
       return gt_;
     }
@@ -14226,6 +14473,7 @@ public final class Validate {
      * <code>optional uint64 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -14239,6 +14487,7 @@ public final class Validate {
      * <code>optional uint64 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public long getGte() {
       return gte_;
     }
@@ -14254,6 +14503,7 @@ public final class Validate {
      * <code>repeated uint64 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getInList() {
       return in_;
@@ -14295,6 +14545,7 @@ public final class Validate {
      * <code>repeated uint64 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getNotInList() {
       return notIn_;
@@ -14827,6 +15078,7 @@ public final class Validate {
        * <code>optional uint64 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -14838,6 +15090,7 @@ public final class Validate {
        * <code>optional uint64 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public long getConst() {
         return const_;
       }
@@ -14881,6 +15134,7 @@ public final class Validate {
        * <code>optional uint64 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -14893,6 +15147,7 @@ public final class Validate {
        * <code>optional uint64 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public long getLt() {
         return lt_;
       }
@@ -14938,6 +15193,7 @@ public final class Validate {
        * <code>optional uint64 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -14950,6 +15206,7 @@ public final class Validate {
        * <code>optional uint64 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public long getLte() {
         return lte_;
       }
@@ -14996,6 +15253,7 @@ public final class Validate {
        * <code>optional uint64 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -15009,6 +15267,7 @@ public final class Validate {
        * <code>optional uint64 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public long getGt() {
         return gt_;
       }
@@ -15057,6 +15316,7 @@ public final class Validate {
        * <code>optional uint64 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -15070,6 +15330,7 @@ public final class Validate {
        * <code>optional uint64 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public long getGte() {
         return gte_;
       }
@@ -15569,7 +15830,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.SInt32Rules}
    */
-  public  static final class SInt32Rules extends
+  public static final class SInt32Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.SInt32Rules)
       SInt32RulesOrBuilder {
@@ -15730,6 +15991,7 @@ public final class Validate {
      * <code>optional sint32 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -15741,6 +16003,7 @@ public final class Validate {
      * <code>optional sint32 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public int getConst() {
       return const_;
     }
@@ -15756,6 +16019,7 @@ public final class Validate {
      * <code>optional sint32 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -15768,6 +16032,7 @@ public final class Validate {
      * <code>optional sint32 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public int getLt() {
       return lt_;
     }
@@ -15783,6 +16048,7 @@ public final class Validate {
      * <code>optional sint32 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -15795,6 +16061,7 @@ public final class Validate {
      * <code>optional sint32 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public int getLte() {
       return lte_;
     }
@@ -15811,6 +16078,7 @@ public final class Validate {
      * <code>optional sint32 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -15824,6 +16092,7 @@ public final class Validate {
      * <code>optional sint32 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public int getGt() {
       return gt_;
     }
@@ -15840,6 +16109,7 @@ public final class Validate {
      * <code>optional sint32 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -15853,6 +16123,7 @@ public final class Validate {
      * <code>optional sint32 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public int getGte() {
       return gte_;
     }
@@ -15868,6 +16139,7 @@ public final class Validate {
      * <code>repeated sint32 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getInList() {
       return in_;
@@ -15909,6 +16181,7 @@ public final class Validate {
      * <code>repeated sint32 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getNotInList() {
       return notIn_;
@@ -16436,6 +16709,7 @@ public final class Validate {
        * <code>optional sint32 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -16447,6 +16721,7 @@ public final class Validate {
        * <code>optional sint32 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public int getConst() {
         return const_;
       }
@@ -16490,6 +16765,7 @@ public final class Validate {
        * <code>optional sint32 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -16502,6 +16778,7 @@ public final class Validate {
        * <code>optional sint32 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public int getLt() {
         return lt_;
       }
@@ -16547,6 +16824,7 @@ public final class Validate {
        * <code>optional sint32 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -16559,6 +16837,7 @@ public final class Validate {
        * <code>optional sint32 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public int getLte() {
         return lte_;
       }
@@ -16605,6 +16884,7 @@ public final class Validate {
        * <code>optional sint32 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -16618,6 +16898,7 @@ public final class Validate {
        * <code>optional sint32 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public int getGt() {
         return gt_;
       }
@@ -16666,6 +16947,7 @@ public final class Validate {
        * <code>optional sint32 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -16679,6 +16961,7 @@ public final class Validate {
        * <code>optional sint32 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public int getGte() {
         return gte_;
       }
@@ -17178,7 +17461,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.SInt64Rules}
    */
-  public  static final class SInt64Rules extends
+  public static final class SInt64Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.SInt64Rules)
       SInt64RulesOrBuilder {
@@ -17339,6 +17622,7 @@ public final class Validate {
      * <code>optional sint64 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -17350,6 +17634,7 @@ public final class Validate {
      * <code>optional sint64 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public long getConst() {
       return const_;
     }
@@ -17365,6 +17650,7 @@ public final class Validate {
      * <code>optional sint64 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -17377,6 +17663,7 @@ public final class Validate {
      * <code>optional sint64 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public long getLt() {
       return lt_;
     }
@@ -17392,6 +17679,7 @@ public final class Validate {
      * <code>optional sint64 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -17404,6 +17692,7 @@ public final class Validate {
      * <code>optional sint64 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public long getLte() {
       return lte_;
     }
@@ -17420,6 +17709,7 @@ public final class Validate {
      * <code>optional sint64 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -17433,6 +17723,7 @@ public final class Validate {
      * <code>optional sint64 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public long getGt() {
       return gt_;
     }
@@ -17449,6 +17740,7 @@ public final class Validate {
      * <code>optional sint64 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -17462,6 +17754,7 @@ public final class Validate {
      * <code>optional sint64 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public long getGte() {
       return gte_;
     }
@@ -17477,6 +17770,7 @@ public final class Validate {
      * <code>repeated sint64 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getInList() {
       return in_;
@@ -17518,6 +17812,7 @@ public final class Validate {
      * <code>repeated sint64 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getNotInList() {
       return notIn_;
@@ -18050,6 +18345,7 @@ public final class Validate {
        * <code>optional sint64 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -18061,6 +18357,7 @@ public final class Validate {
        * <code>optional sint64 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public long getConst() {
         return const_;
       }
@@ -18104,6 +18401,7 @@ public final class Validate {
        * <code>optional sint64 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -18116,6 +18414,7 @@ public final class Validate {
        * <code>optional sint64 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public long getLt() {
         return lt_;
       }
@@ -18161,6 +18460,7 @@ public final class Validate {
        * <code>optional sint64 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -18173,6 +18473,7 @@ public final class Validate {
        * <code>optional sint64 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public long getLte() {
         return lte_;
       }
@@ -18219,6 +18520,7 @@ public final class Validate {
        * <code>optional sint64 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -18232,6 +18534,7 @@ public final class Validate {
        * <code>optional sint64 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public long getGt() {
         return gt_;
       }
@@ -18280,6 +18583,7 @@ public final class Validate {
        * <code>optional sint64 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -18293,6 +18597,7 @@ public final class Validate {
        * <code>optional sint64 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public long getGte() {
         return gte_;
       }
@@ -18792,7 +19097,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.Fixed32Rules}
    */
-  public  static final class Fixed32Rules extends
+  public static final class Fixed32Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.Fixed32Rules)
       Fixed32RulesOrBuilder {
@@ -18953,6 +19258,7 @@ public final class Validate {
      * <code>optional fixed32 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -18964,6 +19270,7 @@ public final class Validate {
      * <code>optional fixed32 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public int getConst() {
       return const_;
     }
@@ -18979,6 +19286,7 @@ public final class Validate {
      * <code>optional fixed32 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -18991,6 +19299,7 @@ public final class Validate {
      * <code>optional fixed32 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public int getLt() {
       return lt_;
     }
@@ -19006,6 +19315,7 @@ public final class Validate {
      * <code>optional fixed32 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -19018,6 +19328,7 @@ public final class Validate {
      * <code>optional fixed32 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public int getLte() {
       return lte_;
     }
@@ -19034,6 +19345,7 @@ public final class Validate {
      * <code>optional fixed32 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -19047,6 +19359,7 @@ public final class Validate {
      * <code>optional fixed32 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public int getGt() {
       return gt_;
     }
@@ -19063,6 +19376,7 @@ public final class Validate {
      * <code>optional fixed32 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -19076,6 +19390,7 @@ public final class Validate {
      * <code>optional fixed32 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public int getGte() {
       return gte_;
     }
@@ -19091,6 +19406,7 @@ public final class Validate {
      * <code>repeated fixed32 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getInList() {
       return in_;
@@ -19132,6 +19448,7 @@ public final class Validate {
      * <code>repeated fixed32 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getNotInList() {
       return notIn_;
@@ -19653,6 +19970,7 @@ public final class Validate {
        * <code>optional fixed32 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -19664,6 +19982,7 @@ public final class Validate {
        * <code>optional fixed32 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public int getConst() {
         return const_;
       }
@@ -19707,6 +20026,7 @@ public final class Validate {
        * <code>optional fixed32 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -19719,6 +20039,7 @@ public final class Validate {
        * <code>optional fixed32 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public int getLt() {
         return lt_;
       }
@@ -19764,6 +20085,7 @@ public final class Validate {
        * <code>optional fixed32 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -19776,6 +20098,7 @@ public final class Validate {
        * <code>optional fixed32 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public int getLte() {
         return lte_;
       }
@@ -19822,6 +20145,7 @@ public final class Validate {
        * <code>optional fixed32 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -19835,6 +20159,7 @@ public final class Validate {
        * <code>optional fixed32 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public int getGt() {
         return gt_;
       }
@@ -19883,6 +20208,7 @@ public final class Validate {
        * <code>optional fixed32 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -19896,6 +20222,7 @@ public final class Validate {
        * <code>optional fixed32 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public int getGte() {
         return gte_;
       }
@@ -20395,7 +20722,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.Fixed64Rules}
    */
-  public  static final class Fixed64Rules extends
+  public static final class Fixed64Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.Fixed64Rules)
       Fixed64RulesOrBuilder {
@@ -20556,6 +20883,7 @@ public final class Validate {
      * <code>optional fixed64 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -20567,6 +20895,7 @@ public final class Validate {
      * <code>optional fixed64 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public long getConst() {
       return const_;
     }
@@ -20582,6 +20911,7 @@ public final class Validate {
      * <code>optional fixed64 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -20594,6 +20924,7 @@ public final class Validate {
      * <code>optional fixed64 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public long getLt() {
       return lt_;
     }
@@ -20609,6 +20940,7 @@ public final class Validate {
      * <code>optional fixed64 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -20621,6 +20953,7 @@ public final class Validate {
      * <code>optional fixed64 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public long getLte() {
       return lte_;
     }
@@ -20637,6 +20970,7 @@ public final class Validate {
      * <code>optional fixed64 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -20650,6 +20984,7 @@ public final class Validate {
      * <code>optional fixed64 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public long getGt() {
       return gt_;
     }
@@ -20666,6 +21001,7 @@ public final class Validate {
      * <code>optional fixed64 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -20679,6 +21015,7 @@ public final class Validate {
      * <code>optional fixed64 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public long getGte() {
       return gte_;
     }
@@ -20694,6 +21031,7 @@ public final class Validate {
      * <code>repeated fixed64 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getInList() {
       return in_;
@@ -20735,6 +21073,7 @@ public final class Validate {
      * <code>repeated fixed64 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getNotInList() {
       return notIn_;
@@ -21261,6 +21600,7 @@ public final class Validate {
        * <code>optional fixed64 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -21272,6 +21612,7 @@ public final class Validate {
        * <code>optional fixed64 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public long getConst() {
         return const_;
       }
@@ -21315,6 +21656,7 @@ public final class Validate {
        * <code>optional fixed64 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -21327,6 +21669,7 @@ public final class Validate {
        * <code>optional fixed64 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public long getLt() {
         return lt_;
       }
@@ -21372,6 +21715,7 @@ public final class Validate {
        * <code>optional fixed64 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -21384,6 +21728,7 @@ public final class Validate {
        * <code>optional fixed64 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public long getLte() {
         return lte_;
       }
@@ -21430,6 +21775,7 @@ public final class Validate {
        * <code>optional fixed64 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -21443,6 +21789,7 @@ public final class Validate {
        * <code>optional fixed64 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public long getGt() {
         return gt_;
       }
@@ -21491,6 +21838,7 @@ public final class Validate {
        * <code>optional fixed64 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -21504,6 +21852,7 @@ public final class Validate {
        * <code>optional fixed64 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public long getGte() {
         return gte_;
       }
@@ -22003,7 +22352,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.SFixed32Rules}
    */
-  public  static final class SFixed32Rules extends
+  public static final class SFixed32Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.SFixed32Rules)
       SFixed32RulesOrBuilder {
@@ -22164,6 +22513,7 @@ public final class Validate {
      * <code>optional sfixed32 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -22175,6 +22525,7 @@ public final class Validate {
      * <code>optional sfixed32 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public int getConst() {
       return const_;
     }
@@ -22190,6 +22541,7 @@ public final class Validate {
      * <code>optional sfixed32 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -22202,6 +22554,7 @@ public final class Validate {
      * <code>optional sfixed32 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public int getLt() {
       return lt_;
     }
@@ -22217,6 +22570,7 @@ public final class Validate {
      * <code>optional sfixed32 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -22229,6 +22583,7 @@ public final class Validate {
      * <code>optional sfixed32 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public int getLte() {
       return lte_;
     }
@@ -22245,6 +22600,7 @@ public final class Validate {
      * <code>optional sfixed32 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -22258,6 +22614,7 @@ public final class Validate {
      * <code>optional sfixed32 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public int getGt() {
       return gt_;
     }
@@ -22274,6 +22631,7 @@ public final class Validate {
      * <code>optional sfixed32 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -22287,6 +22645,7 @@ public final class Validate {
      * <code>optional sfixed32 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public int getGte() {
       return gte_;
     }
@@ -22302,6 +22661,7 @@ public final class Validate {
      * <code>repeated sfixed32 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getInList() {
       return in_;
@@ -22343,6 +22703,7 @@ public final class Validate {
      * <code>repeated sfixed32 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getNotInList() {
       return notIn_;
@@ -22864,6 +23225,7 @@ public final class Validate {
        * <code>optional sfixed32 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -22875,6 +23237,7 @@ public final class Validate {
        * <code>optional sfixed32 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public int getConst() {
         return const_;
       }
@@ -22918,6 +23281,7 @@ public final class Validate {
        * <code>optional sfixed32 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -22930,6 +23294,7 @@ public final class Validate {
        * <code>optional sfixed32 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public int getLt() {
         return lt_;
       }
@@ -22975,6 +23340,7 @@ public final class Validate {
        * <code>optional sfixed32 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -22987,6 +23353,7 @@ public final class Validate {
        * <code>optional sfixed32 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public int getLte() {
         return lte_;
       }
@@ -23033,6 +23400,7 @@ public final class Validate {
        * <code>optional sfixed32 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -23046,6 +23414,7 @@ public final class Validate {
        * <code>optional sfixed32 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public int getGt() {
         return gt_;
       }
@@ -23094,6 +23463,7 @@ public final class Validate {
        * <code>optional sfixed32 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -23107,6 +23477,7 @@ public final class Validate {
        * <code>optional sfixed32 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public int getGte() {
         return gte_;
       }
@@ -23606,7 +23977,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.SFixed64Rules}
    */
-  public  static final class SFixed64Rules extends
+  public static final class SFixed64Rules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.SFixed64Rules)
       SFixed64RulesOrBuilder {
@@ -23767,6 +24138,7 @@ public final class Validate {
      * <code>optional sfixed64 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -23778,6 +24150,7 @@ public final class Validate {
      * <code>optional sfixed64 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public long getConst() {
       return const_;
     }
@@ -23793,6 +24166,7 @@ public final class Validate {
      * <code>optional sfixed64 lt = 2;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -23805,6 +24179,7 @@ public final class Validate {
      * <code>optional sfixed64 lt = 2;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public long getLt() {
       return lt_;
     }
@@ -23820,6 +24195,7 @@ public final class Validate {
      * <code>optional sfixed64 lte = 3;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -23832,6 +24208,7 @@ public final class Validate {
      * <code>optional sfixed64 lte = 3;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public long getLte() {
       return lte_;
     }
@@ -23848,6 +24225,7 @@ public final class Validate {
      * <code>optional sfixed64 gt = 4;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -23861,6 +24239,7 @@ public final class Validate {
      * <code>optional sfixed64 gt = 4;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public long getGt() {
       return gt_;
     }
@@ -23877,6 +24256,7 @@ public final class Validate {
      * <code>optional sfixed64 gte = 5;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -23890,6 +24270,7 @@ public final class Validate {
      * <code>optional sfixed64 gte = 5;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public long getGte() {
       return gte_;
     }
@@ -23905,6 +24286,7 @@ public final class Validate {
      * <code>repeated sfixed64 in = 6;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getInList() {
       return in_;
@@ -23946,6 +24328,7 @@ public final class Validate {
      * <code>repeated sfixed64 not_in = 7;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Long>
         getNotInList() {
       return notIn_;
@@ -24472,6 +24855,7 @@ public final class Validate {
        * <code>optional sfixed64 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -24483,6 +24867,7 @@ public final class Validate {
        * <code>optional sfixed64 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public long getConst() {
         return const_;
       }
@@ -24526,6 +24911,7 @@ public final class Validate {
        * <code>optional sfixed64 lt = 2;</code>
        * @return Whether the lt field is set.
        */
+      @java.lang.Override
       public boolean hasLt() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -24538,6 +24924,7 @@ public final class Validate {
        * <code>optional sfixed64 lt = 2;</code>
        * @return The lt.
        */
+      @java.lang.Override
       public long getLt() {
         return lt_;
       }
@@ -24583,6 +24970,7 @@ public final class Validate {
        * <code>optional sfixed64 lte = 3;</code>
        * @return Whether the lte field is set.
        */
+      @java.lang.Override
       public boolean hasLte() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -24595,6 +24983,7 @@ public final class Validate {
        * <code>optional sfixed64 lte = 3;</code>
        * @return The lte.
        */
+      @java.lang.Override
       public long getLte() {
         return lte_;
       }
@@ -24641,6 +25030,7 @@ public final class Validate {
        * <code>optional sfixed64 gt = 4;</code>
        * @return Whether the gt field is set.
        */
+      @java.lang.Override
       public boolean hasGt() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -24654,6 +25044,7 @@ public final class Validate {
        * <code>optional sfixed64 gt = 4;</code>
        * @return The gt.
        */
+      @java.lang.Override
       public long getGt() {
         return gt_;
       }
@@ -24702,6 +25093,7 @@ public final class Validate {
        * <code>optional sfixed64 gte = 5;</code>
        * @return Whether the gte field is set.
        */
+      @java.lang.Override
       public boolean hasGte() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -24715,6 +25107,7 @@ public final class Validate {
        * <code>optional sfixed64 gte = 5;</code>
        * @return The gte.
        */
+      @java.lang.Override
       public long getGte() {
         return gte_;
       }
@@ -25062,7 +25455,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.BoolRules}
    */
-  public  static final class BoolRules extends
+  public static final class BoolRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.BoolRules)
       BoolRulesOrBuilder {
@@ -25153,6 +25546,7 @@ public final class Validate {
      * <code>optional bool const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -25164,6 +25558,7 @@ public final class Validate {
      * <code>optional bool const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public boolean getConst() {
       return const_;
     }
@@ -25496,6 +25891,7 @@ public final class Validate {
        * <code>optional bool const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -25507,6 +25903,7 @@ public final class Validate {
        * <code>optional bool const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public boolean getConst() {
         return const_;
       }
@@ -26016,7 +26413,7 @@ public final class Validate {
      * defined by RFC 5322
      * </pre>
      *
-     * <code>optional bool email = 12;</code>
+     * <code>bool email = 12;</code>
      * @return Whether the email field is set.
      */
     boolean hasEmail();
@@ -26026,7 +26423,7 @@ public final class Validate {
      * defined by RFC 5322
      * </pre>
      *
-     * <code>optional bool email = 12;</code>
+     * <code>bool email = 12;</code>
      * @return The email.
      */
     boolean getEmail();
@@ -26038,7 +26435,7 @@ public final class Validate {
      * internationalized domain names (IDNs).
      * </pre>
      *
-     * <code>optional bool hostname = 13;</code>
+     * <code>bool hostname = 13;</code>
      * @return Whether the hostname field is set.
      */
     boolean hasHostname();
@@ -26049,7 +26446,7 @@ public final class Validate {
      * internationalized domain names (IDNs).
      * </pre>
      *
-     * <code>optional bool hostname = 13;</code>
+     * <code>bool hostname = 13;</code>
      * @return The hostname.
      */
     boolean getHostname();
@@ -26060,7 +26457,7 @@ public final class Validate {
      * Valid IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ip = 14;</code>
+     * <code>bool ip = 14;</code>
      * @return Whether the ip field is set.
      */
     boolean hasIp();
@@ -26070,7 +26467,7 @@ public final class Validate {
      * Valid IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ip = 14;</code>
+     * <code>bool ip = 14;</code>
      * @return The ip.
      */
     boolean getIp();
@@ -26080,7 +26477,7 @@ public final class Validate {
      * Ipv4 specifies that the field must be a valid IPv4 address.
      * </pre>
      *
-     * <code>optional bool ipv4 = 15;</code>
+     * <code>bool ipv4 = 15;</code>
      * @return Whether the ipv4 field is set.
      */
     boolean hasIpv4();
@@ -26089,7 +26486,7 @@ public final class Validate {
      * Ipv4 specifies that the field must be a valid IPv4 address.
      * </pre>
      *
-     * <code>optional bool ipv4 = 15;</code>
+     * <code>bool ipv4 = 15;</code>
      * @return The ipv4.
      */
     boolean getIpv4();
@@ -26100,7 +26497,7 @@ public final class Validate {
      * IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ipv6 = 16;</code>
+     * <code>bool ipv6 = 16;</code>
      * @return Whether the ipv6 field is set.
      */
     boolean hasIpv6();
@@ -26110,7 +26507,7 @@ public final class Validate {
      * IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ipv6 = 16;</code>
+     * <code>bool ipv6 = 16;</code>
      * @return The ipv6.
      */
     boolean getIpv6();
@@ -26121,7 +26518,7 @@ public final class Validate {
      * by RFC 3986
      * </pre>
      *
-     * <code>optional bool uri = 17;</code>
+     * <code>bool uri = 17;</code>
      * @return Whether the uri field is set.
      */
     boolean hasUri();
@@ -26131,7 +26528,7 @@ public final class Validate {
      * by RFC 3986
      * </pre>
      *
-     * <code>optional bool uri = 17;</code>
+     * <code>bool uri = 17;</code>
      * @return The uri.
      */
     boolean getUri();
@@ -26142,7 +26539,7 @@ public final class Validate {
      * 3986 and may be relative or absolute.
      * </pre>
      *
-     * <code>optional bool uri_ref = 18;</code>
+     * <code>bool uri_ref = 18;</code>
      * @return Whether the uriRef field is set.
      */
     boolean hasUriRef();
@@ -26152,7 +26549,7 @@ public final class Validate {
      * 3986 and may be relative or absolute.
      * </pre>
      *
-     * <code>optional bool uri_ref = 18;</code>
+     * <code>bool uri_ref = 18;</code>
      * @return The uriRef.
      */
     boolean getUriRef();
@@ -26164,7 +26561,7 @@ public final class Validate {
      * names or IDNs), or it can be a valid IP (v4 or v6).
      * </pre>
      *
-     * <code>optional bool address = 21;</code>
+     * <code>bool address = 21;</code>
      * @return Whether the address field is set.
      */
     boolean hasAddress();
@@ -26175,7 +26572,7 @@ public final class Validate {
      * names or IDNs), or it can be a valid IP (v4 or v6).
      * </pre>
      *
-     * <code>optional bool address = 21;</code>
+     * <code>bool address = 21;</code>
      * @return The address.
      */
     boolean getAddress();
@@ -26186,7 +26583,7 @@ public final class Validate {
      * RFC 4122
      * </pre>
      *
-     * <code>optional bool uuid = 22;</code>
+     * <code>bool uuid = 22;</code>
      * @return Whether the uuid field is set.
      */
     boolean hasUuid();
@@ -26196,7 +26593,7 @@ public final class Validate {
      * RFC 4122
      * </pre>
      *
-     * <code>optional bool uuid = 22;</code>
+     * <code>bool uuid = 22;</code>
      * @return The uuid.
      */
     boolean getUuid();
@@ -26206,7 +26603,7 @@ public final class Validate {
      * WellKnownRegex specifies a common well known pattern defined as a regex.
      * </pre>
      *
-     * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+     * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
      * @return Whether the wellKnownRegex field is set.
      */
     boolean hasWellKnownRegex();
@@ -26215,7 +26612,7 @@ public final class Validate {
      * WellKnownRegex specifies a common well known pattern defined as a regex.
      * </pre>
      *
-     * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+     * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
      * @return The wellKnownRegex.
      */
     pbandk.testpb.Validate.KnownRegex getWellKnownRegex();
@@ -26256,7 +26653,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.StringRules}
    */
-  public  static final class StringRules extends
+  public static final class StringRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.StringRules)
       StringRulesOrBuilder {
@@ -26559,6 +26956,7 @@ public final class Validate {
      * <code>optional string const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -26570,6 +26968,7 @@ public final class Validate {
      * <code>optional string const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public java.lang.String getConst() {
       java.lang.Object ref = const_;
       if (ref instanceof java.lang.String) {
@@ -26592,6 +26991,7 @@ public final class Validate {
      * <code>optional string const = 1;</code>
      * @return The bytes for const.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getConstBytes() {
       java.lang.Object ref = const_;
@@ -26618,6 +27018,7 @@ public final class Validate {
      * <code>optional uint64 len = 19;</code>
      * @return Whether the len field is set.
      */
+    @java.lang.Override
     public boolean hasLen() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -26631,6 +27032,7 @@ public final class Validate {
      * <code>optional uint64 len = 19;</code>
      * @return The len.
      */
+    @java.lang.Override
     public long getLen() {
       return len_;
     }
@@ -26647,6 +27049,7 @@ public final class Validate {
      * <code>optional uint64 min_len = 2;</code>
      * @return Whether the minLen field is set.
      */
+    @java.lang.Override
     public boolean hasMinLen() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -26660,6 +27063,7 @@ public final class Validate {
      * <code>optional uint64 min_len = 2;</code>
      * @return The minLen.
      */
+    @java.lang.Override
     public long getMinLen() {
       return minLen_;
     }
@@ -26676,6 +27080,7 @@ public final class Validate {
      * <code>optional uint64 max_len = 3;</code>
      * @return Whether the maxLen field is set.
      */
+    @java.lang.Override
     public boolean hasMaxLen() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -26689,6 +27094,7 @@ public final class Validate {
      * <code>optional uint64 max_len = 3;</code>
      * @return The maxLen.
      */
+    @java.lang.Override
     public long getMaxLen() {
       return maxLen_;
     }
@@ -26704,6 +27110,7 @@ public final class Validate {
      * <code>optional uint64 len_bytes = 20;</code>
      * @return Whether the lenBytes field is set.
      */
+    @java.lang.Override
     public boolean hasLenBytes() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -26716,6 +27123,7 @@ public final class Validate {
      * <code>optional uint64 len_bytes = 20;</code>
      * @return The lenBytes.
      */
+    @java.lang.Override
     public long getLenBytes() {
       return lenBytes_;
     }
@@ -26731,6 +27139,7 @@ public final class Validate {
      * <code>optional uint64 min_bytes = 4;</code>
      * @return Whether the minBytes field is set.
      */
+    @java.lang.Override
     public boolean hasMinBytes() {
       return ((bitField0_ & 0x00000020) != 0);
     }
@@ -26743,6 +27152,7 @@ public final class Validate {
      * <code>optional uint64 min_bytes = 4;</code>
      * @return The minBytes.
      */
+    @java.lang.Override
     public long getMinBytes() {
       return minBytes_;
     }
@@ -26758,6 +27168,7 @@ public final class Validate {
      * <code>optional uint64 max_bytes = 5;</code>
      * @return Whether the maxBytes field is set.
      */
+    @java.lang.Override
     public boolean hasMaxBytes() {
       return ((bitField0_ & 0x00000040) != 0);
     }
@@ -26770,6 +27181,7 @@ public final class Validate {
      * <code>optional uint64 max_bytes = 5;</code>
      * @return The maxBytes.
      */
+    @java.lang.Override
     public long getMaxBytes() {
       return maxBytes_;
     }
@@ -26786,6 +27198,7 @@ public final class Validate {
      * <code>optional string pattern = 6;</code>
      * @return Whether the pattern field is set.
      */
+    @java.lang.Override
     public boolean hasPattern() {
       return ((bitField0_ & 0x00000080) != 0);
     }
@@ -26799,6 +27212,7 @@ public final class Validate {
      * <code>optional string pattern = 6;</code>
      * @return The pattern.
      */
+    @java.lang.Override
     public java.lang.String getPattern() {
       java.lang.Object ref = pattern_;
       if (ref instanceof java.lang.String) {
@@ -26823,6 +27237,7 @@ public final class Validate {
      * <code>optional string pattern = 6;</code>
      * @return The bytes for pattern.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPatternBytes() {
       java.lang.Object ref = pattern_;
@@ -26848,6 +27263,7 @@ public final class Validate {
      * <code>optional string prefix = 7;</code>
      * @return Whether the prefix field is set.
      */
+    @java.lang.Override
     public boolean hasPrefix() {
       return ((bitField0_ & 0x00000100) != 0);
     }
@@ -26860,6 +27276,7 @@ public final class Validate {
      * <code>optional string prefix = 7;</code>
      * @return The prefix.
      */
+    @java.lang.Override
     public java.lang.String getPrefix() {
       java.lang.Object ref = prefix_;
       if (ref instanceof java.lang.String) {
@@ -26883,6 +27300,7 @@ public final class Validate {
      * <code>optional string prefix = 7;</code>
      * @return The bytes for prefix.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPrefixBytes() {
       java.lang.Object ref = prefix_;
@@ -26908,6 +27326,7 @@ public final class Validate {
      * <code>optional string suffix = 8;</code>
      * @return Whether the suffix field is set.
      */
+    @java.lang.Override
     public boolean hasSuffix() {
       return ((bitField0_ & 0x00000200) != 0);
     }
@@ -26920,6 +27339,7 @@ public final class Validate {
      * <code>optional string suffix = 8;</code>
      * @return The suffix.
      */
+    @java.lang.Override
     public java.lang.String getSuffix() {
       java.lang.Object ref = suffix_;
       if (ref instanceof java.lang.String) {
@@ -26943,6 +27363,7 @@ public final class Validate {
      * <code>optional string suffix = 8;</code>
      * @return The bytes for suffix.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getSuffixBytes() {
       java.lang.Object ref = suffix_;
@@ -26968,6 +27389,7 @@ public final class Validate {
      * <code>optional string contains = 9;</code>
      * @return Whether the contains field is set.
      */
+    @java.lang.Override
     public boolean hasContains() {
       return ((bitField0_ & 0x00000400) != 0);
     }
@@ -26980,6 +27402,7 @@ public final class Validate {
      * <code>optional string contains = 9;</code>
      * @return The contains.
      */
+    @java.lang.Override
     public java.lang.String getContains() {
       java.lang.Object ref = contains_;
       if (ref instanceof java.lang.String) {
@@ -27003,6 +27426,7 @@ public final class Validate {
      * <code>optional string contains = 9;</code>
      * @return The bytes for contains.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getContainsBytes() {
       java.lang.Object ref = contains_;
@@ -27028,6 +27452,7 @@ public final class Validate {
      * <code>optional string not_contains = 23;</code>
      * @return Whether the notContains field is set.
      */
+    @java.lang.Override
     public boolean hasNotContains() {
       return ((bitField0_ & 0x00000800) != 0);
     }
@@ -27040,6 +27465,7 @@ public final class Validate {
      * <code>optional string not_contains = 23;</code>
      * @return The notContains.
      */
+    @java.lang.Override
     public java.lang.String getNotContains() {
       java.lang.Object ref = notContains_;
       if (ref instanceof java.lang.String) {
@@ -27063,6 +27489,7 @@ public final class Validate {
      * <code>optional string not_contains = 23;</code>
      * @return The bytes for notContains.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getNotContainsBytes() {
       java.lang.Object ref = notContains_;
@@ -27194,9 +27621,10 @@ public final class Validate {
      * defined by RFC 5322
      * </pre>
      *
-     * <code>optional bool email = 12;</code>
+     * <code>bool email = 12;</code>
      * @return Whether the email field is set.
      */
+    @java.lang.Override
     public boolean hasEmail() {
       return wellKnownCase_ == 12;
     }
@@ -27206,9 +27634,10 @@ public final class Validate {
      * defined by RFC 5322
      * </pre>
      *
-     * <code>optional bool email = 12;</code>
+     * <code>bool email = 12;</code>
      * @return The email.
      */
+    @java.lang.Override
     public boolean getEmail() {
       if (wellKnownCase_ == 12) {
         return (java.lang.Boolean) wellKnown_;
@@ -27224,9 +27653,10 @@ public final class Validate {
      * internationalized domain names (IDNs).
      * </pre>
      *
-     * <code>optional bool hostname = 13;</code>
+     * <code>bool hostname = 13;</code>
      * @return Whether the hostname field is set.
      */
+    @java.lang.Override
     public boolean hasHostname() {
       return wellKnownCase_ == 13;
     }
@@ -27237,9 +27667,10 @@ public final class Validate {
      * internationalized domain names (IDNs).
      * </pre>
      *
-     * <code>optional bool hostname = 13;</code>
+     * <code>bool hostname = 13;</code>
      * @return The hostname.
      */
+    @java.lang.Override
     public boolean getHostname() {
       if (wellKnownCase_ == 13) {
         return (java.lang.Boolean) wellKnown_;
@@ -27254,9 +27685,10 @@ public final class Validate {
      * Valid IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ip = 14;</code>
+     * <code>bool ip = 14;</code>
      * @return Whether the ip field is set.
      */
+    @java.lang.Override
     public boolean hasIp() {
       return wellKnownCase_ == 14;
     }
@@ -27266,9 +27698,10 @@ public final class Validate {
      * Valid IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ip = 14;</code>
+     * <code>bool ip = 14;</code>
      * @return The ip.
      */
+    @java.lang.Override
     public boolean getIp() {
       if (wellKnownCase_ == 14) {
         return (java.lang.Boolean) wellKnown_;
@@ -27282,9 +27715,10 @@ public final class Validate {
      * Ipv4 specifies that the field must be a valid IPv4 address.
      * </pre>
      *
-     * <code>optional bool ipv4 = 15;</code>
+     * <code>bool ipv4 = 15;</code>
      * @return Whether the ipv4 field is set.
      */
+    @java.lang.Override
     public boolean hasIpv4() {
       return wellKnownCase_ == 15;
     }
@@ -27293,9 +27727,10 @@ public final class Validate {
      * Ipv4 specifies that the field must be a valid IPv4 address.
      * </pre>
      *
-     * <code>optional bool ipv4 = 15;</code>
+     * <code>bool ipv4 = 15;</code>
      * @return The ipv4.
      */
+    @java.lang.Override
     public boolean getIpv4() {
       if (wellKnownCase_ == 15) {
         return (java.lang.Boolean) wellKnown_;
@@ -27310,9 +27745,10 @@ public final class Validate {
      * IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ipv6 = 16;</code>
+     * <code>bool ipv6 = 16;</code>
      * @return Whether the ipv6 field is set.
      */
+    @java.lang.Override
     public boolean hasIpv6() {
       return wellKnownCase_ == 16;
     }
@@ -27322,9 +27758,10 @@ public final class Validate {
      * IPv6 addresses should not include surrounding square brackets.
      * </pre>
      *
-     * <code>optional bool ipv6 = 16;</code>
+     * <code>bool ipv6 = 16;</code>
      * @return The ipv6.
      */
+    @java.lang.Override
     public boolean getIpv6() {
       if (wellKnownCase_ == 16) {
         return (java.lang.Boolean) wellKnown_;
@@ -27339,9 +27776,10 @@ public final class Validate {
      * by RFC 3986
      * </pre>
      *
-     * <code>optional bool uri = 17;</code>
+     * <code>bool uri = 17;</code>
      * @return Whether the uri field is set.
      */
+    @java.lang.Override
     public boolean hasUri() {
       return wellKnownCase_ == 17;
     }
@@ -27351,9 +27789,10 @@ public final class Validate {
      * by RFC 3986
      * </pre>
      *
-     * <code>optional bool uri = 17;</code>
+     * <code>bool uri = 17;</code>
      * @return The uri.
      */
+    @java.lang.Override
     public boolean getUri() {
       if (wellKnownCase_ == 17) {
         return (java.lang.Boolean) wellKnown_;
@@ -27368,9 +27807,10 @@ public final class Validate {
      * 3986 and may be relative or absolute.
      * </pre>
      *
-     * <code>optional bool uri_ref = 18;</code>
+     * <code>bool uri_ref = 18;</code>
      * @return Whether the uriRef field is set.
      */
+    @java.lang.Override
     public boolean hasUriRef() {
       return wellKnownCase_ == 18;
     }
@@ -27380,9 +27820,10 @@ public final class Validate {
      * 3986 and may be relative or absolute.
      * </pre>
      *
-     * <code>optional bool uri_ref = 18;</code>
+     * <code>bool uri_ref = 18;</code>
      * @return The uriRef.
      */
+    @java.lang.Override
     public boolean getUriRef() {
       if (wellKnownCase_ == 18) {
         return (java.lang.Boolean) wellKnown_;
@@ -27398,9 +27839,10 @@ public final class Validate {
      * names or IDNs), or it can be a valid IP (v4 or v6).
      * </pre>
      *
-     * <code>optional bool address = 21;</code>
+     * <code>bool address = 21;</code>
      * @return Whether the address field is set.
      */
+    @java.lang.Override
     public boolean hasAddress() {
       return wellKnownCase_ == 21;
     }
@@ -27411,9 +27853,10 @@ public final class Validate {
      * names or IDNs), or it can be a valid IP (v4 or v6).
      * </pre>
      *
-     * <code>optional bool address = 21;</code>
+     * <code>bool address = 21;</code>
      * @return The address.
      */
+    @java.lang.Override
     public boolean getAddress() {
       if (wellKnownCase_ == 21) {
         return (java.lang.Boolean) wellKnown_;
@@ -27428,9 +27871,10 @@ public final class Validate {
      * RFC 4122
      * </pre>
      *
-     * <code>optional bool uuid = 22;</code>
+     * <code>bool uuid = 22;</code>
      * @return Whether the uuid field is set.
      */
+    @java.lang.Override
     public boolean hasUuid() {
       return wellKnownCase_ == 22;
     }
@@ -27440,9 +27884,10 @@ public final class Validate {
      * RFC 4122
      * </pre>
      *
-     * <code>optional bool uuid = 22;</code>
+     * <code>bool uuid = 22;</code>
      * @return The uuid.
      */
+    @java.lang.Override
     public boolean getUuid() {
       if (wellKnownCase_ == 22) {
         return (java.lang.Boolean) wellKnown_;
@@ -27456,7 +27901,7 @@ public final class Validate {
      * WellKnownRegex specifies a common well known pattern defined as a regex.
      * </pre>
      *
-     * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+     * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
      * @return Whether the wellKnownRegex field is set.
      */
     public boolean hasWellKnownRegex() {
@@ -27467,7 +27912,7 @@ public final class Validate {
      * WellKnownRegex specifies a common well known pattern defined as a regex.
      * </pre>
      *
-     * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+     * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
      * @return The wellKnownRegex.
      */
     public pbandk.testpb.Validate.KnownRegex getWellKnownRegex() {
@@ -27494,6 +27939,7 @@ public final class Validate {
      * <code>optional bool strict = 25;</code>
      * @return Whether the strict field is set.
      */
+    @java.lang.Override
     public boolean hasStrict() {
       return ((bitField0_ & 0x00400000) != 0);
     }
@@ -27509,6 +27955,7 @@ public final class Validate {
      * <code>optional bool strict = 25;</code>
      * @return The strict.
      */
+    @java.lang.Override
     public boolean getStrict() {
       return strict_;
     }
@@ -28610,6 +29057,7 @@ public final class Validate {
        * <code>optional uint64 len = 19;</code>
        * @return Whether the len field is set.
        */
+      @java.lang.Override
       public boolean hasLen() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -28623,6 +29071,7 @@ public final class Validate {
        * <code>optional uint64 len = 19;</code>
        * @return The len.
        */
+      @java.lang.Override
       public long getLen() {
         return len_;
       }
@@ -28671,6 +29120,7 @@ public final class Validate {
        * <code>optional uint64 min_len = 2;</code>
        * @return Whether the minLen field is set.
        */
+      @java.lang.Override
       public boolean hasMinLen() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -28684,6 +29134,7 @@ public final class Validate {
        * <code>optional uint64 min_len = 2;</code>
        * @return The minLen.
        */
+      @java.lang.Override
       public long getMinLen() {
         return minLen_;
       }
@@ -28732,6 +29183,7 @@ public final class Validate {
        * <code>optional uint64 max_len = 3;</code>
        * @return Whether the maxLen field is set.
        */
+      @java.lang.Override
       public boolean hasMaxLen() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -28745,6 +29197,7 @@ public final class Validate {
        * <code>optional uint64 max_len = 3;</code>
        * @return The maxLen.
        */
+      @java.lang.Override
       public long getMaxLen() {
         return maxLen_;
       }
@@ -28792,6 +29245,7 @@ public final class Validate {
        * <code>optional uint64 len_bytes = 20;</code>
        * @return Whether the lenBytes field is set.
        */
+      @java.lang.Override
       public boolean hasLenBytes() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -28804,6 +29258,7 @@ public final class Validate {
        * <code>optional uint64 len_bytes = 20;</code>
        * @return The lenBytes.
        */
+      @java.lang.Override
       public long getLenBytes() {
         return lenBytes_;
       }
@@ -28849,6 +29304,7 @@ public final class Validate {
        * <code>optional uint64 min_bytes = 4;</code>
        * @return Whether the minBytes field is set.
        */
+      @java.lang.Override
       public boolean hasMinBytes() {
         return ((bitField0_ & 0x00000020) != 0);
       }
@@ -28861,6 +29317,7 @@ public final class Validate {
        * <code>optional uint64 min_bytes = 4;</code>
        * @return The minBytes.
        */
+      @java.lang.Override
       public long getMinBytes() {
         return minBytes_;
       }
@@ -28906,6 +29363,7 @@ public final class Validate {
        * <code>optional uint64 max_bytes = 5;</code>
        * @return Whether the maxBytes field is set.
        */
+      @java.lang.Override
       public boolean hasMaxBytes() {
         return ((bitField0_ & 0x00000040) != 0);
       }
@@ -28918,6 +29376,7 @@ public final class Validate {
        * <code>optional uint64 max_bytes = 5;</code>
        * @return The maxBytes.
        */
+      @java.lang.Override
       public long getMaxBytes() {
         return maxBytes_;
       }
@@ -29843,7 +30302,7 @@ public final class Validate {
        * defined by RFC 5322
        * </pre>
        *
-       * <code>optional bool email = 12;</code>
+       * <code>bool email = 12;</code>
        * @return Whether the email field is set.
        */
       public boolean hasEmail() {
@@ -29855,7 +30314,7 @@ public final class Validate {
        * defined by RFC 5322
        * </pre>
        *
-       * <code>optional bool email = 12;</code>
+       * <code>bool email = 12;</code>
        * @return The email.
        */
       public boolean getEmail() {
@@ -29870,7 +30329,7 @@ public final class Validate {
        * defined by RFC 5322
        * </pre>
        *
-       * <code>optional bool email = 12;</code>
+       * <code>bool email = 12;</code>
        * @param value The email to set.
        * @return This builder for chaining.
        */
@@ -29886,7 +30345,7 @@ public final class Validate {
        * defined by RFC 5322
        * </pre>
        *
-       * <code>optional bool email = 12;</code>
+       * <code>bool email = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
@@ -29905,7 +30364,7 @@ public final class Validate {
        * internationalized domain names (IDNs).
        * </pre>
        *
-       * <code>optional bool hostname = 13;</code>
+       * <code>bool hostname = 13;</code>
        * @return Whether the hostname field is set.
        */
       public boolean hasHostname() {
@@ -29918,7 +30377,7 @@ public final class Validate {
        * internationalized domain names (IDNs).
        * </pre>
        *
-       * <code>optional bool hostname = 13;</code>
+       * <code>bool hostname = 13;</code>
        * @return The hostname.
        */
       public boolean getHostname() {
@@ -29934,7 +30393,7 @@ public final class Validate {
        * internationalized domain names (IDNs).
        * </pre>
        *
-       * <code>optional bool hostname = 13;</code>
+       * <code>bool hostname = 13;</code>
        * @param value The hostname to set.
        * @return This builder for chaining.
        */
@@ -29951,7 +30410,7 @@ public final class Validate {
        * internationalized domain names (IDNs).
        * </pre>
        *
-       * <code>optional bool hostname = 13;</code>
+       * <code>bool hostname = 13;</code>
        * @return This builder for chaining.
        */
       public Builder clearHostname() {
@@ -29969,7 +30428,7 @@ public final class Validate {
        * Valid IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ip = 14;</code>
+       * <code>bool ip = 14;</code>
        * @return Whether the ip field is set.
        */
       public boolean hasIp() {
@@ -29981,7 +30440,7 @@ public final class Validate {
        * Valid IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ip = 14;</code>
+       * <code>bool ip = 14;</code>
        * @return The ip.
        */
       public boolean getIp() {
@@ -29996,7 +30455,7 @@ public final class Validate {
        * Valid IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ip = 14;</code>
+       * <code>bool ip = 14;</code>
        * @param value The ip to set.
        * @return This builder for chaining.
        */
@@ -30012,7 +30471,7 @@ public final class Validate {
        * Valid IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ip = 14;</code>
+       * <code>bool ip = 14;</code>
        * @return This builder for chaining.
        */
       public Builder clearIp() {
@@ -30029,7 +30488,7 @@ public final class Validate {
        * Ipv4 specifies that the field must be a valid IPv4 address.
        * </pre>
        *
-       * <code>optional bool ipv4 = 15;</code>
+       * <code>bool ipv4 = 15;</code>
        * @return Whether the ipv4 field is set.
        */
       public boolean hasIpv4() {
@@ -30040,7 +30499,7 @@ public final class Validate {
        * Ipv4 specifies that the field must be a valid IPv4 address.
        * </pre>
        *
-       * <code>optional bool ipv4 = 15;</code>
+       * <code>bool ipv4 = 15;</code>
        * @return The ipv4.
        */
       public boolean getIpv4() {
@@ -30054,7 +30513,7 @@ public final class Validate {
        * Ipv4 specifies that the field must be a valid IPv4 address.
        * </pre>
        *
-       * <code>optional bool ipv4 = 15;</code>
+       * <code>bool ipv4 = 15;</code>
        * @param value The ipv4 to set.
        * @return This builder for chaining.
        */
@@ -30069,7 +30528,7 @@ public final class Validate {
        * Ipv4 specifies that the field must be a valid IPv4 address.
        * </pre>
        *
-       * <code>optional bool ipv4 = 15;</code>
+       * <code>bool ipv4 = 15;</code>
        * @return This builder for chaining.
        */
       public Builder clearIpv4() {
@@ -30087,7 +30546,7 @@ public final class Validate {
        * IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ipv6 = 16;</code>
+       * <code>bool ipv6 = 16;</code>
        * @return Whether the ipv6 field is set.
        */
       public boolean hasIpv6() {
@@ -30099,7 +30558,7 @@ public final class Validate {
        * IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ipv6 = 16;</code>
+       * <code>bool ipv6 = 16;</code>
        * @return The ipv6.
        */
       public boolean getIpv6() {
@@ -30114,7 +30573,7 @@ public final class Validate {
        * IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ipv6 = 16;</code>
+       * <code>bool ipv6 = 16;</code>
        * @param value The ipv6 to set.
        * @return This builder for chaining.
        */
@@ -30130,7 +30589,7 @@ public final class Validate {
        * IPv6 addresses should not include surrounding square brackets.
        * </pre>
        *
-       * <code>optional bool ipv6 = 16;</code>
+       * <code>bool ipv6 = 16;</code>
        * @return This builder for chaining.
        */
       public Builder clearIpv6() {
@@ -30148,7 +30607,7 @@ public final class Validate {
        * by RFC 3986
        * </pre>
        *
-       * <code>optional bool uri = 17;</code>
+       * <code>bool uri = 17;</code>
        * @return Whether the uri field is set.
        */
       public boolean hasUri() {
@@ -30160,7 +30619,7 @@ public final class Validate {
        * by RFC 3986
        * </pre>
        *
-       * <code>optional bool uri = 17;</code>
+       * <code>bool uri = 17;</code>
        * @return The uri.
        */
       public boolean getUri() {
@@ -30175,7 +30634,7 @@ public final class Validate {
        * by RFC 3986
        * </pre>
        *
-       * <code>optional bool uri = 17;</code>
+       * <code>bool uri = 17;</code>
        * @param value The uri to set.
        * @return This builder for chaining.
        */
@@ -30191,7 +30650,7 @@ public final class Validate {
        * by RFC 3986
        * </pre>
        *
-       * <code>optional bool uri = 17;</code>
+       * <code>bool uri = 17;</code>
        * @return This builder for chaining.
        */
       public Builder clearUri() {
@@ -30209,7 +30668,7 @@ public final class Validate {
        * 3986 and may be relative or absolute.
        * </pre>
        *
-       * <code>optional bool uri_ref = 18;</code>
+       * <code>bool uri_ref = 18;</code>
        * @return Whether the uriRef field is set.
        */
       public boolean hasUriRef() {
@@ -30221,7 +30680,7 @@ public final class Validate {
        * 3986 and may be relative or absolute.
        * </pre>
        *
-       * <code>optional bool uri_ref = 18;</code>
+       * <code>bool uri_ref = 18;</code>
        * @return The uriRef.
        */
       public boolean getUriRef() {
@@ -30236,7 +30695,7 @@ public final class Validate {
        * 3986 and may be relative or absolute.
        * </pre>
        *
-       * <code>optional bool uri_ref = 18;</code>
+       * <code>bool uri_ref = 18;</code>
        * @param value The uriRef to set.
        * @return This builder for chaining.
        */
@@ -30252,7 +30711,7 @@ public final class Validate {
        * 3986 and may be relative or absolute.
        * </pre>
        *
-       * <code>optional bool uri_ref = 18;</code>
+       * <code>bool uri_ref = 18;</code>
        * @return This builder for chaining.
        */
       public Builder clearUriRef() {
@@ -30271,7 +30730,7 @@ public final class Validate {
        * names or IDNs), or it can be a valid IP (v4 or v6).
        * </pre>
        *
-       * <code>optional bool address = 21;</code>
+       * <code>bool address = 21;</code>
        * @return Whether the address field is set.
        */
       public boolean hasAddress() {
@@ -30284,7 +30743,7 @@ public final class Validate {
        * names or IDNs), or it can be a valid IP (v4 or v6).
        * </pre>
        *
-       * <code>optional bool address = 21;</code>
+       * <code>bool address = 21;</code>
        * @return The address.
        */
       public boolean getAddress() {
@@ -30300,7 +30759,7 @@ public final class Validate {
        * names or IDNs), or it can be a valid IP (v4 or v6).
        * </pre>
        *
-       * <code>optional bool address = 21;</code>
+       * <code>bool address = 21;</code>
        * @param value The address to set.
        * @return This builder for chaining.
        */
@@ -30317,7 +30776,7 @@ public final class Validate {
        * names or IDNs), or it can be a valid IP (v4 or v6).
        * </pre>
        *
-       * <code>optional bool address = 21;</code>
+       * <code>bool address = 21;</code>
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
@@ -30335,7 +30794,7 @@ public final class Validate {
        * RFC 4122
        * </pre>
        *
-       * <code>optional bool uuid = 22;</code>
+       * <code>bool uuid = 22;</code>
        * @return Whether the uuid field is set.
        */
       public boolean hasUuid() {
@@ -30347,7 +30806,7 @@ public final class Validate {
        * RFC 4122
        * </pre>
        *
-       * <code>optional bool uuid = 22;</code>
+       * <code>bool uuid = 22;</code>
        * @return The uuid.
        */
       public boolean getUuid() {
@@ -30362,7 +30821,7 @@ public final class Validate {
        * RFC 4122
        * </pre>
        *
-       * <code>optional bool uuid = 22;</code>
+       * <code>bool uuid = 22;</code>
        * @param value The uuid to set.
        * @return This builder for chaining.
        */
@@ -30378,7 +30837,7 @@ public final class Validate {
        * RFC 4122
        * </pre>
        *
-       * <code>optional bool uuid = 22;</code>
+       * <code>bool uuid = 22;</code>
        * @return This builder for chaining.
        */
       public Builder clearUuid() {
@@ -30395,9 +30854,10 @@ public final class Validate {
        * WellKnownRegex specifies a common well known pattern defined as a regex.
        * </pre>
        *
-       * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+       * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
        * @return Whether the wellKnownRegex field is set.
        */
+      @java.lang.Override
       public boolean hasWellKnownRegex() {
         return wellKnownCase_ == 24;
       }
@@ -30406,9 +30866,10 @@ public final class Validate {
        * WellKnownRegex specifies a common well known pattern defined as a regex.
        * </pre>
        *
-       * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+       * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
        * @return The wellKnownRegex.
        */
+      @java.lang.Override
       public pbandk.testpb.Validate.KnownRegex getWellKnownRegex() {
         if (wellKnownCase_ == 24) {
           @SuppressWarnings("deprecation")
@@ -30423,7 +30884,7 @@ public final class Validate {
        * WellKnownRegex specifies a common well known pattern defined as a regex.
        * </pre>
        *
-       * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+       * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
        * @param value The wellKnownRegex to set.
        * @return This builder for chaining.
        */
@@ -30441,7 +30902,7 @@ public final class Validate {
        * WellKnownRegex specifies a common well known pattern defined as a regex.
        * </pre>
        *
-       * <code>optional .pbandk.testpb.KnownRegex well_known_regex = 24;</code>
+       * <code>.pbandk.testpb.KnownRegex well_known_regex = 24;</code>
        * @return This builder for chaining.
        */
       public Builder clearWellKnownRegex() {
@@ -30466,6 +30927,7 @@ public final class Validate {
        * <code>optional bool strict = 25;</code>
        * @return Whether the strict field is set.
        */
+      @java.lang.Override
       public boolean hasStrict() {
         return ((bitField0_ & 0x01000000) != 0);
       }
@@ -30481,6 +30943,7 @@ public final class Validate {
        * <code>optional bool strict = 25;</code>
        * @return The strict.
        */
+      @java.lang.Override
       public boolean getStrict() {
         return strict_;
       }
@@ -30826,7 +31289,7 @@ public final class Validate {
      * byte format
      * </pre>
      *
-     * <code>optional bool ip = 10;</code>
+     * <code>bool ip = 10;</code>
      * @return Whether the ip field is set.
      */
     boolean hasIp();
@@ -30836,7 +31299,7 @@ public final class Validate {
      * byte format
      * </pre>
      *
-     * <code>optional bool ip = 10;</code>
+     * <code>bool ip = 10;</code>
      * @return The ip.
      */
     boolean getIp();
@@ -30847,7 +31310,7 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv4 = 11;</code>
+     * <code>bool ipv4 = 11;</code>
      * @return Whether the ipv4 field is set.
      */
     boolean hasIpv4();
@@ -30857,7 +31320,7 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv4 = 11;</code>
+     * <code>bool ipv4 = 11;</code>
      * @return The ipv4.
      */
     boolean getIpv4();
@@ -30868,7 +31331,7 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv6 = 12;</code>
+     * <code>bool ipv6 = 12;</code>
      * @return Whether the ipv6 field is set.
      */
     boolean hasIpv6();
@@ -30878,7 +31341,7 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv6 = 12;</code>
+     * <code>bool ipv6 = 12;</code>
      * @return The ipv6.
      */
     boolean getIpv6();
@@ -30892,7 +31355,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.BytesRules}
    */
-  public  static final class BytesRules extends
+  public static final class BytesRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.BytesRules)
       BytesRulesOrBuilder {
@@ -31106,6 +31569,7 @@ public final class Validate {
      * <code>optional bytes const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -31117,6 +31581,7 @@ public final class Validate {
      * <code>optional bytes const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getConst() {
       return const_;
     }
@@ -31131,6 +31596,7 @@ public final class Validate {
      * <code>optional uint64 len = 13;</code>
      * @return Whether the len field is set.
      */
+    @java.lang.Override
     public boolean hasLen() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -31142,6 +31608,7 @@ public final class Validate {
      * <code>optional uint64 len = 13;</code>
      * @return The len.
      */
+    @java.lang.Override
     public long getLen() {
       return len_;
     }
@@ -31157,6 +31624,7 @@ public final class Validate {
      * <code>optional uint64 min_len = 2;</code>
      * @return Whether the minLen field is set.
      */
+    @java.lang.Override
     public boolean hasMinLen() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -31169,6 +31637,7 @@ public final class Validate {
      * <code>optional uint64 min_len = 2;</code>
      * @return The minLen.
      */
+    @java.lang.Override
     public long getMinLen() {
       return minLen_;
     }
@@ -31184,6 +31653,7 @@ public final class Validate {
      * <code>optional uint64 max_len = 3;</code>
      * @return Whether the maxLen field is set.
      */
+    @java.lang.Override
     public boolean hasMaxLen() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -31196,6 +31666,7 @@ public final class Validate {
      * <code>optional uint64 max_len = 3;</code>
      * @return The maxLen.
      */
+    @java.lang.Override
     public long getMaxLen() {
       return maxLen_;
     }
@@ -31212,6 +31683,7 @@ public final class Validate {
      * <code>optional string pattern = 4;</code>
      * @return Whether the pattern field is set.
      */
+    @java.lang.Override
     public boolean hasPattern() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -31225,6 +31697,7 @@ public final class Validate {
      * <code>optional string pattern = 4;</code>
      * @return The pattern.
      */
+    @java.lang.Override
     public java.lang.String getPattern() {
       java.lang.Object ref = pattern_;
       if (ref instanceof java.lang.String) {
@@ -31249,6 +31722,7 @@ public final class Validate {
      * <code>optional string pattern = 4;</code>
      * @return The bytes for pattern.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPatternBytes() {
       java.lang.Object ref = pattern_;
@@ -31274,6 +31748,7 @@ public final class Validate {
      * <code>optional bytes prefix = 5;</code>
      * @return Whether the prefix field is set.
      */
+    @java.lang.Override
     public boolean hasPrefix() {
       return ((bitField0_ & 0x00000020) != 0);
     }
@@ -31286,6 +31761,7 @@ public final class Validate {
      * <code>optional bytes prefix = 5;</code>
      * @return The prefix.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getPrefix() {
       return prefix_;
     }
@@ -31301,6 +31777,7 @@ public final class Validate {
      * <code>optional bytes suffix = 6;</code>
      * @return Whether the suffix field is set.
      */
+    @java.lang.Override
     public boolean hasSuffix() {
       return ((bitField0_ & 0x00000040) != 0);
     }
@@ -31313,6 +31790,7 @@ public final class Validate {
      * <code>optional bytes suffix = 6;</code>
      * @return The suffix.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getSuffix() {
       return suffix_;
     }
@@ -31328,6 +31806,7 @@ public final class Validate {
      * <code>optional bytes contains = 7;</code>
      * @return Whether the contains field is set.
      */
+    @java.lang.Override
     public boolean hasContains() {
       return ((bitField0_ & 0x00000080) != 0);
     }
@@ -31340,6 +31819,7 @@ public final class Validate {
      * <code>optional bytes contains = 7;</code>
      * @return The contains.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getContains() {
       return contains_;
     }
@@ -31355,6 +31835,7 @@ public final class Validate {
      * <code>repeated bytes in = 8;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ByteString>
         getInList() {
       return in_;
@@ -31396,6 +31877,7 @@ public final class Validate {
      * <code>repeated bytes not_in = 9;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ByteString>
         getNotInList() {
       return notIn_;
@@ -31433,9 +31915,10 @@ public final class Validate {
      * byte format
      * </pre>
      *
-     * <code>optional bool ip = 10;</code>
+     * <code>bool ip = 10;</code>
      * @return Whether the ip field is set.
      */
+    @java.lang.Override
     public boolean hasIp() {
       return wellKnownCase_ == 10;
     }
@@ -31445,9 +31928,10 @@ public final class Validate {
      * byte format
      * </pre>
      *
-     * <code>optional bool ip = 10;</code>
+     * <code>bool ip = 10;</code>
      * @return The ip.
      */
+    @java.lang.Override
     public boolean getIp() {
       if (wellKnownCase_ == 10) {
         return (java.lang.Boolean) wellKnown_;
@@ -31462,9 +31946,10 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv4 = 11;</code>
+     * <code>bool ipv4 = 11;</code>
      * @return Whether the ipv4 field is set.
      */
+    @java.lang.Override
     public boolean hasIpv4() {
       return wellKnownCase_ == 11;
     }
@@ -31474,9 +31959,10 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv4 = 11;</code>
+     * <code>bool ipv4 = 11;</code>
      * @return The ipv4.
      */
+    @java.lang.Override
     public boolean getIpv4() {
       if (wellKnownCase_ == 11) {
         return (java.lang.Boolean) wellKnown_;
@@ -31491,9 +31977,10 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv6 = 12;</code>
+     * <code>bool ipv6 = 12;</code>
      * @return Whether the ipv6 field is set.
      */
+    @java.lang.Override
     public boolean hasIpv6() {
       return wellKnownCase_ == 12;
     }
@@ -31503,9 +31990,10 @@ public final class Validate {
      * format
      * </pre>
      *
-     * <code>optional bool ipv6 = 12;</code>
+     * <code>bool ipv6 = 12;</code>
      * @return The ipv6.
      */
+    @java.lang.Override
     public boolean getIpv6() {
       if (wellKnownCase_ == 12) {
         return (java.lang.Boolean) wellKnown_;
@@ -32196,6 +32684,7 @@ public final class Validate {
        * <code>optional bytes const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -32207,6 +32696,7 @@ public final class Validate {
        * <code>optional bytes const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getConst() {
         return const_;
       }
@@ -32252,6 +32742,7 @@ public final class Validate {
        * <code>optional uint64 len = 13;</code>
        * @return Whether the len field is set.
        */
+      @java.lang.Override
       public boolean hasLen() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -32263,6 +32754,7 @@ public final class Validate {
        * <code>optional uint64 len = 13;</code>
        * @return The len.
        */
+      @java.lang.Override
       public long getLen() {
         return len_;
       }
@@ -32306,6 +32798,7 @@ public final class Validate {
        * <code>optional uint64 min_len = 2;</code>
        * @return Whether the minLen field is set.
        */
+      @java.lang.Override
       public boolean hasMinLen() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -32318,6 +32811,7 @@ public final class Validate {
        * <code>optional uint64 min_len = 2;</code>
        * @return The minLen.
        */
+      @java.lang.Override
       public long getMinLen() {
         return minLen_;
       }
@@ -32363,6 +32857,7 @@ public final class Validate {
        * <code>optional uint64 max_len = 3;</code>
        * @return Whether the maxLen field is set.
        */
+      @java.lang.Override
       public boolean hasMaxLen() {
         return ((bitField0_ & 0x00000008) != 0);
       }
@@ -32375,6 +32870,7 @@ public final class Validate {
        * <code>optional uint64 max_len = 3;</code>
        * @return The maxLen.
        */
+      @java.lang.Override
       public long getMaxLen() {
         return maxLen_;
       }
@@ -32540,6 +33036,7 @@ public final class Validate {
        * <code>optional bytes prefix = 5;</code>
        * @return Whether the prefix field is set.
        */
+      @java.lang.Override
       public boolean hasPrefix() {
         return ((bitField0_ & 0x00000020) != 0);
       }
@@ -32552,6 +33049,7 @@ public final class Validate {
        * <code>optional bytes prefix = 5;</code>
        * @return The prefix.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getPrefix() {
         return prefix_;
       }
@@ -32600,6 +33098,7 @@ public final class Validate {
        * <code>optional bytes suffix = 6;</code>
        * @return Whether the suffix field is set.
        */
+      @java.lang.Override
       public boolean hasSuffix() {
         return ((bitField0_ & 0x00000040) != 0);
       }
@@ -32612,6 +33111,7 @@ public final class Validate {
        * <code>optional bytes suffix = 6;</code>
        * @return The suffix.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getSuffix() {
         return suffix_;
       }
@@ -32660,6 +33160,7 @@ public final class Validate {
        * <code>optional bytes contains = 7;</code>
        * @return Whether the contains field is set.
        */
+      @java.lang.Override
       public boolean hasContains() {
         return ((bitField0_ & 0x00000080) != 0);
       }
@@ -32672,6 +33173,7 @@ public final class Validate {
        * <code>optional bytes contains = 7;</code>
        * @return The contains.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getContains() {
         return contains_;
       }
@@ -32956,7 +33458,7 @@ public final class Validate {
        * byte format
        * </pre>
        *
-       * <code>optional bool ip = 10;</code>
+       * <code>bool ip = 10;</code>
        * @return Whether the ip field is set.
        */
       public boolean hasIp() {
@@ -32968,7 +33470,7 @@ public final class Validate {
        * byte format
        * </pre>
        *
-       * <code>optional bool ip = 10;</code>
+       * <code>bool ip = 10;</code>
        * @return The ip.
        */
       public boolean getIp() {
@@ -32983,7 +33485,7 @@ public final class Validate {
        * byte format
        * </pre>
        *
-       * <code>optional bool ip = 10;</code>
+       * <code>bool ip = 10;</code>
        * @param value The ip to set.
        * @return This builder for chaining.
        */
@@ -32999,7 +33501,7 @@ public final class Validate {
        * byte format
        * </pre>
        *
-       * <code>optional bool ip = 10;</code>
+       * <code>bool ip = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearIp() {
@@ -33017,7 +33519,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv4 = 11;</code>
+       * <code>bool ipv4 = 11;</code>
        * @return Whether the ipv4 field is set.
        */
       public boolean hasIpv4() {
@@ -33029,7 +33531,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv4 = 11;</code>
+       * <code>bool ipv4 = 11;</code>
        * @return The ipv4.
        */
       public boolean getIpv4() {
@@ -33044,7 +33546,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv4 = 11;</code>
+       * <code>bool ipv4 = 11;</code>
        * @param value The ipv4 to set.
        * @return This builder for chaining.
        */
@@ -33060,7 +33562,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv4 = 11;</code>
+       * <code>bool ipv4 = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearIpv4() {
@@ -33078,7 +33580,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv6 = 12;</code>
+       * <code>bool ipv6 = 12;</code>
        * @return Whether the ipv6 field is set.
        */
       public boolean hasIpv6() {
@@ -33090,7 +33592,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv6 = 12;</code>
+       * <code>bool ipv6 = 12;</code>
        * @return The ipv6.
        */
       public boolean getIpv6() {
@@ -33105,7 +33607,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv6 = 12;</code>
+       * <code>bool ipv6 = 12;</code>
        * @param value The ipv6 to set.
        * @return This builder for chaining.
        */
@@ -33121,7 +33623,7 @@ public final class Validate {
        * format
        * </pre>
        *
-       * <code>optional bool ipv6 = 12;</code>
+       * <code>bool ipv6 = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearIpv6() {
@@ -33300,7 +33802,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.EnumRules}
    */
-  public  static final class EnumRules extends
+  public static final class EnumRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.EnumRules)
       EnumRulesOrBuilder {
@@ -33446,6 +33948,7 @@ public final class Validate {
      * <code>optional int32 const = 1;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -33457,6 +33960,7 @@ public final class Validate {
      * <code>optional int32 const = 1;</code>
      * @return The const.
      */
+    @java.lang.Override
     public int getConst() {
       return const_;
     }
@@ -33472,6 +33976,7 @@ public final class Validate {
      * <code>optional bool defined_only = 2;</code>
      * @return Whether the definedOnly field is set.
      */
+    @java.lang.Override
     public boolean hasDefinedOnly() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -33484,6 +33989,7 @@ public final class Validate {
      * <code>optional bool defined_only = 2;</code>
      * @return The definedOnly.
      */
+    @java.lang.Override
     public boolean getDefinedOnly() {
       return definedOnly_;
     }
@@ -33499,6 +34005,7 @@ public final class Validate {
      * <code>repeated int32 in = 3;</code>
      * @return A list containing the in.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getInList() {
       return in_;
@@ -33540,6 +34047,7 @@ public final class Validate {
      * <code>repeated int32 not_in = 4;</code>
      * @return A list containing the notIn.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getNotInList() {
       return notIn_;
@@ -33993,6 +34501,7 @@ public final class Validate {
        * <code>optional int32 const = 1;</code>
        * @return Whether the const field is set.
        */
+      @java.lang.Override
       public boolean hasConst() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -34004,6 +34513,7 @@ public final class Validate {
        * <code>optional int32 const = 1;</code>
        * @return The const.
        */
+      @java.lang.Override
       public int getConst() {
         return const_;
       }
@@ -34047,6 +34557,7 @@ public final class Validate {
        * <code>optional bool defined_only = 2;</code>
        * @return Whether the definedOnly field is set.
        */
+      @java.lang.Override
       public boolean hasDefinedOnly() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -34059,6 +34570,7 @@ public final class Validate {
        * <code>optional bool defined_only = 2;</code>
        * @return The definedOnly.
        */
+      @java.lang.Override
       public boolean getDefinedOnly() {
         return definedOnly_;
       }
@@ -34426,7 +34938,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.MessageRules}
    */
-  public  static final class MessageRules extends
+  public static final class MessageRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.MessageRules)
       MessageRulesOrBuilder {
@@ -34523,6 +35035,7 @@ public final class Validate {
      * <code>optional bool skip = 1;</code>
      * @return Whether the skip field is set.
      */
+    @java.lang.Override
     public boolean hasSkip() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -34535,6 +35048,7 @@ public final class Validate {
      * <code>optional bool skip = 1;</code>
      * @return The skip.
      */
+    @java.lang.Override
     public boolean getSkip() {
       return skip_;
     }
@@ -34549,6 +35063,7 @@ public final class Validate {
      * <code>optional bool required = 2;</code>
      * @return Whether the required field is set.
      */
+    @java.lang.Override
     public boolean hasRequired() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -34560,6 +35075,7 @@ public final class Validate {
      * <code>optional bool required = 2;</code>
      * @return The required.
      */
+    @java.lang.Override
     public boolean getRequired() {
       return required_;
     }
@@ -34920,6 +35436,7 @@ public final class Validate {
        * <code>optional bool skip = 1;</code>
        * @return Whether the skip field is set.
        */
+      @java.lang.Override
       public boolean hasSkip() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -34932,6 +35449,7 @@ public final class Validate {
        * <code>optional bool skip = 1;</code>
        * @return The skip.
        */
+      @java.lang.Override
       public boolean getSkip() {
         return skip_;
       }
@@ -34976,6 +35494,7 @@ public final class Validate {
        * <code>optional bool required = 2;</code>
        * @return Whether the required field is set.
        */
+      @java.lang.Override
       public boolean hasRequired() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -34987,6 +35506,7 @@ public final class Validate {
        * <code>optional bool required = 2;</code>
        * @return The required.
        */
+      @java.lang.Override
       public boolean getRequired() {
         return required_;
       }
@@ -35181,7 +35701,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.RepeatedRules}
    */
-  public  static final class RepeatedRules extends
+  public static final class RepeatedRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.RepeatedRules)
       RepeatedRulesOrBuilder {
@@ -35296,6 +35816,7 @@ public final class Validate {
      * <code>optional uint64 min_items = 1;</code>
      * @return Whether the minItems field is set.
      */
+    @java.lang.Override
     public boolean hasMinItems() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -35308,6 +35829,7 @@ public final class Validate {
      * <code>optional uint64 min_items = 1;</code>
      * @return The minItems.
      */
+    @java.lang.Override
     public long getMinItems() {
       return minItems_;
     }
@@ -35323,6 +35845,7 @@ public final class Validate {
      * <code>optional uint64 max_items = 2;</code>
      * @return Whether the maxItems field is set.
      */
+    @java.lang.Override
     public boolean hasMaxItems() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -35335,6 +35858,7 @@ public final class Validate {
      * <code>optional uint64 max_items = 2;</code>
      * @return The maxItems.
      */
+    @java.lang.Override
     public long getMaxItems() {
       return maxItems_;
     }
@@ -35351,6 +35875,7 @@ public final class Validate {
      * <code>optional bool unique = 3;</code>
      * @return Whether the unique field is set.
      */
+    @java.lang.Override
     public boolean hasUnique() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -35364,6 +35889,7 @@ public final class Validate {
      * <code>optional bool unique = 3;</code>
      * @return The unique.
      */
+    @java.lang.Override
     public boolean getUnique() {
       return unique_;
     }
@@ -35380,6 +35906,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.FieldRules items = 4;</code>
      * @return Whether the items field is set.
      */
+    @java.lang.Override
     public boolean hasItems() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -35393,6 +35920,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.FieldRules items = 4;</code>
      * @return The items.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FieldRules getItems() {
       return items_ == null ? pbandk.testpb.Validate.FieldRules.getDefaultInstance() : items_;
     }
@@ -35405,6 +35933,7 @@ public final class Validate {
      *
      * <code>optional .pbandk.testpb.FieldRules items = 4;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FieldRulesOrBuilder getItemsOrBuilder() {
       return items_ == null ? pbandk.testpb.Validate.FieldRules.getDefaultInstance() : items_;
     }
@@ -35824,6 +36353,7 @@ public final class Validate {
        * <code>optional uint64 min_items = 1;</code>
        * @return Whether the minItems field is set.
        */
+      @java.lang.Override
       public boolean hasMinItems() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -35836,6 +36366,7 @@ public final class Validate {
        * <code>optional uint64 min_items = 1;</code>
        * @return The minItems.
        */
+      @java.lang.Override
       public long getMinItems() {
         return minItems_;
       }
@@ -35881,6 +36412,7 @@ public final class Validate {
        * <code>optional uint64 max_items = 2;</code>
        * @return Whether the maxItems field is set.
        */
+      @java.lang.Override
       public boolean hasMaxItems() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -35893,6 +36425,7 @@ public final class Validate {
        * <code>optional uint64 max_items = 2;</code>
        * @return The maxItems.
        */
+      @java.lang.Override
       public long getMaxItems() {
         return maxItems_;
       }
@@ -35939,6 +36472,7 @@ public final class Validate {
        * <code>optional bool unique = 3;</code>
        * @return Whether the unique field is set.
        */
+      @java.lang.Override
       public boolean hasUnique() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -35952,6 +36486,7 @@ public final class Validate {
        * <code>optional bool unique = 3;</code>
        * @return The unique.
        */
+      @java.lang.Override
       public boolean getUnique() {
         return unique_;
       }
@@ -36349,7 +36884,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.MapRules}
    */
-  public  static final class MapRules extends
+  public static final class MapRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.MapRules)
       MapRulesOrBuilder {
@@ -36477,6 +37012,7 @@ public final class Validate {
      * <code>optional uint64 min_pairs = 1;</code>
      * @return Whether the minPairs field is set.
      */
+    @java.lang.Override
     public boolean hasMinPairs() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -36489,6 +37025,7 @@ public final class Validate {
      * <code>optional uint64 min_pairs = 1;</code>
      * @return The minPairs.
      */
+    @java.lang.Override
     public long getMinPairs() {
       return minPairs_;
     }
@@ -36504,6 +37041,7 @@ public final class Validate {
      * <code>optional uint64 max_pairs = 2;</code>
      * @return Whether the maxPairs field is set.
      */
+    @java.lang.Override
     public boolean hasMaxPairs() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -36516,6 +37054,7 @@ public final class Validate {
      * <code>optional uint64 max_pairs = 2;</code>
      * @return The maxPairs.
      */
+    @java.lang.Override
     public long getMaxPairs() {
       return maxPairs_;
     }
@@ -36531,6 +37070,7 @@ public final class Validate {
      * <code>optional bool no_sparse = 3;</code>
      * @return Whether the noSparse field is set.
      */
+    @java.lang.Override
     public boolean hasNoSparse() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -36543,6 +37083,7 @@ public final class Validate {
      * <code>optional bool no_sparse = 3;</code>
      * @return The noSparse.
      */
+    @java.lang.Override
     public boolean getNoSparse() {
       return noSparse_;
     }
@@ -36557,6 +37098,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.FieldRules keys = 4;</code>
      * @return Whether the keys field is set.
      */
+    @java.lang.Override
     public boolean hasKeys() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -36568,6 +37110,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.FieldRules keys = 4;</code>
      * @return The keys.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FieldRules getKeys() {
       return keys_ == null ? pbandk.testpb.Validate.FieldRules.getDefaultInstance() : keys_;
     }
@@ -36578,6 +37121,7 @@ public final class Validate {
      *
      * <code>optional .pbandk.testpb.FieldRules keys = 4;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FieldRulesOrBuilder getKeysOrBuilder() {
       return keys_ == null ? pbandk.testpb.Validate.FieldRules.getDefaultInstance() : keys_;
     }
@@ -36594,6 +37138,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.FieldRules values = 5;</code>
      * @return Whether the values field is set.
      */
+    @java.lang.Override
     public boolean hasValues() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -36607,6 +37152,7 @@ public final class Validate {
      * <code>optional .pbandk.testpb.FieldRules values = 5;</code>
      * @return The values.
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FieldRules getValues() {
       return values_ == null ? pbandk.testpb.Validate.FieldRules.getDefaultInstance() : values_;
     }
@@ -36619,6 +37165,7 @@ public final class Validate {
      *
      * <code>optional .pbandk.testpb.FieldRules values = 5;</code>
      */
+    @java.lang.Override
     public pbandk.testpb.Validate.FieldRulesOrBuilder getValuesOrBuilder() {
       return values_ == null ? pbandk.testpb.Validate.FieldRules.getDefaultInstance() : values_;
     }
@@ -37072,6 +37619,7 @@ public final class Validate {
        * <code>optional uint64 min_pairs = 1;</code>
        * @return Whether the minPairs field is set.
        */
+      @java.lang.Override
       public boolean hasMinPairs() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -37084,6 +37632,7 @@ public final class Validate {
        * <code>optional uint64 min_pairs = 1;</code>
        * @return The minPairs.
        */
+      @java.lang.Override
       public long getMinPairs() {
         return minPairs_;
       }
@@ -37129,6 +37678,7 @@ public final class Validate {
        * <code>optional uint64 max_pairs = 2;</code>
        * @return Whether the maxPairs field is set.
        */
+      @java.lang.Override
       public boolean hasMaxPairs() {
         return ((bitField0_ & 0x00000002) != 0);
       }
@@ -37141,6 +37691,7 @@ public final class Validate {
        * <code>optional uint64 max_pairs = 2;</code>
        * @return The maxPairs.
        */
+      @java.lang.Override
       public long getMaxPairs() {
         return maxPairs_;
       }
@@ -37186,6 +37737,7 @@ public final class Validate {
        * <code>optional bool no_sparse = 3;</code>
        * @return Whether the noSparse field is set.
        */
+      @java.lang.Override
       public boolean hasNoSparse() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -37198,6 +37750,7 @@ public final class Validate {
        * <code>optional bool no_sparse = 3;</code>
        * @return The noSparse.
        */
+      @java.lang.Override
       public boolean getNoSparse() {
         return noSparse_;
       }
@@ -37736,7 +38289,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.AnyRules}
    */
-  public  static final class AnyRules extends
+  public static final class AnyRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.AnyRules)
       AnyRulesOrBuilder {
@@ -37853,6 +38406,7 @@ public final class Validate {
      * <code>optional bool required = 1;</code>
      * @return Whether the required field is set.
      */
+    @java.lang.Override
     public boolean hasRequired() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -37864,6 +38418,7 @@ public final class Validate {
      * <code>optional bool required = 1;</code>
      * @return The required.
      */
+    @java.lang.Override
     public boolean getRequired() {
       return required_;
     }
@@ -38375,6 +38930,7 @@ public final class Validate {
        * <code>optional bool required = 1;</code>
        * @return Whether the required field is set.
        */
+      @java.lang.Override
       public boolean hasRequired() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -38386,6 +38942,7 @@ public final class Validate {
        * <code>optional bool required = 1;</code>
        * @return The required.
        */
+      @java.lang.Override
       public boolean getRequired() {
         return required_;
       }
@@ -39055,7 +39612,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.DurationRules}
    */
-  public  static final class DurationRules extends
+  public static final class DurationRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.DurationRules)
       DurationRulesOrBuilder {
@@ -39237,6 +39794,7 @@ public final class Validate {
      * <code>optional bool required = 1;</code>
      * @return Whether the required field is set.
      */
+    @java.lang.Override
     public boolean hasRequired() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -39248,6 +39806,7 @@ public final class Validate {
      * <code>optional bool required = 1;</code>
      * @return The required.
      */
+    @java.lang.Override
     public boolean getRequired() {
       return required_;
     }
@@ -39262,6 +39821,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration const = 2;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -39273,6 +39833,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration const = 2;</code>
      * @return The const.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getConst() {
       return const_ == null ? com.google.protobuf.Duration.getDefaultInstance() : const_;
     }
@@ -39283,6 +39844,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Duration const = 2;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getConstOrBuilder() {
       return const_ == null ? com.google.protobuf.Duration.getDefaultInstance() : const_;
     }
@@ -39298,6 +39860,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration lt = 3;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -39310,6 +39873,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration lt = 3;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getLt() {
       return lt_ == null ? com.google.protobuf.Duration.getDefaultInstance() : lt_;
     }
@@ -39321,6 +39885,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Duration lt = 3;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getLtOrBuilder() {
       return lt_ == null ? com.google.protobuf.Duration.getDefaultInstance() : lt_;
     }
@@ -39336,6 +39901,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration lte = 4;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -39348,6 +39914,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration lte = 4;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getLte() {
       return lte_ == null ? com.google.protobuf.Duration.getDefaultInstance() : lte_;
     }
@@ -39359,6 +39926,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Duration lte = 4;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getLteOrBuilder() {
       return lte_ == null ? com.google.protobuf.Duration.getDefaultInstance() : lte_;
     }
@@ -39374,6 +39942,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration gt = 5;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -39386,6 +39955,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration gt = 5;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getGt() {
       return gt_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gt_;
     }
@@ -39397,6 +39967,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Duration gt = 5;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getGtOrBuilder() {
       return gt_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gt_;
     }
@@ -39412,6 +39983,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration gte = 6;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000020) != 0);
     }
@@ -39424,6 +39996,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration gte = 6;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getGte() {
       return gte_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gte_;
     }
@@ -39435,6 +40008,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Duration gte = 6;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getGteOrBuilder() {
       return gte_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gte_;
     }
@@ -39449,6 +40023,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration in = 7;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Duration> getInList() {
       return in_;
     }
@@ -39460,6 +40035,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration in = 7;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.DurationOrBuilder> 
         getInOrBuilderList() {
       return in_;
@@ -39472,6 +40048,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration in = 7;</code>
      */
+    @java.lang.Override
     public int getInCount() {
       return in_.size();
     }
@@ -39483,6 +40060,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration in = 7;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getIn(int index) {
       return in_.get(index);
     }
@@ -39494,6 +40072,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration in = 7;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getInOrBuilder(
         int index) {
       return in_.get(index);
@@ -39509,6 +40088,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration not_in = 8;</code>
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.Duration> getNotInList() {
       return notIn_;
     }
@@ -39520,6 +40100,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration not_in = 8;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends com.google.protobuf.DurationOrBuilder> 
         getNotInOrBuilderList() {
       return notIn_;
@@ -39532,6 +40113,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration not_in = 8;</code>
      */
+    @java.lang.Override
     public int getNotInCount() {
       return notIn_.size();
     }
@@ -39543,6 +40125,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration not_in = 8;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getNotIn(int index) {
       return notIn_.get(index);
     }
@@ -39554,6 +40137,7 @@ public final class Validate {
      *
      * <code>repeated .google.protobuf.Duration not_in = 8;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getNotInOrBuilder(
         int index) {
       return notIn_.get(index);
@@ -40168,6 +40752,7 @@ public final class Validate {
        * <code>optional bool required = 1;</code>
        * @return Whether the required field is set.
        */
+      @java.lang.Override
       public boolean hasRequired() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -40179,6 +40764,7 @@ public final class Validate {
        * <code>optional bool required = 1;</code>
        * @return The required.
        */
+      @java.lang.Override
       public boolean getRequired() {
         return required_;
       }
@@ -41993,7 +42579,7 @@ public final class Validate {
    *
    * Protobuf type {@code pbandk.testpb.TimestampRules}
    */
-  public  static final class TimestampRules extends
+  public static final class TimestampRules extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.TimestampRules)
       TimestampRulesOrBuilder {
@@ -42172,6 +42758,7 @@ public final class Validate {
      * <code>optional bool required = 1;</code>
      * @return Whether the required field is set.
      */
+    @java.lang.Override
     public boolean hasRequired() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -42183,6 +42770,7 @@ public final class Validate {
      * <code>optional bool required = 1;</code>
      * @return The required.
      */
+    @java.lang.Override
     public boolean getRequired() {
       return required_;
     }
@@ -42197,6 +42785,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp const = 2;</code>
      * @return Whether the const field is set.
      */
+    @java.lang.Override
     public boolean hasConst() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -42208,6 +42797,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp const = 2;</code>
      * @return The const.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getConst() {
       return const_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : const_;
     }
@@ -42218,6 +42808,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Timestamp const = 2;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getConstOrBuilder() {
       return const_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : const_;
     }
@@ -42233,6 +42824,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp lt = 3;</code>
      * @return Whether the lt field is set.
      */
+    @java.lang.Override
     public boolean hasLt() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -42245,6 +42837,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp lt = 3;</code>
      * @return The lt.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getLt() {
       return lt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lt_;
     }
@@ -42256,6 +42849,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Timestamp lt = 3;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLtOrBuilder() {
       return lt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lt_;
     }
@@ -42271,6 +42865,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp lte = 4;</code>
      * @return Whether the lte field is set.
      */
+    @java.lang.Override
     public boolean hasLte() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -42283,6 +42878,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp lte = 4;</code>
      * @return The lte.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getLte() {
       return lte_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lte_;
     }
@@ -42294,6 +42890,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Timestamp lte = 4;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLteOrBuilder() {
       return lte_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lte_;
     }
@@ -42309,6 +42906,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp gt = 5;</code>
      * @return Whether the gt field is set.
      */
+    @java.lang.Override
     public boolean hasGt() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -42321,6 +42919,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp gt = 5;</code>
      * @return The gt.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getGt() {
       return gt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gt_;
     }
@@ -42332,6 +42931,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Timestamp gt = 5;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getGtOrBuilder() {
       return gt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gt_;
     }
@@ -42347,6 +42947,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp gte = 6;</code>
      * @return Whether the gte field is set.
      */
+    @java.lang.Override
     public boolean hasGte() {
       return ((bitField0_ & 0x00000020) != 0);
     }
@@ -42359,6 +42960,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Timestamp gte = 6;</code>
      * @return The gte.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getGte() {
       return gte_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gte_;
     }
@@ -42370,6 +42972,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Timestamp gte = 6;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getGteOrBuilder() {
       return gte_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gte_;
     }
@@ -42385,6 +42988,7 @@ public final class Validate {
      * <code>optional bool lt_now = 7;</code>
      * @return Whether the ltNow field is set.
      */
+    @java.lang.Override
     public boolean hasLtNow() {
       return ((bitField0_ & 0x00000040) != 0);
     }
@@ -42397,6 +43001,7 @@ public final class Validate {
      * <code>optional bool lt_now = 7;</code>
      * @return The ltNow.
      */
+    @java.lang.Override
     public boolean getLtNow() {
       return ltNow_;
     }
@@ -42412,6 +43017,7 @@ public final class Validate {
      * <code>optional bool gt_now = 8;</code>
      * @return Whether the gtNow field is set.
      */
+    @java.lang.Override
     public boolean hasGtNow() {
       return ((bitField0_ & 0x00000080) != 0);
     }
@@ -42424,6 +43030,7 @@ public final class Validate {
      * <code>optional bool gt_now = 8;</code>
      * @return The gtNow.
      */
+    @java.lang.Override
     public boolean getGtNow() {
       return gtNow_;
     }
@@ -42440,6 +43047,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration within = 9;</code>
      * @return Whether the within field is set.
      */
+    @java.lang.Override
     public boolean hasWithin() {
       return ((bitField0_ & 0x00000100) != 0);
     }
@@ -42453,6 +43061,7 @@ public final class Validate {
      * <code>optional .google.protobuf.Duration within = 9;</code>
      * @return The within.
      */
+    @java.lang.Override
     public com.google.protobuf.Duration getWithin() {
       return within_ == null ? com.google.protobuf.Duration.getDefaultInstance() : within_;
     }
@@ -42465,6 +43074,7 @@ public final class Validate {
      *
      * <code>optional .google.protobuf.Duration within = 9;</code>
      */
+    @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getWithinOrBuilder() {
       return within_ == null ? com.google.protobuf.Duration.getDefaultInstance() : within_;
     }
@@ -43054,6 +43664,7 @@ public final class Validate {
        * <code>optional bool required = 1;</code>
        * @return Whether the required field is set.
        */
+      @java.lang.Override
       public boolean hasRequired() {
         return ((bitField0_ & 0x00000001) != 0);
       }
@@ -43065,6 +43676,7 @@ public final class Validate {
        * <code>optional bool required = 1;</code>
        * @return The required.
        */
+      @java.lang.Override
       public boolean getRequired() {
         return required_;
       }
@@ -43924,6 +44536,7 @@ public final class Validate {
        * <code>optional bool lt_now = 7;</code>
        * @return Whether the ltNow field is set.
        */
+      @java.lang.Override
       public boolean hasLtNow() {
         return ((bitField0_ & 0x00000040) != 0);
       }
@@ -43936,6 +44549,7 @@ public final class Validate {
        * <code>optional bool lt_now = 7;</code>
        * @return The ltNow.
        */
+      @java.lang.Override
       public boolean getLtNow() {
         return ltNow_;
       }
@@ -43981,6 +44595,7 @@ public final class Validate {
        * <code>optional bool gt_now = 8;</code>
        * @return Whether the gtNow field is set.
        */
+      @java.lang.Override
       public boolean hasGtNow() {
         return ((bitField0_ & 0x00000080) != 0);
       }
@@ -43993,6 +44608,7 @@ public final class Validate {
        * <code>optional bool gt_now = 8;</code>
        * @return The gtNow.
        */
+      @java.lang.Override
       public boolean getGtNow() {
         return gtNow_;
       }

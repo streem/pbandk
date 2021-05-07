@@ -20,6 +20,11 @@ public final class TestDuplicateOneofName {
 
     /**
      * <code>string string_value = 1;</code>
+     * @return Whether the stringValue field is set.
+     */
+    boolean hasStringValue();
+    /**
+     * <code>string string_value = 1;</code>
      * @return The stringValue.
      */
     java.lang.String getStringValue();
@@ -32,10 +37,20 @@ public final class TestDuplicateOneofName {
 
     /**
      * <code>bool boolean_value = 2;</code>
+     * @return Whether the booleanValue field is set.
+     */
+    boolean hasBooleanValue();
+    /**
+     * <code>bool boolean_value = 2;</code>
      * @return The booleanValue.
      */
     boolean getBooleanValue();
 
+    /**
+     * <code>int32 integer_value = 3;</code>
+     * @return Whether the integerValue field is set.
+     */
+    boolean hasIntegerValue();
     /**
      * <code>int32 integer_value = 3;</code>
      * @return The integerValue.
@@ -47,7 +62,7 @@ public final class TestDuplicateOneofName {
   /**
    * Protobuf type {@code testpb.Value}
    */
-  public  static final class Value extends
+  public static final class Value extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:testpb.Value)
       ValueOrBuilder {
@@ -183,6 +198,13 @@ public final class TestDuplicateOneofName {
     public static final int STRING_VALUE_FIELD_NUMBER = 1;
     /**
      * <code>string string_value = 1;</code>
+     * @return Whether the stringValue field is set.
+     */
+    public boolean hasStringValue() {
+      return valueCase_ == 1;
+    }
+    /**
+     * <code>string string_value = 1;</code>
      * @return The stringValue.
      */
     public java.lang.String getStringValue() {
@@ -228,8 +250,17 @@ public final class TestDuplicateOneofName {
     public static final int BOOLEAN_VALUE_FIELD_NUMBER = 2;
     /**
      * <code>bool boolean_value = 2;</code>
+     * @return Whether the booleanValue field is set.
+     */
+    @java.lang.Override
+    public boolean hasBooleanValue() {
+      return valueCase_ == 2;
+    }
+    /**
+     * <code>bool boolean_value = 2;</code>
      * @return The booleanValue.
      */
+    @java.lang.Override
     public boolean getBooleanValue() {
       if (valueCase_ == 2) {
         return (java.lang.Boolean) value_;
@@ -240,8 +271,17 @@ public final class TestDuplicateOneofName {
     public static final int INTEGER_VALUE_FIELD_NUMBER = 3;
     /**
      * <code>int32 integer_value = 3;</code>
+     * @return Whether the integerValue field is set.
+     */
+    @java.lang.Override
+    public boolean hasIntegerValue() {
+      return valueCase_ == 3;
+    }
+    /**
+     * <code>int32 integer_value = 3;</code>
      * @return The integerValue.
      */
+    @java.lang.Override
     public int getIntegerValue() {
       if (valueCase_ == 3) {
         return (java.lang.Integer) value_;
@@ -640,8 +680,17 @@ public final class TestDuplicateOneofName {
 
       /**
        * <code>string string_value = 1;</code>
+       * @return Whether the stringValue field is set.
+       */
+      @java.lang.Override
+      public boolean hasStringValue() {
+        return valueCase_ == 1;
+      }
+      /**
+       * <code>string string_value = 1;</code>
        * @return The stringValue.
        */
+      @java.lang.Override
       public java.lang.String getStringValue() {
         java.lang.Object ref = "";
         if (valueCase_ == 1) {
@@ -663,6 +712,7 @@ public final class TestDuplicateOneofName {
        * <code>string string_value = 1;</code>
        * @return The bytes for stringValue.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString
           getStringValueBytes() {
         java.lang.Object ref = "";
@@ -727,6 +777,13 @@ public final class TestDuplicateOneofName {
 
       /**
        * <code>bool boolean_value = 2;</code>
+       * @return Whether the booleanValue field is set.
+       */
+      public boolean hasBooleanValue() {
+        return valueCase_ == 2;
+      }
+      /**
+       * <code>bool boolean_value = 2;</code>
        * @return The booleanValue.
        */
       public boolean getBooleanValue() {
@@ -759,6 +816,13 @@ public final class TestDuplicateOneofName {
         return this;
       }
 
+      /**
+       * <code>int32 integer_value = 3;</code>
+       * @return Whether the integerValue field is set.
+       */
+      public boolean hasIntegerValue() {
+        return valueCase_ == 3;
+      }
       /**
        * <code>int32 integer_value = 3;</code>
        * @return The integerValue.

@@ -511,14 +511,12 @@ To build the runtime library for both JS and the JVM, run:
 
 If any changes are made to the generated code that is output by `protoc-gen-kotlin`, then the
 well-known types (and other proto types used by pbandk) need to be re-generated using the updated
-`protoc-gen-kotlin` binary. To do this, first download a recent [release of `protoc`](https://github.com/protocolbuffers/protobuf/releases),
-extract it to a local directory, and then run:
+`protoc-gen-kotlin` binary:
 
 ```
-./gradlew -Dprotoc.path=path/to/protobuf/install/directory \
-    :runtime:generateWellKnownTypes 
-    :runtime:generateTestTypes
-    :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto
+./gradlew :runtime:generateWellKnownTypes \
+    :runtime:generateTestTypes \
+    :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto \
     :conformance:conformance-lib:generateProto
 ```
 
@@ -554,7 +552,9 @@ export CONF_TEST_PATH="$(pwd)/conformance-test-runner"
 Now, back in `pbandk`, build all JS. JVM and native projects via:
 
 ```
-./gradlew :conformance:conformance-lib:assemble :conformance:conformance-jvm:installDist :conformance:conformance-native:build
+./gradlew :conformance:conformance-lib:assemble \
+    :conformance:conformance-jvm:installDist \
+    :conformance:conformance-native:build
 ```
 
 You are now ready to run the conformance tests.  Make sure `CONF_TEST_PATH` environment variable is set to `path/to/protobuf/conformance/conformance-test-runner` (see above).

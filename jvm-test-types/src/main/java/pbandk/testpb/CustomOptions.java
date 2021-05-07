@@ -33,7 +33,7 @@ public final class CustomOptions {
   /**
    * Protobuf type {@code pbandk.testpb.SingleRequiredCustomOption}
    */
-  public  static final class SingleRequiredCustomOption extends
+  public static final class SingleRequiredCustomOption extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.SingleRequiredCustomOption)
       SingleRequiredCustomOptionOrBuilder {
@@ -120,6 +120,7 @@ public final class CustomOptions {
      * <code>string single = 1 [(.pbandk.testpb.rules) = { ... }</code>
      * @return The single.
      */
+    @java.lang.Override
     public java.lang.String getSingle() {
       java.lang.Object ref = single_;
       if (ref instanceof java.lang.String) {
@@ -136,6 +137,7 @@ public final class CustomOptions {
      * <code>string single = 1 [(.pbandk.testpb.rules) = { ... }</code>
      * @return The bytes for single.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getSingleBytes() {
       java.lang.Object ref = single_;
@@ -599,7 +601,7 @@ public final class CustomOptions {
   /**
    * Protobuf type {@code pbandk.testpb.MultipleCustomOptions}
    */
-  public  static final class MultipleCustomOptions extends
+  public static final class MultipleCustomOptions extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.MultipleCustomOptions)
       MultipleCustomOptionsOrBuilder {
@@ -686,6 +688,7 @@ public final class CustomOptions {
      * <code>string multiple = 1 [(.pbandk.testpb.rules) = { ... }</code>
      * @return The multiple.
      */
+    @java.lang.Override
     public java.lang.String getMultiple() {
       java.lang.Object ref = multiple_;
       if (ref instanceof java.lang.String) {
@@ -702,6 +705,7 @@ public final class CustomOptions {
      * <code>string multiple = 1 [(.pbandk.testpb.rules) = { ... }</code>
      * @return The bytes for multiple.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getMultipleBytes() {
       java.lang.Object ref = multiple_;
@@ -1165,7 +1169,7 @@ public final class CustomOptions {
   /**
    * Protobuf type {@code pbandk.testpb.MultipleCustomOptionsPlusDeprecated}
    */
-  public  static final class MultipleCustomOptionsPlusDeprecated extends
+  public static final class MultipleCustomOptionsPlusDeprecated extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:pbandk.testpb.MultipleCustomOptionsPlusDeprecated)
       MultipleCustomOptionsPlusDeprecatedOrBuilder {
@@ -1252,6 +1256,7 @@ public final class CustomOptions {
      * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
      * @return The multipleDeprecated.
      */
+    @java.lang.Override
     @java.lang.Deprecated public java.lang.String getMultipleDeprecated() {
       java.lang.Object ref = multipleDeprecated_;
       if (ref instanceof java.lang.String) {
@@ -1268,6 +1273,7 @@ public final class CustomOptions {
      * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
      * @return The bytes for multipleDeprecated.
      */
+    @java.lang.Override
     @java.lang.Deprecated public com.google.protobuf.ByteString
         getMultipleDeprecatedBytes() {
       java.lang.Object ref = multipleDeprecated_;
