@@ -233,16 +233,16 @@ internal object JsonMessageAdapters {
         },
 
         Value.descriptor to object : JsonMessageAdapter<Value> {
-            override fun encode(message: Value, jsonValueEncoder: JsonValueEncoder) = when (message.kind) {
-                is Value.Kind.StringValue -> jsonValueEncoder.writeString(message.kind.value)
-                is Value.Kind.BoolValue -> jsonValueEncoder.writeBool(message.kind.value)
-                is Value.Kind.NumberValue -> jsonValueEncoder.writeDouble(message.kind.value)
+            override fun encode(message: Value, jsonValueEncoder: JsonValueEncoder) = when (val kind = message.kind) {
+                is Value.Kind.StringValue -> jsonValueEncoder.writeString(kind.value)
+                is Value.Kind.BoolValue -> jsonValueEncoder.writeBool(kind.value)
+                is Value.Kind.NumberValue -> jsonValueEncoder.writeDouble(kind.value)
                 is Value.Kind.StructValue -> jsonValueEncoder.writeValue(
-                    message.kind.value.fields,
+                    kind.value.fields,
                     Struct.descriptor.fields.first().type
                 )
                 is Value.Kind.ListValue -> jsonValueEncoder.writeValue(
-                    message.kind.value.values,
+                    kind.value.values,
                     ListValue.descriptor.fields.first().type
                 )
                 is Value.Kind.NullValue, null -> JsonNull

@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
@@ -12,7 +11,7 @@ plugins {
 description = "Kotlin code generator for Protocol Buffers. This executable runs as a protoc plugin."
 
 application {
-    mainClassName = "pbandk.gen.MainKt"
+    mainClass.set("pbandk.gen.MainKt")
     applicationName = "protoc-gen-pbandk"
 }
 
@@ -20,8 +19,17 @@ dependencies {
     implementation(project(":protoc-gen-pbandk:protoc-gen-pbandk-lib"))
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+kotlin {
+    target {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+
+        // https://youtrack.jetbrains.com/issue/KT-45335
+        attributes {
+            attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
+        }
+    }
 }
 
 val bootJar by tasks.getting(BootJar::class) {

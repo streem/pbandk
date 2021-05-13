@@ -1,7 +1,6 @@
 syntax = "proto3";
 package pbandk.testpb;
 
-import "google/protobuf/timestamp.proto";
 import "pbandk/testpb/validate.proto";
 
 message SingleRequiredCustomOption {

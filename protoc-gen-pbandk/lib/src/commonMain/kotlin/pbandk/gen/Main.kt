@@ -14,9 +14,9 @@ public fun main() {
 
 internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse {
     // Parse the parameters
-    val params =
-        if (request.parameter == null || request.parameter.isEmpty()) emptyMap()
-        else request.parameter.split(',').map { it.substringBefore('=') to it.substringAfter('=', "") }.toMap()
+    val params = request.parameter.orEmpty()
+        .split(',')
+        .associate { it.substringBefore('=') to it.substringAfter('=', "") }
 
     logDebug = params["log"] == "debug"
     debug { "Running generator with params: $params" }

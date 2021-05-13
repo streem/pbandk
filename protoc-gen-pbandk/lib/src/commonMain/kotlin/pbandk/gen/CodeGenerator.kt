@@ -93,6 +93,7 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageType(type: File.Type.Message, nested: Boolean = false) {
+        val implName = "${type.kotlinFullTypeName.replace('.', '_')}_Impl"
         var messageInterface = if (type.extensionRange.isNotEmpty()) "pbandk.ExtendableMessage" else "pbandk.Message"
 
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
@@ -100,42 +101,43 @@ public open class CodeGenerator(
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
-        line("$visibility data class ${type.kotlinTypeName}(").indented {
+        line("$visibility sealed interface ${type.kotlinTypeName} : $messageInterface {").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
+
             type.fields.forEach { field ->
+                addDeprecatedAnnotation(field)
+                lineBegin(fieldBegin).lineMid("val ${field.kotlinFieldName}: ")
                 when (field) {
-                    is File.Field.Numbered -> {
-                        addDeprecatedAnnotation(field)
-                        lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
-                    }
-                    is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
+                    is File.Field.Numbered -> lineEnd(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineEnd("${field.kotlinTypeName}<*>?")
                 }
             }
-            // The unknown fields
-            lineBegin("override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
 
-            if (messageInterface.startsWith("pbandk.ExtendableMessage")) {
-                lineEnd(",")
-                // XXX: The binary-compatibility-validator plugin doesn't correctly exclude the getter (& setter for
-                // mutable properties) of a property with a non-public annotation from the API dump. And Kotlin 1.6+
-                // doesn't allow opt-in annotations to be applied to property getters/setters directly.
-                // Nothing to do here for us. The issue will go away once
-                // https://github.com/Kotlin/binary-compatibility-validator/issues/36 is fixed.
-                line("@property:pbandk.PbandkInternal")
-                line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
-            } else {
-                lineEnd()
-            }
-        }.line(") : $messageInterface {").indented {
+            line()
+            line("override operator fun plus(other: pbandk.Message?): ${type.kotlinTypeNameWithPackage}")
+            line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}>")
+
             // One-ofs as sealed class hierarchies
+            line()
             type.fields.filterIsInstance<File.Field.OneOf>().forEach(::writeOneOfType)
-
-            line("override operator fun plus(other: pbandk.Message?): ${type.kotlinTypeNameWithPackage} = protoMergeImpl(other)")
-            line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> get() = Companion.descriptor")
-            line("override val protoSize: Int by lazy { super.protoSize }")
 
             // Companion object
             line("$visibility companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
+                line("$visibility operator fun invoke(").indented {
+                    type.fields.forEach { field ->
+                        lineBegin("${field.kotlinFieldName}: ")
+                        when (field) {
+                            is File.Field.Numbered -> lineMid("${field.kotlinValueType(true)} = ${field.defaultValue}")
+                            is File.Field.OneOf -> lineMid("${field.kotlinTypeName}<*>? = null")
+                        }
+                        lineEnd(",")
+                    }
+                    line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
+                }.line("): ${type.kotlinTypeNameWithPackage} = $implName(").indented {
+                    type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
+                    line("unknownFields = unknownFields")
+                }.line(")").line()
+
                 line("$visibility val defaultInstance: ${type.kotlinTypeNameWithPackage} by lazy { ${type.kotlinTypeNameWithPackage}() }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinTypeNameWithPackage} = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
                 line()
@@ -166,12 +168,7 @@ public open class CodeGenerator(
 
         oneOf.fields.forEach { field ->
             addDeprecatedAnnotation(field)
-            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
-                if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                lineBegin("get() = ")
-                lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
-                lineEnd("?.value")
-            }
+            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?")
         }
         line()
     }
@@ -221,7 +218,7 @@ public open class CodeGenerator(
 
     private fun addFields(
         chunk: List<Pair<File.Field.Numbered, File.Field.OneOf?>>,
-        fullTypeName: String
+        fullTypeNameWithPackage: String
     ) {
         line("fieldsList.apply {").indented {
             chunk.forEach { (field, oneof) ->
@@ -230,7 +227,7 @@ public open class CodeGenerator(
                     line("pbandk.FieldDescriptor(").indented {
                         generateFieldDescriptorConstructorValues(
                             field,
-                            fullTypeName,
+                            fullTypeNameWithPackage,
                             oneof,
                             "this@Companion::descriptor"
                         )
@@ -280,6 +277,7 @@ public open class CodeGenerator(
 
     protected fun writeMessageExtensions(type: File.Type.Message) {
         writeMessageOrDefaultExtension(type)
+        writeMessageImpl(type)
         writeMessageMergeExtension(type)
         writeMessageDecodeWithExtension(type)
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
@@ -298,6 +296,61 @@ public open class CodeGenerator(
         line("$visibility fun ${type.kotlinFullTypeName}?.orDefault(): ${type.kotlinTypeNameWithPackage} = this ?: ${type.kotlinFullTypeName}.defaultInstance")
     }
 
+    protected fun writeMessageImpl(type: File.Type.Message) {
+        val implName = "${type.kotlinFullTypeName.replace('.', '_')}_Impl"
+
+        line()
+        if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
+            line("@Suppress(\"DEPRECATION\")")
+        }
+        line("fun ${type.kotlinFullTypeName}.copy(").indented {
+            type.fields.forEach { field ->
+                lineBegin("${field.kotlinFieldName}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
+                }
+                lineEnd(" = this.${field.kotlinFieldName},")
+            }
+            line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
+        }.line("): ${type.kotlinFullTypeName} = (this as $implName).copy(").indented {
+            type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
+            line("unknownFields = unknownFields")
+        }.line(")")
+
+        line().line("private data class $implName(").indented {
+            type.fields.forEach { field ->
+                lineBegin("override val ${field.kotlinFieldName}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
+                }
+                lineEnd(",")
+            }
+            // The unknown fields
+            line("override val unknownFields: Map<Int, pbandk.UnknownField>")
+        }.line(") : ${type.kotlinFullTypeName} {").indented {
+            line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
+            line("override val descriptor get() = ${type.kotlinFullTypeName}.descriptor")
+            line("override val protoSize by lazy { super.protoSize }")
+
+            if (type.extensionRange.isNotEmpty()) {
+                line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
+            }
+
+            type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
+                oneOf.fields.forEach { field ->
+                    line("override val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+                        if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
+                        lineBegin("get() = ")
+                        lineMid("(${oneOf.kotlinFieldName} as? ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
+                        lineEnd("?.value")
+                    }
+                }
+            }
+        }.line("}")        
+    }
+ 
     protected fun writeMessageMergeExtension(type: File.Type.Message) {
         fun mergeStandard(field: File.Field.Numbered.Standard) {
             if (field.repeated) {
@@ -334,8 +387,8 @@ public open class CodeGenerator(
                                 "plus.${oneOf.kotlinFieldName} is $subTypeName ->"
                         ).indented {
                             line(
-                                "$subTypeName(${oneOf.kotlinFieldName}.value + " +
-                                    "plus.${oneOf.kotlinFieldName}.value)"
+                                "$subTypeName((${oneOf.kotlinFieldName} as $subTypeName).value + " +
+                                    "(plus.${oneOf.kotlinFieldName} as $subTypeName).value)"
                             )
                         }
                     }
@@ -649,7 +702,7 @@ public open class CodeGenerator(
 
     private fun generateFieldDescriptorConstructorValues(
         field: File.Field.Numbered,
-        fullTypeName: String,
+        fullTypeNameWithPackage: String,
         oneof: File.Field.OneOf?,
         messageDescriptorCompanion: String
     ) {
@@ -660,7 +713,7 @@ public open class CodeGenerator(
         oneof?.let { line("oneofMember = true,") }
         field.jsonName?.let { line("jsonName = \"$it\",") }
         generateFieldOptions(field.options)
-        line("value = $fullTypeName::${field.kotlinFieldName}")
+        line("value = $fullTypeNameWithPackage::${field.kotlinFieldName}")
     }
 
     private fun addDeprecatedAnnotation(field: File.Field) {
