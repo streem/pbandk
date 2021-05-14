@@ -657,7 +657,10 @@ open class CodeGenerator(
 
     private fun addDeprecatedAnnotation(field: File.Field) {
         when (field) {
-            is File.Field.Numbered -> if(field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            is File.Field.Numbered -> if (field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            is File.Field.OneOf -> {
+                // oneof fields do not support the `deprecated` protobuf option
+            }
         }
     }
 }

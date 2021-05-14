@@ -11,21 +11,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this versio of `protoc-gen-pbandk`. These properties are currently `internal` but can be exposed publicly if there is a need/use case. (PR [#184])
+* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this version of `protoc-gen-pbandk`. These properties are currently `internal` but can be exposed publicly if there is a need/use case. (PR [#184])
 * Added special support for protobuf's `google.protobuf.Any` message type. (PR [#185], fixes [#63], partially fixes [#72])
     * Added `Any.Companion.pack()`, `Any.unpack()`, and `Any.isA()` convenience methods for working with `Any` instances. These methods mirror the same-named methods in other protobuf libraries.
     * The special JSON format used for `google.protobuf.Any` messsages is now correctly used during JSON encoding/decoding. Provide a value for `JsonConfig.typeRegistry` (which can be constructed using the new `typeRegistry {...}` builder) when encoding/decoding JSON messages that contain `google.protobuf.Any` fields.
 
 ### Changed
 
+* Updated dependencies to Kotlin 1.5.0 and kotlinx-serialization 1.3.0-RC. (PR [#189], fixes [#171])
+    * Updated Kotlin/JS dependencies to protobuf.js 6.11.2.
+
 ### Fixed
 
 * Suppress warnings about deprecated fields used in generated code. (PR [#182], continues [#1])
 
 [#63]: https://github.com/streem/pbandk/issues/63
+[#171]: https://github.com/streem/pbandk/issues/171
 [#182]: https://github.com/streem/pbandk/pull/182
 [#184]: https://github.com/streem/pbandk/pull/184
 [#185]: https://github.com/streem/pbandk/pull/185
+[#189]: https://github.com/streem/pbandk/pull/189
 
 
 ## [0.12.1] - 2021-11-11

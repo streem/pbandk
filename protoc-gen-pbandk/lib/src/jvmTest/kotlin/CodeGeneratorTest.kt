@@ -5,13 +5,13 @@ import com.tschuchort.compiletesting.KotlinCompilation.ExitCode
 import com.tschuchort.compiletesting.SourceFile
 import pbandk.decodeFromStream
 import pbandk.gen.pb.CodeGeneratorRequest
-import pbandk.gen.runGenerator
 import pbandk.wkt.FileDescriptorSet
 import java.io.File
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.memberProperties
+import kotlin.reflect.full.hasAnnotation
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class CodeGeneratorTest {
     private val descriptorSetOutput = File("build/generateTestProtoDescriptor/fileDescriptor.protoset")
@@ -26,7 +26,7 @@ class CodeGeneratorTest {
     fun testSimple() {
         val result = compileProto("simple.proto")
 
-        assertEquals(result.exitCode, ExitCode.OK)
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
 
         // Ensure classes and fields were generated successfully
         val message1Clazz = result.classLoader.loadClass("foobar.Message1").kotlin
@@ -39,19 +39,19 @@ class CodeGeneratorTest {
     fun testDeprecatedAnnotation() {
         val result = compileProto("options.proto")
 
-        assertEquals(result.exitCode, ExitCode.OK)
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
 
         // Ensure that deprecated proto fields have a `@Deprecated` Kotlin annotation
         val fooClazz = result.classLoader.loadClass("foobar.Foo").kotlin
         val deprecatedField = fooClazz.declaredMemberProperties.single { it.name == "deprecatedField" }
-        deprecatedField.annotations.filterIsInstance<Deprecated>().single()
+        assertTrue(deprecatedField.hasAnnotation<Deprecated>())
     }
 
     @Test
     fun testOneOf_SameNameField() {
         val result = compileProto("oneof_same_name.proto")
 
-        assertEquals(result.exitCode, ExitCode.OK)
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
 
         // Ensure the oneof with the same name as its containing message was generated correctly
         val valueClazz = result.classLoader.loadClass("foobar.Value")

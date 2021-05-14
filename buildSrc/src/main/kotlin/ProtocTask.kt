@@ -71,7 +71,8 @@ open class ProtocTask : AbstractExecTask<ProtocTask>(ProtocTask::class.java) {
         }.absolutePath
 
         // If outputFileName was specified, append it to outputDir. Otherwise use outputDir as-is.
-        val output = outputFileName.flatMap { outputDir.file(it) }.map { it.asFile }
+        val output = outputFileName
+            .map { outputDir.file(it).get().asFile }
             .orElse(outputDir.asFile)
 
         // Build CLI args

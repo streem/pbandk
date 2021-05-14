@@ -4338,8 +4338,8 @@ public final class TestMessagesProto3 {
               break;
             }
             case 888: {
-              oneofFieldCase_ = 111;
               oneofField_ = input.readUInt32();
+              oneofFieldCase_ = 111;
               break;
             }
             case 898: {
@@ -4363,28 +4363,28 @@ public final class TestMessagesProto3 {
               break;
             }
             case 914: {
-              oneofFieldCase_ = 114;
               oneofField_ = input.readBytes();
+              oneofFieldCase_ = 114;
               break;
             }
             case 920: {
-              oneofFieldCase_ = 115;
               oneofField_ = input.readBool();
+              oneofFieldCase_ = 115;
               break;
             }
             case 928: {
-              oneofFieldCase_ = 116;
               oneofField_ = input.readUInt64();
+              oneofFieldCase_ = 116;
               break;
             }
             case 941: {
-              oneofFieldCase_ = 117;
               oneofField_ = input.readFloat();
+              oneofFieldCase_ = 117;
               break;
             }
             case 945: {
-              oneofFieldCase_ = 118;
               oneofField_ = input.readDouble();
+              oneofFieldCase_ = 118;
               break;
             }
             case 952: {
@@ -9189,7 +9189,7 @@ public final class TestMessagesProto3 {
     @java.lang.Override
     public boolean containsMapStringString(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMapStringString().getMap().containsKey(key);
     }
     /**
@@ -9216,7 +9216,7 @@ public final class TestMessagesProto3 {
     public java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMapStringString().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9228,7 +9228,7 @@ public final class TestMessagesProto3 {
 
     public java.lang.String getMapStringStringOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMapStringString().getMap();
       if (!map.containsKey(key)) {
@@ -9270,7 +9270,7 @@ public final class TestMessagesProto3 {
     @java.lang.Override
     public boolean containsMapStringBytes(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMapStringBytes().getMap().containsKey(key);
     }
     /**
@@ -9297,7 +9297,7 @@ public final class TestMessagesProto3 {
     public com.google.protobuf.ByteString getMapStringBytesOrDefault(
         java.lang.String key,
         com.google.protobuf.ByteString defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
           internalGetMapStringBytes().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9309,7 +9309,7 @@ public final class TestMessagesProto3 {
 
     public com.google.protobuf.ByteString getMapStringBytesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
           internalGetMapStringBytes().getMap();
       if (!map.containsKey(key)) {
@@ -9351,7 +9351,7 @@ public final class TestMessagesProto3 {
     @java.lang.Override
     public boolean containsMapStringNestedMessage(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMapStringNestedMessage().getMap().containsKey(key);
     }
     /**
@@ -9378,7 +9378,7 @@ public final class TestMessagesProto3 {
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrDefault(
         java.lang.String key,
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> map =
           internalGetMapStringNestedMessage().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9390,7 +9390,7 @@ public final class TestMessagesProto3 {
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> map =
           internalGetMapStringNestedMessage().getMap();
       if (!map.containsKey(key)) {
@@ -9432,7 +9432,7 @@ public final class TestMessagesProto3 {
     @java.lang.Override
     public boolean containsMapStringForeignMessage(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMapStringForeignMessage().getMap().containsKey(key);
     }
     /**
@@ -9459,7 +9459,7 @@ public final class TestMessagesProto3 {
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrDefault(
         java.lang.String key,
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> map =
           internalGetMapStringForeignMessage().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9471,7 +9471,7 @@ public final class TestMessagesProto3 {
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> map =
           internalGetMapStringForeignMessage().getMap();
       if (!map.containsKey(key)) {
@@ -9526,7 +9526,7 @@ public final class TestMessagesProto3 {
     @java.lang.Override
     public boolean containsMapStringNestedEnum(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMapStringNestedEnum().getMap().containsKey(key);
     }
     /**
@@ -9555,7 +9555,7 @@ public final class TestMessagesProto3 {
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrDefault(
         java.lang.String key,
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringNestedEnum().getMap();
       return map.containsKey(key)
@@ -9569,7 +9569,7 @@ public final class TestMessagesProto3 {
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringNestedEnum().getMap();
       if (!map.containsKey(key)) {
@@ -9603,7 +9603,7 @@ public final class TestMessagesProto3 {
     public int getMapStringNestedEnumValueOrDefault(
         java.lang.String key,
         int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringNestedEnum().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9615,7 +9615,7 @@ public final class TestMessagesProto3 {
 
     public int getMapStringNestedEnumValueOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringNestedEnum().getMap();
       if (!map.containsKey(key)) {
@@ -9670,7 +9670,7 @@ public final class TestMessagesProto3 {
     @java.lang.Override
     public boolean containsMapStringForeignEnum(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMapStringForeignEnum().getMap().containsKey(key);
     }
     /**
@@ -9699,7 +9699,7 @@ public final class TestMessagesProto3 {
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrDefault(
         java.lang.String key,
         com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringForeignEnum().getMap();
       return map.containsKey(key)
@@ -9713,7 +9713,7 @@ public final class TestMessagesProto3 {
 
     public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringForeignEnum().getMap();
       if (!map.containsKey(key)) {
@@ -9747,7 +9747,7 @@ public final class TestMessagesProto3 {
     public int getMapStringForeignEnumValueOrDefault(
         java.lang.String key,
         int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringForeignEnum().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9759,7 +9759,7 @@ public final class TestMessagesProto3 {
 
     public int getMapStringForeignEnumValueOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
           internalGetMapStringForeignEnum().getMap();
       if (!map.containsKey(key)) {
@@ -11299,16 +11299,16 @@ public final class TestMessagesProto3 {
       if (optionalSfixed64_ != 0L) {
         output.writeSFixed64(10, optionalSfixed64_);
       }
-      if (optionalFloat_ != 0F) {
+      if (java.lang.Float.floatToRawIntBits(optionalFloat_) != 0) {
         output.writeFloat(11, optionalFloat_);
       }
-      if (optionalDouble_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(optionalDouble_) != 0) {
         output.writeDouble(12, optionalDouble_);
       }
       if (optionalBool_ != false) {
         output.writeBool(13, optionalBool_);
       }
-      if (!getOptionalStringBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optionalString_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, optionalString_);
       }
       if (!optionalBytes_.isEmpty()) {
@@ -11329,10 +11329,10 @@ public final class TestMessagesProto3 {
       if (optionalAliasedEnum_ != com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.AliasedEnum.ALIAS_FOO.getNumber()) {
         output.writeEnum(23, optionalAliasedEnum_);
       }
-      if (!getOptionalStringPieceBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optionalStringPiece_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 24, optionalStringPiece_);
       }
-      if (!getOptionalCordBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optionalCord_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 25, optionalCord_);
       }
       if (recursiveMessage_ != null) {
@@ -11944,11 +11944,11 @@ public final class TestMessagesProto3 {
         size += com.google.protobuf.CodedOutputStream
           .computeSFixed64Size(10, optionalSfixed64_);
       }
-      if (optionalFloat_ != 0F) {
+      if (java.lang.Float.floatToRawIntBits(optionalFloat_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(11, optionalFloat_);
       }
-      if (optionalDouble_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(optionalDouble_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(12, optionalDouble_);
       }
@@ -11956,7 +11956,7 @@ public final class TestMessagesProto3 {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(13, optionalBool_);
       }
-      if (!getOptionalStringBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optionalString_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, optionalString_);
       }
       if (!optionalBytes_.isEmpty()) {
@@ -11983,10 +11983,10 @@ public final class TestMessagesProto3 {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(23, optionalAliasedEnum_);
       }
-      if (!getOptionalStringPieceBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optionalStringPiece_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(24, optionalStringPiece_);
       }
-      if (!getOptionalCordBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optionalCord_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(25, optionalCord_);
       }
       if (recursiveMessage_ != null) {
@@ -23969,7 +23969,7 @@ public final class TestMessagesProto3 {
       @java.lang.Override
       public boolean containsMapStringString(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMapStringString().getMap().containsKey(key);
       }
       /**
@@ -23996,7 +23996,7 @@ public final class TestMessagesProto3 {
       public java.lang.String getMapStringStringOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMapStringString().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24008,7 +24008,7 @@ public final class TestMessagesProto3 {
 
       public java.lang.String getMapStringStringOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMapStringString().getMap();
         if (!map.containsKey(key)) {
@@ -24028,7 +24028,7 @@ public final class TestMessagesProto3 {
 
       public Builder removeMapStringString(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMapStringString().getMutableMap()
             .remove(key);
         return this;
@@ -24047,8 +24047,11 @@ public final class TestMessagesProto3 {
       public Builder putMapStringString(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableMapStringString().getMutableMap()
             .put(key, value);
         return this;
@@ -24097,7 +24100,7 @@ public final class TestMessagesProto3 {
       @java.lang.Override
       public boolean containsMapStringBytes(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMapStringBytes().getMap().containsKey(key);
       }
       /**
@@ -24124,7 +24127,7 @@ public final class TestMessagesProto3 {
       public com.google.protobuf.ByteString getMapStringBytesOrDefault(
           java.lang.String key,
           com.google.protobuf.ByteString defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
             internalGetMapStringBytes().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24136,7 +24139,7 @@ public final class TestMessagesProto3 {
 
       public com.google.protobuf.ByteString getMapStringBytesOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
             internalGetMapStringBytes().getMap();
         if (!map.containsKey(key)) {
@@ -24156,7 +24159,7 @@ public final class TestMessagesProto3 {
 
       public Builder removeMapStringBytes(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMapStringBytes().getMutableMap()
             .remove(key);
         return this;
@@ -24175,8 +24178,11 @@ public final class TestMessagesProto3 {
       public Builder putMapStringBytes(
           java.lang.String key,
           com.google.protobuf.ByteString value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableMapStringBytes().getMutableMap()
             .put(key, value);
         return this;
@@ -24225,7 +24231,7 @@ public final class TestMessagesProto3 {
       @java.lang.Override
       public boolean containsMapStringNestedMessage(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMapStringNestedMessage().getMap().containsKey(key);
       }
       /**
@@ -24252,7 +24258,7 @@ public final class TestMessagesProto3 {
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrDefault(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> map =
             internalGetMapStringNestedMessage().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24264,7 +24270,7 @@ public final class TestMessagesProto3 {
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage getMapStringNestedMessageOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage> map =
             internalGetMapStringNestedMessage().getMap();
         if (!map.containsKey(key)) {
@@ -24284,7 +24290,7 @@ public final class TestMessagesProto3 {
 
       public Builder removeMapStringNestedMessage(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMapStringNestedMessage().getMutableMap()
             .remove(key);
         return this;
@@ -24303,8 +24309,11 @@ public final class TestMessagesProto3 {
       public Builder putMapStringNestedMessage(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedMessage value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableMapStringNestedMessage().getMutableMap()
             .put(key, value);
         return this;
@@ -24353,7 +24362,7 @@ public final class TestMessagesProto3 {
       @java.lang.Override
       public boolean containsMapStringForeignMessage(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMapStringForeignMessage().getMap().containsKey(key);
       }
       /**
@@ -24380,7 +24389,7 @@ public final class TestMessagesProto3 {
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrDefault(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> map =
             internalGetMapStringForeignMessage().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24392,7 +24401,7 @@ public final class TestMessagesProto3 {
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage getMapStringForeignMessageOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage> map =
             internalGetMapStringForeignMessage().getMap();
         if (!map.containsKey(key)) {
@@ -24412,7 +24421,7 @@ public final class TestMessagesProto3 {
 
       public Builder removeMapStringForeignMessage(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .remove(key);
         return this;
@@ -24431,8 +24440,11 @@ public final class TestMessagesProto3 {
       public Builder putMapStringForeignMessage(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignMessage value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .put(key, value);
         return this;
@@ -24481,7 +24493,7 @@ public final class TestMessagesProto3 {
       @java.lang.Override
       public boolean containsMapStringNestedEnum(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMapStringNestedEnum().getMap().containsKey(key);
       }
       /**
@@ -24510,7 +24522,7 @@ public final class TestMessagesProto3 {
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrDefault(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringNestedEnum().getMap();
         return map.containsKey(key)
@@ -24524,7 +24536,7 @@ public final class TestMessagesProto3 {
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum getMapStringNestedEnumOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringNestedEnum().getMap();
         if (!map.containsKey(key)) {
@@ -24558,7 +24570,7 @@ public final class TestMessagesProto3 {
       public int getMapStringNestedEnumValueOrDefault(
           java.lang.String key,
           int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringNestedEnum().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24570,7 +24582,7 @@ public final class TestMessagesProto3 {
 
       public int getMapStringNestedEnumValueOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringNestedEnum().getMap();
         if (!map.containsKey(key)) {
@@ -24590,7 +24602,7 @@ public final class TestMessagesProto3 {
 
       public Builder removeMapStringNestedEnum(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMapStringNestedEnum().getMutableMap()
             .remove(key);
         return this;
@@ -24610,8 +24622,8 @@ public final class TestMessagesProto3 {
       public Builder putMapStringNestedEnum(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.TestAllTypesProto3.NestedEnum value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        
         internalGetMutableMapStringNestedEnum().getMutableMap()
             .put(key, mapStringNestedEnumValueConverter.doBackward(value));
         return this;
@@ -24640,7 +24652,8 @@ public final class TestMessagesProto3 {
       public Builder putMapStringNestedEnumValue(
           java.lang.String key,
           int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        
         internalGetMutableMapStringNestedEnum().getMutableMap()
             .put(key, value);
         return this;
@@ -24688,7 +24701,7 @@ public final class TestMessagesProto3 {
       @java.lang.Override
       public boolean containsMapStringForeignEnum(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMapStringForeignEnum().getMap().containsKey(key);
       }
       /**
@@ -24717,7 +24730,7 @@ public final class TestMessagesProto3 {
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrDefault(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringForeignEnum().getMap();
         return map.containsKey(key)
@@ -24731,7 +24744,7 @@ public final class TestMessagesProto3 {
 
       public com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum getMapStringForeignEnumOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringForeignEnum().getMap();
         if (!map.containsKey(key)) {
@@ -24765,7 +24778,7 @@ public final class TestMessagesProto3 {
       public int getMapStringForeignEnumValueOrDefault(
           java.lang.String key,
           int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringForeignEnum().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24777,7 +24790,7 @@ public final class TestMessagesProto3 {
 
       public int getMapStringForeignEnumValueOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.Integer> map =
             internalGetMapStringForeignEnum().getMap();
         if (!map.containsKey(key)) {
@@ -24797,7 +24810,7 @@ public final class TestMessagesProto3 {
 
       public Builder removeMapStringForeignEnum(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMapStringForeignEnum().getMutableMap()
             .remove(key);
         return this;
@@ -24817,8 +24830,8 @@ public final class TestMessagesProto3 {
       public Builder putMapStringForeignEnum(
           java.lang.String key,
           com.google.protobuf_test_messages.proto3.TestMessagesProto3.ForeignEnum value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        
         internalGetMutableMapStringForeignEnum().getMutableMap()
             .put(key, mapStringForeignEnumValueConverter.doBackward(value));
         return this;
@@ -24847,7 +24860,8 @@ public final class TestMessagesProto3 {
       public Builder putMapStringForeignEnumValue(
           java.lang.String key,
           int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        
         internalGetMutableMapStringForeignEnum().getMutableMap()
             .put(key, value);
         return this;
