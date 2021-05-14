@@ -3,6 +3,7 @@ package pbandk
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
 import kotlin.test.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
 class RepeatedTest {
@@ -12,7 +13,7 @@ class RepeatedTest {
         val bytes = byteArrayOf(10, 6, 10, 4, 102, 111, 111, 49, 10, 6, 10, 4, 102, 111, 111, 50)
         val expected = Bar(foos = listOf(Foo(`val` = "foo1"), Foo(`val` = "foo2")))
 
-        assertEquals(expected.encodeToByteArray().asList(), bytes.asList())
+        assertContentEquals(expected.encodeToByteArray(), bytes)
         assertEquals(expected, Bar.decodeFromByteArray(bytes))
     }
 

@@ -15,7 +15,7 @@ class JsonTest {
         assertNull(bar.singleFoo)
 
         val barBytes = bar.encodeToByteArray()
-        assertEquals(emptyList(), barBytes.asList(), "binary serialization should be empty for null field")
+        assertContentEquals(byteArrayOf(), barBytes, "binary serialization should be empty for null field")
     }
 
     @Test

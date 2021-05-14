@@ -19,6 +19,6 @@ internal fun String.underscoreToCamelCase(): String {
     var lastIndex = -1
     while (true) {
         lastIndex = ret.indexOf('_', lastIndex + 1).also { if (it == -1) return ret }
-        ret = ret.substring(0, lastIndex) + ret.substring(lastIndex + 1).capitalize()
+        ret = ret.substring(0, lastIndex) + ret.substring(lastIndex + 1).replaceFirstChar { it.titlecase() }
     }
 }

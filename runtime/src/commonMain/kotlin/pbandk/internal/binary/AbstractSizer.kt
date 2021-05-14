@@ -47,10 +47,10 @@ private class CodePointIterator(private val s: String) : Iterator<Int> {
             val l = s[pos]
             if (l.isLowSurrogate()) {
                 pos++
-                return 0x10000 + (v - 0xD800).toInt() * 0x400 + (l - 0xDC00).toInt()
+                return 0x10000 + (v - 0xD800).code * 0x400 + (l - 0xDC00).code
             }
         }
-        return v.toInt() and 0xffff
+        return v.code and 0xffff
     }
 }
 
@@ -58,13 +58,13 @@ private class CodePointIterable(private val s: String) : Iterable<Int> {
     override fun iterator(): Iterator<Int> = CodePointIterator(s)
 }
 
-private fun utf8Len(value: String) = CodePointIterable(value).sumBy {
+private fun utf8Len(value: String) = CodePointIterable(value).sumOf {
     when (it) {
         in 0..0x7f -> 1
         in 0x80..0x7ff -> 2
         in 0x800..0xffff -> 3
         else -> 4
-    }
+    }.toInt()
 }
 
 private fun <T : Any> wrapperProtoSize(value: T, type: FieldDescriptor.Type.Message<*>): Int {
@@ -134,7 +134,7 @@ internal abstract class AbstractSizer {
             }
         }
 
-        protoSize += message.unknownFields.values.sumBy { it.size }
+        protoSize += message.unknownFields.values.sumOf { it.size }
         return protoSize
     }
 
@@ -143,16 +143,16 @@ internal abstract class AbstractSizer {
         return if (packed) {
             packedRepeatedSize(list, sizeFn)
         } else {
-            list.sumBy(sizeFn)
+            list.sumOf(sizeFn)
         }
     }
 
     fun <T> packedRepeatedSize(list: List<T>, sizeFn: (T) -> Int) =
         if (list is ListWithSize && list.protoSize != null) list.protoSize + uInt32Size(list.protoSize)
-        else list.sumBy(sizeFn).let { it + uInt32Size(it) }
+        else list.sumOf(sizeFn).let { it + uInt32Size(it) }
 
     fun mapSize(map: Map<*, *>, entryCompanion: MessageMap.Entry.Companion<*, *>): Int {
-        return map.entries.sumBy { entry ->
+        return map.entries.sumOf { entry ->
             if (entry is MessageMap.Entry<*, *>) {
                 entry.protoSize
             } else {

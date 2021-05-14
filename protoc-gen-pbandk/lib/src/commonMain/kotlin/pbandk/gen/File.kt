@@ -118,7 +118,7 @@ data class File(
             val neverPacked get() = this in listOf(BYTES, MESSAGE, STRING)
 
             val wrapperTypeName
-                get() = TYPE_TO_WRAPPER_TYPE_NAME[this] ?: error("No wrapper type for ${this.name.toLowerCase()}")
+                get() = TYPE_TO_WRAPPER_TYPE_NAME[this] ?: error("No wrapper type for ${this.name.lowercase()}")
 
             companion object {
                 val TYPE_TO_WRAPPER_TYPE_NAME = mapOf(

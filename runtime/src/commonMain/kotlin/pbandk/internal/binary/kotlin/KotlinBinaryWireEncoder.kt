@@ -108,7 +108,7 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
     }
 
     override fun writePackedRepeated(fieldNum: Int, list: List<*>, valueType: FieldDescriptor.Type) {
-        val listSize = (list as? ListWithSize)?.protoSize ?: list.sumBy { valueType.protoSize(checkNotNull(it)) }
+        val listSize = (list as? ListWithSize)?.protoSize ?: list.sumOf { valueType.protoSize(checkNotNull(it)) }
         writeLengthDelimitedHeader(fieldNum, listSize)
         list.forEach { writeValueNoTag(valueType, checkNotNull(it)) }
     }

@@ -126,6 +126,7 @@ actual object Platform {
             errFn(e as Any)
         }
 
+    @OptIn(DelicateCoroutinesApi::class)
     actual fun runBlockingMain(block: suspend CoroutineScope.() -> Unit) {
         GlobalScope.launch(block = block)
     }

@@ -13,7 +13,7 @@ import kotlin.js.JsName
 @JsExport
 data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
 
-    internal val size get() = (Sizer.tagSize(fieldNum) * values.size) + values.sumBy { it.size }
+    internal val size get() = (Sizer.tagSize(fieldNum) * values.size) + values.sumOf { it.size }
 
     data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {
         @PublicForGeneratedCode

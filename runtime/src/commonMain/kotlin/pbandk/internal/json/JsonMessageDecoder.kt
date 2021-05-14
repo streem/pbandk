@@ -49,6 +49,7 @@ internal class JsonMessageDecoder internal constructor(
         fieldFn: (Int, Any) -> Unit
     ) {
         val message = adapter.decode(content, jsonValueDecoder)
+        @Suppress("UNCHECKED_CAST")
         for (field in (message.descriptor as MessageDescriptor<T>).fields) {
             field.value.get(message)?.let { fieldFn(field.number, it) }
         }
