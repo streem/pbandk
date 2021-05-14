@@ -437,8 +437,7 @@ data class DescriptorProto(
 data class ExtensionRangeOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1072,8 +1071,7 @@ data class FileOptions(
     val rubyPackage: String? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1336,8 +1334,7 @@ data class MessageOptions(
     val mapEntry: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1421,8 +1418,7 @@ data class FieldOptions(
     val weak: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1554,8 +1550,7 @@ data class FieldOptions(
 data class OneofOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1595,8 +1590,7 @@ data class EnumOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1655,8 +1649,7 @@ data class EnumValueOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1705,8 +1698,7 @@ data class ServiceOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
@@ -1756,8 +1748,7 @@ data class MethodOptions(
     val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
