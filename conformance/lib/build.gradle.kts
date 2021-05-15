@@ -16,7 +16,6 @@ kotlin {
     js(IR) {
         binaries.executable()
         useCommonJs()
-        browser {}
         nodejs {}
     }
 
