@@ -17,6 +17,9 @@ public abstract interface annotation class pbandk/ExperimentalProtoJson : java/l
 public abstract interface annotation class pbandk/ExperimentalProtoReflection : java/lang/annotation/Annotation {
 }
 
+public abstract interface annotation class pbandk/Export : java/lang/annotation/Annotation {
+}
+
 public abstract interface class pbandk/ExtendableMessage : pbandk/Message {
 	public abstract fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 	public abstract fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
