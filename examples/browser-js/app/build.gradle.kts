@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJsCompile
+
 plugins {
     kotlin("js")
 }
@@ -12,7 +14,9 @@ dependencies {
 }
 
 kotlin {
-    target.browser {}
+    js(LEGACY) {
+        browser {}
+    }
 
     sourceSets {
         main {
@@ -22,7 +26,7 @@ kotlin {
 }
 
 tasks {
-    compileKotlinJs {
+    named<KotlinJsCompile>("compileKotlinJs") {
         kotlinOptions {
             sourceMap = true
             moduleKind = "commonjs"
@@ -33,7 +37,7 @@ tasks {
     // Generate the protobuf files before compilation
     project(":lib-proto").tasks
         .matching { it.name == "generateProto" }
-        .all { compileKotlinJs.get().dependsOn(this) }
+        .all { named<KotlinJsCompile>("compileKotlinJs").get().dependsOn(this) }
 }
 
 // This is required for consuming a Kotlin/JS library compiled with Kotlin 1.4
