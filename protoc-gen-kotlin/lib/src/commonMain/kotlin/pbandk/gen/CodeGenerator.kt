@@ -275,6 +275,13 @@ open class CodeGenerator(
         fullTypeName: String
     ) {
         line()
+        // There can be multiple differently-typed `orDefault` functions in the same scope which
+        // Kotlin/JS cannot handle unfortunately. We have to annotate each of them with a unique
+        // name so that Kotlin/JS knows which name to choose.
+        //
+        // Also, if current type is an inner class, `fullTypeName` will contains dots which we
+        // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
+        line("@pbandk.Name(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
         line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
     }
 

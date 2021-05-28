@@ -332,6 +332,10 @@ public final class pbandk/MessageMap$Entry$Companion : pbandk/Message$Companion 
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 }
 
+public abstract interface annotation class pbandk/Name : java/lang/annotation/Annotation {
+	public abstract fun name ()Ljava/lang/String;
+}
+
 public abstract interface annotation class pbandk/PbandkInternal : java/lang/annotation/Annotation {
 }
 
