@@ -26,7 +26,7 @@ kotlin {
 }
 
 tasks {
-    named<KotlinJsCompile>("compileKotlinJs") {
+    val compileKotlinJs by getting(KotlinJsCompile::class) {
         kotlinOptions {
             sourceMap = true
             moduleKind = "commonjs"
@@ -37,7 +37,7 @@ tasks {
     // Generate the protobuf files before compilation
     project(":lib-proto").tasks
         .matching { it.name == "generateProto" }
-        .all { named<KotlinJsCompile>("compileKotlinJs").get().dependsOn(this) }
+        .all { compileKotlinJs.dependsOn(this) }
 }
 
 // This is required for consuming a Kotlin/JS library compiled with Kotlin 1.4

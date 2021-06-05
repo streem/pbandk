@@ -161,6 +161,10 @@ public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeExce
 	public static final field Companion Lpbandk/InvalidProtocolBufferException$Companion;
 }
 
+public abstract interface annotation class pbandk/JsName : java/lang/annotation/Annotation {
+	public abstract fun name ()Ljava/lang/String;
+}
+
 public final class pbandk/ListWithSize : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
 	public static final field Companion Lpbandk/ListWithSize$Companion;
 	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
@@ -330,10 +334,6 @@ public final class pbandk/MessageMap$Entry$Companion : pbandk/Message$Companion 
 	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
 	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/MessageMap$Entry;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
-}
-
-public abstract interface annotation class pbandk/Name : java/lang/annotation/Annotation {
-	public abstract fun name ()Ljava/lang/String;
 }
 
 public abstract interface annotation class pbandk/PbandkInternal : java/lang/annotation/Annotation {

@@ -281,7 +281,7 @@ open class CodeGenerator(
         //
         // Also, if current type is an inner class, `fullTypeName` will contains dots which we
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
-        line("@pbandk.Name(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
+        line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
         line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
     }
 

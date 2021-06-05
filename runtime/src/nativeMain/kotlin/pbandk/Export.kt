@@ -11,4 +11,4 @@ actual annotation class Export()
     AnnotationTarget.PROPERTY_GETTER,
     AnnotationTarget.PROPERTY_SETTER
 )
-actual annotation class Name(actual val name: String)
+actual annotation class JsName(actual val name: String)
