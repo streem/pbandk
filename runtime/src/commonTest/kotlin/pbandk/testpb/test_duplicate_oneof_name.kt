@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 data class Value(
     val value: Value<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -72,6 +73,8 @@ data class Value(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForValue")
 fun Value?.orDefault() = this ?: Value.defaultInstance
 
 private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.let {

@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class Duration(
     val seconds: Long = 0L,
     val nanos: Int = 0,
@@ -47,6 +48,8 @@ data class Duration(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDuration")
 fun Duration?.orDefault() = this ?: Duration.defaultInstance
 
 private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.let {

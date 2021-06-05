@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is NullValue && other.value == value
     override fun hashCode() = value.hashCode()
@@ -17,6 +18,7 @@ sealed class NullValue(override val value: Int, override val name: String? = nul
     }
 }
 
+@pbandk.Export
 data class Struct(
     val fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -96,6 +98,7 @@ data class Struct(
     }
 }
 
+@pbandk.Export
 data class Value(
     val kind: Kind<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -208,6 +211,7 @@ data class Value(
     }
 }
 
+@pbandk.Export
 data class ListValue(
     val values: List<pbandk.wkt.Value> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -242,6 +246,8 @@ data class ListValue(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForStruct")
 fun Struct?.orDefault() = this ?: Struct.defaultInstance
 
 private fun Struct.protoMergeImpl(plus: pbandk.Message?): Struct = (plus as? Struct)?.let {
@@ -263,6 +269,8 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
     return Struct(pbandk.MessageMap.Builder.fixed(fields), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForStructFieldsEntry")
 fun Struct.FieldsEntry?.orDefault() = this ?: Struct.FieldsEntry.defaultInstance
 
 private fun Struct.FieldsEntry.protoMergeImpl(plus: pbandk.Message?): Struct.FieldsEntry = (plus as? Struct.FieldsEntry)?.let {
@@ -286,6 +294,8 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
     return Struct.FieldsEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForValue")
 fun Value?.orDefault() = this ?: Value.defaultInstance
 
 private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.let {
@@ -319,6 +329,8 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
     return Value(kind, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForListValue")
 fun ListValue?.orDefault() = this ?: ListValue.defaultInstance
 
 private fun ListValue.protoMergeImpl(plus: pbandk.Message?): ListValue = (plus as? ListValue)?.let {

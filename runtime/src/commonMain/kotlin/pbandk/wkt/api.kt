@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class Api(
     val name: String = "",
     val methods: List<pbandk.wkt.Method> = emptyList(),
@@ -102,6 +103,7 @@ data class Api(
     }
 }
 
+@pbandk.Export
 data class Method(
     val name: String = "",
     val requestTypeUrl: String = "",
@@ -202,6 +204,7 @@ data class Method(
     }
 }
 
+@pbandk.Export
 data class Mixin(
     val name: String = "",
     val root: String = "",
@@ -247,6 +250,8 @@ data class Mixin(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForApi")
 fun Api?.orDefault() = this ?: Api.defaultInstance
 
 private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.let {
@@ -284,6 +289,8 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
         sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMethod")
 fun Method?.orDefault() = this ?: Method.defaultInstance
 
 private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Method)?.let {
@@ -318,6 +325,8 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
         responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMixin")
 fun Mixin?.orDefault() = this ?: Mixin.defaultInstance
 
 private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin)?.let {

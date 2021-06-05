@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 sealed class HugeEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is HugeEnum && other.value == value
     override fun hashCode() = value.hashCode()
@@ -1017,6 +1018,7 @@ sealed class HugeEnum(override val value: Int, override val name: String? = null
     }
 }
 
+@pbandk.Export
 data class MessageWithLotsOfFields(
     val field1000: String = "",
     val field1001: String = "",
@@ -12063,6 +12065,7 @@ data class MessageWithLotsOfFields(
     }
 }
 
+@pbandk.Export
 data class MessageWithHugeOneof(
     val hugeOneof: HugeOneof<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -40139,6 +40142,8 @@ data class MessageWithHugeOneof(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMessageWithLotsOfFields")
 fun MessageWithLotsOfFields?.orDefault() = this ?: MessageWithLotsOfFields.defaultInstance
 
 private fun MessageWithLotsOfFields.protoMergeImpl(plus: pbandk.Message?): MessageWithLotsOfFields = (plus as? MessageWithLotsOfFields)?.let {
@@ -42406,6 +42411,8 @@ private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDe
         field1996, field1997, field1998, field1999, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMessageWithHugeOneof")
 fun MessageWithHugeOneof?.orDefault() = this ?: MessageWithHugeOneof.defaultInstance
 
 private fun MessageWithHugeOneof.protoMergeImpl(plus: pbandk.Message?): MessageWithHugeOneof = (plus as? MessageWithHugeOneof)?.let {

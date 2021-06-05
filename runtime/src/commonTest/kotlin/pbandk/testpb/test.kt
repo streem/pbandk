@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 data class Foo(
     val `val`: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -36,6 +37,7 @@ data class Foo(
     }
 }
 
+@pbandk.Export
 data class Bar(
     val foos: List<pbandk.testpb.Foo> = emptyList(),
     val singleFoo: pbandk.testpb.Foo? = null,
@@ -81,6 +83,7 @@ data class Bar(
     }
 }
 
+@pbandk.Export
 data class MessageWithMap(
     val map: Map<String, String> = emptyMap(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -160,6 +163,7 @@ data class MessageWithMap(
     }
 }
 
+@pbandk.Export
 data class FooMap(
     val map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -239,6 +243,7 @@ data class FooMap(
     }
 }
 
+@pbandk.Export
 data class FooMapEntries(
     val map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -318,6 +323,7 @@ data class FooMapEntries(
     }
 }
 
+@pbandk.Export
 data class Wrappers(
     val stringValue: String? = null,
     val uint64Values: List<Long> = emptyList(),
@@ -363,6 +369,8 @@ data class Wrappers(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFoo")
 fun Foo?.orDefault() = this ?: Foo.defaultInstance
 
 private fun Foo.protoMergeImpl(plus: pbandk.Message?): Foo = (plus as? Foo)?.let {
@@ -383,6 +391,8 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
     return Foo(`val`, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForBar")
 fun Bar?.orDefault() = this ?: Bar.defaultInstance
 
 private fun Bar.protoMergeImpl(plus: pbandk.Message?): Bar = (plus as? Bar)?.let {
@@ -407,6 +417,8 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
     return Bar(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMessageWithMap")
 fun MessageWithMap?.orDefault() = this ?: MessageWithMap.defaultInstance
 
 private fun MessageWithMap.protoMergeImpl(plus: pbandk.Message?): MessageWithMap = (plus as? MessageWithMap)?.let {
@@ -428,6 +440,8 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
     return MessageWithMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMessageWithMapMapEntry")
 fun MessageWithMap.MapEntry?.orDefault() = this ?: MessageWithMap.MapEntry.defaultInstance
 
 private fun MessageWithMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): MessageWithMap.MapEntry = (plus as? MessageWithMap.MapEntry)?.let {
@@ -450,6 +464,8 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
     return MessageWithMap.MapEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFooMap")
 fun FooMap?.orDefault() = this ?: FooMap.defaultInstance
 
 private fun FooMap.protoMergeImpl(plus: pbandk.Message?): FooMap = (plus as? FooMap)?.let {
@@ -471,6 +487,8 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
     return FooMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFooMapMapEntry")
 fun FooMap.MapEntry?.orDefault() = this ?: FooMap.MapEntry.defaultInstance
 
 private fun FooMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMap.MapEntry = (plus as? FooMap.MapEntry)?.let {
@@ -494,6 +512,8 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
     return FooMap.MapEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFooMapEntries")
 fun FooMapEntries?.orDefault() = this ?: FooMapEntries.defaultInstance
 
 private fun FooMapEntries.protoMergeImpl(plus: pbandk.Message?): FooMapEntries = (plus as? FooMapEntries)?.let {
@@ -515,6 +535,8 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
     return FooMapEntries(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFooMapEntriesMapEntry")
 fun FooMapEntries.MapEntry?.orDefault() = this ?: FooMapEntries.MapEntry.defaultInstance
 
 private fun FooMapEntries.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMapEntries.MapEntry = (plus as? FooMapEntries.MapEntry)?.let {
@@ -538,6 +560,8 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
     return FooMapEntries.MapEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForWrappers")
 fun Wrappers?.orDefault() = this ?: Wrappers.defaultInstance
 
 private fun Wrappers.protoMergeImpl(plus: pbandk.Message?): Wrappers = (plus as? Wrappers)?.let {

@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class SourceContext(
     val fileName: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -36,6 +37,8 @@ data class SourceContext(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSourceContext")
 fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
 
 private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.let {
