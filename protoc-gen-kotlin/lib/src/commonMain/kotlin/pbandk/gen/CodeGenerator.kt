@@ -12,8 +12,7 @@ open class CodeGenerator(
     protected var indent = ""
 
     fun generate(): String {
-        line("@file:OptIn(pbandk.PublicForGeneratedCode::class)")
-        line("@file:pbandk.Export").line()
+        line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach { writeType(it) }
         file.extensions.forEach { writeExtension(it) }
@@ -41,6 +40,7 @@ open class CodeGenerator(
                 ).indented {
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
                 }.line()
+                line("@pbandk.Export")
                 line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
                     generateFieldDescriptorConstructorValues(
                         field,
@@ -66,7 +66,10 @@ open class CodeGenerator(
         val parentPrefix = parentType?.let { "${it}." }.orEmpty()
         val typeName = "${parentPrefix}${type.kotlinTypeName}"
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
-        line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
+        line()
+        // Only mark top-level classes for export, internal classes will be exported transitively
+        if (parentType == null) line("@pbandk.Export")
+        line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
                 line("override fun equals(other: kotlin.Any?) = other is ${typeName} && other.value == value")
                 line("override fun hashCode() = value.hashCode()")
@@ -93,7 +96,9 @@ open class CodeGenerator(
 
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
-        line().line("data class ${type.kotlinTypeName}(").indented {
+        line()
+        if (parentType == null) line("@pbandk.Export")
+        line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
                 when (field) {
@@ -281,6 +286,7 @@ open class CodeGenerator(
         //
         // Also, if current type is an inner class, `fullTypeName` will contains dots which we
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
+        line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
         line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
     }
