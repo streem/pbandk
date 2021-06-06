@@ -17,6 +17,9 @@ public abstract interface annotation class pbandk/ExperimentalProtoJson : java/l
 public abstract interface annotation class pbandk/ExperimentalProtoReflection : java/lang/annotation/Annotation {
 }
 
+public abstract interface annotation class pbandk/Export : java/lang/annotation/Annotation {
+}
+
 public abstract interface class pbandk/ExtendableMessage : pbandk/Message {
 	public abstract fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 	public abstract fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
@@ -156,6 +159,10 @@ public final class pbandk/FieldDescriptor$Type$Repeated : pbandk/FieldDescriptor
 
 public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeException {
 	public static final field Companion Lpbandk/InvalidProtocolBufferException$Companion;
+}
+
+public abstract interface annotation class pbandk/JsName : java/lang/annotation/Annotation {
+	public abstract fun name ()Ljava/lang/String;
 }
 
 public final class pbandk/ListWithSize : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {

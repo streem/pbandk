@@ -2,9 +2,11 @@ package pbandk
 
 import pbandk.internal.binary.WireType
 import pbandk.wkt.FieldOptions
+import kotlin.js.JsExport
 import kotlin.reflect.KProperty0
 import kotlin.reflect.KProperty1
 
+@JsExport
 class FieldDescriptor<M : Message, T> @PublicForGeneratedCode constructor(
     messageDescriptor: KProperty0<MessageDescriptor<M>>,
     @ExperimentalProtoReflection

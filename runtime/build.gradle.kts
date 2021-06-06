@@ -20,7 +20,7 @@ kotlin {
 
     jvm()
 
-    js {
+    js(BOTH) {
         useCommonJs()
         browser {}
         nodejs {}
@@ -45,6 +45,7 @@ kotlin {
             languageSettings.useExperimentalAnnotation("pbandk.PbandkInternal")
             languageSettings.useExperimentalAnnotation("pbandk.PublicForGeneratedCode")
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+            languageSettings.useExperimentalAnnotation("kotlin.js.ExperimentalJsExport")
         }
 
         val commonMain by getting {
@@ -158,14 +159,6 @@ tasks {
 
     val generateTestTypes by registering {
         dependsOn(generateKotlinTestTypes, generateJavaTestTypes)
-    }
-
-    // DCE is now enabled by default in Kotlin 1.3.7x
-    // and it doesn't work well with commonJS modules
-    // Use of commonJs could be removed since default module is now UMD
-    // but would require some code change
-    val processDceJsKotlinJs by getting {
-        enabled = false
     }
 }
 

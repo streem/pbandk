@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class FieldMask(
     val paths: List<String> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -36,6 +37,8 @@ data class FieldMask(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFieldMask")
 fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
 
 private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.let {

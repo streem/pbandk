@@ -2,6 +2,7 @@
 
 package pbandk.conformance.pb
 
+@pbandk.Export
 sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is WireFormat && other.value == value
     override fun hashCode() = value.hashCode()
@@ -21,6 +22,7 @@ sealed class WireFormat(override val value: Int, override val name: String? = nu
     }
 }
 
+@pbandk.Export
 sealed class TestCategory(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is TestCategory && other.value == value
     override fun hashCode() = value.hashCode()
@@ -41,6 +43,7 @@ sealed class TestCategory(override val value: Int, override val name: String? = 
     }
 }
 
+@pbandk.Export
 data class FailureSet(
     val failure: List<String> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -75,6 +78,7 @@ data class FailureSet(
     }
 }
 
+@pbandk.Export
 data class ConformanceRequest(
     val requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
     val messageType: String = "",
@@ -214,6 +218,7 @@ data class ConformanceRequest(
     }
 }
 
+@pbandk.Export
 data class ConformanceResponse(
     val result: Result<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -354,6 +359,7 @@ data class ConformanceResponse(
     }
 }
 
+@pbandk.Export
 data class JspbEncodingConfig(
     val useJspbArrayAnyFormat: Boolean = false,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -388,6 +394,8 @@ data class JspbEncodingConfig(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFailureSet")
 fun FailureSet?.orDefault() = this ?: FailureSet.defaultInstance
 
 private fun FailureSet.protoMergeImpl(plus: pbandk.Message?): FailureSet = (plus as? FailureSet)?.let {
@@ -409,6 +417,8 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
     return FailureSet(pbandk.ListWithSize.Builder.fixed(failure), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForConformanceRequest")
 fun ConformanceRequest?.orDefault() = this ?: ConformanceRequest.defaultInstance
 
 private fun ConformanceRequest.protoMergeImpl(plus: pbandk.Message?): ConformanceRequest = (plus as? ConformanceRequest)?.let {
@@ -445,6 +455,8 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         printUnknownFields, payload, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForConformanceResponse")
 fun ConformanceResponse?.orDefault() = this ?: ConformanceResponse.defaultInstance
 
 private fun ConformanceResponse.protoMergeImpl(plus: pbandk.Message?): ConformanceResponse = (plus as? ConformanceResponse)?.let {
@@ -473,6 +485,8 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
     return ConformanceResponse(result, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForJspbEncodingConfig")
 fun JspbEncodingConfig?.orDefault() = this ?: JspbEncodingConfig.defaultInstance
 
 private fun JspbEncodingConfig.protoMergeImpl(plus: pbandk.Message?): JspbEncodingConfig = (plus as? JspbEncodingConfig)?.let {

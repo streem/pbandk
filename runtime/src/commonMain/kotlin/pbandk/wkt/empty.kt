@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class Empty(
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
@@ -25,6 +26,8 @@ data class Empty(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEmpty")
 fun Empty?.orDefault() = this ?: Empty.defaultInstance
 
 private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty)?.let {

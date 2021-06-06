@@ -7,13 +7,17 @@ import pbandk.internal.binary.allowedWireType
 import pbandk.internal.binary.binaryReadFn
 import pbandk.internal.binary.kotlin.ByteArrayWireReader
 import pbandk.internal.binary.kotlin.KotlinBinaryWireDecoder
+import kotlin.js.JsExport
+import kotlin.js.JsName
 
+@JsExport
 data class UnknownField @PublicForGeneratedCode constructor(val fieldNum: Int, val values: List<Value>) {
 
     internal val size get() = (Sizer.tagSize(fieldNum) * values.size) + values.sumBy { it.size }
 
     data class Value @PublicForGeneratedCode constructor(val wireType: Int, val rawBytes: ByteArr) {
         @PublicForGeneratedCode
+        @JsName("fromByteArray")
         constructor(wireType: Int, rawBytes: ByteArray) : this(wireType, ByteArr(rawBytes))
 
         internal val size get() = rawBytes.array.size

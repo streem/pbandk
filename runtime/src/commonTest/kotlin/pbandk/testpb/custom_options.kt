@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 data class SingleRequiredCustomOption(
     val single: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -46,6 +47,7 @@ data class SingleRequiredCustomOption(
     }
 }
 
+@pbandk.Export
 data class MultipleCustomOptions(
     val multiple: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -91,6 +93,7 @@ data class MultipleCustomOptions(
     }
 }
 
+@pbandk.Export
 data class MultipleCustomOptionsPlusDeprecated(
     val multipleDeprecated: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -137,6 +140,8 @@ data class MultipleCustomOptionsPlusDeprecated(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSingleRequiredCustomOption")
 fun SingleRequiredCustomOption?.orDefault() = this ?: SingleRequiredCustomOption.defaultInstance
 
 private fun SingleRequiredCustomOption.protoMergeImpl(plus: pbandk.Message?): SingleRequiredCustomOption = (plus as? SingleRequiredCustomOption)?.let {
@@ -157,6 +162,8 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
     return SingleRequiredCustomOption(single, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMultipleCustomOptions")
 fun MultipleCustomOptions?.orDefault() = this ?: MultipleCustomOptions.defaultInstance
 
 private fun MultipleCustomOptions.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptions = (plus as? MultipleCustomOptions)?.let {
@@ -177,6 +184,8 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
     return MultipleCustomOptions(multiple, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMultipleCustomOptionsPlusDeprecated")
 fun MultipleCustomOptionsPlusDeprecated?.orDefault() = this ?: MultipleCustomOptionsPlusDeprecated.defaultInstance
 
 private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptionsPlusDeprecated = (plus as? MultipleCustomOptionsPlusDeprecated)?.let {

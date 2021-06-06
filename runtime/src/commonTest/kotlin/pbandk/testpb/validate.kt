@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 sealed class KnownRegex(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is KnownRegex && other.value == value
     override fun hashCode() = value.hashCode()
@@ -19,6 +20,7 @@ sealed class KnownRegex(override val value: Int, override val name: String? = nu
     }
 }
 
+@pbandk.Export
 data class FieldRules(
     val message: pbandk.testpb.MessageRules? = null,
     val type: Type<*>? = null,
@@ -352,6 +354,7 @@ data class FieldRules(
     }
 }
 
+@pbandk.Export
 data class FloatRules(
     val const: Float? = null,
     val lt: Float? = null,
@@ -452,6 +455,7 @@ data class FloatRules(
     }
 }
 
+@pbandk.Export
 data class DoubleRules(
     val const: Double? = null,
     val lt: Double? = null,
@@ -552,6 +556,7 @@ data class DoubleRules(
     }
 }
 
+@pbandk.Export
 data class Int32Rules(
     val const: Int? = null,
     val lt: Int? = null,
@@ -652,6 +657,7 @@ data class Int32Rules(
     }
 }
 
+@pbandk.Export
 data class Int64Rules(
     val const: Long? = null,
     val lt: Long? = null,
@@ -752,6 +758,7 @@ data class Int64Rules(
     }
 }
 
+@pbandk.Export
 data class UInt32Rules(
     val const: Int? = null,
     val lt: Int? = null,
@@ -852,6 +859,7 @@ data class UInt32Rules(
     }
 }
 
+@pbandk.Export
 data class UInt64Rules(
     val const: Long? = null,
     val lt: Long? = null,
@@ -952,6 +960,7 @@ data class UInt64Rules(
     }
 }
 
+@pbandk.Export
 data class SInt32Rules(
     val const: Int? = null,
     val lt: Int? = null,
@@ -1052,6 +1061,7 @@ data class SInt32Rules(
     }
 }
 
+@pbandk.Export
 data class SInt64Rules(
     val const: Long? = null,
     val lt: Long? = null,
@@ -1152,6 +1162,7 @@ data class SInt64Rules(
     }
 }
 
+@pbandk.Export
 data class Fixed32Rules(
     val const: Int? = null,
     val lt: Int? = null,
@@ -1252,6 +1263,7 @@ data class Fixed32Rules(
     }
 }
 
+@pbandk.Export
 data class Fixed64Rules(
     val const: Long? = null,
     val lt: Long? = null,
@@ -1352,6 +1364,7 @@ data class Fixed64Rules(
     }
 }
 
+@pbandk.Export
 data class SFixed32Rules(
     val const: Int? = null,
     val lt: Int? = null,
@@ -1452,6 +1465,7 @@ data class SFixed32Rules(
     }
 }
 
+@pbandk.Export
 data class SFixed64Rules(
     val const: Long? = null,
     val lt: Long? = null,
@@ -1552,6 +1566,7 @@ data class SFixed64Rules(
     }
 }
 
+@pbandk.Export
 data class BoolRules(
     val const: Boolean? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -1586,6 +1601,7 @@ data class BoolRules(
     }
 }
 
+@pbandk.Export
 data class StringRules(
     val const: String? = null,
     val len: Long? = null,
@@ -1919,6 +1935,7 @@ data class StringRules(
     }
 }
 
+@pbandk.Export
 data class BytesRules(
     val const: pbandk.ByteArr? = null,
     val len: Long? = null,
@@ -2099,6 +2116,7 @@ data class BytesRules(
     }
 }
 
+@pbandk.Export
 data class EnumRules(
     val const: Int? = null,
     val definedOnly: Boolean? = null,
@@ -2166,6 +2184,7 @@ data class EnumRules(
     }
 }
 
+@pbandk.Export
 data class MessageRules(
     val skip: Boolean? = null,
     val required: Boolean? = null,
@@ -2211,6 +2230,7 @@ data class MessageRules(
     }
 }
 
+@pbandk.Export
 data class RepeatedRules(
     val minItems: Long? = null,
     val maxItems: Long? = null,
@@ -2278,6 +2298,7 @@ data class RepeatedRules(
     }
 }
 
+@pbandk.Export
 data class MapRules(
     val minPairs: Long? = null,
     val maxPairs: Long? = null,
@@ -2356,6 +2377,7 @@ data class MapRules(
     }
 }
 
+@pbandk.Export
 data class AnyRules(
     val required: Boolean? = null,
     val `in`: List<String> = emptyList(),
@@ -2412,6 +2434,7 @@ data class AnyRules(
     }
 }
 
+@pbandk.Export
 data class DurationRules(
     val required: Boolean? = null,
     val const: pbandk.wkt.Duration? = null,
@@ -2523,6 +2546,7 @@ data class DurationRules(
     }
 }
 
+@pbandk.Export
 data class TimestampRules(
     val required: Boolean? = null,
     val const: pbandk.wkt.Timestamp? = null,
@@ -2648,6 +2672,7 @@ data class TimestampRules(
 val pbandk.wkt.MessageOptions.disabled: Boolean? 
     get() = getExtension(pbandk.testpb.disabled)
 
+@pbandk.Export
 val disabled = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.wkt.MessageOptions.Companion::descriptor,
     name = "disabled",
@@ -2660,6 +2685,7 @@ val disabled = pbandk.FieldDescriptor(
 val pbandk.wkt.OneofOptions.required: Boolean? 
     get() = getExtension(pbandk.testpb.required)
 
+@pbandk.Export
 val required = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.wkt.OneofOptions.Companion::descriptor,
     name = "required",
@@ -2672,6 +2698,7 @@ val required = pbandk.FieldDescriptor(
 val pbandk.wkt.FieldOptions.rules: pbandk.testpb.FieldRules? 
     get() = getExtension(pbandk.testpb.rules)
 
+@pbandk.Export
 val rules = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.wkt.FieldOptions.Companion::descriptor,
     name = "rules",
@@ -2681,6 +2708,8 @@ val rules = pbandk.FieldDescriptor(
     value = pbandk.wkt.FieldOptions::rules
 )
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFieldRules")
 fun FieldRules?.orDefault() = this ?: FieldRules.defaultInstance
 
 private fun FieldRules.protoMergeImpl(plus: pbandk.Message?): FieldRules = (plus as? FieldRules)?.let {
@@ -2770,6 +2799,8 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field
     return FieldRules(message, type, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFloatRules")
 fun FloatRules?.orDefault() = this ?: FloatRules.defaultInstance
 
 private fun FloatRules.protoMergeImpl(plus: pbandk.Message?): FloatRules = (plus as? FloatRules)?.let {
@@ -2810,6 +2841,8 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDoubleRules")
 fun DoubleRules?.orDefault() = this ?: DoubleRules.defaultInstance
 
 private fun DoubleRules.protoMergeImpl(plus: pbandk.Message?): DoubleRules = (plus as? DoubleRules)?.let {
@@ -2850,6 +2883,8 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForInt32Rules")
 fun Int32Rules?.orDefault() = this ?: Int32Rules.defaultInstance
 
 private fun Int32Rules.protoMergeImpl(plus: pbandk.Message?): Int32Rules = (plus as? Int32Rules)?.let {
@@ -2890,6 +2925,8 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForInt64Rules")
 fun Int64Rules?.orDefault() = this ?: Int64Rules.defaultInstance
 
 private fun Int64Rules.protoMergeImpl(plus: pbandk.Message?): Int64Rules = (plus as? Int64Rules)?.let {
@@ -2930,6 +2967,8 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUInt32Rules")
 fun UInt32Rules?.orDefault() = this ?: UInt32Rules.defaultInstance
 
 private fun UInt32Rules.protoMergeImpl(plus: pbandk.Message?): UInt32Rules = (plus as? UInt32Rules)?.let {
@@ -2970,6 +3009,8 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUInt64Rules")
 fun UInt64Rules?.orDefault() = this ?: UInt64Rules.defaultInstance
 
 private fun UInt64Rules.protoMergeImpl(plus: pbandk.Message?): UInt64Rules = (plus as? UInt64Rules)?.let {
@@ -3010,6 +3051,8 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSInt32Rules")
 fun SInt32Rules?.orDefault() = this ?: SInt32Rules.defaultInstance
 
 private fun SInt32Rules.protoMergeImpl(plus: pbandk.Message?): SInt32Rules = (plus as? SInt32Rules)?.let {
@@ -3050,6 +3093,8 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSInt64Rules")
 fun SInt64Rules?.orDefault() = this ?: SInt64Rules.defaultInstance
 
 private fun SInt64Rules.protoMergeImpl(plus: pbandk.Message?): SInt64Rules = (plus as? SInt64Rules)?.let {
@@ -3090,6 +3135,8 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFixed32Rules")
 fun Fixed32Rules?.orDefault() = this ?: Fixed32Rules.defaultInstance
 
 private fun Fixed32Rules.protoMergeImpl(plus: pbandk.Message?): Fixed32Rules = (plus as? Fixed32Rules)?.let {
@@ -3130,6 +3177,8 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFixed64Rules")
 fun Fixed64Rules?.orDefault() = this ?: Fixed64Rules.defaultInstance
 
 private fun Fixed64Rules.protoMergeImpl(plus: pbandk.Message?): Fixed64Rules = (plus as? Fixed64Rules)?.let {
@@ -3170,6 +3219,8 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSFixed32Rules")
 fun SFixed32Rules?.orDefault() = this ?: SFixed32Rules.defaultInstance
 
 private fun SFixed32Rules.protoMergeImpl(plus: pbandk.Message?): SFixed32Rules = (plus as? SFixed32Rules)?.let {
@@ -3210,6 +3261,8 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSFixed64Rules")
 fun SFixed64Rules?.orDefault() = this ?: SFixed64Rules.defaultInstance
 
 private fun SFixed64Rules.protoMergeImpl(plus: pbandk.Message?): SFixed64Rules = (plus as? SFixed64Rules)?.let {
@@ -3250,6 +3303,8 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForBoolRules")
 fun BoolRules?.orDefault() = this ?: BoolRules.defaultInstance
 
 private fun BoolRules.protoMergeImpl(plus: pbandk.Message?): BoolRules = (plus as? BoolRules)?.let {
@@ -3271,6 +3326,8 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRu
     return BoolRules(const, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForStringRules")
 fun StringRules?.orDefault() = this ?: StringRules.defaultInstance
 
 private fun StringRules.protoMergeImpl(plus: pbandk.Message?): StringRules = (plus as? StringRules)?.let {
@@ -3349,6 +3406,8 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), strict, wellKnown, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForBytesRules")
 fun BytesRules?.orDefault() = this ?: BytesRules.defaultInstance
 
 private fun BytesRules.protoMergeImpl(plus: pbandk.Message?): BytesRules = (plus as? BytesRules)?.let {
@@ -3404,6 +3463,8 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), wellKnown, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumRules")
 fun EnumRules?.orDefault() = this ?: EnumRules.defaultInstance
 
 private fun EnumRules.protoMergeImpl(plus: pbandk.Message?): EnumRules = (plus as? EnumRules)?.let {
@@ -3434,6 +3495,8 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
     return EnumRules(const, definedOnly, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMessageRules")
 fun MessageRules?.orDefault() = this ?: MessageRules.defaultInstance
 
 private fun MessageRules.protoMergeImpl(plus: pbandk.Message?): MessageRules = (plus as? MessageRules)?.let {
@@ -3458,6 +3521,8 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mes
     return MessageRules(skip, required, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForRepeatedRules")
 fun RepeatedRules?.orDefault() = this ?: RepeatedRules.defaultInstance
 
 private fun RepeatedRules.protoMergeImpl(plus: pbandk.Message?): RepeatedRules = (plus as? RepeatedRules)?.let {
@@ -3488,6 +3553,8 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Re
     return RepeatedRules(minItems, maxItems, unique, items, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMapRules")
 fun MapRules?.orDefault() = this ?: MapRules.defaultInstance
 
 private fun MapRules.protoMergeImpl(plus: pbandk.Message?): MapRules = (plus as? MapRules)?.let {
@@ -3522,6 +3589,8 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRule
         values, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForAnyRules")
 fun AnyRules?.orDefault() = this ?: AnyRules.defaultInstance
 
 private fun AnyRules.protoMergeImpl(plus: pbandk.Message?): AnyRules = (plus as? AnyRules)?.let {
@@ -3549,6 +3618,8 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
     return AnyRules(required, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDurationRules")
 fun DurationRules?.orDefault() = this ?: DurationRules.defaultInstance
 
 private fun DurationRules.protoMergeImpl(plus: pbandk.Message?): DurationRules = (plus as? DurationRules)?.let {
@@ -3592,6 +3663,8 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
         gt, gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTimestampRules")
 fun TimestampRules?.orDefault() = this ?: TimestampRules.defaultInstance
 
 private fun TimestampRules.protoMergeImpl(plus: pbandk.Message?): TimestampRules = (plus as? TimestampRules)?.let {

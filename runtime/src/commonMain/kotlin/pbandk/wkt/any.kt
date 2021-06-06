@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class Any(
     val typeUrl: String = "",
     val value: pbandk.ByteArr = pbandk.ByteArr.empty,
@@ -47,6 +48,8 @@ data class Any(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForAny")
 fun Any?.orDefault() = this ?: Any.defaultInstance
 
 private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.let {

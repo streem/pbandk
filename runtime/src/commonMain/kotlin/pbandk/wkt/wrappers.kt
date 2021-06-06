@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class DoubleValue(
     val value: Double = 0.0,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -36,6 +37,7 @@ data class DoubleValue(
     }
 }
 
+@pbandk.Export
 data class FloatValue(
     val value: Float = 0.0F,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -70,6 +72,7 @@ data class FloatValue(
     }
 }
 
+@pbandk.Export
 data class Int64Value(
     val value: Long = 0L,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -104,6 +107,7 @@ data class Int64Value(
     }
 }
 
+@pbandk.Export
 data class UInt64Value(
     val value: Long = 0L,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -138,6 +142,7 @@ data class UInt64Value(
     }
 }
 
+@pbandk.Export
 data class Int32Value(
     val value: Int = 0,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -172,6 +177,7 @@ data class Int32Value(
     }
 }
 
+@pbandk.Export
 data class UInt32Value(
     val value: Int = 0,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -206,6 +212,7 @@ data class UInt32Value(
     }
 }
 
+@pbandk.Export
 data class BoolValue(
     val value: Boolean = false,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -240,6 +247,7 @@ data class BoolValue(
     }
 }
 
+@pbandk.Export
 data class StringValue(
     val value: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -274,6 +282,7 @@ data class StringValue(
     }
 }
 
+@pbandk.Export
 data class BytesValue(
     val value: pbandk.ByteArr = pbandk.ByteArr.empty,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -308,6 +317,8 @@ data class BytesValue(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDoubleValue")
 fun DoubleValue?.orDefault() = this ?: DoubleValue.defaultInstance
 
 private fun DoubleValue.protoMergeImpl(plus: pbandk.Message?): DoubleValue = (plus as? DoubleValue)?.let {
@@ -328,6 +339,8 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
     return DoubleValue(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFloatValue")
 fun FloatValue?.orDefault() = this ?: FloatValue.defaultInstance
 
 private fun FloatValue.protoMergeImpl(plus: pbandk.Message?): FloatValue = (plus as? FloatValue)?.let {
@@ -348,6 +361,8 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
     return FloatValue(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForInt64Value")
 fun Int64Value?.orDefault() = this ?: Int64Value.defaultInstance
 
 private fun Int64Value.protoMergeImpl(plus: pbandk.Message?): Int64Value = (plus as? Int64Value)?.let {
@@ -368,6 +383,8 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
     return Int64Value(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUInt64Value")
 fun UInt64Value?.orDefault() = this ?: UInt64Value.defaultInstance
 
 private fun UInt64Value.protoMergeImpl(plus: pbandk.Message?): UInt64Value = (plus as? UInt64Value)?.let {
@@ -388,6 +405,8 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
     return UInt64Value(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForInt32Value")
 fun Int32Value?.orDefault() = this ?: Int32Value.defaultInstance
 
 private fun Int32Value.protoMergeImpl(plus: pbandk.Message?): Int32Value = (plus as? Int32Value)?.let {
@@ -408,6 +427,8 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
     return Int32Value(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUInt32Value")
 fun UInt32Value?.orDefault() = this ?: UInt32Value.defaultInstance
 
 private fun UInt32Value.protoMergeImpl(plus: pbandk.Message?): UInt32Value = (plus as? UInt32Value)?.let {
@@ -428,6 +449,8 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
     return UInt32Value(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForBoolValue")
 fun BoolValue?.orDefault() = this ?: BoolValue.defaultInstance
 
 private fun BoolValue.protoMergeImpl(plus: pbandk.Message?): BoolValue = (plus as? BoolValue)?.let {
@@ -448,6 +471,8 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
     return BoolValue(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForStringValue")
 fun StringValue?.orDefault() = this ?: StringValue.defaultInstance
 
 private fun StringValue.protoMergeImpl(plus: pbandk.Message?): StringValue = (plus as? StringValue)?.let {
@@ -468,6 +493,8 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
     return StringValue(value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForBytesValue")
 fun BytesValue?.orDefault() = this ?: BytesValue.defaultInstance
 
 private fun BytesValue.protoMergeImpl(plus: pbandk.Message?): BytesValue = (plus as? BytesValue)?.let {

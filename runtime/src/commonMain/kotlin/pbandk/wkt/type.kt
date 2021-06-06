@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is Syntax && other.value == value
     override fun hashCode() = value.hashCode()
@@ -18,6 +19,7 @@ sealed class Syntax(override val value: Int, override val name: String? = null) 
     }
 }
 
+@pbandk.Export
 data class Type(
     val name: String = "",
     val fields: List<pbandk.wkt.Field> = emptyList(),
@@ -107,6 +109,7 @@ data class Type(
     }
 }
 
+@pbandk.Export
 data class Field(
     val kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
     val cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
@@ -291,6 +294,7 @@ data class Field(
     }
 }
 
+@pbandk.Export
 data class Enum(
     val name: String = "",
     val enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
@@ -369,6 +373,7 @@ data class Enum(
     }
 }
 
+@pbandk.Export
 data class EnumValue(
     val name: String = "",
     val number: Int = 0,
@@ -425,6 +430,7 @@ data class EnumValue(
     }
 }
 
+@pbandk.Export
 data class Option(
     val name: String = "",
     val value: pbandk.wkt.Any? = null,
@@ -470,6 +476,8 @@ data class Option(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForType")
 fun Type?.orDefault() = this ?: Type.defaultInstance
 
 private fun Type.protoMergeImpl(plus: pbandk.Message?): Type = (plus as? Type)?.let {
@@ -505,6 +513,8 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
         sourceContext, syntax, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForField")
 fun Field?.orDefault() = this ?: Field.defaultInstance
 
 private fun Field.protoMergeImpl(plus: pbandk.Message?): Field = (plus as? Field)?.let {
@@ -546,6 +556,8 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
         jsonName, defaultValue, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnum")
 fun Enum?.orDefault() = this ?: Enum.defaultInstance
 
 private fun Enum.protoMergeImpl(plus: pbandk.Message?): Enum = (plus as? Enum)?.let {
@@ -578,6 +590,8 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
         syntax, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumValue")
 fun EnumValue?.orDefault() = this ?: EnumValue.defaultInstance
 
 private fun EnumValue.protoMergeImpl(plus: pbandk.Message?): EnumValue = (plus as? EnumValue)?.let {
@@ -603,6 +617,8 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
     return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForOption")
 fun Option?.orDefault() = this ?: Option.defaultInstance
 
 private fun Option.protoMergeImpl(plus: pbandk.Message?): Option = (plus as? Option)?.let {

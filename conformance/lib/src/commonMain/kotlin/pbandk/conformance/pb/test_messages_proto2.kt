@@ -2,6 +2,7 @@
 
 package pbandk.conformance.pb
 
+@pbandk.Export
 sealed class ForeignEnumProto2(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
     override fun equals(other: kotlin.Any?) = other is ForeignEnumProto2 && other.value == value
     override fun hashCode() = value.hashCode()
@@ -19,6 +20,7 @@ sealed class ForeignEnumProto2(override val value: Int, override val name: Strin
     }
 }
 
+@pbandk.Export
 data class TestAllTypesProto2(
     val optionalInt32: Int? = null,
     val optionalInt64: Long? = null,
@@ -2421,6 +2423,7 @@ data class TestAllTypesProto2(
     }
 }
 
+@pbandk.Export
 data class ForeignMessageProto2(
     val c: Int? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -2455,6 +2458,7 @@ data class ForeignMessageProto2(
     }
 }
 
+@pbandk.Export
 data class UnknownToTestAllTypes(
     val optionalInt32: Int? = null,
     val optionalString: String? = null,
@@ -2570,6 +2574,7 @@ data class UnknownToTestAllTypes(
 val pbandk.conformance.pb.TestAllTypesProto2.extensionInt32: Int? 
     get() = getExtension(pbandk.conformance.pb.extensionInt32)
 
+@pbandk.Export
 val extensionInt32 = pbandk.FieldDescriptor(
     messageDescriptor = pbandk.conformance.pb.TestAllTypesProto2.Companion::descriptor,
     name = "extension_int32",
@@ -2579,6 +2584,8 @@ val extensionInt32 = pbandk.FieldDescriptor(
     value = pbandk.conformance.pb.TestAllTypesProto2::extensionInt32
 )
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2")
 fun TestAllTypesProto2?.orDefault() = this ?: TestAllTypesProto2.defaultInstance
 
 private fun TestAllTypesProto2.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2 = (plus as? TestAllTypesProto2)?.let {
@@ -2964,6 +2971,8 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         oneofField, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2NestedMessage")
 fun TestAllTypesProto2.NestedMessage?.orDefault() = this ?: TestAllTypesProto2.NestedMessage.defaultInstance
 
 private fun TestAllTypesProto2.NestedMessage.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.NestedMessage = (plus as? TestAllTypesProto2.NestedMessage)?.let {
@@ -2988,6 +2997,8 @@ private fun TestAllTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.
     return TestAllTypesProto2.NestedMessage(a, corecursive, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapInt32Int32Entry")
 fun TestAllTypesProto2.MapInt32Int32Entry?.orDefault() = this ?: TestAllTypesProto2.MapInt32Int32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapInt32Int32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapInt32Int32Entry = (plus as? TestAllTypesProto2.MapInt32Int32Entry)?.let {
@@ -3012,6 +3023,8 @@ private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.decodeWithImpl(u: pb
     return TestAllTypesProto2.MapInt32Int32Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapInt64Int64Entry")
 fun TestAllTypesProto2.MapInt64Int64Entry?.orDefault() = this ?: TestAllTypesProto2.MapInt64Int64Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapInt64Int64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapInt64Int64Entry = (plus as? TestAllTypesProto2.MapInt64Int64Entry)?.let {
@@ -3036,6 +3049,8 @@ private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.decodeWithImpl(u: pb
     return TestAllTypesProto2.MapInt64Int64Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapUint32Uint32Entry")
 fun TestAllTypesProto2.MapUint32Uint32Entry?.orDefault() = this ?: TestAllTypesProto2.MapUint32Uint32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapUint32Uint32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapUint32Uint32Entry = (plus as? TestAllTypesProto2.MapUint32Uint32Entry)?.let {
@@ -3060,6 +3075,8 @@ private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.decodeWithImpl(u: 
     return TestAllTypesProto2.MapUint32Uint32Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapUint64Uint64Entry")
 fun TestAllTypesProto2.MapUint64Uint64Entry?.orDefault() = this ?: TestAllTypesProto2.MapUint64Uint64Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapUint64Uint64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapUint64Uint64Entry = (plus as? TestAllTypesProto2.MapUint64Uint64Entry)?.let {
@@ -3084,6 +3101,8 @@ private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.decodeWithImpl(u: 
     return TestAllTypesProto2.MapUint64Uint64Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapSint32Sint32Entry")
 fun TestAllTypesProto2.MapSint32Sint32Entry?.orDefault() = this ?: TestAllTypesProto2.MapSint32Sint32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapSint32Sint32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapSint32Sint32Entry = (plus as? TestAllTypesProto2.MapSint32Sint32Entry)?.let {
@@ -3108,6 +3127,8 @@ private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.decodeWithImpl(u: 
     return TestAllTypesProto2.MapSint32Sint32Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapSint64Sint64Entry")
 fun TestAllTypesProto2.MapSint64Sint64Entry?.orDefault() = this ?: TestAllTypesProto2.MapSint64Sint64Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapSint64Sint64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapSint64Sint64Entry = (plus as? TestAllTypesProto2.MapSint64Sint64Entry)?.let {
@@ -3132,6 +3153,8 @@ private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.decodeWithImpl(u: 
     return TestAllTypesProto2.MapSint64Sint64Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapFixed32Fixed32Entry")
 fun TestAllTypesProto2.MapFixed32Fixed32Entry?.orDefault() = this ?: TestAllTypesProto2.MapFixed32Fixed32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapFixed32Fixed32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapFixed32Fixed32Entry = (plus as? TestAllTypesProto2.MapFixed32Fixed32Entry)?.let {
@@ -3156,6 +3179,8 @@ private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u
     return TestAllTypesProto2.MapFixed32Fixed32Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapFixed64Fixed64Entry")
 fun TestAllTypesProto2.MapFixed64Fixed64Entry?.orDefault() = this ?: TestAllTypesProto2.MapFixed64Fixed64Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapFixed64Fixed64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapFixed64Fixed64Entry = (plus as? TestAllTypesProto2.MapFixed64Fixed64Entry)?.let {
@@ -3180,6 +3205,8 @@ private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u
     return TestAllTypesProto2.MapFixed64Fixed64Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapSfixed32Sfixed32Entry")
 fun TestAllTypesProto2.MapSfixed32Sfixed32Entry?.orDefault() = this ?: TestAllTypesProto2.MapSfixed32Sfixed32Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapSfixed32Sfixed32Entry = (plus as? TestAllTypesProto2.MapSfixed32Sfixed32Entry)?.let {
@@ -3204,6 +3231,8 @@ private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl
     return TestAllTypesProto2.MapSfixed32Sfixed32Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapSfixed64Sfixed64Entry")
 fun TestAllTypesProto2.MapSfixed64Sfixed64Entry?.orDefault() = this ?: TestAllTypesProto2.MapSfixed64Sfixed64Entry.defaultInstance
 
 private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapSfixed64Sfixed64Entry = (plus as? TestAllTypesProto2.MapSfixed64Sfixed64Entry)?.let {
@@ -3228,6 +3257,8 @@ private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl
     return TestAllTypesProto2.MapSfixed64Sfixed64Entry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapInt32FloatEntry")
 fun TestAllTypesProto2.MapInt32FloatEntry?.orDefault() = this ?: TestAllTypesProto2.MapInt32FloatEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapInt32FloatEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapInt32FloatEntry = (plus as? TestAllTypesProto2.MapInt32FloatEntry)?.let {
@@ -3252,6 +3283,8 @@ private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.decodeWithImpl(u: pb
     return TestAllTypesProto2.MapInt32FloatEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapInt32DoubleEntry")
 fun TestAllTypesProto2.MapInt32DoubleEntry?.orDefault() = this ?: TestAllTypesProto2.MapInt32DoubleEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapInt32DoubleEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapInt32DoubleEntry = (plus as? TestAllTypesProto2.MapInt32DoubleEntry)?.let {
@@ -3276,6 +3309,8 @@ private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.decodeWithImpl(u: p
     return TestAllTypesProto2.MapInt32DoubleEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapBoolBoolEntry")
 fun TestAllTypesProto2.MapBoolBoolEntry?.orDefault() = this ?: TestAllTypesProto2.MapBoolBoolEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapBoolBoolEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapBoolBoolEntry = (plus as? TestAllTypesProto2.MapBoolBoolEntry)?.let {
@@ -3300,6 +3335,8 @@ private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.decodeWithImpl(u: pban
     return TestAllTypesProto2.MapBoolBoolEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapStringStringEntry")
 fun TestAllTypesProto2.MapStringStringEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringStringEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringStringEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapStringStringEntry = (plus as? TestAllTypesProto2.MapStringStringEntry)?.let {
@@ -3324,6 +3361,8 @@ private fun TestAllTypesProto2.MapStringStringEntry.Companion.decodeWithImpl(u: 
     return TestAllTypesProto2.MapStringStringEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapStringBytesEntry")
 fun TestAllTypesProto2.MapStringBytesEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringBytesEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringBytesEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapStringBytesEntry = (plus as? TestAllTypesProto2.MapStringBytesEntry)?.let {
@@ -3348,6 +3387,8 @@ private fun TestAllTypesProto2.MapStringBytesEntry.Companion.decodeWithImpl(u: p
     return TestAllTypesProto2.MapStringBytesEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapStringNestedMessageEntry")
 fun TestAllTypesProto2.MapStringNestedMessageEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringNestedMessageEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringNestedMessageEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapStringNestedMessageEntry = (plus as? TestAllTypesProto2.MapStringNestedMessageEntry)?.let {
@@ -3372,6 +3413,8 @@ private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.decodeWithI
     return TestAllTypesProto2.MapStringNestedMessageEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapStringForeignMessageEntry")
 fun TestAllTypesProto2.MapStringForeignMessageEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringForeignMessageEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringForeignMessageEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapStringForeignMessageEntry = (plus as? TestAllTypesProto2.MapStringForeignMessageEntry)?.let {
@@ -3396,6 +3439,8 @@ private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.decodeWith
     return TestAllTypesProto2.MapStringForeignMessageEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapStringNestedEnumEntry")
 fun TestAllTypesProto2.MapStringNestedEnumEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringNestedEnumEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringNestedEnumEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapStringNestedEnumEntry = (plus as? TestAllTypesProto2.MapStringNestedEnumEntry)?.let {
@@ -3420,6 +3465,8 @@ private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.decodeWithImpl
     return TestAllTypesProto2.MapStringNestedEnumEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MapStringForeignEnumEntry")
 fun TestAllTypesProto2.MapStringForeignEnumEntry?.orDefault() = this ?: TestAllTypesProto2.MapStringForeignEnumEntry.defaultInstance
 
 private fun TestAllTypesProto2.MapStringForeignEnumEntry.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MapStringForeignEnumEntry = (plus as? TestAllTypesProto2.MapStringForeignEnumEntry)?.let {
@@ -3444,6 +3491,8 @@ private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.decodeWithImp
     return TestAllTypesProto2.MapStringForeignEnumEntry(key, value, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2Data")
 fun TestAllTypesProto2.Data?.orDefault() = this ?: TestAllTypesProto2.Data.defaultInstance
 
 private fun TestAllTypesProto2.Data.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.Data = (plus as? TestAllTypesProto2.Data)?.let {
@@ -3468,6 +3517,8 @@ private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDe
     return TestAllTypesProto2.Data(groupInt32, groupUint32, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MessageSetCorrect")
 fun TestAllTypesProto2.MessageSetCorrect?.orDefault() = this ?: TestAllTypesProto2.MessageSetCorrect.defaultInstance
 
 private fun TestAllTypesProto2.MessageSetCorrect.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MessageSetCorrect = (plus as? TestAllTypesProto2.MessageSetCorrect)?.let {
@@ -3483,6 +3534,8 @@ private fun TestAllTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pba
     return TestAllTypesProto2.MessageSetCorrect(unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MessageSetCorrectExtension1")
 fun TestAllTypesProto2.MessageSetCorrectExtension1?.orDefault() = this ?: TestAllTypesProto2.MessageSetCorrectExtension1.defaultInstance
 
 private fun TestAllTypesProto2.MessageSetCorrectExtension1.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MessageSetCorrectExtension1 = (plus as? TestAllTypesProto2.MessageSetCorrectExtension1)?.let {
@@ -3504,6 +3557,8 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithI
     return TestAllTypesProto2.MessageSetCorrectExtension1(str, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTestAllTypesProto2MessageSetCorrectExtension2")
 fun TestAllTypesProto2.MessageSetCorrectExtension2?.orDefault() = this ?: TestAllTypesProto2.MessageSetCorrectExtension2.defaultInstance
 
 private fun TestAllTypesProto2.MessageSetCorrectExtension2.protoMergeImpl(plus: pbandk.Message?): TestAllTypesProto2.MessageSetCorrectExtension2 = (plus as? TestAllTypesProto2.MessageSetCorrectExtension2)?.let {
@@ -3525,6 +3580,8 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithI
     return TestAllTypesProto2.MessageSetCorrectExtension2(i, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForForeignMessageProto2")
 fun ForeignMessageProto2?.orDefault() = this ?: ForeignMessageProto2.defaultInstance
 
 private fun ForeignMessageProto2.protoMergeImpl(plus: pbandk.Message?): ForeignMessageProto2 = (plus as? ForeignMessageProto2)?.let {
@@ -3546,6 +3603,8 @@ private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecod
     return ForeignMessageProto2(c, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUnknownToTestAllTypes")
 fun UnknownToTestAllTypes?.orDefault() = this ?: UnknownToTestAllTypes.defaultInstance
 
 private fun UnknownToTestAllTypes.protoMergeImpl(plus: pbandk.Message?): UnknownToTestAllTypes = (plus as? UnknownToTestAllTypes)?.let {
@@ -3580,6 +3639,8 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
         pbandk.ListWithSize.Builder.fixed(repeatedInt32), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUnknownToTestAllTypesOptionalGroup")
 fun UnknownToTestAllTypes.OptionalGroup?.orDefault() = this ?: UnknownToTestAllTypes.OptionalGroup.defaultInstance
 
 private fun UnknownToTestAllTypes.OptionalGroup.protoMergeImpl(plus: pbandk.Message?): UnknownToTestAllTypes.OptionalGroup = (plus as? UnknownToTestAllTypes.OptionalGroup)?.let {

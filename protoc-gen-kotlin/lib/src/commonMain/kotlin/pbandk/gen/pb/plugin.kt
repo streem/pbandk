@@ -2,6 +2,7 @@
 
 package pbandk.gen.pb
 
+@pbandk.Export
 data class Version(
     val major: Int? = null,
     val minor: Int? = null,
@@ -69,6 +70,7 @@ data class Version(
     }
 }
 
+@pbandk.Export
 data class CodeGeneratorRequest(
     val fileToGenerate: List<String> = emptyList(),
     val parameter: String? = null,
@@ -136,6 +138,7 @@ data class CodeGeneratorRequest(
     }
 }
 
+@pbandk.Export
 data class CodeGeneratorResponse(
     val error: String? = null,
     val supportedFeatures: Long? = null,
@@ -275,6 +278,8 @@ data class CodeGeneratorResponse(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForVersion")
 fun Version?.orDefault() = this ?: Version.defaultInstance
 
 private fun Version.protoMergeImpl(plus: pbandk.Message?): Version = (plus as? Version)?.let {
@@ -305,6 +310,8 @@ private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Version 
     return Version(major, minor, patch, suffix, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForCodeGeneratorRequest")
 fun CodeGeneratorRequest?.orDefault() = this ?: CodeGeneratorRequest.defaultInstance
 
 private fun CodeGeneratorRequest.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorRequest = (plus as? CodeGeneratorRequest)?.let {
@@ -335,6 +342,8 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
     return CodeGeneratorRequest(pbandk.ListWithSize.Builder.fixed(fileToGenerate), parameter, pbandk.ListWithSize.Builder.fixed(protoFile), compilerVersion, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForCodeGeneratorResponse")
 fun CodeGeneratorResponse?.orDefault() = this ?: CodeGeneratorResponse.defaultInstance
 
 private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorResponse = (plus as? CodeGeneratorResponse)?.let {
@@ -362,6 +371,8 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
     return CodeGeneratorResponse(error, supportedFeatures, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForCodeGeneratorResponseFile")
 fun CodeGeneratorResponse.File?.orDefault() = this ?: CodeGeneratorResponse.File.defaultInstance
 
 private fun CodeGeneratorResponse.File.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorResponse.File = (plus as? CodeGeneratorResponse.File)?.let {

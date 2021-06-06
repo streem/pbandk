@@ -1,5 +1,9 @@
 package pbandk
 
+import kotlin.js.JsExport
+import kotlin.js.JsName
+
+@JsExport
 class InvalidProtocolBufferException : RuntimeException {
     internal constructor(message: String) : super(message)
     internal constructor(message: String, cause: Throwable) : super(message, cause)

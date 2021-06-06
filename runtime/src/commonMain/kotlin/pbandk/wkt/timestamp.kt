@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class Timestamp(
     val seconds: Long = 0L,
     val nanos: Int = 0,
@@ -47,6 +48,8 @@ data class Timestamp(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForTimestamp")
 fun Timestamp?.orDefault() = this ?: Timestamp.defaultInstance
 
 private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.let {

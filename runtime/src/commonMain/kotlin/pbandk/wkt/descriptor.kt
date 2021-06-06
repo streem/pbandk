@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 data class FileDescriptorSet(
     val file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -36,6 +37,7 @@ data class FileDescriptorSet(
     }
 }
 
+@pbandk.Export
 data class FileDescriptorProto(
     val name: String? = null,
     val `package`: String? = null,
@@ -191,6 +193,7 @@ data class FileDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class DescriptorProto(
     val name: String? = null,
     val field: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
@@ -425,6 +428,7 @@ data class DescriptorProto(
     }
 }
 
+@pbandk.Export
 data class ExtensionRangeOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
@@ -462,6 +466,7 @@ data class ExtensionRangeOptions(
     }
 }
 
+@pbandk.Export
 data class FieldDescriptorProto(
     val name: String? = null,
     val number: Int? = null,
@@ -655,6 +660,7 @@ data class FieldDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class OneofDescriptorProto(
     val name: String? = null,
     val options: pbandk.wkt.OneofOptions? = null,
@@ -700,6 +706,7 @@ data class OneofDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class EnumDescriptorProto(
     val name: String? = null,
     val value: List<pbandk.wkt.EnumValueDescriptorProto> = emptyList(),
@@ -823,6 +830,7 @@ data class EnumDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class EnumValueDescriptorProto(
     val name: String? = null,
     val number: Int? = null,
@@ -879,6 +887,7 @@ data class EnumValueDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class ServiceDescriptorProto(
     val name: String? = null,
     val method: List<pbandk.wkt.MethodDescriptorProto> = emptyList(),
@@ -935,6 +944,7 @@ data class ServiceDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class MethodDescriptorProto(
     val name: String? = null,
     val inputType: String? = null,
@@ -1024,6 +1034,7 @@ data class MethodDescriptorProto(
     }
 }
 
+@pbandk.Export
 data class FileOptions(
     val javaPackage: String? = null,
     val javaOuterClassname: String? = null,
@@ -1301,6 +1312,7 @@ data class FileOptions(
     }
 }
 
+@pbandk.Export
 data class MessageOptions(
     val messageSetWireFormat: Boolean? = null,
     val noStandardDescriptorAccessor: Boolean? = null,
@@ -1382,6 +1394,7 @@ data class MessageOptions(
     }
 }
 
+@pbandk.Export
 data class FieldOptions(
     val ctype: pbandk.wkt.FieldOptions.CType? = null,
     val packed: Boolean? = null,
@@ -1519,6 +1532,7 @@ data class FieldOptions(
     }
 }
 
+@pbandk.Export
 data class OneofOptions(
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
@@ -1556,6 +1570,7 @@ data class OneofOptions(
     }
 }
 
+@pbandk.Export
 data class EnumOptions(
     val allowAlias: Boolean? = null,
     val deprecated: Boolean? = null,
@@ -1615,6 +1630,7 @@ data class EnumOptions(
     }
 }
 
+@pbandk.Export
 data class EnumValueOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
@@ -1663,6 +1679,7 @@ data class EnumValueOptions(
     }
 }
 
+@pbandk.Export
 data class ServiceOptions(
     val deprecated: Boolean? = null,
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
@@ -1711,6 +1728,7 @@ data class ServiceOptions(
     }
 }
 
+@pbandk.Export
 data class MethodOptions(
     val deprecated: Boolean? = null,
     val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
@@ -1787,6 +1805,7 @@ data class MethodOptions(
     }
 }
 
+@pbandk.Export
 data class UninterpretedOption(
     val name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList(),
     val identifierValue: String? = null,
@@ -1932,6 +1951,7 @@ data class UninterpretedOption(
     }
 }
 
+@pbandk.Export
 data class SourceCodeInfo(
     val location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -2044,6 +2064,7 @@ data class SourceCodeInfo(
     }
 }
 
+@pbandk.Export
 data class GeneratedCodeInfo(
     val annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -2145,6 +2166,8 @@ data class GeneratedCodeInfo(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFileDescriptorSet")
 fun FileDescriptorSet?.orDefault() = this ?: FileDescriptorSet.defaultInstance
 
 private fun FileDescriptorSet.protoMergeImpl(plus: pbandk.Message?): FileDescriptorSet = (plus as? FileDescriptorSet)?.let {
@@ -2166,6 +2189,8 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
     return FileDescriptorSet(pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFileDescriptorProto")
 fun FileDescriptorProto?.orDefault() = this ?: FileDescriptorProto.defaultInstance
 
 private fun FileDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FileDescriptorProto = (plus as? FileDescriptorProto)?.let {
@@ -2222,6 +2247,8 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
         pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDescriptorProto")
 fun DescriptorProto?.orDefault() = this ?: DescriptorProto.defaultInstance
 
 private fun DescriptorProto.protoMergeImpl(plus: pbandk.Message?): DescriptorProto = (plus as? DescriptorProto)?.let {
@@ -2272,6 +2299,8 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
         pbandk.ListWithSize.Builder.fixed(reservedRange), pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDescriptorProtoExtensionRange")
 fun DescriptorProto.ExtensionRange?.orDefault() = this ?: DescriptorProto.ExtensionRange.defaultInstance
 
 private fun DescriptorProto.ExtensionRange.protoMergeImpl(plus: pbandk.Message?): DescriptorProto.ExtensionRange = (plus as? DescriptorProto.ExtensionRange)?.let {
@@ -2299,6 +2328,8 @@ private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.Me
     return DescriptorProto.ExtensionRange(start, end, options, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForDescriptorProtoReservedRange")
 fun DescriptorProto.ReservedRange?.orDefault() = this ?: DescriptorProto.ReservedRange.defaultInstance
 
 private fun DescriptorProto.ReservedRange.protoMergeImpl(plus: pbandk.Message?): DescriptorProto.ReservedRange = (plus as? DescriptorProto.ReservedRange)?.let {
@@ -2323,6 +2354,8 @@ private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.Mes
     return DescriptorProto.ReservedRange(start, end, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForExtensionRangeOptions")
 fun ExtensionRangeOptions?.orDefault() = this ?: ExtensionRangeOptions.defaultInstance
 
 private fun ExtensionRangeOptions.protoMergeImpl(plus: pbandk.Message?): ExtensionRangeOptions = (plus as? ExtensionRangeOptions)?.let {
@@ -2344,6 +2377,8 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
     return ExtensionRangeOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFieldDescriptorProto")
 fun FieldDescriptorProto?.orDefault() = this ?: FieldDescriptorProto.defaultInstance
 
 private fun FieldDescriptorProto.protoMergeImpl(plus: pbandk.Message?): FieldDescriptorProto = (plus as? FieldDescriptorProto)?.let {
@@ -2397,6 +2432,8 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
         jsonName, options, proto3Optional, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForOneofDescriptorProto")
 fun OneofDescriptorProto?.orDefault() = this ?: OneofDescriptorProto.defaultInstance
 
 private fun OneofDescriptorProto.protoMergeImpl(plus: pbandk.Message?): OneofDescriptorProto = (plus as? OneofDescriptorProto)?.let {
@@ -2421,6 +2458,8 @@ private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
     return OneofDescriptorProto(name, options, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumDescriptorProto")
 fun EnumDescriptorProto?.orDefault() = this ?: EnumDescriptorProto.defaultInstance
 
 private fun EnumDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumDescriptorProto = (plus as? EnumDescriptorProto)?.let {
@@ -2455,6 +2494,8 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
         pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumDescriptorProtoEnumReservedRange")
 fun EnumDescriptorProto.EnumReservedRange?.orDefault() = this ?: EnumDescriptorProto.EnumReservedRange.defaultInstance
 
 private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(plus: pbandk.Message?): EnumDescriptorProto.EnumReservedRange = (plus as? EnumDescriptorProto.EnumReservedRange)?.let {
@@ -2479,6 +2520,8 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pb
     return EnumDescriptorProto.EnumReservedRange(start, end, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumValueDescriptorProto")
 fun EnumValueDescriptorProto?.orDefault() = this ?: EnumValueDescriptorProto.defaultInstance
 
 private fun EnumValueDescriptorProto.protoMergeImpl(plus: pbandk.Message?): EnumValueDescriptorProto = (plus as? EnumValueDescriptorProto)?.let {
@@ -2506,6 +2549,8 @@ private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageD
     return EnumValueDescriptorProto(name, number, options, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForServiceDescriptorProto")
 fun ServiceDescriptorProto?.orDefault() = this ?: ServiceDescriptorProto.defaultInstance
 
 private fun ServiceDescriptorProto.protoMergeImpl(plus: pbandk.Message?): ServiceDescriptorProto = (plus as? ServiceDescriptorProto)?.let {
@@ -2533,6 +2578,8 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
     return ServiceDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(method), options, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMethodDescriptorProto")
 fun MethodDescriptorProto?.orDefault() = this ?: MethodDescriptorProto.defaultInstance
 
 private fun MethodDescriptorProto.protoMergeImpl(plus: pbandk.Message?): MethodDescriptorProto = (plus as? MethodDescriptorProto)?.let {
@@ -2570,6 +2617,8 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
         clientStreaming, serverStreaming, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFileOptions")
 fun FileOptions?.orDefault() = this ?: FileOptions.defaultInstance
 
 private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (plus as? FileOptions)?.let {
@@ -2656,6 +2705,8 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMessageOptions")
 fun MessageOptions?.orDefault() = this ?: MessageOptions.defaultInstance
 
 private fun MessageOptions.protoMergeImpl(plus: pbandk.Message?): MessageOptions = (plus as? MessageOptions)?.let {
@@ -2690,6 +2741,8 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForFieldOptions")
 fun FieldOptions?.orDefault() = this ?: FieldOptions.defaultInstance
 
 private fun FieldOptions.protoMergeImpl(plus: pbandk.Message?): FieldOptions = (plus as? FieldOptions)?.let {
@@ -2730,6 +2783,8 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
         deprecated, weak, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForOneofOptions")
 fun OneofOptions?.orDefault() = this ?: OneofOptions.defaultInstance
 
 private fun OneofOptions.protoMergeImpl(plus: pbandk.Message?): OneofOptions = (plus as? OneofOptions)?.let {
@@ -2751,6 +2806,8 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
     return OneofOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumOptions")
 fun EnumOptions?.orDefault() = this ?: EnumOptions.defaultInstance
 
 private fun EnumOptions.protoMergeImpl(plus: pbandk.Message?): EnumOptions = (plus as? EnumOptions)?.let {
@@ -2778,6 +2835,8 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum
     return EnumOptions(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForEnumValueOptions")
 fun EnumValueOptions?.orDefault() = this ?: EnumValueOptions.defaultInstance
 
 private fun EnumValueOptions.protoMergeImpl(plus: pbandk.Message?): EnumValueOptions = (plus as? EnumValueOptions)?.let {
@@ -2802,6 +2861,8 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
     return EnumValueOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForServiceOptions")
 fun ServiceOptions?.orDefault() = this ?: ServiceOptions.defaultInstance
 
 private fun ServiceOptions.protoMergeImpl(plus: pbandk.Message?): ServiceOptions = (plus as? ServiceOptions)?.let {
@@ -2826,6 +2887,8 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
     return ServiceOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForMethodOptions")
 fun MethodOptions?.orDefault() = this ?: MethodOptions.defaultInstance
 
 private fun MethodOptions.protoMergeImpl(plus: pbandk.Message?): MethodOptions = (plus as? MethodOptions)?.let {
@@ -2853,6 +2916,8 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Me
     return MethodOptions(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUninterpretedOption")
 fun UninterpretedOption?.orDefault() = this ?: UninterpretedOption.defaultInstance
 
 private fun UninterpretedOption.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption = (plus as? UninterpretedOption)?.let {
@@ -2893,6 +2958,8 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
         doubleValue, stringValue, aggregateValue, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForUninterpretedOptionNamePart")
 fun UninterpretedOption.NamePart?.orDefault() = this ?: UninterpretedOption.NamePart.defaultInstance
 
 private fun UninterpretedOption.NamePart.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption.NamePart = (plus as? UninterpretedOption.NamePart)?.let {
@@ -2915,6 +2982,8 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
     return UninterpretedOption.NamePart(namePart, isExtension, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSourceCodeInfo")
 fun SourceCodeInfo?.orDefault() = this ?: SourceCodeInfo.defaultInstance
 
 private fun SourceCodeInfo.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo = (plus as? SourceCodeInfo)?.let {
@@ -2936,6 +3005,8 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
     return SourceCodeInfo(pbandk.ListWithSize.Builder.fixed(location), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForSourceCodeInfoLocation")
 fun SourceCodeInfo.Location?.orDefault() = this ?: SourceCodeInfo.Location.defaultInstance
 
 private fun SourceCodeInfo.Location.protoMergeImpl(plus: pbandk.Message?): SourceCodeInfo.Location = (plus as? SourceCodeInfo.Location)?.let {
@@ -2970,6 +3041,8 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
         pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForGeneratedCodeInfo")
 fun GeneratedCodeInfo?.orDefault() = this ?: GeneratedCodeInfo.defaultInstance
 
 private fun GeneratedCodeInfo.protoMergeImpl(plus: pbandk.Message?): GeneratedCodeInfo = (plus as? GeneratedCodeInfo)?.let {
@@ -2991,6 +3064,8 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
     return GeneratedCodeInfo(pbandk.ListWithSize.Builder.fixed(annotation), unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForGeneratedCodeInfoAnnotation")
 fun GeneratedCodeInfo.Annotation?.orDefault() = this ?: GeneratedCodeInfo.Annotation.defaultInstance
 
 private fun GeneratedCodeInfo.Annotation.protoMergeImpl(plus: pbandk.Message?): GeneratedCodeInfo.Annotation = (plus as? GeneratedCodeInfo.Annotation)?.let {
