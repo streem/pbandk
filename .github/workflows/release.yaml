@@ -126,7 +126,7 @@ jobs:
         if: steps.cache-protobuf.outputs.cache-hit != 'true'
         run: |
           cd ~
-          curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v${{ env.PROTOBUF_CONFORMANCE_VERSION }}/protobuf-all-${{ env.POTOBUF_CONFORMANCE_VERSION }}.tar.gz
+          curl -sSLO https://github.com/protocolbuffers/protobuf/releases/download/v${{ env.PROTOBUF_CONFORMANCE_VERSION }}/protobuf-all-${{ env.PROTOBUF_CONFORMANCE_VERSION }}.tar.gz
           tar xzvf protobuf-all-${{ env.PROTOBUF_CONFORMANCE_VERSION }}.tar.gz
           mv protobuf-${{ env.PROTOBUF_CONFORMANCE_VERSION }} protobuf
           cd protobuf
