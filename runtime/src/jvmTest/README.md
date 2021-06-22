@@ -8,7 +8,7 @@ To generate the proto code for Kotlin:
 
 If on Windows, add the following arg after the `--kotlin_out` arg:
 
-    --plugin=protoc-gen-kotlin=%GOPATH%/src/github.com/streem/pbandk/protoc-gen-kotlin/protoc-gen-kotlin-jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin.bat
+    --plugin=protoc-gen-pbandk=%GOPATH%/src/github.com/streem/pbandk/protoc-gen-pbandk/protoc-gen-pbandk-jvm/build/install/protoc-gen-pbandk/bin/protoc-gen-pbandk.bat
 
 To generate the proto code for Go (assuming GOPATH/bin is on the PATH and protoc-gen-go is in there):
 

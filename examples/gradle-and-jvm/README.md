@@ -1,7 +1,7 @@
 ## Gradle and JVM Example
 
 This example mimicks the address book example in the [protobuf repository](https://github.com/google/protobuf). It
-demonstrates how to use code generation with the `protoc-gen-kotlin` tool and
+demonstrates how to use code generation with the `protoc-gen-pbandk` tool and
 [Protobuf Plugin for Gradle](https://github.com/google/protobuf-gradle-plugin). See the `build.gradle` file for details.
 For this example the generated code has been committed to show what it looks like.
 
