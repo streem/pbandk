@@ -21,7 +21,7 @@ open class KotlinProtocTask : ProtocTask() {
 
     init {
         inputs.dir(protocGenPbandkInstallDir)
-        plugin.set("kotlin")
+        plugin.set("pbandk")
         pluginPath.set(project.layout.file(protocGenPbandkInstallDir.map {
             it.resolve("bin/protoc-gen-pbandk" + ".bat".takeIf { OperatingSystem.current().isWindows }.orEmpty())
         }))
