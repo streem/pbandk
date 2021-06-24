@@ -287,15 +287,15 @@ rename it to `protoc-gen-pbandk`, make the file executable (`chmod +x protoc-gen
 `sample.proto` and put the generated code in `src/main/kotlin`, run:
 
 ```
-protoc --kotlin_out=src/main/kotlin sample.proto
+protoc --pbandk_out=src/main/kotlin sample.proto
 ```
 
 The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
-comma-separated options can be added to `--kotlin_out` before the colon and out dir path. To explicitly set the Kotlin
+comma-separated options can be added to `--pbandk_out` before the colon and out dir path. To explicitly set the Kotlin
 package to `my.pkg`, use the `kotlin_package` option like so:
 
 ```
-protoc --kotlin_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
+protoc --pbandk_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
 ```
 
 To log debug logs during generation, `log=debug` can be set as well.
@@ -318,7 +318,7 @@ And then provide the full path to `protoc`:
 
 ```
 protoc \
-    --kotlin_out=src/main/kotlin \
+    --pbandk_out=src/main/kotlin \
     --plugin=protoc-gen-pbandk=/path/to/pbandk/protoc-gen-pbandk/jvm/build/install/protoc-gen-pbandk/bin/protoc-gen-pbandk.bat \
     sample.proto
 ```
@@ -380,7 +380,7 @@ class name of the implementation of the `ServiceGenerator` to use. If the last p
 `gen.jar`, it might look like:
 
 ```
-protoc --kotlin_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
+protoc --pbandk_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
 ```
  
 For more details, see the [custom-service-gen](examples/custom-service-gen) example.
@@ -493,7 +493,7 @@ For example:
 ```
 protoc \
     --plugin=protoc-gen-pbandk=/path/to/pbandk/protoc-gen-pbandk/jvm/build/install/protoc-gen-pbandk/bin/protoc-gen-pbandk \
-    --kotlin_out=src/main/kotlin \
+    --pbandk_out=src/main/kotlin \
     src/main/proto/*.proto
 ```
 
