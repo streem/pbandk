@@ -18,7 +18,7 @@ protobuf {
         artifact = "com.google.protobuf:protoc:$protobufVersion"
     }
     plugins {
-        id("kotlin") {
+        id("pbandk") {
             artifact = "pro.streem.pbandk:protoc-gen-pbandk-jvm:$pbandkVersion:jvm8@jar"
         }
     }
@@ -28,7 +28,7 @@ protobuf {
                 remove("java")
             }
             task.plugins {
-                id("kotlin") {
+                id("pbandk") {
                     option("kotlin_package=pbandk.examples.browserjs.pb")
                 }
             }
