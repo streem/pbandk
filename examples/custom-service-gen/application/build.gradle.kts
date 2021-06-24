@@ -8,7 +8,7 @@ plugins {
 }
 
 val pbandkVersion: String by rootProject.extra
-val kotlinxCoroutinesVersion by extra("1.3.6")
+val kotlinxCoroutinesVersion by extra("1.4.3")
 val protobufVersion by extra("3.11.1")
 
 application {

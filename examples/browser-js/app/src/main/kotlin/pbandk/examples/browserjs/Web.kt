@@ -5,9 +5,9 @@ import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
 import pbandk.examples.browserjs.pb.AddressBook
 import pbandk.examples.browserjs.pb.Person
-import kotlin.browser.document
-import kotlin.browser.localStorage
-import kotlin.browser.window
+import kotlinx.browser.document
+import kotlinx.browser.localStorage
+import kotlinx.browser.window
 
 fun main(args: Array<String>) {
     // When ready, create the DOM
