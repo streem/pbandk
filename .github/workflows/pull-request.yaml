@@ -46,7 +46,7 @@ jobs:
         run: |
           ./gradlew :runtime:generateWellKnownTypes \
             :runtime:generateTestTypes \
-            :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto \
+            :protoc-gen-pbandk:protoc-gen-pbandk-lib:generateProto \
             :conformance:conformance-lib:generateProto
           if [ -n "$(git status --porcelain)" ]; then
             echo "::error::Found uncommitted changes to bundled types"

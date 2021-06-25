@@ -13,11 +13,11 @@ description = "Kotlin code generator for Protocol Buffers. This executable runs 
 
 application {
     mainClassName = "pbandk.gen.MainKt"
-    applicationName = "protoc-gen-kotlin"
+    applicationName = "protoc-gen-pbandk"
 }
 
 dependencies {
-    implementation(project(":protoc-gen-kotlin:protoc-gen-kotlin-lib"))
+    implementation(project(":protoc-gen-pbandk:protoc-gen-pbandk-lib"))
 }
 
 tasks.withType<KotlinCompile> {

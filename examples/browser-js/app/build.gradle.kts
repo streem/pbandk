@@ -20,7 +20,7 @@ kotlin {
 
     sourceSets {
         main {
-            kotlin.srcDir("${project(":lib-proto").buildDir}/generated/source/proto/main/kotlin")
+            kotlin.srcDir("${project(":lib-proto").buildDir}/generated/source/proto/main/pbandk")
         }
     }
 }

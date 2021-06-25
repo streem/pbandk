@@ -79,7 +79,7 @@ val jvmJavadocJar by tasks.registering(Jar::class) {
 
 publishing {
     publications.withType<MavenPublication>().configureEach {
-        if (artifactId == "protoc-gen-kotlin-lib-jvm") {
+        if (artifactId == "protoc-gen-pbandk-lib-jvm") {
             artifact(jvmJavadocJar)
         }
         configurePbandkPom(project.description!!)

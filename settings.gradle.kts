@@ -24,10 +24,10 @@ include(":runtime")
 include(":protos")
 include(":jvm-test-types")
 
-include(":protoc-gen-kotlin:lib")
-project(":protoc-gen-kotlin:lib").name = "protoc-gen-kotlin-lib"
-include(":protoc-gen-kotlin:jvm")
-project(":protoc-gen-kotlin:jvm").name = "protoc-gen-kotlin-jvm"
+include(":protoc-gen-pbandk:lib")
+project(":protoc-gen-pbandk:lib").name = "protoc-gen-pbandk-lib"
+include(":protoc-gen-pbandk:jvm")
+project(":protoc-gen-pbandk:jvm").name = "protoc-gen-pbandk-jvm"
 
 include(":conformance:lib")
 project(":conformance:lib").name = "conformance-lib"

@@ -281,21 +281,21 @@ section below under "Usage" for more details.
 
 Pbandk's code generator leverages `protoc`. Download the [latest
 protoc](https://github.com/google/protobuf/releases/latest) and make sure `protoc` is on the `PATH`.
-Then download the [latest released protoc-gen-kotlin self-executing jar
-file](https://repo1.maven.org/maven2/pro/streem/pbandk/protoc-gen-kotlin-jvm/0.10.0/protoc-gen-kotlin-jvm-0.10.0-jvm8.jar) (if you're using a SNAPSHOT build of pbandk, you might want to instead download the [latest SNAPSHOT version of protoc-gen-kotlin-jvm-\*-jvm8.jar](https://s01.oss.sonatype.org/content/repositories/snapshots/pro/streem/pbandk/protoc-gen-kotlin-jvm/)),
-rename it to `protoc-gen-kotlin`, make the file executable (`chmod +x protoc-gen-kotlin`), and make sure it is on the `PATH`. To generate code from
+Then download the [latest released protoc-gen-pbandk self-executing jar
+file](https://repo1.maven.org/maven2/pro/streem/pbandk/protoc-gen-pbandk-jvm/0.10.0/protoc-gen-pbandk-jvm-0.10.0-jvm8.jar) (if you're using a SNAPSHOT build of pbandk, you might want to instead download the [latest SNAPSHOT version of protoc-gen-pbandk-jvm-\*-jvm8.jar](https://s01.oss.sonatype.org/content/repositories/snapshots/pro/streem/pbandk/protoc-gen-pbandk-jvm/)),
+rename it to `protoc-gen-pbandk`, make the file executable (`chmod +x protoc-gen-pbandk`), and make sure it is on the `PATH`. To generate code from
 `sample.proto` and put the generated code in `src/main/kotlin`, run:
 
 ```
-protoc --kotlin_out=src/main/kotlin sample.proto
+protoc --pbandk_out=src/main/kotlin sample.proto
 ```
 
 The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
-comma-separated options can be added to `--kotlin_out` before the colon and out dir path. To explicitly set the Kotlin
+comma-separated options can be added to `--pbandk_out` before the colon and out dir path. To explicitly set the Kotlin
 package to `my.pkg`, use the `kotlin_package` option like so:
 
 ```
-protoc --kotlin_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
+protoc --pbandk_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
 ```
 
 To log debug logs during generation, `log=debug` can be set as well.
@@ -307,19 +307,19 @@ In addition to running `protoc` manually, the
 #### Windows
 
 The self-executing jar file doesn't work on Windows. Also `protoc` doesn't support finding
-`protoc-gen-kotlin.bat` on the `PATH`. So it has to be specified explicitly as a plugin. Thus on
-Windows you will first need to build `protoc-gen-kotlin` locally:
+`protoc-gen-pbandk.bat` on the `PATH`. So it has to be specified explicitly as a plugin. Thus on
+Windows you will first need to build `protoc-gen-pbandk` locally:
 
 ```
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
+./gradlew :protoc-gen-pbandk:protoc-gen-pbandk-jvm:installDist
 ```
 
 And then provide the full path to `protoc`:
 
 ```
 protoc \
-    --kotlin_out=src/main/kotlin \
-    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin.bat \
+    --pbandk_out=src/main/kotlin \
+    --plugin=protoc-gen-pbandk=/path/to/pbandk/protoc-gen-pbandk/jvm/build/install/protoc-gen-pbandk/bin/protoc-gen-pbandk.bat \
     sample.proto
 ```
 
@@ -361,7 +361,7 @@ tasks.withType<KotlinCompile>().configureEach {
 ### Service Code Generation
 
 Pbandk does not generate gRPC code itself, but offers a `pbandk.gen.ServiceGenerator` interface in
-the `protoc-gen-kotlin-lib-jvm` project with a single method that can be implemented to generate the
+the `protoc-gen-pbandk-lib-jvm` project with a single method that can be implemented to generate the
 code.
 
 To do this, first depend on the project but it will only be needed at compile time because it's already there at
@@ -369,7 +369,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-kotlin-lib:0.10.1-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.10.1-SNAPSHOT")
 }
 ```
 
@@ -380,7 +380,7 @@ class name of the implementation of the `ServiceGenerator` to use. If the last p
 `gen.jar`, it might look like:
 
 ```
-protoc --kotlin_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
+protoc --pbandk_out=kotlin_service_gen=gen.jar|my.Generator,kotlin_package=my.pkg:src/main/kotlin some.proto
 ```
  
 For more details, see the [custom-service-gen](examples/custom-service-gen) example.
@@ -466,16 +466,16 @@ The project is built with Gradle and has several sub projects. In alphabetical o
 * `conformance/jvm` - Conformance test runner for Kotlin/JVM
 * `conformance/native` - Conformance test runner for Kotlin/Native
 * `conformance/lib` - Common multiplatform code for conformance tests
-* `protoc-gen-kotlin/jvm` - Kotlin/JVM implementation of the code generator (can generate code for any platform, but requires JVM to run)
-* `protoc-gen-kotlin/lib` - Multiplatform code (only Kotlin/JVM supported at the moment) for the code generator and `ServiceGenerator` library
+* `protoc-gen-pbandk/jvm` - Kotlin/JVM implementation of the code generator (can generate code for any platform, but requires JVM to run)
+* `protoc-gen-pbandk/lib` - Multiplatform code (only Kotlin/JVM supported at the moment) for the code generator and `ServiceGenerator` library
 * `runtime` - Multiplatform library for runtime Protobuf support
 
 ### Code Generator
 
-To generate the `protoc-gen-kotlin` distribution, run:
+To generate the `protoc-gen-pbandk` distribution, run:
 
 ```
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:assembleDist
+./gradlew :protoc-gen-pbandk:protoc-gen-pbandk-jvm:assembleDist
 ```
 
 #### Testing Changes Locally in External Project
@@ -484,7 +484,7 @@ If you want to make changes to `pbandk`, and immediately test these changes in y
 first install the generator locally:
 
 ```
-./gradlew :protoc-gen-kotlin:protoc-gen-kotlin-jvm:installDist
+./gradlew :protoc-gen-pbandk:protoc-gen-pbandk-jvm:installDist
 ```
  
 This puts the files in the `build/install` folder.  Then you need to tell `protoc` where to find this plugin file.
@@ -492,8 +492,8 @@ For example:
 
 ```
 protoc \
-    --plugin=protoc-gen-kotlin=/path/to/pbandk/protoc-gen-kotlin/jvm/build/install/protoc-gen-kotlin/bin/protoc-gen-kotlin \
-    --kotlin_out=src/main/kotlin \
+    --plugin=protoc-gen-pbandk=/path/to/pbandk/protoc-gen-pbandk/jvm/build/install/protoc-gen-pbandk/bin/protoc-gen-pbandk \
+    --pbandk_out=src/main/kotlin \
     src/main/proto/*.proto
 ```
 
@@ -509,21 +509,21 @@ To build the runtime library for both JS and the JVM, run:
 
 ### Bundled Types
 
-If any changes are made to the generated code that is output by `protoc-gen-kotlin`, then the
+If any changes are made to the generated code that is output by `protoc-gen-pbandk`, then the
 well-known types (and other proto types used by pbandk) need to be re-generated using the updated
-`protoc-gen-kotlin` binary:
+`protoc-gen-pbandk` binary:
 
 ```
 ./gradlew :runtime:generateWellKnownTypes \
     :runtime:generateTestTypes \
-    :protoc-gen-kotlin:protoc-gen-kotlin-lib:generateProto \
+    :protoc-gen-pbandk:protoc-gen-pbandk-lib:generateProto \
     :conformance:conformance-lib:generateProto
 ```
 
-Important: If making changes in both the `:protoc-gen-kotlin:protoc-gen-kotlin-lib` _and_ `:runtime` projects at the
+Important: If making changes in both the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` _and_ `:runtime` projects at the
 same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work
 around this, stash the changes in the `:runtime` project, run the `generateWellKnownTypes` task
-with only the `:protoc-gen-kotlin:protoc-gen-kotlin-lib` changes, and then unstash the `:runtime` changes and rerun the
+with only the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` changes, and then unstash the `:runtime` changes and rerun the
 `generateWellKnownTypes` task.
 
 ### Conformance Tests
