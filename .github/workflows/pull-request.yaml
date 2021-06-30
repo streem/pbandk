@@ -14,7 +14,15 @@ on:
 # All jobs need to be kept in sync with their counterparts in release.yaml
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-18.04
+            os-type: linux
+          - os: macos-10.15
+            os-type: macos
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout the repo
@@ -40,7 +48,20 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
 
       - name: Build project and run tests
-        run: ./gradlew build --stacktrace
+        run: |
+          if [ "${{ matrix.os-type }}" == "linux" ]; then
+            ./gradlew build --stacktrace
+          else
+            ./gradlew compileKotlinIosArm64 \
+                    compileKotlinIosX64 \
+                    compileKotlinMacosX64 \
+                    compileTestKotlinIosArm64 \
+                    compileTestKotlinIosX64 \
+                    compileTestKotlinMacosX64 \
+                    iosX64Test \
+                    macosX64Test \
+                    --stacktrace
+          fi
 
       - name: Ensure bundled types are up-to-date
         run: |
@@ -55,57 +76,81 @@ jobs:
           else
             exit 0
           fi
+        if: matrix.os-type == 'linux'
 
       - name: Publish artifacts to local maven repository
         run: |
-          ./gradlew publishToMavenLocal
+          if [ "${{ matrix.os-type }}" == "linux" ]; then
+            ./gradlew publishToMavenLocal
+          else
+            ./gradlew publishIosArm64PublicationToMavenLocal \
+                    publishIosX64PublicationToMavenLocal \
+                    publishMacosX64PublicationToMavenLocal
+          fi
           echo "Published files:"
           find $HOME/.m2/repository -type f
 
       - name: Upload maven artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: maven-artifacts
+          name: maven-artifacts-${{ matrix.os-type }}
           path: ~/.m2/repository
 
       - name: Build conformance test suite
         run: |
-          ./gradlew \
-            :conformance:conformance-lib:assemble \
-            :conformance:conformance-jvm:installDist \
-            :conformance:conformance-native:build
+          if [ "${{ matrix.os-type }}" == "linux" ]; then
+            ./gradlew \
+              :conformance:conformance-lib:assemble \
+              :conformance:conformance-jvm:installDist \
+              :conformance:conformance-native:build
+          else
+            ./gradlew :conformance:conformance-native:build
+          fi
 
       - name: Package files necessary to run conformance tests
         run: |
-          tar -cvf conformance-test-files.tar \
-            conformance/test-conformance.sh \
-            conformance/jvm/build/install/conformance \
-            conformance/jvm/failing_tests.txt \
-            build/js \
-            conformance/js/failing_tests.txt \
-            conformance/js/run.sh \
-            conformance/native/build/bin/linux/conformanceReleaseExecutable/conformance.kexe \
-            conformance/native/failing_tests.txt
+          if [ "${{ matrix.os-type }}" == "linux" ]; then
+            tar -cvf conformance-test-files-${{ matrix.os-type }}.tar \
+              conformance/test-conformance.sh \
+              conformance/jvm/build/install/conformance \
+              conformance/jvm/failing_tests.txt \
+              build/js \
+              conformance/js/failing_tests.txt \
+              conformance/js/run.sh \
+              conformance/native/build/bin/linux/conformanceReleaseExecutable/conformance.kexe \
+              conformance/native/failing_tests.txt
+          else
+            tar -cvf conformance-test-files-${{ matrix.os-type }}.tar \
+              conformance/test-conformance.sh \
+              conformance/native/build/bin/macos/conformanceReleaseExecutable/conformance.kexe \
+              conformance/native/failing_tests.txt
+          fi
 
       - name: Upload files necessary to run conformance tests
         uses: actions/upload-artifact@v2
         with:
-          name: conformance-test-files
-          path: conformance-test-files.tar
+          name: conformance-test-files-${{ matrix.os-type }}
+          path: conformance-test-files-${{ matrix.os-type }}.tar
 
       - name: Bundle the build report
         if: failure()
-        run: find . -type d -name 'reports' | zip -@ -r build-reports.zip
+        run: find . -type d -name 'reports' | zip -@ -r build-reports-${{ matrix.os-type }}.zip
 
       - name: Upload the build report
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: error-report
-          path: build-reports.zip
+          name: error-report-${{ matrix.os-type }}
+          path: build-reports-${{ matrix.os-type }}.zip
 
   build-conformance-test-runner:
-    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-18.04
+          - os: macos-10.15
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Cache protobuf conformance-test-runner ${{ env.PROTOBUF_CONFORMANCE_VERSION }}
@@ -132,9 +177,21 @@ jobs:
     needs: [build, build-conformance-test-runner]
     strategy:
       matrix:
-        platform: [jvm, js, linux]
+        include:
+          - os: ubuntu-18.04
+            os-type: linux
+            platform: jvm
+          - os: ubuntu-18.04
+            os-type: linux
+            platform: js
+          - os: ubuntu-18.04
+            os-type: linux
+            platform: linux
+          - os: macos-10.15
+            os-type: macos
+            platform: macos
       fail-fast: false
-    runs-on: ubuntu-18.04
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Install Java ${{ env.JAVA_VERSION }}
@@ -158,10 +215,10 @@ jobs:
       - name: Download conformance test files
         uses: actions/download-artifact@v2
         with:
-          name: conformance-test-files
+          name: conformance-test-files-${{ matrix.os-type }}
 
       - name: Extract conformance test files
-        run: tar -xvf conformance-test-files.tar
+        run: tar -xvf conformance-test-files-${{ matrix.os-type }}.tar
 
       - name: Run ${{ matrix.platform }} conformance tests
         run: |
@@ -182,7 +239,7 @@ jobs:
       - name: Download maven artifacts
         uses: actions/download-artifact@v2
         with:
-          name: maven-artifacts
+          name: maven-artifacts-linux
           path: ~/.m2/repository
 
       - name: Cache gradle
