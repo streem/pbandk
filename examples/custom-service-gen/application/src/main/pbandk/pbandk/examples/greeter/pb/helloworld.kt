@@ -2,6 +2,7 @@
 
 package pbandk.examples.greeter.pb
 
+@pbandk.Export
 data class HelloRequest(
     val name: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -36,6 +37,7 @@ data class HelloRequest(
     }
 }
 
+@pbandk.Export
 data class HelloReply(
     val message: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -70,6 +72,8 @@ data class HelloReply(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForHelloRequest")
 fun HelloRequest?.orDefault() = this ?: HelloRequest.defaultInstance
 
 private fun HelloRequest.protoMergeImpl(plus: pbandk.Message?): HelloRequest = (plus as? HelloRequest)?.let {
@@ -90,6 +94,8 @@ private fun HelloRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Hel
     return HelloRequest(name, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForHelloReply")
 fun HelloReply?.orDefault() = this ?: HelloReply.defaultInstance
 
 private fun HelloReply.protoMergeImpl(plus: pbandk.Message?): HelloReply = (plus as? HelloReply)?.let {

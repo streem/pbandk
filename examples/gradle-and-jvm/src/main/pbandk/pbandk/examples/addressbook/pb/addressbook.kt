@@ -2,6 +2,7 @@
 
 package pbandk.examples.addressbook.pb
 
+@pbandk.Export
 data class Person(
     val name: String = "",
     val id: Int = 0,
@@ -142,6 +143,7 @@ data class Person(
     }
 }
 
+@pbandk.Export
 data class AddressBook(
     val people: List<pbandk.examples.addressbook.pb.Person> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -176,6 +178,8 @@ data class AddressBook(
     }
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForPerson")
 fun Person?.orDefault() = this ?: Person.defaultInstance
 
 private fun Person.protoMergeImpl(plus: pbandk.Message?): Person = (plus as? Person)?.let {
@@ -207,6 +211,8 @@ private fun Person.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Person {
         lastUpdated, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForPersonPhoneNumber")
 fun Person.PhoneNumber?.orDefault() = this ?: Person.PhoneNumber.defaultInstance
 
 private fun Person.PhoneNumber.protoMergeImpl(plus: pbandk.Message?): Person.PhoneNumber = (plus as? Person.PhoneNumber)?.let {
@@ -229,6 +235,8 @@ private fun Person.PhoneNumber.Companion.decodeWithImpl(u: pbandk.MessageDecoder
     return Person.PhoneNumber(number, type, unknownFields)
 }
 
+@pbandk.Export
+@pbandk.JsName("orDefaultForAddressBook")
 fun AddressBook?.orDefault() = this ?: AddressBook.defaultInstance
 
 private fun AddressBook.protoMergeImpl(plus: pbandk.Message?): AddressBook = (plus as? AddressBook)?.let {
