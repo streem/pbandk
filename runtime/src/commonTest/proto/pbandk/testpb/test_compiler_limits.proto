@@ -1,8 +1,8 @@
 // The messages in this file aren't used in any actual tests. This file exists
-// to ensure that `protoc-gen-kotlin` generates code that can be built by the
+// to ensure that `protoc-gen-pbandk` generates code that can be built by the
 // Kotlin compiler, even when the protobuf definitions are unusually large.
 //
-// This file will automatically be processed by `protoc-gen-kotlin` with the
+// This file will automatically be processed by `protoc-gen-pbandk` with the
 // other proto files in this directory. The generated code will automatically
 // be built (even if it's not referenced from anywhere) as part of building the
 // `commonTest` source set.

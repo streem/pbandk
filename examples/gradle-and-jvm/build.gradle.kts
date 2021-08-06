@@ -32,8 +32,8 @@ protobuf {
         artifact = "com.google.protobuf:protoc:$protobufVersion"
     }
     plugins {
-        id("kotlin") {
-            artifact = "pro.streem.pbandk:protoc-gen-kotlin-jvm:$pbandkVersion:jvm8@jar"
+        id("pbandk") {
+            artifact = "pro.streem.pbandk:protoc-gen-pbandk-jvm:$pbandkVersion:jvm8@jar"
         }
     }
     generateProtoTasks {
@@ -42,7 +42,7 @@ protobuf {
                 remove("java")
             }
             task.plugins {
-                id("kotlin") {
+                id("pbandk") {
                     option("kotlin_package=pbandk.examples.addressbook.pb")
                 }
             }

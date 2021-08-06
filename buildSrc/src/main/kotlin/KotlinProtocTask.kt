@@ -15,15 +15,15 @@ open class KotlinProtocTask : ProtocTask() {
     @Console
     val logLevel: Property<String> = project.objects.property()
 
-    private val protocGenKotlinInstallDir = project.project(":protoc-gen-kotlin:protoc-gen-kotlin-jvm").tasks
+    private val protocGenPbandkInstallDir = project.project(":protoc-gen-pbandk:protoc-gen-pbandk-jvm").tasks
         .named("installDist", Sync::class.java)
         .map { it.destinationDir }
 
     init {
-        inputs.dir(protocGenKotlinInstallDir)
-        plugin.set("kotlin")
-        pluginPath.set(project.layout.file(protocGenKotlinInstallDir.map {
-            it.resolve("bin/protoc-gen-kotlin" + ".bat".takeIf { OperatingSystem.current().isWindows }.orEmpty())
+        inputs.dir(protocGenPbandkInstallDir)
+        plugin.set("pbandk")
+        pluginPath.set(project.layout.file(protocGenPbandkInstallDir.map {
+            it.resolve("bin/protoc-gen-pbandk" + ".bat".takeIf { OperatingSystem.current().isWindows }.orEmpty())
         }))
         pluginOptions.add(kotlinPackage.map { "kotlin_package" to it })
         pluginOptions.add(logLevel.map { "log" to it })
