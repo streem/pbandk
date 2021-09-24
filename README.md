@@ -7,9 +7,7 @@
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
-<!--
 **NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.11.0/README.md.
--->
 
 **Features**
 
@@ -341,7 +339,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.11.0")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.11.1-SNAPSHOT")
 }
 ```
 
@@ -371,7 +369,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.11.0")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.11.1-SNAPSHOT")
 }
 ```
 
@@ -598,6 +596,7 @@ Then prepare the repository for development of the next version:
 1. Update `CHANGELOG.md`: add a section for `NEXT_VERSION` that will follow the released version (e.g. if releasing `0.9.0` then add a section for `0.9.1`).
     * Note: if you are releasing a pre-release version (alpha, beta, rc) then you don't need to update `CHANGELOG.md`
 1. Update the pbandk version number in `gradle.properties`, `README.md`, and `examples/*/build.gradle.kts` to `${NEXT_VERSION}-SNAPSHOT`. For example, `0.9.1-SNAPSHOT`.
+1. Uncomment the note about the stable version of the documentation that is at the top of `README.md`.
 1. Commit the change. E.g.: `git commit -m "Bump to ${NEXT_VERSION}-SNAPSHOT" -a`.
 
 GitHub will build and publish the new release once it sees the new tag:

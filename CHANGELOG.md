@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.11.1] - Unreleased
+
+[0.11.1]: https://github.com/streem/pbandk/compare/v0.11.0...HEAD
+
+### Added
+
+### Changed
+
+### Fixed
+
+
 ## [0.11.0] - 2021-09-24
 
 [0.11.0]: https://github.com/streem/pbandk/compare/v0.10.0...v0.11.0
@@ -16,7 +27,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     * `protoc` commands using `--kotlin_out` should be updated to use `--pbandk_out` instead (`--kotlin_out` is now used by `protoc`'s internal Kotlin generator).
     * Compile dependencies on the `pro.streem.pbandk:protoc-gen-kotlin-lib` artifact should be replaced with `pro.streem.pbandk:protoc-gen-pbandk-lib`.
     * If using the official Protobuf Gradle Plugin, the plugin ID should be changed from "kotlin" to "pbandk" in your gradle files and the plugin artifact should be updated from `pro.streem.pbandk:protoc-gen-kotlin-jvm` to `pro.streem.pbandk:protoc-gen-pbandk-jvm`.
-
 
 [#161]: https://github.com/streem/pbandk/issues/161
 [#162]: https://github.com/streem/pbandk/pull/162
