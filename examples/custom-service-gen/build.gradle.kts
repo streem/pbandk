@@ -5,7 +5,7 @@ plugins {
     id("com.google.protobuf") version "0.8.12" apply false
 }
 
-val pbandkVersion by extra("0.11.0")
+val pbandkVersion by extra("0.12.0-SNAPSHOT")
 
 subprojects {
     repositories {
