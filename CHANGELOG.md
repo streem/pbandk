@@ -11,6 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+* Enabled support for Kotlin/JS IR backend. (PR [#147], fixes [#136]) (thanks @itegulov)
+    * The runtime is built in `BOTH` mode so that pbandk can be used with the old Kotlin/JS backend or the new IR one.
+    * Conformance tests are run against the new IR backend.
+    * Most public pbandk APIs are now annotated with `@JsExport` to allow them to be used from Kotlin/JS code compiled with the new IR backend. `@JsExport` doesn't yet support all features of Kotlin, so this annotation is currently applied on a best-effort basis where it's possible to use it.
+    * Likewise, generated code is annoated with `@pbandk.Export` (an alias for `@JsExport`) to allow it to be used from Kotlin/JS IR code.
+
 ### Changed
 
 ### Fixed
