@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+[#136]: https://github.com/streem/pbandk/issues/136
+[#147]: https://github.com/streem/pbandk/pull/147
+
 
 ## [0.11.0] - 2021-09-24
 
