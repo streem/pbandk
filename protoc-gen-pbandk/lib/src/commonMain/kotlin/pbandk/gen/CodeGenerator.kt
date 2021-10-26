@@ -142,6 +142,8 @@ open class CodeGenerator(
     }
 
     protected fun writeConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
+        if(field.options.deprecated == true) lineMid("@Deprecated ")
+
         lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
         if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
         return this
