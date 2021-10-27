@@ -33,6 +33,7 @@ open class CodeGenerator(
     private fun writeExtension(field: File.Field) {
         when (field) {
             is File.Field.Numbered -> {
+                if(field.options.deprecated == true) lineBegin("@Deprecated(message = \"\")").lineEnd()
                 line().line(
                     "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
                         field.kotlinValueType(true)
