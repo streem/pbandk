@@ -22,6 +22,7 @@ jobs:
           - os: macos-10.15
             os-type: macos
       fail-fast: false
+    name: Build (${{ matrix.os-type }})
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -64,6 +65,7 @@ jobs:
           fi
 
       - name: Ensure bundled types are up-to-date
+        if: matrix.os-type == 'linux'
         run: |
           ./gradlew :runtime:generateWellKnownTypes \
             :runtime:generateTestTypes \
@@ -76,7 +78,6 @@ jobs:
           else
             exit 0
           fi
-        if: matrix.os-type == 'linux'
 
       - name: Publish artifacts to local maven repository
         run: |
@@ -148,8 +149,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-18.04
+            os-type: linux
           - os: macos-10.15
+            os-type: macos
       fail-fast: false
+    name: Build conformance test runner (${{ matrix.os-type }})
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -191,6 +195,7 @@ jobs:
             os-type: macos
             platform: macos
       fail-fast: false
+    name: Conformance tests (${{ matrix.platform }})
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -227,6 +232,7 @@ jobs:
 
   build-examples:
     needs: build
+    name: Build examples
     runs-on: ubuntu-18.04
 
     steps:
