@@ -26,6 +26,7 @@ internal external interface StdStream {
 }
 
 @JsModule("process")
+@JsNonModule
 internal external class Process {
     companion object {
         val stdin: StdStream
@@ -35,6 +36,7 @@ internal external class Process {
 }
 
 @JsModule("fs")
+@JsNonModule
 external class Fs {
     companion object {
         fun writeSync(
