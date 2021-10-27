@@ -1039,6 +1039,7 @@ data class FileOptions(
     val javaPackage: String? = null,
     val javaOuterClassname: String? = null,
     val javaMultipleFiles: Boolean? = null,
+    @Deprecated(message = "")
     val javaGenerateEqualsAndHash: Boolean? = null,
     val javaStringCheckUtf8: Boolean? = null,
     val optimizeFor: pbandk.wkt.FileOptions.OptimizeMode? = null,

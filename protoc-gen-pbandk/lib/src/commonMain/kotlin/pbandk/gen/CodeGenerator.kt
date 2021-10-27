@@ -102,7 +102,10 @@ open class CodeGenerator(
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
                 when (field) {
-                    is File.Field.Numbered -> lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
+                    is File.Field.Numbered -> {
+                        if(field.options.deprecated == true) lineBegin("@Deprecated(message = \"\")").lineEnd()
+                        lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
+                    }
                     is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
                 }
             }
@@ -142,8 +145,6 @@ open class CodeGenerator(
     }
 
     protected fun writeConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
-        if(field.options.deprecated == true) lineMid("@Deprecated ")
-
         lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
         if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
         return this
@@ -160,6 +161,7 @@ open class CodeGenerator(
         }.line("}").line()
 
         oneOf.fields.forEach { field ->
+            if(field.options.deprecated == true) lineBegin("@Deprecated(message = \"\")").lineEnd()
             line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
                 lineBegin("get() = ")
                 lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
