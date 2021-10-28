@@ -16,13 +16,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     * Conformance tests are run against the new IR backend.
     * Most public pbandk APIs are now annotated with `@JsExport` to allow them to be used from Kotlin/JS code compiled with the new IR backend. `@JsExport` doesn't yet support all features of Kotlin, so this annotation is currently applied on a best-effort basis where it's possible to use it.
     * Likewise, generated code is annoated with `@pbandk.Export` (an alias for `@JsExport`) to allow it to be used from Kotlin/JS IR code.
+* macOS and iOS builds of pbandk-runtime are now built in CI and available from Maven Central. (PR [#163], fixes [#88]) (thanks @itegulov)
 
 ### Changed
 
 ### Fixed
 
+[#88]: https://github.com/streem/pbandk/issues/88
 [#136]: https://github.com/streem/pbandk/issues/136
 [#147]: https://github.com/streem/pbandk/pull/147
+[#637]: https://github.com/streem/pbandk/pull/163
 
 
 ## [0.11.0] - 2021-09-24

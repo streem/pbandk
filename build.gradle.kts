@@ -1,4 +1,3 @@
-import io.github.gradlenexus.publishplugin.NexusPublishExtension
 import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
@@ -12,7 +11,6 @@ plugins {
 
     id("com.google.osdetector") version Versions.osDetectorGradlePlugin
     id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
-    id("io.github.gradle-nexus.publish-plugin") version Versions.nexusPublishGradlePlugin
 }
 
 configure<ApiValidationExtension> {
@@ -24,18 +22,9 @@ configure<ApiValidationExtension> {
 
 val sonatypeApiUser = providers.gradlePropertyOrEnvironmentVariable("sonatypeApiUser")
 val sonatypeApiKey = providers.gradlePropertyOrEnvironmentVariable("sonatypeApiKey")
-if (sonatypeApiUser.isPresent && sonatypeApiKey.isPresent) {
-    configure<NexusPublishExtension> {
-        repositories {
-            sonatype {
-                nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-                snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-                username.set(sonatypeApiUser)
-                password.set(sonatypeApiKey)
-            }
-        }
-    }
-} else {
+val sonatypeRepositoryId = providers.gradlePropertyOrEnvironmentVariable("sonatypeRepositoryId")
+val publishToSonatype = sonatypeApiUser.isPresent && sonatypeApiKey.isPresent
+if (!publishToSonatype) {
     logger.info("Sonatype API key not defined, skipping configuration of Maven Central publishing repository")
 }
 
@@ -98,6 +87,31 @@ allprojects {
                 TestLogEvent.SKIPPED,
                 TestLogEvent.FAILED
             )
+        }
+    }
+
+    if (publishToSonatype) {
+        plugins.withType<MavenPublishPlugin>() {
+            configure<PublishingExtension> {
+                repositories {
+                    maven {
+                        name = "sonatype"
+                        url = when {
+                            project.version.toString().endsWith("-SNAPSHOT") ->
+                                uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                            !sonatypeRepositoryId.isPresent ->
+                                throw IllegalStateException("Sonatype Repository ID must be provided for non-SNAPSHOT builds")
+                            else ->
+                                uri("https://s01.oss.sonatype.org/service/local/staging/deployByRepositoryId/${sonatypeRepositoryId.get()}")
+                        }
+
+                        credentials {
+                            username = sonatypeApiUser.get()
+                            password = sonatypeApiKey.get()
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -7,7 +7,6 @@ object Versions {
     const val kotlin = "1.4.31"
     const val kotlinCoroutines = "1.4.3"
     const val kotlinSerialization = "1.1.0"
-    const val nexusPublishGradlePlugin = "1.1.0"
     const val robolectric = "10-robolectric-5803371" // Only update when Android Studio supports Java 11 (11-x requires Java 9)
     const val osDetectorGradlePlugin = "1.6.2"
     const val protoc = "3.15.5"
