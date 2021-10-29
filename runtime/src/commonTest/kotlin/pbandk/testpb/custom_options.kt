@@ -95,6 +95,7 @@ data class MultipleCustomOptions(
 
 @pbandk.Export
 data class MultipleCustomOptionsPlusDeprecated(
+    @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     val multipleDeprecated: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
