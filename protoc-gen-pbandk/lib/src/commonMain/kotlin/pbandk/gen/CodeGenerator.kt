@@ -34,7 +34,7 @@ open class CodeGenerator(
         when (field) {
             is File.Field.Numbered -> {
                 line()
-                addAnnotation(field, "@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+                addDeprecatedAnnotation(field)
                 line(
                     "val ${field.extendeeKotlinType}.${field.kotlinFieldName}: ${
                         field.kotlinValueType(true)
@@ -43,7 +43,7 @@ open class CodeGenerator(
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
                 }.line()
                 line("@pbandk.Export")
-                addAnnotation(field, "@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+                addDeprecatedAnnotation(field)
                 line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
                     generateFieldDescriptorConstructorValues(
                         field,
@@ -106,7 +106,7 @@ open class CodeGenerator(
             type.fields.forEach { field ->
                 when (field) {
                     is File.Field.Numbered -> {
-                        addAnnotation(field, "@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+                        addDeprecatedAnnotation(field)
                         lineBegin(fieldBegin).writeConstructorField(field, true).lineEnd(",")
                     }
                     is File.Field.OneOf -> line("val ${field.kotlinFieldName}: ${field.kotlinTypeName}<*>? = null,")
@@ -156,7 +156,7 @@ open class CodeGenerator(
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
         line("sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
-                addAnnotation(field, "@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+                addDeprecatedAnnotation(field)
                 lineBegin("class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
                 if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue}")
@@ -165,7 +165,7 @@ open class CodeGenerator(
         }.line("}").line()
 
         oneOf.fields.forEach { field ->
-            addAnnotation(field, "@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            addDeprecatedAnnotation(field)
             line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
                 lineBegin("get() = ")
                 lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
@@ -657,9 +657,9 @@ open class CodeGenerator(
         line("value = $fullTypeName::${field.kotlinFieldName}")
     }
 
-    private fun addAnnotation(field: File.Field, annotation: String) {
+    private fun addDeprecatedAnnotation(field: File.Field) {
         when (field) {
-            is File.Field.Numbered -> if(field.options.deprecated == true) line(annotation)
+            is File.Field.Numbered -> if(field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
         }
     }
 }
