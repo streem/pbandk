@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.72" apply false
-    id("com.google.protobuf") version "0.8.12" apply false
+    kotlin("jvm") version "1.4.32" apply false
+    id("com.google.protobuf") version "0.8.17" apply false
 }
 
 val pbandkVersion by extra("0.12.0-SNAPSHOT")

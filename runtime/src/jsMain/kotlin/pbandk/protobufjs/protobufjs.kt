@@ -1,4 +1,5 @@
 @file:JsModule("protobufjs/light")
+@file:JsNonModule
 package pbandk.protobufjs
 
 import org.khronos.webgl.Uint8Array

@@ -21,14 +21,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
+* Switched Kotlin/JS runtime library to use UMD instead of CommonJS (PR [#170], fixes [#60])
+* Minor updates to the gradle config for examples (PR [#170])
+
 ### Fixed
 
 [#1]: https://github.com/streem/pbandk/issues/1
+[#60]: https://github.com/streem/pbandk/issues/60
 [#88]: https://github.com/streem/pbandk/issues/88
 [#136]: https://github.com/streem/pbandk/issues/136
 [#147]: https://github.com/streem/pbandk/pull/147
 [#163]: https://github.com/streem/pbandk/pull/163
 [#169]: https://github.com/streem/pbandk/pull/169
+[#170]: https://github.com/streem/pbandk/pull/170
 
 
 ## [0.11.0] - 2021-09-24

@@ -8,13 +8,13 @@ val pbandkVersion: String by rootProject.extra
 val protobufjsVersion = "^6.10.2"
 
 dependencies {
-    implementation(kotlin("stdlib-js"))
     implementation("pro.streem.pbandk:pbandk-runtime:$pbandkVersion")
     implementation(npm("protobufjs", protobufjsVersion))
 }
 
 kotlin {
-    js(LEGACY) {
+    js(IR) {
+        binaries.executable()
         browser {}
     }
 
@@ -28,8 +28,7 @@ kotlin {
 tasks {
     val compileKotlinJs by getting(KotlinJsCompile::class) {
         kotlinOptions {
-            sourceMap = true
-            moduleKind = "commonjs"
+            moduleKind = "umd"
             freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
@@ -38,17 +37,4 @@ tasks {
     project(":lib-proto").tasks
         .matching { it.name == "generateProto" }
         .all { compileKotlinJs.dependsOn(this) }
-}
-
-// This is required for consuming a Kotlin/JS library compiled with Kotlin 1.4
-// from a Kotlin 1.3 project. See https://youtrack.jetbrains.com/issue/KT-40226
-// for details.
-private class KotlinJsCompilerDisambiguationRule : AttributeDisambiguationRule<String> {
-    override fun execute(details: MultipleCandidatesDetails<String>) {
-        details.closestMatch("legacy")
-    }
-}
-val jsCompilerAttr = Attribute.of("org.jetbrains.kotlin.js.compiler", String::class.java)
-project.dependencies.attributesSchema.attribute(jsCompilerAttr) {
-    disambiguationRules.add(KotlinJsCompilerDisambiguationRule::class.java)
 }

@@ -2,9 +2,9 @@ import com.google.protobuf.gradle.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.72"
+    kotlin("jvm") version "1.4.32"
     application
-    id("com.google.protobuf") version "0.8.12"
+    id("com.google.protobuf") version "0.8.17"
 }
 
 val protobufVersion by extra("3.11.1")

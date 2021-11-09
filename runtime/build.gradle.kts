@@ -21,7 +21,6 @@ kotlin {
     jvm()
 
     js(BOTH) {
-        useCommonJs()
         browser {}
         nodejs {}
     }
