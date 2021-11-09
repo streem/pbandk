@@ -27,7 +27,6 @@ java {
 
 publishing {
     val protos by publications.creating(MavenPublication::class) {
-        artifactId = "pbandk-$artifactId"
         from(components["java"])
         configurePbandkPom(project.description!!)
     }

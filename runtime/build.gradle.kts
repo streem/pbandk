@@ -63,7 +63,7 @@ kotlin {
         val androidMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
-                api(project(":protos"))
+                api(project(":pbandk-protos"))
             }
         }
 
@@ -79,7 +79,7 @@ kotlin {
         val jvmMain by getting {
             kotlin.srcDir("src/commonJvmAndroid/kotlin")
             dependencies {
-                api(project(":protos"))
+                api(project(":pbandk-protos"))
             }
         }
 
@@ -174,7 +174,6 @@ afterEvaluate {
             if (artifactId == "runtime-jvm") {
                 artifact(jvmJavadocJar)
             }
-            artifactId = "pbandk-$artifactId"
             configurePbandkPom(project.description!!)
         }
     }

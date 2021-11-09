@@ -67,8 +67,8 @@ jobs:
       - name: Ensure bundled types are up-to-date
         if: matrix.os-type == 'linux'
         run: |
-          ./gradlew :runtime:generateWellKnownTypes \
-            :runtime:generateTestTypes \
+          ./gradlew :pbandk-runtime:generateWellKnownTypes \
+            :pbandk-runtime:generateTestTypes \
             :protoc-gen-pbandk:protoc-gen-pbandk-lib:generateProto \
             :conformance:conformance-lib:generateProto
           if [ -n "$(git status --porcelain)" ]; then
