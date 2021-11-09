@@ -504,7 +504,7 @@ This will generate kotlin files for the specified `*.proto` files, without needi
 To build the runtime library for both JS and the JVM, run:
 
 ```
-./gradlew :runtime:assemble
+./gradlew :pbandk-runtime:assemble
 ```
 
 ### Bundled Types
@@ -514,16 +514,16 @@ well-known types (and other proto types used by pbandk) need to be re-generated 
 `protoc-gen-pbandk` binary:
 
 ```
-./gradlew :runtime:generateWellKnownTypes \
-    :runtime:generateTestTypes \
+./gradlew :pbandk-runtime:generateWellKnownTypes \
+    :pbandk-runtime:generateTestTypes \
     :protoc-gen-pbandk:protoc-gen-pbandk-lib:generateProto \
     :conformance:conformance-lib:generateProto
 ```
 
-Important: If making changes in both the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` _and_ `:runtime` projects at the
-same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work
-around this, stash the changes in the `:runtime` project, run the `generateWellKnownTypes` task
-with only the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` changes, and then unstash the `:runtime` changes and rerun the
+Important: If making changes in both the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` _and_ `:pbandk-runtime` projects at
+the same time, then it's likely the `generateWellKnownTypes` task will fail to compile. To work around this, stash the
+changes in the `:pbandk-runtime` project, run the `generateWellKnownTypes` task with only
+the `:protoc-gen-pbandk:protoc-gen-pbandk-lib` changes, and then unstash the `:pbandk-runtime` changes and rerun the
 `generateWellKnownTypes` task.
 
 ### Conformance Tests

@@ -22,7 +22,7 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(project(":runtime"))
+                implementation(project(":pbandk-runtime"))
             }
         }
 
