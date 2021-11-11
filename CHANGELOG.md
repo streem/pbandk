@@ -5,20 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.12.1] - Unreleased
+## [0.12.1] - 2021-11-11
 
-[0.12.1]: https://github.com/streem/pbandk/compare/v0.12.0...HEAD
-
-### Added
-
-### Changed
-
-### Fixed
-
-
-## [0.12.0] - 2021-11-10
-
-[0.12.0]: https://github.com/streem/pbandk/compare/v0.11.0...v0.12.0
+[0.12.1]: https://github.com/streem/pbandk/compare/v0.11.0...v0.12.1
 
 ### Added
 
@@ -43,6 +32,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#163]: https://github.com/streem/pbandk/pull/163
 [#169]: https://github.com/streem/pbandk/pull/169
 [#170]: https://github.com/streem/pbandk/pull/170
+
+
+## [0.12.0] - Do not use
 
 
 ## [0.11.0] - 2021-09-24
