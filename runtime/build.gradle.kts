@@ -171,7 +171,7 @@ afterEvaluate {
     // This needs to be inside of `afterEvaluate` to work correctly with the Android Gradle plugin
     publishing {
         publications.withType<MavenPublication>().configureEach {
-            if (artifactId == "runtime-jvm") {
+            if (artifactId == "pbandk-runtime-jvm") {
                 artifact(jvmJavadocJar)
             }
             configurePbandkPom(project.description!!)
