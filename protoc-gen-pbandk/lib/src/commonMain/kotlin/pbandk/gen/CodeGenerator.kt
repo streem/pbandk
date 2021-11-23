@@ -196,6 +196,7 @@ open class CodeGenerator(
             }
 
             line("pbandk.MessageDescriptor(").indented {
+                line("fullName = \"${type.fullName}\",")
                 line("messageClass = ${type.kotlinTypeNameWithPackage}::class,")
                 line("messageCompanion = this,")
                 line("fields = fieldsList")
