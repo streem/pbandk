@@ -43,6 +43,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
+                implementation(kotlin("reflect"))
                 implementation("junit:junit:4.12")
                 implementation("com.github.tschuchortdev:kotlin-compile-testing:1.2.9")
             }
