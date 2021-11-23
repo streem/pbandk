@@ -296,6 +296,7 @@ public final class pbandk/MessageKt {
 	public static final fun decodeFromByteArray (Lpbandk/Message$Companion;[B)Lpbandk/Message;
 	public static final fun encodeToByteArray (Lpbandk/Message;)[B
 	public static final fun encodeWith (Lpbandk/Message;Lpbandk/MessageEncoder;)V
+	public static final fun get (Lpbandk/Message;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 	public static final fun getFieldValue (Lpbandk/Message;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
 	public static final fun plus (Lpbandk/Message;Lpbandk/Message;)Lpbandk/Message;
 }

@@ -11,9 +11,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+* Added an `operator get` method to allow accessing protobuf extension fields using `message[extensionFieldDescriptor]`. (PR [#183])
+
 ### Changed
 
 ### Fixed
+
+[#183]: https://github.com/streem/pbandk/pull/183
 
 
 ## [0.12.1] - 2021-11-11

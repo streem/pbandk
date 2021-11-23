@@ -80,3 +80,6 @@ fun <T : Message, F> T.getFieldValue(fieldDescriptor: FieldDescriptor<out T, out
     val property = fieldDescriptor.value as KProperty1<T, F>
     return property.get(this)
 }
+
+@ExperimentalProtoReflection
+operator fun <T : Message, F> T.get(fieldDescriptor: FieldDescriptor<out T, out F>): F = getFieldValue(fieldDescriptor)
