@@ -7,67 +7,93 @@ import pbandk.wkt.FieldOptions
 import pbandk.wkt.FileDescriptorProto
 
 open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boolean = true) {
-    fun buildFile(ctx: Context) = File(
-        name = ctx.fileDesc.name!!,
-        packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() },
-        kotlinPackageName = packageName(ctx),
-        version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
-        types = typesFromProto(ctx, ctx.fileDesc.enumType, ctx.fileDesc.messageType, mutableSetOf()),
-        extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
-    )
-
-    protected fun packageName(ctx: Context) =
-        ctx.params["kotlin_package"]
-            ?: ctx.fileDesc.options?.uninterpretedOption?.find {
-                it.name.singleOrNull()?.namePart == "kotlin_package"
-            }?.stringValue?.array?.decodeToString()
-            ?: ctx.packageMappings[ctx.fileDesc.`package`]
-            ?: ctx.fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
-            ?: ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
+    fun buildFile(ctx: Context): File {
+        val packageName = ctx.fileDesc.`package`?.takeIf { it.isNotEmpty() }
+        return File(
+            name = ctx.fileDesc.name!!,
+            packageName = packageName,
+            kotlinPackageName = ctx.kotlinPackageName,
+            version = ctx.fileDesc.syntax?.removePrefix("proto")?.toIntOrNull() ?: 2,
+            types = typesFromProto(
+                ctx,
+                ctx.fileDesc.enumType,
+                ctx.fileDesc.messageType,
+                packageName,
+                null,
+                mutableSetOf()
+            ),
+            extensions = ctx.fileDesc.extension.map { numberedFieldFromProto(ctx, it, mutableSetOf()) }
+        )
+    }
 
     protected fun typesFromProto(
         ctx: Context,
         enumTypes: List<EnumDescriptorProto>,
         msgTypes: List<DescriptorProto>,
+        parentFullName: String?,
+        parentKotlinFullName: String?,
         usedTypeNames: MutableSet<String>
-    ) = enumTypes.map { fromProto(it, usedTypeNames) } + msgTypes.map { fromProto(ctx, it, usedTypeNames) }
+    ) = enumTypes.map { fromProto(ctx, it, parentFullName, parentKotlinFullName, usedTypeNames) } +
+            msgTypes.map { fromProto(ctx, it, parentFullName, parentKotlinFullName, usedTypeNames) }
 
-    protected fun fromProto(enumDesc: EnumDescriptorProto, usedTypeNames: MutableSet<String>) = File.Type.Enum(
-        name = enumDesc.name!!,
-        values = enumDesc.value.fold(listOf()) { values, value ->
-            values + File.Type.Enum.Value(
-                number = value.number!!,
-                name = value.name!!,
-                kotlinValueTypeName = namer.newEnumValueTypeName(
-                    enumDesc.name!!,
-                    value.name!!,
-                    values.map { it.kotlinValueTypeName })
-            )
-        },
-        kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {
+    protected fun fromProto(
+        @Suppress("UNUSED_PARAMETER") ctx: Context,
+        enumDesc: EnumDescriptorProto,
+        parentFullName: String?,
+        parentKotlinFullName: String?,
+        usedTypeNames: MutableSet<String>,
+    ): File.Type.Enum {
+        val kotlinTypeName = namer.newTypeName(enumDesc.name!!, usedTypeNames).also {
             usedTypeNames += it
         }
-    )
+
+        return File.Type.Enum(
+            name = enumDesc.name!!,
+            fullName = parentFullName?.let { "$it." }.orEmpty() + enumDesc.name!!,
+            values = enumDesc.value.fold(listOf()) { values, value ->
+                values + File.Type.Enum.Value(
+                    number = value.number!!,
+                    name = value.name!!,
+                    kotlinValueTypeName = namer.newEnumValueTypeName(
+                        enumDesc.name!!,
+                        value.name!!,
+                        values.map { it.kotlinValueTypeName })
+                )
+            },
+            kotlinTypeName = kotlinTypeName,
+            kotlinFullTypeName = parentKotlinFullName?.let { "${it}." }.orEmpty() + kotlinTypeName,
+        )
+    }
 
     protected fun fromProto(
         ctx: Context,
         msgDesc: DescriptorProto,
-        usedTypeNames: MutableSet<String>
+        parentFullName: String?,
+        parentKotlinFullName: String?,
+        usedTypeNames: MutableSet<String>,
     ): File.Type.Message {
+        val fullName = parentFullName?.let { "$it." }.orEmpty() + msgDesc.name!!
+        val kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
+            usedTypeNames += it
+        }
+        val kotlinFullTypeName = parentKotlinFullName?.let { "${it}." }.orEmpty() + kotlinTypeName
+
         val usedNestedTypeNames = mutableSetOf<String>()
         return File.Type.Message(
             name = msgDesc.name!!,
+            fullName = fullName,
             fields = fieldsFromProto(ctx, msgDesc, usedNestedTypeNames),
             nestedTypes = typesFromProto(
                 ctx,
                 msgDesc.enumType,
                 msgDesc.nestedType,
+                fullName,
+                kotlinFullTypeName,
                 usedNestedTypeNames
             ),
             mapEntry = supportMaps && msgDesc.options?.mapEntry == true,
-            kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
-                usedTypeNames += it
-            },
+            kotlinTypeName = kotlinTypeName,
+            kotlinFullTypeName = kotlinFullTypeName,
             extensionRange = msgDesc.extensionRange
         )
     }
@@ -198,9 +224,16 @@ open class FileBuilder(val namer: Namer = Namer.Standard, val supportMaps: Boole
         // Support option kotlin_package_mapping=from.package1->to.package1;from.package2->to.package2
         val packageMappings = params["kotlin_package_mapping"]
             ?.split(";")
-            ?.map { it.substringBefore("->") to it.substringAfter("->", "") }
-            ?.toMap()
+            ?.associate { it.substringBefore("->") to it.substringAfter("->", "") }
             ?: emptyMap()
+
+        val kotlinPackageName = params["kotlin_package"]
+            ?: fileDesc.options?.uninterpretedOption?.find {
+                it.name.singleOrNull()?.namePart == "kotlin_package"
+            }?.stringValue?.array?.decodeToString()
+            ?: packageMappings[fileDesc.`package`]
+            ?: fileDesc.options?.javaPackage?.takeIf { it.isNotEmpty() }
+            ?: fileDesc.`package`?.takeIf { it.isNotEmpty() }
 
         fun findLocalMessage(name: String, parent: DescriptorProto? = null): DescriptorProto? {
             // Get the set to look in and the type name

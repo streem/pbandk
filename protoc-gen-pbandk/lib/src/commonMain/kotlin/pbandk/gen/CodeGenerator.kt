@@ -59,48 +59,42 @@ open class CodeGenerator(
 
     protected fun writeType(
         type: File.Type,
-        parentType: String? = null
+        nested: Boolean = false
     ) = when (type) {
-        is File.Type.Enum -> writeEnumType(type, parentType)
-        is File.Type.Message -> writeMessageType(type, parentType)
+        is File.Type.Enum -> writeEnumType(type, nested)
+        is File.Type.Message -> writeMessageType(type, nested)
     }
 
-    protected fun writeEnumType(type: File.Type.Enum, parentType: String? = null) {
-        val parentPrefix = parentType?.let { "${it}." }.orEmpty()
-        val typeName = "${parentPrefix}${type.kotlinTypeName}"
-        // Enums are sealed classes w/ a value and a name, and a companion object with all values
+    protected fun writeEnumType(type: File.Type.Enum, nested: Boolean = false) {
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
-        if (parentType == null) line("@pbandk.Export")
+        if (!nested) line("@pbandk.Export")
+        // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
-                line("override fun equals(other: kotlin.Any?) = other is ${typeName} && other.value == value")
+                line("override fun equals(other: kotlin.Any?) = other is ${type.kotlinFullTypeName} && other.value == value")
                 line("override fun hashCode() = value.hashCode()")
-                line("override fun toString() = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
+                line("override fun toString() = \"${type.kotlinFullTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
                 type.values.forEach { line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
-                line("class UNRECOGNIZED(value: Int) : ${typeName}(value)")
+                line("class UNRECOGNIZED(value: Int) : ${type.kotlinTypeName}(value)")
                 line()
-                line("companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
-                    line("val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
+                line("companion object : pbandk.Message.Enum.Companion<${type.kotlinFullTypeName}> {").indented {
+                    line("val values: List<${type.kotlinFullTypeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                     line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
                     line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
                 }.line("}")
             }.line("}")
     }
 
-    protected fun writeMessageType(
-        type: File.Type.Message,
-        parentType: String? = null
-    ) {
-        val parentPrefix = parentType?.let { "${it}." }.orEmpty().ifEmpty { "${file.kotlinPackageName}." }
-        val typeName = "${parentPrefix}${type.kotlinTypeName}"
+    protected fun writeMessageType(type: File.Type.Message, nested: Boolean = false) {
         var messageInterface = if (type.extensionRange.isNotEmpty()) "pbandk.ExtendableMessage" else "pbandk.Message"
 
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
         line()
-        if (parentType == null) line("@pbandk.Export")
+        // Only mark top-level classes for export, internal classes will be exported transitively
+        if (!nested) line("@pbandk.Export")
         line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
@@ -135,15 +129,15 @@ open class CodeGenerator(
             line("override val protoSize by lazy { super.protoSize }")
 
             // Companion object
-            line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
-                line("val defaultInstance by lazy { ${typeName}() }")
-                line("override fun decodeWith(u: pbandk.MessageDecoder) = ${typeName}.decodeWithImpl(u)")
+            line("companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
+                line("val defaultInstance by lazy { ${type.kotlinTypeNameWithPackage}() }")
+                line("override fun decodeWith(u: pbandk.MessageDecoder) = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
                 line()
-                writeMessageDescriptor(type, typeName)
+                writeMessageDescriptor(type)
             }.line("}")
 
             // Nested enums and types
-            type.nestedTypes.forEach { writeType(it, typeName) }
+            type.nestedTypes.forEach { writeType(it, true) }
         }.line("}")
     }
 
@@ -175,7 +169,7 @@ open class CodeGenerator(
         line()
     }
 
-    protected fun writeMessageDescriptor(type: File.Type.Message, fullTypeName: String) {
+    protected fun writeMessageDescriptor(type: File.Type.Message) {
         val allFields = type.sortedStandardFieldsWithOneOfs()
         val chunkSize = 200
         val needToChunk = allFields.size > chunkSize
@@ -186,23 +180,23 @@ open class CodeGenerator(
         // doesn't allow cyclic frozen structures:
         // https://kotlinlang.org/docs/reference/native/concurrency.html#global-variables-and-singletons. In order to
         // break the circular references, `descriptor` needs to be a `lazy` field.
-        line("override val descriptor: pbandk.MessageDescriptor<$fullTypeName> by lazy {").indented {
+        line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> by lazy {").indented {
             // XXX: When a message has lots of fields (e.g. `TestAllTypesProto3`), declaring the list of field
             // descriptors directly in the [MessageDescriptor] constructor can cause a
             // `java.lang.OutOfMemoryError: Java heap space` error in the Kotlin compiler (as of Kotlin 1.4.20).
             // As a workaround, we generate methods to generate each fieldDescriptor in chunks, as many as needed, with
             // a max size of $chunkSize to limit the size of the methods.
-            line("val fieldsList = ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>(${allFields.size})")
+            line("val fieldsList = ArrayList<pbandk.FieldDescriptor<${type.kotlinTypeNameWithPackage}, *>>(${allFields.size})")
             if (needToChunk) {
                 allFields.chunked(chunkSize).forEachIndexed { index, _ ->
                     line("addFields${index}(fieldsList)")
                 }
             } else {
-                addFields(allFields, fullTypeName)
+                addFields(allFields, type.kotlinTypeNameWithPackage)
             }
 
             line("pbandk.MessageDescriptor(").indented {
-                line("messageClass = $fullTypeName::class,")
+                line("messageClass = ${type.kotlinTypeNameWithPackage}::class,")
                 line("messageCompanion = this,")
                 line("fields = fieldsList")
             }.line(")")
@@ -210,8 +204,8 @@ open class CodeGenerator(
 
         if (needToChunk) {
             allFields.chunked(chunkSize).forEachIndexed { index, chunk ->
-                line("fun addFields${index}(fieldsList: ArrayList<pbandk.FieldDescriptor<$fullTypeName, *>>) {").indented {
-                    addFields(chunk, fullTypeName)
+                line("fun addFields${index}(fieldsList: ArrayList<pbandk.FieldDescriptor<${type.kotlinTypeNameWithPackage}, *>>) {").indented {
+                    addFields(chunk, type.kotlinTypeNameWithPackage)
                 }.line("}")
             }
         }
@@ -276,18 +270,14 @@ open class CodeGenerator(
         }.line(")")
     }
 
-    fun writeMessageExtensions(type: File.Type.Message, parentType: String? = null) {
-        val fullTypeName = if (parentType == null) type.kotlinTypeName else "$parentType.${type.kotlinTypeName}"
-        writeMessageOrDefaultExtension(type, fullTypeName)
-        writeMessageMergeExtension(type, fullTypeName)
-        writeMessageDecodeWithExtension(type, fullTypeName)
-        type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it, fullTypeName) }
+    fun writeMessageExtensions(type: File.Type.Message) {
+        writeMessageOrDefaultExtension(type)
+        writeMessageMergeExtension(type)
+        writeMessageDecodeWithExtension(type)
+        type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
     }
 
-    protected fun writeMessageOrDefaultExtension(
-        @Suppress("UNUSED_PARAMETER") type: File.Type.Message,
-        fullTypeName: String
-    ) {
+    protected fun writeMessageOrDefaultExtension(type: File.Type.Message) {
         line()
         // There can be multiple differently-typed `orDefault` functions in the same scope which
         // Kotlin/JS cannot handle unfortunately. We have to annotate each of them with a unique
@@ -296,11 +286,11 @@ open class CodeGenerator(
         // Also, if current type is an inner class, `fullTypeName` will contains dots which we
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
         line("@pbandk.Export")
-        line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
-        line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
+        line("@pbandk.JsName(\"orDefaultFor${type.kotlinFullTypeName.replace(".", "")}\")")
+        line("fun ${type.kotlinFullTypeName}?.orDefault() = this ?: ${type.kotlinFullTypeName}.defaultInstance")
     }
 
-    protected fun writeMessageMergeExtension(type: File.Type.Message, fullTypeName: String) {
+    protected fun writeMessageMergeExtension(type: File.Type.Message) {
         fun mergeStandard(field: File.Field.Numbered.Standard) {
             if (field.repeated) {
                 line("${field.kotlinFieldName} = ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
@@ -329,7 +319,7 @@ open class CodeGenerator(
             } else {
                 line("${oneOf.kotlinFieldName} = when {").indented {
                     fieldsToMerge.forEach { subField ->
-                        val subTypeName = "$fullTypeName." +
+                        val subTypeName = "${type.kotlinFullTypeName}." +
                             "${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[subField.name]}"
                         line(
                             "${oneOf.kotlinFieldName} is $subTypeName && " +
@@ -349,7 +339,7 @@ open class CodeGenerator(
         }
 
         line()
-        line("private fun $fullTypeName.protoMergeImpl(plus: pbandk.Message?): $fullTypeName = (plus as? $fullTypeName)?.let {").indented {
+        line("private fun ${type.kotlinFullTypeName}.protoMergeImpl(plus: pbandk.Message?): ${type.kotlinFullTypeName} = (plus as? ${type.kotlinFullTypeName})?.let {").indented {
             if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
             }
@@ -367,9 +357,9 @@ open class CodeGenerator(
         }.line("} ?: this")
     }
 
-    protected fun writeMessageDecodeWithExtension(type: File.Type.Message, fullTypeName: String) {
-        val lineStr = "private fun $fullTypeName.Companion." +
-            "decodeWithImpl(u: pbandk.MessageDecoder): $fullTypeName {"
+    protected fun writeMessageDecodeWithExtension(type: File.Type.Message) {
+        val lineStr = "private fun ${type.kotlinFullTypeName}.Companion." +
+            "decodeWithImpl(u: pbandk.MessageDecoder): ${type.kotlinFullTypeName} {"
         line().line("@Suppress(\"UNCHECKED_CAST\")").line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val doneKotlinFields = type.fields.map {
@@ -383,7 +373,7 @@ open class CodeGenerator(
                         it.decodeWithVarDone
                     }
                     is File.Field.OneOf -> {
-                        line("var ${it.kotlinFieldName}: $fullTypeName.${it.kotlinTypeName}<*>? = null")
+                        line("var ${it.kotlinFieldName}: ${type.kotlinFullTypeName}.${it.kotlinTypeName}<*>? = null")
                         it.kotlinFieldName
                     }
                 }
@@ -420,7 +410,7 @@ open class CodeGenerator(
                                 }
                             } else {
                                 val oneOfTyp =
-                                    "$fullTypeName.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
+                                    "${type.kotlinFullTypeName}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
                                 require(field is File.Field.Numbered.Standard && !field.repeated)
                                 lineEnd("${oneOf.kotlinFieldName} = $oneOfTyp(_fieldValue as ${field.kotlinQualifiedTypeName})")
                             }
@@ -430,7 +420,7 @@ open class CodeGenerator(
             } ?: lineEnd("_, _ -> }")
 
             // Wrap the params to the class and return it
-            lineBegin("return $fullTypeName(")
+            lineBegin("return ${type.kotlinFullTypeName}(")
             val chunkedDoneFields = doneKotlinFields.chunked(4)
             chunkedDoneFields.forEachIndexed { index, doneFieldSet ->
                 val doneFieldStr = doneFieldSet.joinToString(", ", postfix = ",")
@@ -457,6 +447,9 @@ open class CodeGenerator(
             } ?: return null)
         }
     }
+
+    protected val File.Type.kotlinTypeNameWithPackage
+        get() = file.kotlinPackageName?.let { "$it." }.orEmpty() + kotlinFullTypeName
 
     protected fun File.Type.Message.sortedStandardFieldsWithOneOfs() =
         fields.flatMap {

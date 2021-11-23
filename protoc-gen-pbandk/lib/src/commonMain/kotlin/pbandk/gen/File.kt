@@ -32,21 +32,27 @@ data class File(
 
     sealed class Type {
         abstract val name: String
+        abstract val fullName: String
         abstract val kotlinTypeName: String
+        abstract val kotlinFullTypeName: String
 
         data class Message(
             override val name: String,
+            override val fullName: String,
             val fields: List<Field>,
             val nestedTypes: List<Type>,
             val mapEntry: Boolean,
             override val kotlinTypeName: String,
+            override val kotlinFullTypeName: String,
             val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
         ) : Type()
 
         data class Enum(
             override val name: String,
+            override val fullName: String,
             val values: List<Value>,
-            override val kotlinTypeName: String
+            override val kotlinTypeName: String,
+            override val kotlinFullTypeName: String
         ) : Type() {
             data class Value(val number: Int, val name: String, val kotlinValueTypeName: String)
         }
