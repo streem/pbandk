@@ -40,6 +40,7 @@ data class Duration(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Duration",
                 messageClass = pbandk.wkt.Duration::class,
                 messageCompanion = this,
                 fields = fieldsList

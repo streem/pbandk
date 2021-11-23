@@ -95,6 +95,7 @@ data class Api(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Api",
                 messageClass = pbandk.wkt.Api::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -196,6 +197,7 @@ data class Method(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Method",
                 messageClass = pbandk.wkt.Method::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -242,6 +244,7 @@ data class Mixin(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Mixin",
                 messageClass = pbandk.wkt.Mixin::class,
                 messageCompanion = this,
                 fields = fieldsList

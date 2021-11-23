@@ -29,6 +29,7 @@ data class FieldMask(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FieldMask",
                 messageClass = pbandk.wkt.FieldMask::class,
                 messageCompanion = this,
                 fields = fieldsList

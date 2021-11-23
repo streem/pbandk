@@ -29,6 +29,7 @@ data class DoubleValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.DoubleValue",
                 messageClass = pbandk.wkt.DoubleValue::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -64,6 +65,7 @@ data class FloatValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FloatValue",
                 messageClass = pbandk.wkt.FloatValue::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -99,6 +101,7 @@ data class Int64Value(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Int64Value",
                 messageClass = pbandk.wkt.Int64Value::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -134,6 +137,7 @@ data class UInt64Value(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.UInt64Value",
                 messageClass = pbandk.wkt.UInt64Value::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -169,6 +173,7 @@ data class Int32Value(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Int32Value",
                 messageClass = pbandk.wkt.Int32Value::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -204,6 +209,7 @@ data class UInt32Value(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.UInt32Value",
                 messageClass = pbandk.wkt.UInt32Value::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -239,6 +245,7 @@ data class BoolValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.BoolValue",
                 messageClass = pbandk.wkt.BoolValue::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -274,6 +281,7 @@ data class StringValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.StringValue",
                 messageClass = pbandk.wkt.StringValue::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -309,6 +317,7 @@ data class BytesValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.BytesValue",
                 messageClass = pbandk.wkt.BytesValue::class,
                 messageCompanion = this,
                 fields = fieldsList

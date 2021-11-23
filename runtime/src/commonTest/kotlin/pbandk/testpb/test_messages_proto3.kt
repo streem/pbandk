@@ -1707,6 +1707,7 @@ data class TestAllTypesProto3(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto3.TestAllTypesProto3",
                 messageClass = pbandk.testpb.TestAllTypesProto3::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1715,27 +1716,27 @@ data class TestAllTypesProto3(
     }
 
     sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.testpb.TestAllTypesProto3.NestedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.NestedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.testpb.TestAllTypesProto3.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto3.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object FOO : NestedEnum(0, "FOO")
         object BAR : NestedEnum(1, "BAR")
         object BAZ : NestedEnum(2, "BAZ")
         object NEG : NestedEnum(-1, "NEG")
-        class UNRECOGNIZED(value: Int) : pbandk.testpb.TestAllTypesProto3.NestedEnum(value)
+        class UNRECOGNIZED(value: Int) : NestedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.testpb.TestAllTypesProto3.NestedEnum> {
-            val values: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.NestedEnum> {
+            val values: List<TestAllTypesProto3.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
     }
 
     sealed class AliasedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.testpb.TestAllTypesProto3.AliasedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto3.AliasedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.testpb.TestAllTypesProto3.AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto3.AliasedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object ALIAS_FOO : AliasedEnum(0, "ALIAS_FOO")
         object ALIAS_BAR : AliasedEnum(1, "ALIAS_BAR")
@@ -1743,10 +1744,10 @@ data class TestAllTypesProto3(
         object QUX : AliasedEnum(2, "QUX")
         object QUX_ : AliasedEnum(2, "qux")
         object B_AZ : AliasedEnum(2, "bAz")
-        class UNRECOGNIZED(value: Int) : pbandk.testpb.TestAllTypesProto3.AliasedEnum(value)
+        class UNRECOGNIZED(value: Int) : AliasedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.testpb.TestAllTypesProto3.AliasedEnum> {
-            val values: List<pbandk.testpb.TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto3.AliasedEnum> {
+            val values: List<TestAllTypesProto3.AliasedEnum> by lazy { listOf(ALIAS_FOO, ALIAS_BAR, ALIAS_BAZ, QUX, QUX_, B_AZ) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No AliasedEnum with name: $name")
         }
@@ -1789,6 +1790,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage",
                     messageClass = pbandk.testpb.TestAllTypesProto3.NestedMessage::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1834,6 +1836,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapInt32Int32Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapInt32Int32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1879,6 +1882,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapInt64Int64Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapInt64Int64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1924,6 +1928,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapUint32Uint32Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapUint32Uint32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1969,6 +1974,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapUint64Uint64Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapUint64Uint64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2014,6 +2020,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapSint32Sint32Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapSint32Sint32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2059,6 +2066,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapSint64Sint64Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapSint64Sint64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2104,6 +2112,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapFixed32Fixed32Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapFixed32Fixed32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2149,6 +2158,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapFixed64Fixed64Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapFixed64Fixed64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2194,6 +2204,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapSfixed32Sfixed32Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapSfixed32Sfixed32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2239,6 +2250,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapSfixed64Sfixed64Entry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapSfixed64Sfixed64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2284,6 +2296,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapInt32FloatEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapInt32FloatEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2329,6 +2342,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapInt32DoubleEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapInt32DoubleEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2374,6 +2388,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapBoolBoolEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapBoolBoolEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2419,6 +2434,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapStringStringEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapStringStringEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2464,6 +2480,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapStringBytesEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapStringBytesEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2509,6 +2526,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapStringNestedMessageEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapStringNestedMessageEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2554,6 +2572,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapStringForeignMessageEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapStringForeignMessageEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2599,6 +2618,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapStringNestedEnumEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapStringNestedEnumEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2644,6 +2664,7 @@ data class TestAllTypesProto3(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto3.TestAllTypesProto3.MapStringForeignEnumEntry",
                     messageClass = pbandk.testpb.TestAllTypesProto3.MapStringForeignEnumEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2680,6 +2701,7 @@ data class ForeignMessage(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto3.ForeignMessage",
                 messageClass = pbandk.testpb.ForeignMessage::class,
                 messageCompanion = this,
                 fields = fieldsList

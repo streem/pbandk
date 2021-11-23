@@ -45,6 +45,7 @@ data class Struct(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Struct",
                 messageClass = pbandk.wkt.Struct::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -89,6 +90,7 @@ data class Struct(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.Struct.FieldsEntry",
                     messageClass = pbandk.wkt.Struct.FieldsEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -203,6 +205,7 @@ data class Value(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Value",
                 messageClass = pbandk.wkt.Value::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -238,6 +241,7 @@ data class ListValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.ListValue",
                 messageClass = pbandk.wkt.ListValue::class,
                 messageCompanion = this,
                 fields = fieldsList

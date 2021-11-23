@@ -29,6 +29,7 @@ data class Foo(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.Foo",
                 messageClass = pbandk.testpb.Foo::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -75,6 +76,7 @@ data class Bar(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.Bar",
                 messageClass = pbandk.testpb.Bar::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -110,6 +112,7 @@ data class MessageWithMap(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.MessageWithMap",
                 messageClass = pbandk.testpb.MessageWithMap::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -154,6 +157,7 @@ data class MessageWithMap(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "testpb.MessageWithMap.MapEntry",
                     messageClass = pbandk.testpb.MessageWithMap.MapEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -190,6 +194,7 @@ data class FooMap(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.FooMap",
                 messageClass = pbandk.testpb.FooMap::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -234,6 +239,7 @@ data class FooMap(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "testpb.FooMap.MapEntry",
                     messageClass = pbandk.testpb.FooMap.MapEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -270,6 +276,7 @@ data class FooMapEntries(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.FooMapEntries",
                 messageClass = pbandk.testpb.FooMapEntries::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -314,6 +321,7 @@ data class FooMapEntries(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "testpb.FooMapEntries.MapEntry",
                     messageClass = pbandk.testpb.FooMapEntries.MapEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -361,6 +369,7 @@ data class Wrappers(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.Wrappers",
                 messageClass = pbandk.testpb.Wrappers::class,
                 messageCompanion = this,
                 fields = fieldsList

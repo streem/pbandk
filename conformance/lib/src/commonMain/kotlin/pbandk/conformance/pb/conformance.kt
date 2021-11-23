@@ -70,6 +70,7 @@ data class FailureSet(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "conformance.FailureSet",
                 messageClass = pbandk.conformance.pb.FailureSet::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -210,6 +211,7 @@ data class ConformanceRequest(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "conformance.ConformanceRequest",
                 messageClass = pbandk.conformance.pb.ConformanceRequest::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -351,6 +353,7 @@ data class ConformanceResponse(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "conformance.ConformanceResponse",
                 messageClass = pbandk.conformance.pb.ConformanceResponse::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -386,6 +389,7 @@ data class JspbEncodingConfig(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "conformance.JspbEncodingConfig",
                 messageClass = pbandk.conformance.pb.JspbEncodingConfig::class,
                 messageCompanion = this,
                 fields = fieldsList
