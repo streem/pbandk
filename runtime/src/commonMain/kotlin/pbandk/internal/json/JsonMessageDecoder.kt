@@ -1,11 +1,19 @@
 package pbandk.internal.json
 
-import kotlinx.serialization.json.*
-import pbandk.*
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonObject
+import pbandk.FieldDescriptor
+import pbandk.InvalidProtocolBufferException
+import pbandk.Message
+import pbandk.MessageDecoder
+import pbandk.MessageDescriptor
+import pbandk.UnknownField
 import pbandk.internal.underscoreToCamelCase
 import pbandk.json.JsonConfig
-import pbandk.wkt.*
-import kotlin.Any
+import pbandk.wkt.Value
 
 private val FieldDescriptor<*, *>.jsonNames: List<String>
     get() = listOf(
@@ -23,7 +31,9 @@ internal class JsonMessageDecoder internal constructor(
         messageCompanion: Message.Companion<T>,
         fieldFn: (Int, Any) -> Unit
     ): Map<Int, UnknownField> = try {
-        readMessageObject(messageCompanion, content, fieldFn)
+        JsonMessageAdapters.getAdapter(messageCompanion)?.let {
+            readWithMessageAdapter(it, content.jsonObject, fieldFn)
+        } ?: readMessageObject(messageCompanion, content.jsonObject, fieldFn)
         emptyMap()
     } catch (e: InvalidProtocolBufferException) {
         throw e
@@ -31,12 +41,25 @@ internal class JsonMessageDecoder internal constructor(
         throw InvalidProtocolBufferException("unable to read message", e)
     }
 
-    private fun <T : Message> readMessageObject(
-        messageCompanion: Message.Companion<T>,
-        content: JsonElement,
+    // A hack until message decoding is done fully at runtime without the need of a custom `decodeWith()` method
+    // generated in each type.
+    private fun <T : Message> readWithMessageAdapter(
+        adapter: JsonMessageAdapter<T>,
+        content: JsonObject,
         fieldFn: (Int, Any) -> Unit
     ) {
-        for ((key, jsonValue) in content.jsonObject) {
+        val message = adapter.decode(content, jsonValueDecoder)
+        for (field in (message.descriptor as MessageDescriptor<T>).fields) {
+            field.value.get(message)?.let { fieldFn(field.number, it) }
+        }
+    }
+
+    private fun <T : Message> readMessageObject(
+        messageCompanion: Message.Companion<T>,
+        content: JsonObject,
+        fieldFn: (Int, Any) -> Unit
+    ) {
+        for ((key, jsonValue) in content) {
             val fd = messageCompanion.descriptor.fields.firstOrNull { key in it.jsonNames }
                 ?: if (jsonConfig.ignoreUnknownFieldsInInput) {
                     continue

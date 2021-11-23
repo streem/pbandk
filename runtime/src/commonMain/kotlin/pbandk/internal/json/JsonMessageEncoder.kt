@@ -1,11 +1,16 @@
 package pbandk.internal.json
 
-import kotlinx.serialization.json.*
-import pbandk.*
-import pbandk.internal.Util
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonObject
+import pbandk.FieldDescriptor
+import pbandk.Message
+import pbandk.MessageEncoder
 import pbandk.json.JsonConfig
-import pbandk.wkt.*
-import kotlin.Any
+import kotlin.collections.MutableMap
+import kotlin.collections.linkedMapOf
+import kotlin.collections.set
 import kotlin.reflect.KProperty1
 
 internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageEncoder {
@@ -22,31 +27,9 @@ internal class JsonMessageEncoder(private val jsonConfig: JsonConfig) : MessageE
 
     override fun <T : Message> writeMessage(message: T) {
         check(currentMessage == null) { "JsonMessageEncoder can't be reused with multiple messages" }
-        currentMessage = when (message) {
-            // Wrapper types use the same JSON representation as the wrapped value
-            // https://developers.google.com/protocol-buffers/docs/proto3#json
-            is DoubleValue -> writeWrapperValue(message, message.value)
-            is FloatValue -> writeWrapperValue(message, message.value)
-            is Int64Value -> writeWrapperValue(message, message.value)
-            is UInt64Value -> writeWrapperValue(message, message.value)
-            is Int32Value -> writeWrapperValue(message, message.value)
-            is UInt32Value -> writeWrapperValue(message, message.value)
-            is BoolValue -> writeWrapperValue(message, message.value)
-            is StringValue -> writeWrapperValue(message, message.value)
-            is BytesValue -> writeWrapperValue(message, message.value)
-            // Other well-known types with special JSON encoding
-            is Timestamp -> jsonValueEncoder.writeString(Util.timestampToString(message))
-            is Duration -> jsonValueEncoder.writeString(Util.durationToString(message))
-            is Struct -> jsonValueEncoder.writeValue(message.fields, message.descriptor.fields.first().type)
-            is ListValue -> jsonValueEncoder.writeRepeated(message.values, FieldDescriptor.Type.Message(Value.Companion))
-            is Value -> jsonValueEncoder.writeDynamicValue(message)
-            // All other message types
-            else -> writeMessageObject(message)
-        }
+        currentMessage =
+            JsonMessageAdapters.getAdapter(message)?.encode(message, jsonValueEncoder) ?: writeMessageObject(message)
     }
-
-    private fun writeWrapperValue(message: Message, value: Any) =
-        jsonValueEncoder.writeValue(value, message.descriptor.fields.first().type)
 
     private fun <T : Message> writeMessageObject(message: T): JsonObject {
         val jsonContent: MutableMap<String, JsonElement> = linkedMapOf()
