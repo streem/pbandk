@@ -2,6 +2,7 @@ package pbandk.json
 
 import pbandk.ExperimentalProtoJson
 import pbandk.FieldDescriptor
+import pbandk.TypeRegistry
 import pbandk.internal.underscoreToCamelCase
 import kotlin.js.JsExport
 
@@ -39,7 +40,13 @@ data class JsonConfig(
      * The JSON parser rejects unknown fields by default. If this option is `true` then unknown fields will instead be
      * ignored.
      */
-    val ignoreUnknownFieldsInInput: Boolean = false
+    val ignoreUnknownFieldsInInput: Boolean = false,
+    /**
+     * The provided [TypeRegistry] should contain all types that might be stored in an [pbandk.wkt.Any] field within a
+     * JSON message. If a type is not found in [typeRegistry] during JSON encoding/decoding of an `Any` field, then
+     * encoding/decoding will fail.
+     */
+    val typeRegistry: TypeRegistry = TypeRegistry.EMPTY,
 ) {
     internal fun getFieldJsonName(fieldDescriptor: FieldDescriptor<*, *>): String =
         when {

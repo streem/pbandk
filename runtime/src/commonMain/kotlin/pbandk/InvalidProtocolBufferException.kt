@@ -1,7 +1,6 @@
 package pbandk
 
 import kotlin.js.JsExport
-import kotlin.js.JsName
 
 @JsExport
 class InvalidProtocolBufferException : RuntimeException {
