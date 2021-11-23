@@ -5,11 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.12.2] - Unreleased
+## [0.13.0] - Unreleased
 
-[0.12.2]: https://github.com/streem/pbandk/compare/v0.12.1...HEAD
+[0.13.0]: https://github.com/streem/pbandk/compare/v0.12.1...HEAD
 
 ### Added
+
+* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this versio of `protoc-gen-pbandk`. These properties are currently `internal` but can be exposed publicly if there is a need/use case. (PR [#184])
 
 ### Changed
 
@@ -18,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Suppress warnings about deprecated fields used in generated code. (PR [#182], continues [#1])
 
 [#182]: https://github.com/streem/pbandk/pull/182
+[#184]: https://github.com/streem/pbandk/pull/184
 
 
 ## [0.12.1] - 2021-11-11
