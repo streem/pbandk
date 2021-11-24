@@ -1153,6 +1153,7 @@ data class FileOptions(
                         value = pbandk.wkt.FileOptions::pyGenericServices
                     )
                 )
+                @Suppress("DEPRECATION")
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -2623,6 +2624,7 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
 fun FileOptions?.orDefault() = this ?: FileOptions.defaultInstance
 
 private fun FileOptions.protoMergeImpl(plus: pbandk.Message?): FileOptions = (plus as? FileOptions)?.let {
+    @Suppress("DEPRECATION")
     it.copy(
         javaPackage = plus.javaPackage ?: javaPackage,
         javaOuterClassname = plus.javaOuterClassname ?: javaOuterClassname,
