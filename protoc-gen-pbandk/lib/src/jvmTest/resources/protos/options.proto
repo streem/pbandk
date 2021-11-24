@@ -1,0 +1,6 @@
+syntax = "proto3";
+package foobar;
+
+message Foo {
+    int32 deprecated_field = 1 [deprecated = true];
+}

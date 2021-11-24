@@ -109,6 +109,7 @@ data class MultipleCustomOptionsPlusDeprecated(
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, *>>(1)
             fieldsList.apply {
+                @Suppress("DEPRECATION")
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
@@ -190,6 +191,7 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 fun MultipleCustomOptionsPlusDeprecated?.orDefault() = this ?: MultipleCustomOptionsPlusDeprecated.defaultInstance
 
 private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptionsPlusDeprecated = (plus as? MultipleCustomOptionsPlusDeprecated)?.let {
+    @Suppress("DEPRECATION")
     it.copy(
         unknownFields = unknownFields + plus.unknownFields
     )

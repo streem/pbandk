@@ -223,6 +223,7 @@ open class CodeGenerator(
     ) {
         line("fieldsList.apply {").indented {
             chunk.forEach { (field, oneof) ->
+                if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
                 line("add(").indented {
                     line("pbandk.FieldDescriptor(").indented {
                         generateFieldDescriptorConstructorValues(
@@ -349,6 +350,9 @@ open class CodeGenerator(
 
         line()
         line("private fun $fullTypeName.protoMergeImpl(plus: pbandk.Message?): $fullTypeName = (plus as? $fullTypeName)?.let {").indented {
+            if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
+                line("@Suppress(\"DEPRECATION\")")
+            }
             line("it.copy(").indented {
                 type.fields.forEach { field ->
                     when (field) {

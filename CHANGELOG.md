@@ -7,13 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.12.2] - Unreleased
 
-[0.12.2]: https://github.com/streem/pbandk/compare/v0.12.2...HEAD
+[0.12.2]: https://github.com/streem/pbandk/compare/v0.12.1...HEAD
 
 ### Added
 
 ### Changed
 
 ### Fixed
+
+* Suppress warnings about deprecated fields used in generated code. (PR [#182], continues [#1])
+
+[#182]: https://github.com/streem/pbandk/pull/182
 
 
 ## [0.12.1] - 2021-11-11
