@@ -8,7 +8,7 @@ plugins {
 }
 
 val protobufVersion by extra("3.11.1")
-val pbandkVersion by extra("0.12.2-SNAPSHOT")
+val pbandkVersion by extra("0.13.0-SNAPSHOT")
 
 repositories {
     if (System.getenv("CI") == "true") {
