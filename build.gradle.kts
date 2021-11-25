@@ -1,4 +1,3 @@
-import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
@@ -8,16 +7,9 @@ plugins {
     kotlin("multiplatform") version Versions.kotlin apply false
     id("com.android.library") version Versions.androidGradlePlugin apply false
     id("org.springframework.boot") version Versions.springBootGradlePlugin apply false
+    id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin apply false
 
     id("com.google.osdetector") version Versions.osDetectorGradlePlugin
-    id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
-}
-
-configure<ApiValidationExtension> {
-    ignoredProjects.addAll(
-        project.subprojects.map { it.name }.minus(listOf("pbandk-runtime"))
-    )
-    nonPublicMarkers.add("pbandk.PbandkInternal")
 }
 
 val sonatypeApiUser = providers.gradlePropertyOrEnvironmentVariable("sonatypeApiUser")

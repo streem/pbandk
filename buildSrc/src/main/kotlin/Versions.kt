@@ -2,7 +2,7 @@ object Versions {
     const val androidGradlePlugin = "4.1.2"
     const val androidMinSdk = 21
     const val androidTargetSdk = 30
-    const val binaryCompatibilityValidatorGradlePlugin = "0.2.4"
+    const val binaryCompatibilityValidatorGradlePlugin = "0.8.0"
     const val junit = "4.12"
     const val kotlin = "1.4.31"
     const val kotlinCoroutines = "1.4.3"

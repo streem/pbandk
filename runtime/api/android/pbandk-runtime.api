@@ -165,7 +165,6 @@ public final class pbandk/FieldDescriptor$Type$Repeated : pbandk/FieldDescriptor
 }
 
 public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeException {
-	public static final field Companion Lpbandk/InvalidProtocolBufferException$Companion;
 }
 
 public abstract interface annotation class pbandk/JsName : java/lang/annotation/Annotation {
@@ -173,7 +172,6 @@ public abstract interface annotation class pbandk/JsName : java/lang/annotation/
 }
 
 public final class pbandk/ListWithSize : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
-	public static final field Companion Lpbandk/ListWithSize$Companion;
 	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
 	public fun add (ILjava/lang/Object;)V
 	public fun add (Ljava/lang/Object;)Z
@@ -308,7 +306,6 @@ public final class pbandk/MessageKt {
 }
 
 public final class pbandk/MessageMap : kotlin/collections/AbstractMap {
-	public static final field Companion Lpbandk/MessageMap$Companion;
 	public fun getEntries ()Ljava/util/Set;
 }
 
@@ -2770,5 +2767,12 @@ public final class pbandk/wkt/WrappersKt {
 	public static final fun orDefault (Lpbandk/wkt/StringValue;)Lpbandk/wkt/StringValue;
 	public static final fun orDefault (Lpbandk/wkt/UInt32Value;)Lpbandk/wkt/UInt32Value;
 	public static final fun orDefault (Lpbandk/wkt/UInt64Value;)Lpbandk/wkt/UInt64Value;
+}
+
+public final class pro/streem/pbandk/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
 }
 
