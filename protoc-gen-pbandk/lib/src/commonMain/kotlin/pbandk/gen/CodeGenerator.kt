@@ -117,6 +117,18 @@ public open class CodeGenerator(
             line("override operator fun plus(other: pbandk.Message?): ${type.kotlinTypeNameWithPackage}")
             line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}>")
 
+            line().line("fun copy(").indented {
+                type.fields.forEach { field ->
+                    lineBegin("${field.kotlinFieldName}: ")
+                    when (field) {
+                        is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                        is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
+                    }
+                    lineEnd(" = this.${field.kotlinFieldName},")
+                }
+                line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
+            }.line("): ${type.kotlinTypeNameWithPackage}")
+
             // One-ofs as sealed class hierarchies
             line()
             type.fields.filterIsInstance<File.Field.OneOf>().forEach(::writeOneOfType)
@@ -149,13 +161,13 @@ public open class CodeGenerator(
         }.line("}")
     }
 
-    protected fun writeConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
-        lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
-        if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
-        return this
-    }
-
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
+        oneOf.fields.forEach { field ->
+            addDeprecatedAnnotation(field)
+            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?")
+        }
+        line()
+
         line("$visibility sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
                 addDeprecatedAnnotation(field)
@@ -165,12 +177,6 @@ public open class CodeGenerator(
                 lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
             }
         }.line("}").line()
-
-        oneOf.fields.forEach { field ->
-            addDeprecatedAnnotation(field)
-            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?")
-        }
-        line()
     }
 
     protected fun writeMessageDescriptor(type: File.Type.Message) {
@@ -278,7 +284,6 @@ public open class CodeGenerator(
     protected fun writeMessageExtensions(type: File.Type.Message) {
         writeMessageOrDefaultExtension(type)
         writeMessageImpl(type)
-        writeMessageMergeExtension(type)
         writeMessageDecodeWithExtension(type)
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
     }
@@ -297,68 +302,36 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageImpl(type: File.Type.Message) {
-        val implName = "${type.kotlinFullTypeName.replace('.', '_')}_Impl"
-
-        line()
-        if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
-            line("@Suppress(\"DEPRECATION\")")
-        }
-        line("fun ${type.kotlinFullTypeName}.copy(").indented {
-            type.fields.forEach { field ->
-                lineBegin("${field.kotlinFieldName}: ")
-                when (field) {
-                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
-                    is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
-                }
-                lineEnd(" = this.${field.kotlinFieldName},")
+        fun writeCopyMethod(implName: String) {
+            if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
+                line("@Suppress(\"DEPRECATION\")")
             }
-            line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
-        }.line("): ${type.kotlinFullTypeName} = (this as $implName).copy(").indented {
-            type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
-            line("unknownFields = unknownFields")
-        }.line(")")
-
-        line().line("private data class $implName(").indented {
-            type.fields.forEach { field ->
-                lineBegin("override val ${field.kotlinFieldName}: ")
-                when (field) {
-                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
-                    is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
-                }
-                lineEnd(",")
-            }
-            // The unknown fields
-            line("override val unknownFields: Map<Int, pbandk.UnknownField>")
-        }.line(") : ${type.kotlinFullTypeName} {").indented {
-            line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
-            line("override val descriptor get() = ${type.kotlinFullTypeName}.descriptor")
-            line("override val protoSize by lazy { super.protoSize }")
-
-            if (type.extensionRange.isNotEmpty()) {
-                line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
-            }
-
-            type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
-                oneOf.fields.forEach { field ->
-                    line("override val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
-                        if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                        lineBegin("get() = ")
-                        lineMid("(${oneOf.kotlinFieldName} as? ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
-                        lineEnd("?.value")
+            line("override fun ${type.kotlinFullTypeName}.copy(").indented {
+                type.fields.forEach { field ->
+                    lineBegin("${field.kotlinFieldName}: ")
+                    when (field) {
+                        is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                        is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
                     }
+//                    lineEnd(" = this.${field.kotlinFieldName},")
+                    lineEnd(",")
                 }
-            }
-        }.line("}")        
-    }
- 
-    protected fun writeMessageMergeExtension(type: File.Type.Message) {
+//                line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
+                line("unknownFields: Map<Int, pbandk.UnknownField>")
+            }.line(") = $implName(").indented {
+                type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
+                line("unknownFields = unknownFields")
+            }.line(")")
+
+        }
+
         fun mergeStandard(field: File.Field.Numbered.Standard) {
             if (field.repeated) {
                 line("${field.kotlinFieldName} = ${field.kotlinFieldName} + plus.${field.kotlinFieldName},")
             } else if (field.type == File.Field.Type.MESSAGE) {
                 line(
                     "${field.kotlinFieldName} = " +
-                        "${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},"
+                            "${field.kotlinFieldName}?.plus(plus.${field.kotlinFieldName}) ?: plus.${field.kotlinFieldName},"
                 )
             } else if (field.hasPresence) {
                 line("${field.kotlinFieldName} = plus.${field.kotlinFieldName} ?: ${field.kotlinFieldName},")
@@ -381,14 +354,14 @@ public open class CodeGenerator(
                 line("${oneOf.kotlinFieldName} = when {").indented {
                     fieldsToMerge.forEach { subField ->
                         val subTypeName = "${type.kotlinFullTypeName}." +
-                            "${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[subField.name]}"
+                                "${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[subField.name]}"
                         line(
                             "${oneOf.kotlinFieldName} is $subTypeName && " +
-                                "plus.${oneOf.kotlinFieldName} is $subTypeName ->"
+                                    "plus.${oneOf.kotlinFieldName} is $subTypeName ->"
                         ).indented {
                             line(
                                 "$subTypeName((${oneOf.kotlinFieldName} as $subTypeName).value + " +
-                                    "(plus.${oneOf.kotlinFieldName} as $subTypeName).value)"
+                                        "(plus.${oneOf.kotlinFieldName} as $subTypeName).value)"
                             )
                         }
                     }
@@ -399,28 +372,106 @@ public open class CodeGenerator(
             }
         }
 
-        line()
-        line("private fun ${type.kotlinFullTypeName}.protoMergeImpl(plus: pbandk.Message?): ${type.kotlinFullTypeName} = (plus as? ${type.kotlinFullTypeName})?.let {").indented {
-            if (type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
-                line("@Suppress(\"DEPRECATION\")")
+        fun writeMergeMethod() {
+            lineBegin("override operator fun plus(plus: pbandk.Message?) = ")
+            lineEnd("(plus as? ${type.kotlinFullTypeName})?.let {").indented {
+                if (type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
+                    line("@Suppress(\"DEPRECATION\")")
+                }
+                line("it.copy(").indented {
+                    type.fields.forEach { field ->
+                        when (field) {
+                            is File.Field.Numbered.Standard -> mergeStandard(field)
+                            is File.Field.Numbered.Wrapper -> mergeWrapper(field)
+                            is File.Field.OneOf -> mergeOneOf(field)
+                        }
+                    }
+                    line("unknownFields = unknownFields + plus.unknownFields")
+                }.line(")")
+
+            }.line("} ?: this")
+        }
+
+        val implName = "${type.kotlinFullTypeName.replace('.', '_')}_Impl"
+
+        line().line("private class $implName(").indented {
+            type.fields.forEach { field ->
+                lineBegin("override val ${field.kotlinFieldName}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
+                }
+                lineEnd(",")
             }
-            line("it.copy(").indented {
-                type.fields.forEach { field ->
-                    when (field) {
-                        is File.Field.Numbered.Standard -> mergeStandard(field)
-                        is File.Field.Numbered.Wrapper -> mergeWrapper(field)
-                        is File.Field.OneOf -> mergeOneOf(field)
+            // The unknown fields
+            line("override val unknownFields: Map<Int, pbandk.UnknownField>")
+        }.line(") : ${type.kotlinFullTypeName} {").indented {
+            line("override val descriptor get() = ${type.kotlinFullTypeName}.descriptor")
+            line("override val protoSize by lazy(LazyThreadSafetyMode.PUBLICATION) { Sizer.rawMessageSize(this) }")
+
+            if (type.extensionRange.isNotEmpty()) {
+                line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
+            }
+
+            type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
+                line()
+                oneOf.fields.forEach { field ->
+                    line("override val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+                        if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
+                        lineBegin("get() = ")
+                        lineMid("(${oneOf.kotlinFieldName} as? ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
+                        lineEnd("?.value")
                     }
                 }
-                line("unknownFields = unknownFields + plus.unknownFields")
-            }.line(")")
+            }
 
-        }.line("} ?: this")
+            line()
+            line("override fun equals(other: Any?): Boolean {").indented {
+                line("if (this === other) return true")
+                line("if (other == null || this::class != other::class) return false")
+                line("other as ${type.kotlinFullTypeName}")
+                line()
+                type.fields.forEach { field ->
+                    line("if (${field.kotlinFieldName} != other.${field.kotlinFieldName}) return false")
+                }
+                line("if (unknownFields != other.unknownFields) return false")
+                line()
+                line("return true")
+            }.line("}")
+
+            line()
+            line("private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
+                line("var hash = 1")
+                type.fields.forEach { field ->
+                    line("hash = (31 * hash) + ${field.kotlinFieldName}.hashCode()")
+                }
+                line("hash = (31 * hash) + unknownFields.hashCode()")
+                line("hash")
+            }.line("}")
+            line()
+            line("override fun hashCode() = _hashCode")
+
+            line()
+            line("override fun toString() = buildString {").indented {
+                line("append(\"${type.kotlinTypeName}(\")")
+                type.fields.forEach { field ->
+                    line("append(\"${field.kotlinFieldName}=\$${field.kotlinFieldName}, \")")
+                }
+                line("append(\"unknownFields=\$unknownFields\")")
+                line("appendLine(\")\")")
+            }.line("}")
+
+            line()
+            writeCopyMethod(implName)
+
+            line()
+            writeMergeMethod()
+        }.line("}")
     }
 
     protected fun writeMessageDecodeWithExtension(type: File.Type.Message) {
         val lineStr = "private fun ${type.kotlinFullTypeName}.Companion." +
-            "decodeWithImpl(u: pbandk.MessageDecoder): ${type.kotlinFullTypeName} {"
+                "decodeWithImpl(u: pbandk.MessageDecoder): ${type.kotlinFullTypeName} {"
         line().line("@Suppress(\"UNCHECKED_CAST\")").line(lineStr).indented {
             // A bunch of locals for each field, initialized with defaults
             val doneKotlinFields = type.fields.map {
@@ -558,9 +609,9 @@ public open class CodeGenerator(
                 map -> {
                     val mapEntry = mapEntry()!!
                     "Map<${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>(" +
-                        "keyType = ${mapEntry.mapEntryKeyField!!.fieldDescriptorType()}, " +
-                        "valueType = ${mapEntry.mapEntryValueField!!.fieldDescriptorType()}" +
-                        ")"
+                            "keyType = ${mapEntry.mapEntryKeyField!!.fieldDescriptorType()}, " +
+                            "valueType = ${mapEntry.mapEntryValueField!!.fieldDescriptorType()}" +
+                            ")"
                 }
                 repeated -> "Repeated<$kotlinQualifiedTypeName>(valueType = ${copy(repeated = false).fieldDescriptorType()}${if (packed) ", packed = true" else ""})"
                 type == File.Field.Type.MESSAGE -> "Message(messageCompanion = $kotlinQualifiedTypeName.Companion)"
@@ -588,7 +639,7 @@ public open class CodeGenerator(
             repeated -> mapEntry().let { mapEntry ->
                 if (mapEntry == null) "var $kotlinFieldName: pbandk.ListWithSize.Builder<$kotlinQualifiedTypeName>? = null"
                 else "var $kotlinFieldName: pbandk.MessageMap.Builder<" +
-                    "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
+                        "${mapEntry.mapEntryKeyKotlinType}, ${mapEntry.mapEntryValueKotlinType}>? = null"
             }
             requiresExplicitTypeWithVal -> "var $kotlinFieldName: ${kotlinValueType(true)} = $defaultValue"
             else -> "var $kotlinFieldName = $defaultValue"

@@ -1,5 +1,6 @@
 package pbandk
 
+import pbandk.internal.binary.Sizer
 import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
@@ -27,9 +28,39 @@ public class MessageMap<K, V> internal constructor(override val entries: Set<Ent
     ) : Map.Entry<K, V>, Message {
         override fun plus(other: Message?): Message = throw UnsupportedOperationException()
 
-        override val protoSize: Int by lazy { super.protoSize }
+        override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { Sizer.rawMessageSize(this) }
 
         override val descriptor: MessageDescriptor<Entry<K, V>> = companion.descriptor
+
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (other == null || this::class != other::class) return false
+            other as Entry<*, *>
+
+            if (key != other.key) return false
+            if (value != other.value) return false
+            if (unknownFields != other.unknownFields) return false
+
+            return true
+        }
+
+        private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            var hash = 1
+            hash = (31 * hash) + key.hashCode()
+            hash = (31 * hash) + value.hashCode()
+            hash = (31 * hash) + unknownFields.hashCode()
+            hash
+        }
+
+        override fun hashCode() = _hashCode
+
+        override fun toString() = buildString {
+            append("Entry(")
+            append("key=$key, ")
+            append("value=$value, ")
+            append("unknownFields=$unknownFields")
+            appendLine(")")
+        }
 
         public class Companion<K, V>(
             internal val keyType: FieldDescriptor.Type,

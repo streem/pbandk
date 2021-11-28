@@ -13,7 +13,7 @@ public interface Message {
 
     public val descriptor: MessageDescriptor<out Message>
 
-    public val protoSize: Int get() = Sizer.rawMessageSize(this)
+    public val protoSize: Int
 
     public operator fun plus(other: Message?): Message
 
