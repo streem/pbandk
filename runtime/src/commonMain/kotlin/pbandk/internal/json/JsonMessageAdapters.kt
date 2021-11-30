@@ -138,7 +138,7 @@ internal object JsonMessageAdapters {
         Any.descriptor to object : JsonMessageAdapter<Any> {
             override fun encode(message: Any, jsonValueEncoder: JsonValueEncoder): JsonElement {
                 val companion = jsonValueEncoder.jsonConfig.typeRegistry.getTypeUrl(message.typeUrl)?.messageCompanion
-                    ?: throw InvalidProtocolBufferException("Type URL not found in type registry: $message.typeUrl")
+                    ?: throw InvalidProtocolBufferException("Type URL not found in type registry: ${message.typeUrl}")
                 val unpackedMessage = message.unpack(companion)
                 val messageAdapter = getAdapter(unpackedMessage)
                 val jsonContent = if (messageAdapter != null) {

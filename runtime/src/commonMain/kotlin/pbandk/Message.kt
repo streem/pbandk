@@ -1,6 +1,5 @@
 package pbandk
 
-import pbandk.internal.binary.Sizer
 import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate

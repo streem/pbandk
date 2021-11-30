@@ -2,7 +2,6 @@ package pbandk
 
 import pbandk.testpb.Bar
 import pbandk.testpb.Foo
-import pbandk.testpb.copy
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
