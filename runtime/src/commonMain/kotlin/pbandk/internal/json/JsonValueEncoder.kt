@@ -1,16 +1,29 @@
 package pbandk.internal.json
 
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.buildJsonArray
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import pbandk.ByteArr
 import pbandk.FieldDescriptor
 import pbandk.Message
 import pbandk.internal.Util
 import pbandk.json.JsonConfig
-import pbandk.wkt.*
-import kotlin.Any
+import pbandk.wkt.BoolValue
+import pbandk.wkt.BytesValue
+import pbandk.wkt.DoubleValue
+import pbandk.wkt.FloatValue
+import pbandk.wkt.Int32Value
+import pbandk.wkt.Int64Value
+import pbandk.wkt.NullValue
+import pbandk.wkt.StringValue
+import pbandk.wkt.UInt32Value
+import pbandk.wkt.UInt64Value
 
 @OptIn(ExperimentalUnsignedTypes::class)
-internal class JsonValueEncoder(private val jsonConfig: JsonConfig) {
+internal class JsonValueEncoder(val jsonConfig: JsonConfig) {
     fun writeValue(value: Any, type: FieldDescriptor.Type): JsonElement = when (type) {
         is FieldDescriptor.Type.Primitive.Double -> writeDouble(value as Double)
         is FieldDescriptor.Type.Primitive.Float -> writeFloat(value as Float)
@@ -114,14 +127,5 @@ internal class JsonValueEncoder(private val jsonConfig: JsonConfig) {
             if (k == null || v == null) continue
             put(writeValue(k, keyType).jsonPrimitive.content, writeValue(v, valueType))
         }
-    }
-
-    fun writeDynamicValue(value: Value): JsonElement = when (value.kind) {
-        is Value.Kind.StringValue -> writeString(value.kind.value)
-        is Value.Kind.BoolValue -> writeBool(value.kind.value)
-        is Value.Kind.NumberValue -> writeDouble(value.kind.value)
-        is Value.Kind.StructValue -> writeValue(value.kind.value.fields, Struct.descriptor.fields.first().type)
-        is Value.Kind.ListValue -> writeValue(value.kind.value.values, ListValue.descriptor.fields.first().type)
-        is Value.Kind.NullValue, null -> JsonNull
     }
 }

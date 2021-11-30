@@ -1,9 +1,6 @@
 package pbandk.internal.json
 
-import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.double
 import kotlinx.serialization.json.float
@@ -21,20 +18,15 @@ import pbandk.json.JsonConfig
 import pbandk.wkt.BoolValue
 import pbandk.wkt.BytesValue
 import pbandk.wkt.DoubleValue
-import pbandk.wkt.Duration
 import pbandk.wkt.FloatValue
 import pbandk.wkt.Int32Value
 import pbandk.wkt.Int64Value
-import pbandk.wkt.ListValue
 import pbandk.wkt.StringValue
-import pbandk.wkt.Struct
-import pbandk.wkt.Timestamp
 import pbandk.wkt.UInt32Value
 import pbandk.wkt.UInt64Value
-import pbandk.wkt.Value
 
 @OptIn(ExperimentalUnsignedTypes::class)
-internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
+internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
     /**
      * Returns `null` if the value was parseable but is invalid. This currently only happens for enum fields with
      * unknown values.
@@ -67,14 +59,9 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
             BoolValue -> readBool(value, isMapKey)
             StringValue -> readString(value, isMapKey)
             BytesValue -> readBytes(value)
-            // Other well-known types with special JSON encoding
-            Timestamp -> Util.stringToTimestamp(readString(value, false))
-            Duration -> Util.stringToDuration(readString(value, false))
-            Struct -> readStruct(value)
-            Value -> readDynamicValue(value)
-            ListValue -> readDynamicListValue(value)
             // All other message types
-            else -> readMessage(value, type.messageCompanion)
+            else -> JsonMessageAdapters.getAdapter(type.messageCompanion)?.decode(value, this)
+                ?: readMessage(value, type.messageCompanion)
         }
         is FieldDescriptor.Type.Enum<*> -> readEnum(value, type.enumCompanion)
         is FieldDescriptor.Type.Repeated<*> -> readRepeated(value, type.valueType)
@@ -273,44 +260,6 @@ internal class JsonValueDecoder(private val jsonConfig: JsonConfig) {
         throw e
     } catch (e: Exception) {
         throw InvalidProtocolBufferException("map field did not contain a valid object", e)
-    }
-
-    fun readStruct(value: JsonElement): Struct = try {
-        val fields = readMap(value, Struct.descriptor.fields.first().type as FieldDescriptor.Type.Map<*, *>)
-        @Suppress("UNCHECKED_CAST")
-        Struct(MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>))
-    } catch (e: InvalidProtocolBufferException) {
-        throw e
-    } catch (e: Exception) {
-        throw InvalidProtocolBufferException("struct field did not contain a valid object", e)
-    }
-
-    fun readDynamicValue(value: JsonElement): Value = when (value) {
-        is JsonNull -> Value(kind = Value.Kind.NullValue())
-        is JsonPrimitive -> runCatching { Value(kind = Value.Kind.StringValue(readString(value))) }
-            .recoverCatching { Value(kind = Value.Kind.NumberValue(readDouble(value))) }
-            .recoverCatching { Value(kind = Value.Kind.BoolValue(readBool(value))) }
-            .getOrElse { throw InvalidProtocolBufferException("dynamically typed value did not contain a valid primitive object") }
-        is JsonArray -> Value(
-            kind = Value.Kind.ListValue(
-                readValue(value, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue
-            )
-        )
-        is JsonObject -> Value(
-            kind = Value.Kind.StructValue(
-                readValue(value, FieldDescriptor.Type.Message(Struct.Companion)) as Struct
-            )
-        )
-    }
-
-    fun readDynamicListValue(value: JsonElement): ListValue = try {
-        @Suppress("UNCHECKED_CAST")
-        val values = readValue(value, ListValue.descriptor.fields.first().type) as Sequence<Value>
-        ListValue(values.toList())
-    } catch (e: InvalidProtocolBufferException) {
-        throw e
-    } catch (e: Exception) {
-        throw InvalidProtocolBufferException("dynamically typed list value did not contain a valid object", e)
     }
 
     companion object {
