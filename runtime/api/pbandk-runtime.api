@@ -1,3 +1,10 @@
+public final class pbandk/AnyExtensionsKt {
+	public static final fun isA (Lpbandk/wkt/Any;Lpbandk/Message$Companion;)Z
+	public static final fun pack (Lpbandk/wkt/Any$Companion;Lpbandk/Message;Ljava/lang/String;)Lpbandk/wkt/Any;
+	public static synthetic fun pack$default (Lpbandk/wkt/Any$Companion;Lpbandk/Message;Ljava/lang/String;ILjava/lang/Object;)Lpbandk/wkt/Any;
+	public static final fun unpack (Lpbandk/wkt/Any;Lpbandk/Message$Companion;)Lpbandk/Message;
+}
+
 public final class pbandk/ByteArr {
 	public static final field Companion Lpbandk/ByteArr$Companion;
 	public fun <init> ([B)V
@@ -342,6 +349,32 @@ public abstract interface annotation class pbandk/PbandkInternal : java/lang/ann
 public abstract interface annotation class pbandk/PublicForGeneratedCode : java/lang/annotation/Annotation {
 }
 
+public abstract interface class pbandk/TypeRegistry {
+	public static final field Companion Lpbandk/TypeRegistry$Companion;
+	public abstract fun contains (Ljava/lang/String;)Z
+	public abstract fun get (Ljava/lang/String;)Lpbandk/MessageDescriptor;
+}
+
+public abstract interface class pbandk/TypeRegistry$Builder : pbandk/TypeRegistry {
+	public abstract fun add (Lpbandk/MessageDescriptor;)V
+}
+
+public final class pbandk/TypeRegistry$Companion {
+	public final fun getEMPTY ()Lpbandk/TypeRegistry;
+}
+
+public abstract interface annotation class pbandk/TypeRegistryDsl : java/lang/annotation/Annotation {
+}
+
+public final class pbandk/TypeRegistryKt {
+	public static final fun add (Lpbandk/TypeRegistry$Builder;Lpbandk/Message$Companion;)V
+	public static final fun contains (Lpbandk/TypeRegistry;Lpbandk/Message$Companion;)Z
+	public static final fun contains (Lpbandk/TypeRegistry;Lpbandk/MessageDescriptor;)Z
+	public static final fun containsTypeUrl (Lpbandk/TypeRegistry;Ljava/lang/String;)Z
+	public static final fun getTypeUrl (Lpbandk/TypeRegistry;Ljava/lang/String;)Lpbandk/MessageDescriptor;
+	public static final fun typeRegistry (Lkotlin/jvm/functions/Function1;)Lpbandk/TypeRegistry;
+}
+
 public final class pbandk/UnknownField {
 	public fun <init> (ILjava/util/List;)V
 	public final fun component1 ()I
@@ -372,21 +405,23 @@ public final class pbandk/UnknownField$Value {
 public final class pbandk/json/JsonConfig {
 	public static final field Companion Lpbandk/json/JsonConfig$Companion;
 	public fun <init> ()V
-	public fun <init> (ZZZZZ)V
-	public synthetic fun <init> (ZZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (ZZZZZLpbandk/TypeRegistry;)V
+	public synthetic fun <init> (ZZZZZLpbandk/TypeRegistry;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Z
 	public final fun component2 ()Z
 	public final fun component3 ()Z
 	public final fun component4 ()Z
 	public final fun component5 ()Z
-	public final fun copy (ZZZZZ)Lpbandk/json/JsonConfig;
-	public static synthetic fun copy$default (Lpbandk/json/JsonConfig;ZZZZZILjava/lang/Object;)Lpbandk/json/JsonConfig;
+	public final fun component6 ()Lpbandk/TypeRegistry;
+	public final fun copy (ZZZZZLpbandk/TypeRegistry;)Lpbandk/json/JsonConfig;
+	public static synthetic fun copy$default (Lpbandk/json/JsonConfig;ZZZZZLpbandk/TypeRegistry;ILjava/lang/Object;)Lpbandk/json/JsonConfig;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCompactOutput ()Z
 	public final fun getIgnoreUnknownFieldsInInput ()Z
 	public final fun getOutputDefaultStringsAsNull ()Z
 	public final fun getOutputDefaultValues ()Z
 	public final fun getOutputProtoFieldNames ()Z
+	public final fun getTypeRegistry ()Lpbandk/TypeRegistry;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

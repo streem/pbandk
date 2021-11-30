@@ -5,11 +5,19 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageMap
+import pbandk.getTypeNameFromTypeUrl
+import pbandk.getTypePrefixFromTypeUrl
+import pbandk.getTypeUrl
 import pbandk.internal.Util
+import pbandk.pack
+import pbandk.unpack
+import pbandk.wkt.Any
 import pbandk.wkt.BoolValue
 import pbandk.wkt.BytesValue
 import pbandk.wkt.DoubleValue
@@ -126,6 +134,48 @@ internal object JsonMessageAdapters {
         },
 
         // Other well-known types with special JSON encoding
+
+        Any.descriptor to object : JsonMessageAdapter<Any> {
+            override fun encode(message: Any, jsonValueEncoder: JsonValueEncoder): JsonElement {
+                val companion = jsonValueEncoder.jsonConfig.typeRegistry.getTypeUrl(message.typeUrl)?.messageCompanion
+                    ?: throw InvalidProtocolBufferException("Type URL not found in type registry: $message.typeUrl")
+                val unpackedMessage = message.unpack(companion)
+                val messageAdapter = getAdapter(unpackedMessage)
+                val jsonContent = if (messageAdapter != null) {
+                    mapOf("value" to messageAdapter.encode(unpackedMessage, jsonValueEncoder))
+                } else {
+                    jsonValueEncoder.writeMessage(unpackedMessage).jsonObject
+                }
+                return JsonObject(jsonContent + ("@type" to JsonPrimitive(message.typeUrl)))
+
+            }
+
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder): Any {
+                val content = json.jsonObject
+
+                val typeUrl = content["@type"]?.jsonPrimitive?.takeIf { it.isString }?.content
+                    ?: throw InvalidProtocolBufferException("'@type' field not found in google.protobuf.Any message")
+
+                val companion = jsonValueDecoder.jsonConfig.typeRegistry.getTypeUrl(typeUrl)?.messageCompanion
+                    ?: throw InvalidProtocolBufferException("Type URL not found in type registry: $typeUrl")
+                val messageAdapter = getAdapter(companion)
+                val message = if (messageAdapter != null) {
+                    val jsonValue = content["value"] ?: throw InvalidProtocolBufferException(
+                        "'value' field not found in google.protobuf.Any message containing a '${
+                            getTypeNameFromTypeUrl(typeUrl)
+                        }' message"
+                    )
+                    messageAdapter.decode(jsonValue, jsonValueDecoder)
+                } else {
+                    jsonValueDecoder.readMessage(JsonObject(content - "@type"), companion)
+                }
+                return if ('/' in typeUrl) {
+                    Any.pack(message, getTypePrefixFromTypeUrl(typeUrl))
+                } else {
+                    Any.pack(message)
+                }
+            }
+        },
 
         Duration.descriptor to object : JsonMessageAdapter<Duration> {
             override fun encode(message: Duration, jsonValueEncoder: JsonValueEncoder) =
