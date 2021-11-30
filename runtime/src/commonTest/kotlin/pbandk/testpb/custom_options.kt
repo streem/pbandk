@@ -39,6 +39,7 @@ data class SingleRequiredCustomOption(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.SingleRequiredCustomOption",
                 messageClass = pbandk.testpb.SingleRequiredCustomOption::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -85,6 +86,7 @@ data class MultipleCustomOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.MultipleCustomOptions",
                 messageClass = pbandk.testpb.MultipleCustomOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -134,6 +136,7 @@ data class MultipleCustomOptionsPlusDeprecated(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.MultipleCustomOptionsPlusDeprecated",
                 messageClass = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::class,
                 messageCompanion = this,
                 fields = fieldsList

@@ -18,6 +18,7 @@ data class Empty(
             fieldsList.apply {
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Empty",
                 messageClass = pbandk.wkt.Empty::class,
                 messageCompanion = this,
                 fields = fieldsList

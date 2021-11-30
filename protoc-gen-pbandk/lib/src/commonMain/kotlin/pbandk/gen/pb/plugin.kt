@@ -62,6 +62,7 @@ data class Version(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.compiler.Version",
                 messageClass = pbandk.gen.pb.Version::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -130,6 +131,7 @@ data class CodeGeneratorRequest(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.compiler.CodeGeneratorRequest",
                 messageClass = pbandk.gen.pb.CodeGeneratorRequest::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -187,6 +189,7 @@ data class CodeGeneratorResponse(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.compiler.CodeGeneratorResponse",
                 messageClass = pbandk.gen.pb.CodeGeneratorResponse::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -195,16 +198,16 @@ data class CodeGeneratorResponse(
     }
 
     sealed class Feature(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.gen.pb.CodeGeneratorResponse.Feature && other.value == value
+        override fun equals(other: kotlin.Any?) = other is CodeGeneratorResponse.Feature && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.gen.pb.CodeGeneratorResponse.Feature.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "CodeGeneratorResponse.Feature.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object NONE : Feature(0, "FEATURE_NONE")
         object PROTO3_OPTIONAL : Feature(1, "FEATURE_PROTO3_OPTIONAL")
-        class UNRECOGNIZED(value: Int) : pbandk.gen.pb.CodeGeneratorResponse.Feature(value)
+        class UNRECOGNIZED(value: Int) : Feature(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.gen.pb.CodeGeneratorResponse.Feature> {
-            val values: List<pbandk.gen.pb.CodeGeneratorResponse.Feature> by lazy { listOf(NONE, PROTO3_OPTIONAL) }
+        companion object : pbandk.Message.Enum.Companion<CodeGeneratorResponse.Feature> {
+            val values: List<CodeGeneratorResponse.Feature> by lazy { listOf(NONE, PROTO3_OPTIONAL) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Feature with name: $name")
         }
@@ -269,6 +272,7 @@ data class CodeGeneratorResponse(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.compiler.CodeGeneratorResponse.File",
                     messageClass = pbandk.gen.pb.CodeGeneratorResponse.File::class,
                     messageCompanion = this,
                     fields = fieldsList

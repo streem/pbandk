@@ -29,6 +29,7 @@ data class FileDescriptorSet(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FileDescriptorSet",
                 messageClass = pbandk.wkt.FileDescriptorSet::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -185,6 +186,7 @@ data class FileDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FileDescriptorProto",
                 messageClass = pbandk.wkt.FileDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -319,6 +321,7 @@ data class DescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.DescriptorProto",
                 messageClass = pbandk.wkt.DescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -374,6 +377,7 @@ data class DescriptorProto(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.DescriptorProto.ExtensionRange",
                     messageClass = pbandk.wkt.DescriptorProto.ExtensionRange::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -419,6 +423,7 @@ data class DescriptorProto(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.DescriptorProto.ReservedRange",
                     messageClass = pbandk.wkt.DescriptorProto.ReservedRange::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -458,6 +463,7 @@ data class ExtensionRangeOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.ExtensionRangeOptions",
                 messageClass = pbandk.wkt.ExtensionRangeOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -603,6 +609,7 @@ data class FieldDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FieldDescriptorProto",
                 messageClass = pbandk.wkt.FieldDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -611,9 +618,9 @@ data class FieldDescriptorProto(
     }
 
     sealed class Type(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.FieldDescriptorProto.Type && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldDescriptorProto.Type && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.FieldDescriptorProto.Type.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldDescriptorProto.Type.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object DOUBLE : Type(1, "TYPE_DOUBLE")
         object FLOAT : Type(2, "TYPE_FLOAT")
@@ -633,27 +640,27 @@ data class FieldDescriptorProto(
         object SFIXED64 : Type(16, "TYPE_SFIXED64")
         object SINT32 : Type(17, "TYPE_SINT32")
         object SINT64 : Type(18, "TYPE_SINT64")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.FieldDescriptorProto.Type(value)
+        class UNRECOGNIZED(value: Int) : Type(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldDescriptorProto.Type> {
-            val values: List<pbandk.wkt.FieldDescriptorProto.Type> by lazy { listOf(DOUBLE, FLOAT, INT64, UINT64, INT32, FIXED64, FIXED32, BOOL, STRING, GROUP, MESSAGE, BYTES, UINT32, ENUM, SFIXED32, SFIXED64, SINT32, SINT64) }
+        companion object : pbandk.Message.Enum.Companion<FieldDescriptorProto.Type> {
+            val values: List<FieldDescriptorProto.Type> by lazy { listOf(DOUBLE, FLOAT, INT64, UINT64, INT32, FIXED64, FIXED32, BOOL, STRING, GROUP, MESSAGE, BYTES, UINT32, ENUM, SFIXED32, SFIXED64, SINT32, SINT64) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Type with name: $name")
         }
     }
 
     sealed class Label(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.FieldDescriptorProto.Label && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldDescriptorProto.Label && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.FieldDescriptorProto.Label.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldDescriptorProto.Label.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object OPTIONAL : Label(1, "LABEL_OPTIONAL")
         object REQUIRED : Label(2, "LABEL_REQUIRED")
         object REPEATED : Label(3, "LABEL_REPEATED")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.FieldDescriptorProto.Label(value)
+        class UNRECOGNIZED(value: Int) : Label(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldDescriptorProto.Label> {
-            val values: List<pbandk.wkt.FieldDescriptorProto.Label> by lazy { listOf(OPTIONAL, REQUIRED, REPEATED) }
+        companion object : pbandk.Message.Enum.Companion<FieldDescriptorProto.Label> {
+            val values: List<FieldDescriptorProto.Label> by lazy { listOf(OPTIONAL, REQUIRED, REPEATED) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Label with name: $name")
         }
@@ -698,6 +705,7 @@ data class OneofDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.OneofDescriptorProto",
                 messageClass = pbandk.wkt.OneofDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -777,6 +785,7 @@ data class EnumDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.EnumDescriptorProto",
                 messageClass = pbandk.wkt.EnumDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -821,6 +830,7 @@ data class EnumDescriptorProto(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.EnumDescriptorProto.EnumReservedRange",
                     messageClass = pbandk.wkt.EnumDescriptorProto.EnumReservedRange::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -879,6 +889,7 @@ data class EnumValueDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.EnumValueDescriptorProto",
                 messageClass = pbandk.wkt.EnumValueDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -936,6 +947,7 @@ data class ServiceDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.ServiceDescriptorProto",
                 messageClass = pbandk.wkt.ServiceDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1026,6 +1038,7 @@ data class MethodDescriptorProto(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.MethodDescriptorProto",
                 messageClass = pbandk.wkt.MethodDescriptorProto::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1289,6 +1302,7 @@ data class FileOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FileOptions",
                 messageClass = pbandk.wkt.FileOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1297,17 +1311,17 @@ data class FileOptions(
     }
 
     sealed class OptimizeMode(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.FileOptions.OptimizeMode && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FileOptions.OptimizeMode && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.FileOptions.OptimizeMode.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FileOptions.OptimizeMode.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object SPEED : OptimizeMode(1, "SPEED")
         object CODE_SIZE : OptimizeMode(2, "CODE_SIZE")
         object LITE_RUNTIME : OptimizeMode(3, "LITE_RUNTIME")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.FileOptions.OptimizeMode(value)
+        class UNRECOGNIZED(value: Int) : OptimizeMode(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FileOptions.OptimizeMode> {
-            val values: List<pbandk.wkt.FileOptions.OptimizeMode> by lazy { listOf(SPEED, CODE_SIZE, LITE_RUNTIME) }
+        companion object : pbandk.Message.Enum.Companion<FileOptions.OptimizeMode> {
+            val values: List<FileOptions.OptimizeMode> by lazy { listOf(SPEED, CODE_SIZE, LITE_RUNTIME) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No OptimizeMode with name: $name")
         }
@@ -1388,6 +1402,7 @@ data class MessageOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.MessageOptions",
                 messageClass = pbandk.wkt.MessageOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1492,6 +1507,7 @@ data class FieldOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.FieldOptions",
                 messageClass = pbandk.wkt.FieldOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1500,34 +1516,34 @@ data class FieldOptions(
     }
 
     sealed class CType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.FieldOptions.CType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldOptions.CType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.FieldOptions.CType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldOptions.CType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object STRING : CType(0, "STRING")
         object CORD : CType(1, "CORD")
         object STRING_PIECE : CType(2, "STRING_PIECE")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.FieldOptions.CType(value)
+        class UNRECOGNIZED(value: Int) : CType(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldOptions.CType> {
-            val values: List<pbandk.wkt.FieldOptions.CType> by lazy { listOf(STRING, CORD, STRING_PIECE) }
+        companion object : pbandk.Message.Enum.Companion<FieldOptions.CType> {
+            val values: List<FieldOptions.CType> by lazy { listOf(STRING, CORD, STRING_PIECE) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No CType with name: $name")
         }
     }
 
     sealed class JSType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.FieldOptions.JSType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is FieldOptions.JSType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.FieldOptions.JSType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "FieldOptions.JSType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object JS_NORMAL : JSType(0, "JS_NORMAL")
         object JS_STRING : JSType(1, "JS_STRING")
         object JS_NUMBER : JSType(2, "JS_NUMBER")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.FieldOptions.JSType(value)
+        class UNRECOGNIZED(value: Int) : JSType(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.FieldOptions.JSType> {
-            val values: List<pbandk.wkt.FieldOptions.JSType> by lazy { listOf(JS_NORMAL, JS_STRING, JS_NUMBER) }
+        companion object : pbandk.Message.Enum.Companion<FieldOptions.JSType> {
+            val values: List<FieldOptions.JSType> by lazy { listOf(JS_NORMAL, JS_STRING, JS_NUMBER) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No JSType with name: $name")
         }
@@ -1564,6 +1580,7 @@ data class OneofOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.OneofOptions",
                 messageClass = pbandk.wkt.OneofOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1624,6 +1641,7 @@ data class EnumOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.EnumOptions",
                 messageClass = pbandk.wkt.EnumOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1673,6 +1691,7 @@ data class EnumValueOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.EnumValueOptions",
                 messageClass = pbandk.wkt.EnumValueOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1722,6 +1741,7 @@ data class ServiceOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.ServiceOptions",
                 messageClass = pbandk.wkt.ServiceOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1782,6 +1802,7 @@ data class MethodOptions(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.MethodOptions",
                 messageClass = pbandk.wkt.MethodOptions::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1790,17 +1811,17 @@ data class MethodOptions(
     }
 
     sealed class IdempotencyLevel(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.MethodOptions.IdempotencyLevel && other.value == value
+        override fun equals(other: kotlin.Any?) = other is MethodOptions.IdempotencyLevel && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.MethodOptions.IdempotencyLevel.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "MethodOptions.IdempotencyLevel.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object IDEMPOTENCY_UNKNOWN : IdempotencyLevel(0, "IDEMPOTENCY_UNKNOWN")
         object NO_SIDE_EFFECTS : IdempotencyLevel(1, "NO_SIDE_EFFECTS")
         object IDEMPOTENT : IdempotencyLevel(2, "IDEMPOTENT")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.MethodOptions.IdempotencyLevel(value)
+        class UNRECOGNIZED(value: Int) : IdempotencyLevel(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.MethodOptions.IdempotencyLevel> {
-            val values: List<pbandk.wkt.MethodOptions.IdempotencyLevel> by lazy { listOf(IDEMPOTENCY_UNKNOWN, NO_SIDE_EFFECTS, IDEMPOTENT) }
+        companion object : pbandk.Message.Enum.Companion<MethodOptions.IdempotencyLevel> {
+            val values: List<MethodOptions.IdempotencyLevel> by lazy { listOf(IDEMPOTENCY_UNKNOWN, NO_SIDE_EFFECTS, IDEMPOTENT) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No IdempotencyLevel with name: $name")
         }
@@ -1900,6 +1921,7 @@ data class UninterpretedOption(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.UninterpretedOption",
                 messageClass = pbandk.wkt.UninterpretedOption::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1944,6 +1966,7 @@ data class UninterpretedOption(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.UninterpretedOption.NamePart",
                     messageClass = pbandk.wkt.UninterpretedOption.NamePart::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1980,6 +2003,7 @@ data class SourceCodeInfo(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.SourceCodeInfo",
                 messageClass = pbandk.wkt.SourceCodeInfo::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2057,6 +2081,7 @@ data class SourceCodeInfo(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.SourceCodeInfo.Location",
                     messageClass = pbandk.wkt.SourceCodeInfo.Location::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2093,6 +2118,7 @@ data class GeneratedCodeInfo(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.GeneratedCodeInfo",
                 messageClass = pbandk.wkt.GeneratedCodeInfo::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2159,6 +2185,7 @@ data class GeneratedCodeInfo(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "google.protobuf.GeneratedCodeInfo.Annotation",
                     messageClass = pbandk.wkt.GeneratedCodeInfo.Annotation::class,
                     messageCompanion = this,
                     fields = fieldsList

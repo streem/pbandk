@@ -101,6 +101,7 @@ data class Type(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Type",
                 messageClass = pbandk.wkt.Type::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -235,6 +236,7 @@ data class Field(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Field",
                 messageClass = pbandk.wkt.Field::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -243,9 +245,9 @@ data class Field(
     }
 
     sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Field.Kind && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Field.Kind && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object TYPE_UNKNOWN : Kind(0, "TYPE_UNKNOWN")
         object TYPE_DOUBLE : Kind(1, "TYPE_DOUBLE")
@@ -266,28 +268,28 @@ data class Field(
         object TYPE_SFIXED64 : Kind(16, "TYPE_SFIXED64")
         object TYPE_SINT32 : Kind(17, "TYPE_SINT32")
         object TYPE_SINT64 : Kind(18, "TYPE_SINT64")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.Field.Kind(value)
+        class UNRECOGNIZED(value: Int) : Kind(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Kind> {
-            val values: List<pbandk.wkt.Field.Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
+        companion object : pbandk.Message.Enum.Companion<Field.Kind> {
+            val values: List<Field.Kind> by lazy { listOf(TYPE_UNKNOWN, TYPE_DOUBLE, TYPE_FLOAT, TYPE_INT64, TYPE_UINT64, TYPE_INT32, TYPE_FIXED64, TYPE_FIXED32, TYPE_BOOL, TYPE_STRING, TYPE_GROUP, TYPE_MESSAGE, TYPE_BYTES, TYPE_UINT32, TYPE_ENUM, TYPE_SFIXED32, TYPE_SFIXED64, TYPE_SINT32, TYPE_SINT64) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Kind with name: $name")
         }
     }
 
     sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Field.Cardinality && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Field.Cardinality && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object UNKNOWN : Cardinality(0, "CARDINALITY_UNKNOWN")
         object OPTIONAL : Cardinality(1, "CARDINALITY_OPTIONAL")
         object REQUIRED : Cardinality(2, "CARDINALITY_REQUIRED")
         object REPEATED : Cardinality(3, "CARDINALITY_REPEATED")
-        class UNRECOGNIZED(value: Int) : pbandk.wkt.Field.Cardinality(value)
+        class UNRECOGNIZED(value: Int) : Cardinality(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Field.Cardinality> {
-            val values: List<pbandk.wkt.Field.Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
+        companion object : pbandk.Message.Enum.Companion<Field.Cardinality> {
+            val values: List<Field.Cardinality> by lazy { listOf(UNKNOWN, OPTIONAL, REQUIRED, REPEATED) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Cardinality with name: $name")
         }
@@ -365,6 +367,7 @@ data class Enum(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Enum",
                 messageClass = pbandk.wkt.Enum::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -422,6 +425,7 @@ data class EnumValue(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.EnumValue",
                 messageClass = pbandk.wkt.EnumValue::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -468,6 +472,7 @@ data class Option(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Option",
                 messageClass = pbandk.wkt.Option::class,
                 messageCompanion = this,
                 fields = fieldsList

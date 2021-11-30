@@ -40,6 +40,7 @@ data class Any(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Any",
                 messageClass = pbandk.wkt.Any::class,
                 messageCompanion = this,
                 fields = fieldsList

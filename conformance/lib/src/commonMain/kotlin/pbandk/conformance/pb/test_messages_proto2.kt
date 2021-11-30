@@ -1358,6 +1358,7 @@ data class TestAllTypesProto2(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.TestAllTypesProto2",
                 messageClass = pbandk.conformance.pb.TestAllTypesProto2::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1366,18 +1367,18 @@ data class TestAllTypesProto2(
     }
 
     sealed class NestedEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.conformance.pb.TestAllTypesProto2.NestedEnum && other.value == value
+        override fun equals(other: kotlin.Any?) = other is TestAllTypesProto2.NestedEnum && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.conformance.pb.TestAllTypesProto2.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "TestAllTypesProto2.NestedEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object FOO : NestedEnum(0, "FOO")
         object BAR : NestedEnum(1, "BAR")
         object BAZ : NestedEnum(2, "BAZ")
         object NEG : NestedEnum(-1, "NEG")
-        class UNRECOGNIZED(value: Int) : pbandk.conformance.pb.TestAllTypesProto2.NestedEnum(value)
+        class UNRECOGNIZED(value: Int) : NestedEnum(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> {
-            val values: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
+        companion object : pbandk.Message.Enum.Companion<TestAllTypesProto2.NestedEnum> {
+            val values: List<TestAllTypesProto2.NestedEnum> by lazy { listOf(FOO, BAR, BAZ, NEG) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NestedEnum with name: $name")
         }
@@ -1420,6 +1421,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1465,6 +1467,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapInt32Int32Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1510,6 +1513,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapInt64Int64Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1555,6 +1559,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapUint32Uint32Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1600,6 +1605,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapUint64Uint64Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1645,6 +1651,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapSint32Sint32Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1690,6 +1697,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapSint64Sint64Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1735,6 +1743,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapFixed32Fixed32Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1780,6 +1789,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapFixed64Fixed64Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1825,6 +1835,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapSfixed32Sfixed32Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1870,6 +1881,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapSfixed64Sfixed64Entry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1915,6 +1927,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapInt32FloatEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -1960,6 +1973,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapInt32DoubleEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2005,6 +2019,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapBoolBoolEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2050,6 +2065,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapStringStringEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2095,6 +2111,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapStringBytesEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2140,6 +2157,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapStringNestedMessageEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2185,6 +2203,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapStringForeignMessageEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2230,6 +2249,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapStringNestedEnumEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2275,6 +2295,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MapStringForeignEnumEntry",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2320,6 +2341,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.Data",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.Data::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2346,6 +2368,7 @@ data class TestAllTypesProto2(
                 fieldsList.apply {
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrect",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2380,6 +2403,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension1",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2414,6 +2438,7 @@ data class TestAllTypesProto2(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2",
                     messageClass = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -2450,6 +2475,7 @@ data class ForeignMessageProto2(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.ForeignMessageProto2",
                 messageClass = pbandk.conformance.pb.ForeignMessageProto2::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2529,6 +2555,7 @@ data class UnknownToTestAllTypes(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "protobuf_test_messages.proto2.UnknownToTestAllTypes",
                 messageClass = pbandk.conformance.pb.UnknownToTestAllTypes::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2562,6 +2589,7 @@ data class UnknownToTestAllTypes(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "protobuf_test_messages.proto2.UnknownToTestAllTypes.OptionalGroup",
                     messageClass = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup::class,
                     messageCompanion = this,
                     fields = fieldsList

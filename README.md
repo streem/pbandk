@@ -7,7 +7,7 @@
 Pbandk is a Kotlin code generator and runtime for [Protocol Buffers](https://developers.google.com/protocol-buffers/).
 It is built to work across multiple Kotlin platforms.
 
-**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.12.2/README.md.
+**NOTE**: This is the documentation for the version of pbandk currently in development. **Documentation for the latest stable version** is available at https://github.com/streem/pbandk/blob/v0.12.1/README.md.
 
 **Features**
 
@@ -160,7 +160,8 @@ data class Person(
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = Person::class,
+                fullName = "tutorial.Person",
+                messageClass = tutorial.Person::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -219,9 +220,10 @@ data class Person(
                         )
                     )
                 }
-                pbandk.MessageDescriptor(            
-                    messageClass = Person.PhoneNumber::class,
-                    messageCompanion = this,                    
+                pbandk.MessageDescriptor(
+                    fullName = "tutorial.Person.PhoneNumber",
+                    messageClass = tutorial.Person.PhoneNumber::class,
+                    messageCompanion = this,
                     fields = fieldsList
                 )
             }
@@ -254,7 +256,8 @@ data class AddressBook(
                 )
             }
             pbandk.MessageDescriptor(
-                messageClass = AddressBook::class,
+                fullName = "tutorial.AddressBook",
+                messageClass = tutorial.AddressBook::class,
                 messageCompanion = this,
                 fields = fieldsList
             )
@@ -339,7 +342,7 @@ repositories {
 dependencies {
     // Can be used from the `common` sourceset in a Kotlin Multiplatform project,
     // or from platform-specific JVM, Android, JS, or Native sourcesets/projects.
-    implementation("pro.streem.pbandk:pbandk-runtime:0.12.2-SNAPSHOT")
+    implementation("pro.streem.pbandk:pbandk-runtime:0.13.0-SNAPSHOT")
 }
 ```
 
@@ -369,7 +372,7 @@ runtime:
 
 ```
 dependencies {
-    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.12.2-SNAPSHOT")
+    compileOnly("pro.streem.pbandk:protoc-gen-pbandk-lib:0.13.0-SNAPSHOT")
 }
 ```
 

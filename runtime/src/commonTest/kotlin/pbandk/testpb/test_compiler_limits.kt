@@ -2037,6 +2037,7 @@ data class MessageWithLotsOfFields(
             addFields3(fieldsList)
             addFields4(fieldsList)
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.MessageWithLotsOfFields",
                 messageClass = pbandk.testpb.MessageWithLotsOfFields::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -18094,6 +18095,7 @@ data class MessageWithHugeOneof(
             addFields8(fieldsList)
             addFields9(fieldsList)
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.MessageWithHugeOneof",
                 messageClass = pbandk.testpb.MessageWithHugeOneof::class,
                 messageCompanion = this,
                 fields = fieldsList

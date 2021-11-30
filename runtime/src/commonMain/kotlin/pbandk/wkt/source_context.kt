@@ -29,6 +29,7 @@ data class SourceContext(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.SourceContext",
                 messageClass = pbandk.wkt.SourceContext::class,
                 messageCompanion = this,
                 fields = fieldsList

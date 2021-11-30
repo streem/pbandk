@@ -51,6 +51,7 @@ class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V
 
             @Suppress("UNCHECKED_CAST")
             override val descriptor: MessageDescriptor<Entry<K, V>> = MessageDescriptor(
+                fullName = "MapFieldEntry",
                 messageClass = Entry::class as KClass<Entry<K, V>>,
                 messageCompanion = this,
                 fields = listOf(

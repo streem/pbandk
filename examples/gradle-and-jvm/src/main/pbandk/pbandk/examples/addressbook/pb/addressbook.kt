@@ -73,6 +73,7 @@ data class Person(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "tutorial.Person",
                 messageClass = pbandk.examples.addressbook.pb.Person::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -81,17 +82,17 @@ data class Person(
     }
 
     sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is pbandk.examples.addressbook.pb.Person.PhoneType && other.value == value
+        override fun equals(other: kotlin.Any?) = other is Person.PhoneType && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.examples.addressbook.pb.Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object MOBILE : PhoneType(0, "MOBILE")
         object HOME : PhoneType(1, "HOME")
         object WORK : PhoneType(2, "WORK")
-        class UNRECOGNIZED(value: Int) : pbandk.examples.addressbook.pb.Person.PhoneType(value)
+        class UNRECOGNIZED(value: Int) : PhoneType(value)
 
-        companion object : pbandk.Message.Enum.Companion<pbandk.examples.addressbook.pb.Person.PhoneType> {
-            val values: List<pbandk.examples.addressbook.pb.Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
+        companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
+            val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
             override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
             override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
@@ -134,6 +135,7 @@ data class Person(
                     )
                 }
                 pbandk.MessageDescriptor(
+                    fullName = "tutorial.Person.PhoneNumber",
                     messageClass = pbandk.examples.addressbook.pb.Person.PhoneNumber::class,
                     messageCompanion = this,
                     fields = fieldsList
@@ -170,6 +172,7 @@ data class AddressBook(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "tutorial.AddressBook",
                 messageClass = pbandk.examples.addressbook.pb.AddressBook::class,
                 messageCompanion = this,
                 fields = fieldsList

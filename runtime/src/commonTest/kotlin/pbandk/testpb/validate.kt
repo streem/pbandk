@@ -346,6 +346,7 @@ data class FieldRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.FieldRules",
                 messageClass = pbandk.testpb.FieldRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -447,6 +448,7 @@ data class FloatRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.FloatRules",
                 messageClass = pbandk.testpb.FloatRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -548,6 +550,7 @@ data class DoubleRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.DoubleRules",
                 messageClass = pbandk.testpb.DoubleRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -649,6 +652,7 @@ data class Int32Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.Int32Rules",
                 messageClass = pbandk.testpb.Int32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -750,6 +754,7 @@ data class Int64Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.Int64Rules",
                 messageClass = pbandk.testpb.Int64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -851,6 +856,7 @@ data class UInt32Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.UInt32Rules",
                 messageClass = pbandk.testpb.UInt32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -952,6 +958,7 @@ data class UInt64Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.UInt64Rules",
                 messageClass = pbandk.testpb.UInt64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1053,6 +1060,7 @@ data class SInt32Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.SInt32Rules",
                 messageClass = pbandk.testpb.SInt32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1154,6 +1162,7 @@ data class SInt64Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.SInt64Rules",
                 messageClass = pbandk.testpb.SInt64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1255,6 +1264,7 @@ data class Fixed32Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.Fixed32Rules",
                 messageClass = pbandk.testpb.Fixed32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1356,6 +1366,7 @@ data class Fixed64Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.Fixed64Rules",
                 messageClass = pbandk.testpb.Fixed64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1457,6 +1468,7 @@ data class SFixed32Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.SFixed32Rules",
                 messageClass = pbandk.testpb.SFixed32Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1558,6 +1570,7 @@ data class SFixed64Rules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.SFixed64Rules",
                 messageClass = pbandk.testpb.SFixed64Rules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1593,6 +1606,7 @@ data class BoolRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.BoolRules",
                 messageClass = pbandk.testpb.BoolRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -1927,6 +1941,7 @@ data class StringRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.StringRules",
                 messageClass = pbandk.testpb.StringRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2108,6 +2123,7 @@ data class BytesRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.BytesRules",
                 messageClass = pbandk.testpb.BytesRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2176,6 +2192,7 @@ data class EnumRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.EnumRules",
                 messageClass = pbandk.testpb.EnumRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2222,6 +2239,7 @@ data class MessageRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.MessageRules",
                 messageClass = pbandk.testpb.MessageRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2290,6 +2308,7 @@ data class RepeatedRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.RepeatedRules",
                 messageClass = pbandk.testpb.RepeatedRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2369,6 +2388,7 @@ data class MapRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.MapRules",
                 messageClass = pbandk.testpb.MapRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2426,6 +2446,7 @@ data class AnyRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.AnyRules",
                 messageClass = pbandk.testpb.AnyRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2538,6 +2559,7 @@ data class DurationRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.DurationRules",
                 messageClass = pbandk.testpb.DurationRules::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -2661,6 +2683,7 @@ data class TimestampRules(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "pbandk.testpb.TimestampRules",
                 messageClass = pbandk.testpb.TimestampRules::class,
                 messageCompanion = this,
                 fields = fieldsList

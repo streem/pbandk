@@ -65,6 +65,7 @@ data class Value(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "testpb.Value",
                 messageClass = pbandk.testpb.Value::class,
                 messageCompanion = this,
                 fields = fieldsList

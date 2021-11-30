@@ -40,6 +40,7 @@ data class Timestamp(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "google.protobuf.Timestamp",
                 messageClass = pbandk.wkt.Timestamp::class,
                 messageCompanion = this,
                 fields = fieldsList
