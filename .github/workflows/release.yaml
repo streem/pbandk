@@ -62,9 +62,11 @@ jobs:
           else
             ./gradlew compileKotlinIosArm64 \
                     compileKotlinIosX64 \
+                    compileKotlinMacosArm64 \
                     compileKotlinMacosX64 \
                     compileTestKotlinIosArm64 \
                     compileTestKotlinIosX64 \
+                    compileTestKotlinMacosArm64 \
                     compileTestKotlinMacosX64 \
                     iosX64Test \
                     macosX64Test \
@@ -93,6 +95,7 @@ jobs:
           else
             ./gradlew publishIosArm64PublicationToMavenLocal \
                     publishIosX64PublicationToMavenLocal \
+                    publishMacosArm64PublicationToMavenLocal \
                     publishMacosX64PublicationToMavenLocal
           fi
           echo "Published files:"
@@ -354,6 +357,7 @@ jobs:
             ./gradlew clean \
                     publishIosArm64PublicationToSonatype \
                     publishIosX64PublicationToSonatype \
+                    publishMacosArm64PublicationToSonatype \
                     publishMacosX64PublicationToSonatype
           fi
 
