@@ -2,16 +2,30 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class Any(
-    val typeUrl: String = "",
-    val value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Any = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Any : pbandk.Message {
+    public val typeUrl: String
+    public val value: pbandk.ByteArr
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Any
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any>
+
+    public fun copy(
+        typeUrl: String = this.typeUrl,
+        value: pbandk.ByteArr = this.value,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Any
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
+        public operator fun invoke(
+            typeUrl: String = "",
+            value: pbandk.ByteArr = pbandk.ByteArr.empty,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Any = Any_Impl(
+            typeUrl = typeUrl,
+            value = value,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
 
@@ -53,11 +67,29 @@ public data class Any(
 @pbandk.JsName("orDefaultForAny")
 public fun Any?.orDefault(): pbandk.wkt.Any = this ?: Any.defaultInstance
 
-private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
+private class Any_Impl(
+    override val typeUrl: String,
+    override val value: pbandk.ByteArr,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Any, pbandk.GeneratedMessage<Any>() {
+    override val descriptor get() = Any.descriptor
+
+    override fun copy(
+        typeUrl: String,
+        value: pbandk.ByteArr,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Any_Impl(
+        typeUrl = typeUrl,
+        value = value,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Any)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {

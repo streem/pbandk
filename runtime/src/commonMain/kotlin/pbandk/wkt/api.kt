@@ -2,21 +2,50 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class Api(
-    val name: String = "",
-    val methods: List<pbandk.wkt.Method> = emptyList(),
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val version: String = "",
-    val sourceContext: pbandk.wkt.SourceContext? = null,
-    val mixins: List<pbandk.wkt.Mixin> = emptyList(),
-    val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Api = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Api : pbandk.Message {
+    public val name: String
+    public val methods: List<pbandk.wkt.Method>
+    public val options: List<pbandk.wkt.Option>
+    public val version: String
+    public val sourceContext: pbandk.wkt.SourceContext?
+    public val mixins: List<pbandk.wkt.Mixin>
+    public val syntax: pbandk.wkt.Syntax
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Api
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api>
+
+    public fun copy(
+        name: String = this.name,
+        methods: List<pbandk.wkt.Method> = this.methods,
+        options: List<pbandk.wkt.Option> = this.options,
+        version: String = this.version,
+        sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
+        mixins: List<pbandk.wkt.Mixin> = this.mixins,
+        syntax: pbandk.wkt.Syntax = this.syntax,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Api
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
+        public operator fun invoke(
+            name: String = "",
+            methods: List<pbandk.wkt.Method> = emptyList(),
+            options: List<pbandk.wkt.Option> = emptyList(),
+            version: String = "",
+            sourceContext: pbandk.wkt.SourceContext? = null,
+            mixins: List<pbandk.wkt.Mixin> = emptyList(),
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Api = Api_Impl(
+            name = name,
+            methods = methods,
+            options = options,
+            version = version,
+            sourceContext = sourceContext,
+            mixins = mixins,
+            syntax = syntax,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
@@ -104,21 +133,50 @@ public data class Api(
     }
 }
 
-@pbandk.Export
-public data class Method(
-    val name: String = "",
-    val requestTypeUrl: String = "",
-    val requestStreaming: Boolean = false,
-    val responseTypeUrl: String = "",
-    val responseStreaming: Boolean = false,
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Method = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Method : pbandk.Message {
+    public val name: String
+    public val requestTypeUrl: String
+    public val requestStreaming: Boolean
+    public val responseTypeUrl: String
+    public val responseStreaming: Boolean
+    public val options: List<pbandk.wkt.Option>
+    public val syntax: pbandk.wkt.Syntax
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Method
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method>
+
+    public fun copy(
+        name: String = this.name,
+        requestTypeUrl: String = this.requestTypeUrl,
+        requestStreaming: Boolean = this.requestStreaming,
+        responseTypeUrl: String = this.responseTypeUrl,
+        responseStreaming: Boolean = this.responseStreaming,
+        options: List<pbandk.wkt.Option> = this.options,
+        syntax: pbandk.wkt.Syntax = this.syntax,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Method
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
+        public operator fun invoke(
+            name: String = "",
+            requestTypeUrl: String = "",
+            requestStreaming: Boolean = false,
+            responseTypeUrl: String = "",
+            responseStreaming: Boolean = false,
+            options: List<pbandk.wkt.Option> = emptyList(),
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Method = Method_Impl(
+            name = name,
+            requestTypeUrl = requestTypeUrl,
+            requestStreaming = requestStreaming,
+            responseTypeUrl = responseTypeUrl,
+            responseStreaming = responseStreaming,
+            options = options,
+            syntax = syntax,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
@@ -206,16 +264,30 @@ public data class Method(
     }
 }
 
-@pbandk.Export
-public data class Mixin(
-    val name: String = "",
-    val root: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Mixin = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Mixin : pbandk.Message {
+    public val name: String
+    public val root: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Mixin
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin>
+
+    public fun copy(
+        name: String = this.name,
+        root: String = this.root,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Mixin
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
+        public operator fun invoke(
+            name: String = "",
+            root: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Mixin = Mixin_Impl(
+            name = name,
+            root = root,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
@@ -257,15 +329,48 @@ public data class Mixin(
 @pbandk.JsName("orDefaultForApi")
 public fun Api?.orDefault(): pbandk.wkt.Api = this ?: Api.defaultInstance
 
-private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.let {
-    it.copy(
-        methods = methods + plus.methods,
-        options = options + plus.options,
-        sourceContext = sourceContext?.plus(plus.sourceContext) ?: plus.sourceContext,
-        mixins = mixins + plus.mixins,
-        unknownFields = unknownFields + plus.unknownFields
+private class Api_Impl(
+    override val name: String,
+    override val methods: List<pbandk.wkt.Method>,
+    override val options: List<pbandk.wkt.Option>,
+    override val version: String,
+    override val sourceContext: pbandk.wkt.SourceContext?,
+    override val mixins: List<pbandk.wkt.Mixin>,
+    override val syntax: pbandk.wkt.Syntax,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Api, pbandk.GeneratedMessage<Api>() {
+    override val descriptor get() = Api.descriptor
+
+    override fun copy(
+        name: String,
+        methods: List<pbandk.wkt.Method>,
+        options: List<pbandk.wkt.Option>,
+        version: String,
+        sourceContext: pbandk.wkt.SourceContext?,
+        mixins: List<pbandk.wkt.Mixin>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Api_Impl(
+        name = name,
+        methods = methods,
+        options = options,
+        version = version,
+        sourceContext = sourceContext,
+        mixins = mixins,
+        syntax = syntax,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Api)?.let {
+        it.copy(
+            methods = methods + other.methods,
+            options = options + other.options,
+            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
+            mixins = mixins + other.mixins,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
@@ -296,12 +401,45 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
 @pbandk.JsName("orDefaultForMethod")
 public fun Method?.orDefault(): pbandk.wkt.Method = this ?: Method.defaultInstance
 
-private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Method)?.let {
-    it.copy(
-        options = options + plus.options,
-        unknownFields = unknownFields + plus.unknownFields
+private class Method_Impl(
+    override val name: String,
+    override val requestTypeUrl: String,
+    override val requestStreaming: Boolean,
+    override val responseTypeUrl: String,
+    override val responseStreaming: Boolean,
+    override val options: List<pbandk.wkt.Option>,
+    override val syntax: pbandk.wkt.Syntax,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Method, pbandk.GeneratedMessage<Method>() {
+    override val descriptor get() = Method.descriptor
+
+    override fun copy(
+        name: String,
+        requestTypeUrl: String,
+        requestStreaming: Boolean,
+        responseTypeUrl: String,
+        responseStreaming: Boolean,
+        options: List<pbandk.wkt.Option>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Method_Impl(
+        name = name,
+        requestTypeUrl = requestTypeUrl,
+        requestStreaming = requestStreaming,
+        responseTypeUrl = responseTypeUrl,
+        responseStreaming = responseStreaming,
+        options = options,
+        syntax = syntax,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Method)?.let {
+        it.copy(
+            options = options + other.options,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
@@ -332,11 +470,29 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
 @pbandk.JsName("orDefaultForMixin")
 public fun Mixin?.orDefault(): pbandk.wkt.Mixin = this ?: Mixin.defaultInstance
 
-private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
+private class Mixin_Impl(
+    override val name: String,
+    override val root: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Mixin, pbandk.GeneratedMessage<Mixin>() {
+    override val descriptor get() = Mixin.descriptor
+
+    override fun copy(
+        name: String,
+        root: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Mixin_Impl(
+        name = name,
+        root = root,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Mixin)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {

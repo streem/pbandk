@@ -2,16 +2,30 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class Duration(
-    val seconds: Long = 0L,
-    val nanos: Int = 0,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Duration = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Duration : pbandk.Message {
+    public val seconds: Long
+    public val nanos: Int
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Duration
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration>
+
+    public fun copy(
+        seconds: Long = this.seconds,
+        nanos: Int = this.nanos,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Duration
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
+        public operator fun invoke(
+            seconds: Long = 0L,
+            nanos: Int = 0,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Duration = Duration_Impl(
+            seconds = seconds,
+            nanos = nanos,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
@@ -53,11 +67,29 @@ public data class Duration(
 @pbandk.JsName("orDefaultForDuration")
 public fun Duration?.orDefault(): pbandk.wkt.Duration = this ?: Duration.defaultInstance
 
-private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
+private class Duration_Impl(
+    override val seconds: Long,
+    override val nanos: Int,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Duration, pbandk.GeneratedMessage<Duration>() {
+    override val descriptor get() = Duration.descriptor
+
+    override fun copy(
+        seconds: Long,
+        nanos: Int,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Duration_Impl(
+        seconds = seconds,
+        nanos = nanos,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Duration)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duration {

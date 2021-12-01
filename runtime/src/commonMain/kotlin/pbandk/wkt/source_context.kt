@@ -2,15 +2,26 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class SourceContext(
-    val fileName: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface SourceContext : pbandk.Message {
+    public val fileName: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext>
+
+    public fun copy(
+        fileName: String = this.fileName,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.SourceContext
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
+        public operator fun invoke(
+            fileName: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.SourceContext = SourceContext_Impl(
+            fileName = fileName,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
@@ -42,11 +53,26 @@ public data class SourceContext(
 @pbandk.JsName("orDefaultForSourceContext")
 public fun SourceContext?.orDefault(): pbandk.wkt.SourceContext = this ?: SourceContext.defaultInstance
 
-private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
+private class SourceContext_Impl(
+    override val fileName: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : SourceContext, pbandk.GeneratedMessage<SourceContext>() {
+    override val descriptor get() = SourceContext.descriptor
+
+    override fun copy(
+        fileName: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = SourceContext_Impl(
+        fileName = fileName,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? SourceContext)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SourceContext {

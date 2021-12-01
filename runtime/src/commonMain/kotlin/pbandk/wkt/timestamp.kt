@@ -2,16 +2,30 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class Timestamp(
-    val seconds: Long = 0L,
-    val nanos: Int = 0,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Timestamp = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Timestamp : pbandk.Message {
+    public val seconds: Long
+    public val nanos: Int
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Timestamp
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp>
+
+    public fun copy(
+        seconds: Long = this.seconds,
+        nanos: Int = this.nanos,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Timestamp
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
+        public operator fun invoke(
+            seconds: Long = 0L,
+            nanos: Int = 0,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Timestamp = Timestamp_Impl(
+            seconds = seconds,
+            nanos = nanos,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
@@ -53,11 +67,29 @@ public data class Timestamp(
 @pbandk.JsName("orDefaultForTimestamp")
 public fun Timestamp?.orDefault(): pbandk.wkt.Timestamp = this ?: Timestamp.defaultInstance
 
-private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
+private class Timestamp_Impl(
+    override val seconds: Long,
+    override val nanos: Int,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Timestamp, pbandk.GeneratedMessage<Timestamp>() {
+    override val descriptor get() = Timestamp.descriptor
+
+    override fun copy(
+        seconds: Long,
+        nanos: Int,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Timestamp_Impl(
+        seconds = seconds,
+        nanos = nanos,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Timestamp)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Timestamp {

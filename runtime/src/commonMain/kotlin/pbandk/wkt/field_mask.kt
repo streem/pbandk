@@ -2,15 +2,26 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class FieldMask(
-    val paths: List<String> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldMask = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface FieldMask : pbandk.Message {
+    public val paths: List<String>
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldMask
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask>
+
+    public fun copy(
+        paths: List<String> = this.paths,
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.FieldMask
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
+        public operator fun invoke(
+            paths: List<String> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.FieldMask = FieldMask_Impl(
+            paths = paths,
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
@@ -42,12 +53,27 @@ public data class FieldMask(
 @pbandk.JsName("orDefaultForFieldMask")
 public fun FieldMask?.orDefault(): pbandk.wkt.FieldMask = this ?: FieldMask.defaultInstance
 
-private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.let {
-    it.copy(
-        paths = paths + plus.paths,
-        unknownFields = unknownFields + plus.unknownFields
+private class FieldMask_Impl(
+    override val paths: List<String>,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : FieldMask, pbandk.GeneratedMessage<FieldMask>() {
+    override val descriptor get() = FieldMask.descriptor
+
+    override fun copy(
+        paths: List<String>,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = FieldMask_Impl(
+        paths = paths,
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? FieldMask)?.let {
+        it.copy(
+            paths = paths + other.paths,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldMask {

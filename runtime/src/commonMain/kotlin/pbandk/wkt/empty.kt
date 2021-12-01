@@ -2,14 +2,22 @@
 
 package pbandk.wkt
 
-@pbandk.Export
-public data class Empty(
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Empty = protoMergeImpl(other)
-    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> get() = Companion.descriptor
-    override val protoSize: Int by lazy { super.protoSize }
+public sealed interface Empty : pbandk.Message {
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Empty
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty>
+
+    public fun copy(
+        unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
+    ): pbandk.wkt.Empty
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
+        public operator fun invoke(
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Empty = Empty_Impl(
+            unknownFields = unknownFields
+        )
+
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
 
@@ -31,11 +39,23 @@ public data class Empty(
 @pbandk.JsName("orDefaultForEmpty")
 public fun Empty?.orDefault(): pbandk.wkt.Empty = this ?: Empty.defaultInstance
 
-private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty)?.let {
-    it.copy(
-        unknownFields = unknownFields + plus.unknownFields
+private class Empty_Impl(
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Empty, pbandk.GeneratedMessage<Empty>() {
+    override val descriptor get() = Empty.descriptor
+
+    override fun copy(
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Empty_Impl(
+        unknownFields = unknownFields
     )
-} ?: this
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Empty)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+}
 
 @Suppress("UNCHECKED_CAST")
 private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Empty {
