@@ -5,12 +5,17 @@ plugins {
     id("com.android.library")
     `maven-publish`
     signing
+    id("binary-compatibility-validator")
 }
 
 description = "Kotlin runtime library for Protocol Buffers. It is built to work across multiple Kotlin platforms."
 
 repositories {
     google()
+}
+
+apiValidation {
+    nonPublicMarkers.add("pbandk.PbandkInternal")
 }
 
 kotlin {
