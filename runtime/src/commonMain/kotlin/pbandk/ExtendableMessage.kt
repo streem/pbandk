@@ -1,8 +1,5 @@
 package pbandk
 
-import kotlin.js.JsExport
-
-@JsExport
 interface ExtendableMessage : Message {
     @PublicForGeneratedCode
     val extensionFields: ExtensionFieldSet

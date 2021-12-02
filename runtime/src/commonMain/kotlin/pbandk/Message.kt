@@ -5,11 +5,9 @@ import pbandk.internal.binary.BinaryMessageEncoder
 import pbandk.internal.binary.BinaryMessageDecoder
 import pbandk.internal.binary.allocate
 import pbandk.internal.binary.fromByteArray
-import kotlin.js.ExperimentalJsExport
 import kotlin.js.JsExport
 import kotlin.reflect.KProperty1
 
-@JsExport
 interface Message {
     val unknownFields: Map<Int, UnknownField>
 
