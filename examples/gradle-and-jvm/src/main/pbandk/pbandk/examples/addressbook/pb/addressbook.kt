@@ -3,7 +3,7 @@
 package pbandk.examples.addressbook.pb
 
 @pbandk.Export
-data class Person(
+public data class Person(
     val name: String = "",
     val id: Int = 0,
     val email: String = "",
@@ -11,12 +11,12 @@ data class Person(
     val lastUpdated: pbandk.wkt.Timestamp? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.examples.addressbook.pb.Person> {
-        val defaultInstance by lazy { pbandk.examples.addressbook.pb.Person() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.examples.addressbook.pb.Person.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.examples.addressbook.pb.Person = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.examples.addressbook.pb.Person> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.examples.addressbook.pb.Person> {
+        public val defaultInstance: pbandk.examples.addressbook.pb.Person by lazy { pbandk.examples.addressbook.pb.Person() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.examples.addressbook.pb.Person = pbandk.examples.addressbook.pb.Person.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.examples.addressbook.pb.Person> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.examples.addressbook.pb.Person, *>>(5)
@@ -81,34 +81,34 @@ data class Person(
         }
     }
 
-    sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is Person.PhoneType && other.value == value
-        override fun hashCode() = value.hashCode()
-        override fun toString() = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
+    public sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is Person.PhoneType && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-        object MOBILE : PhoneType(0, "MOBILE")
-        object HOME : PhoneType(1, "HOME")
-        object WORK : PhoneType(2, "WORK")
-        class UNRECOGNIZED(value: Int) : PhoneType(value)
+        public object MOBILE : PhoneType(0, "MOBILE")
+        public object HOME : PhoneType(1, "HOME")
+        public object WORK : PhoneType(2, "WORK")
+        public class UNRECOGNIZED(value: Int) : PhoneType(value)
 
-        companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
-            val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
-            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
+        public companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
+            public val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
+            override fun fromValue(value: Int): Person.PhoneType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): Person.PhoneType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
     }
 
-    data class PhoneNumber(
+    public data class PhoneNumber(
         val number: String = "",
         val type: pbandk.examples.addressbook.pb.Person.PhoneType = pbandk.examples.addressbook.pb.Person.PhoneType.fromValue(0),
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.examples.addressbook.pb.Person.PhoneNumber> {
-            val defaultInstance by lazy { pbandk.examples.addressbook.pb.Person.PhoneNumber() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.examples.addressbook.pb.Person.PhoneNumber.decodeWithImpl(u)
+        override operator fun plus(other: pbandk.Message?): pbandk.examples.addressbook.pb.Person.PhoneNumber = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.examples.addressbook.pb.Person.PhoneNumber> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.examples.addressbook.pb.Person.PhoneNumber> {
+            public val defaultInstance: pbandk.examples.addressbook.pb.Person.PhoneNumber by lazy { pbandk.examples.addressbook.pb.Person.PhoneNumber() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.examples.addressbook.pb.Person.PhoneNumber = pbandk.examples.addressbook.pb.Person.PhoneNumber.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.examples.addressbook.pb.Person.PhoneNumber> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.examples.addressbook.pb.Person.PhoneNumber, *>>(2)
@@ -146,16 +146,16 @@ data class Person(
 }
 
 @pbandk.Export
-data class AddressBook(
+public data class AddressBook(
     val people: List<pbandk.examples.addressbook.pb.Person> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.examples.addressbook.pb.AddressBook> {
-        val defaultInstance by lazy { pbandk.examples.addressbook.pb.AddressBook() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.examples.addressbook.pb.AddressBook.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.examples.addressbook.pb.AddressBook = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.examples.addressbook.pb.AddressBook> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.examples.addressbook.pb.AddressBook> {
+        public val defaultInstance: pbandk.examples.addressbook.pb.AddressBook by lazy { pbandk.examples.addressbook.pb.AddressBook() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.examples.addressbook.pb.AddressBook = pbandk.examples.addressbook.pb.AddressBook.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.examples.addressbook.pb.AddressBook> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.examples.addressbook.pb.AddressBook, *>>(1)
@@ -183,7 +183,7 @@ data class AddressBook(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForPerson")
-fun Person?.orDefault() = this ?: Person.defaultInstance
+public fun Person?.orDefault(): pbandk.examples.addressbook.pb.Person = this ?: Person.defaultInstance
 
 private fun Person.protoMergeImpl(plus: pbandk.Message?): Person = (plus as? Person)?.let {
     it.copy(
@@ -216,7 +216,7 @@ private fun Person.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Person {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForPersonPhoneNumber")
-fun Person.PhoneNumber?.orDefault() = this ?: Person.PhoneNumber.defaultInstance
+public fun Person.PhoneNumber?.orDefault(): pbandk.examples.addressbook.pb.Person.PhoneNumber = this ?: Person.PhoneNumber.defaultInstance
 
 private fun Person.PhoneNumber.protoMergeImpl(plus: pbandk.Message?): Person.PhoneNumber = (plus as? Person.PhoneNumber)?.let {
     it.copy(
@@ -240,7 +240,7 @@ private fun Person.PhoneNumber.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAddressBook")
-fun AddressBook?.orDefault() = this ?: AddressBook.defaultInstance
+public fun AddressBook?.orDefault(): pbandk.examples.addressbook.pb.AddressBook = this ?: AddressBook.defaultInstance
 
 private fun AddressBook.protoMergeImpl(plus: pbandk.Message?): AddressBook = (plus as? AddressBook)?.let {
     it.copy(

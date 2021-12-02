@@ -6,8 +6,10 @@ import pbandk.wkt.FieldOptions
 open class CodeGenerator(
     val file: File,
     val kotlinTypeMappings: Map<String, String>,
-    @Suppress("unused") val params: Map<String, String>
+    val params: Map<String, String>
 ) {
+    protected val visibility: String = params["visibility"] ?: "public"
+
     protected val bld = StringBuilder()
     protected var indent = ""
 
@@ -71,19 +73,19 @@ open class CodeGenerator(
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
-        line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
+        line("$visibility sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
-                line("override fun equals(other: kotlin.Any?) = other is ${type.kotlinFullTypeName} && other.value == value")
-                line("override fun hashCode() = value.hashCode()")
-                line("override fun toString() = \"${type.kotlinFullTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
+                line("override fun equals(other: kotlin.Any?): Boolean = other is ${type.kotlinFullTypeName} && other.value == value")
+                line("override fun hashCode(): Int = value.hashCode()")
+                line("override fun toString(): String = \"${type.kotlinFullTypeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
-                type.values.forEach { line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
-                line("class UNRECOGNIZED(value: Int) : ${type.kotlinTypeName}(value)")
+                type.values.forEach { line("$visibility object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
+                line("$visibility class UNRECOGNIZED(value: Int) : ${type.kotlinTypeName}(value)")
                 line()
-                line("companion object : pbandk.Message.Enum.Companion<${type.kotlinFullTypeName}> {").indented {
-                    line("val values: List<${type.kotlinFullTypeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
-                    line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
-                    line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
+                line("$visibility companion object : pbandk.Message.Enum.Companion<${type.kotlinFullTypeName}> {").indented {
+                    line("$visibility val values: List<${type.kotlinFullTypeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
+                    line("override fun fromValue(value: Int): ${type.kotlinFullTypeName} = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
+                    line("override fun fromName(name: String): ${type.kotlinFullTypeName} = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
                 }.line("}")
             }.line("}")
     }
@@ -96,7 +98,7 @@ open class CodeGenerator(
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (!nested) line("@pbandk.Export")
-        line("data class ${type.kotlinTypeName}(").indented {
+        line("$visibility data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
                 when (field) {
@@ -126,14 +128,14 @@ open class CodeGenerator(
             // One-ofs as sealed class hierarchies
             type.fields.filterIsInstance<File.Field.OneOf>().forEach(::writeOneOfType)
 
-            line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
-            line("override val descriptor get() = Companion.descriptor")
-            line("override val protoSize by lazy { super.protoSize }")
+            line("override operator fun plus(other: pbandk.Message?): ${type.kotlinTypeNameWithPackage} = protoMergeImpl(other)")
+            line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> get() = Companion.descriptor")
+            line("override val protoSize: Int by lazy { super.protoSize }")
 
             // Companion object
-            line("companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
-                line("val defaultInstance by lazy { ${type.kotlinTypeNameWithPackage}() }")
-                line("override fun decodeWith(u: pbandk.MessageDecoder) = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
+            line("$visibility companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
+                line("$visibility val defaultInstance: ${type.kotlinTypeNameWithPackage} by lazy { ${type.kotlinTypeNameWithPackage}() }")
+                line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinTypeNameWithPackage} = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type)
             }.line("}")
@@ -150,10 +152,10 @@ open class CodeGenerator(
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
-        line("sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
+        line("$visibility sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
                 addDeprecatedAnnotation(field)
-                lineBegin("class ${oneOf.kotlinFieldTypeNames[field.name]}(")
+                lineBegin("$visibility class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
                 if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue}")
                 lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
@@ -290,7 +292,7 @@ open class CodeGenerator(
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${type.kotlinFullTypeName.replace(".", "")}\")")
-        line("fun ${type.kotlinFullTypeName}?.orDefault() = this ?: ${type.kotlinFullTypeName}.defaultInstance")
+        line("$visibility fun ${type.kotlinFullTypeName}?.orDefault(): ${type.kotlinTypeNameWithPackage} = this ?: ${type.kotlinFullTypeName}.defaultInstance")
     }
 
     protected fun writeMessageMergeExtension(type: File.Type.Message) {
