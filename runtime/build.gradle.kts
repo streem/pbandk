@@ -33,23 +33,18 @@ kotlin {
     iosArm64()
     iosX64()
 
-    // For ARM, should be changed to iosArm32 or iosArm64
-    // For Linux, should be changed to e.g. linuxX64
-    // For MacOS, should be changed to e.g. macosX64
-    // For Windows, should be changed to e.g. mingwX64
     macosX64()
+    macosArm64()
     linuxX64()
 
     sourceSets {
         all {
-            languageSettings.enableLanguageFeature("InlineClasses")
-
-            languageSettings.useExperimentalAnnotation("pbandk.ExperimentalProtoJson")
-            languageSettings.useExperimentalAnnotation("pbandk.ExperimentalProtoReflection")
-            languageSettings.useExperimentalAnnotation("pbandk.PbandkInternal")
-            languageSettings.useExperimentalAnnotation("pbandk.PublicForGeneratedCode")
-            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
-            languageSettings.useExperimentalAnnotation("kotlin.js.ExperimentalJsExport")
+            languageSettings.optIn("pbandk.ExperimentalProtoJson")
+            languageSettings.optIn("pbandk.ExperimentalProtoReflection")
+            languageSettings.optIn("pbandk.PbandkInternal")
+            languageSettings.optIn("pbandk.PublicForGeneratedCode")
+            languageSettings.optIn("kotlin.RequiresOptIn")
+            languageSettings.optIn("kotlin.js.ExperimentalJsExport")
         }
 
         val commonMain by getting {
@@ -60,8 +55,7 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                implementation(kotlin("test"))
             }
         }
 
@@ -74,9 +68,6 @@ kotlin {
 
         val androidTest by getting {
             dependencies {
-                implementation(kotlin("test"))
-                implementation(kotlin("test-junit"))
-                implementation("junit:junit:${Versions.junit}")
                 runtimeOnly("org.robolectric:android-all:${Versions.robolectric}")
             }
         }
@@ -91,21 +82,12 @@ kotlin {
         val jvmTest by getting {
             dependencies {
                 implementation(project(":jvm-test-types"))
-                implementation(kotlin("test"))
-                implementation(kotlin("test-junit"))
-                implementation("junit:junit:${Versions.junit}")
             }
         }
 
         val jsMain by getting {
             dependencies {
                 implementation(npm("protobufjs", "^${Versions.protobufJs}"))
-            }
-        }
-
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
             }
         }
 

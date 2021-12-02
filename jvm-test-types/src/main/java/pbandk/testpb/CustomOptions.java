@@ -166,7 +166,7 @@ public final class CustomOptions {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getSingleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(single_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, single_);
       }
       unknownFields.writeTo(output);
@@ -178,7 +178,7 @@ public final class CustomOptions {
       if (size != -1) return size;
 
       size = 0;
-      if (!getSingleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(single_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, single_);
       }
       size += unknownFields.getSerializedSize();
@@ -734,7 +734,7 @@ public final class CustomOptions {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getMultipleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(multiple_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, multiple_);
       }
       unknownFields.writeTo(output);
@@ -746,7 +746,7 @@ public final class CustomOptions {
       if (size != -1) return size;
 
       size = 0;
-      if (!getMultipleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(multiple_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, multiple_);
       }
       size += unknownFields.getSerializedSize();
@@ -1156,11 +1156,13 @@ public final class CustomOptions {
 
     /**
      * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+     * @deprecated
      * @return The multipleDeprecated.
      */
     @java.lang.Deprecated java.lang.String getMultipleDeprecated();
     /**
      * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+     * @deprecated
      * @return The bytes for multipleDeprecated.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString
@@ -1254,6 +1256,7 @@ public final class CustomOptions {
     private volatile java.lang.Object multipleDeprecated_;
     /**
      * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+     * @deprecated
      * @return The multipleDeprecated.
      */
     @java.lang.Override
@@ -1271,6 +1274,7 @@ public final class CustomOptions {
     }
     /**
      * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+     * @deprecated
      * @return The bytes for multipleDeprecated.
      */
     @java.lang.Override
@@ -1302,7 +1306,7 @@ public final class CustomOptions {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getMultipleDeprecatedBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(multipleDeprecated_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, multipleDeprecated_);
       }
       unknownFields.writeTo(output);
@@ -1314,7 +1318,7 @@ public final class CustomOptions {
       if (size != -1) return size;
 
       size = 0;
-      if (!getMultipleDeprecatedBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(multipleDeprecated_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, multipleDeprecated_);
       }
       size += unknownFields.getSerializedSize();
@@ -1593,6 +1597,7 @@ public final class CustomOptions {
       private java.lang.Object multipleDeprecated_ = "";
       /**
        * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+       * @deprecated
        * @return The multipleDeprecated.
        */
       @java.lang.Deprecated public java.lang.String getMultipleDeprecated() {
@@ -1609,6 +1614,7 @@ public final class CustomOptions {
       }
       /**
        * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+       * @deprecated
        * @return The bytes for multipleDeprecated.
        */
       @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1626,6 +1632,7 @@ public final class CustomOptions {
       }
       /**
        * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+       * @deprecated
        * @param value The multipleDeprecated to set.
        * @return This builder for chaining.
        */
@@ -1641,6 +1648,7 @@ public final class CustomOptions {
       }
       /**
        * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+       * @deprecated
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearMultipleDeprecated() {
@@ -1651,6 +1659,7 @@ public final class CustomOptions {
       }
       /**
        * <code>string multiple_deprecated = 1 [deprecated = true, (.pbandk.testpb.rules) = { ... }</code>
+       * @deprecated
        * @param value The bytes for multipleDeprecated to set.
        * @return This builder for chaining.
        */

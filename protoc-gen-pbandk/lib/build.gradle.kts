@@ -17,7 +17,7 @@ kotlin {
 
     sourceSets {
         all {
-            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+            languageSettings.optIn("kotlin.RequiresOptIn")
         }
 
         val commonMain by getting {
@@ -28,8 +28,7 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                implementation(kotlin("test"))
             }
         }
 
@@ -41,11 +40,8 @@ kotlin {
 
         val jvmTest by getting {
             dependencies {
-                implementation(kotlin("test"))
-                implementation(kotlin("test-junit"))
                 implementation(kotlin("reflect"))
-                implementation("junit:junit:4.12")
-                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.2.9")
+                implementation("com.github.tschuchortdev:kotlin-compile-testing:1.4.5")
             }
         }
     }

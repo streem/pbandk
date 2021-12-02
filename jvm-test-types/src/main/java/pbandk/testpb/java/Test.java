@@ -166,7 +166,7 @@ public final class Test {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getValBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(val_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, val_);
       }
       unknownFields.writeTo(output);
@@ -178,7 +178,7 @@ public final class Test {
       if (size != -1) return size;
 
       size = 0;
-      if (!getValBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(val_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, val_);
       }
       size += unknownFields.getSerializedSize();
@@ -1752,7 +1752,7 @@ public final class Test {
     @java.lang.Override
     public boolean containsMap(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMap().getMap().containsKey(key);
     }
     /**
@@ -1779,7 +1779,7 @@ public final class Test {
     public java.lang.String getMapOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMap().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1791,7 +1791,7 @@ public final class Test {
 
     public java.lang.String getMapOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMap().getMap();
       if (!map.containsKey(key)) {
@@ -2169,7 +2169,7 @@ public final class Test {
       @java.lang.Override
       public boolean containsMap(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMap().getMap().containsKey(key);
       }
       /**
@@ -2196,7 +2196,7 @@ public final class Test {
       public java.lang.String getMapOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMap().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -2208,7 +2208,7 @@ public final class Test {
 
       public java.lang.String getMapOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMap().getMap();
         if (!map.containsKey(key)) {
@@ -2228,7 +2228,7 @@ public final class Test {
 
       public Builder removeMap(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMap().getMutableMap()
             .remove(key);
         return this;
@@ -2247,8 +2247,11 @@ public final class Test {
       public Builder putMap(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableMap().getMutableMap()
             .put(key, value);
         return this;
@@ -2490,7 +2493,7 @@ public final class Test {
     @java.lang.Override
     public boolean containsMap(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMap().getMap().containsKey(key);
     }
     /**
@@ -2517,7 +2520,7 @@ public final class Test {
     public pbandk.testpb.java.Test.Foo getMapOrDefault(
         java.lang.String key,
         pbandk.testpb.java.Test.Foo defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
           internalGetMap().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -2529,7 +2532,7 @@ public final class Test {
 
     public pbandk.testpb.java.Test.Foo getMapOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
           internalGetMap().getMap();
       if (!map.containsKey(key)) {
@@ -2907,7 +2910,7 @@ public final class Test {
       @java.lang.Override
       public boolean containsMap(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetMap().getMap().containsKey(key);
       }
       /**
@@ -2934,7 +2937,7 @@ public final class Test {
       public pbandk.testpb.java.Test.Foo getMapOrDefault(
           java.lang.String key,
           pbandk.testpb.java.Test.Foo defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
             internalGetMap().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -2946,7 +2949,7 @@ public final class Test {
 
       public pbandk.testpb.java.Test.Foo getMapOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, pbandk.testpb.java.Test.Foo> map =
             internalGetMap().getMap();
         if (!map.containsKey(key)) {
@@ -2966,7 +2969,7 @@ public final class Test {
 
       public Builder removeMap(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableMap().getMutableMap()
             .remove(key);
         return this;
@@ -2985,8 +2988,11 @@ public final class Test {
       public Builder putMap(
           java.lang.String key,
           pbandk.testpb.java.Test.Foo value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableMap().getMutableMap()
             .put(key, value);
         return this;
@@ -3384,7 +3390,7 @@ public final class Test {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getKeyBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
         }
         if (value_ != null) {
@@ -3399,7 +3405,7 @@ public final class Test {
         if (size != -1) return size;
 
         size = 0;
-        if (!getKeyBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
         }
         if (value_ != null) {

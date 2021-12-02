@@ -132,8 +132,7 @@ data class TestAllTypesProto2(
     val fieldName18_: Int? = null,
     val oneofField: OneofField<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-    @pbandk.PbandkInternal
-    @get:pbandk.PbandkInternal
+    @property:pbandk.PbandkInternal
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 ) : pbandk.ExtendableMessage {
     sealed class OneofField<V>(value: V) : pbandk.Message.OneOf<V>(value) {
@@ -2352,8 +2351,7 @@ data class TestAllTypesProto2(
 
     data class MessageSetCorrect(
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap(),
-        @pbandk.PbandkInternal
-        @get:pbandk.PbandkInternal
+        @property:pbandk.PbandkInternal
         override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
     ) : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)

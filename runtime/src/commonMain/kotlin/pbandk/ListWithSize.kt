@@ -7,7 +7,7 @@ import kotlin.js.JsName
 @JsExport
 class ListWithSize<T> internal constructor(val list: List<T>, val protoSize: Int?) : List<T> by list {
     @JsName("initWithSizeFn")
-    constructor(list: List<T>, sizeFn: (T) -> Int) : this(list, list.sumBy(sizeFn))
+    constructor(list: List<T>, sizeFn: (T) -> Int) : this(list, list.sumOf(sizeFn))
 
     override fun equals(other: Any?) = list == other
     override fun hashCode() = list.hashCode()

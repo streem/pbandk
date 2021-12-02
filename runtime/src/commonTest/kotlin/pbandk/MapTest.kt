@@ -2,6 +2,7 @@ package pbandk
 
 import pbandk.testpb.*
 import kotlin.test.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
 class MapTest {
@@ -41,9 +42,9 @@ class MapTest {
         )
 
         assertEquals(testWithMessageMapEntries.protoSize, testWithGenericMapEntries.protoSize)
-        assertEquals(
-            testWithMessageMapEntries.encodeToByteArray().asList(),
-            testWithGenericMapEntries.encodeToByteArray().asList()
+        assertContentEquals(
+            testWithMessageMapEntries.encodeToByteArray(),
+            testWithGenericMapEntries.encodeToByteArray()
         )
     }
 
@@ -68,7 +69,7 @@ class MapTest {
         val fooMapEntriesBytes = fooMapEntries.encodeToByteArray()
 
         assertEquals(fooMap.protoSize, fooMapEntries.protoSize)
-        assertEquals(fooMapBytes.asList(), fooMapEntriesBytes.asList())
+        assertContentEquals(fooMapBytes, fooMapEntriesBytes)
 
         assertEquals(fooMap, FooMap.decodeFromByteArray(fooMapEntriesBytes))
         assertEquals(fooMapEntries, FooMapEntries.decodeFromByteArray(fooMapBytes))

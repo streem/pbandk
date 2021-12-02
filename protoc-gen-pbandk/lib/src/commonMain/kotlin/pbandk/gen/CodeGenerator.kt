@@ -54,6 +54,7 @@ open class CodeGenerator(
                 }
                 line(")")
             }
+            is File.Field.OneOf -> error("Got unexpected oneof extension field")
         }
     }
 
@@ -111,11 +112,12 @@ open class CodeGenerator(
 
             if (messageInterface.startsWith("pbandk.ExtendableMessage")) {
                 lineEnd(",")
-                // The binary-compatibility-validator plugin doesn't correctly exclude properties with a non-public
-                // annotation from the API dump unless the property's getter (& setter for mutable properties) is also
-                // annotated. See https://github.com/Kotlin/binary-compatibility-validator/issues/36.
-                line("@pbandk.PbandkInternal")
-                line("@get:pbandk.PbandkInternal")
+                // XXX: The binary-compatibility-validator plugin doesn't correctly exclude the getter (& setter for
+                // mutable properties) of a property with a non-public annotation from the API dump. And Kotlin 1.6+
+                // doesn't allow opt-in annotations to be applied to property getters/setters directly.
+                // Nothing to do here for us. The issue will go away once
+                // https://github.com/Kotlin/binary-compatibility-validator/issues/36 is fixed.
+                line("@property:pbandk.PbandkInternal")
                 line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
             } else {
                 lineEnd()
@@ -442,9 +444,9 @@ open class CodeGenerator(
             else parent.nestedTypes to protoName
         // Go deeper if there's a dot
         typeName.indexOf('.').let {
-            if (it == -1) return lookIn.find { it.name == typeName }
+            if (it == -1) return lookIn.find { type -> type.name == typeName }
             return findLocalType(typeName.substring(it + 1), typeName.substring(0, it).let { parentTypeName ->
-                lookIn.find { it.name == parentTypeName } as? File.Type.Message
+                lookIn.find { type -> type.name == parentTypeName } as? File.Type.Message
             } ?: return null)
         }
     }
@@ -501,7 +503,7 @@ open class CodeGenerator(
                 repeated -> "Repeated<$kotlinQualifiedTypeName>(valueType = ${copy(repeated = false).fieldDescriptorType()}${if (packed) ", packed = true" else ""})"
                 type == File.Field.Type.MESSAGE -> "Message(messageCompanion = $kotlinQualifiedTypeName.Companion)"
                 type == File.Field.Type.ENUM -> "Enum(enumCompanion = $kotlinQualifiedTypeName.Companion" + (if (hasPresence || isOneOfMember) ", hasPresence = true" else "") + ")"
-                else -> "Primitive.${type.string.capitalize()}(" + (if (hasPresence || isOneOfMember) "hasPresence = true" else "") + ")"
+                else -> "Primitive.${type.string.replaceFirstChar { it.titlecase() }}(" + (if (hasPresence || isOneOfMember) "hasPresence = true" else "") + ")"
             }
             is File.Field.Numbered.Wrapper -> when {
                 repeated -> "Repeated<${wrappedType.standardTypeName}>(valueType = ${copy(repeated = false).fieldDescriptorType()})"
@@ -531,10 +533,11 @@ open class CodeGenerator(
             else -> "var $kotlinFieldName = $defaultValue"
         }
     protected val File.Field.Numbered.Standard.decodeWithVarDone
-        get() =
-            if (map) "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
-            else if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
-            else kotlinFieldName
+        get() = when {
+            map -> "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
+            repeated -> "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
+            else -> kotlinFieldName
+        }
 
     protected fun File.Field.Numbered.Standard.kotlinValueType(nullableIfMessage: Boolean): String = when {
         map -> mapEntry()!!.let { "Map<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>" }
@@ -657,7 +660,10 @@ open class CodeGenerator(
 
     private fun addDeprecatedAnnotation(field: File.Field) {
         when (field) {
-            is File.Field.Numbered -> if(field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            is File.Field.Numbered -> if (field.options.deprecated == true) line("@Deprecated(message = \"Field marked deprecated in ${file.name}\")")
+            is File.Field.OneOf -> {
+                // oneof fields do not support the `deprecated` protobuf option
+            }
         }
     }
 }

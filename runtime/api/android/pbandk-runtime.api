@@ -906,6 +906,7 @@ public final class pbandk/wkt/EnumOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -999,6 +1000,7 @@ public final class pbandk/wkt/EnumValueOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -1028,6 +1030,7 @@ public final class pbandk/wkt/ExtensionRangeOptions : pbandk/ExtendableMessage {
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -1084,6 +1087,7 @@ public final class pbandk/wkt/Field : pbandk/Message {
 
 public abstract class pbandk/wkt/Field$Cardinality : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/Field$Cardinality$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1129,6 +1133,7 @@ public final class pbandk/wkt/Field$Companion : pbandk/Message$Companion {
 
 public abstract class pbandk/wkt/Field$Kind : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/Field$Kind$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1274,6 +1279,7 @@ public final class pbandk/wkt/FieldDescriptorProto$Companion : pbandk/Message$Co
 
 public abstract class pbandk/wkt/FieldDescriptorProto$Label : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldDescriptorProto$Label$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1308,6 +1314,7 @@ public final class pbandk/wkt/FieldDescriptorProto$Label$UNRECOGNIZED : pbandk/w
 
 public abstract class pbandk/wkt/FieldDescriptorProto$Type : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldDescriptorProto$Type$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1448,6 +1455,7 @@ public final class pbandk/wkt/FieldOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public final fun getJstype ()Lpbandk/wkt/FieldOptions$JSType;
 	public final fun getLazy ()Ljava/lang/Boolean;
 	public final fun getPacked ()Ljava/lang/Boolean;
@@ -1463,6 +1471,7 @@ public final class pbandk/wkt/FieldOptions : pbandk/ExtendableMessage {
 
 public abstract class pbandk/wkt/FieldOptions$CType : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldOptions$CType$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1504,6 +1513,7 @@ public final class pbandk/wkt/FieldOptions$Companion : pbandk/Message$Companion 
 
 public abstract class pbandk/wkt/FieldOptions$JSType : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldOptions$JSType$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1653,6 +1663,7 @@ public final class pbandk/wkt/FileOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public final fun getGoPackage ()Ljava/lang/String;
 	public final fun getJavaGenerateEqualsAndHash ()Ljava/lang/Boolean;
 	public final fun getJavaGenericServices ()Ljava/lang/Boolean;
@@ -1687,6 +1698,7 @@ public final class pbandk/wkt/FileOptions$Companion : pbandk/Message$Companion {
 
 public abstract class pbandk/wkt/FileOptions$OptimizeMode : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FileOptions$OptimizeMode$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1905,6 +1917,7 @@ public final class pbandk/wkt/MessageOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public final fun getMapEntry ()Ljava/lang/Boolean;
 	public final fun getMessageSetWireFormat ()Ljava/lang/Boolean;
 	public final fun getNoStandardDescriptorAccessor ()Ljava/lang/Boolean;
@@ -2016,6 +2029,7 @@ public final class pbandk/wkt/MethodOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public final fun getIdempotencyLevel ()Lpbandk/wkt/MethodOptions$IdempotencyLevel;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
@@ -2035,6 +2049,7 @@ public final class pbandk/wkt/MethodOptions$Companion : pbandk/Message$Companion
 
 public abstract class pbandk/wkt/MethodOptions$IdempotencyLevel : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/MethodOptions$IdempotencyLevel$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -2098,6 +2113,7 @@ public final class pbandk/wkt/Mixin$Companion : pbandk/Message$Companion {
 
 public abstract class pbandk/wkt/NullValue : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/NullValue$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -2164,6 +2180,7 @@ public final class pbandk/wkt/OneofOptions : pbandk/ExtendableMessage {
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -2255,6 +2272,7 @@ public final class pbandk/wkt/ServiceOptions : pbandk/ExtendableMessage {
 	public final fun getDeprecated ()Ljava/lang/Boolean;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public fun getExtension (Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+	public fun getExtensionFields ()Lpbandk/ExtensionFieldSet;
 	public fun getProtoSize ()I
 	public final fun getUninterpretedOption ()Ljava/util/List;
 	public fun getUnknownFields ()Ljava/util/Map;
@@ -2460,6 +2478,7 @@ public final class pbandk/wkt/StructKt {
 
 public abstract class pbandk/wkt/Syntax : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/Syntax$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;

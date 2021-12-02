@@ -22,7 +22,6 @@ import pbandk.wkt.StringValue
 import pbandk.wkt.UInt32Value
 import pbandk.wkt.UInt64Value
 
-@OptIn(ExperimentalUnsignedTypes::class)
 internal class JsonValueEncoder(val jsonConfig: JsonConfig) {
     fun writeValue(value: Any, type: FieldDescriptor.Type): JsonElement = when (type) {
         is FieldDescriptor.Type.Primitive.Double -> writeDouble(value as Double)

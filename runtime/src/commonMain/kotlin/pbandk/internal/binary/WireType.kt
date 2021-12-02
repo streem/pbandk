@@ -1,6 +1,9 @@
 package pbandk.internal.binary
 
-internal inline class WireType(val value: Int) {
+import kotlin.jvm.JvmInline
+
+@JvmInline
+internal value class WireType(val value: Int) {
     companion object {
         val VARINT = WireType(0)
         val FIXED64 = WireType(1)

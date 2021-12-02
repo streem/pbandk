@@ -26773,38 +26773,38 @@ public final class Validate {
               break;
             }
             case 96: {
-              wellKnownCase_ = 12;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 12;
               break;
             }
             case 104: {
-              wellKnownCase_ = 13;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 13;
               break;
             }
             case 112: {
-              wellKnownCase_ = 14;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 14;
               break;
             }
             case 120: {
-              wellKnownCase_ = 15;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 15;
               break;
             }
             case 128: {
-              wellKnownCase_ = 16;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 16;
               break;
             }
             case 136: {
-              wellKnownCase_ = 17;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 17;
               break;
             }
             case 144: {
-              wellKnownCase_ = 18;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 18;
               break;
             }
             case 152: {
@@ -26818,13 +26818,13 @@ public final class Validate {
               break;
             }
             case 168: {
-              wellKnownCase_ = 21;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 21;
               break;
             }
             case 176: {
-              wellKnownCase_ = 22;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 22;
               break;
             }
             case 186: {
@@ -31458,18 +31458,18 @@ public final class Validate {
               break;
             }
             case 80: {
-              wellKnownCase_ = 10;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 10;
               break;
             }
             case 88: {
-              wellKnownCase_ = 11;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 11;
               break;
             }
             case 96: {
-              wellKnownCase_ = 12;
               wellKnown_ = input.readBool();
+              wellKnownCase_ = 12;
               break;
             }
             case 104: {

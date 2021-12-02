@@ -25,7 +25,6 @@ import pbandk.wkt.StringValue
 import pbandk.wkt.UInt32Value
 import pbandk.wkt.UInt64Value
 
-@OptIn(ExperimentalUnsignedTypes::class)
 internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
     /**
      * Returns `null` if the value was parseable but is invalid. This currently only happens for enum fields with
@@ -273,6 +272,6 @@ internal class JsonValueDecoder(val jsonConfig: JsonConfig) {
         private const val DOUBLE_MAX_NEGATIVE = -2.22507e-308
 
         private val NUMBER_TRAILING_ZEROES = """\.0+$""".toRegex()
-        private val NUMBER_SCIENTIFIC_NOTATION = """-?(?:\d+)(\.\d+?)?0*[eE](\d+)$""".toRegex()
+        private val NUMBER_SCIENTIFIC_NOTATION = """-?\d+(\.\d+?)?0*[eE](\d+)$""".toRegex()
     }
 }

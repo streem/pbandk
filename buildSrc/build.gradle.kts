@@ -10,6 +10,8 @@ dependencies {
     implementation("com.google.guava:guava:28.0-jre")
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
