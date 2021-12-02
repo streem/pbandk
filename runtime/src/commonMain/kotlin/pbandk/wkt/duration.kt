@@ -3,17 +3,17 @@
 package pbandk.wkt
 
 @pbandk.Export
-data class Duration(
+public data class Duration(
     val seconds: Long = 0L,
     val nanos: Int = 0,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        val defaultInstance by lazy { pbandk.wkt.Duration() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Duration.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Duration = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
+        public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Duration, *>>(2)
@@ -51,7 +51,7 @@ data class Duration(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDuration")
-fun Duration?.orDefault() = this ?: Duration.defaultInstance
+public fun Duration?.orDefault(): pbandk.wkt.Duration = this ?: Duration.defaultInstance
 
 private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.let {
     it.copy(

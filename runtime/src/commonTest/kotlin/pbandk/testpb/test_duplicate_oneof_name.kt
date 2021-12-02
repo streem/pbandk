@@ -3,14 +3,14 @@
 package pbandk.testpb
 
 @pbandk.Export
-data class Value(
+public data class Value(
     val value: Value<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class Value<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class StringValue(stringValue: String = "") : Value<String>(stringValue)
-        class BooleanValue(booleanValue: Boolean = false) : Value<Boolean>(booleanValue)
-        class IntegerValue(integerValue: Int = 0) : Value<Int>(integerValue)
+    public sealed class Value<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class StringValue(stringValue: String = "") : Value<String>(stringValue)
+        public class BooleanValue(booleanValue: Boolean = false) : Value<Boolean>(booleanValue)
+        public class IntegerValue(integerValue: Int = 0) : Value<Int>(integerValue)
     }
 
     val stringValue: String?
@@ -20,12 +20,12 @@ data class Value(
     val integerValue: Int?
         get() = (value as? Value.IntegerValue)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        val defaultInstance by lazy { pbandk.testpb.Value() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Value.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Value = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
+        public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Value, *>>(3)
@@ -76,7 +76,7 @@ data class Value(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
-fun Value?.orDefault() = this ?: Value.defaultInstance
+public fun Value?.orDefault(): pbandk.testpb.Value = this ?: Value.defaultInstance
 
 private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.let {
     it.copy(

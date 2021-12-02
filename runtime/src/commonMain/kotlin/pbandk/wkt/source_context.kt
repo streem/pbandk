@@ -3,16 +3,16 @@
 package pbandk.wkt
 
 @pbandk.Export
-data class SourceContext(
+public data class SourceContext(
     val fileName: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        val defaultInstance by lazy { pbandk.wkt.SourceContext() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.SourceContext.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
+        public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.SourceContext, *>>(1)
@@ -40,7 +40,7 @@ data class SourceContext(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSourceContext")
-fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
+public fun SourceContext?.orDefault(): pbandk.wkt.SourceContext = this ?: SourceContext.defaultInstance
 
 private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.let {
     it.copy(

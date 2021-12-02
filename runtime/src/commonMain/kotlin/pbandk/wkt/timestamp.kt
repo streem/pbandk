@@ -3,17 +3,17 @@
 package pbandk.wkt
 
 @pbandk.Export
-data class Timestamp(
+public data class Timestamp(
     val seconds: Long = 0L,
     val nanos: Int = 0,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
-        val defaultInstance by lazy { pbandk.wkt.Timestamp() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Timestamp.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Timestamp = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
+        public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Timestamp, *>>(2)
@@ -51,7 +51,7 @@ data class Timestamp(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTimestamp")
-fun Timestamp?.orDefault() = this ?: Timestamp.defaultInstance
+public fun Timestamp?.orDefault(): pbandk.wkt.Timestamp = this ?: Timestamp.defaultInstance
 
 private fun Timestamp.protoMergeImpl(plus: pbandk.Message?): Timestamp = (plus as? Timestamp)?.let {
     it.copy(

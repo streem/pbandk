@@ -3,32 +3,32 @@
 package pbandk.wkt
 
 @pbandk.Export
-sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?) = other is NullValue && other.value == value
-    override fun hashCode() = value.hashCode()
-    override fun toString() = "NullValue.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed class NullValue(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?): Boolean = other is NullValue && other.value == value
+    override fun hashCode(): Int = value.hashCode()
+    override fun toString(): String = "NullValue.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-    object NULL_VALUE : NullValue(0, "NULL_VALUE")
-    class UNRECOGNIZED(value: Int) : NullValue(value)
+    public object NULL_VALUE : NullValue(0, "NULL_VALUE")
+    public class UNRECOGNIZED(value: Int) : NullValue(value)
 
-    companion object : pbandk.Message.Enum.Companion<NullValue> {
-        val values: List<NullValue> by lazy { listOf(NULL_VALUE) }
-        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<NullValue> {
+        public val values: List<NullValue> by lazy { listOf(NULL_VALUE) }
+        override fun fromValue(value: Int): NullValue = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): NullValue = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No NullValue with name: $name")
     }
 }
 
 @pbandk.Export
-data class Struct(
+public data class Struct(
     val fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
-        val defaultInstance by lazy { pbandk.wkt.Struct() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Struct.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Struct = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
+        public val defaultInstance: pbandk.wkt.Struct by lazy { pbandk.wkt.Struct() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct = pbandk.wkt.Struct.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Struct, *>>(1)
@@ -53,17 +53,17 @@ data class Struct(
         }
     }
 
-    data class FieldsEntry(
+    public data class FieldsEntry(
         override val key: String = "",
         override val value: pbandk.wkt.Value? = null,
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String, pbandk.wkt.Value?> {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.wkt.Struct.FieldsEntry> {
-            val defaultInstance by lazy { pbandk.wkt.Struct.FieldsEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Struct.FieldsEntry.decodeWithImpl(u)
+        override operator fun plus(other: pbandk.Message?): pbandk.wkt.Struct.FieldsEntry = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct.FieldsEntry> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.wkt.Struct.FieldsEntry> {
+            public val defaultInstance: pbandk.wkt.Struct.FieldsEntry by lazy { pbandk.wkt.Struct.FieldsEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct.FieldsEntry = pbandk.wkt.Struct.FieldsEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct.FieldsEntry> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Struct.FieldsEntry, *>>(2)
@@ -101,17 +101,17 @@ data class Struct(
 }
 
 @pbandk.Export
-data class Value(
+public data class Value(
     val kind: Kind<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class Kind<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : Kind<pbandk.wkt.NullValue>(nullValue)
-        class NumberValue(numberValue: Double = 0.0) : Kind<Double>(numberValue)
-        class StringValue(stringValue: String = "") : Kind<String>(stringValue)
-        class BoolValue(boolValue: Boolean = false) : Kind<Boolean>(boolValue)
-        class StructValue(structValue: pbandk.wkt.Struct) : Kind<pbandk.wkt.Struct>(structValue)
-        class ListValue(listValue: pbandk.wkt.ListValue) : Kind<pbandk.wkt.ListValue>(listValue)
+    public sealed class Kind<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class NullValue(nullValue: pbandk.wkt.NullValue = pbandk.wkt.NullValue.fromValue(0)) : Kind<pbandk.wkt.NullValue>(nullValue)
+        public class NumberValue(numberValue: Double = 0.0) : Kind<Double>(numberValue)
+        public class StringValue(stringValue: String = "") : Kind<String>(stringValue)
+        public class BoolValue(boolValue: Boolean = false) : Kind<Boolean>(boolValue)
+        public class StructValue(structValue: pbandk.wkt.Struct) : Kind<pbandk.wkt.Struct>(structValue)
+        public class ListValue(listValue: pbandk.wkt.ListValue) : Kind<pbandk.wkt.ListValue>(listValue)
     }
 
     val nullValue: pbandk.wkt.NullValue?
@@ -127,12 +127,12 @@ data class Value(
     val listValue: pbandk.wkt.ListValue?
         get() = (kind as? Kind.ListValue)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
-        val defaultInstance by lazy { pbandk.wkt.Value() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Value.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Value = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
+        public val defaultInstance: pbandk.wkt.Value by lazy { pbandk.wkt.Value() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Value = pbandk.wkt.Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Value, *>>(6)
@@ -215,16 +215,16 @@ data class Value(
 }
 
 @pbandk.Export
-data class ListValue(
+public data class ListValue(
     val values: List<pbandk.wkt.Value> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
-        val defaultInstance by lazy { pbandk.wkt.ListValue() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.ListValue.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.ListValue = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
+        public val defaultInstance: pbandk.wkt.ListValue by lazy { pbandk.wkt.ListValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ListValue = pbandk.wkt.ListValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.ListValue, *>>(1)
@@ -252,7 +252,7 @@ data class ListValue(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStruct")
-fun Struct?.orDefault() = this ?: Struct.defaultInstance
+public fun Struct?.orDefault(): pbandk.wkt.Struct = this ?: Struct.defaultInstance
 
 private fun Struct.protoMergeImpl(plus: pbandk.Message?): Struct = (plus as? Struct)?.let {
     it.copy(
@@ -275,7 +275,7 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStructFieldsEntry")
-fun Struct.FieldsEntry?.orDefault() = this ?: Struct.FieldsEntry.defaultInstance
+public fun Struct.FieldsEntry?.orDefault(): pbandk.wkt.Struct.FieldsEntry = this ?: Struct.FieldsEntry.defaultInstance
 
 private fun Struct.FieldsEntry.protoMergeImpl(plus: pbandk.Message?): Struct.FieldsEntry = (plus as? Struct.FieldsEntry)?.let {
     it.copy(
@@ -300,7 +300,7 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
-fun Value?.orDefault() = this ?: Value.defaultInstance
+public fun Value?.orDefault(): pbandk.wkt.Value = this ?: Value.defaultInstance
 
 private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.let {
     it.copy(
@@ -335,7 +335,7 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForListValue")
-fun ListValue?.orDefault() = this ?: ListValue.defaultInstance
+public fun ListValue?.orDefault(): pbandk.wkt.ListValue = this ?: ListValue.defaultInstance
 
 private fun ListValue.protoMergeImpl(plus: pbandk.Message?): ListValue = (plus as? ListValue)?.let {
     it.copy(
