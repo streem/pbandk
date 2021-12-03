@@ -2,7 +2,7 @@ package pbandk.gen
 
 import pbandk.wkt.FieldOptions
 
-data class File(
+public data class File(
     val name: String,
     val packageName: String?,
     val kotlinPackageName: String?,
@@ -11,7 +11,7 @@ data class File(
     val extensions: List<Field>
 ) {
     // Map is keyed by protobuf names (qualified starting w/ a dot if packageName is non-null) with value of Kotlin FQCN
-    fun kotlinTypeMappings() = mutableMapOf<String, String>().also { ret ->
+    internal fun kotlinTypeMappings() = mutableMapOf<String, String>().also { ret ->
         fun applyType(t: Type, parentProtobufTypeName: String? = null, parentKotlinTypeName: String? = null) {
             val protobufTypeName = when {
                 parentProtobufTypeName != null -> "$parentProtobufTypeName."
@@ -30,13 +30,13 @@ data class File(
         types.forEach { applyType(it) }
     }
 
-    sealed class Type {
-        abstract val name: String
-        abstract val fullName: String
-        abstract val kotlinTypeName: String
-        abstract val kotlinFullTypeName: String
+    public sealed class Type {
+        public abstract val name: String
+        public abstract val fullName: String
+        public abstract val kotlinTypeName: String
+        public abstract val kotlinFullTypeName: String
 
-        data class Message(
+        public data class Message(
             override val name: String,
             override val fullName: String,
             val fields: List<Field>,
@@ -47,30 +47,30 @@ data class File(
             val extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList()
         ) : Type()
 
-        data class Enum(
+        public data class Enum(
             override val name: String,
             override val fullName: String,
             val values: List<Value>,
             override val kotlinTypeName: String,
             override val kotlinFullTypeName: String
         ) : Type() {
-            data class Value(val number: Int, val name: String, val kotlinValueTypeName: String)
+            public data class Value(val number: Int, val name: String, val kotlinValueTypeName: String)
         }
     }
 
-    sealed class Field {
-        abstract val name: String
-        abstract val kotlinFieldName: String
+    public sealed class Field {
+        public abstract val name: String
+        public abstract val kotlinFieldName: String
 
-        sealed class Numbered : Field() {
-            abstract val number: Int
-            abstract val type: Type
-            abstract val repeated: Boolean
-            abstract val jsonName: String?
-            abstract val options: FieldOptions
-            abstract val extendee: String?
+        public sealed class Numbered : Field() {
+            public abstract val number: Int
+            public abstract val type: Type
+            public abstract val repeated: Boolean
+            public abstract val jsonName: String?
+            public abstract val options: FieldOptions
+            public abstract val extendee: String?
 
-            data class Standard(
+            public data class Standard(
                 override val number: Int,
                 override val name: String,
                 override val type: Type,
@@ -89,7 +89,7 @@ data class File(
                 override val extendee: String? = null
             ) : Numbered()
 
-            data class Wrapper(
+            public data class Wrapper(
                 override val number: Int,
                 override val name: String,
                 override val kotlinFieldName: String,
@@ -99,11 +99,11 @@ data class File(
                 override val options : FieldOptions = FieldOptions.defaultInstance,
                 override val extendee: String? = null
             ) : Numbered() {
-                override val type = Type.MESSAGE
+                override val type: Type = Type.MESSAGE
             }
         }
 
-        data class OneOf(
+        public data class OneOf(
             override val name: String,
             val fields: List<Numbered.Standard>,
             val kotlinFieldTypeNames: Map<String, String>,
@@ -111,17 +111,17 @@ data class File(
             val kotlinTypeName: String
         ) : Field()
 
-        enum class Type {
+        public enum class Type {
             BOOL, BYTES, DOUBLE, ENUM, FIXED32, FIXED64, FLOAT, INT32, INT64, MESSAGE,
             SFIXED32, SFIXED64, SINT32, SINT64, STRING, UINT32, UINT64;
 
-            val neverPacked get() = this in listOf(BYTES, MESSAGE, STRING)
+            public val neverPacked: Boolean get() = this in listOf(BYTES, MESSAGE, STRING)
 
-            val wrapperTypeName
+            public val wrapperTypeName: String
                 get() = TYPE_TO_WRAPPER_TYPE_NAME[this] ?: error("No wrapper type for ${this.name.lowercase()}")
 
-            companion object {
-                val TYPE_TO_WRAPPER_TYPE_NAME = mapOf(
+            public companion object {
+                public val TYPE_TO_WRAPPER_TYPE_NAME: Map<Type, String> = mapOf(
                     BOOL to ".google.protobuf.BoolValue",
                     BYTES to ".google.protobuf.BytesValue",
                     DOUBLE to ".google.protobuf.DoubleValue",
@@ -132,7 +132,8 @@ data class File(
                     UINT32 to ".google.protobuf.UInt32Value",
                     UINT64 to ".google.protobuf.UInt64Value"
                 )
-                val WRAPPER_TYPE_NAME_TO_TYPE = TYPE_TO_WRAPPER_TYPE_NAME.entries.associateBy({ it.value }, { it.key })
+                public val WRAPPER_TYPE_NAME_TO_TYPE: Map<String, Type> =
+                    TYPE_TO_WRAPPER_TYPE_NAME.entries.associateBy({ it.value }, { it.key })
             }
         }
     }

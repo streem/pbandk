@@ -8,7 +8,7 @@ import kotlin.js.JsExport
 
 @ExperimentalProtoJson
 @JsExport
-data class JsonConfig(
+public data class JsonConfig(
     /**
      * By default the JSON name of a field is the field's proto name converted to lowerCamelCase. If this option is
      * `true` then the field's proto name will be used as-is as its JSON name. Both the proto field name and the
@@ -55,7 +55,7 @@ data class JsonConfig(
             else -> fieldDescriptor.name.underscoreToCamelCase()
         }
 
-    companion object {
-        val DEFAULT = JsonConfig()
+    public companion object {
+        public val DEFAULT: JsonConfig = JsonConfig()
     }
 }

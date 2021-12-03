@@ -11,7 +11,7 @@ import kotlin.js.JsExport
  */
 @ExperimentalProtoJson
 @JsExport
-fun <T : Message> T.encodeToJsonString(jsonConfig: JsonConfig = JsonConfig.DEFAULT): String =
+public fun <T : Message> T.encodeToJsonString(jsonConfig: JsonConfig = JsonConfig.DEFAULT): String =
     JsonMessageEncoder(jsonConfig).also { it.writeMessage(this) }.toJsonString()
 
 /**
@@ -19,7 +19,7 @@ fun <T : Message> T.encodeToJsonString(jsonConfig: JsonConfig = JsonConfig.DEFAU
  */
 @ExperimentalProtoJson
 @JsExport
-fun <T : Message> Message.Companion<T>.decodeFromJsonString(
+public fun <T : Message> Message.Companion<T>.decodeFromJsonString(
     data: String,
     jsonConfig: JsonConfig = JsonConfig.DEFAULT
 ): T = decodeWith(JsonMessageDecoder.fromString(data, jsonConfig))

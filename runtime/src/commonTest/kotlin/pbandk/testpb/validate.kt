@@ -3,51 +3,51 @@
 package pbandk.testpb
 
 @pbandk.Export
-sealed class KnownRegex(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?) = other is KnownRegex && other.value == value
-    override fun hashCode() = value.hashCode()
-    override fun toString() = "KnownRegex.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed class KnownRegex(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?): Boolean = other is KnownRegex && other.value == value
+    override fun hashCode(): Int = value.hashCode()
+    override fun toString(): String = "KnownRegex.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-    object UNKNOWN : KnownRegex(0, "UNKNOWN")
-    object HTTP_HEADER_NAME : KnownRegex(1, "HTTP_HEADER_NAME")
-    object HTTP_HEADER_VALUE : KnownRegex(2, "HTTP_HEADER_VALUE")
-    class UNRECOGNIZED(value: Int) : KnownRegex(value)
+    public object UNKNOWN : KnownRegex(0, "UNKNOWN")
+    public object HTTP_HEADER_NAME : KnownRegex(1, "HTTP_HEADER_NAME")
+    public object HTTP_HEADER_VALUE : KnownRegex(2, "HTTP_HEADER_VALUE")
+    public class UNRECOGNIZED(value: Int) : KnownRegex(value)
 
-    companion object : pbandk.Message.Enum.Companion<KnownRegex> {
-        val values: List<KnownRegex> by lazy { listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE) }
-        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<KnownRegex> {
+        public val values: List<KnownRegex> by lazy { listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE) }
+        override fun fromValue(value: Int): KnownRegex = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): KnownRegex = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
     }
 }
 
 @pbandk.Export
-data class FieldRules(
+public data class FieldRules(
     val message: pbandk.testpb.MessageRules? = null,
     val type: Type<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class Type<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class Float_(float: pbandk.testpb.FloatRules) : Type<pbandk.testpb.FloatRules>(float)
-        class Double_(double: pbandk.testpb.DoubleRules) : Type<pbandk.testpb.DoubleRules>(double)
-        class Int32(int32: pbandk.testpb.Int32Rules) : Type<pbandk.testpb.Int32Rules>(int32)
-        class Int64(int64: pbandk.testpb.Int64Rules) : Type<pbandk.testpb.Int64Rules>(int64)
-        class Uint32(uint32: pbandk.testpb.UInt32Rules) : Type<pbandk.testpb.UInt32Rules>(uint32)
-        class Uint64(uint64: pbandk.testpb.UInt64Rules) : Type<pbandk.testpb.UInt64Rules>(uint64)
-        class Sint32(sint32: pbandk.testpb.SInt32Rules) : Type<pbandk.testpb.SInt32Rules>(sint32)
-        class Sint64(sint64: pbandk.testpb.SInt64Rules) : Type<pbandk.testpb.SInt64Rules>(sint64)
-        class Fixed32(fixed32: pbandk.testpb.Fixed32Rules) : Type<pbandk.testpb.Fixed32Rules>(fixed32)
-        class Fixed64(fixed64: pbandk.testpb.Fixed64Rules) : Type<pbandk.testpb.Fixed64Rules>(fixed64)
-        class Sfixed32(sfixed32: pbandk.testpb.SFixed32Rules) : Type<pbandk.testpb.SFixed32Rules>(sfixed32)
-        class Sfixed64(sfixed64: pbandk.testpb.SFixed64Rules) : Type<pbandk.testpb.SFixed64Rules>(sfixed64)
-        class Bool(bool: pbandk.testpb.BoolRules) : Type<pbandk.testpb.BoolRules>(bool)
-        class String_(string: pbandk.testpb.StringRules) : Type<pbandk.testpb.StringRules>(string)
-        class Bytes(bytes: pbandk.testpb.BytesRules) : Type<pbandk.testpb.BytesRules>(bytes)
-        class Enum(enum: pbandk.testpb.EnumRules) : Type<pbandk.testpb.EnumRules>(enum)
-        class Repeated(repeated: pbandk.testpb.RepeatedRules) : Type<pbandk.testpb.RepeatedRules>(repeated)
-        class Map_(map: pbandk.testpb.MapRules) : Type<pbandk.testpb.MapRules>(map)
-        class Any(any: pbandk.testpb.AnyRules) : Type<pbandk.testpb.AnyRules>(any)
-        class Duration(duration: pbandk.testpb.DurationRules) : Type<pbandk.testpb.DurationRules>(duration)
-        class Timestamp(timestamp: pbandk.testpb.TimestampRules) : Type<pbandk.testpb.TimestampRules>(timestamp)
+    public sealed class Type<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class Float_(float: pbandk.testpb.FloatRules) : Type<pbandk.testpb.FloatRules>(float)
+        public class Double_(double: pbandk.testpb.DoubleRules) : Type<pbandk.testpb.DoubleRules>(double)
+        public class Int32(int32: pbandk.testpb.Int32Rules) : Type<pbandk.testpb.Int32Rules>(int32)
+        public class Int64(int64: pbandk.testpb.Int64Rules) : Type<pbandk.testpb.Int64Rules>(int64)
+        public class Uint32(uint32: pbandk.testpb.UInt32Rules) : Type<pbandk.testpb.UInt32Rules>(uint32)
+        public class Uint64(uint64: pbandk.testpb.UInt64Rules) : Type<pbandk.testpb.UInt64Rules>(uint64)
+        public class Sint32(sint32: pbandk.testpb.SInt32Rules) : Type<pbandk.testpb.SInt32Rules>(sint32)
+        public class Sint64(sint64: pbandk.testpb.SInt64Rules) : Type<pbandk.testpb.SInt64Rules>(sint64)
+        public class Fixed32(fixed32: pbandk.testpb.Fixed32Rules) : Type<pbandk.testpb.Fixed32Rules>(fixed32)
+        public class Fixed64(fixed64: pbandk.testpb.Fixed64Rules) : Type<pbandk.testpb.Fixed64Rules>(fixed64)
+        public class Sfixed32(sfixed32: pbandk.testpb.SFixed32Rules) : Type<pbandk.testpb.SFixed32Rules>(sfixed32)
+        public class Sfixed64(sfixed64: pbandk.testpb.SFixed64Rules) : Type<pbandk.testpb.SFixed64Rules>(sfixed64)
+        public class Bool(bool: pbandk.testpb.BoolRules) : Type<pbandk.testpb.BoolRules>(bool)
+        public class String_(string: pbandk.testpb.StringRules) : Type<pbandk.testpb.StringRules>(string)
+        public class Bytes(bytes: pbandk.testpb.BytesRules) : Type<pbandk.testpb.BytesRules>(bytes)
+        public class Enum(enum: pbandk.testpb.EnumRules) : Type<pbandk.testpb.EnumRules>(enum)
+        public class Repeated(repeated: pbandk.testpb.RepeatedRules) : Type<pbandk.testpb.RepeatedRules>(repeated)
+        public class Map_(map: pbandk.testpb.MapRules) : Type<pbandk.testpb.MapRules>(map)
+        public class Any(any: pbandk.testpb.AnyRules) : Type<pbandk.testpb.AnyRules>(any)
+        public class Duration(duration: pbandk.testpb.DurationRules) : Type<pbandk.testpb.DurationRules>(duration)
+        public class Timestamp(timestamp: pbandk.testpb.TimestampRules) : Type<pbandk.testpb.TimestampRules>(timestamp)
     }
 
     val float: pbandk.testpb.FloatRules?
@@ -93,12 +93,12 @@ data class FieldRules(
     val timestamp: pbandk.testpb.TimestampRules?
         get() = (type as? Type.Timestamp)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
-        val defaultInstance by lazy { pbandk.testpb.FieldRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FieldRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.FieldRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FieldRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
+        public val defaultInstance: pbandk.testpb.FieldRules by lazy { pbandk.testpb.FieldRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FieldRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FieldRules, *>>(22)
@@ -356,7 +356,7 @@ data class FieldRules(
 }
 
 @pbandk.Export
-data class FloatRules(
+public data class FloatRules(
     val const: Float? = null,
     val lt: Float? = null,
     val lte: Float? = null,
@@ -366,12 +366,12 @@ data class FloatRules(
     val notIn: List<Float> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
-        val defaultInstance by lazy { pbandk.testpb.FloatRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FloatRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.FloatRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FloatRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
+        public val defaultInstance: pbandk.testpb.FloatRules by lazy { pbandk.testpb.FloatRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FloatRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FloatRules, *>>(7)
@@ -458,7 +458,7 @@ data class FloatRules(
 }
 
 @pbandk.Export
-data class DoubleRules(
+public data class DoubleRules(
     val const: Double? = null,
     val lt: Double? = null,
     val lte: Double? = null,
@@ -468,12 +468,12 @@ data class DoubleRules(
     val notIn: List<Double> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
-        val defaultInstance by lazy { pbandk.testpb.DoubleRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.DoubleRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.DoubleRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DoubleRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
+        public val defaultInstance: pbandk.testpb.DoubleRules by lazy { pbandk.testpb.DoubleRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DoubleRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.DoubleRules, *>>(7)
@@ -560,7 +560,7 @@ data class DoubleRules(
 }
 
 @pbandk.Export
-data class Int32Rules(
+public data class Int32Rules(
     val const: Int? = null,
     val lt: Int? = null,
     val lte: Int? = null,
@@ -570,12 +570,12 @@ data class Int32Rules(
     val notIn: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
-        val defaultInstance by lazy { pbandk.testpb.Int32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Int32Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Int32Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int32Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
+        public val defaultInstance: pbandk.testpb.Int32Rules by lazy { pbandk.testpb.Int32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int32Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Int32Rules, *>>(7)
@@ -662,7 +662,7 @@ data class Int32Rules(
 }
 
 @pbandk.Export
-data class Int64Rules(
+public data class Int64Rules(
     val const: Long? = null,
     val lt: Long? = null,
     val lte: Long? = null,
@@ -672,12 +672,12 @@ data class Int64Rules(
     val notIn: List<Long> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
-        val defaultInstance by lazy { pbandk.testpb.Int64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Int64Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Int64Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int64Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
+        public val defaultInstance: pbandk.testpb.Int64Rules by lazy { pbandk.testpb.Int64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Int64Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Int64Rules, *>>(7)
@@ -764,7 +764,7 @@ data class Int64Rules(
 }
 
 @pbandk.Export
-data class UInt32Rules(
+public data class UInt32Rules(
     val const: Int? = null,
     val lt: Int? = null,
     val lte: Int? = null,
@@ -774,12 +774,12 @@ data class UInt32Rules(
     val notIn: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
-        val defaultInstance by lazy { pbandk.testpb.UInt32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.UInt32Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt32Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
+        public val defaultInstance: pbandk.testpb.UInt32Rules by lazy { pbandk.testpb.UInt32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt32Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.UInt32Rules, *>>(7)
@@ -866,7 +866,7 @@ data class UInt32Rules(
 }
 
 @pbandk.Export
-data class UInt64Rules(
+public data class UInt64Rules(
     val const: Long? = null,
     val lt: Long? = null,
     val lte: Long? = null,
@@ -876,12 +876,12 @@ data class UInt64Rules(
     val notIn: List<Long> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
-        val defaultInstance by lazy { pbandk.testpb.UInt64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.UInt64Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt64Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
+        public val defaultInstance: pbandk.testpb.UInt64Rules by lazy { pbandk.testpb.UInt64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.UInt64Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.UInt64Rules, *>>(7)
@@ -968,7 +968,7 @@ data class UInt64Rules(
 }
 
 @pbandk.Export
-data class SInt32Rules(
+public data class SInt32Rules(
     val const: Int? = null,
     val lt: Int? = null,
     val lte: Int? = null,
@@ -978,12 +978,12 @@ data class SInt32Rules(
     val notIn: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
-        val defaultInstance by lazy { pbandk.testpb.SInt32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.SInt32Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt32Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
+        public val defaultInstance: pbandk.testpb.SInt32Rules by lazy { pbandk.testpb.SInt32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt32Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SInt32Rules, *>>(7)
@@ -1070,7 +1070,7 @@ data class SInt32Rules(
 }
 
 @pbandk.Export
-data class SInt64Rules(
+public data class SInt64Rules(
     val const: Long? = null,
     val lt: Long? = null,
     val lte: Long? = null,
@@ -1080,12 +1080,12 @@ data class SInt64Rules(
     val notIn: List<Long> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
-        val defaultInstance by lazy { pbandk.testpb.SInt64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.SInt64Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt64Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
+        public val defaultInstance: pbandk.testpb.SInt64Rules by lazy { pbandk.testpb.SInt64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SInt64Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SInt64Rules, *>>(7)
@@ -1172,7 +1172,7 @@ data class SInt64Rules(
 }
 
 @pbandk.Export
-data class Fixed32Rules(
+public data class Fixed32Rules(
     val const: Int? = null,
     val lt: Int? = null,
     val lte: Int? = null,
@@ -1182,12 +1182,12 @@ data class Fixed32Rules(
     val notIn: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
-        val defaultInstance by lazy { pbandk.testpb.Fixed32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Fixed32Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed32Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
+        public val defaultInstance: pbandk.testpb.Fixed32Rules by lazy { pbandk.testpb.Fixed32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed32Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Fixed32Rules, *>>(7)
@@ -1274,7 +1274,7 @@ data class Fixed32Rules(
 }
 
 @pbandk.Export
-data class Fixed64Rules(
+public data class Fixed64Rules(
     val const: Long? = null,
     val lt: Long? = null,
     val lte: Long? = null,
@@ -1284,12 +1284,12 @@ data class Fixed64Rules(
     val notIn: List<Long> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
-        val defaultInstance by lazy { pbandk.testpb.Fixed64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Fixed64Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed64Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
+        public val defaultInstance: pbandk.testpb.Fixed64Rules by lazy { pbandk.testpb.Fixed64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Fixed64Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Fixed64Rules, *>>(7)
@@ -1376,7 +1376,7 @@ data class Fixed64Rules(
 }
 
 @pbandk.Export
-data class SFixed32Rules(
+public data class SFixed32Rules(
     val const: Int? = null,
     val lt: Int? = null,
     val lte: Int? = null,
@@ -1386,12 +1386,12 @@ data class SFixed32Rules(
     val notIn: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
-        val defaultInstance by lazy { pbandk.testpb.SFixed32Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.SFixed32Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed32Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
+        public val defaultInstance: pbandk.testpb.SFixed32Rules by lazy { pbandk.testpb.SFixed32Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed32Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SFixed32Rules, *>>(7)
@@ -1478,7 +1478,7 @@ data class SFixed32Rules(
 }
 
 @pbandk.Export
-data class SFixed64Rules(
+public data class SFixed64Rules(
     val const: Long? = null,
     val lt: Long? = null,
     val lte: Long? = null,
@@ -1488,12 +1488,12 @@ data class SFixed64Rules(
     val notIn: List<Long> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
-        val defaultInstance by lazy { pbandk.testpb.SFixed64Rules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.SFixed64Rules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed64Rules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
+        public val defaultInstance: pbandk.testpb.SFixed64Rules by lazy { pbandk.testpb.SFixed64Rules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SFixed64Rules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SFixed64Rules, *>>(7)
@@ -1580,16 +1580,16 @@ data class SFixed64Rules(
 }
 
 @pbandk.Export
-data class BoolRules(
+public data class BoolRules(
     val const: Boolean? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
-        val defaultInstance by lazy { pbandk.testpb.BoolRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.BoolRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.BoolRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BoolRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
+        public val defaultInstance: pbandk.testpb.BoolRules by lazy { pbandk.testpb.BoolRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BoolRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.BoolRules, *>>(1)
@@ -1616,7 +1616,7 @@ data class BoolRules(
 }
 
 @pbandk.Export
-data class StringRules(
+public data class StringRules(
     val const: String? = null,
     val len: Long? = null,
     val minLen: Long? = null,
@@ -1635,17 +1635,17 @@ data class StringRules(
     val wellKnown: WellKnown<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class WellKnown<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class Email(email: Boolean = false) : WellKnown<Boolean>(email)
-        class Hostname(hostname: Boolean = false) : WellKnown<Boolean>(hostname)
-        class Ip(ip: Boolean = false) : WellKnown<Boolean>(ip)
-        class Ipv4(ipv4: Boolean = false) : WellKnown<Boolean>(ipv4)
-        class Ipv6(ipv6: Boolean = false) : WellKnown<Boolean>(ipv6)
-        class Uri(uri: Boolean = false) : WellKnown<Boolean>(uri)
-        class UriRef(uriRef: Boolean = false) : WellKnown<Boolean>(uriRef)
-        class Address(address: Boolean = false) : WellKnown<Boolean>(address)
-        class Uuid(uuid: Boolean = false) : WellKnown<Boolean>(uuid)
-        class WellKnownRegex(wellKnownRegex: pbandk.testpb.KnownRegex = pbandk.testpb.KnownRegex.fromValue(0)) : WellKnown<pbandk.testpb.KnownRegex>(wellKnownRegex)
+    public sealed class WellKnown<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class Email(email: Boolean = false) : WellKnown<Boolean>(email)
+        public class Hostname(hostname: Boolean = false) : WellKnown<Boolean>(hostname)
+        public class Ip(ip: Boolean = false) : WellKnown<Boolean>(ip)
+        public class Ipv4(ipv4: Boolean = false) : WellKnown<Boolean>(ipv4)
+        public class Ipv6(ipv6: Boolean = false) : WellKnown<Boolean>(ipv6)
+        public class Uri(uri: Boolean = false) : WellKnown<Boolean>(uri)
+        public class UriRef(uriRef: Boolean = false) : WellKnown<Boolean>(uriRef)
+        public class Address(address: Boolean = false) : WellKnown<Boolean>(address)
+        public class Uuid(uuid: Boolean = false) : WellKnown<Boolean>(uuid)
+        public class WellKnownRegex(wellKnownRegex: pbandk.testpb.KnownRegex = pbandk.testpb.KnownRegex.fromValue(0)) : WellKnown<pbandk.testpb.KnownRegex>(wellKnownRegex)
     }
 
     val email: Boolean?
@@ -1669,12 +1669,12 @@ data class StringRules(
     val wellKnownRegex: pbandk.testpb.KnownRegex?
         get() = (wellKnown as? WellKnown.WellKnownRegex)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
-        val defaultInstance by lazy { pbandk.testpb.StringRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.StringRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.StringRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.StringRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
+        public val defaultInstance: pbandk.testpb.StringRules by lazy { pbandk.testpb.StringRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.StringRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.StringRules, *>>(25)
@@ -1951,7 +1951,7 @@ data class StringRules(
 }
 
 @pbandk.Export
-data class BytesRules(
+public data class BytesRules(
     val const: pbandk.ByteArr? = null,
     val len: Long? = null,
     val minLen: Long? = null,
@@ -1965,10 +1965,10 @@ data class BytesRules(
     val wellKnown: WellKnown<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class WellKnown<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class Ip(ip: Boolean = false) : WellKnown<Boolean>(ip)
-        class Ipv4(ipv4: Boolean = false) : WellKnown<Boolean>(ipv4)
-        class Ipv6(ipv6: Boolean = false) : WellKnown<Boolean>(ipv6)
+    public sealed class WellKnown<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class Ip(ip: Boolean = false) : WellKnown<Boolean>(ip)
+        public class Ipv4(ipv4: Boolean = false) : WellKnown<Boolean>(ipv4)
+        public class Ipv6(ipv6: Boolean = false) : WellKnown<Boolean>(ipv6)
     }
 
     val ip: Boolean?
@@ -1978,12 +1978,12 @@ data class BytesRules(
     val ipv6: Boolean?
         get() = (wellKnown as? WellKnown.Ipv6)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
-        val defaultInstance by lazy { pbandk.testpb.BytesRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.BytesRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.BytesRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BytesRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
+        public val defaultInstance: pbandk.testpb.BytesRules by lazy { pbandk.testpb.BytesRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.BytesRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.BytesRules, *>>(13)
@@ -2133,19 +2133,19 @@ data class BytesRules(
 }
 
 @pbandk.Export
-data class EnumRules(
+public data class EnumRules(
     val const: Int? = null,
     val definedOnly: Boolean? = null,
     val `in`: List<Int> = emptyList(),
     val notIn: List<Int> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
-        val defaultInstance by lazy { pbandk.testpb.EnumRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.EnumRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.EnumRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.EnumRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
+        public val defaultInstance: pbandk.testpb.EnumRules by lazy { pbandk.testpb.EnumRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.EnumRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.EnumRules, *>>(4)
@@ -2202,17 +2202,17 @@ data class EnumRules(
 }
 
 @pbandk.Export
-data class MessageRules(
+public data class MessageRules(
     val skip: Boolean? = null,
     val required: Boolean? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
-        val defaultInstance by lazy { pbandk.testpb.MessageRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
+        public val defaultInstance: pbandk.testpb.MessageRules by lazy { pbandk.testpb.MessageRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageRules, *>>(2)
@@ -2249,19 +2249,19 @@ data class MessageRules(
 }
 
 @pbandk.Export
-data class RepeatedRules(
+public data class RepeatedRules(
     val minItems: Long? = null,
     val maxItems: Long? = null,
     val unique: Boolean? = null,
     val items: pbandk.testpb.FieldRules? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
-        val defaultInstance by lazy { pbandk.testpb.RepeatedRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.RepeatedRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.RepeatedRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
+        public val defaultInstance: pbandk.testpb.RepeatedRules by lazy { pbandk.testpb.RepeatedRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.RepeatedRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.RepeatedRules, *>>(4)
@@ -2318,7 +2318,7 @@ data class RepeatedRules(
 }
 
 @pbandk.Export
-data class MapRules(
+public data class MapRules(
     val minPairs: Long? = null,
     val maxPairs: Long? = null,
     val noSparse: Boolean? = null,
@@ -2326,12 +2326,12 @@ data class MapRules(
     val values: pbandk.testpb.FieldRules? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
-        val defaultInstance by lazy { pbandk.testpb.MapRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MapRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MapRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MapRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
+        public val defaultInstance: pbandk.testpb.MapRules by lazy { pbandk.testpb.MapRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MapRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MapRules, *>>(5)
@@ -2398,18 +2398,18 @@ data class MapRules(
 }
 
 @pbandk.Export
-data class AnyRules(
+public data class AnyRules(
     val required: Boolean? = null,
     val `in`: List<String> = emptyList(),
     val notIn: List<String> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
-        val defaultInstance by lazy { pbandk.testpb.AnyRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.AnyRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.AnyRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.AnyRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
+        public val defaultInstance: pbandk.testpb.AnyRules by lazy { pbandk.testpb.AnyRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.AnyRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.AnyRules, *>>(3)
@@ -2456,7 +2456,7 @@ data class AnyRules(
 }
 
 @pbandk.Export
-data class DurationRules(
+public data class DurationRules(
     val required: Boolean? = null,
     val const: pbandk.wkt.Duration? = null,
     val lt: pbandk.wkt.Duration? = null,
@@ -2467,12 +2467,12 @@ data class DurationRules(
     val notIn: List<pbandk.wkt.Duration> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
-        val defaultInstance by lazy { pbandk.testpb.DurationRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.DurationRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.DurationRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DurationRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
+        public val defaultInstance: pbandk.testpb.DurationRules by lazy { pbandk.testpb.DurationRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.DurationRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.DurationRules, *>>(8)
@@ -2569,7 +2569,7 @@ data class DurationRules(
 }
 
 @pbandk.Export
-data class TimestampRules(
+public data class TimestampRules(
     val required: Boolean? = null,
     val const: pbandk.wkt.Timestamp? = null,
     val lt: pbandk.wkt.Timestamp? = null,
@@ -2581,12 +2581,12 @@ data class TimestampRules(
     val within: pbandk.wkt.Duration? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
-        val defaultInstance by lazy { pbandk.testpb.TimestampRules() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.TimestampRules.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.TimestampRules = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TimestampRules> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
+        public val defaultInstance: pbandk.testpb.TimestampRules by lazy { pbandk.testpb.TimestampRules() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TimestampRules> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.TimestampRules, *>>(9)
@@ -2733,7 +2733,7 @@ val rules = pbandk.FieldDescriptor(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldRules")
-fun FieldRules?.orDefault() = this ?: FieldRules.defaultInstance
+public fun FieldRules?.orDefault(): pbandk.testpb.FieldRules = this ?: FieldRules.defaultInstance
 
 private fun FieldRules.protoMergeImpl(plus: pbandk.Message?): FieldRules = (plus as? FieldRules)?.let {
     it.copy(
@@ -2824,7 +2824,7 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFloatRules")
-fun FloatRules?.orDefault() = this ?: FloatRules.defaultInstance
+public fun FloatRules?.orDefault(): pbandk.testpb.FloatRules = this ?: FloatRules.defaultInstance
 
 private fun FloatRules.protoMergeImpl(plus: pbandk.Message?): FloatRules = (plus as? FloatRules)?.let {
     it.copy(
@@ -2866,7 +2866,7 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDoubleRules")
-fun DoubleRules?.orDefault() = this ?: DoubleRules.defaultInstance
+public fun DoubleRules?.orDefault(): pbandk.testpb.DoubleRules = this ?: DoubleRules.defaultInstance
 
 private fun DoubleRules.protoMergeImpl(plus: pbandk.Message?): DoubleRules = (plus as? DoubleRules)?.let {
     it.copy(
@@ -2908,7 +2908,7 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt32Rules")
-fun Int32Rules?.orDefault() = this ?: Int32Rules.defaultInstance
+public fun Int32Rules?.orDefault(): pbandk.testpb.Int32Rules = this ?: Int32Rules.defaultInstance
 
 private fun Int32Rules.protoMergeImpl(plus: pbandk.Message?): Int32Rules = (plus as? Int32Rules)?.let {
     it.copy(
@@ -2950,7 +2950,7 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt64Rules")
-fun Int64Rules?.orDefault() = this ?: Int64Rules.defaultInstance
+public fun Int64Rules?.orDefault(): pbandk.testpb.Int64Rules = this ?: Int64Rules.defaultInstance
 
 private fun Int64Rules.protoMergeImpl(plus: pbandk.Message?): Int64Rules = (plus as? Int64Rules)?.let {
     it.copy(
@@ -2992,7 +2992,7 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt32Rules")
-fun UInt32Rules?.orDefault() = this ?: UInt32Rules.defaultInstance
+public fun UInt32Rules?.orDefault(): pbandk.testpb.UInt32Rules = this ?: UInt32Rules.defaultInstance
 
 private fun UInt32Rules.protoMergeImpl(plus: pbandk.Message?): UInt32Rules = (plus as? UInt32Rules)?.let {
     it.copy(
@@ -3034,7 +3034,7 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt64Rules")
-fun UInt64Rules?.orDefault() = this ?: UInt64Rules.defaultInstance
+public fun UInt64Rules?.orDefault(): pbandk.testpb.UInt64Rules = this ?: UInt64Rules.defaultInstance
 
 private fun UInt64Rules.protoMergeImpl(plus: pbandk.Message?): UInt64Rules = (plus as? UInt64Rules)?.let {
     it.copy(
@@ -3076,7 +3076,7 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSInt32Rules")
-fun SInt32Rules?.orDefault() = this ?: SInt32Rules.defaultInstance
+public fun SInt32Rules?.orDefault(): pbandk.testpb.SInt32Rules = this ?: SInt32Rules.defaultInstance
 
 private fun SInt32Rules.protoMergeImpl(plus: pbandk.Message?): SInt32Rules = (plus as? SInt32Rules)?.let {
     it.copy(
@@ -3118,7 +3118,7 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSInt64Rules")
-fun SInt64Rules?.orDefault() = this ?: SInt64Rules.defaultInstance
+public fun SInt64Rules?.orDefault(): pbandk.testpb.SInt64Rules = this ?: SInt64Rules.defaultInstance
 
 private fun SInt64Rules.protoMergeImpl(plus: pbandk.Message?): SInt64Rules = (plus as? SInt64Rules)?.let {
     it.copy(
@@ -3160,7 +3160,7 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFixed32Rules")
-fun Fixed32Rules?.orDefault() = this ?: Fixed32Rules.defaultInstance
+public fun Fixed32Rules?.orDefault(): pbandk.testpb.Fixed32Rules = this ?: Fixed32Rules.defaultInstance
 
 private fun Fixed32Rules.protoMergeImpl(plus: pbandk.Message?): Fixed32Rules = (plus as? Fixed32Rules)?.let {
     it.copy(
@@ -3202,7 +3202,7 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFixed64Rules")
-fun Fixed64Rules?.orDefault() = this ?: Fixed64Rules.defaultInstance
+public fun Fixed64Rules?.orDefault(): pbandk.testpb.Fixed64Rules = this ?: Fixed64Rules.defaultInstance
 
 private fun Fixed64Rules.protoMergeImpl(plus: pbandk.Message?): Fixed64Rules = (plus as? Fixed64Rules)?.let {
     it.copy(
@@ -3244,7 +3244,7 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSFixed32Rules")
-fun SFixed32Rules?.orDefault() = this ?: SFixed32Rules.defaultInstance
+public fun SFixed32Rules?.orDefault(): pbandk.testpb.SFixed32Rules = this ?: SFixed32Rules.defaultInstance
 
 private fun SFixed32Rules.protoMergeImpl(plus: pbandk.Message?): SFixed32Rules = (plus as? SFixed32Rules)?.let {
     it.copy(
@@ -3286,7 +3286,7 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSFixed64Rules")
-fun SFixed64Rules?.orDefault() = this ?: SFixed64Rules.defaultInstance
+public fun SFixed64Rules?.orDefault(): pbandk.testpb.SFixed64Rules = this ?: SFixed64Rules.defaultInstance
 
 private fun SFixed64Rules.protoMergeImpl(plus: pbandk.Message?): SFixed64Rules = (plus as? SFixed64Rules)?.let {
     it.copy(
@@ -3328,7 +3328,7 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBoolRules")
-fun BoolRules?.orDefault() = this ?: BoolRules.defaultInstance
+public fun BoolRules?.orDefault(): pbandk.testpb.BoolRules = this ?: BoolRules.defaultInstance
 
 private fun BoolRules.protoMergeImpl(plus: pbandk.Message?): BoolRules = (plus as? BoolRules)?.let {
     it.copy(
@@ -3351,7 +3351,7 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRu
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStringRules")
-fun StringRules?.orDefault() = this ?: StringRules.defaultInstance
+public fun StringRules?.orDefault(): pbandk.testpb.StringRules = this ?: StringRules.defaultInstance
 
 private fun StringRules.protoMergeImpl(plus: pbandk.Message?): StringRules = (plus as? StringRules)?.let {
     it.copy(
@@ -3431,7 +3431,7 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBytesRules")
-fun BytesRules?.orDefault() = this ?: BytesRules.defaultInstance
+public fun BytesRules?.orDefault(): pbandk.testpb.BytesRules = this ?: BytesRules.defaultInstance
 
 private fun BytesRules.protoMergeImpl(plus: pbandk.Message?): BytesRules = (plus as? BytesRules)?.let {
     it.copy(
@@ -3488,7 +3488,7 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumRules")
-fun EnumRules?.orDefault() = this ?: EnumRules.defaultInstance
+public fun EnumRules?.orDefault(): pbandk.testpb.EnumRules = this ?: EnumRules.defaultInstance
 
 private fun EnumRules.protoMergeImpl(plus: pbandk.Message?): EnumRules = (plus as? EnumRules)?.let {
     it.copy(
@@ -3520,7 +3520,7 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageRules")
-fun MessageRules?.orDefault() = this ?: MessageRules.defaultInstance
+public fun MessageRules?.orDefault(): pbandk.testpb.MessageRules = this ?: MessageRules.defaultInstance
 
 private fun MessageRules.protoMergeImpl(plus: pbandk.Message?): MessageRules = (plus as? MessageRules)?.let {
     it.copy(
@@ -3546,7 +3546,7 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mes
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForRepeatedRules")
-fun RepeatedRules?.orDefault() = this ?: RepeatedRules.defaultInstance
+public fun RepeatedRules?.orDefault(): pbandk.testpb.RepeatedRules = this ?: RepeatedRules.defaultInstance
 
 private fun RepeatedRules.protoMergeImpl(plus: pbandk.Message?): RepeatedRules = (plus as? RepeatedRules)?.let {
     it.copy(
@@ -3578,7 +3578,7 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Re
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMapRules")
-fun MapRules?.orDefault() = this ?: MapRules.defaultInstance
+public fun MapRules?.orDefault(): pbandk.testpb.MapRules = this ?: MapRules.defaultInstance
 
 private fun MapRules.protoMergeImpl(plus: pbandk.Message?): MapRules = (plus as? MapRules)?.let {
     it.copy(
@@ -3614,7 +3614,7 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRule
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAnyRules")
-fun AnyRules?.orDefault() = this ?: AnyRules.defaultInstance
+public fun AnyRules?.orDefault(): pbandk.testpb.AnyRules = this ?: AnyRules.defaultInstance
 
 private fun AnyRules.protoMergeImpl(plus: pbandk.Message?): AnyRules = (plus as? AnyRules)?.let {
     it.copy(
@@ -3643,7 +3643,7 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDurationRules")
-fun DurationRules?.orDefault() = this ?: DurationRules.defaultInstance
+public fun DurationRules?.orDefault(): pbandk.testpb.DurationRules = this ?: DurationRules.defaultInstance
 
 private fun DurationRules.protoMergeImpl(plus: pbandk.Message?): DurationRules = (plus as? DurationRules)?.let {
     it.copy(
@@ -3688,7 +3688,7 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTimestampRules")
-fun TimestampRules?.orDefault() = this ?: TimestampRules.defaultInstance
+public fun TimestampRules?.orDefault(): pbandk.testpb.TimestampRules = this ?: TimestampRules.defaultInstance
 
 private fun TimestampRules.protoMergeImpl(plus: pbandk.Message?): TimestampRules = (plus as? TimestampRules)?.let {
     it.copy(

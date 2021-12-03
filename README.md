@@ -91,7 +91,7 @@ The following file will be generated at `tutorial/addressbook.kt`:
 
 package tutorial
 
-data class Person(
+public data class Person(
     val name: String = "",
     val id: Int = 0,
     val email: String = "",
@@ -99,12 +99,12 @@ data class Person(
     val lastUpdated: pbandk.wkt.Timestamp? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<Person> {
-        val defaultInstance by lazy { Person() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = Person.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): Person = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<Person> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<Person> {
+        public val defaultInstance: Person by lazy { Person() }
+        override fun decodeWith(u: pbandk.MessageDecoder): Person = Person.decodeWithImpl(u)
 
         override val descriptors: pbandk.MessageDescriptor<Person> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<Person, *>>(5).apply {
@@ -168,34 +168,34 @@ data class Person(
         }
     }
 
-    sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-        override fun equals(other: kotlin.Any?) = other is Person.PhoneType && other.value == value
-        override fun hashCode() = value.hashCode()
-        override fun toString() = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
+    public sealed class PhoneType(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+        override fun equals(other: kotlin.Any?): Boolean = other is Person.PhoneType && other.value == value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "Person.PhoneType.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-        object MOBILE : PhoneType(0, "MOBILE")
-        object HOME : PhoneType(1, "HOME")
-        object WORK : PhoneType(2, "WORK")
-        class UNRECOGNIZED(value: Int) : Person.PhoneType(value)
+        public object MOBILE : PhoneType(0, "MOBILE")
+        public object HOME : PhoneType(1, "HOME")
+        public object WORK : PhoneType(2, "WORK")
+        public class UNRECOGNIZED(value: Int) : Person.PhoneType(value)
 
-        companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
-            val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
-            override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-            override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
+        public companion object : pbandk.Message.Enum.Companion<Person.PhoneType> {
+            public val values: List<Person.PhoneType> by lazy { listOf(MOBILE, HOME, WORK) }
+            override fun fromValue(value: Int): Person.PhoneType = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+            override fun fromName(name: String): Person.PhoneType = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No PhoneType with name: $name")
         }
     }
 
-    data class PhoneNumber(
+    public data class PhoneNumber(
         val number: String = "",
         val type: tutorial.Person.PhoneType = tutorial.Person.PhoneType.fromValue(0),
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<Person.PhoneNumber> {
-            val defaultInstance by lazy { Person.PhoneNumber() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = Person.PhoneNumber.decodeWithImpl(u)
+        override operator fun plus(other: pbandk.Message?): Person.PhoneNumber = protoMergeImpl(other)
+        override val descriptor: MessageDescriptor<Person.PhoneNumber> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<Person.PhoneNumber> {
+            public val defaultInstance: Person.PhoneNumber by lazy { Person.PhoneNumber() }
+            override fun decodeWith(u: pbandk.MessageDecoder): Person.PhoneNumber = Person.PhoneNumber.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<PhoneNumber> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<PhoneNumber, *>>(2).apply {
@@ -231,16 +231,16 @@ data class Person(
     }
 }
 
-data class AddressBook(
+public data class AddressBook(
     val people: List<tutorial.Person> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: AddressBook?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<AddressBook> {
-        val defaultInstance by lazy { AddressBook() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = AddressBook.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): AddressBook = protoMergeImpl(other)
+    override val descriptor: MessageDescriptor<AddressBook> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<AddressBook> {
+        public val defaultInstance: AddressBook by lazy { AddressBook() }
+        override fun decodeWith(u: pbandk.MessageDecoder): AddressBook = AddressBook.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<AddressBook> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<AddressBook, *>>(1).apply {
@@ -265,11 +265,11 @@ data class AddressBook(
     }
 }
 
-fun Person?.orDefault() = this ?: Person.defaultInstance
+public fun Person?.orDefault(): Person = this ?: Person.defaultInstance
 
-fun Person.PhoneNumber?.orDefault() = this ?: Person.PhoneNumber.defaultInstance
+public fun Person.PhoneNumber?.orDefault(): Person.PhoneNumber = this ?: Person.PhoneNumber.defaultInstance
 
-fun AddressBook?.orDefault() = this ?: AddressBook.defaultInstance
+public fun AddressBook?.orDefault(): AddressBook = this ?: AddressBook.defaultInstance
 
 // Omitted multiple supporting private extension methods
 ```
@@ -294,14 +294,24 @@ protoc --pbandk_out=src/main/kotlin sample.proto
 ```
 
 The file is generated as `sample.kt` in the subdirectories specified by the package. Like other `X_out` arguments,
-comma-separated options can be added to `--pbandk_out` before the colon and out dir path. To explicitly set the Kotlin
-package to `my.pkg`, use the `kotlin_package` option like so:
+comma-separated options can be added to `--pbandk_out` before the colon and out dir path:
 
-```
-protoc --pbandk_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
-```
+*   To explicitly set the Kotlin package to `my.pkg`, use the `kotlin_package` option like so:
 
-To log debug logs during generation, `log=debug` can be set as well.
+    ```
+    protoc --pbandk_out=kotlin_package=my.pkg:src/main/kotlin sample.proto
+    ```
+
+*   By default all generated classes have `public` visibility. To change the visibility to `internal`, use the
+    `visibility` option like so:
+
+    ```
+    protoc --pbandk_out=visibility=internal:src/main/kotlin sample.proto
+    ```
+
+*   To log debug logs during generation, `log=debug` can be set as well.
+
+Multiple options can be added to a single `--pbandk_out` argument by separating them with commas.
 
 In addition to running `protoc` manually, the
 [Protobuf Plugin for Gradle](https://github.com/google/protobuf-gradle-plugin) can be used. See

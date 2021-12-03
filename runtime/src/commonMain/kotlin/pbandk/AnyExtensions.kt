@@ -9,15 +9,15 @@ private const val DEFAULT_TYPE_URL_PREFIX = "type.googleapis.com"
  * not provided). The type URL will be constructed by concatenating the message type's full name to the prefix with an
  * optional "/" separator if the prefix doesn't end with "/" already.
  */
-fun <T : Message> Any.Companion.pack(message: T, typeUrlPrefix: String = DEFAULT_TYPE_URL_PREFIX) = Any(
+public fun <T : Message> Any.Companion.pack(message: T, typeUrlPrefix: String = DEFAULT_TYPE_URL_PREFIX): Any = Any(
     typeUrl = "$typeUrlPrefix${if (typeUrlPrefix.endsWith('/')) "" else "/"}${message.descriptor.fullName}",
     value = ByteArr(message.encodeToByteArray())
 )
 
 /**
- * Returns `true` if [Any.typeUrl] matches the fully-qualifed type name of [companion].
+ * Returns `true` if [Any.typeUrl] matches the fully-qualified type name of [companion].
  */
-fun <T : Message> Any.isA(companion: Message.Companion<T>): Boolean {
+public fun <T : Message> Any.isA(companion: Message.Companion<T>): Boolean {
     return companion.descriptor.fullName == getTypeNameFromTypeUrl(typeUrl)
 }
 
@@ -25,7 +25,7 @@ fun <T : Message> Any.isA(companion: Message.Companion<T>): Boolean {
  * Unpacks the data in [Any.value] using [companion]. Throws [InvalidProtocolBufferException] if [Any.typeUrl] does not
  * match the fully-qualified type name of [companion], or if [Any.value] does not contain a valid message.
  */
-fun <T : Message> Any.unpack(companion: Message.Companion<T>): T {
+public fun <T : Message> Any.unpack(companion: Message.Companion<T>): T {
     if (!isA(companion)) {
         throw InvalidProtocolBufferException("Type of the Any message does not match the given class.")
     }

@@ -3,7 +3,7 @@
 package pbandk.wkt
 
 @pbandk.Export
-data class Api(
+public data class Api(
     val name: String = "",
     val methods: List<pbandk.wkt.Method> = emptyList(),
     val options: List<pbandk.wkt.Option> = emptyList(),
@@ -13,12 +13,12 @@ data class Api(
     val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        val defaultInstance by lazy { pbandk.wkt.Api() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Api.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Api = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
+        public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Api, *>>(7)
@@ -105,7 +105,7 @@ data class Api(
 }
 
 @pbandk.Export
-data class Method(
+public data class Method(
     val name: String = "",
     val requestTypeUrl: String = "",
     val requestStreaming: Boolean = false,
@@ -115,12 +115,12 @@ data class Method(
     val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        val defaultInstance by lazy { pbandk.wkt.Method() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Method.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Method = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
+        public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Method, *>>(7)
@@ -207,17 +207,17 @@ data class Method(
 }
 
 @pbandk.Export
-data class Mixin(
+public data class Mixin(
     val name: String = "",
     val root: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        val defaultInstance by lazy { pbandk.wkt.Mixin() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Mixin.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Mixin = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
+        public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Mixin, *>>(2)
@@ -255,7 +255,7 @@ data class Mixin(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForApi")
-fun Api?.orDefault() = this ?: Api.defaultInstance
+public fun Api?.orDefault(): pbandk.wkt.Api = this ?: Api.defaultInstance
 
 private fun Api.protoMergeImpl(plus: pbandk.Message?): Api = (plus as? Api)?.let {
     it.copy(
@@ -294,7 +294,7 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMethod")
-fun Method?.orDefault() = this ?: Method.defaultInstance
+public fun Method?.orDefault(): pbandk.wkt.Method = this ?: Method.defaultInstance
 
 private fun Method.protoMergeImpl(plus: pbandk.Message?): Method = (plus as? Method)?.let {
     it.copy(
@@ -330,7 +330,7 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMixin")
-fun Mixin?.orDefault() = this ?: Mixin.defaultInstance
+public fun Mixin?.orDefault(): pbandk.wkt.Mixin = this ?: Mixin.defaultInstance
 
 private fun Mixin.protoMergeImpl(plus: pbandk.Message?): Mixin = (plus as? Mixin)?.let {
     it.copy(

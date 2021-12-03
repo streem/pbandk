@@ -2,7 +2,7 @@ package pbandk
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION, AnnotationTarget.FILE)
 @PublicForGeneratedCode
-expect annotation class Export()
+public expect annotation class Export()
 
 @Target(
     AnnotationTarget.CLASS,
@@ -13,4 +13,4 @@ expect annotation class Export()
     AnnotationTarget.PROPERTY_SETTER
 )
 @PublicForGeneratedCode
-expect annotation class JsName(val name: String)
+public expect annotation class JsName(val name: String)

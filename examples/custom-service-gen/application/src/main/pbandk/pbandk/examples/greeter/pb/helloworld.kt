@@ -3,16 +3,16 @@
 package pbandk.examples.greeter.pb
 
 @pbandk.Export
-data class HelloRequest(
+public data class HelloRequest(
     val name: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.examples.greeter.pb.HelloRequest> {
-        val defaultInstance by lazy { pbandk.examples.greeter.pb.HelloRequest() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.examples.greeter.pb.HelloRequest.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.examples.greeter.pb.HelloRequest = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.examples.greeter.pb.HelloRequest> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.examples.greeter.pb.HelloRequest> {
+        public val defaultInstance: pbandk.examples.greeter.pb.HelloRequest by lazy { pbandk.examples.greeter.pb.HelloRequest() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.examples.greeter.pb.HelloRequest = pbandk.examples.greeter.pb.HelloRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.examples.greeter.pb.HelloRequest> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.examples.greeter.pb.HelloRequest, *>>(1)
@@ -29,6 +29,7 @@ data class HelloRequest(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "helloworld.HelloRequest",
                 messageClass = pbandk.examples.greeter.pb.HelloRequest::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -38,16 +39,16 @@ data class HelloRequest(
 }
 
 @pbandk.Export
-data class HelloReply(
+public data class HelloReply(
     val message: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.examples.greeter.pb.HelloReply> {
-        val defaultInstance by lazy { pbandk.examples.greeter.pb.HelloReply() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.examples.greeter.pb.HelloReply.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.examples.greeter.pb.HelloReply = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.examples.greeter.pb.HelloReply> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.examples.greeter.pb.HelloReply> {
+        public val defaultInstance: pbandk.examples.greeter.pb.HelloReply by lazy { pbandk.examples.greeter.pb.HelloReply() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.examples.greeter.pb.HelloReply = pbandk.examples.greeter.pb.HelloReply.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.examples.greeter.pb.HelloReply> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.examples.greeter.pb.HelloReply, *>>(1)
@@ -64,6 +65,7 @@ data class HelloReply(
                 )
             }
             pbandk.MessageDescriptor(
+                fullName = "helloworld.HelloReply",
                 messageClass = pbandk.examples.greeter.pb.HelloReply::class,
                 messageCompanion = this,
                 fields = fieldsList
@@ -74,7 +76,7 @@ data class HelloReply(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForHelloRequest")
-fun HelloRequest?.orDefault() = this ?: HelloRequest.defaultInstance
+public fun HelloRequest?.orDefault(): pbandk.examples.greeter.pb.HelloRequest = this ?: HelloRequest.defaultInstance
 
 private fun HelloRequest.protoMergeImpl(plus: pbandk.Message?): HelloRequest = (plus as? HelloRequest)?.let {
     it.copy(
@@ -96,7 +98,7 @@ private fun HelloRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Hel
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForHelloReply")
-fun HelloReply?.orDefault() = this ?: HelloReply.defaultInstance
+public fun HelloReply?.orDefault(): pbandk.examples.greeter.pb.HelloReply = this ?: HelloReply.defaultInstance
 
 private fun HelloReply.protoMergeImpl(plus: pbandk.Message?): HelloReply = (plus as? HelloReply)?.let {
     it.copy(

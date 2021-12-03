@@ -3,16 +3,16 @@
 package pbandk.wkt
 
 @pbandk.Export
-data class FieldMask(
+public data class FieldMask(
     val paths: List<String> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
-        val defaultInstance by lazy { pbandk.wkt.FieldMask() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.FieldMask.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldMask = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
+        public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.FieldMask, *>>(1)
@@ -40,7 +40,7 @@ data class FieldMask(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldMask")
-fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
+public fun FieldMask?.orDefault(): pbandk.wkt.FieldMask = this ?: FieldMask.defaultInstance
 
 private fun FieldMask.protoMergeImpl(plus: pbandk.Message?): FieldMask = (plus as? FieldMask)?.let {
     it.copy(

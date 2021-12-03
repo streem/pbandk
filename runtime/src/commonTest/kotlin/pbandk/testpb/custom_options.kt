@@ -3,16 +3,16 @@
 package pbandk.testpb
 
 @pbandk.Export
-data class SingleRequiredCustomOption(
+public data class SingleRequiredCustomOption(
     val single: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
-        val defaultInstance by lazy { pbandk.testpb.SingleRequiredCustomOption() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.SingleRequiredCustomOption = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
+        public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy { pbandk.testpb.SingleRequiredCustomOption() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.SingleRequiredCustomOption, *>>(1)
@@ -49,16 +49,16 @@ data class SingleRequiredCustomOption(
 }
 
 @pbandk.Export
-data class MultipleCustomOptions(
+public data class MultipleCustomOptions(
     val multiple: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
-        val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptions() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptions = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
+        public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy { pbandk.testpb.MultipleCustomOptions() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptions, *>>(1)
@@ -96,17 +96,17 @@ data class MultipleCustomOptions(
 }
 
 @pbandk.Export
-data class MultipleCustomOptionsPlusDeprecated(
+public data class MultipleCustomOptionsPlusDeprecated(
     @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     val multipleDeprecated: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
-        val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
+        public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated, *>>(1)
@@ -147,7 +147,7 @@ data class MultipleCustomOptionsPlusDeprecated(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSingleRequiredCustomOption")
-fun SingleRequiredCustomOption?.orDefault() = this ?: SingleRequiredCustomOption.defaultInstance
+public fun SingleRequiredCustomOption?.orDefault(): pbandk.testpb.SingleRequiredCustomOption = this ?: SingleRequiredCustomOption.defaultInstance
 
 private fun SingleRequiredCustomOption.protoMergeImpl(plus: pbandk.Message?): SingleRequiredCustomOption = (plus as? SingleRequiredCustomOption)?.let {
     it.copy(
@@ -169,7 +169,7 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMultipleCustomOptions")
-fun MultipleCustomOptions?.orDefault() = this ?: MultipleCustomOptions.defaultInstance
+public fun MultipleCustomOptions?.orDefault(): pbandk.testpb.MultipleCustomOptions = this ?: MultipleCustomOptions.defaultInstance
 
 private fun MultipleCustomOptions.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptions = (plus as? MultipleCustomOptions)?.let {
     it.copy(
@@ -191,7 +191,7 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMultipleCustomOptionsPlusDeprecated")
-fun MultipleCustomOptionsPlusDeprecated?.orDefault() = this ?: MultipleCustomOptionsPlusDeprecated.defaultInstance
+public fun MultipleCustomOptionsPlusDeprecated?.orDefault(): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = this ?: MultipleCustomOptionsPlusDeprecated.defaultInstance
 
 private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptionsPlusDeprecated = (plus as? MultipleCustomOptionsPlusDeprecated)?.let {
     @Suppress("DEPRECATION")

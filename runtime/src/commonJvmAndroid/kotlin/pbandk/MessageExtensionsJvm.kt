@@ -15,7 +15,7 @@ import java.nio.ByteBuffer
  *
  * @return number of bytes written to [stream]
  */
-fun <T : Message> T.encodeToStream(stream: OutputStream): Int {
+public fun <T : Message> T.encodeToStream(stream: OutputStream): Int {
     val wireWriter = OutputStreamWireWriter(stream)
     encodeWith(BinaryMessageEncoder(KotlinBinaryWireEncoder(wireWriter)))
     wireWriter.flush()
@@ -25,12 +25,12 @@ fun <T : Message> T.encodeToStream(stream: OutputStream): Int {
 /**
  * Decode a binary protocol buffer message from [stream].
  */
-fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStream, expectedSize: Int = -1): T =
+public fun <T : Message> Message.Companion<T>.decodeFromStream(stream: InputStream, expectedSize: Int = -1): T =
     decodeWith(BinaryMessageDecoder.fromInputStream(stream, expectedSize))
 
 /**
  * Decode a binary protocol buffer message from [buffer]. The data starting from the ByteBuffer's current position to
  * its limit will be read. Note that the ByteBuffer's position won't be changed by this function.
  */
-fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteBuffer): T =
+public fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteBuffer): T =
     decodeWith(BinaryMessageDecoder.fromByteBuffer(buffer))

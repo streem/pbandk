@@ -15,23 +15,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Added special support for protobuf's `google.protobuf.Any` message type. (PR [#185], fixes [#63], partially fixes [#72])
     * Added `Any.Companion.pack()`, `Any.unpack()`, and `Any.isA()` convenience methods for working with `Any` instances. These methods mirror the same-named methods in other protobuf libraries.
     * The special JSON format used for `google.protobuf.Any` messsages is now correctly used during JSON encoding/decoding. Provide a value for `JsonConfig.typeRegistry` (which can be constructed using the new `typeRegistry {...}` builder) when encoding/decoding JSON messages that contain `google.protobuf.Any` fields.
-* macOS builds of pbandk-runtime now include support for Apple Silicon (i.e. `pbandk-runtime-macosarm64`) (PR [#189])
+* Added `visibility` parameter to `protoc-gen-pbandk` to allow changing the visibility of generated code from `public` to `internal`. (PR [#191}, fixes [#190])
+* macOS builds of pbandk-runtime now include support for Apple Silicon (i.e. `pbandk-runtime-macosarm64`). (PR [#189])
 
 ### Changed
 
 * Updated dependencies to Kotlin 1.5.0 and kotlinx-serialization 1.3.0-RC. (PR [#189], fixes [#171])
     * Updated Kotlin/JS dependencies to protobuf.js 6.11.2.
+* Generated code is now compatible with Kotlin's "explicit API" mode. (PR [#191], fixes [#134])
 
 ### Fixed
 
 * Suppress warnings about deprecated fields used in generated code. (PR [#182], continues [#1])
 
 [#63]: https://github.com/streem/pbandk/issues/63
+[#134]: https://github.com/streem/pbandk/issues/134
 [#171]: https://github.com/streem/pbandk/issues/171
+[#190]: https://github.com/streem/pbandk/issues/190
 [#182]: https://github.com/streem/pbandk/pull/182
 [#184]: https://github.com/streem/pbandk/pull/184
 [#185]: https://github.com/streem/pbandk/pull/185
 [#189]: https://github.com/streem/pbandk/pull/189
+[#191]: https://github.com/streem/pbandk/pull/191
 
 
 ## [0.12.1] - 2021-11-11

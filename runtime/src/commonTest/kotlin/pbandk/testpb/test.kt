@@ -3,16 +3,16 @@
 package pbandk.testpb
 
 @pbandk.Export
-data class Foo(
+public data class Foo(
     val `val`: String = "",
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
-        val defaultInstance by lazy { pbandk.testpb.Foo() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Foo.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Foo = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
+        public val defaultInstance: pbandk.testpb.Foo by lazy { pbandk.testpb.Foo() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Foo, *>>(1)
@@ -39,17 +39,17 @@ data class Foo(
 }
 
 @pbandk.Export
-data class Bar(
+public data class Bar(
     val foos: List<pbandk.testpb.Foo> = emptyList(),
     val singleFoo: pbandk.testpb.Foo? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
-        val defaultInstance by lazy { pbandk.testpb.Bar() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Bar.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Bar = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
+        public val defaultInstance: pbandk.testpb.Bar by lazy { pbandk.testpb.Bar() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Bar, *>>(2)
@@ -86,16 +86,16 @@ data class Bar(
 }
 
 @pbandk.Export
-data class MessageWithMap(
+public data class MessageWithMap(
     val map: Map<String, String> = emptyMap(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
-        val defaultInstance by lazy { pbandk.testpb.MessageWithMap() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithMap = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
+        public val defaultInstance: pbandk.testpb.MessageWithMap by lazy { pbandk.testpb.MessageWithMap() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap, *>>(1)
@@ -120,17 +120,17 @@ data class MessageWithMap(
         }
     }
 
-    data class MapEntry(
+    public data class MapEntry(
         override val key: String = "",
         override val value: String = "",
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String, String> {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap.MapEntry> {
-            val defaultInstance by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
+        override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithMap.MapEntry = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap.MapEntry> {
+            public val defaultInstance: pbandk.testpb.MessageWithMap.MapEntry by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap.MapEntry = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.MessageWithMap.MapEntry, *>>(2)
@@ -168,16 +168,16 @@ data class MessageWithMap(
 }
 
 @pbandk.Export
-data class FooMap(
+public data class FooMap(
     val map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
-        val defaultInstance by lazy { pbandk.testpb.FooMap() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMap.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
+        public val defaultInstance: pbandk.testpb.FooMap by lazy { pbandk.testpb.FooMap() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap, *>>(1)
@@ -202,17 +202,17 @@ data class FooMap(
         }
     }
 
-    data class MapEntry(
+    public data class MapEntry(
         override val key: String = "",
         override val value: pbandk.testpb.Foo? = null,
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message, Map.Entry<String, pbandk.testpb.Foo?> {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.testpb.FooMap.MapEntry> {
-            val defaultInstance by lazy { pbandk.testpb.FooMap.MapEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
+        override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap.MapEntry = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap.MapEntry> {
+            public val defaultInstance: pbandk.testpb.FooMap.MapEntry by lazy { pbandk.testpb.FooMap.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap.MapEntry = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMap.MapEntry, *>>(2)
@@ -250,16 +250,16 @@ data class FooMap(
 }
 
 @pbandk.Export
-data class FooMapEntries(
+public data class FooMapEntries(
     val map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
-        val defaultInstance by lazy { pbandk.testpb.FooMapEntries() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
+        public val defaultInstance: pbandk.testpb.FooMapEntries by lazy { pbandk.testpb.FooMapEntries() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries, *>>(1)
@@ -284,17 +284,17 @@ data class FooMapEntries(
         }
     }
 
-    data class MapEntry(
+    public data class MapEntry(
         val key: String = "",
         val value: pbandk.testpb.Foo? = null,
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
-        companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
-            val defaultInstance by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
-            override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
+        override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries.MapEntry = protoMergeImpl(other)
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> get() = Companion.descriptor
+        override val protoSize: Int by lazy { super.protoSize }
+        public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
+            public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
                 val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.FooMapEntries.MapEntry, *>>(2)
@@ -332,17 +332,17 @@ data class FooMapEntries(
 }
 
 @pbandk.Export
-data class Wrappers(
+public data class Wrappers(
     val stringValue: String? = null,
     val uint64Values: List<Long> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
-        val defaultInstance by lazy { pbandk.testpb.Wrappers() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Wrappers.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Wrappers = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
+        public val defaultInstance: pbandk.testpb.Wrappers by lazy { pbandk.testpb.Wrappers() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.testpb.Wrappers, *>>(2)
@@ -380,7 +380,7 @@ data class Wrappers(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFoo")
-fun Foo?.orDefault() = this ?: Foo.defaultInstance
+public fun Foo?.orDefault(): pbandk.testpb.Foo = this ?: Foo.defaultInstance
 
 private fun Foo.protoMergeImpl(plus: pbandk.Message?): Foo = (plus as? Foo)?.let {
     it.copy(
@@ -402,7 +402,7 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBar")
-fun Bar?.orDefault() = this ?: Bar.defaultInstance
+public fun Bar?.orDefault(): pbandk.testpb.Bar = this ?: Bar.defaultInstance
 
 private fun Bar.protoMergeImpl(plus: pbandk.Message?): Bar = (plus as? Bar)?.let {
     it.copy(
@@ -428,7 +428,7 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithMap")
-fun MessageWithMap?.orDefault() = this ?: MessageWithMap.defaultInstance
+public fun MessageWithMap?.orDefault(): pbandk.testpb.MessageWithMap = this ?: MessageWithMap.defaultInstance
 
 private fun MessageWithMap.protoMergeImpl(plus: pbandk.Message?): MessageWithMap = (plus as? MessageWithMap)?.let {
     it.copy(
@@ -451,7 +451,7 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithMapMapEntry")
-fun MessageWithMap.MapEntry?.orDefault() = this ?: MessageWithMap.MapEntry.defaultInstance
+public fun MessageWithMap.MapEntry?.orDefault(): pbandk.testpb.MessageWithMap.MapEntry = this ?: MessageWithMap.MapEntry.defaultInstance
 
 private fun MessageWithMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): MessageWithMap.MapEntry = (plus as? MessageWithMap.MapEntry)?.let {
     it.copy(
@@ -475,7 +475,7 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMap")
-fun FooMap?.orDefault() = this ?: FooMap.defaultInstance
+public fun FooMap?.orDefault(): pbandk.testpb.FooMap = this ?: FooMap.defaultInstance
 
 private fun FooMap.protoMergeImpl(plus: pbandk.Message?): FooMap = (plus as? FooMap)?.let {
     it.copy(
@@ -498,7 +498,7 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMapMapEntry")
-fun FooMap.MapEntry?.orDefault() = this ?: FooMap.MapEntry.defaultInstance
+public fun FooMap.MapEntry?.orDefault(): pbandk.testpb.FooMap.MapEntry = this ?: FooMap.MapEntry.defaultInstance
 
 private fun FooMap.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMap.MapEntry = (plus as? FooMap.MapEntry)?.let {
     it.copy(
@@ -523,7 +523,7 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMapEntries")
-fun FooMapEntries?.orDefault() = this ?: FooMapEntries.defaultInstance
+public fun FooMapEntries?.orDefault(): pbandk.testpb.FooMapEntries = this ?: FooMapEntries.defaultInstance
 
 private fun FooMapEntries.protoMergeImpl(plus: pbandk.Message?): FooMapEntries = (plus as? FooMapEntries)?.let {
     it.copy(
@@ -546,7 +546,7 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMapEntriesMapEntry")
-fun FooMapEntries.MapEntry?.orDefault() = this ?: FooMapEntries.MapEntry.defaultInstance
+public fun FooMapEntries.MapEntry?.orDefault(): pbandk.testpb.FooMapEntries.MapEntry = this ?: FooMapEntries.MapEntry.defaultInstance
 
 private fun FooMapEntries.MapEntry.protoMergeImpl(plus: pbandk.Message?): FooMapEntries.MapEntry = (plus as? FooMapEntries.MapEntry)?.let {
     it.copy(
@@ -571,7 +571,7 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForWrappers")
-fun Wrappers?.orDefault() = this ?: Wrappers.defaultInstance
+public fun Wrappers?.orDefault(): pbandk.testpb.Wrappers = this ?: Wrappers.defaultInstance
 
 private fun Wrappers.protoMergeImpl(plus: pbandk.Message?): Wrappers = (plus as? Wrappers)?.let {
     it.copy(

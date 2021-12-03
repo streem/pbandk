@@ -8,62 +8,62 @@ import pbandk.internal.binary.fromByteArray
 import kotlin.js.JsExport
 import kotlin.reflect.KProperty1
 
-interface Message {
-    val unknownFields: Map<Int, UnknownField>
+public interface Message {
+    public val unknownFields: Map<Int, UnknownField>
 
-    val descriptor: MessageDescriptor<out Message>
+    public val descriptor: MessageDescriptor<out Message>
 
-    val protoSize: Int get() = Sizer.rawMessageSize(this)
+    public val protoSize: Int get() = Sizer.rawMessageSize(this)
 
-    operator fun plus(other: Message?): Message
+    public operator fun plus(other: Message?): Message
 
-    interface Companion<T : Message> {
-        fun decodeWith(u: MessageDecoder): T
+    public interface Companion<T : Message> {
+        public fun decodeWith(u: MessageDecoder): T
 
-        val descriptor: MessageDescriptor<T>
+        public val descriptor: MessageDescriptor<T>
     }
 
-    interface Enum {
-        val value: Int
-        val name: String?
+    public interface Enum {
+        public val value: Int
+        public val name: String?
 
-        interface Companion<T : Enum> {
+        public interface Companion<T : Enum> {
             /** Returns `T.UNRECOGNIZED` if [value] is not a known value of this enum. */
-            fun fromValue(value: Int): T
+            public fun fromValue(value: Int): T
 
             /** Throws [IllegalArgumentException] if [name] is not a valid value of this enum. */
-            fun fromName(name: String): T
+            public fun fromName(name: String): T
         }
     }
 
-    abstract class OneOf<T>(val value: T) {
-        override fun equals(other: Any?) = this::class.isInstance(other) && value == (other as OneOf<*>).value
-        override fun hashCode() = value.hashCode()
-        override fun toString() = "OneOf.${this::class.simpleName}($value)"
+    public abstract class OneOf<T>(public val value: T) {
+        override fun equals(other: Any?): Boolean = this::class.isInstance(other) && value == (other as OneOf<*>).value
+        override fun hashCode(): Int = value.hashCode()
+        override fun toString(): String = "OneOf.${this::class.simpleName}($value)"
     }
 
 }
 
 @JsExport
-fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
+public fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 
 /**
  * Encode this message to a ByteArray using the protocol buffer binary encoding.
  */
 @JsExport
-fun <T : Message> T.encodeToByteArray(): ByteArray =
+public fun <T : Message> T.encodeToByteArray(): ByteArray =
     BinaryMessageEncoder.allocate(protoSize).also { encodeWith(it) }.toByteArray()
 
 /**
  * Decode a binary protocol buffer message from [arr].
  */
 @JsExport
-fun <T : Message> Message.Companion<T>.decodeFromByteArray(arr: ByteArray): T =
+public fun <T : Message> Message.Companion<T>.decodeFromByteArray(arr: ByteArray): T =
     decodeWith(BinaryMessageDecoder.fromByteArray(arr))
 
 @Suppress("UNCHECKED_CAST")
 @JsExport
-operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: other
+public operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: other
 
 /**
  * Returns the value of the protocol buffer field from this message that is described by [fieldDescriptor]. If this
@@ -73,7 +73,7 @@ operator fun <T : Message> T?.plus(other: T?): T? = this?.plus(other) as T? ?: o
  * _MUST_ be a descriptor for fields in messages of type [T].
  */
 @ExperimentalProtoReflection
-fun <T : Message, F> T.getFieldValue(fieldDescriptor: FieldDescriptor<out T, out F>): F {
+public fun <T : Message, F> T.getFieldValue(fieldDescriptor: FieldDescriptor<out T, out F>): F {
     @Suppress("UNCHECKED_CAST")
     val property = fieldDescriptor.value as KProperty1<T, F>
     return property.get(this)

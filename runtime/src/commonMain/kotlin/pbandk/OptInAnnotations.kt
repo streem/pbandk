@@ -3,7 +3,7 @@ package pbandk
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR, message = "This API should only be used by generated code.")
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY, AnnotationTarget.CONSTRUCTOR)
-annotation class PublicForGeneratedCode
+public annotation class PublicForGeneratedCode
 
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR, message = "This API should only be used internally by pbandk.")
 @Retention(AnnotationRetention.BINARY)
@@ -15,7 +15,7 @@ annotation class PublicForGeneratedCode
     AnnotationTarget.PROPERTY_GETTER,
     AnnotationTarget.VALUE_PARAMETER,
 )
-annotation class PbandkInternal
+public annotation class PbandkInternal
 
 @RequiresOptIn(
     level = RequiresOptIn.Level.WARNING,
@@ -23,7 +23,7 @@ annotation class PbandkInternal
 )
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY)
-annotation class ExperimentalProtoJson
+public annotation class ExperimentalProtoJson
 
 @RequiresOptIn(
     level = RequiresOptIn.Level.WARNING,
@@ -31,4 +31,4 @@ annotation class ExperimentalProtoJson
 )
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY)
-annotation class ExperimentalProtoReflection
+public annotation class ExperimentalProtoReflection

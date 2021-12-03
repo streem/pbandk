@@ -3,57 +3,57 @@
 package pbandk.conformance.pb
 
 @pbandk.Export
-sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?) = other is WireFormat && other.value == value
-    override fun hashCode() = value.hashCode()
-    override fun toString() = "WireFormat.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed class WireFormat(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?): Boolean = other is WireFormat && other.value == value
+    override fun hashCode(): Int = value.hashCode()
+    override fun toString(): String = "WireFormat.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-    object UNSPECIFIED : WireFormat(0, "UNSPECIFIED")
-    object PROTOBUF : WireFormat(1, "PROTOBUF")
-    object JSON : WireFormat(2, "JSON")
-    object JSPB : WireFormat(3, "JSPB")
-    object TEXT_FORMAT : WireFormat(4, "TEXT_FORMAT")
-    class UNRECOGNIZED(value: Int) : WireFormat(value)
+    public object UNSPECIFIED : WireFormat(0, "UNSPECIFIED")
+    public object PROTOBUF : WireFormat(1, "PROTOBUF")
+    public object JSON : WireFormat(2, "JSON")
+    public object JSPB : WireFormat(3, "JSPB")
+    public object TEXT_FORMAT : WireFormat(4, "TEXT_FORMAT")
+    public class UNRECOGNIZED(value: Int) : WireFormat(value)
 
-    companion object : pbandk.Message.Enum.Companion<WireFormat> {
-        val values: List<WireFormat> by lazy { listOf(UNSPECIFIED, PROTOBUF, JSON, JSPB, TEXT_FORMAT) }
-        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No WireFormat with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<WireFormat> {
+        public val values: List<WireFormat> by lazy { listOf(UNSPECIFIED, PROTOBUF, JSON, JSPB, TEXT_FORMAT) }
+        override fun fromValue(value: Int): WireFormat = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): WireFormat = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No WireFormat with name: $name")
     }
 }
 
 @pbandk.Export
-sealed class TestCategory(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?) = other is TestCategory && other.value == value
-    override fun hashCode() = value.hashCode()
-    override fun toString() = "TestCategory.${name ?: "UNRECOGNIZED"}(value=$value)"
+public sealed class TestCategory(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
+    override fun equals(other: kotlin.Any?): Boolean = other is TestCategory && other.value == value
+    override fun hashCode(): Int = value.hashCode()
+    override fun toString(): String = "TestCategory.${name ?: "UNRECOGNIZED"}(value=$value)"
 
-    object UNSPECIFIED_TEST : TestCategory(0, "UNSPECIFIED_TEST")
-    object BINARY_TEST : TestCategory(1, "BINARY_TEST")
-    object JSON_TEST : TestCategory(2, "JSON_TEST")
-    object JSON_IGNORE_UNKNOWN_PARSING_TEST : TestCategory(3, "JSON_IGNORE_UNKNOWN_PARSING_TEST")
-    object JSPB_TEST : TestCategory(4, "JSPB_TEST")
-    object TEXT_FORMAT_TEST : TestCategory(5, "TEXT_FORMAT_TEST")
-    class UNRECOGNIZED(value: Int) : TestCategory(value)
+    public object UNSPECIFIED_TEST : TestCategory(0, "UNSPECIFIED_TEST")
+    public object BINARY_TEST : TestCategory(1, "BINARY_TEST")
+    public object JSON_TEST : TestCategory(2, "JSON_TEST")
+    public object JSON_IGNORE_UNKNOWN_PARSING_TEST : TestCategory(3, "JSON_IGNORE_UNKNOWN_PARSING_TEST")
+    public object JSPB_TEST : TestCategory(4, "JSPB_TEST")
+    public object TEXT_FORMAT_TEST : TestCategory(5, "TEXT_FORMAT_TEST")
+    public class UNRECOGNIZED(value: Int) : TestCategory(value)
 
-    companion object : pbandk.Message.Enum.Companion<TestCategory> {
-        val values: List<TestCategory> by lazy { listOf(UNSPECIFIED_TEST, BINARY_TEST, JSON_TEST, JSON_IGNORE_UNKNOWN_PARSING_TEST, JSPB_TEST, TEXT_FORMAT_TEST) }
-        override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No TestCategory with name: $name")
+    public companion object : pbandk.Message.Enum.Companion<TestCategory> {
+        public val values: List<TestCategory> by lazy { listOf(UNSPECIFIED_TEST, BINARY_TEST, JSON_TEST, JSON_IGNORE_UNKNOWN_PARSING_TEST, JSPB_TEST, TEXT_FORMAT_TEST) }
+        override fun fromValue(value: Int): TestCategory = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): TestCategory = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No TestCategory with name: $name")
     }
 }
 
 @pbandk.Export
-data class FailureSet(
+public data class FailureSet(
     val failure: List<String> = emptyList(),
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
-        val defaultInstance by lazy { pbandk.conformance.pb.FailureSet() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.FailureSet = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
+        public val defaultInstance: pbandk.conformance.pb.FailureSet by lazy { pbandk.conformance.pb.FailureSet() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.FailureSet, *>>(1)
@@ -80,7 +80,7 @@ data class FailureSet(
 }
 
 @pbandk.Export
-data class ConformanceRequest(
+public data class ConformanceRequest(
     val requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
     val messageType: String = "",
     val testCategory: pbandk.conformance.pb.TestCategory = pbandk.conformance.pb.TestCategory.fromValue(0),
@@ -89,11 +89,11 @@ data class ConformanceRequest(
     val payload: Payload<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class Payload<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Payload<pbandk.ByteArr>(protobufPayload)
-        class JsonPayload(jsonPayload: String = "") : Payload<String>(jsonPayload)
-        class JspbPayload(jspbPayload: String = "") : Payload<String>(jspbPayload)
-        class TextPayload(textPayload: String = "") : Payload<String>(textPayload)
+    public sealed class Payload<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Payload<pbandk.ByteArr>(protobufPayload)
+        public class JsonPayload(jsonPayload: String = "") : Payload<String>(jsonPayload)
+        public class JspbPayload(jspbPayload: String = "") : Payload<String>(jspbPayload)
+        public class TextPayload(textPayload: String = "") : Payload<String>(textPayload)
     }
 
     val protobufPayload: pbandk.ByteArr?
@@ -105,12 +105,12 @@ data class ConformanceRequest(
     val textPayload: String?
         get() = (payload as? Payload.TextPayload)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
-        val defaultInstance by lazy { pbandk.conformance.pb.ConformanceRequest() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ConformanceRequest = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
+        public val defaultInstance: pbandk.conformance.pb.ConformanceRequest by lazy { pbandk.conformance.pb.ConformanceRequest() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.ConformanceRequest, *>>(9)
@@ -221,19 +221,19 @@ data class ConformanceRequest(
 }
 
 @pbandk.Export
-data class ConformanceResponse(
+public data class ConformanceResponse(
     val result: Result<*>? = null,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    sealed class Result<V>(value: V) : pbandk.Message.OneOf<V>(value) {
-        class ParseError(parseError: String = "") : Result<String>(parseError)
-        class SerializeError(serializeError: String = "") : Result<String>(serializeError)
-        class RuntimeError(runtimeError: String = "") : Result<String>(runtimeError)
-        class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Result<pbandk.ByteArr>(protobufPayload)
-        class JsonPayload(jsonPayload: String = "") : Result<String>(jsonPayload)
-        class Skipped(skipped: String = "") : Result<String>(skipped)
-        class JspbPayload(jspbPayload: String = "") : Result<String>(jspbPayload)
-        class TextPayload(textPayload: String = "") : Result<String>(textPayload)
+    public sealed class Result<V>(value: V) : pbandk.Message.OneOf<V>(value) {
+        public class ParseError(parseError: String = "") : Result<String>(parseError)
+        public class SerializeError(serializeError: String = "") : Result<String>(serializeError)
+        public class RuntimeError(runtimeError: String = "") : Result<String>(runtimeError)
+        public class ProtobufPayload(protobufPayload: pbandk.ByteArr = pbandk.ByteArr.empty) : Result<pbandk.ByteArr>(protobufPayload)
+        public class JsonPayload(jsonPayload: String = "") : Result<String>(jsonPayload)
+        public class Skipped(skipped: String = "") : Result<String>(skipped)
+        public class JspbPayload(jspbPayload: String = "") : Result<String>(jspbPayload)
+        public class TextPayload(textPayload: String = "") : Result<String>(textPayload)
     }
 
     val parseError: String?
@@ -253,12 +253,12 @@ data class ConformanceResponse(
     val textPayload: String?
         get() = (result as? Result.TextPayload)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
-        val defaultInstance by lazy { pbandk.conformance.pb.ConformanceResponse() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ConformanceResponse = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
+        public val defaultInstance: pbandk.conformance.pb.ConformanceResponse by lazy { pbandk.conformance.pb.ConformanceResponse() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.ConformanceResponse, *>>(8)
@@ -363,16 +363,16 @@ data class ConformanceResponse(
 }
 
 @pbandk.Export
-data class JspbEncodingConfig(
+public data class JspbEncodingConfig(
     val useJspbArrayAnyFormat: Boolean = false,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
-        val defaultInstance by lazy { pbandk.conformance.pb.JspbEncodingConfig() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.JspbEncodingConfig = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
+        public val defaultInstance: pbandk.conformance.pb.JspbEncodingConfig by lazy { pbandk.conformance.pb.JspbEncodingConfig() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.conformance.pb.JspbEncodingConfig, *>>(1)
@@ -400,7 +400,7 @@ data class JspbEncodingConfig(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFailureSet")
-fun FailureSet?.orDefault() = this ?: FailureSet.defaultInstance
+public fun FailureSet?.orDefault(): pbandk.conformance.pb.FailureSet = this ?: FailureSet.defaultInstance
 
 private fun FailureSet.protoMergeImpl(plus: pbandk.Message?): FailureSet = (plus as? FailureSet)?.let {
     it.copy(
@@ -423,7 +423,7 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForConformanceRequest")
-fun ConformanceRequest?.orDefault() = this ?: ConformanceRequest.defaultInstance
+public fun ConformanceRequest?.orDefault(): pbandk.conformance.pb.ConformanceRequest = this ?: ConformanceRequest.defaultInstance
 
 private fun ConformanceRequest.protoMergeImpl(plus: pbandk.Message?): ConformanceRequest = (plus as? ConformanceRequest)?.let {
     it.copy(
@@ -461,7 +461,7 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForConformanceResponse")
-fun ConformanceResponse?.orDefault() = this ?: ConformanceResponse.defaultInstance
+public fun ConformanceResponse?.orDefault(): pbandk.conformance.pb.ConformanceResponse = this ?: ConformanceResponse.defaultInstance
 
 private fun ConformanceResponse.protoMergeImpl(plus: pbandk.Message?): ConformanceResponse = (plus as? ConformanceResponse)?.let {
     it.copy(
@@ -491,7 +491,7 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForJspbEncodingConfig")
-fun JspbEncodingConfig?.orDefault() = this ?: JspbEncodingConfig.defaultInstance
+public fun JspbEncodingConfig?.orDefault(): pbandk.conformance.pb.JspbEncodingConfig = this ?: JspbEncodingConfig.defaultInstance
 
 private fun JspbEncodingConfig.protoMergeImpl(plus: pbandk.Message?): JspbEncodingConfig = (plus as? JspbEncodingConfig)?.let {
     it.copy(

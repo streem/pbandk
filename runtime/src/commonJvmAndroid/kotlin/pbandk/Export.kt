@@ -1,7 +1,7 @@
 package pbandk
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION, AnnotationTarget.FILE)
-actual annotation class Export()
+public actual annotation class Export()
 
 @Target(
     AnnotationTarget.CLASS,
@@ -11,4 +11,4 @@ actual annotation class Export()
     AnnotationTarget.PROPERTY_GETTER,
     AnnotationTarget.PROPERTY_SETTER
 )
-actual annotation class JsName(actual val name: String)
+public actual annotation class JsName(actual val name: String)

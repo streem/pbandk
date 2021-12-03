@@ -19,6 +19,8 @@ apiValidation {
 }
 
 kotlin {
+    explicitApi()
+
     android {
         publishAllLibraryVariants()
     }

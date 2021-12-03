@@ -3,17 +3,17 @@
 package pbandk.wkt
 
 @pbandk.Export
-data class Any(
+public data class Any(
     val typeUrl: String = "",
     val value: pbandk.ByteArr = pbandk.ByteArr.empty,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
-    companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        val defaultInstance by lazy { pbandk.wkt.Any() }
-        override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Any.decodeWithImpl(u)
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Any = protoMergeImpl(other)
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> get() = Companion.descriptor
+    override val protoSize: Int by lazy { super.protoSize }
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
+        public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> by lazy {
             val fieldsList = ArrayList<pbandk.FieldDescriptor<pbandk.wkt.Any, *>>(2)
@@ -51,7 +51,7 @@ data class Any(
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAny")
-fun Any?.orDefault() = this ?: Any.defaultInstance
+public fun Any?.orDefault(): pbandk.wkt.Any = this ?: Any.defaultInstance
 
 private fun Any.protoMergeImpl(plus: pbandk.Message?): Any = (plus as? Any)?.let {
     it.copy(

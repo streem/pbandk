@@ -1,12 +1,12 @@
 package pbandk
 
-interface ExtendableMessage : Message {
+public interface ExtendableMessage : Message {
     @PublicForGeneratedCode
-    val extensionFields: ExtensionFieldSet
+    public val extensionFields: ExtensionFieldSet
 
     @PublicForGeneratedCode
     @Suppress("UNCHECKED_CAST")
-    fun <M: Message, T> getExtension(fd: FieldDescriptor<M, T>): T {
+    public fun <M : Message, T> getExtension(fd: FieldDescriptor<M, T>): T {
         var value = extensionFields[fd.number] as? T
         if (value != null) {
             // If we've already decoded the value of the extension field, then return the cached value

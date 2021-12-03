@@ -5,33 +5,33 @@ import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
 @JsExport
-class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V>>) : AbstractMap<K, V>() {
+public class MessageMap<K, V> internal constructor(override val entries: Set<Entry<K, V>>) : AbstractMap<K, V>() {
     @PublicForGeneratedCode
-    class Builder<K, V> {
-        val entries = mutableSetOf<Entry<K, V>>()
+    public class Builder<K, V> {
+        public val entries: MutableSet<Entry<K, V>> = mutableSetOf()
 
-        fun fixed() = MessageMap(entries)
+        public fun fixed(): MessageMap<K, V> = MessageMap(entries)
 
         @PublicForGeneratedCode
-        companion object {
+        public companion object {
             @Suppress("UNCHECKED_CAST")
-            fun <K, V> fixed(bld: Builder<K, V>?) = bld?.fixed() ?: Empty as MessageMap<K, V>
+            public fun <K, V> fixed(bld: Builder<K, V>?): MessageMap<K, V> = bld?.fixed() ?: Empty as MessageMap<K, V>
         }
     }
 
-    class Entry<K, V>(
+    public class Entry<K, V>(
         override val key: K,
         override val value: V,
         companion: Companion<K, V>,
         override val unknownFields: Map<Int, UnknownField> = emptyMap()
     ) : Map.Entry<K, V>, Message {
-        override fun plus(other: Message?) = throw UnsupportedOperationException()
+        override fun plus(other: Message?): Message = throw UnsupportedOperationException()
 
-        override val protoSize by lazy { super.protoSize }
+        override val protoSize: Int by lazy { super.protoSize }
 
         override val descriptor: MessageDescriptor<Entry<K, V>> = companion.descriptor
 
-        class Companion<K, V>(
+        public class Companion<K, V>(
             internal val keyType: FieldDescriptor.Type,
             internal val valueType: FieldDescriptor.Type
         ) : Message.Companion<Entry<K, V>> {
