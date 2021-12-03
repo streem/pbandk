@@ -17,7 +17,7 @@ public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
      *
      * `Baz`'s [fullName] is "foo.bar.Baz".
      */
-    internal val fullName: String,
+    public val fullName: String,
 
     internal val messageClass: KClass<T>,
 
@@ -28,5 +28,5 @@ public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
     public val fields: Collection<FieldDescriptor<T, *>>
 ) {
     /** The message type's unqualified name. */
-    internal val name = fullName.substringAfterLast('.')
+    public val name: String = fullName.substringAfterLast('.')
 }

@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this version of `protoc-gen-pbandk`. These properties are currently `internal` but can be exposed publicly if there is a need/use case. (PR [#184])
+* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this version of `protoc-gen-pbandk`. (PR [#184])
 * Added special support for protobuf's `google.protobuf.Any` message type. (PR [#185], fixes [#63], partially fixes [#72])
     * Added `Any.Companion.pack()`, `Any.unpack()`, and `Any.isA()` convenience methods for working with `Any` instances. These methods mirror the same-named methods in other protobuf libraries.
     * The special JSON format used for `google.protobuf.Any` messsages is now correctly used during JSON encoding/decoding. Provide a value for `JsonConfig.typeRegistry` (which can be constructed using the new `typeRegistry {...}` builder) when encoding/decoding JSON messages that contain `google.protobuf.Any` fields.
