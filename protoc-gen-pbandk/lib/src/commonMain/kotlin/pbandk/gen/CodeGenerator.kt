@@ -167,6 +167,7 @@ public open class CodeGenerator(
         oneOf.fields.forEach { field ->
             addDeprecatedAnnotation(field)
             line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+                if (field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
                 lineBegin("get() = ")
                 lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
                 lineEnd("?.value")
@@ -347,7 +348,7 @@ public open class CodeGenerator(
 
         line()
         line("private fun ${type.kotlinFullTypeName}.protoMergeImpl(plus: pbandk.Message?): ${type.kotlinFullTypeName} = (plus as? ${type.kotlinFullTypeName})?.let {").indented {
-            if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
+            if (type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
             }
             line("it.copy(").indented {
@@ -419,7 +420,15 @@ public open class CodeGenerator(
                                 val oneOfTyp =
                                     "${type.kotlinFullTypeName}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}"
                                 require(field is File.Field.Numbered.Standard && !field.repeated)
-                                lineEnd("${oneOf.kotlinFieldName} = $oneOfTyp(_fieldValue as ${field.kotlinQualifiedTypeName})")
+                                val lineContent = "${oneOf.kotlinFieldName} = $oneOfTyp(_fieldValue as ${field.kotlinQualifiedTypeName})"
+                                if (field.options.deprecated == true) {
+                                    lineEnd("{").indented {
+                                        line("@Suppress(\"DEPRECATION\")")
+                                        line(lineContent)
+                                    }.line("}")
+                                } else {
+                                    lineEnd(lineContent)
+                                }
                             }
                         }
                     }.line("}")

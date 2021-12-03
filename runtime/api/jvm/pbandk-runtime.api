@@ -283,7 +283,9 @@ public abstract interface class pbandk/MessageDecoder {
 public final class pbandk/MessageDescriptor {
 	public fun <init> (Ljava/lang/String;Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Ljava/util/Collection;)V
 	public final fun getFields ()Ljava/util/Collection;
+	public final fun getFullName ()Ljava/lang/String;
 	public final fun getMessageCompanion ()Lpbandk/Message$Companion;
+	public final fun getName ()Ljava/lang/String;
 }
 
 public abstract interface class pbandk/MessageEncoder {
