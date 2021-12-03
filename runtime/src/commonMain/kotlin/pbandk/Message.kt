@@ -43,6 +43,12 @@ public interface Message {
 
 }
 
+public interface MutableMessage : Message {
+    public override var unknownFields: MutableMap<Int, UnknownField>
+
+    // TODO: public override operator fun plus(other: Message?): MutableMessage
+}
+
 @JsExport
 public fun <T : Message> T.encodeWith(m: MessageEncoder): Unit = m.writeMessage(this)
 

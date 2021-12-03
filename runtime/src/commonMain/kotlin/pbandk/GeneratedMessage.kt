@@ -2,18 +2,18 @@ package pbandk
 
 import pbandk.internal.binary.Sizer
 
+@Suppress("UNCHECKED_CAST")
+private inline val <T : Message> GeneratedMessage<T>.fieldDescriptors: Collection<FieldDescriptor<T, *>>
+    get() = (descriptor as MessageDescriptor<T>).fields
+
+@Suppress("UNCHECKED_CAST", "NOTHING_TO_INLINE")
+private inline fun <T : Message, V> GeneratedMessage<T>.getValue(field: FieldDescriptor<T, V>): V {
+    return field.value.get(this as T)
+}
+
 @PublicForGeneratedCode
 public abstract class GeneratedMessage<T : Message> : Message {
     override val protoSize: Int by lazy(LazyThreadSafetyMode.PUBLICATION) { Sizer.rawMessageSize(this) }
-
-    @Suppress("UNCHECKED_CAST")
-    private inline val fieldDescriptors: Collection<FieldDescriptor<T, *>>
-        get() = (descriptor as MessageDescriptor<T>).fields
-
-    @Suppress("UNCHECKED_CAST", "NOTHING_TO_INLINE")
-    private inline fun <V> getValue(field: FieldDescriptor<T, V>): V {
-        return field.value.get(this as T)
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -60,5 +60,23 @@ public abstract class GeneratedMessage<T : Message> : Message {
         }
 
         append(")")
+    }
+}
+
+@Suppress("EqualsOrHashCode")
+@PublicForGeneratedCode
+public abstract class MutableGeneratedMessage<T : MutableMessage> : GeneratedMessage<T>(), MutableMessage {
+    override val protoSize: Int get() = Sizer.rawMessageSize(this)
+
+    override fun hashCode(): Int {
+        var hash = 1
+
+        for (field in fieldDescriptors) {
+            hash = (31 * hash) * getValue(field).hashCode()
+        }
+
+        hash = (31 * hash) + unknownFields.hashCode()
+
+        return hash
     }
 }

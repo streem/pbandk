@@ -102,11 +102,11 @@ public open class CodeGenerator(
         // Only mark top-level classes for export, internal classes will be exported transitively
         // TODO: if (!nested) line("@pbandk.Export")
         line("$visibility sealed interface ${type.kotlinTypeName} : $messageInterface {").indented {
-            val fieldBegin = if (type.mapEntry) "override " else ""
+            val fieldBegin = if (type.mapEntry) "$visibility override " else "$visibility "
 
             type.fields.forEach { field ->
                 addDeprecatedAnnotation(field)
-                lineBegin(fieldBegin).lineMid("$visibility val ${field.kotlinFieldName}: ")
+                lineBegin(fieldBegin).lineMid("val ${field.kotlinFieldName}: ")
                 when (field) {
                     is File.Field.Numbered -> lineEnd(field.kotlinValueType(true))
                     is File.Field.OneOf -> lineEnd("${field.kotlinTypeName}<*>?")
@@ -161,6 +161,56 @@ public open class CodeGenerator(
 
             // Nested enums and types
             type.nestedTypes.forEach { writeType(it, true) }
+        }.line("}")
+
+        line()
+        line("$visibility sealed interface Mutable${type.kotlinTypeName} : ${type.kotlinFullTypeName}, pbandk.MutableMessage {").indented {
+            type.fields.forEach { field ->
+                addDeprecatedAnnotation(field)
+                lineBegin("$visibility override var ${field.kotlinFieldName}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineEnd(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineEnd("${type.kotlinFullTypeName}.${field.kotlinTypeName}<*>?")
+                }
+            }
+
+            type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
+                line()
+                oneOf.fields.forEach { field ->
+                    addDeprecatedAnnotation(field)
+                    line("$visibility override var ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?")
+                }
+            }
+
+            line().line("$visibility fun to${type.kotlinTypeName}(): ${type.kotlinFullTypeName}")
+
+            // Companion object
+            line().line("$visibility companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
+                val mutableImplName = if (nested) {
+                    "${type.kotlinFullTypeName.substringBeforeLast('.').replace('.', '_')}_Mutable${type.kotlinTypeName}_Impl"
+                } else {
+                    "Mutable${type.kotlinTypeName}_Impl"
+                }
+                line("$visibility operator fun invoke(").indented {
+                    type.fields.forEach { field ->
+                        lineBegin("${field.kotlinFieldName}: ")
+                        when (field) {
+                            is File.Field.Numbered -> lineMid("${field.kotlinValueType(true)} = ${field.defaultValue}")
+                            is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>? = null")
+                        }
+                        lineEnd(",")
+                    }
+                    line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
+                }.line("): Mutable${type.kotlinTypeName} = $mutableImplName(").indented {
+                    type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
+                    line("unknownFields = unknownFields.toMutableMap()")
+                }.line(")").line()
+
+                line("$visibility val defaultInstance: Mutable${type.kotlinTypeName} by lazy { Mutable${type.kotlinTypeName}() }")
+                line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinTypeNameWithPackage} = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
+                line()
+                line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> get() = ${type.kotlinTypeNameWithPackage}.descriptor")
+            }.line("}")
         }.line("}")
     }
 
@@ -284,11 +334,34 @@ public open class CodeGenerator(
         }.line(")")
     }
 
-    protected fun writeMessageExtensions(type: File.Type.Message) {
+    protected fun writeMessageExtensions(type: File.Type.Message, nested: Boolean = false) {
+        writeMessageBuilder(type, nested)
         writeMessageOrDefaultExtension(type)
-        writeMessageImpl(type)
+        writeMessageImpl(type, nested)
         writeMessageDecodeWithExtension(type)
-        type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
+        type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it, true) }
+    }
+
+    protected fun writeMessageBuilder(type: File.Type.Message, nested: Boolean) {
+        val builderName = type.kotlinTypeName.replaceFirstChar { it.lowercase() }
+        val builderPrefix = if (nested) "${type.kotlinFullTypeName.substringBeforeLast('.')}.Companion." else ""
+        val mutableTypeName = if (nested) {
+            "${type.kotlinFullTypeName.substringBeforeLast('.')}.Mutable${type.kotlinTypeName}"
+        } else {
+            "Mutable${type.kotlinTypeName}"
+        }
+        val mutableImplName = if (nested) {
+            "${type.kotlinFullTypeName.substringBeforeLast('.').replace('.', '_')}_Mutable${type.kotlinTypeName}_Impl"
+        } else {
+            "Mutable${type.kotlinTypeName}_Impl"
+        }
+
+        line()
+        line("$visibility fun $builderPrefix${builderName}(builderAction: $mutableTypeName.() -> Unit): ${type.kotlinFullTypeName} {").indented {
+            line("val builder = $mutableTypeName()")
+            line("builder.builderAction()")
+            line("return builder.to${type.kotlinTypeName}()")
+        }.line("}")
     }
 
     protected fun writeMessageOrDefaultExtension(type: File.Type.Message) {
@@ -304,7 +377,7 @@ public open class CodeGenerator(
         line("$visibility fun ${type.kotlinFullTypeName}?.orDefault(): ${type.kotlinTypeNameWithPackage} = this ?: ${type.kotlinFullTypeName}.defaultInstance")
     }
 
-    protected fun writeMessageImpl(type: File.Type.Message) {
+    protected fun writeMessageImpl(type: File.Type.Message, nested: Boolean) {
         fun writeCopyMethod(implName: String) {
             if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
@@ -363,7 +436,7 @@ public open class CodeGenerator(
                                     "other.${oneOf.kotlinFieldName} is $subTypeName ->"
                         ).indented {
                             line(
-                                "$subTypeName(${oneOf.kotlinFieldName}.value + " +
+                                "$subTypeName((${oneOf.kotlinFieldName} as $subTypeName).value + " +
                                         "(other.${oneOf.kotlinFieldName} as $subTypeName).value)"
                             )
                         }
@@ -470,6 +543,64 @@ public open class CodeGenerator(
 
             line()
             writeMergeMethod()
+        }.line("}")
+
+        val mutableTypeName = if (nested) {
+            "${type.kotlinFullTypeName.substringBeforeLast('.')}.Mutable${type.kotlinTypeName}"
+        } else {
+            "Mutable${type.kotlinTypeName}"
+        }
+        val mutableImplName = if (nested) {
+            "${type.kotlinFullTypeName.substringBeforeLast('.').replace('.', '_')}_Mutable${type.kotlinTypeName}_Impl"
+        } else {
+            "Mutable${type.kotlinTypeName}_Impl"
+        }
+
+        line().line("private class $mutableImplName(").indented {
+            type.fields.forEach { field ->
+                lineBegin("override var ${field.kotlinFieldName}: ")
+                when (field) {
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineMid("${type.kotlinTypeNameWithPackage}.${field.kotlinTypeName}<*>?")
+                }
+                lineEnd(",")
+            }
+            // The unknown fields
+            line("override var unknownFields: MutableMap<Int, pbandk.UnknownField>")
+        }.line(") : $mutableTypeName, pbandk.MutableGeneratedMessage<$mutableTypeName>() {").indented {
+            line("override val descriptor get() = ${type.kotlinFullTypeName}.descriptor")
+
+            if (type.extensionRange.isNotEmpty()) {
+                line("override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()")
+            }
+
+            type.fields.filterIsInstance<File.Field.OneOf>().forEach { oneOf ->
+                line()
+                oneOf.fields.forEach { field ->
+                    line("override var ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+                        lineBegin("get() = ")
+                        lineMid("(${oneOf.kotlinFieldName} as? ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
+                        lineEnd("?.value")
+                        lineBegin("set(value) { ")
+                        lineMid("${oneOf.kotlinFieldName} = value?.let { ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}(it) }")
+                        lineEnd(" }")
+                    }
+                }
+            }
+
+            line()
+            writeCopyMethod(implName)
+
+            line()
+            writeMergeMethod()
+
+            line()
+            line("override fun to${type.kotlinTypeName}() = $implName(").indented {
+                type.fields.forEach { field ->
+                    line("${field.kotlinFieldName} = ${field.kotlinFieldName},")
+                }
+                line("unknownFields = unknownFields")
+            }.line(")")
         }.line("}")
     }
 

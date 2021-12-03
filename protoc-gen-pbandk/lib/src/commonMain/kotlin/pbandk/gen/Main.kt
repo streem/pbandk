@@ -2,6 +2,8 @@ package pbandk.gen
 
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
+import pbandk.gen.pb.codeGeneratorResponse
+import pbandk.gen.pb.file
 
 private var logDebug = false
 private inline fun debug(fn: () -> String) {
@@ -27,8 +29,8 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
     // Convert to file model and generate the code only for ones requested
     val kotlinTypeMappings = mutableMapOf<String, String>()
 
-    return CodeGeneratorResponse(
-        supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong(),
+    return codeGeneratorResponse {
+        supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong()
         file = request.protoFile.flatMap { protoFile ->
             val packageName = protoFile.`package`
             debug { "Reading ${protoFile.name}, package: $packageName" }
@@ -74,19 +76,23 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
                         if (result.otherFilePath == null) {
                             extraServiceCode += "\n" + result.code
                             null
-                        } else CodeGeneratorResponse.File(
-                            name = result.otherFilePath,
-                            insertionPoint = result.otherFileInsertionPoint,
+                        } else CodeGeneratorResponse.file {
+                            name = result.otherFilePath
+                            insertionPoint = result.otherFileInsertionPoint
                             content = result.code
-                        )
+                        }
                     }
                 }
 
                 val primaryFiles =
                     if (file.types.isEmpty() && extraServiceCode.isEmpty()) emptyList()
-                    else listOf(CodeGeneratorResponse.File(name = filePath, content = code + extraServiceCode))
+                    else listOf(CodeGeneratorResponse.file {
+                        name = filePath
+                        content = code + extraServiceCode
+                    })
 
                 primaryFiles + serviceFiles
             }
-        })
+        }
+    }
 }

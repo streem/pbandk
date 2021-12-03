@@ -10,6 +10,7 @@ import pbandk.conformance.pb.TestAllTypesProto2
 import pbandk.conformance.pb.TestAllTypesProto3
 import pbandk.conformance.pb.TestCategory
 import pbandk.conformance.pb.WireFormat
+import pbandk.conformance.pb.conformanceResponse
 import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
 import pbandk.json.JsonConfig
@@ -29,7 +30,11 @@ fun main() = runBlockingMain {
     debug { "Starting conformance test" }
     while (true) {
         val res = doTestIo().also { debug { "Result: $it" } } ?: return@runBlockingMain
-        Platform.stdoutWriteLengthDelimitedMessage(ConformanceResponse(res))
+        Platform.stdoutWriteLengthDelimitedMessage(
+            conformanceResponse {
+                result = res
+            }
+        )
     }
 }
 
