@@ -39,6 +39,7 @@ public sealed interface Struct : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Struct by lazy { pbandk.wkt.Struct() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct = pbandk.wkt.Struct.decodeWithImpl(u)
 
@@ -90,6 +91,7 @@ public sealed interface Struct : pbandk.Message {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.Struct.FieldsEntry by lazy { pbandk.wkt.Struct.FieldsEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct.FieldsEntry = pbandk.wkt.Struct.FieldsEntry.decodeWithImpl(u)
 
@@ -145,6 +147,7 @@ public sealed interface Struct : pbandk.Message {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableFieldsEntry by lazy { MutableFieldsEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct.FieldsEntry = pbandk.wkt.Struct.FieldsEntry.decodeWithImpl(u)
 
@@ -168,6 +171,7 @@ public sealed interface MutableStruct : Struct, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableStruct by lazy { MutableStruct() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct = pbandk.wkt.Struct.decodeWithImpl(u)
 
@@ -212,6 +216,7 @@ public sealed interface Value : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Value by lazy { pbandk.wkt.Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Value = pbandk.wkt.Value.decodeWithImpl(u)
 
@@ -346,6 +351,7 @@ public sealed interface ListValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.ListValue by lazy { pbandk.wkt.ListValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ListValue = pbandk.wkt.ListValue.decodeWithImpl(u)
 
@@ -388,6 +394,7 @@ public sealed interface MutableListValue : ListValue, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableListValue by lazy { MutableListValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ListValue = pbandk.wkt.ListValue.decodeWithImpl(u)
 
@@ -396,7 +403,7 @@ public sealed interface MutableListValue : ListValue, pbandk.MutableMessage {
 }
 
 public fun struct(builderAction: MutableStruct.() -> Unit): Struct {
-    val builder = MutableStruct()
+    @Suppress("DEPRECATION") val builder = MutableStruct()
     builder.builderAction()
     return builder.toStruct()
 }
@@ -463,11 +470,12 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
             1 -> fields = (fields ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.wkt.Value?>> }
         }
     }
+    @Suppress("DEPRECATION")
     return Struct(pbandk.MessageMap.Builder.fixed(fields), unknownFields)
 }
 
 public fun Struct.Companion.fieldsEntry(builderAction: Struct.MutableFieldsEntry.() -> Unit): Struct.FieldsEntry {
-    val builder = Struct.MutableFieldsEntry()
+    @Suppress("DEPRECATION") val builder = Struct.MutableFieldsEntry()
     builder.builderAction()
     return builder.toFieldsEntry()
 }
@@ -543,11 +551,12 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             2 -> value = _fieldValue as pbandk.wkt.Value
         }
     }
+    @Suppress("DEPRECATION")
     return Struct.FieldsEntry(key, value, unknownFields)
 }
 
 public fun value(builderAction: MutableValue.() -> Unit): Value {
-    val builder = MutableValue()
+    @Suppress("DEPRECATION") val builder = MutableValue()
     builder.builderAction()
     return builder.toValue()
 }
@@ -665,11 +674,12 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
             6 -> kind = Value.Kind.ListValue(_fieldValue as pbandk.wkt.ListValue)
         }
     }
+    @Suppress("DEPRECATION")
     return Value(kind, unknownFields)
 }
 
 public fun listValue(builderAction: MutableListValue.() -> Unit): ListValue {
-    val builder = MutableListValue()
+    @Suppress("DEPRECATION") val builder = MutableListValue()
     builder.builderAction()
     return builder.toListValue()
 }
@@ -736,5 +746,6 @@ private fun ListValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ListVa
             1 -> values = (values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Value> }
         }
     }
+    @Suppress("DEPRECATION")
     return ListValue(pbandk.ListWithSize.Builder.fixed(values), unknownFields)
 }

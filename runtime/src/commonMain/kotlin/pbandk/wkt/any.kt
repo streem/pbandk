@@ -27,6 +27,7 @@ public sealed interface Any : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
 
@@ -82,6 +83,7 @@ public sealed interface MutableAny : Any, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableAny by lazy { MutableAny() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
 
@@ -90,7 +92,7 @@ public sealed interface MutableAny : Any, pbandk.MutableMessage {
 }
 
 public fun any(builderAction: MutableAny.() -> Unit): Any {
-    val builder = MutableAny()
+    @Suppress("DEPRECATION") val builder = MutableAny()
     builder.builderAction()
     return builder.toAny()
 }
@@ -164,5 +166,6 @@ private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {
             2 -> value = _fieldValue as pbandk.ByteArr
         }
     }
+    @Suppress("DEPRECATION")
     return Any(typeUrl, value, unknownFields)
 }

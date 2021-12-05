@@ -64,6 +64,7 @@ public sealed interface FailureSet : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.FailureSet by lazy { pbandk.conformance.pb.FailureSet() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
 
@@ -106,6 +107,7 @@ public sealed interface MutableFailureSet : FailureSet, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFailureSet by lazy { MutableFailureSet() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
 
@@ -166,6 +168,7 @@ public sealed interface ConformanceRequest : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.ConformanceRequest by lazy { pbandk.conformance.pb.ConformanceRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
 
@@ -312,6 +315,7 @@ public sealed interface MutableConformanceRequest : ConformanceRequest, pbandk.M
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableConformanceRequest by lazy { MutableConformanceRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
 
@@ -360,6 +364,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.ConformanceResponse by lazy { pbandk.conformance.pb.ConformanceResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
 
@@ -489,6 +494,7 @@ public sealed interface MutableConformanceResponse : ConformanceResponse, pbandk
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableConformanceResponse by lazy { MutableConformanceResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
 
@@ -517,6 +523,7 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.JspbEncodingConfig by lazy { pbandk.conformance.pb.JspbEncodingConfig() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
 
@@ -559,6 +566,7 @@ public sealed interface MutableJspbEncodingConfig : JspbEncodingConfig, pbandk.M
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableJspbEncodingConfig by lazy { MutableJspbEncodingConfig() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
 
@@ -567,7 +575,7 @@ public sealed interface MutableJspbEncodingConfig : JspbEncodingConfig, pbandk.M
 }
 
 public fun failureSet(builderAction: MutableFailureSet.() -> Unit): FailureSet {
-    val builder = MutableFailureSet()
+    @Suppress("DEPRECATION") val builder = MutableFailureSet()
     builder.builderAction()
     return builder.toFailureSet()
 }
@@ -634,11 +642,12 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
             1 -> failure = (failure ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+    @Suppress("DEPRECATION")
     return FailureSet(pbandk.ListWithSize.Builder.fixed(failure), unknownFields)
 }
 
 public fun conformanceRequest(builderAction: MutableConformanceRequest.() -> Unit): ConformanceRequest {
-    val builder = MutableConformanceRequest()
+    @Suppress("DEPRECATION") val builder = MutableConformanceRequest()
     builder.builderAction()
     return builder.toConformanceRequest()
 }
@@ -777,12 +786,13 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             9 -> printUnknownFields = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return ConformanceRequest(requestedOutputFormat, messageType, testCategory, jspbEncodingOptions,
         printUnknownFields, payload, unknownFields)
 }
 
 public fun conformanceResponse(builderAction: MutableConformanceResponse.() -> Unit): ConformanceResponse {
-    val builder = MutableConformanceResponse()
+    @Suppress("DEPRECATION") val builder = MutableConformanceResponse()
     builder.builderAction()
     return builder.toConformanceResponse()
 }
@@ -898,11 +908,12 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
             8 -> result = ConformanceResponse.Result.TextPayload(_fieldValue as String)
         }
     }
+    @Suppress("DEPRECATION")
     return ConformanceResponse(result, unknownFields)
 }
 
 public fun jspbEncodingConfig(builderAction: MutableJspbEncodingConfig.() -> Unit): JspbEncodingConfig {
-    val builder = MutableJspbEncodingConfig()
+    @Suppress("DEPRECATION") val builder = MutableJspbEncodingConfig()
     builder.builderAction()
     return builder.toJspbEncodingConfig()
 }
@@ -967,5 +978,6 @@ private fun JspbEncodingConfig.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             1 -> useJspbArrayAnyFormat = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return JspbEncodingConfig(useJspbArrayAnyFormat, unknownFields)
 }

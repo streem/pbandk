@@ -60,6 +60,7 @@ public sealed interface Type : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Type by lazy { pbandk.wkt.Type() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
 
@@ -167,6 +168,7 @@ public sealed interface MutableType : Type, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableType by lazy { MutableType() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
 
@@ -231,6 +233,7 @@ public sealed interface Field : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Field by lazy { pbandk.wkt.Field() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
 
@@ -441,6 +444,7 @@ public sealed interface MutableField : Field, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableField by lazy { MutableField() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
 
@@ -485,6 +489,7 @@ public sealed interface Enum : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Enum by lazy { pbandk.wkt.Enum() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
 
@@ -579,6 +584,7 @@ public sealed interface MutableEnum : Enum, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableEnum by lazy { MutableEnum() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
 
@@ -615,6 +621,7 @@ public sealed interface EnumValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumValue by lazy { pbandk.wkt.EnumValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
 
@@ -683,6 +690,7 @@ public sealed interface MutableEnumValue : EnumValue, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableEnumValue by lazy { MutableEnumValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
 
@@ -715,6 +723,7 @@ public sealed interface Option : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Option by lazy { pbandk.wkt.Option() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
 
@@ -770,6 +779,7 @@ public sealed interface MutableOption : Option, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableOption by lazy { MutableOption() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
 
@@ -778,7 +788,7 @@ public sealed interface MutableOption : Option, pbandk.MutableMessage {
 }
 
 public fun type(builderAction: MutableType.() -> Unit): Type {
-    val builder = MutableType()
+    @Suppress("DEPRECATION") val builder = MutableType()
     builder.builderAction()
     return builder.toType()
 }
@@ -896,12 +906,13 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
             6 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+    @Suppress("DEPRECATION")
     return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
         sourceContext, syntax, unknownFields)
 }
 
 public fun field(builderAction: MutableField.() -> Unit): Field {
-    val builder = MutableField()
+    @Suppress("DEPRECATION") val builder = MutableField()
     builder.builderAction()
     return builder.toField()
 }
@@ -1049,13 +1060,14 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
             11 -> defaultValue = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return Field(kind, cardinality, number, name,
         typeUrl, oneofIndex, packed, pbandk.ListWithSize.Builder.fixed(options),
         jsonName, defaultValue, unknownFields)
 }
 
 public fun enum(builderAction: MutableEnum.() -> Unit): Enum {
-    val builder = MutableEnum()
+    @Suppress("DEPRECATION") val builder = MutableEnum()
     builder.builderAction()
     return builder.toEnum()
 }
@@ -1162,12 +1174,13 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
             5 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+    @Suppress("DEPRECATION")
     return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
         syntax, unknownFields)
 }
 
 public fun enumValue(builderAction: MutableEnumValue.() -> Unit): EnumValue {
-    val builder = MutableEnumValue()
+    @Suppress("DEPRECATION") val builder = MutableEnumValue()
     builder.builderAction()
     return builder.toEnumValue()
 }
@@ -1252,11 +1265,12 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
             3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
         }
     }
+    @Suppress("DEPRECATION")
     return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
 }
 
 public fun option(builderAction: MutableOption.() -> Unit): Option {
-    val builder = MutableOption()
+    @Suppress("DEPRECATION") val builder = MutableOption()
     builder.builderAction()
     return builder.toOption()
 }
@@ -1332,5 +1346,6 @@ private fun Option.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Option {
             2 -> value = _fieldValue as pbandk.wkt.Any
         }
     }
+    @Suppress("DEPRECATION")
     return Option(name, value, unknownFields)
 }

@@ -23,6 +23,7 @@ public sealed interface DoubleValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
@@ -65,6 +66,7 @@ public sealed interface MutableDoubleValue : DoubleValue, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableDoubleValue by lazy { MutableDoubleValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
@@ -93,6 +95,7 @@ public sealed interface FloatValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
@@ -135,6 +138,7 @@ public sealed interface MutableFloatValue : FloatValue, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFloatValue by lazy { MutableFloatValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
@@ -163,6 +167,7 @@ public sealed interface Int64Value : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
@@ -205,6 +210,7 @@ public sealed interface MutableInt64Value : Int64Value, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt64Value by lazy { MutableInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
@@ -233,6 +239,7 @@ public sealed interface UInt64Value : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
@@ -275,6 +282,7 @@ public sealed interface MutableUInt64Value : UInt64Value, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt64Value by lazy { MutableUInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
@@ -303,6 +311,7 @@ public sealed interface Int32Value : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
@@ -345,6 +354,7 @@ public sealed interface MutableInt32Value : Int32Value, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt32Value by lazy { MutableInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
@@ -373,6 +383,7 @@ public sealed interface UInt32Value : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
@@ -415,6 +426,7 @@ public sealed interface MutableUInt32Value : UInt32Value, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt32Value by lazy { MutableUInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
@@ -443,6 +455,7 @@ public sealed interface BoolValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
@@ -485,6 +498,7 @@ public sealed interface MutableBoolValue : BoolValue, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableBoolValue by lazy { MutableBoolValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
@@ -513,6 +527,7 @@ public sealed interface StringValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
 
@@ -555,6 +570,7 @@ public sealed interface MutableStringValue : StringValue, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableStringValue by lazy { MutableStringValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
 
@@ -583,6 +599,7 @@ public sealed interface BytesValue : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
@@ -625,6 +642,7 @@ public sealed interface MutableBytesValue : BytesValue, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableBytesValue by lazy { MutableBytesValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
@@ -633,7 +651,7 @@ public sealed interface MutableBytesValue : BytesValue, pbandk.MutableMessage {
 }
 
 public fun doubleValue(builderAction: MutableDoubleValue.() -> Unit): DoubleValue {
-    val builder = MutableDoubleValue()
+    @Suppress("DEPRECATION") val builder = MutableDoubleValue()
     builder.builderAction()
     return builder.toDoubleValue()
 }
@@ -698,11 +716,12 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
             1 -> value = _fieldValue as Double
         }
     }
+    @Suppress("DEPRECATION")
     return DoubleValue(value, unknownFields)
 }
 
 public fun floatValue(builderAction: MutableFloatValue.() -> Unit): FloatValue {
-    val builder = MutableFloatValue()
+    @Suppress("DEPRECATION") val builder = MutableFloatValue()
     builder.builderAction()
     return builder.toFloatValue()
 }
@@ -767,11 +786,12 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
             1 -> value = _fieldValue as Float
         }
     }
+    @Suppress("DEPRECATION")
     return FloatValue(value, unknownFields)
 }
 
 public fun int64Value(builderAction: MutableInt64Value.() -> Unit): Int64Value {
-    val builder = MutableInt64Value()
+    @Suppress("DEPRECATION") val builder = MutableInt64Value()
     builder.builderAction()
     return builder.toInt64Value()
 }
@@ -836,11 +856,12 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
             1 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return Int64Value(value, unknownFields)
 }
 
 public fun uInt64Value(builderAction: MutableUInt64Value.() -> Unit): UInt64Value {
-    val builder = MutableUInt64Value()
+    @Suppress("DEPRECATION") val builder = MutableUInt64Value()
     builder.builderAction()
     return builder.toUInt64Value()
 }
@@ -905,11 +926,12 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             1 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return UInt64Value(value, unknownFields)
 }
 
 public fun int32Value(builderAction: MutableInt32Value.() -> Unit): Int32Value {
-    val builder = MutableInt32Value()
+    @Suppress("DEPRECATION") val builder = MutableInt32Value()
     builder.builderAction()
     return builder.toInt32Value()
 }
@@ -974,11 +996,12 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
             1 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return Int32Value(value, unknownFields)
 }
 
 public fun uInt32Value(builderAction: MutableUInt32Value.() -> Unit): UInt32Value {
-    val builder = MutableUInt32Value()
+    @Suppress("DEPRECATION") val builder = MutableUInt32Value()
     builder.builderAction()
     return builder.toUInt32Value()
 }
@@ -1043,11 +1066,12 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             1 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return UInt32Value(value, unknownFields)
 }
 
 public fun boolValue(builderAction: MutableBoolValue.() -> Unit): BoolValue {
-    val builder = MutableBoolValue()
+    @Suppress("DEPRECATION") val builder = MutableBoolValue()
     builder.builderAction()
     return builder.toBoolValue()
 }
@@ -1112,11 +1136,12 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
             1 -> value = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return BoolValue(value, unknownFields)
 }
 
 public fun stringValue(builderAction: MutableStringValue.() -> Unit): StringValue {
-    val builder = MutableStringValue()
+    @Suppress("DEPRECATION") val builder = MutableStringValue()
     builder.builderAction()
     return builder.toStringValue()
 }
@@ -1181,11 +1206,12 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
             1 -> value = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return StringValue(value, unknownFields)
 }
 
 public fun bytesValue(builderAction: MutableBytesValue.() -> Unit): BytesValue {
-    val builder = MutableBytesValue()
+    @Suppress("DEPRECATION") val builder = MutableBytesValue()
     builder.builderAction()
     return builder.toBytesValue()
 }
@@ -1250,5 +1276,6 @@ private fun BytesValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
             1 -> value = _fieldValue as pbandk.ByteArr
         }
     }
+    @Suppress("DEPRECATION")
     return BytesValue(value, unknownFields)
 }

@@ -91,6 +91,7 @@ public sealed interface FieldRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FieldRules by lazy { pbandk.testpb.FieldRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
 
@@ -389,6 +390,7 @@ public sealed interface MutableFieldRules : FieldRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFieldRules by lazy { MutableFieldRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
 
@@ -441,6 +443,7 @@ public sealed interface FloatRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FloatRules by lazy { pbandk.testpb.FloatRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
 
@@ -561,6 +564,7 @@ public sealed interface MutableFloatRules : FloatRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFloatRules by lazy { MutableFloatRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
 
@@ -613,6 +617,7 @@ public sealed interface DoubleRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.DoubleRules by lazy { pbandk.testpb.DoubleRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
 
@@ -733,6 +738,7 @@ public sealed interface MutableDoubleRules : DoubleRules, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableDoubleRules by lazy { MutableDoubleRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
 
@@ -785,6 +791,7 @@ public sealed interface Int32Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Int32Rules by lazy { pbandk.testpb.Int32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
 
@@ -905,6 +912,7 @@ public sealed interface MutableInt32Rules : Int32Rules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt32Rules by lazy { MutableInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
 
@@ -957,6 +965,7 @@ public sealed interface Int64Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Int64Rules by lazy { pbandk.testpb.Int64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
 
@@ -1077,6 +1086,7 @@ public sealed interface MutableInt64Rules : Int64Rules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt64Rules by lazy { MutableInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
 
@@ -1129,6 +1139,7 @@ public sealed interface UInt32Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.UInt32Rules by lazy { pbandk.testpb.UInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
 
@@ -1249,6 +1260,7 @@ public sealed interface MutableUInt32Rules : UInt32Rules, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt32Rules by lazy { MutableUInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
 
@@ -1301,6 +1313,7 @@ public sealed interface UInt64Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.UInt64Rules by lazy { pbandk.testpb.UInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
 
@@ -1421,6 +1434,7 @@ public sealed interface MutableUInt64Rules : UInt64Rules, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt64Rules by lazy { MutableUInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
 
@@ -1473,6 +1487,7 @@ public sealed interface SInt32Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SInt32Rules by lazy { pbandk.testpb.SInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
 
@@ -1593,6 +1608,7 @@ public sealed interface MutableSInt32Rules : SInt32Rules, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableSInt32Rules by lazy { MutableSInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
 
@@ -1645,6 +1661,7 @@ public sealed interface SInt64Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SInt64Rules by lazy { pbandk.testpb.SInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
 
@@ -1765,6 +1782,7 @@ public sealed interface MutableSInt64Rules : SInt64Rules, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableSInt64Rules by lazy { MutableSInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
 
@@ -1817,6 +1835,7 @@ public sealed interface Fixed32Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Fixed32Rules by lazy { pbandk.testpb.Fixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
 
@@ -1937,6 +1956,7 @@ public sealed interface MutableFixed32Rules : Fixed32Rules, pbandk.MutableMessag
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFixed32Rules by lazy { MutableFixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
 
@@ -1989,6 +2009,7 @@ public sealed interface Fixed64Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Fixed64Rules by lazy { pbandk.testpb.Fixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
 
@@ -2109,6 +2130,7 @@ public sealed interface MutableFixed64Rules : Fixed64Rules, pbandk.MutableMessag
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFixed64Rules by lazy { MutableFixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
 
@@ -2161,6 +2183,7 @@ public sealed interface SFixed32Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SFixed32Rules by lazy { pbandk.testpb.SFixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
 
@@ -2281,6 +2304,7 @@ public sealed interface MutableSFixed32Rules : SFixed32Rules, pbandk.MutableMess
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableSFixed32Rules by lazy { MutableSFixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
 
@@ -2333,6 +2357,7 @@ public sealed interface SFixed64Rules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SFixed64Rules by lazy { pbandk.testpb.SFixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
 
@@ -2453,6 +2478,7 @@ public sealed interface MutableSFixed64Rules : SFixed64Rules, pbandk.MutableMess
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableSFixed64Rules by lazy { MutableSFixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
 
@@ -2481,6 +2507,7 @@ public sealed interface BoolRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.BoolRules by lazy { pbandk.testpb.BoolRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
 
@@ -2523,6 +2550,7 @@ public sealed interface MutableBoolRules : BoolRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableBoolRules by lazy { MutableBoolRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
 
@@ -2635,6 +2663,7 @@ public sealed interface StringRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.StringRules by lazy { pbandk.testpb.StringRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
 
@@ -2983,6 +3012,7 @@ public sealed interface MutableStringRules : StringRules, pbandk.MutableMessage 
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableStringRules by lazy { MutableStringRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
 
@@ -3061,6 +3091,7 @@ public sealed interface BytesRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.BytesRules by lazy { pbandk.testpb.BytesRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
 
@@ -3260,6 +3291,7 @@ public sealed interface MutableBytesRules : BytesRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableBytesRules by lazy { MutableBytesRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
 
@@ -3300,6 +3332,7 @@ public sealed interface EnumRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.EnumRules by lazy { pbandk.testpb.EnumRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
 
@@ -3381,6 +3414,7 @@ public sealed interface MutableEnumRules : EnumRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableEnumRules by lazy { MutableEnumRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
 
@@ -3413,6 +3447,7 @@ public sealed interface MessageRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MessageRules by lazy { pbandk.testpb.MessageRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
 
@@ -3468,6 +3503,7 @@ public sealed interface MutableMessageRules : MessageRules, pbandk.MutableMessag
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMessageRules by lazy { MutableMessageRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
 
@@ -3508,6 +3544,7 @@ public sealed interface RepeatedRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.RepeatedRules by lazy { pbandk.testpb.RepeatedRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
 
@@ -3589,6 +3626,7 @@ public sealed interface MutableRepeatedRules : RepeatedRules, pbandk.MutableMess
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableRepeatedRules by lazy { MutableRepeatedRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
 
@@ -3633,6 +3671,7 @@ public sealed interface MapRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MapRules by lazy { pbandk.testpb.MapRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
 
@@ -3727,6 +3766,7 @@ public sealed interface MutableMapRules : MapRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMapRules by lazy { MutableMapRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
 
@@ -3763,6 +3803,7 @@ public sealed interface AnyRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.AnyRules by lazy { pbandk.testpb.AnyRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
 
@@ -3831,6 +3872,7 @@ public sealed interface MutableAnyRules : AnyRules, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableAnyRules by lazy { MutableAnyRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
 
@@ -3887,6 +3929,7 @@ public sealed interface DurationRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.DurationRules by lazy { pbandk.testpb.DurationRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
 
@@ -4020,6 +4063,7 @@ public sealed interface MutableDurationRules : DurationRules, pbandk.MutableMess
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableDurationRules by lazy { MutableDurationRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
 
@@ -4080,6 +4124,7 @@ public sealed interface TimestampRules : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.TimestampRules by lazy { pbandk.testpb.TimestampRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
 
@@ -4226,6 +4271,7 @@ public sealed interface MutableTimestampRules : TimestampRules, pbandk.MutableMe
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableTimestampRules by lazy { MutableTimestampRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
 
@@ -4273,7 +4319,7 @@ val rules = pbandk.FieldDescriptor(
 )
 
 public fun fieldRules(builderAction: MutableFieldRules.() -> Unit): FieldRules {
-    val builder = MutableFieldRules()
+    @Suppress("DEPRECATION") val builder = MutableFieldRules()
     builder.builderAction()
     return builder.toFieldRules()
 }
@@ -4568,11 +4614,12 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field
             22 -> type = FieldRules.Type.Timestamp(_fieldValue as pbandk.testpb.TimestampRules)
         }
     }
+    @Suppress("DEPRECATION")
     return FieldRules(message, type, unknownFields)
 }
 
 public fun floatRules(builderAction: MutableFloatRules.() -> Unit): FloatRules {
-    val builder = MutableFloatRules()
+    @Suppress("DEPRECATION") val builder = MutableFloatRules()
     builder.builderAction()
     return builder.toFloatRules()
 }
@@ -4705,12 +4752,13 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
         }
     }
+    @Suppress("DEPRECATION")
     return FloatRules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun doubleRules(builderAction: MutableDoubleRules.() -> Unit): DoubleRules {
-    val builder = MutableDoubleRules()
+    @Suppress("DEPRECATION") val builder = MutableDoubleRules()
     builder.builderAction()
     return builder.toDoubleRules()
 }
@@ -4843,12 +4891,13 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
         }
     }
+    @Suppress("DEPRECATION")
     return DoubleRules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun int32Rules(builderAction: MutableInt32Rules.() -> Unit): Int32Rules {
-    val builder = MutableInt32Rules()
+    @Suppress("DEPRECATION") val builder = MutableInt32Rules()
     builder.builderAction()
     return builder.toInt32Rules()
 }
@@ -4981,12 +5030,13 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return Int32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun int64Rules(builderAction: MutableInt64Rules.() -> Unit): Int64Rules {
-    val builder = MutableInt64Rules()
+    @Suppress("DEPRECATION") val builder = MutableInt64Rules()
     builder.builderAction()
     return builder.toInt64Rules()
 }
@@ -5119,12 +5169,13 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+    @Suppress("DEPRECATION")
     return Int64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun uInt32Rules(builderAction: MutableUInt32Rules.() -> Unit): UInt32Rules {
-    val builder = MutableUInt32Rules()
+    @Suppress("DEPRECATION") val builder = MutableUInt32Rules()
     builder.builderAction()
     return builder.toUInt32Rules()
 }
@@ -5257,12 +5308,13 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return UInt32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun uInt64Rules(builderAction: MutableUInt64Rules.() -> Unit): UInt64Rules {
-    val builder = MutableUInt64Rules()
+    @Suppress("DEPRECATION") val builder = MutableUInt64Rules()
     builder.builderAction()
     return builder.toUInt64Rules()
 }
@@ -5395,12 +5447,13 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+    @Suppress("DEPRECATION")
     return UInt64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun sInt32Rules(builderAction: MutableSInt32Rules.() -> Unit): SInt32Rules {
-    val builder = MutableSInt32Rules()
+    @Suppress("DEPRECATION") val builder = MutableSInt32Rules()
     builder.builderAction()
     return builder.toSInt32Rules()
 }
@@ -5533,12 +5586,13 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return SInt32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun sInt64Rules(builderAction: MutableSInt64Rules.() -> Unit): SInt64Rules {
-    val builder = MutableSInt64Rules()
+    @Suppress("DEPRECATION") val builder = MutableSInt64Rules()
     builder.builderAction()
     return builder.toSInt64Rules()
 }
@@ -5671,12 +5725,13 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+    @Suppress("DEPRECATION")
     return SInt64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun fixed32Rules(builderAction: MutableFixed32Rules.() -> Unit): Fixed32Rules {
-    val builder = MutableFixed32Rules()
+    @Suppress("DEPRECATION") val builder = MutableFixed32Rules()
     builder.builderAction()
     return builder.toFixed32Rules()
 }
@@ -5809,12 +5864,13 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return Fixed32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun fixed64Rules(builderAction: MutableFixed64Rules.() -> Unit): Fixed64Rules {
-    val builder = MutableFixed64Rules()
+    @Suppress("DEPRECATION") val builder = MutableFixed64Rules()
     builder.builderAction()
     return builder.toFixed64Rules()
 }
@@ -5947,12 +6003,13 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+    @Suppress("DEPRECATION")
     return Fixed64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun sFixed32Rules(builderAction: MutableSFixed32Rules.() -> Unit): SFixed32Rules {
-    val builder = MutableSFixed32Rules()
+    @Suppress("DEPRECATION") val builder = MutableSFixed32Rules()
     builder.builderAction()
     return builder.toSFixed32Rules()
 }
@@ -6085,12 +6142,13 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return SFixed32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun sFixed64Rules(builderAction: MutableSFixed64Rules.() -> Unit): SFixed64Rules {
-    val builder = MutableSFixed64Rules()
+    @Suppress("DEPRECATION") val builder = MutableSFixed64Rules()
     builder.builderAction()
     return builder.toSFixed64Rules()
 }
@@ -6223,12 +6281,13 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+    @Suppress("DEPRECATION")
     return SFixed64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun boolRules(builderAction: MutableBoolRules.() -> Unit): BoolRules {
-    val builder = MutableBoolRules()
+    @Suppress("DEPRECATION") val builder = MutableBoolRules()
     builder.builderAction()
     return builder.toBoolRules()
 }
@@ -6295,11 +6354,12 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRu
             1 -> const = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return BoolRules(const, unknownFields)
 }
 
 public fun stringRules(builderAction: MutableStringRules.() -> Unit): StringRules {
-    val builder = MutableStringRules()
+    @Suppress("DEPRECATION") val builder = MutableStringRules()
     builder.builderAction()
     return builder.toStringRules()
 }
@@ -6592,6 +6652,7 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
             25 -> strict = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return StringRules(const, len, minLen, maxLen,
         lenBytes, minBytes, maxBytes, pattern,
         prefix, suffix, contains, notContains,
@@ -6599,7 +6660,7 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
 }
 
 public fun bytesRules(builderAction: MutableBytesRules.() -> Unit): BytesRules {
-    val builder = MutableBytesRules()
+    @Suppress("DEPRECATION") val builder = MutableBytesRules()
     builder.builderAction()
     return builder.toBytesRules()
 }
@@ -6795,13 +6856,14 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
             13 -> len = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return BytesRules(const, len, minLen, maxLen,
         pattern, prefix, suffix, contains,
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), wellKnown, unknownFields)
 }
 
 public fun enumRules(builderAction: MutableEnumRules.() -> Unit): EnumRules {
-    val builder = MutableEnumRules()
+    @Suppress("DEPRECATION") val builder = MutableEnumRules()
     builder.builderAction()
     return builder.toEnumRules()
 }
@@ -6901,11 +6963,12 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
             4 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return EnumRules(const, definedOnly, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun messageRules(builderAction: MutableMessageRules.() -> Unit): MessageRules {
-    val builder = MutableMessageRules()
+    @Suppress("DEPRECATION") val builder = MutableMessageRules()
     builder.builderAction()
     return builder.toMessageRules()
 }
@@ -6983,11 +7046,12 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mes
             2 -> required = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return MessageRules(skip, required, unknownFields)
 }
 
 public fun repeatedRules(builderAction: MutableRepeatedRules.() -> Unit): RepeatedRules {
-    val builder = MutableRepeatedRules()
+    @Suppress("DEPRECATION") val builder = MutableRepeatedRules()
     builder.builderAction()
     return builder.toRepeatedRules()
 }
@@ -7087,11 +7151,12 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Re
             4 -> items = _fieldValue as pbandk.testpb.FieldRules
         }
     }
+    @Suppress("DEPRECATION")
     return RepeatedRules(minItems, maxItems, unique, items, unknownFields)
 }
 
 public fun mapRules(builderAction: MutableMapRules.() -> Unit): MapRules {
-    val builder = MutableMapRules()
+    @Suppress("DEPRECATION") val builder = MutableMapRules()
     builder.builderAction()
     return builder.toMapRules()
 }
@@ -7202,12 +7267,13 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRule
             5 -> values = _fieldValue as pbandk.testpb.FieldRules
         }
     }
+    @Suppress("DEPRECATION")
     return MapRules(minPairs, maxPairs, noSparse, keys,
         values, unknownFields)
 }
 
 public fun anyRules(builderAction: MutableAnyRules.() -> Unit): AnyRules {
-    val builder = MutableAnyRules()
+    @Suppress("DEPRECATION") val builder = MutableAnyRules()
     builder.builderAction()
     return builder.toAnyRules()
 }
@@ -7296,11 +7362,12 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
             3 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+    @Suppress("DEPRECATION")
     return AnyRules(required, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun durationRules(builderAction: MutableDurationRules.() -> Unit): DurationRules {
-    val builder = MutableDurationRules()
+    @Suppress("DEPRECATION") val builder = MutableDurationRules()
     builder.builderAction()
     return builder.toDurationRules()
 }
@@ -7444,12 +7511,13 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
             8 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Duration> }
         }
     }
+    @Suppress("DEPRECATION")
     return DurationRules(required, const, lt, lte,
         gt, gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
 public fun timestampRules(builderAction: MutableTimestampRules.() -> Unit): TimestampRules {
-    val builder = MutableTimestampRules()
+    @Suppress("DEPRECATION") val builder = MutableTimestampRules()
     builder.builderAction()
     return builder.toTimestampRules()
 }
@@ -7604,6 +7672,7 @@ private fun TimestampRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): T
             9 -> within = _fieldValue as pbandk.wkt.Duration
         }
     }
+    @Suppress("DEPRECATION")
     return TimestampRules(required, const, lt, lte,
         gt, gte, ltNow, gtNow,
         within, unknownFields)

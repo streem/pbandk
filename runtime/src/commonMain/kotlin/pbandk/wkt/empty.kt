@@ -19,6 +19,7 @@ public sealed interface Empty : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
 
@@ -48,6 +49,7 @@ public sealed interface MutableEmpty : Empty, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableEmpty by lazy { MutableEmpty() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
 
@@ -56,7 +58,7 @@ public sealed interface MutableEmpty : Empty, pbandk.MutableMessage {
 }
 
 public fun empty(builderAction: MutableEmpty.() -> Unit): Empty {
-    val builder = MutableEmpty()
+    @Suppress("DEPRECATION") val builder = MutableEmpty()
     builder.builderAction()
     return builder.toEmpty()
 }
@@ -109,5 +111,6 @@ private class MutableEmpty_Impl(
 private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Empty {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
+    @Suppress("DEPRECATION")
     return Empty(unknownFields)
 }

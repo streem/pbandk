@@ -495,6 +495,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2 by lazy { pbandk.conformance.pb.TestAllTypesProto2() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.TestAllTypesProto2.decodeWithImpl(u)
 
@@ -1733,6 +1734,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage by lazy { pbandk.conformance.pb.TestAllTypesProto2.NestedMessage() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
 
@@ -1788,6 +1790,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableNestedMessage by lazy { MutableNestedMessage() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
 
@@ -1820,6 +1823,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
 
@@ -1875,6 +1879,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapInt32Int32Entry by lazy { MutableMapInt32Int32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
 
@@ -1907,6 +1912,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
 
@@ -1962,6 +1968,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapInt64Int64Entry by lazy { MutableMapInt64Int64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
 
@@ -1994,6 +2001,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
 
@@ -2049,6 +2057,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapUint32Uint32Entry by lazy { MutableMapUint32Uint32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
 
@@ -2081,6 +2090,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
 
@@ -2136,6 +2146,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapUint64Uint64Entry by lazy { MutableMapUint64Uint64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
 
@@ -2168,6 +2179,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
 
@@ -2223,6 +2235,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapSint32Sint32Entry by lazy { MutableMapSint32Sint32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
 
@@ -2255,6 +2268,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
 
@@ -2310,6 +2324,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapSint64Sint64Entry by lazy { MutableMapSint64Sint64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
 
@@ -2342,6 +2357,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
@@ -2397,6 +2413,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapFixed32Fixed32Entry by lazy { MutableMapFixed32Fixed32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
@@ -2429,6 +2446,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
@@ -2484,6 +2502,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapFixed64Fixed64Entry by lazy { MutableMapFixed64Fixed64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
@@ -2516,6 +2535,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
@@ -2571,6 +2591,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapSfixed32Sfixed32Entry by lazy { MutableMapSfixed32Sfixed32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
@@ -2603,6 +2624,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
@@ -2658,6 +2680,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapSfixed64Sfixed64Entry by lazy { MutableMapSfixed64Sfixed64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
@@ -2690,6 +2713,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
 
@@ -2745,6 +2769,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapInt32FloatEntry by lazy { MutableMapInt32FloatEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
 
@@ -2777,6 +2802,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
 
@@ -2832,6 +2858,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapInt32DoubleEntry by lazy { MutableMapInt32DoubleEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
 
@@ -2864,6 +2891,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
 
@@ -2919,6 +2947,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapBoolBoolEntry by lazy { MutableMapBoolBoolEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
 
@@ -2951,6 +2980,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
 
@@ -3006,6 +3036,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapStringStringEntry by lazy { MutableMapStringStringEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
 
@@ -3038,6 +3069,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
 
@@ -3093,6 +3125,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapStringBytesEntry by lazy { MutableMapStringBytesEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
 
@@ -3125,6 +3158,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
 
@@ -3180,6 +3214,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapStringNestedMessageEntry by lazy { MutableMapStringNestedMessageEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
 
@@ -3212,6 +3247,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
 
@@ -3267,6 +3303,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapStringForeignMessageEntry by lazy { MutableMapStringForeignMessageEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
 
@@ -3299,6 +3336,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
 
@@ -3354,6 +3392,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapStringNestedEnumEntry by lazy { MutableMapStringNestedEnumEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
 
@@ -3386,6 +3425,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry by lazy { pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
 
@@ -3441,6 +3481,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapStringForeignEnumEntry by lazy { MutableMapStringForeignEnumEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
 
@@ -3473,6 +3514,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.Data by lazy { pbandk.conformance.pb.TestAllTypesProto2.Data() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Data.decodeWithImpl(u)
 
@@ -3528,6 +3570,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableData by lazy { MutableData() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Data.decodeWithImpl(u)
 
@@ -3552,6 +3595,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
 
@@ -3581,6 +3625,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMessageSetCorrect by lazy { MutableMessageSetCorrect() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
 
@@ -3609,6 +3654,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
 
@@ -3651,6 +3697,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMessageSetCorrectExtension1 by lazy { MutableMessageSetCorrectExtension1() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
 
@@ -3679,6 +3726,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 by lazy { pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
 
@@ -3721,6 +3769,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMessageSetCorrectExtension2 by lazy { MutableMessageSetCorrectExtension2() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
 
@@ -4078,6 +4127,7 @@ public sealed interface MutableTestAllTypesProto2 : TestAllTypesProto2, pbandk.M
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableTestAllTypesProto2 by lazy { MutableTestAllTypesProto2() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.TestAllTypesProto2.decodeWithImpl(u)
 
@@ -4106,6 +4156,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.ForeignMessageProto2 by lazy { pbandk.conformance.pb.ForeignMessageProto2() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.ForeignMessageProto2.decodeWithImpl(u)
 
@@ -4148,6 +4199,7 @@ public sealed interface MutableForeignMessageProto2 : ForeignMessageProto2, pban
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableForeignMessageProto2 by lazy { MutableForeignMessageProto2() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.ForeignMessageProto2.decodeWithImpl(u)
 
@@ -4192,6 +4244,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes by lazy { pbandk.conformance.pb.UnknownToTestAllTypes() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.UnknownToTestAllTypes.decodeWithImpl(u)
 
@@ -4279,6 +4332,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup by lazy { pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
 
@@ -4321,6 +4375,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableOptionalGroup by lazy { MutableOptionalGroup() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
 
@@ -4356,6 +4411,7 @@ public sealed interface MutableUnknownToTestAllTypes : UnknownToTestAllTypes, pb
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableUnknownToTestAllTypes by lazy { MutableUnknownToTestAllTypes() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.UnknownToTestAllTypes.decodeWithImpl(u)
 
@@ -4377,7 +4433,7 @@ val extensionInt32 = pbandk.FieldDescriptor(
 )
 
 public fun testAllTypesProto2(builderAction: MutableTestAllTypesProto2.() -> Unit): TestAllTypesProto2 {
-    val builder = MutableTestAllTypesProto2()
+    @Suppress("DEPRECATION") val builder = MutableTestAllTypesProto2()
     builder.builderAction()
     return builder.toTestAllTypesProto2()
 }
@@ -5699,6 +5755,7 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             418 -> fieldName18_ = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2(optionalInt32, optionalInt64, optionalUint32, optionalUint64,
         optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
         optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble,
@@ -5730,7 +5787,7 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 }
 
 public fun TestAllTypesProto2.Companion.nestedMessage(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit): TestAllTypesProto2.NestedMessage {
-    val builder = TestAllTypesProto2.MutableNestedMessage()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableNestedMessage()
     builder.builderAction()
     return builder.toNestedMessage()
 }
@@ -5808,11 +5865,12 @@ private fun TestAllTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.
             2 -> corecursive = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.NestedMessage(a, corecursive, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapInt32Int32Entry(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit): TestAllTypesProto2.MapInt32Int32Entry {
-    val builder = TestAllTypesProto2.MutableMapInt32Int32Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt32Int32Entry()
     builder.builderAction()
     return builder.toMapInt32Int32Entry()
 }
@@ -5890,11 +5948,12 @@ private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.decodeWithImpl(u: pb
             2 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapInt32Int32Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapInt64Int64Entry(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit): TestAllTypesProto2.MapInt64Int64Entry {
-    val builder = TestAllTypesProto2.MutableMapInt64Int64Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt64Int64Entry()
     builder.builderAction()
     return builder.toMapInt64Int64Entry()
 }
@@ -5972,11 +6031,12 @@ private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.decodeWithImpl(u: pb
             2 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapInt64Int64Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapUint32Uint32Entry(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit): TestAllTypesProto2.MapUint32Uint32Entry {
-    val builder = TestAllTypesProto2.MutableMapUint32Uint32Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapUint32Uint32Entry()
     builder.builderAction()
     return builder.toMapUint32Uint32Entry()
 }
@@ -6054,11 +6114,12 @@ private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapUint32Uint32Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapUint64Uint64Entry(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit): TestAllTypesProto2.MapUint64Uint64Entry {
-    val builder = TestAllTypesProto2.MutableMapUint64Uint64Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapUint64Uint64Entry()
     builder.builderAction()
     return builder.toMapUint64Uint64Entry()
 }
@@ -6136,11 +6197,12 @@ private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapUint64Uint64Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapSint32Sint32Entry(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit): TestAllTypesProto2.MapSint32Sint32Entry {
-    val builder = TestAllTypesProto2.MutableMapSint32Sint32Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSint32Sint32Entry()
     builder.builderAction()
     return builder.toMapSint32Sint32Entry()
 }
@@ -6218,11 +6280,12 @@ private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapSint32Sint32Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapSint64Sint64Entry(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit): TestAllTypesProto2.MapSint64Sint64Entry {
-    val builder = TestAllTypesProto2.MutableMapSint64Sint64Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSint64Sint64Entry()
     builder.builderAction()
     return builder.toMapSint64Sint64Entry()
 }
@@ -6300,11 +6363,12 @@ private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapSint64Sint64Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapFixed32Fixed32Entry(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit): TestAllTypesProto2.MapFixed32Fixed32Entry {
-    val builder = TestAllTypesProto2.MutableMapFixed32Fixed32Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapFixed32Fixed32Entry()
     builder.builderAction()
     return builder.toMapFixed32Fixed32Entry()
 }
@@ -6382,11 +6446,12 @@ private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u
             2 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapFixed32Fixed32Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapFixed64Fixed64Entry(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit): TestAllTypesProto2.MapFixed64Fixed64Entry {
-    val builder = TestAllTypesProto2.MutableMapFixed64Fixed64Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapFixed64Fixed64Entry()
     builder.builderAction()
     return builder.toMapFixed64Fixed64Entry()
 }
@@ -6464,11 +6529,12 @@ private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u
             2 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapFixed64Fixed64Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapSfixed32Sfixed32Entry(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit): TestAllTypesProto2.MapSfixed32Sfixed32Entry {
-    val builder = TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry()
     builder.builderAction()
     return builder.toMapSfixed32Sfixed32Entry()
 }
@@ -6546,11 +6612,12 @@ private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl
             2 -> value = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapSfixed32Sfixed32Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapSfixed64Sfixed64Entry(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit): TestAllTypesProto2.MapSfixed64Sfixed64Entry {
-    val builder = TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry()
     builder.builderAction()
     return builder.toMapSfixed64Sfixed64Entry()
 }
@@ -6628,11 +6695,12 @@ private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl
             2 -> value = _fieldValue as Long
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapSfixed64Sfixed64Entry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapInt32FloatEntry(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit): TestAllTypesProto2.MapInt32FloatEntry {
-    val builder = TestAllTypesProto2.MutableMapInt32FloatEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt32FloatEntry()
     builder.builderAction()
     return builder.toMapInt32FloatEntry()
 }
@@ -6710,11 +6778,12 @@ private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.decodeWithImpl(u: pb
             2 -> value = _fieldValue as Float
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapInt32FloatEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapInt32DoubleEntry(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit): TestAllTypesProto2.MapInt32DoubleEntry {
-    val builder = TestAllTypesProto2.MutableMapInt32DoubleEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt32DoubleEntry()
     builder.builderAction()
     return builder.toMapInt32DoubleEntry()
 }
@@ -6792,11 +6861,12 @@ private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.decodeWithImpl(u: p
             2 -> value = _fieldValue as Double
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapInt32DoubleEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapBoolBoolEntry(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit): TestAllTypesProto2.MapBoolBoolEntry {
-    val builder = TestAllTypesProto2.MutableMapBoolBoolEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapBoolBoolEntry()
     builder.builderAction()
     return builder.toMapBoolBoolEntry()
 }
@@ -6874,11 +6944,12 @@ private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.decodeWithImpl(u: pban
             2 -> value = _fieldValue as Boolean
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapBoolBoolEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapStringStringEntry(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit): TestAllTypesProto2.MapStringStringEntry {
-    val builder = TestAllTypesProto2.MutableMapStringStringEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringStringEntry()
     builder.builderAction()
     return builder.toMapStringStringEntry()
 }
@@ -6956,11 +7027,12 @@ private fun TestAllTypesProto2.MapStringStringEntry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapStringStringEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapStringBytesEntry(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit): TestAllTypesProto2.MapStringBytesEntry {
-    val builder = TestAllTypesProto2.MutableMapStringBytesEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringBytesEntry()
     builder.builderAction()
     return builder.toMapStringBytesEntry()
 }
@@ -7038,11 +7110,12 @@ private fun TestAllTypesProto2.MapStringBytesEntry.Companion.decodeWithImpl(u: p
             2 -> value = _fieldValue as pbandk.ByteArr
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapStringBytesEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapStringNestedMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit): TestAllTypesProto2.MapStringNestedMessageEntry {
-    val builder = TestAllTypesProto2.MutableMapStringNestedMessageEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringNestedMessageEntry()
     builder.builderAction()
     return builder.toMapStringNestedMessageEntry()
 }
@@ -7120,11 +7193,12 @@ private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.decodeWithI
             2 -> value = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2.NestedMessage
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapStringNestedMessageEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapStringForeignMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit): TestAllTypesProto2.MapStringForeignMessageEntry {
-    val builder = TestAllTypesProto2.MutableMapStringForeignMessageEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringForeignMessageEntry()
     builder.builderAction()
     return builder.toMapStringForeignMessageEntry()
 }
@@ -7202,11 +7276,12 @@ private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.decodeWith
             2 -> value = _fieldValue as pbandk.conformance.pb.ForeignMessageProto2
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapStringForeignMessageEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapStringNestedEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit): TestAllTypesProto2.MapStringNestedEnumEntry {
-    val builder = TestAllTypesProto2.MutableMapStringNestedEnumEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringNestedEnumEntry()
     builder.builderAction()
     return builder.toMapStringNestedEnumEntry()
 }
@@ -7284,11 +7359,12 @@ private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.decodeWithImpl
             2 -> value = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2.NestedEnum
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapStringNestedEnumEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.mapStringForeignEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit): TestAllTypesProto2.MapStringForeignEnumEntry {
-    val builder = TestAllTypesProto2.MutableMapStringForeignEnumEntry()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringForeignEnumEntry()
     builder.builderAction()
     return builder.toMapStringForeignEnumEntry()
 }
@@ -7366,11 +7442,12 @@ private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.decodeWithImp
             2 -> value = _fieldValue as pbandk.conformance.pb.ForeignEnumProto2
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MapStringForeignEnumEntry(key, value, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.data(builderAction: TestAllTypesProto2.MutableData.() -> Unit): TestAllTypesProto2.Data {
-    val builder = TestAllTypesProto2.MutableData()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableData()
     builder.builderAction()
     return builder.toData()
 }
@@ -7448,11 +7525,12 @@ private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDe
             203 -> groupUint32 = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.Data(groupInt32, groupUint32, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.messageSetCorrect(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): TestAllTypesProto2.MessageSetCorrect {
-    val builder = TestAllTypesProto2.MutableMessageSetCorrect()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMessageSetCorrect()
     builder.builderAction()
     return builder.toMessageSetCorrect()
 }
@@ -7507,11 +7585,12 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
 private fun TestAllTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrect {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MessageSetCorrect(unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.messageSetCorrectExtension1(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension1 {
-    val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension1()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension1()
     builder.builderAction()
     return builder.toMessageSetCorrectExtension1()
 }
@@ -7578,11 +7657,12 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithI
             25 -> str = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MessageSetCorrectExtension1(str, unknownFields)
 }
 
 public fun TestAllTypesProto2.Companion.messageSetCorrectExtension2(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension2 {
-    val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension2()
+    @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension2()
     builder.builderAction()
     return builder.toMessageSetCorrectExtension2()
 }
@@ -7649,11 +7729,12 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithI
             9 -> i = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return TestAllTypesProto2.MessageSetCorrectExtension2(i, unknownFields)
 }
 
 public fun foreignMessageProto2(builderAction: MutableForeignMessageProto2.() -> Unit): ForeignMessageProto2 {
-    val builder = MutableForeignMessageProto2()
+    @Suppress("DEPRECATION") val builder = MutableForeignMessageProto2()
     builder.builderAction()
     return builder.toForeignMessageProto2()
 }
@@ -7720,11 +7801,12 @@ private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecod
             1 -> c = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return ForeignMessageProto2(c, unknownFields)
 }
 
 public fun unknownToTestAllTypes(builderAction: MutableUnknownToTestAllTypes.() -> Unit): UnknownToTestAllTypes {
-    val builder = MutableUnknownToTestAllTypes()
+    @Suppress("DEPRECATION") val builder = MutableUnknownToTestAllTypes()
     builder.builderAction()
     return builder.toUnknownToTestAllTypes()
 }
@@ -7835,12 +7917,13 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
             1011 -> repeatedInt32 = (repeatedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+    @Suppress("DEPRECATION")
     return UnknownToTestAllTypes(optionalInt32, optionalString, nestedMessage, optionalBool,
         pbandk.ListWithSize.Builder.fixed(repeatedInt32), unknownFields)
 }
 
 public fun UnknownToTestAllTypes.Companion.optionalGroup(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): UnknownToTestAllTypes.OptionalGroup {
-    val builder = UnknownToTestAllTypes.MutableOptionalGroup()
+    @Suppress("DEPRECATION") val builder = UnknownToTestAllTypes.MutableOptionalGroup()
     builder.builderAction()
     return builder.toOptionalGroup()
 }
@@ -7907,5 +7990,6 @@ private fun UnknownToTestAllTypes.OptionalGroup.Companion.decodeWithImpl(u: pban
             1 -> a = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return UnknownToTestAllTypes.OptionalGroup(a, unknownFields)
 }

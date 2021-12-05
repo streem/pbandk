@@ -23,6 +23,7 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy { pbandk.testpb.SingleRequiredCustomOption() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
@@ -75,6 +76,7 @@ public sealed interface MutableSingleRequiredCustomOption : SingleRequiredCustom
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableSingleRequiredCustomOption by lazy { MutableSingleRequiredCustomOption() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
@@ -103,6 +105,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy { pbandk.testpb.MultipleCustomOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
@@ -156,6 +159,7 @@ public sealed interface MutableMultipleCustomOptions : MultipleCustomOptions, pb
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMultipleCustomOptions by lazy { MutableMultipleCustomOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
@@ -186,6 +190,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
@@ -242,6 +247,7 @@ public sealed interface MutableMultipleCustomOptionsPlusDeprecated : MultipleCus
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMultipleCustomOptionsPlusDeprecated by lazy { MutableMultipleCustomOptionsPlusDeprecated() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
@@ -250,7 +256,7 @@ public sealed interface MutableMultipleCustomOptionsPlusDeprecated : MultipleCus
 }
 
 public fun singleRequiredCustomOption(builderAction: MutableSingleRequiredCustomOption.() -> Unit): SingleRequiredCustomOption {
-    val builder = MutableSingleRequiredCustomOption()
+    @Suppress("DEPRECATION") val builder = MutableSingleRequiredCustomOption()
     builder.builderAction()
     return builder.toSingleRequiredCustomOption()
 }
@@ -315,11 +321,12 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
             1 -> single = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return SingleRequiredCustomOption(single, unknownFields)
 }
 
 public fun multipleCustomOptions(builderAction: MutableMultipleCustomOptions.() -> Unit): MultipleCustomOptions {
-    val builder = MutableMultipleCustomOptions()
+    @Suppress("DEPRECATION") val builder = MutableMultipleCustomOptions()
     builder.builderAction()
     return builder.toMultipleCustomOptions()
 }
@@ -384,11 +391,12 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
             1 -> multiple = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return MultipleCustomOptions(multiple, unknownFields)
 }
 
 public fun multipleCustomOptionsPlusDeprecated(builderAction: MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): MultipleCustomOptionsPlusDeprecated {
-    val builder = MutableMultipleCustomOptionsPlusDeprecated()
+    @Suppress("DEPRECATION") val builder = MutableMultipleCustomOptionsPlusDeprecated()
     builder.builderAction()
     return builder.toMultipleCustomOptionsPlusDeprecated()
 }
@@ -457,5 +465,6 @@ private fun MultipleCustomOptionsPlusDeprecated.Companion.decodeWithImpl(u: pban
             1 -> multipleDeprecated = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return MultipleCustomOptionsPlusDeprecated(multipleDeprecated, unknownFields)
 }

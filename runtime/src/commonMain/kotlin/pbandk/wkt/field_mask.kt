@@ -23,6 +23,7 @@ public sealed interface FieldMask : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
@@ -65,6 +66,7 @@ public sealed interface MutableFieldMask : FieldMask, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFieldMask by lazy { MutableFieldMask() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
@@ -73,7 +75,7 @@ public sealed interface MutableFieldMask : FieldMask, pbandk.MutableMessage {
 }
 
 public fun fieldMask(builderAction: MutableFieldMask.() -> Unit): FieldMask {
-    val builder = MutableFieldMask()
+    @Suppress("DEPRECATION") val builder = MutableFieldMask()
     builder.builderAction()
     return builder.toFieldMask()
 }
@@ -140,5 +142,6 @@ private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldM
             1 -> paths = (paths ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+    @Suppress("DEPRECATION")
     return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), unknownFields)
 }

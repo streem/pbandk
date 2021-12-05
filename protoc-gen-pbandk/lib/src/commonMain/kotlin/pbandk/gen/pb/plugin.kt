@@ -35,6 +35,7 @@ public sealed interface Version : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.gen.pb.Version by lazy { pbandk.gen.pb.Version() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.Version = pbandk.gen.pb.Version.decodeWithImpl(u)
 
@@ -116,6 +117,7 @@ public sealed interface MutableVersion : Version, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableVersion by lazy { MutableVersion() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.Version = pbandk.gen.pb.Version.decodeWithImpl(u)
 
@@ -156,6 +158,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy { pbandk.gen.pb.CodeGeneratorRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest.decodeWithImpl(u)
 
@@ -237,6 +240,7 @@ public sealed interface MutableCodeGeneratorRequest : CodeGeneratorRequest, pban
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableCodeGeneratorRequest by lazy { MutableCodeGeneratorRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest.decodeWithImpl(u)
 
@@ -273,6 +277,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy { pbandk.gen.pb.CodeGeneratorResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
@@ -368,6 +373,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy { pbandk.gen.pb.CodeGeneratorResponse.File() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
@@ -449,6 +455,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableFile by lazy { MutableFile() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
@@ -478,6 +485,7 @@ public sealed interface MutableCodeGeneratorResponse : CodeGeneratorResponse, pb
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableCodeGeneratorResponse by lazy { MutableCodeGeneratorResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
@@ -486,7 +494,7 @@ public sealed interface MutableCodeGeneratorResponse : CodeGeneratorResponse, pb
 }
 
 public fun version(builderAction: MutableVersion.() -> Unit): Version {
-    val builder = MutableVersion()
+    @Suppress("DEPRECATION") val builder = MutableVersion()
     builder.builderAction()
     return builder.toVersion()
 }
@@ -586,11 +594,12 @@ private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Version 
             4 -> suffix = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return Version(major, minor, patch, suffix, unknownFields)
 }
 
 public fun codeGeneratorRequest(builderAction: MutableCodeGeneratorRequest.() -> Unit): CodeGeneratorRequest {
-    val builder = MutableCodeGeneratorRequest()
+    @Suppress("DEPRECATION") val builder = MutableCodeGeneratorRequest()
     builder.builderAction()
     return builder.toCodeGeneratorRequest()
 }
@@ -690,11 +699,12 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
             15 -> protoFile = (protoFile ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
+    @Suppress("DEPRECATION")
     return CodeGeneratorRequest(pbandk.ListWithSize.Builder.fixed(fileToGenerate), parameter, pbandk.ListWithSize.Builder.fixed(protoFile), compilerVersion, unknownFields)
 }
 
 public fun codeGeneratorResponse(builderAction: MutableCodeGeneratorResponse.() -> Unit): CodeGeneratorResponse {
-    val builder = MutableCodeGeneratorResponse()
+    @Suppress("DEPRECATION") val builder = MutableCodeGeneratorResponse()
     builder.builderAction()
     return builder.toCodeGeneratorResponse()
 }
@@ -783,11 +793,12 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
             15 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.gen.pb.CodeGeneratorResponse.File> }
         }
     }
+    @Suppress("DEPRECATION")
     return CodeGeneratorResponse(error, supportedFeatures, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
 public fun CodeGeneratorResponse.Companion.file(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit): CodeGeneratorResponse.File {
-    val builder = CodeGeneratorResponse.MutableFile()
+    @Suppress("DEPRECATION") val builder = CodeGeneratorResponse.MutableFile()
     builder.builderAction()
     return builder.toFile()
 }
@@ -887,5 +898,6 @@ private fun CodeGeneratorResponse.File.Companion.decodeWithImpl(u: pbandk.Messag
             16 -> generatedCodeInfo = _fieldValue as pbandk.wkt.GeneratedCodeInfo
         }
     }
+    @Suppress("DEPRECATION")
     return CodeGeneratorResponse.File(name, insertionPoint, content, generatedCodeInfo, unknownFields)
 }

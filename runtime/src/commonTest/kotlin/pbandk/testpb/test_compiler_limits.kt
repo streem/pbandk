@@ -5035,6 +5035,7 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MessageWithLotsOfFields by lazy { pbandk.testpb.MessageWithLotsOfFields() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithLotsOfFields = pbandk.testpb.MessageWithLotsOfFields.decodeWithImpl(u)
 
@@ -18087,6 +18088,7 @@ public sealed interface MutableMessageWithLotsOfFields : MessageWithLotsOfFields
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMessageWithLotsOfFields by lazy { MutableMessageWithLotsOfFields() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithLotsOfFields = pbandk.testpb.MessageWithLotsOfFields.decodeWithImpl(u)
 
@@ -22119,6 +22121,7 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MessageWithHugeOneof by lazy { pbandk.testpb.MessageWithHugeOneof() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithHugeOneof = pbandk.testpb.MessageWithHugeOneof.decodeWithImpl(u)
 
@@ -46200,6 +46203,7 @@ public sealed interface MutableMessageWithHugeOneof : MessageWithHugeOneof, pban
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMessageWithHugeOneof by lazy { MutableMessageWithHugeOneof() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithHugeOneof = pbandk.testpb.MessageWithHugeOneof.decodeWithImpl(u)
 
@@ -46208,7 +46212,7 @@ public sealed interface MutableMessageWithHugeOneof : MessageWithHugeOneof, pban
 }
 
 public fun messageWithLotsOfFields(builderAction: MutableMessageWithLotsOfFields.() -> Unit): MessageWithLotsOfFields {
-    val builder = MutableMessageWithLotsOfFields()
+    @Suppress("DEPRECATION") val builder = MutableMessageWithLotsOfFields()
     builder.builderAction()
     return builder.toMessageWithLotsOfFields()
 }
@@ -55264,6 +55268,7 @@ private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDe
             1999 -> field1999 = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return MessageWithLotsOfFields(field1000, field1001, field1002, field1003,
         field1004, field1005, field1006, field1007,
         field1008, field1009, field1010, field1011,
@@ -55517,7 +55522,7 @@ private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDe
 }
 
 public fun messageWithHugeOneof(builderAction: MutableMessageWithHugeOneof.() -> Unit): MessageWithHugeOneof {
-    val builder = MutableMessageWithHugeOneof()
+    @Suppress("DEPRECATION") val builder = MutableMessageWithHugeOneof()
     builder.builderAction()
     return builder.toMessageWithHugeOneof()
 }
@@ -67585,5 +67590,6 @@ private fun MessageWithHugeOneof.Companion.decodeWithImpl(u: pbandk.MessageDecod
             2999 -> hugeOneof = MessageWithHugeOneof.HugeOneof.Oneof2999(_fieldValue as Int)
         }
     }
+    @Suppress("DEPRECATION")
     return MessageWithHugeOneof(hugeOneof, unknownFields)
 }

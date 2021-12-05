@@ -27,6 +27,7 @@ public sealed interface Duration : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
@@ -82,6 +83,7 @@ public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableDuration by lazy { MutableDuration() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
@@ -90,7 +92,7 @@ public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
 }
 
 public fun duration(builderAction: MutableDuration.() -> Unit): Duration {
-    val builder = MutableDuration()
+    @Suppress("DEPRECATION") val builder = MutableDuration()
     builder.builderAction()
     return builder.toDuration()
 }
@@ -164,5 +166,6 @@ private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duratio
             2 -> nanos = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return Duration(seconds, nanos, unknownFields)
 }

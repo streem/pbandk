@@ -33,6 +33,7 @@ public sealed interface Value : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
@@ -102,6 +103,7 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableValue by lazy { MutableValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
@@ -110,7 +112,7 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
 }
 
 public fun value(builderAction: MutableValue.() -> Unit): Value {
-    val builder = MutableValue()
+    @Suppress("DEPRECATION") val builder = MutableValue()
     builder.builderAction()
     return builder.toValue()
 }
@@ -196,5 +198,6 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
             3 -> value = Value.Value.IntegerValue(_fieldValue as Int)
         }
     }
+    @Suppress("DEPRECATION")
     return Value(value, unknownFields)
 }

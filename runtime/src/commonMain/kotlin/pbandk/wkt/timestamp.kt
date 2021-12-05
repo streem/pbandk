@@ -27,6 +27,7 @@ public sealed interface Timestamp : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
@@ -82,6 +83,7 @@ public sealed interface MutableTimestamp : Timestamp, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableTimestamp by lazy { MutableTimestamp() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
@@ -90,7 +92,7 @@ public sealed interface MutableTimestamp : Timestamp, pbandk.MutableMessage {
 }
 
 public fun timestamp(builderAction: MutableTimestamp.() -> Unit): Timestamp {
-    val builder = MutableTimestamp()
+    @Suppress("DEPRECATION") val builder = MutableTimestamp()
     builder.builderAction()
     return builder.toTimestamp()
 }
@@ -164,5 +166,6 @@ private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Timest
             2 -> nanos = _fieldValue as Int
         }
     }
+    @Suppress("DEPRECATION")
     return Timestamp(seconds, nanos, unknownFields)
 }

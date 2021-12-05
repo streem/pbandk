@@ -23,6 +23,7 @@ public sealed interface Foo : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Foo by lazy { pbandk.testpb.Foo() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
 
@@ -65,6 +66,7 @@ public sealed interface MutableFoo : Foo, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFoo by lazy { MutableFoo() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
 
@@ -97,6 +99,7 @@ public sealed interface Bar : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Bar by lazy { pbandk.testpb.Bar() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
 
@@ -152,6 +155,7 @@ public sealed interface MutableBar : Bar, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableBar by lazy { MutableBar() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
 
@@ -180,6 +184,7 @@ public sealed interface MessageWithMap : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MessageWithMap by lazy { pbandk.testpb.MessageWithMap() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
@@ -231,6 +236,7 @@ public sealed interface MessageWithMap : pbandk.Message {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.testpb.MessageWithMap.MapEntry by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap.MapEntry = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
 
@@ -286,6 +292,7 @@ public sealed interface MessageWithMap : pbandk.Message {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapEntry by lazy { MutableMapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap.MapEntry = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
 
@@ -309,6 +316,7 @@ public sealed interface MutableMessageWithMap : MessageWithMap, pbandk.MutableMe
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMessageWithMap by lazy { MutableMessageWithMap() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
@@ -337,6 +345,7 @@ public sealed interface FooMap : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FooMap by lazy { pbandk.testpb.FooMap() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
 
@@ -388,6 +397,7 @@ public sealed interface FooMap : pbandk.Message {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.testpb.FooMap.MapEntry by lazy { pbandk.testpb.FooMap.MapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap.MapEntry = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
 
@@ -443,6 +453,7 @@ public sealed interface FooMap : pbandk.Message {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapEntry by lazy { MutableMapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap.MapEntry = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
 
@@ -466,6 +477,7 @@ public sealed interface MutableFooMap : FooMap, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFooMap by lazy { MutableFooMap() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
 
@@ -494,6 +506,7 @@ public sealed interface FooMapEntries : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FooMapEntries by lazy { pbandk.testpb.FooMapEntries() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
@@ -545,6 +558,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                 unknownFields = unknownFields
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
@@ -600,6 +614,7 @@ public sealed interface FooMapEntries : pbandk.Message {
                 unknownFields = unknownFields.toMutableMap()
             )
 
+            @Suppress("DEPRECATION")
             public val defaultInstance: MutableMapEntry by lazy { MutableMapEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
@@ -623,6 +638,7 @@ public sealed interface MutableFooMapEntries : FooMapEntries, pbandk.MutableMess
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableFooMapEntries by lazy { MutableFooMapEntries() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
@@ -655,6 +671,7 @@ public sealed interface Wrappers : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Wrappers by lazy { pbandk.testpb.Wrappers() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
@@ -710,6 +727,7 @@ public sealed interface MutableWrappers : Wrappers, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableWrappers by lazy { MutableWrappers() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
@@ -718,7 +736,7 @@ public sealed interface MutableWrappers : Wrappers, pbandk.MutableMessage {
 }
 
 public fun foo(builderAction: MutableFoo.() -> Unit): Foo {
-    val builder = MutableFoo()
+    @Suppress("DEPRECATION") val builder = MutableFoo()
     builder.builderAction()
     return builder.toFoo()
 }
@@ -783,11 +801,12 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
             1 -> `val` = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return Foo(`val`, unknownFields)
 }
 
 public fun bar(builderAction: MutableBar.() -> Unit): Bar {
-    val builder = MutableBar()
+    @Suppress("DEPRECATION") val builder = MutableBar()
     builder.builderAction()
     return builder.toBar()
 }
@@ -865,11 +884,12 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
             2 -> singleFoo = _fieldValue as pbandk.testpb.Foo
         }
     }
+    @Suppress("DEPRECATION")
     return Bar(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
 }
 
 public fun messageWithMap(builderAction: MutableMessageWithMap.() -> Unit): MessageWithMap {
-    val builder = MutableMessageWithMap()
+    @Suppress("DEPRECATION") val builder = MutableMessageWithMap()
     builder.builderAction()
     return builder.toMessageWithMap()
 }
@@ -936,11 +956,12 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, String>> }
         }
     }
+    @Suppress("DEPRECATION")
     return MessageWithMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
 
 public fun MessageWithMap.Companion.mapEntry(builderAction: MessageWithMap.MutableMapEntry.() -> Unit): MessageWithMap.MapEntry {
-    val builder = MessageWithMap.MutableMapEntry()
+    @Suppress("DEPRECATION") val builder = MessageWithMap.MutableMapEntry()
     builder.builderAction()
     return builder.toMapEntry()
 }
@@ -1014,11 +1035,12 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
             2 -> value = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return MessageWithMap.MapEntry(key, value, unknownFields)
 }
 
 public fun fooMap(builderAction: MutableFooMap.() -> Unit): FooMap {
-    val builder = MutableFooMap()
+    @Suppress("DEPRECATION") val builder = MutableFooMap()
     builder.builderAction()
     return builder.toFooMap()
 }
@@ -1085,11 +1107,12 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
             1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>> }
         }
     }
+    @Suppress("DEPRECATION")
     return FooMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
 
 public fun FooMap.Companion.mapEntry(builderAction: FooMap.MutableMapEntry.() -> Unit): FooMap.MapEntry {
-    val builder = FooMap.MutableMapEntry()
+    @Suppress("DEPRECATION") val builder = FooMap.MutableMapEntry()
     builder.builderAction()
     return builder.toMapEntry()
 }
@@ -1165,11 +1188,12 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
             2 -> value = _fieldValue as pbandk.testpb.Foo
         }
     }
+    @Suppress("DEPRECATION")
     return FooMap.MapEntry(key, value, unknownFields)
 }
 
 public fun fooMapEntries(builderAction: MutableFooMapEntries.() -> Unit): FooMapEntries {
-    val builder = MutableFooMapEntries()
+    @Suppress("DEPRECATION") val builder = MutableFooMapEntries()
     builder.builderAction()
     return builder.toFooMapEntries()
 }
@@ -1236,11 +1260,12 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
             1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
         }
     }
+    @Suppress("DEPRECATION")
     return FooMapEntries(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
 }
 
 public fun FooMapEntries.Companion.mapEntry(builderAction: FooMapEntries.MutableMapEntry.() -> Unit): FooMapEntries.MapEntry {
-    val builder = FooMapEntries.MutableMapEntry()
+    @Suppress("DEPRECATION") val builder = FooMapEntries.MutableMapEntry()
     builder.builderAction()
     return builder.toMapEntry()
 }
@@ -1316,11 +1341,12 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
             2 -> value = _fieldValue as pbandk.testpb.Foo
         }
     }
+    @Suppress("DEPRECATION")
     return FooMapEntries.MapEntry(key, value, unknownFields)
 }
 
 public fun wrappers(builderAction: MutableWrappers.() -> Unit): Wrappers {
-    val builder = MutableWrappers()
+    @Suppress("DEPRECATION") val builder = MutableWrappers()
     builder.builderAction()
     return builder.toWrappers()
 }
@@ -1398,5 +1424,6 @@ private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Wrapper
             2 -> uint64Values = (uint64Values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+    @Suppress("DEPRECATION")
     return Wrappers(stringValue, pbandk.ListWithSize.Builder.fixed(uint64Values), unknownFields)
 }

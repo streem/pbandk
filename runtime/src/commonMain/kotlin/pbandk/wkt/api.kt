@@ -47,6 +47,7 @@ public sealed interface Api : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
@@ -167,6 +168,7 @@ public sealed interface MutableApi : Api, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableApi by lazy { MutableApi() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
@@ -219,6 +221,7 @@ public sealed interface Method : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
@@ -339,6 +342,7 @@ public sealed interface MutableMethod : Method, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMethod by lazy { MutableMethod() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
@@ -371,6 +375,7 @@ public sealed interface Mixin : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
@@ -426,6 +431,7 @@ public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableMixin by lazy { MutableMixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
@@ -434,7 +440,7 @@ public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
 }
 
 public fun api(builderAction: MutableApi.() -> Unit): Api {
-    val builder = MutableApi()
+    @Suppress("DEPRECATION") val builder = MutableApi()
     builder.builderAction()
     return builder.toApi()
 }
@@ -561,12 +567,13 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
             7 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+    @Suppress("DEPRECATION")
     return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
         sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
 
 public fun method(builderAction: MutableMethod.() -> Unit): Method {
-    val builder = MutableMethod()
+    @Suppress("DEPRECATION") val builder = MutableMethod()
     builder.builderAction()
     return builder.toMethod()
 }
@@ -687,12 +694,13 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
             7 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+    @Suppress("DEPRECATION")
     return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl,
         responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
 }
 
 public fun mixin(builderAction: MutableMixin.() -> Unit): Mixin {
-    val builder = MutableMixin()
+    @Suppress("DEPRECATION") val builder = MutableMixin()
     builder.builderAction()
     return builder.toMixin()
 }
@@ -766,5 +774,6 @@ private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {
             2 -> root = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return Mixin(name, root, unknownFields)
 }

@@ -23,6 +23,7 @@ public sealed interface SourceContext : pbandk.Message {
             unknownFields = unknownFields
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
@@ -65,6 +66,7 @@ public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMess
             unknownFields = unknownFields.toMutableMap()
         )
 
+        @Suppress("DEPRECATION")
         public val defaultInstance: MutableSourceContext by lazy { MutableSourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
@@ -73,7 +75,7 @@ public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMess
 }
 
 public fun sourceContext(builderAction: MutableSourceContext.() -> Unit): SourceContext {
-    val builder = MutableSourceContext()
+    @Suppress("DEPRECATION") val builder = MutableSourceContext()
     builder.builderAction()
     return builder.toSourceContext()
 }
@@ -138,5 +140,6 @@ private fun SourceContext.Companion.decodeWithImpl(u: pbandk.MessageDecoder): So
             1 -> fileName = _fieldValue as String
         }
     }
+    @Suppress("DEPRECATION")
     return SourceContext(fileName, unknownFields)
 }
