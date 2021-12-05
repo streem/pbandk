@@ -1,6 +1,15 @@
 package pbandk
 
-import pbandk.testpb.*
+import pbandk.testpb.FooMap
+import pbandk.testpb.FooMapEntries
+import pbandk.testpb.ForeignEnum
+import pbandk.testpb.ForeignMessage
+import pbandk.testpb.foo
+import pbandk.testpb.fooMap
+import pbandk.testpb.fooMapEntries
+import pbandk.testpb.foreignMessage
+import pbandk.testpb.mapEntry
+import pbandk.testpb.testAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -14,32 +23,32 @@ class MapTest {
      */
     @Test
     fun testMapEntryEquivalence() {
-        val testWithMessageMapEntries = TestAllTypesProto3(
+        val testWithMessageMapEntries = testAllTypesProto3 {
             mapStringForeignMessage = MessageMap.of(
                 FieldDescriptor.Type.Primitive.String(),
                 FieldDescriptor.Type.Message(ForeignMessage.Companion),
-                "a" to ForeignMessage(),
-                "b" to ForeignMessage(c = 5),
+                "a" to foreignMessage {},
+                "b" to foreignMessage { c = 5 },
                 "c" to null
-            ),
+            )
             mapStringForeignEnum = MessageMap.of(
                 FieldDescriptor.Type.Primitive.String(),
                 FieldDescriptor.Type.Enum(ForeignEnum.Companion),
                 "a" to ForeignEnum.FOREIGN_FOO,
                 "b" to ForeignEnum.FOREIGN_BAR
             )
-        )
-        val testWithGenericMapEntries = TestAllTypesProto3(
+        }
+        val testWithGenericMapEntries = testAllTypesProto3 {
             mapStringForeignMessage = mapOf(
-                "a" to ForeignMessage(),
-                "b" to ForeignMessage(c = 5),
+                "a" to foreignMessage {},
+                "b" to foreignMessage { c = 5 },
                 "c" to null
-            ),
+            )
             mapStringForeignEnum = mapOf(
                 "a" to ForeignEnum.FOREIGN_FOO,
                 "b" to ForeignEnum.FOREIGN_BAR
             )
-        )
+        }
 
         assertEquals(testWithMessageMapEntries.protoSize, testWithGenericMapEntries.protoSize)
         assertContentEquals(
@@ -50,22 +59,31 @@ class MapTest {
 
     @Test
     fun testMapsAreEqualToRepeatedMapEntries() {
-        val fooMap = FooMap(
+        val fooMap = fooMap {
             map = mapOf(
-                "a" to Foo("5"),
-                "b" to Foo(),
+                "a" to foo { `val` = "5" },
+                "b" to foo {},
                 "c" to null
             )
-        )
+        }
         val fooMapBytes = fooMap.encodeToByteArray()
 
-        val fooMapEntries = FooMapEntries(
+        val fooMapEntries = fooMapEntries {
             map = listOf(
-                FooMapEntries.MapEntry("a", Foo("5")),
-                FooMapEntries.MapEntry("b", Foo()),
-                FooMapEntries.MapEntry("c", null)
+                FooMapEntries.mapEntry {
+                    key = "a"
+                    value = foo { `val` = "5" }
+                },
+                FooMapEntries.mapEntry {
+                    key = "b"
+                    value = foo {}
+                },
+                FooMapEntries.mapEntry {
+                    key = "c"
+                    value = null
+                }
             )
-        )
+        }
         val fooMapEntriesBytes = fooMapEntries.encodeToByteArray()
 
         assertEquals(fooMap.protoSize, fooMapEntries.protoSize)

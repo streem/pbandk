@@ -3,8 +3,9 @@ package pbandk.json
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.buildJsonObject
 import pbandk.InvalidProtocolBufferException
-import pbandk.testpb.ForeignMessage
 import pbandk.testpb.TestAllTypesProto3
+import pbandk.testpb.foreignMessage
+import pbandk.testpb.testAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -18,9 +19,9 @@ class MapTest {
             })
         }.toString()
 
-        val expected = TestAllTypesProto3(
-            mapStringForeignMessage = mapOf("foo" to ForeignMessage())
-        )
+        val expected = testAllTypesProto3 {
+            mapStringForeignMessage = mapOf("foo" to foreignMessage {})
+        }
         val parsed = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expected, parsed)
     }

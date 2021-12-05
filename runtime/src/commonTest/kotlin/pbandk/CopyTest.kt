@@ -1,21 +1,24 @@
 package pbandk
 
-import pbandk.testpb.Bar
-import pbandk.testpb.Foo
+import pbandk.testpb.bar
+import pbandk.testpb.foo
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class CopyTest {
     @Test
     fun testCopyMethod() {
-        val bar = Bar(
-            foos = listOf(Foo("hi"), Foo("there")),
-            singleFoo = Foo("bye")
-        )
+        val bar = bar {
+            foos = listOf(
+                foo { `val` = "hi" },
+                foo { `val` = "there" }
+            )
+            singleFoo = foo { `val` = "bye" }
+        }
 
-        assertEquals(bar.foos, bar.copy(singleFoo = Foo("test")).foos)
+        assertEquals(bar.foos, bar.copy(singleFoo = foo { `val` = "test" }).foos)
         assertEquals(bar.singleFoo, bar.copy(foos = emptyList()).singleFoo)
 
-        assertEquals(Foo("test"), bar.copy(singleFoo = Foo("test")).singleFoo)
+        assertEquals(foo { `val` = "test" }, bar.copy(singleFoo = foo { `val` = "test" }).singleFoo)
     }
 }

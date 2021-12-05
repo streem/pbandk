@@ -7,6 +7,7 @@ import kotlinx.serialization.json.put
 import pbandk.InvalidProtocolBufferException
 import pbandk.testpb.ForeignEnum
 import pbandk.testpb.TestAllTypesProto3
+import pbandk.testpb.testAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -25,7 +26,7 @@ class IgnoreUnknownFieldsTest {
 
         // With [ignoreUnknownFieldsInInput], the enum field should be ignored during decoding if it contains an unknown
         // value.
-        val expected = TestAllTypesProto3()
+        val expected = testAllTypesProto3 {}
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)
         )
@@ -38,7 +39,7 @@ class IgnoreUnknownFieldsTest {
             put("optionalForeignEnum", 1234)
         }.toString()
 
-        val expected = TestAllTypesProto3(optionalForeignEnum = ForeignEnum.UNRECOGNIZED(1234))
+        val expected = testAllTypesProto3 { optionalForeignEnum = ForeignEnum.UNRECOGNIZED(1234) }
 
         // Without [ignoreUnknownFieldsInInput], a known enum field with an unknown numeric enum value should be parsed
         // as an UNRECOGNIZED value.
@@ -69,9 +70,9 @@ class IgnoreUnknownFieldsTest {
 
         // With [ignoreUnknownFieldsInInput], the unknown values in a repeated enum should be skipped during decoding
         // but the other values should be returned successfully.
-        val expected = TestAllTypesProto3(
+        val expected = testAllTypesProto3 {
             repeatedForeignEnum = listOf(ForeignEnum.FOREIGN_FOO, ForeignEnum.FOREIGN_BAR)
-        )
+        }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)
         )
@@ -95,9 +96,9 @@ class IgnoreUnknownFieldsTest {
 
         // With [ignoreUnknownFieldsInInput], the unknown enum values in a map field should be skipped during decoding
         // but the other values should be returned successfully.
-        val expected = TestAllTypesProto3(
+        val expected = testAllTypesProto3 {
             mapStringForeignEnum = mapOf("a" to ForeignEnum.FOREIGN_FOO)
-        )
+        }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)
         )

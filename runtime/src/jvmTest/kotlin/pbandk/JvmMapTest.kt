@@ -4,6 +4,8 @@ import com.google.protobuf_test_messages.proto3.TestMessagesProto3
 import pbandk.testpb.ForeignEnum
 import pbandk.testpb.MessageWithMap
 import pbandk.testpb.TestAllTypesProto3
+import pbandk.testpb.messageWithMap
+import pbandk.testpb.testAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -14,7 +16,7 @@ class JvmMapTest {
         val testMap = mapOf("1" to "a", "2" to "b", "blahblahblah" to "5000")
         // Generate a Java version of the proto and deserialize Kotlin version and vice-versa
         val builtJavaObj = pbandk.testpb.java.Test.MessageWithMap.newBuilder().putAllMap(testMap).build()
-        val builtKotlinObj = MessageWithMap(testMap)
+        val builtKotlinObj = messageWithMap { map = testMap }
         assertEquals(builtJavaObj.serializedSize, builtKotlinObj.protoSize)
 
         val builtJavaBytes = builtJavaObj.toByteArray()
@@ -56,20 +58,20 @@ class JvmMapTest {
             .build()
         val builtJavaBytes = builtJavaObj.toByteArray()
 
-        val builtKotlinObj = TestAllTypesProto3(
+        val builtKotlinObj = testAllTypesProto3 {
             mapStringForeignEnum = mapOf(
                 "11" to ForeignEnum.FOREIGN_FOO,
                 "99" to ForeignEnum.FOREIGN_BAR
-            ),
+            )
             mapInt32Int32 = mapOf(
                 11 to 0,
                 99 to 1
-            ),
+            )
             mapStringString = mapOf(
                 "11" to "",
                 "99" to "foo"
             )
-        )
+        }
         val builtKotlinBytes = builtKotlinObj.encodeToByteArray()
 
         // protobuf-java and pbandk encoded representations will be different because protobuf-java serializes map

@@ -1,7 +1,8 @@
 package pbandk
 
 import pbandk.testpb.Bar
-import pbandk.testpb.Foo
+import pbandk.testpb.bar
+import pbandk.testpb.foo
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -11,7 +12,7 @@ class RepeatedTest {
     fun testRepeatedMessage() {
         // This used to fail because it assumed messages could be packed
         val bytes = byteArrayOf(10, 6, 10, 4, 102, 111, 111, 49, 10, 6, 10, 4, 102, 111, 111, 50)
-        val expected = Bar(foos = listOf(Foo(`val` = "foo1"), Foo(`val` = "foo2")))
+        val expected = bar { foos = listOf(foo { `val` = "foo1" }, foo { `val` = "foo2" }) }
 
         assertContentEquals(expected.encodeToByteArray(), bytes)
         assertEquals(expected, Bar.decodeFromByteArray(bytes))

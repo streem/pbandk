@@ -6,10 +6,11 @@ import com.google.protobuf.UnknownFieldSet
 import pbandk.ByteArr
 import pbandk.Message
 import pbandk.UnknownField
-import pbandk.internal.binary.WireType
 import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
+import pbandk.internal.binary.WireType
 import pbandk.testpb.Wrappers
+import pbandk.testpb.wrappers
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -27,20 +28,20 @@ class WellKnownTypesTest {
     @Test
     fun testAny() {
         Any.assertMessageEquals(
-            Any(
-                typeUrl = "foo",
+            any {
+                typeUrl = "foo"
                 value = ByteArr("bar".toByteArray())
-            ),
+            },
             com.google.protobuf.Any.newBuilder()
                 .setTypeUrl("foo")
                 .setValue(ByteString.copyFromUtf8("bar"))
                 .build()
         )
         Any.assertMessageEquals(
-            Any(
-                typeUrl = "foo",
-                value = ByteArr("bar".toByteArray()),
-                unknownFields = mapOf(
+            any {
+                typeUrl = "foo"
+                value = ByteArr("bar".toByteArray())
+                unknownFields = mutableMapOf( // TODO: this should be doable with a regular mapOf()
                     35 to UnknownField(
                         35,
                         listOf(
@@ -51,7 +52,7 @@ class WellKnownTypesTest {
                         )
                     )
                 )
-            ),
+            },
             com.google.protobuf.Any.newBuilder()
                 .setTypeUrl("foo")
                 .setValue(ByteString.copyFromUtf8("bar"))
@@ -63,19 +64,19 @@ class WellKnownTypesTest {
     @Test
     fun testWrappers() {
         Wrappers.assertMessageEquals(
-            Wrappers(stringValue = "test string"),
+            wrappers { stringValue = "test string" },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .setStringValue(com.google.protobuf.StringValue.newBuilder().setValue("test string"))
                 .build()
         )
 
         Wrappers.assertMessageEquals(
-            Wrappers(),
+            wrappers {},
             pbandk.testpb.java.Test.Wrappers.getDefaultInstance()
         )
 
         Wrappers.assertMessageEquals(
-            Wrappers(stringValue = ""),
+            wrappers { stringValue = "" },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .setStringValue(com.google.protobuf.StringValue.getDefaultInstance())
                 .build()
@@ -85,7 +86,7 @@ class WellKnownTypesTest {
     @Test
     fun testRepeatedWrappers() {
         Wrappers.assertMessageEquals(
-            Wrappers(uint64Values = listOf(1, 2, 1234567890123456789)),
+            wrappers { uint64Values = listOf(1, 2, 1234567890123456789) },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .addAllUint64Values(listOf(1, 2, 1234567890123456789).map {
                     com.google.protobuf.UInt64Value.newBuilder().setValue(it).build()
@@ -94,7 +95,7 @@ class WellKnownTypesTest {
         )
 
         Wrappers.assertMessageEquals(
-            Wrappers(uint64Values = listOf(0)),
+            wrappers { uint64Values = listOf(0) },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .addUint64Values(com.google.protobuf.UInt64Value.getDefaultInstance())
                 .build()

@@ -8,11 +8,12 @@ import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.add
 import pbandk.pack
-import pbandk.testpb.Foo
 import pbandk.testpb.TestAllTypesProto3
+import pbandk.testpb.foo
+import pbandk.testpb.testAllTypesProto3
 import pbandk.typeRegistry
 import pbandk.wkt.Any
-import pbandk.wkt.Int32Value
+import pbandk.wkt.int32Value
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -41,7 +42,9 @@ class AnyTest {
 
     @Test
     fun testAny_field() {
-        val testAllTypesProto3 = TestAllTypesProto3(optionalAny = Any.pack(TestAllTypesProto3(optionalInt32 = 12345)))
+        val testAllTypesProto3 = testAllTypesProto3 {
+            optionalAny = Any.pack(testAllTypesProto3 { optionalInt32 = 12345 })
+        }
         val expectedJson = buildJsonObject {
             put("optionalAny", buildJsonObject {
                 put("@type", "type.googleapis.com/protobuf_test_messages.proto3.TestAllTypesProto3")
@@ -54,7 +57,7 @@ class AnyTest {
 
     @Test
     fun testAny_topLevel() {
-        val any = Any.pack(TestAllTypesProto3(optionalBool = true))
+        val any = Any.pack(testAllTypesProto3 { optionalBool = true })
         val expectedJson = buildJsonObject {
             put("@type", "type.googleapis.com/protobuf_test_messages.proto3.TestAllTypesProto3")
             put("optionalBool", true)
@@ -65,7 +68,7 @@ class AnyTest {
 
     @Test
     fun testAny_failsWithoutTypeRegistryEntry() {
-        val any = Any.pack(Foo(`val` = "hi there"))
+        val any = Any.pack(foo { `val` = "hi there" })
         val expectedJson = buildJsonObject {
             put("@type", "type.googleapis.com/testpb.Foo")
             put("val", "hi there")
@@ -83,7 +86,7 @@ class AnyTest {
 
     @Test
     fun test_wrapperValue() {
-        val any = Any.pack(Int32Value(12345))
+        val any = Any.pack(int32Value { value = 12345 })
         val expectedJson = buildJsonObject {
             put("@type", "type.googleapis.com/google.protobuf.Int32Value")
             put("value", 12345)
@@ -94,7 +97,7 @@ class AnyTest {
 
     @Test
     fun test_customTypeUrl() {
-        val any = Any.pack(TestAllTypesProto3(optionalInt32 = 12345), typeUrlPrefix = "foo.test.com/types")
+        val any = Any.pack(testAllTypesProto3 { optionalInt32 = 12345 }, typeUrlPrefix = "foo.test.com/types")
         val expectedJson = buildJsonObject {
             put("@type", "foo.test.com/types/protobuf_test_messages.proto3.TestAllTypesProto3")
             put("optionalInt32", 12345)

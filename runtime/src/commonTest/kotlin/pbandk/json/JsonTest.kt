@@ -5,7 +5,11 @@ import kotlinx.serialization.json.buildJsonObject
 import pbandk.encodeToByteArray
 import pbandk.testpb.Bar
 import pbandk.testpb.TestAllTypesProto3
-import kotlin.test.*
+import pbandk.testpb.testAllTypesProto3
+import kotlin.test.Test
+import kotlin.test.assertContentEquals
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class JsonTest {
     @Test
@@ -34,10 +38,10 @@ class JsonTest {
 
     @Test
     fun testCompactOutput() {
-        val testAllTypesProto3 = TestAllTypesProto3(
-            optionalInt32 = 123,
+        val testAllTypesProto3 = testAllTypesProto3 {
+            optionalInt32 = 123
             optionalBool = true
-        )
+        }
         val json = testAllTypesProto3.encodeToJsonString()
         assertEquals(4, json.lines().size)
         val compactJson = testAllTypesProto3.encodeToJsonString(JsonConfig.DEFAULT.copy(compactOutput = true))

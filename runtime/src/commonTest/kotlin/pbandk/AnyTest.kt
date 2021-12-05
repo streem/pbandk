@@ -64,7 +64,9 @@ class AnyTest {
 
     @Test
     fun test_isA_customTypeUrl_noSlash() {
-        val message = Any.pack(TestAllTypesProto3(optionalInt32 = 12345), typeUrlPrefix = "foo.test.com/types")
+        val message = Any.pack(testAllTypesProto3 {
+            optionalInt32 = 12345
+        }, typeUrlPrefix = "foo.test.com/types")
 
         assertTrue(message.isA(TestAllTypesProto3))
         assertEquals("foo.test.com/types/protobuf_test_messages.proto3.TestAllTypesProto3", message.typeUrl)
@@ -72,7 +74,9 @@ class AnyTest {
 
     @Test
     fun test_pack_unpack() {
-        val message = TestAllTypesProto3(optionalInt32 = 12345)
+        val message = testAllTypesProto3 {
+            optionalInt32 = 12345
+        }
         val anyMessage = Any.pack(message)
 
         assertTrue(anyMessage.isA(message.descriptor.messageCompanion))
@@ -81,7 +85,9 @@ class AnyTest {
 
     @Test
     fun test_unpack_wrongType() {
-        val message = TestAllTypesProto3(optionalInt32 = 12345)
+        val message = testAllTypesProto3 {
+            optionalInt32 = 12345
+        }
         val anyMessage = Any.pack(message)
 
         assertFailsWith<InvalidProtocolBufferException> {

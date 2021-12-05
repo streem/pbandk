@@ -4,7 +4,7 @@ import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.KotlinCompilation.ExitCode
 import com.tschuchort.compiletesting.SourceFile
 import pbandk.decodeFromStream
-import pbandk.gen.pb.CodeGeneratorRequest
+import pbandk.gen.pb.codeGeneratorRequest
 import pbandk.wkt.FileDescriptorSet
 import java.io.File
 import kotlin.reflect.full.declaredMemberProperties
@@ -78,10 +78,10 @@ class CodeGeneratorTest {
 
     private fun compileProto(inputProto: String): KotlinCompilation.Result {
         val gen = runGenerator(
-            CodeGeneratorRequest(
-                fileToGenerate = listOf(inputProto),
+            codeGeneratorRequest {
+                fileToGenerate = listOf(inputProto)
                 protoFile = fileDescriptorSet
-            )
+            }
         )
 
         val kotlinSource = SourceFile.kotlin(File(gen.file.first().name!!).name, gen.file.first().content!!)
