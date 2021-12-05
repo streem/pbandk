@@ -41,6 +41,7 @@ public sealed interface Type : pbandk.Message {
     ): pbandk.wkt.Type
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
+        @Deprecated("Use type { } instead")
         public operator fun invoke(
             name: String = "",
             fields: List<pbandk.wkt.Field> = emptyList(),
@@ -136,6 +137,43 @@ public sealed interface Type : pbandk.Message {
     }
 }
 
+public sealed interface MutableType : Type, pbandk.MutableMessage {
+    public override var name: String
+    public override var fields: List<pbandk.wkt.Field>
+    public override var oneofs: List<String>
+    public override var options: List<pbandk.wkt.Option>
+    public override var sourceContext: pbandk.wkt.SourceContext?
+    public override var syntax: pbandk.wkt.Syntax
+
+    public fun toType(): Type
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
+        @Deprecated("Use type { } instead")
+        public operator fun invoke(
+            name: String = "",
+            fields: List<pbandk.wkt.Field> = emptyList(),
+            oneofs: List<String> = emptyList(),
+            options: List<pbandk.wkt.Option> = emptyList(),
+            sourceContext: pbandk.wkt.SourceContext? = null,
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableType = MutableType_Impl(
+            name = name,
+            fields = fields,
+            oneofs = oneofs,
+            options = options,
+            sourceContext = sourceContext,
+            syntax = syntax,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableType by lazy { MutableType() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> get() = pbandk.wkt.Type.descriptor
+    }
+}
+
 public sealed interface Field : pbandk.Message {
     public val kind: pbandk.wkt.Field.Kind
     public val cardinality: pbandk.wkt.Field.Cardinality
@@ -166,6 +204,7 @@ public sealed interface Field : pbandk.Message {
     ): pbandk.wkt.Field
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
+        @Deprecated("Use field { } instead")
         public operator fun invoke(
             kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
             cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
@@ -360,6 +399,55 @@ public sealed interface Field : pbandk.Message {
     }
 }
 
+public sealed interface MutableField : Field, pbandk.MutableMessage {
+    public override var kind: pbandk.wkt.Field.Kind
+    public override var cardinality: pbandk.wkt.Field.Cardinality
+    public override var number: Int
+    public override var name: String
+    public override var typeUrl: String
+    public override var oneofIndex: Int
+    public override var packed: Boolean
+    public override var options: List<pbandk.wkt.Option>
+    public override var jsonName: String
+    public override var defaultValue: String
+
+    public fun toField(): Field
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
+        @Deprecated("Use field { } instead")
+        public operator fun invoke(
+            kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
+            cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
+            number: Int = 0,
+            name: String = "",
+            typeUrl: String = "",
+            oneofIndex: Int = 0,
+            packed: Boolean = false,
+            options: List<pbandk.wkt.Option> = emptyList(),
+            jsonName: String = "",
+            defaultValue: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableField = MutableField_Impl(
+            kind = kind,
+            cardinality = cardinality,
+            number = number,
+            name = name,
+            typeUrl = typeUrl,
+            oneofIndex = oneofIndex,
+            packed = packed,
+            options = options,
+            jsonName = jsonName,
+            defaultValue = defaultValue,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableField by lazy { MutableField() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> get() = pbandk.wkt.Field.descriptor
+    }
+}
+
 public sealed interface Enum : pbandk.Message {
     public val name: String
     public val enumvalue: List<pbandk.wkt.EnumValue>
@@ -380,6 +468,7 @@ public sealed interface Enum : pbandk.Message {
     ): pbandk.wkt.Enum
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
+        @Deprecated("Use enum { } instead")
         public operator fun invoke(
             name: String = "",
             enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
@@ -463,6 +552,40 @@ public sealed interface Enum : pbandk.Message {
     }
 }
 
+public sealed interface MutableEnum : Enum, pbandk.MutableMessage {
+    public override var name: String
+    public override var enumvalue: List<pbandk.wkt.EnumValue>
+    public override var options: List<pbandk.wkt.Option>
+    public override var sourceContext: pbandk.wkt.SourceContext?
+    public override var syntax: pbandk.wkt.Syntax
+
+    public fun toEnum(): Enum
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
+        @Deprecated("Use enum { } instead")
+        public operator fun invoke(
+            name: String = "",
+            enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
+            options: List<pbandk.wkt.Option> = emptyList(),
+            sourceContext: pbandk.wkt.SourceContext? = null,
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableEnum = MutableEnum_Impl(
+            name = name,
+            enumvalue = enumvalue,
+            options = options,
+            sourceContext = sourceContext,
+            syntax = syntax,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableEnum by lazy { MutableEnum() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> get() = pbandk.wkt.Enum.descriptor
+    }
+}
+
 public sealed interface EnumValue : pbandk.Message {
     public val name: String
     public val number: Int
@@ -479,6 +602,7 @@ public sealed interface EnumValue : pbandk.Message {
     ): pbandk.wkt.EnumValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
+        @Deprecated("Use enumValue { } instead")
         public operator fun invoke(
             name: String = "",
             number: Int = 0,
@@ -538,6 +662,34 @@ public sealed interface EnumValue : pbandk.Message {
     }
 }
 
+public sealed interface MutableEnumValue : EnumValue, pbandk.MutableMessage {
+    public override var name: String
+    public override var number: Int
+    public override var options: List<pbandk.wkt.Option>
+
+    public fun toEnumValue(): EnumValue
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
+        @Deprecated("Use enumValue { } instead")
+        public operator fun invoke(
+            name: String = "",
+            number: Int = 0,
+            options: List<pbandk.wkt.Option> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableEnumValue = MutableEnumValue_Impl(
+            name = name,
+            number = number,
+            options = options,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableEnumValue by lazy { MutableEnumValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> get() = pbandk.wkt.EnumValue.descriptor
+    }
+}
+
 public sealed interface Option : pbandk.Message {
     public val name: String
     public val value: pbandk.wkt.Any?
@@ -552,6 +704,7 @@ public sealed interface Option : pbandk.Message {
     ): pbandk.wkt.Option
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
+        @Deprecated("Use option { } instead")
         public operator fun invoke(
             name: String = "",
             value: pbandk.wkt.Any? = null,
@@ -599,6 +752,37 @@ public sealed interface Option : pbandk.Message {
     }
 }
 
+public sealed interface MutableOption : Option, pbandk.MutableMessage {
+    public override var name: String
+    public override var value: pbandk.wkt.Any?
+
+    public fun toOption(): Option
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
+        @Deprecated("Use option { } instead")
+        public operator fun invoke(
+            name: String = "",
+            value: pbandk.wkt.Any? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableOption = MutableOption_Impl(
+            name = name,
+            value = value,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableOption by lazy { MutableOption() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> get() = pbandk.wkt.Option.descriptor
+    }
+}
+
+public fun type(builderAction: MutableType.() -> Unit): Type {
+    val builder = MutableType()
+    builder.builderAction()
+    return builder.toType()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForType")
 public fun Type?.orDefault(): pbandk.wkt.Type = this ?: Type.defaultInstance
@@ -643,6 +827,56 @@ private class Type_Impl(
     } ?: this
 }
 
+private class MutableType_Impl(
+    override var name: String,
+    override var fields: List<pbandk.wkt.Field>,
+    override var oneofs: List<String>,
+    override var options: List<pbandk.wkt.Option>,
+    override var sourceContext: pbandk.wkt.SourceContext?,
+    override var syntax: pbandk.wkt.Syntax,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableType, pbandk.MutableGeneratedMessage<MutableType>() {
+    override val descriptor get() = Type.descriptor
+
+    override fun copy(
+        name: String,
+        fields: List<pbandk.wkt.Field>,
+        oneofs: List<String>,
+        options: List<pbandk.wkt.Option>,
+        sourceContext: pbandk.wkt.SourceContext?,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Type_Impl(
+        name = name,
+        fields = fields,
+        oneofs = oneofs,
+        options = options,
+        sourceContext = sourceContext,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Type)?.let {
+        it.copy(
+            fields = fields + other.fields,
+            oneofs = oneofs + other.oneofs,
+            options = options + other.options,
+            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toType() = Type_Impl(
+        name = name,
+        fields = fields,
+        oneofs = oneofs,
+        options = options,
+        sourceContext = sourceContext,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
     var name = ""
@@ -664,6 +898,12 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
     }
     return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
         sourceContext, syntax, unknownFields)
+}
+
+public fun field(builderAction: MutableField.() -> Unit): Field {
+    val builder = MutableField()
+    builder.builderAction()
+    return builder.toField()
 }
 
 @pbandk.Export
@@ -719,6 +959,69 @@ private class Field_Impl(
     } ?: this
 }
 
+private class MutableField_Impl(
+    override var kind: pbandk.wkt.Field.Kind,
+    override var cardinality: pbandk.wkt.Field.Cardinality,
+    override var number: Int,
+    override var name: String,
+    override var typeUrl: String,
+    override var oneofIndex: Int,
+    override var packed: Boolean,
+    override var options: List<pbandk.wkt.Option>,
+    override var jsonName: String,
+    override var defaultValue: String,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableField, pbandk.MutableGeneratedMessage<MutableField>() {
+    override val descriptor get() = Field.descriptor
+
+    override fun copy(
+        kind: pbandk.wkt.Field.Kind,
+        cardinality: pbandk.wkt.Field.Cardinality,
+        number: Int,
+        name: String,
+        typeUrl: String,
+        oneofIndex: Int,
+        packed: Boolean,
+        options: List<pbandk.wkt.Option>,
+        jsonName: String,
+        defaultValue: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Field_Impl(
+        kind = kind,
+        cardinality = cardinality,
+        number = number,
+        name = name,
+        typeUrl = typeUrl,
+        oneofIndex = oneofIndex,
+        packed = packed,
+        options = options,
+        jsonName = jsonName,
+        defaultValue = defaultValue,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Field)?.let {
+        it.copy(
+            options = options + other.options,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toField() = Field_Impl(
+        kind = kind,
+        cardinality = cardinality,
+        number = number,
+        name = name,
+        typeUrl = typeUrl,
+        oneofIndex = oneofIndex,
+        packed = packed,
+        options = options,
+        jsonName = jsonName,
+        defaultValue = defaultValue,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
     var kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0)
@@ -749,6 +1052,12 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
     return Field(kind, cardinality, number, name,
         typeUrl, oneofIndex, packed, pbandk.ListWithSize.Builder.fixed(options),
         jsonName, defaultValue, unknownFields)
+}
+
+public fun enum(builderAction: MutableEnum.() -> Unit): Enum {
+    val builder = MutableEnum()
+    builder.builderAction()
+    return builder.toEnum()
 }
 
 @pbandk.Export
@@ -791,6 +1100,51 @@ private class Enum_Impl(
     } ?: this
 }
 
+private class MutableEnum_Impl(
+    override var name: String,
+    override var enumvalue: List<pbandk.wkt.EnumValue>,
+    override var options: List<pbandk.wkt.Option>,
+    override var sourceContext: pbandk.wkt.SourceContext?,
+    override var syntax: pbandk.wkt.Syntax,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableEnum, pbandk.MutableGeneratedMessage<MutableEnum>() {
+    override val descriptor get() = Enum.descriptor
+
+    override fun copy(
+        name: String,
+        enumvalue: List<pbandk.wkt.EnumValue>,
+        options: List<pbandk.wkt.Option>,
+        sourceContext: pbandk.wkt.SourceContext?,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Enum_Impl(
+        name = name,
+        enumvalue = enumvalue,
+        options = options,
+        sourceContext = sourceContext,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Enum)?.let {
+        it.copy(
+            enumvalue = enumvalue + other.enumvalue,
+            options = options + other.options,
+            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toEnum() = Enum_Impl(
+        name = name,
+        enumvalue = enumvalue,
+        options = options,
+        sourceContext = sourceContext,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
     var name = ""
@@ -810,6 +1164,12 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
     }
     return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
         syntax, unknownFields)
+}
+
+public fun enumValue(builderAction: MutableEnumValue.() -> Unit): EnumValue {
+    val builder = MutableEnumValue()
+    builder.builderAction()
+    return builder.toEnumValue()
 }
 
 @pbandk.Export
@@ -844,6 +1204,41 @@ private class EnumValue_Impl(
     } ?: this
 }
 
+private class MutableEnumValue_Impl(
+    override var name: String,
+    override var number: Int,
+    override var options: List<pbandk.wkt.Option>,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableEnumValue, pbandk.MutableGeneratedMessage<MutableEnumValue>() {
+    override val descriptor get() = EnumValue.descriptor
+
+    override fun copy(
+        name: String,
+        number: Int,
+        options: List<pbandk.wkt.Option>,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = EnumValue_Impl(
+        name = name,
+        number = number,
+        options = options,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? EnumValue)?.let {
+        it.copy(
+            options = options + other.options,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toEnumValue() = EnumValue_Impl(
+        name = name,
+        number = number,
+        options = options,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumValue {
     var name = ""
@@ -858,6 +1253,12 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
         }
     }
     return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
+}
+
+public fun option(builderAction: MutableOption.() -> Unit): Option {
+    val builder = MutableOption()
+    builder.builderAction()
+    return builder.toOption()
 }
 
 @pbandk.Export
@@ -887,6 +1288,37 @@ private class Option_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableOption_Impl(
+    override var name: String,
+    override var value: pbandk.wkt.Any?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableOption, pbandk.MutableGeneratedMessage<MutableOption>() {
+    override val descriptor get() = Option.descriptor
+
+    override fun copy(
+        name: String,
+        value: pbandk.wkt.Any?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Option_Impl(
+        name = name,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Option)?.let {
+        it.copy(
+            value = value?.plus(other.value) ?: other.value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toOption() = Option_Impl(
+        name = name,
+        value = value,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

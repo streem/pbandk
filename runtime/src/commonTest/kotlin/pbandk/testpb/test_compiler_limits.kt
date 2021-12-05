@@ -3028,6 +3028,7 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
     ): pbandk.testpb.MessageWithLotsOfFields
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithLotsOfFields> {
+        @Deprecated("Use messageWithLotsOfFields { } instead")
         public operator fun invoke(
             field1000: String = "",
             field1001: String = "",
@@ -15074,6 +15075,3025 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
     }
 }
 
+public sealed interface MutableMessageWithLotsOfFields : MessageWithLotsOfFields, pbandk.MutableMessage {
+    public override var field1000: String
+    public override var field1001: String
+    public override var field1002: String
+    public override var field1003: String
+    public override var field1004: String
+    public override var field1005: String
+    public override var field1006: String
+    public override var field1007: String
+    public override var field1008: String
+    public override var field1009: String
+    public override var field1010: String
+    public override var field1011: String
+    public override var field1012: String
+    public override var field1013: String
+    public override var field1014: String
+    public override var field1015: String
+    public override var field1016: String
+    public override var field1017: String
+    public override var field1018: String
+    public override var field1019: String
+    public override var field1020: String
+    public override var field1021: String
+    public override var field1022: String
+    public override var field1023: String
+    public override var field1024: String
+    public override var field1025: String
+    public override var field1026: String
+    public override var field1027: String
+    public override var field1028: String
+    public override var field1029: String
+    public override var field1030: String
+    public override var field1031: String
+    public override var field1032: String
+    public override var field1033: String
+    public override var field1034: String
+    public override var field1035: String
+    public override var field1036: String
+    public override var field1037: String
+    public override var field1038: String
+    public override var field1039: String
+    public override var field1040: String
+    public override var field1041: String
+    public override var field1042: String
+    public override var field1043: String
+    public override var field1044: String
+    public override var field1045: String
+    public override var field1046: String
+    public override var field1047: String
+    public override var field1048: String
+    public override var field1049: String
+    public override var field1050: String
+    public override var field1051: String
+    public override var field1052: String
+    public override var field1053: String
+    public override var field1054: String
+    public override var field1055: String
+    public override var field1056: String
+    public override var field1057: String
+    public override var field1058: String
+    public override var field1059: String
+    public override var field1060: String
+    public override var field1061: String
+    public override var field1062: String
+    public override var field1063: String
+    public override var field1064: String
+    public override var field1065: String
+    public override var field1066: String
+    public override var field1067: String
+    public override var field1068: String
+    public override var field1069: String
+    public override var field1070: String
+    public override var field1071: String
+    public override var field1072: String
+    public override var field1073: String
+    public override var field1074: String
+    public override var field1075: String
+    public override var field1076: String
+    public override var field1077: String
+    public override var field1078: String
+    public override var field1079: String
+    public override var field1080: String
+    public override var field1081: String
+    public override var field1082: String
+    public override var field1083: String
+    public override var field1084: String
+    public override var field1085: String
+    public override var field1086: String
+    public override var field1087: String
+    public override var field1088: String
+    public override var field1089: String
+    public override var field1090: String
+    public override var field1091: String
+    public override var field1092: String
+    public override var field1093: String
+    public override var field1094: String
+    public override var field1095: String
+    public override var field1096: String
+    public override var field1097: String
+    public override var field1098: String
+    public override var field1099: String
+    public override var field1100: String
+    public override var field1101: String
+    public override var field1102: String
+    public override var field1103: String
+    public override var field1104: String
+    public override var field1105: String
+    public override var field1106: String
+    public override var field1107: String
+    public override var field1108: String
+    public override var field1109: String
+    public override var field1110: String
+    public override var field1111: String
+    public override var field1112: String
+    public override var field1113: String
+    public override var field1114: String
+    public override var field1115: String
+    public override var field1116: String
+    public override var field1117: String
+    public override var field1118: String
+    public override var field1119: String
+    public override var field1120: String
+    public override var field1121: String
+    public override var field1122: String
+    public override var field1123: String
+    public override var field1124: String
+    public override var field1125: String
+    public override var field1126: String
+    public override var field1127: String
+    public override var field1128: String
+    public override var field1129: String
+    public override var field1130: String
+    public override var field1131: String
+    public override var field1132: String
+    public override var field1133: String
+    public override var field1134: String
+    public override var field1135: String
+    public override var field1136: String
+    public override var field1137: String
+    public override var field1138: String
+    public override var field1139: String
+    public override var field1140: String
+    public override var field1141: String
+    public override var field1142: String
+    public override var field1143: String
+    public override var field1144: String
+    public override var field1145: String
+    public override var field1146: String
+    public override var field1147: String
+    public override var field1148: String
+    public override var field1149: String
+    public override var field1150: String
+    public override var field1151: String
+    public override var field1152: String
+    public override var field1153: String
+    public override var field1154: String
+    public override var field1155: String
+    public override var field1156: String
+    public override var field1157: String
+    public override var field1158: String
+    public override var field1159: String
+    public override var field1160: String
+    public override var field1161: String
+    public override var field1162: String
+    public override var field1163: String
+    public override var field1164: String
+    public override var field1165: String
+    public override var field1166: String
+    public override var field1167: String
+    public override var field1168: String
+    public override var field1169: String
+    public override var field1170: String
+    public override var field1171: String
+    public override var field1172: String
+    public override var field1173: String
+    public override var field1174: String
+    public override var field1175: String
+    public override var field1176: String
+    public override var field1177: String
+    public override var field1178: String
+    public override var field1179: String
+    public override var field1180: String
+    public override var field1181: String
+    public override var field1182: String
+    public override var field1183: String
+    public override var field1184: String
+    public override var field1185: String
+    public override var field1186: String
+    public override var field1187: String
+    public override var field1188: String
+    public override var field1189: String
+    public override var field1190: String
+    public override var field1191: String
+    public override var field1192: String
+    public override var field1193: String
+    public override var field1194: String
+    public override var field1195: String
+    public override var field1196: String
+    public override var field1197: String
+    public override var field1198: String
+    public override var field1199: String
+    public override var field1200: String
+    public override var field1201: String
+    public override var field1202: String
+    public override var field1203: String
+    public override var field1204: String
+    public override var field1205: String
+    public override var field1206: String
+    public override var field1207: String
+    public override var field1208: String
+    public override var field1209: String
+    public override var field1210: String
+    public override var field1211: String
+    public override var field1212: String
+    public override var field1213: String
+    public override var field1214: String
+    public override var field1215: String
+    public override var field1216: String
+    public override var field1217: String
+    public override var field1218: String
+    public override var field1219: String
+    public override var field1220: String
+    public override var field1221: String
+    public override var field1222: String
+    public override var field1223: String
+    public override var field1224: String
+    public override var field1225: String
+    public override var field1226: String
+    public override var field1227: String
+    public override var field1228: String
+    public override var field1229: String
+    public override var field1230: String
+    public override var field1231: String
+    public override var field1232: String
+    public override var field1233: String
+    public override var field1234: String
+    public override var field1235: String
+    public override var field1236: String
+    public override var field1237: String
+    public override var field1238: String
+    public override var field1239: String
+    public override var field1240: String
+    public override var field1241: String
+    public override var field1242: String
+    public override var field1243: String
+    public override var field1244: String
+    public override var field1245: String
+    public override var field1246: String
+    public override var field1247: String
+    public override var field1248: String
+    public override var field1249: String
+    public override var field1250: String
+    public override var field1251: String
+    public override var field1252: String
+    public override var field1253: String
+    public override var field1254: String
+    public override var field1255: String
+    public override var field1256: String
+    public override var field1257: String
+    public override var field1258: String
+    public override var field1259: String
+    public override var field1260: String
+    public override var field1261: String
+    public override var field1262: String
+    public override var field1263: String
+    public override var field1264: String
+    public override var field1265: String
+    public override var field1266: String
+    public override var field1267: String
+    public override var field1268: String
+    public override var field1269: String
+    public override var field1270: String
+    public override var field1271: String
+    public override var field1272: String
+    public override var field1273: String
+    public override var field1274: String
+    public override var field1275: String
+    public override var field1276: String
+    public override var field1277: String
+    public override var field1278: String
+    public override var field1279: String
+    public override var field1280: String
+    public override var field1281: String
+    public override var field1282: String
+    public override var field1283: String
+    public override var field1284: String
+    public override var field1285: String
+    public override var field1286: String
+    public override var field1287: String
+    public override var field1288: String
+    public override var field1289: String
+    public override var field1290: String
+    public override var field1291: String
+    public override var field1292: String
+    public override var field1293: String
+    public override var field1294: String
+    public override var field1295: String
+    public override var field1296: String
+    public override var field1297: String
+    public override var field1298: String
+    public override var field1299: String
+    public override var field1300: String
+    public override var field1301: String
+    public override var field1302: String
+    public override var field1303: String
+    public override var field1304: String
+    public override var field1305: String
+    public override var field1306: String
+    public override var field1307: String
+    public override var field1308: String
+    public override var field1309: String
+    public override var field1310: String
+    public override var field1311: String
+    public override var field1312: String
+    public override var field1313: String
+    public override var field1314: String
+    public override var field1315: String
+    public override var field1316: String
+    public override var field1317: String
+    public override var field1318: String
+    public override var field1319: String
+    public override var field1320: String
+    public override var field1321: String
+    public override var field1322: String
+    public override var field1323: String
+    public override var field1324: String
+    public override var field1325: String
+    public override var field1326: String
+    public override var field1327: String
+    public override var field1328: String
+    public override var field1329: String
+    public override var field1330: String
+    public override var field1331: String
+    public override var field1332: String
+    public override var field1333: String
+    public override var field1334: String
+    public override var field1335: String
+    public override var field1336: String
+    public override var field1337: String
+    public override var field1338: String
+    public override var field1339: String
+    public override var field1340: String
+    public override var field1341: String
+    public override var field1342: String
+    public override var field1343: String
+    public override var field1344: String
+    public override var field1345: String
+    public override var field1346: String
+    public override var field1347: String
+    public override var field1348: String
+    public override var field1349: String
+    public override var field1350: String
+    public override var field1351: String
+    public override var field1352: String
+    public override var field1353: String
+    public override var field1354: String
+    public override var field1355: String
+    public override var field1356: String
+    public override var field1357: String
+    public override var field1358: String
+    public override var field1359: String
+    public override var field1360: String
+    public override var field1361: String
+    public override var field1362: String
+    public override var field1363: String
+    public override var field1364: String
+    public override var field1365: String
+    public override var field1366: String
+    public override var field1367: String
+    public override var field1368: String
+    public override var field1369: String
+    public override var field1370: String
+    public override var field1371: String
+    public override var field1372: String
+    public override var field1373: String
+    public override var field1374: String
+    public override var field1375: String
+    public override var field1376: String
+    public override var field1377: String
+    public override var field1378: String
+    public override var field1379: String
+    public override var field1380: String
+    public override var field1381: String
+    public override var field1382: String
+    public override var field1383: String
+    public override var field1384: String
+    public override var field1385: String
+    public override var field1386: String
+    public override var field1387: String
+    public override var field1388: String
+    public override var field1389: String
+    public override var field1390: String
+    public override var field1391: String
+    public override var field1392: String
+    public override var field1393: String
+    public override var field1394: String
+    public override var field1395: String
+    public override var field1396: String
+    public override var field1397: String
+    public override var field1398: String
+    public override var field1399: String
+    public override var field1400: String
+    public override var field1401: String
+    public override var field1402: String
+    public override var field1403: String
+    public override var field1404: String
+    public override var field1405: String
+    public override var field1406: String
+    public override var field1407: String
+    public override var field1408: String
+    public override var field1409: String
+    public override var field1410: String
+    public override var field1411: String
+    public override var field1412: String
+    public override var field1413: String
+    public override var field1414: String
+    public override var field1415: String
+    public override var field1416: String
+    public override var field1417: String
+    public override var field1418: String
+    public override var field1419: String
+    public override var field1420: String
+    public override var field1421: String
+    public override var field1422: String
+    public override var field1423: String
+    public override var field1424: String
+    public override var field1425: String
+    public override var field1426: String
+    public override var field1427: String
+    public override var field1428: String
+    public override var field1429: String
+    public override var field1430: String
+    public override var field1431: String
+    public override var field1432: String
+    public override var field1433: String
+    public override var field1434: String
+    public override var field1435: String
+    public override var field1436: String
+    public override var field1437: String
+    public override var field1438: String
+    public override var field1439: String
+    public override var field1440: String
+    public override var field1441: String
+    public override var field1442: String
+    public override var field1443: String
+    public override var field1444: String
+    public override var field1445: String
+    public override var field1446: String
+    public override var field1447: String
+    public override var field1448: String
+    public override var field1449: String
+    public override var field1450: String
+    public override var field1451: String
+    public override var field1452: String
+    public override var field1453: String
+    public override var field1454: String
+    public override var field1455: String
+    public override var field1456: String
+    public override var field1457: String
+    public override var field1458: String
+    public override var field1459: String
+    public override var field1460: String
+    public override var field1461: String
+    public override var field1462: String
+    public override var field1463: String
+    public override var field1464: String
+    public override var field1465: String
+    public override var field1466: String
+    public override var field1467: String
+    public override var field1468: String
+    public override var field1469: String
+    public override var field1470: String
+    public override var field1471: String
+    public override var field1472: String
+    public override var field1473: String
+    public override var field1474: String
+    public override var field1475: String
+    public override var field1476: String
+    public override var field1477: String
+    public override var field1478: String
+    public override var field1479: String
+    public override var field1480: String
+    public override var field1481: String
+    public override var field1482: String
+    public override var field1483: String
+    public override var field1484: String
+    public override var field1485: String
+    public override var field1486: String
+    public override var field1487: String
+    public override var field1488: String
+    public override var field1489: String
+    public override var field1490: String
+    public override var field1491: String
+    public override var field1492: String
+    public override var field1493: String
+    public override var field1494: String
+    public override var field1495: String
+    public override var field1496: String
+    public override var field1497: String
+    public override var field1498: String
+    public override var field1499: String
+    public override var field1500: String
+    public override var field1501: String
+    public override var field1502: String
+    public override var field1503: String
+    public override var field1504: String
+    public override var field1505: String
+    public override var field1506: String
+    public override var field1507: String
+    public override var field1508: String
+    public override var field1509: String
+    public override var field1510: String
+    public override var field1511: String
+    public override var field1512: String
+    public override var field1513: String
+    public override var field1514: String
+    public override var field1515: String
+    public override var field1516: String
+    public override var field1517: String
+    public override var field1518: String
+    public override var field1519: String
+    public override var field1520: String
+    public override var field1521: String
+    public override var field1522: String
+    public override var field1523: String
+    public override var field1524: String
+    public override var field1525: String
+    public override var field1526: String
+    public override var field1527: String
+    public override var field1528: String
+    public override var field1529: String
+    public override var field1530: String
+    public override var field1531: String
+    public override var field1532: String
+    public override var field1533: String
+    public override var field1534: String
+    public override var field1535: String
+    public override var field1536: String
+    public override var field1537: String
+    public override var field1538: String
+    public override var field1539: String
+    public override var field1540: String
+    public override var field1541: String
+    public override var field1542: String
+    public override var field1543: String
+    public override var field1544: String
+    public override var field1545: String
+    public override var field1546: String
+    public override var field1547: String
+    public override var field1548: String
+    public override var field1549: String
+    public override var field1550: String
+    public override var field1551: String
+    public override var field1552: String
+    public override var field1553: String
+    public override var field1554: String
+    public override var field1555: String
+    public override var field1556: String
+    public override var field1557: String
+    public override var field1558: String
+    public override var field1559: String
+    public override var field1560: String
+    public override var field1561: String
+    public override var field1562: String
+    public override var field1563: String
+    public override var field1564: String
+    public override var field1565: String
+    public override var field1566: String
+    public override var field1567: String
+    public override var field1568: String
+    public override var field1569: String
+    public override var field1570: String
+    public override var field1571: String
+    public override var field1572: String
+    public override var field1573: String
+    public override var field1574: String
+    public override var field1575: String
+    public override var field1576: String
+    public override var field1577: String
+    public override var field1578: String
+    public override var field1579: String
+    public override var field1580: String
+    public override var field1581: String
+    public override var field1582: String
+    public override var field1583: String
+    public override var field1584: String
+    public override var field1585: String
+    public override var field1586: String
+    public override var field1587: String
+    public override var field1588: String
+    public override var field1589: String
+    public override var field1590: String
+    public override var field1591: String
+    public override var field1592: String
+    public override var field1593: String
+    public override var field1594: String
+    public override var field1595: String
+    public override var field1596: String
+    public override var field1597: String
+    public override var field1598: String
+    public override var field1599: String
+    public override var field1600: String
+    public override var field1601: String
+    public override var field1602: String
+    public override var field1603: String
+    public override var field1604: String
+    public override var field1605: String
+    public override var field1606: String
+    public override var field1607: String
+    public override var field1608: String
+    public override var field1609: String
+    public override var field1610: String
+    public override var field1611: String
+    public override var field1612: String
+    public override var field1613: String
+    public override var field1614: String
+    public override var field1615: String
+    public override var field1616: String
+    public override var field1617: String
+    public override var field1618: String
+    public override var field1619: String
+    public override var field1620: String
+    public override var field1621: String
+    public override var field1622: String
+    public override var field1623: String
+    public override var field1624: String
+    public override var field1625: String
+    public override var field1626: String
+    public override var field1627: String
+    public override var field1628: String
+    public override var field1629: String
+    public override var field1630: String
+    public override var field1631: String
+    public override var field1632: String
+    public override var field1633: String
+    public override var field1634: String
+    public override var field1635: String
+    public override var field1636: String
+    public override var field1637: String
+    public override var field1638: String
+    public override var field1639: String
+    public override var field1640: String
+    public override var field1641: String
+    public override var field1642: String
+    public override var field1643: String
+    public override var field1644: String
+    public override var field1645: String
+    public override var field1646: String
+    public override var field1647: String
+    public override var field1648: String
+    public override var field1649: String
+    public override var field1650: String
+    public override var field1651: String
+    public override var field1652: String
+    public override var field1653: String
+    public override var field1654: String
+    public override var field1655: String
+    public override var field1656: String
+    public override var field1657: String
+    public override var field1658: String
+    public override var field1659: String
+    public override var field1660: String
+    public override var field1661: String
+    public override var field1662: String
+    public override var field1663: String
+    public override var field1664: String
+    public override var field1665: String
+    public override var field1666: String
+    public override var field1667: String
+    public override var field1668: String
+    public override var field1669: String
+    public override var field1670: String
+    public override var field1671: String
+    public override var field1672: String
+    public override var field1673: String
+    public override var field1674: String
+    public override var field1675: String
+    public override var field1676: String
+    public override var field1677: String
+    public override var field1678: String
+    public override var field1679: String
+    public override var field1680: String
+    public override var field1681: String
+    public override var field1682: String
+    public override var field1683: String
+    public override var field1684: String
+    public override var field1685: String
+    public override var field1686: String
+    public override var field1687: String
+    public override var field1688: String
+    public override var field1689: String
+    public override var field1690: String
+    public override var field1691: String
+    public override var field1692: String
+    public override var field1693: String
+    public override var field1694: String
+    public override var field1695: String
+    public override var field1696: String
+    public override var field1697: String
+    public override var field1698: String
+    public override var field1699: String
+    public override var field1700: String
+    public override var field1701: String
+    public override var field1702: String
+    public override var field1703: String
+    public override var field1704: String
+    public override var field1705: String
+    public override var field1706: String
+    public override var field1707: String
+    public override var field1708: String
+    public override var field1709: String
+    public override var field1710: String
+    public override var field1711: String
+    public override var field1712: String
+    public override var field1713: String
+    public override var field1714: String
+    public override var field1715: String
+    public override var field1716: String
+    public override var field1717: String
+    public override var field1718: String
+    public override var field1719: String
+    public override var field1720: String
+    public override var field1721: String
+    public override var field1722: String
+    public override var field1723: String
+    public override var field1724: String
+    public override var field1725: String
+    public override var field1726: String
+    public override var field1727: String
+    public override var field1728: String
+    public override var field1729: String
+    public override var field1730: String
+    public override var field1731: String
+    public override var field1732: String
+    public override var field1733: String
+    public override var field1734: String
+    public override var field1735: String
+    public override var field1736: String
+    public override var field1737: String
+    public override var field1738: String
+    public override var field1739: String
+    public override var field1740: String
+    public override var field1741: String
+    public override var field1742: String
+    public override var field1743: String
+    public override var field1744: String
+    public override var field1745: String
+    public override var field1746: String
+    public override var field1747: String
+    public override var field1748: String
+    public override var field1749: String
+    public override var field1750: String
+    public override var field1751: String
+    public override var field1752: String
+    public override var field1753: String
+    public override var field1754: String
+    public override var field1755: String
+    public override var field1756: String
+    public override var field1757: String
+    public override var field1758: String
+    public override var field1759: String
+    public override var field1760: String
+    public override var field1761: String
+    public override var field1762: String
+    public override var field1763: String
+    public override var field1764: String
+    public override var field1765: String
+    public override var field1766: String
+    public override var field1767: String
+    public override var field1768: String
+    public override var field1769: String
+    public override var field1770: String
+    public override var field1771: String
+    public override var field1772: String
+    public override var field1773: String
+    public override var field1774: String
+    public override var field1775: String
+    public override var field1776: String
+    public override var field1777: String
+    public override var field1778: String
+    public override var field1779: String
+    public override var field1780: String
+    public override var field1781: String
+    public override var field1782: String
+    public override var field1783: String
+    public override var field1784: String
+    public override var field1785: String
+    public override var field1786: String
+    public override var field1787: String
+    public override var field1788: String
+    public override var field1789: String
+    public override var field1790: String
+    public override var field1791: String
+    public override var field1792: String
+    public override var field1793: String
+    public override var field1794: String
+    public override var field1795: String
+    public override var field1796: String
+    public override var field1797: String
+    public override var field1798: String
+    public override var field1799: String
+    public override var field1800: String
+    public override var field1801: String
+    public override var field1802: String
+    public override var field1803: String
+    public override var field1804: String
+    public override var field1805: String
+    public override var field1806: String
+    public override var field1807: String
+    public override var field1808: String
+    public override var field1809: String
+    public override var field1810: String
+    public override var field1811: String
+    public override var field1812: String
+    public override var field1813: String
+    public override var field1814: String
+    public override var field1815: String
+    public override var field1816: String
+    public override var field1817: String
+    public override var field1818: String
+    public override var field1819: String
+    public override var field1820: String
+    public override var field1821: String
+    public override var field1822: String
+    public override var field1823: String
+    public override var field1824: String
+    public override var field1825: String
+    public override var field1826: String
+    public override var field1827: String
+    public override var field1828: String
+    public override var field1829: String
+    public override var field1830: String
+    public override var field1831: String
+    public override var field1832: String
+    public override var field1833: String
+    public override var field1834: String
+    public override var field1835: String
+    public override var field1836: String
+    public override var field1837: String
+    public override var field1838: String
+    public override var field1839: String
+    public override var field1840: String
+    public override var field1841: String
+    public override var field1842: String
+    public override var field1843: String
+    public override var field1844: String
+    public override var field1845: String
+    public override var field1846: String
+    public override var field1847: String
+    public override var field1848: String
+    public override var field1849: String
+    public override var field1850: String
+    public override var field1851: String
+    public override var field1852: String
+    public override var field1853: String
+    public override var field1854: String
+    public override var field1855: String
+    public override var field1856: String
+    public override var field1857: String
+    public override var field1858: String
+    public override var field1859: String
+    public override var field1860: String
+    public override var field1861: String
+    public override var field1862: String
+    public override var field1863: String
+    public override var field1864: String
+    public override var field1865: String
+    public override var field1866: String
+    public override var field1867: String
+    public override var field1868: String
+    public override var field1869: String
+    public override var field1870: String
+    public override var field1871: String
+    public override var field1872: String
+    public override var field1873: String
+    public override var field1874: String
+    public override var field1875: String
+    public override var field1876: String
+    public override var field1877: String
+    public override var field1878: String
+    public override var field1879: String
+    public override var field1880: String
+    public override var field1881: String
+    public override var field1882: String
+    public override var field1883: String
+    public override var field1884: String
+    public override var field1885: String
+    public override var field1886: String
+    public override var field1887: String
+    public override var field1888: String
+    public override var field1889: String
+    public override var field1890: String
+    public override var field1891: String
+    public override var field1892: String
+    public override var field1893: String
+    public override var field1894: String
+    public override var field1895: String
+    public override var field1896: String
+    public override var field1897: String
+    public override var field1898: String
+    public override var field1899: String
+    public override var field1900: String
+    public override var field1901: String
+    public override var field1902: String
+    public override var field1903: String
+    public override var field1904: String
+    public override var field1905: String
+    public override var field1906: String
+    public override var field1907: String
+    public override var field1908: String
+    public override var field1909: String
+    public override var field1910: String
+    public override var field1911: String
+    public override var field1912: String
+    public override var field1913: String
+    public override var field1914: String
+    public override var field1915: String
+    public override var field1916: String
+    public override var field1917: String
+    public override var field1918: String
+    public override var field1919: String
+    public override var field1920: String
+    public override var field1921: String
+    public override var field1922: String
+    public override var field1923: String
+    public override var field1924: String
+    public override var field1925: String
+    public override var field1926: String
+    public override var field1927: String
+    public override var field1928: String
+    public override var field1929: String
+    public override var field1930: String
+    public override var field1931: String
+    public override var field1932: String
+    public override var field1933: String
+    public override var field1934: String
+    public override var field1935: String
+    public override var field1936: String
+    public override var field1937: String
+    public override var field1938: String
+    public override var field1939: String
+    public override var field1940: String
+    public override var field1941: String
+    public override var field1942: String
+    public override var field1943: String
+    public override var field1944: String
+    public override var field1945: String
+    public override var field1946: String
+    public override var field1947: String
+    public override var field1948: String
+    public override var field1949: String
+    public override var field1950: String
+    public override var field1951: String
+    public override var field1952: String
+    public override var field1953: String
+    public override var field1954: String
+    public override var field1955: String
+    public override var field1956: String
+    public override var field1957: String
+    public override var field1958: String
+    public override var field1959: String
+    public override var field1960: String
+    public override var field1961: String
+    public override var field1962: String
+    public override var field1963: String
+    public override var field1964: String
+    public override var field1965: String
+    public override var field1966: String
+    public override var field1967: String
+    public override var field1968: String
+    public override var field1969: String
+    public override var field1970: String
+    public override var field1971: String
+    public override var field1972: String
+    public override var field1973: String
+    public override var field1974: String
+    public override var field1975: String
+    public override var field1976: String
+    public override var field1977: String
+    public override var field1978: String
+    public override var field1979: String
+    public override var field1980: String
+    public override var field1981: String
+    public override var field1982: String
+    public override var field1983: String
+    public override var field1984: String
+    public override var field1985: String
+    public override var field1986: String
+    public override var field1987: String
+    public override var field1988: String
+    public override var field1989: String
+    public override var field1990: String
+    public override var field1991: String
+    public override var field1992: String
+    public override var field1993: String
+    public override var field1994: String
+    public override var field1995: String
+    public override var field1996: String
+    public override var field1997: String
+    public override var field1998: String
+    public override var field1999: String
+
+    public fun toMessageWithLotsOfFields(): MessageWithLotsOfFields
+
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithLotsOfFields> {
+        @Deprecated("Use messageWithLotsOfFields { } instead")
+        public operator fun invoke(
+            field1000: String = "",
+            field1001: String = "",
+            field1002: String = "",
+            field1003: String = "",
+            field1004: String = "",
+            field1005: String = "",
+            field1006: String = "",
+            field1007: String = "",
+            field1008: String = "",
+            field1009: String = "",
+            field1010: String = "",
+            field1011: String = "",
+            field1012: String = "",
+            field1013: String = "",
+            field1014: String = "",
+            field1015: String = "",
+            field1016: String = "",
+            field1017: String = "",
+            field1018: String = "",
+            field1019: String = "",
+            field1020: String = "",
+            field1021: String = "",
+            field1022: String = "",
+            field1023: String = "",
+            field1024: String = "",
+            field1025: String = "",
+            field1026: String = "",
+            field1027: String = "",
+            field1028: String = "",
+            field1029: String = "",
+            field1030: String = "",
+            field1031: String = "",
+            field1032: String = "",
+            field1033: String = "",
+            field1034: String = "",
+            field1035: String = "",
+            field1036: String = "",
+            field1037: String = "",
+            field1038: String = "",
+            field1039: String = "",
+            field1040: String = "",
+            field1041: String = "",
+            field1042: String = "",
+            field1043: String = "",
+            field1044: String = "",
+            field1045: String = "",
+            field1046: String = "",
+            field1047: String = "",
+            field1048: String = "",
+            field1049: String = "",
+            field1050: String = "",
+            field1051: String = "",
+            field1052: String = "",
+            field1053: String = "",
+            field1054: String = "",
+            field1055: String = "",
+            field1056: String = "",
+            field1057: String = "",
+            field1058: String = "",
+            field1059: String = "",
+            field1060: String = "",
+            field1061: String = "",
+            field1062: String = "",
+            field1063: String = "",
+            field1064: String = "",
+            field1065: String = "",
+            field1066: String = "",
+            field1067: String = "",
+            field1068: String = "",
+            field1069: String = "",
+            field1070: String = "",
+            field1071: String = "",
+            field1072: String = "",
+            field1073: String = "",
+            field1074: String = "",
+            field1075: String = "",
+            field1076: String = "",
+            field1077: String = "",
+            field1078: String = "",
+            field1079: String = "",
+            field1080: String = "",
+            field1081: String = "",
+            field1082: String = "",
+            field1083: String = "",
+            field1084: String = "",
+            field1085: String = "",
+            field1086: String = "",
+            field1087: String = "",
+            field1088: String = "",
+            field1089: String = "",
+            field1090: String = "",
+            field1091: String = "",
+            field1092: String = "",
+            field1093: String = "",
+            field1094: String = "",
+            field1095: String = "",
+            field1096: String = "",
+            field1097: String = "",
+            field1098: String = "",
+            field1099: String = "",
+            field1100: String = "",
+            field1101: String = "",
+            field1102: String = "",
+            field1103: String = "",
+            field1104: String = "",
+            field1105: String = "",
+            field1106: String = "",
+            field1107: String = "",
+            field1108: String = "",
+            field1109: String = "",
+            field1110: String = "",
+            field1111: String = "",
+            field1112: String = "",
+            field1113: String = "",
+            field1114: String = "",
+            field1115: String = "",
+            field1116: String = "",
+            field1117: String = "",
+            field1118: String = "",
+            field1119: String = "",
+            field1120: String = "",
+            field1121: String = "",
+            field1122: String = "",
+            field1123: String = "",
+            field1124: String = "",
+            field1125: String = "",
+            field1126: String = "",
+            field1127: String = "",
+            field1128: String = "",
+            field1129: String = "",
+            field1130: String = "",
+            field1131: String = "",
+            field1132: String = "",
+            field1133: String = "",
+            field1134: String = "",
+            field1135: String = "",
+            field1136: String = "",
+            field1137: String = "",
+            field1138: String = "",
+            field1139: String = "",
+            field1140: String = "",
+            field1141: String = "",
+            field1142: String = "",
+            field1143: String = "",
+            field1144: String = "",
+            field1145: String = "",
+            field1146: String = "",
+            field1147: String = "",
+            field1148: String = "",
+            field1149: String = "",
+            field1150: String = "",
+            field1151: String = "",
+            field1152: String = "",
+            field1153: String = "",
+            field1154: String = "",
+            field1155: String = "",
+            field1156: String = "",
+            field1157: String = "",
+            field1158: String = "",
+            field1159: String = "",
+            field1160: String = "",
+            field1161: String = "",
+            field1162: String = "",
+            field1163: String = "",
+            field1164: String = "",
+            field1165: String = "",
+            field1166: String = "",
+            field1167: String = "",
+            field1168: String = "",
+            field1169: String = "",
+            field1170: String = "",
+            field1171: String = "",
+            field1172: String = "",
+            field1173: String = "",
+            field1174: String = "",
+            field1175: String = "",
+            field1176: String = "",
+            field1177: String = "",
+            field1178: String = "",
+            field1179: String = "",
+            field1180: String = "",
+            field1181: String = "",
+            field1182: String = "",
+            field1183: String = "",
+            field1184: String = "",
+            field1185: String = "",
+            field1186: String = "",
+            field1187: String = "",
+            field1188: String = "",
+            field1189: String = "",
+            field1190: String = "",
+            field1191: String = "",
+            field1192: String = "",
+            field1193: String = "",
+            field1194: String = "",
+            field1195: String = "",
+            field1196: String = "",
+            field1197: String = "",
+            field1198: String = "",
+            field1199: String = "",
+            field1200: String = "",
+            field1201: String = "",
+            field1202: String = "",
+            field1203: String = "",
+            field1204: String = "",
+            field1205: String = "",
+            field1206: String = "",
+            field1207: String = "",
+            field1208: String = "",
+            field1209: String = "",
+            field1210: String = "",
+            field1211: String = "",
+            field1212: String = "",
+            field1213: String = "",
+            field1214: String = "",
+            field1215: String = "",
+            field1216: String = "",
+            field1217: String = "",
+            field1218: String = "",
+            field1219: String = "",
+            field1220: String = "",
+            field1221: String = "",
+            field1222: String = "",
+            field1223: String = "",
+            field1224: String = "",
+            field1225: String = "",
+            field1226: String = "",
+            field1227: String = "",
+            field1228: String = "",
+            field1229: String = "",
+            field1230: String = "",
+            field1231: String = "",
+            field1232: String = "",
+            field1233: String = "",
+            field1234: String = "",
+            field1235: String = "",
+            field1236: String = "",
+            field1237: String = "",
+            field1238: String = "",
+            field1239: String = "",
+            field1240: String = "",
+            field1241: String = "",
+            field1242: String = "",
+            field1243: String = "",
+            field1244: String = "",
+            field1245: String = "",
+            field1246: String = "",
+            field1247: String = "",
+            field1248: String = "",
+            field1249: String = "",
+            field1250: String = "",
+            field1251: String = "",
+            field1252: String = "",
+            field1253: String = "",
+            field1254: String = "",
+            field1255: String = "",
+            field1256: String = "",
+            field1257: String = "",
+            field1258: String = "",
+            field1259: String = "",
+            field1260: String = "",
+            field1261: String = "",
+            field1262: String = "",
+            field1263: String = "",
+            field1264: String = "",
+            field1265: String = "",
+            field1266: String = "",
+            field1267: String = "",
+            field1268: String = "",
+            field1269: String = "",
+            field1270: String = "",
+            field1271: String = "",
+            field1272: String = "",
+            field1273: String = "",
+            field1274: String = "",
+            field1275: String = "",
+            field1276: String = "",
+            field1277: String = "",
+            field1278: String = "",
+            field1279: String = "",
+            field1280: String = "",
+            field1281: String = "",
+            field1282: String = "",
+            field1283: String = "",
+            field1284: String = "",
+            field1285: String = "",
+            field1286: String = "",
+            field1287: String = "",
+            field1288: String = "",
+            field1289: String = "",
+            field1290: String = "",
+            field1291: String = "",
+            field1292: String = "",
+            field1293: String = "",
+            field1294: String = "",
+            field1295: String = "",
+            field1296: String = "",
+            field1297: String = "",
+            field1298: String = "",
+            field1299: String = "",
+            field1300: String = "",
+            field1301: String = "",
+            field1302: String = "",
+            field1303: String = "",
+            field1304: String = "",
+            field1305: String = "",
+            field1306: String = "",
+            field1307: String = "",
+            field1308: String = "",
+            field1309: String = "",
+            field1310: String = "",
+            field1311: String = "",
+            field1312: String = "",
+            field1313: String = "",
+            field1314: String = "",
+            field1315: String = "",
+            field1316: String = "",
+            field1317: String = "",
+            field1318: String = "",
+            field1319: String = "",
+            field1320: String = "",
+            field1321: String = "",
+            field1322: String = "",
+            field1323: String = "",
+            field1324: String = "",
+            field1325: String = "",
+            field1326: String = "",
+            field1327: String = "",
+            field1328: String = "",
+            field1329: String = "",
+            field1330: String = "",
+            field1331: String = "",
+            field1332: String = "",
+            field1333: String = "",
+            field1334: String = "",
+            field1335: String = "",
+            field1336: String = "",
+            field1337: String = "",
+            field1338: String = "",
+            field1339: String = "",
+            field1340: String = "",
+            field1341: String = "",
+            field1342: String = "",
+            field1343: String = "",
+            field1344: String = "",
+            field1345: String = "",
+            field1346: String = "",
+            field1347: String = "",
+            field1348: String = "",
+            field1349: String = "",
+            field1350: String = "",
+            field1351: String = "",
+            field1352: String = "",
+            field1353: String = "",
+            field1354: String = "",
+            field1355: String = "",
+            field1356: String = "",
+            field1357: String = "",
+            field1358: String = "",
+            field1359: String = "",
+            field1360: String = "",
+            field1361: String = "",
+            field1362: String = "",
+            field1363: String = "",
+            field1364: String = "",
+            field1365: String = "",
+            field1366: String = "",
+            field1367: String = "",
+            field1368: String = "",
+            field1369: String = "",
+            field1370: String = "",
+            field1371: String = "",
+            field1372: String = "",
+            field1373: String = "",
+            field1374: String = "",
+            field1375: String = "",
+            field1376: String = "",
+            field1377: String = "",
+            field1378: String = "",
+            field1379: String = "",
+            field1380: String = "",
+            field1381: String = "",
+            field1382: String = "",
+            field1383: String = "",
+            field1384: String = "",
+            field1385: String = "",
+            field1386: String = "",
+            field1387: String = "",
+            field1388: String = "",
+            field1389: String = "",
+            field1390: String = "",
+            field1391: String = "",
+            field1392: String = "",
+            field1393: String = "",
+            field1394: String = "",
+            field1395: String = "",
+            field1396: String = "",
+            field1397: String = "",
+            field1398: String = "",
+            field1399: String = "",
+            field1400: String = "",
+            field1401: String = "",
+            field1402: String = "",
+            field1403: String = "",
+            field1404: String = "",
+            field1405: String = "",
+            field1406: String = "",
+            field1407: String = "",
+            field1408: String = "",
+            field1409: String = "",
+            field1410: String = "",
+            field1411: String = "",
+            field1412: String = "",
+            field1413: String = "",
+            field1414: String = "",
+            field1415: String = "",
+            field1416: String = "",
+            field1417: String = "",
+            field1418: String = "",
+            field1419: String = "",
+            field1420: String = "",
+            field1421: String = "",
+            field1422: String = "",
+            field1423: String = "",
+            field1424: String = "",
+            field1425: String = "",
+            field1426: String = "",
+            field1427: String = "",
+            field1428: String = "",
+            field1429: String = "",
+            field1430: String = "",
+            field1431: String = "",
+            field1432: String = "",
+            field1433: String = "",
+            field1434: String = "",
+            field1435: String = "",
+            field1436: String = "",
+            field1437: String = "",
+            field1438: String = "",
+            field1439: String = "",
+            field1440: String = "",
+            field1441: String = "",
+            field1442: String = "",
+            field1443: String = "",
+            field1444: String = "",
+            field1445: String = "",
+            field1446: String = "",
+            field1447: String = "",
+            field1448: String = "",
+            field1449: String = "",
+            field1450: String = "",
+            field1451: String = "",
+            field1452: String = "",
+            field1453: String = "",
+            field1454: String = "",
+            field1455: String = "",
+            field1456: String = "",
+            field1457: String = "",
+            field1458: String = "",
+            field1459: String = "",
+            field1460: String = "",
+            field1461: String = "",
+            field1462: String = "",
+            field1463: String = "",
+            field1464: String = "",
+            field1465: String = "",
+            field1466: String = "",
+            field1467: String = "",
+            field1468: String = "",
+            field1469: String = "",
+            field1470: String = "",
+            field1471: String = "",
+            field1472: String = "",
+            field1473: String = "",
+            field1474: String = "",
+            field1475: String = "",
+            field1476: String = "",
+            field1477: String = "",
+            field1478: String = "",
+            field1479: String = "",
+            field1480: String = "",
+            field1481: String = "",
+            field1482: String = "",
+            field1483: String = "",
+            field1484: String = "",
+            field1485: String = "",
+            field1486: String = "",
+            field1487: String = "",
+            field1488: String = "",
+            field1489: String = "",
+            field1490: String = "",
+            field1491: String = "",
+            field1492: String = "",
+            field1493: String = "",
+            field1494: String = "",
+            field1495: String = "",
+            field1496: String = "",
+            field1497: String = "",
+            field1498: String = "",
+            field1499: String = "",
+            field1500: String = "",
+            field1501: String = "",
+            field1502: String = "",
+            field1503: String = "",
+            field1504: String = "",
+            field1505: String = "",
+            field1506: String = "",
+            field1507: String = "",
+            field1508: String = "",
+            field1509: String = "",
+            field1510: String = "",
+            field1511: String = "",
+            field1512: String = "",
+            field1513: String = "",
+            field1514: String = "",
+            field1515: String = "",
+            field1516: String = "",
+            field1517: String = "",
+            field1518: String = "",
+            field1519: String = "",
+            field1520: String = "",
+            field1521: String = "",
+            field1522: String = "",
+            field1523: String = "",
+            field1524: String = "",
+            field1525: String = "",
+            field1526: String = "",
+            field1527: String = "",
+            field1528: String = "",
+            field1529: String = "",
+            field1530: String = "",
+            field1531: String = "",
+            field1532: String = "",
+            field1533: String = "",
+            field1534: String = "",
+            field1535: String = "",
+            field1536: String = "",
+            field1537: String = "",
+            field1538: String = "",
+            field1539: String = "",
+            field1540: String = "",
+            field1541: String = "",
+            field1542: String = "",
+            field1543: String = "",
+            field1544: String = "",
+            field1545: String = "",
+            field1546: String = "",
+            field1547: String = "",
+            field1548: String = "",
+            field1549: String = "",
+            field1550: String = "",
+            field1551: String = "",
+            field1552: String = "",
+            field1553: String = "",
+            field1554: String = "",
+            field1555: String = "",
+            field1556: String = "",
+            field1557: String = "",
+            field1558: String = "",
+            field1559: String = "",
+            field1560: String = "",
+            field1561: String = "",
+            field1562: String = "",
+            field1563: String = "",
+            field1564: String = "",
+            field1565: String = "",
+            field1566: String = "",
+            field1567: String = "",
+            field1568: String = "",
+            field1569: String = "",
+            field1570: String = "",
+            field1571: String = "",
+            field1572: String = "",
+            field1573: String = "",
+            field1574: String = "",
+            field1575: String = "",
+            field1576: String = "",
+            field1577: String = "",
+            field1578: String = "",
+            field1579: String = "",
+            field1580: String = "",
+            field1581: String = "",
+            field1582: String = "",
+            field1583: String = "",
+            field1584: String = "",
+            field1585: String = "",
+            field1586: String = "",
+            field1587: String = "",
+            field1588: String = "",
+            field1589: String = "",
+            field1590: String = "",
+            field1591: String = "",
+            field1592: String = "",
+            field1593: String = "",
+            field1594: String = "",
+            field1595: String = "",
+            field1596: String = "",
+            field1597: String = "",
+            field1598: String = "",
+            field1599: String = "",
+            field1600: String = "",
+            field1601: String = "",
+            field1602: String = "",
+            field1603: String = "",
+            field1604: String = "",
+            field1605: String = "",
+            field1606: String = "",
+            field1607: String = "",
+            field1608: String = "",
+            field1609: String = "",
+            field1610: String = "",
+            field1611: String = "",
+            field1612: String = "",
+            field1613: String = "",
+            field1614: String = "",
+            field1615: String = "",
+            field1616: String = "",
+            field1617: String = "",
+            field1618: String = "",
+            field1619: String = "",
+            field1620: String = "",
+            field1621: String = "",
+            field1622: String = "",
+            field1623: String = "",
+            field1624: String = "",
+            field1625: String = "",
+            field1626: String = "",
+            field1627: String = "",
+            field1628: String = "",
+            field1629: String = "",
+            field1630: String = "",
+            field1631: String = "",
+            field1632: String = "",
+            field1633: String = "",
+            field1634: String = "",
+            field1635: String = "",
+            field1636: String = "",
+            field1637: String = "",
+            field1638: String = "",
+            field1639: String = "",
+            field1640: String = "",
+            field1641: String = "",
+            field1642: String = "",
+            field1643: String = "",
+            field1644: String = "",
+            field1645: String = "",
+            field1646: String = "",
+            field1647: String = "",
+            field1648: String = "",
+            field1649: String = "",
+            field1650: String = "",
+            field1651: String = "",
+            field1652: String = "",
+            field1653: String = "",
+            field1654: String = "",
+            field1655: String = "",
+            field1656: String = "",
+            field1657: String = "",
+            field1658: String = "",
+            field1659: String = "",
+            field1660: String = "",
+            field1661: String = "",
+            field1662: String = "",
+            field1663: String = "",
+            field1664: String = "",
+            field1665: String = "",
+            field1666: String = "",
+            field1667: String = "",
+            field1668: String = "",
+            field1669: String = "",
+            field1670: String = "",
+            field1671: String = "",
+            field1672: String = "",
+            field1673: String = "",
+            field1674: String = "",
+            field1675: String = "",
+            field1676: String = "",
+            field1677: String = "",
+            field1678: String = "",
+            field1679: String = "",
+            field1680: String = "",
+            field1681: String = "",
+            field1682: String = "",
+            field1683: String = "",
+            field1684: String = "",
+            field1685: String = "",
+            field1686: String = "",
+            field1687: String = "",
+            field1688: String = "",
+            field1689: String = "",
+            field1690: String = "",
+            field1691: String = "",
+            field1692: String = "",
+            field1693: String = "",
+            field1694: String = "",
+            field1695: String = "",
+            field1696: String = "",
+            field1697: String = "",
+            field1698: String = "",
+            field1699: String = "",
+            field1700: String = "",
+            field1701: String = "",
+            field1702: String = "",
+            field1703: String = "",
+            field1704: String = "",
+            field1705: String = "",
+            field1706: String = "",
+            field1707: String = "",
+            field1708: String = "",
+            field1709: String = "",
+            field1710: String = "",
+            field1711: String = "",
+            field1712: String = "",
+            field1713: String = "",
+            field1714: String = "",
+            field1715: String = "",
+            field1716: String = "",
+            field1717: String = "",
+            field1718: String = "",
+            field1719: String = "",
+            field1720: String = "",
+            field1721: String = "",
+            field1722: String = "",
+            field1723: String = "",
+            field1724: String = "",
+            field1725: String = "",
+            field1726: String = "",
+            field1727: String = "",
+            field1728: String = "",
+            field1729: String = "",
+            field1730: String = "",
+            field1731: String = "",
+            field1732: String = "",
+            field1733: String = "",
+            field1734: String = "",
+            field1735: String = "",
+            field1736: String = "",
+            field1737: String = "",
+            field1738: String = "",
+            field1739: String = "",
+            field1740: String = "",
+            field1741: String = "",
+            field1742: String = "",
+            field1743: String = "",
+            field1744: String = "",
+            field1745: String = "",
+            field1746: String = "",
+            field1747: String = "",
+            field1748: String = "",
+            field1749: String = "",
+            field1750: String = "",
+            field1751: String = "",
+            field1752: String = "",
+            field1753: String = "",
+            field1754: String = "",
+            field1755: String = "",
+            field1756: String = "",
+            field1757: String = "",
+            field1758: String = "",
+            field1759: String = "",
+            field1760: String = "",
+            field1761: String = "",
+            field1762: String = "",
+            field1763: String = "",
+            field1764: String = "",
+            field1765: String = "",
+            field1766: String = "",
+            field1767: String = "",
+            field1768: String = "",
+            field1769: String = "",
+            field1770: String = "",
+            field1771: String = "",
+            field1772: String = "",
+            field1773: String = "",
+            field1774: String = "",
+            field1775: String = "",
+            field1776: String = "",
+            field1777: String = "",
+            field1778: String = "",
+            field1779: String = "",
+            field1780: String = "",
+            field1781: String = "",
+            field1782: String = "",
+            field1783: String = "",
+            field1784: String = "",
+            field1785: String = "",
+            field1786: String = "",
+            field1787: String = "",
+            field1788: String = "",
+            field1789: String = "",
+            field1790: String = "",
+            field1791: String = "",
+            field1792: String = "",
+            field1793: String = "",
+            field1794: String = "",
+            field1795: String = "",
+            field1796: String = "",
+            field1797: String = "",
+            field1798: String = "",
+            field1799: String = "",
+            field1800: String = "",
+            field1801: String = "",
+            field1802: String = "",
+            field1803: String = "",
+            field1804: String = "",
+            field1805: String = "",
+            field1806: String = "",
+            field1807: String = "",
+            field1808: String = "",
+            field1809: String = "",
+            field1810: String = "",
+            field1811: String = "",
+            field1812: String = "",
+            field1813: String = "",
+            field1814: String = "",
+            field1815: String = "",
+            field1816: String = "",
+            field1817: String = "",
+            field1818: String = "",
+            field1819: String = "",
+            field1820: String = "",
+            field1821: String = "",
+            field1822: String = "",
+            field1823: String = "",
+            field1824: String = "",
+            field1825: String = "",
+            field1826: String = "",
+            field1827: String = "",
+            field1828: String = "",
+            field1829: String = "",
+            field1830: String = "",
+            field1831: String = "",
+            field1832: String = "",
+            field1833: String = "",
+            field1834: String = "",
+            field1835: String = "",
+            field1836: String = "",
+            field1837: String = "",
+            field1838: String = "",
+            field1839: String = "",
+            field1840: String = "",
+            field1841: String = "",
+            field1842: String = "",
+            field1843: String = "",
+            field1844: String = "",
+            field1845: String = "",
+            field1846: String = "",
+            field1847: String = "",
+            field1848: String = "",
+            field1849: String = "",
+            field1850: String = "",
+            field1851: String = "",
+            field1852: String = "",
+            field1853: String = "",
+            field1854: String = "",
+            field1855: String = "",
+            field1856: String = "",
+            field1857: String = "",
+            field1858: String = "",
+            field1859: String = "",
+            field1860: String = "",
+            field1861: String = "",
+            field1862: String = "",
+            field1863: String = "",
+            field1864: String = "",
+            field1865: String = "",
+            field1866: String = "",
+            field1867: String = "",
+            field1868: String = "",
+            field1869: String = "",
+            field1870: String = "",
+            field1871: String = "",
+            field1872: String = "",
+            field1873: String = "",
+            field1874: String = "",
+            field1875: String = "",
+            field1876: String = "",
+            field1877: String = "",
+            field1878: String = "",
+            field1879: String = "",
+            field1880: String = "",
+            field1881: String = "",
+            field1882: String = "",
+            field1883: String = "",
+            field1884: String = "",
+            field1885: String = "",
+            field1886: String = "",
+            field1887: String = "",
+            field1888: String = "",
+            field1889: String = "",
+            field1890: String = "",
+            field1891: String = "",
+            field1892: String = "",
+            field1893: String = "",
+            field1894: String = "",
+            field1895: String = "",
+            field1896: String = "",
+            field1897: String = "",
+            field1898: String = "",
+            field1899: String = "",
+            field1900: String = "",
+            field1901: String = "",
+            field1902: String = "",
+            field1903: String = "",
+            field1904: String = "",
+            field1905: String = "",
+            field1906: String = "",
+            field1907: String = "",
+            field1908: String = "",
+            field1909: String = "",
+            field1910: String = "",
+            field1911: String = "",
+            field1912: String = "",
+            field1913: String = "",
+            field1914: String = "",
+            field1915: String = "",
+            field1916: String = "",
+            field1917: String = "",
+            field1918: String = "",
+            field1919: String = "",
+            field1920: String = "",
+            field1921: String = "",
+            field1922: String = "",
+            field1923: String = "",
+            field1924: String = "",
+            field1925: String = "",
+            field1926: String = "",
+            field1927: String = "",
+            field1928: String = "",
+            field1929: String = "",
+            field1930: String = "",
+            field1931: String = "",
+            field1932: String = "",
+            field1933: String = "",
+            field1934: String = "",
+            field1935: String = "",
+            field1936: String = "",
+            field1937: String = "",
+            field1938: String = "",
+            field1939: String = "",
+            field1940: String = "",
+            field1941: String = "",
+            field1942: String = "",
+            field1943: String = "",
+            field1944: String = "",
+            field1945: String = "",
+            field1946: String = "",
+            field1947: String = "",
+            field1948: String = "",
+            field1949: String = "",
+            field1950: String = "",
+            field1951: String = "",
+            field1952: String = "",
+            field1953: String = "",
+            field1954: String = "",
+            field1955: String = "",
+            field1956: String = "",
+            field1957: String = "",
+            field1958: String = "",
+            field1959: String = "",
+            field1960: String = "",
+            field1961: String = "",
+            field1962: String = "",
+            field1963: String = "",
+            field1964: String = "",
+            field1965: String = "",
+            field1966: String = "",
+            field1967: String = "",
+            field1968: String = "",
+            field1969: String = "",
+            field1970: String = "",
+            field1971: String = "",
+            field1972: String = "",
+            field1973: String = "",
+            field1974: String = "",
+            field1975: String = "",
+            field1976: String = "",
+            field1977: String = "",
+            field1978: String = "",
+            field1979: String = "",
+            field1980: String = "",
+            field1981: String = "",
+            field1982: String = "",
+            field1983: String = "",
+            field1984: String = "",
+            field1985: String = "",
+            field1986: String = "",
+            field1987: String = "",
+            field1988: String = "",
+            field1989: String = "",
+            field1990: String = "",
+            field1991: String = "",
+            field1992: String = "",
+            field1993: String = "",
+            field1994: String = "",
+            field1995: String = "",
+            field1996: String = "",
+            field1997: String = "",
+            field1998: String = "",
+            field1999: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableMessageWithLotsOfFields = MutableMessageWithLotsOfFields_Impl(
+            field1000 = field1000,
+            field1001 = field1001,
+            field1002 = field1002,
+            field1003 = field1003,
+            field1004 = field1004,
+            field1005 = field1005,
+            field1006 = field1006,
+            field1007 = field1007,
+            field1008 = field1008,
+            field1009 = field1009,
+            field1010 = field1010,
+            field1011 = field1011,
+            field1012 = field1012,
+            field1013 = field1013,
+            field1014 = field1014,
+            field1015 = field1015,
+            field1016 = field1016,
+            field1017 = field1017,
+            field1018 = field1018,
+            field1019 = field1019,
+            field1020 = field1020,
+            field1021 = field1021,
+            field1022 = field1022,
+            field1023 = field1023,
+            field1024 = field1024,
+            field1025 = field1025,
+            field1026 = field1026,
+            field1027 = field1027,
+            field1028 = field1028,
+            field1029 = field1029,
+            field1030 = field1030,
+            field1031 = field1031,
+            field1032 = field1032,
+            field1033 = field1033,
+            field1034 = field1034,
+            field1035 = field1035,
+            field1036 = field1036,
+            field1037 = field1037,
+            field1038 = field1038,
+            field1039 = field1039,
+            field1040 = field1040,
+            field1041 = field1041,
+            field1042 = field1042,
+            field1043 = field1043,
+            field1044 = field1044,
+            field1045 = field1045,
+            field1046 = field1046,
+            field1047 = field1047,
+            field1048 = field1048,
+            field1049 = field1049,
+            field1050 = field1050,
+            field1051 = field1051,
+            field1052 = field1052,
+            field1053 = field1053,
+            field1054 = field1054,
+            field1055 = field1055,
+            field1056 = field1056,
+            field1057 = field1057,
+            field1058 = field1058,
+            field1059 = field1059,
+            field1060 = field1060,
+            field1061 = field1061,
+            field1062 = field1062,
+            field1063 = field1063,
+            field1064 = field1064,
+            field1065 = field1065,
+            field1066 = field1066,
+            field1067 = field1067,
+            field1068 = field1068,
+            field1069 = field1069,
+            field1070 = field1070,
+            field1071 = field1071,
+            field1072 = field1072,
+            field1073 = field1073,
+            field1074 = field1074,
+            field1075 = field1075,
+            field1076 = field1076,
+            field1077 = field1077,
+            field1078 = field1078,
+            field1079 = field1079,
+            field1080 = field1080,
+            field1081 = field1081,
+            field1082 = field1082,
+            field1083 = field1083,
+            field1084 = field1084,
+            field1085 = field1085,
+            field1086 = field1086,
+            field1087 = field1087,
+            field1088 = field1088,
+            field1089 = field1089,
+            field1090 = field1090,
+            field1091 = field1091,
+            field1092 = field1092,
+            field1093 = field1093,
+            field1094 = field1094,
+            field1095 = field1095,
+            field1096 = field1096,
+            field1097 = field1097,
+            field1098 = field1098,
+            field1099 = field1099,
+            field1100 = field1100,
+            field1101 = field1101,
+            field1102 = field1102,
+            field1103 = field1103,
+            field1104 = field1104,
+            field1105 = field1105,
+            field1106 = field1106,
+            field1107 = field1107,
+            field1108 = field1108,
+            field1109 = field1109,
+            field1110 = field1110,
+            field1111 = field1111,
+            field1112 = field1112,
+            field1113 = field1113,
+            field1114 = field1114,
+            field1115 = field1115,
+            field1116 = field1116,
+            field1117 = field1117,
+            field1118 = field1118,
+            field1119 = field1119,
+            field1120 = field1120,
+            field1121 = field1121,
+            field1122 = field1122,
+            field1123 = field1123,
+            field1124 = field1124,
+            field1125 = field1125,
+            field1126 = field1126,
+            field1127 = field1127,
+            field1128 = field1128,
+            field1129 = field1129,
+            field1130 = field1130,
+            field1131 = field1131,
+            field1132 = field1132,
+            field1133 = field1133,
+            field1134 = field1134,
+            field1135 = field1135,
+            field1136 = field1136,
+            field1137 = field1137,
+            field1138 = field1138,
+            field1139 = field1139,
+            field1140 = field1140,
+            field1141 = field1141,
+            field1142 = field1142,
+            field1143 = field1143,
+            field1144 = field1144,
+            field1145 = field1145,
+            field1146 = field1146,
+            field1147 = field1147,
+            field1148 = field1148,
+            field1149 = field1149,
+            field1150 = field1150,
+            field1151 = field1151,
+            field1152 = field1152,
+            field1153 = field1153,
+            field1154 = field1154,
+            field1155 = field1155,
+            field1156 = field1156,
+            field1157 = field1157,
+            field1158 = field1158,
+            field1159 = field1159,
+            field1160 = field1160,
+            field1161 = field1161,
+            field1162 = field1162,
+            field1163 = field1163,
+            field1164 = field1164,
+            field1165 = field1165,
+            field1166 = field1166,
+            field1167 = field1167,
+            field1168 = field1168,
+            field1169 = field1169,
+            field1170 = field1170,
+            field1171 = field1171,
+            field1172 = field1172,
+            field1173 = field1173,
+            field1174 = field1174,
+            field1175 = field1175,
+            field1176 = field1176,
+            field1177 = field1177,
+            field1178 = field1178,
+            field1179 = field1179,
+            field1180 = field1180,
+            field1181 = field1181,
+            field1182 = field1182,
+            field1183 = field1183,
+            field1184 = field1184,
+            field1185 = field1185,
+            field1186 = field1186,
+            field1187 = field1187,
+            field1188 = field1188,
+            field1189 = field1189,
+            field1190 = field1190,
+            field1191 = field1191,
+            field1192 = field1192,
+            field1193 = field1193,
+            field1194 = field1194,
+            field1195 = field1195,
+            field1196 = field1196,
+            field1197 = field1197,
+            field1198 = field1198,
+            field1199 = field1199,
+            field1200 = field1200,
+            field1201 = field1201,
+            field1202 = field1202,
+            field1203 = field1203,
+            field1204 = field1204,
+            field1205 = field1205,
+            field1206 = field1206,
+            field1207 = field1207,
+            field1208 = field1208,
+            field1209 = field1209,
+            field1210 = field1210,
+            field1211 = field1211,
+            field1212 = field1212,
+            field1213 = field1213,
+            field1214 = field1214,
+            field1215 = field1215,
+            field1216 = field1216,
+            field1217 = field1217,
+            field1218 = field1218,
+            field1219 = field1219,
+            field1220 = field1220,
+            field1221 = field1221,
+            field1222 = field1222,
+            field1223 = field1223,
+            field1224 = field1224,
+            field1225 = field1225,
+            field1226 = field1226,
+            field1227 = field1227,
+            field1228 = field1228,
+            field1229 = field1229,
+            field1230 = field1230,
+            field1231 = field1231,
+            field1232 = field1232,
+            field1233 = field1233,
+            field1234 = field1234,
+            field1235 = field1235,
+            field1236 = field1236,
+            field1237 = field1237,
+            field1238 = field1238,
+            field1239 = field1239,
+            field1240 = field1240,
+            field1241 = field1241,
+            field1242 = field1242,
+            field1243 = field1243,
+            field1244 = field1244,
+            field1245 = field1245,
+            field1246 = field1246,
+            field1247 = field1247,
+            field1248 = field1248,
+            field1249 = field1249,
+            field1250 = field1250,
+            field1251 = field1251,
+            field1252 = field1252,
+            field1253 = field1253,
+            field1254 = field1254,
+            field1255 = field1255,
+            field1256 = field1256,
+            field1257 = field1257,
+            field1258 = field1258,
+            field1259 = field1259,
+            field1260 = field1260,
+            field1261 = field1261,
+            field1262 = field1262,
+            field1263 = field1263,
+            field1264 = field1264,
+            field1265 = field1265,
+            field1266 = field1266,
+            field1267 = field1267,
+            field1268 = field1268,
+            field1269 = field1269,
+            field1270 = field1270,
+            field1271 = field1271,
+            field1272 = field1272,
+            field1273 = field1273,
+            field1274 = field1274,
+            field1275 = field1275,
+            field1276 = field1276,
+            field1277 = field1277,
+            field1278 = field1278,
+            field1279 = field1279,
+            field1280 = field1280,
+            field1281 = field1281,
+            field1282 = field1282,
+            field1283 = field1283,
+            field1284 = field1284,
+            field1285 = field1285,
+            field1286 = field1286,
+            field1287 = field1287,
+            field1288 = field1288,
+            field1289 = field1289,
+            field1290 = field1290,
+            field1291 = field1291,
+            field1292 = field1292,
+            field1293 = field1293,
+            field1294 = field1294,
+            field1295 = field1295,
+            field1296 = field1296,
+            field1297 = field1297,
+            field1298 = field1298,
+            field1299 = field1299,
+            field1300 = field1300,
+            field1301 = field1301,
+            field1302 = field1302,
+            field1303 = field1303,
+            field1304 = field1304,
+            field1305 = field1305,
+            field1306 = field1306,
+            field1307 = field1307,
+            field1308 = field1308,
+            field1309 = field1309,
+            field1310 = field1310,
+            field1311 = field1311,
+            field1312 = field1312,
+            field1313 = field1313,
+            field1314 = field1314,
+            field1315 = field1315,
+            field1316 = field1316,
+            field1317 = field1317,
+            field1318 = field1318,
+            field1319 = field1319,
+            field1320 = field1320,
+            field1321 = field1321,
+            field1322 = field1322,
+            field1323 = field1323,
+            field1324 = field1324,
+            field1325 = field1325,
+            field1326 = field1326,
+            field1327 = field1327,
+            field1328 = field1328,
+            field1329 = field1329,
+            field1330 = field1330,
+            field1331 = field1331,
+            field1332 = field1332,
+            field1333 = field1333,
+            field1334 = field1334,
+            field1335 = field1335,
+            field1336 = field1336,
+            field1337 = field1337,
+            field1338 = field1338,
+            field1339 = field1339,
+            field1340 = field1340,
+            field1341 = field1341,
+            field1342 = field1342,
+            field1343 = field1343,
+            field1344 = field1344,
+            field1345 = field1345,
+            field1346 = field1346,
+            field1347 = field1347,
+            field1348 = field1348,
+            field1349 = field1349,
+            field1350 = field1350,
+            field1351 = field1351,
+            field1352 = field1352,
+            field1353 = field1353,
+            field1354 = field1354,
+            field1355 = field1355,
+            field1356 = field1356,
+            field1357 = field1357,
+            field1358 = field1358,
+            field1359 = field1359,
+            field1360 = field1360,
+            field1361 = field1361,
+            field1362 = field1362,
+            field1363 = field1363,
+            field1364 = field1364,
+            field1365 = field1365,
+            field1366 = field1366,
+            field1367 = field1367,
+            field1368 = field1368,
+            field1369 = field1369,
+            field1370 = field1370,
+            field1371 = field1371,
+            field1372 = field1372,
+            field1373 = field1373,
+            field1374 = field1374,
+            field1375 = field1375,
+            field1376 = field1376,
+            field1377 = field1377,
+            field1378 = field1378,
+            field1379 = field1379,
+            field1380 = field1380,
+            field1381 = field1381,
+            field1382 = field1382,
+            field1383 = field1383,
+            field1384 = field1384,
+            field1385 = field1385,
+            field1386 = field1386,
+            field1387 = field1387,
+            field1388 = field1388,
+            field1389 = field1389,
+            field1390 = field1390,
+            field1391 = field1391,
+            field1392 = field1392,
+            field1393 = field1393,
+            field1394 = field1394,
+            field1395 = field1395,
+            field1396 = field1396,
+            field1397 = field1397,
+            field1398 = field1398,
+            field1399 = field1399,
+            field1400 = field1400,
+            field1401 = field1401,
+            field1402 = field1402,
+            field1403 = field1403,
+            field1404 = field1404,
+            field1405 = field1405,
+            field1406 = field1406,
+            field1407 = field1407,
+            field1408 = field1408,
+            field1409 = field1409,
+            field1410 = field1410,
+            field1411 = field1411,
+            field1412 = field1412,
+            field1413 = field1413,
+            field1414 = field1414,
+            field1415 = field1415,
+            field1416 = field1416,
+            field1417 = field1417,
+            field1418 = field1418,
+            field1419 = field1419,
+            field1420 = field1420,
+            field1421 = field1421,
+            field1422 = field1422,
+            field1423 = field1423,
+            field1424 = field1424,
+            field1425 = field1425,
+            field1426 = field1426,
+            field1427 = field1427,
+            field1428 = field1428,
+            field1429 = field1429,
+            field1430 = field1430,
+            field1431 = field1431,
+            field1432 = field1432,
+            field1433 = field1433,
+            field1434 = field1434,
+            field1435 = field1435,
+            field1436 = field1436,
+            field1437 = field1437,
+            field1438 = field1438,
+            field1439 = field1439,
+            field1440 = field1440,
+            field1441 = field1441,
+            field1442 = field1442,
+            field1443 = field1443,
+            field1444 = field1444,
+            field1445 = field1445,
+            field1446 = field1446,
+            field1447 = field1447,
+            field1448 = field1448,
+            field1449 = field1449,
+            field1450 = field1450,
+            field1451 = field1451,
+            field1452 = field1452,
+            field1453 = field1453,
+            field1454 = field1454,
+            field1455 = field1455,
+            field1456 = field1456,
+            field1457 = field1457,
+            field1458 = field1458,
+            field1459 = field1459,
+            field1460 = field1460,
+            field1461 = field1461,
+            field1462 = field1462,
+            field1463 = field1463,
+            field1464 = field1464,
+            field1465 = field1465,
+            field1466 = field1466,
+            field1467 = field1467,
+            field1468 = field1468,
+            field1469 = field1469,
+            field1470 = field1470,
+            field1471 = field1471,
+            field1472 = field1472,
+            field1473 = field1473,
+            field1474 = field1474,
+            field1475 = field1475,
+            field1476 = field1476,
+            field1477 = field1477,
+            field1478 = field1478,
+            field1479 = field1479,
+            field1480 = field1480,
+            field1481 = field1481,
+            field1482 = field1482,
+            field1483 = field1483,
+            field1484 = field1484,
+            field1485 = field1485,
+            field1486 = field1486,
+            field1487 = field1487,
+            field1488 = field1488,
+            field1489 = field1489,
+            field1490 = field1490,
+            field1491 = field1491,
+            field1492 = field1492,
+            field1493 = field1493,
+            field1494 = field1494,
+            field1495 = field1495,
+            field1496 = field1496,
+            field1497 = field1497,
+            field1498 = field1498,
+            field1499 = field1499,
+            field1500 = field1500,
+            field1501 = field1501,
+            field1502 = field1502,
+            field1503 = field1503,
+            field1504 = field1504,
+            field1505 = field1505,
+            field1506 = field1506,
+            field1507 = field1507,
+            field1508 = field1508,
+            field1509 = field1509,
+            field1510 = field1510,
+            field1511 = field1511,
+            field1512 = field1512,
+            field1513 = field1513,
+            field1514 = field1514,
+            field1515 = field1515,
+            field1516 = field1516,
+            field1517 = field1517,
+            field1518 = field1518,
+            field1519 = field1519,
+            field1520 = field1520,
+            field1521 = field1521,
+            field1522 = field1522,
+            field1523 = field1523,
+            field1524 = field1524,
+            field1525 = field1525,
+            field1526 = field1526,
+            field1527 = field1527,
+            field1528 = field1528,
+            field1529 = field1529,
+            field1530 = field1530,
+            field1531 = field1531,
+            field1532 = field1532,
+            field1533 = field1533,
+            field1534 = field1534,
+            field1535 = field1535,
+            field1536 = field1536,
+            field1537 = field1537,
+            field1538 = field1538,
+            field1539 = field1539,
+            field1540 = field1540,
+            field1541 = field1541,
+            field1542 = field1542,
+            field1543 = field1543,
+            field1544 = field1544,
+            field1545 = field1545,
+            field1546 = field1546,
+            field1547 = field1547,
+            field1548 = field1548,
+            field1549 = field1549,
+            field1550 = field1550,
+            field1551 = field1551,
+            field1552 = field1552,
+            field1553 = field1553,
+            field1554 = field1554,
+            field1555 = field1555,
+            field1556 = field1556,
+            field1557 = field1557,
+            field1558 = field1558,
+            field1559 = field1559,
+            field1560 = field1560,
+            field1561 = field1561,
+            field1562 = field1562,
+            field1563 = field1563,
+            field1564 = field1564,
+            field1565 = field1565,
+            field1566 = field1566,
+            field1567 = field1567,
+            field1568 = field1568,
+            field1569 = field1569,
+            field1570 = field1570,
+            field1571 = field1571,
+            field1572 = field1572,
+            field1573 = field1573,
+            field1574 = field1574,
+            field1575 = field1575,
+            field1576 = field1576,
+            field1577 = field1577,
+            field1578 = field1578,
+            field1579 = field1579,
+            field1580 = field1580,
+            field1581 = field1581,
+            field1582 = field1582,
+            field1583 = field1583,
+            field1584 = field1584,
+            field1585 = field1585,
+            field1586 = field1586,
+            field1587 = field1587,
+            field1588 = field1588,
+            field1589 = field1589,
+            field1590 = field1590,
+            field1591 = field1591,
+            field1592 = field1592,
+            field1593 = field1593,
+            field1594 = field1594,
+            field1595 = field1595,
+            field1596 = field1596,
+            field1597 = field1597,
+            field1598 = field1598,
+            field1599 = field1599,
+            field1600 = field1600,
+            field1601 = field1601,
+            field1602 = field1602,
+            field1603 = field1603,
+            field1604 = field1604,
+            field1605 = field1605,
+            field1606 = field1606,
+            field1607 = field1607,
+            field1608 = field1608,
+            field1609 = field1609,
+            field1610 = field1610,
+            field1611 = field1611,
+            field1612 = field1612,
+            field1613 = field1613,
+            field1614 = field1614,
+            field1615 = field1615,
+            field1616 = field1616,
+            field1617 = field1617,
+            field1618 = field1618,
+            field1619 = field1619,
+            field1620 = field1620,
+            field1621 = field1621,
+            field1622 = field1622,
+            field1623 = field1623,
+            field1624 = field1624,
+            field1625 = field1625,
+            field1626 = field1626,
+            field1627 = field1627,
+            field1628 = field1628,
+            field1629 = field1629,
+            field1630 = field1630,
+            field1631 = field1631,
+            field1632 = field1632,
+            field1633 = field1633,
+            field1634 = field1634,
+            field1635 = field1635,
+            field1636 = field1636,
+            field1637 = field1637,
+            field1638 = field1638,
+            field1639 = field1639,
+            field1640 = field1640,
+            field1641 = field1641,
+            field1642 = field1642,
+            field1643 = field1643,
+            field1644 = field1644,
+            field1645 = field1645,
+            field1646 = field1646,
+            field1647 = field1647,
+            field1648 = field1648,
+            field1649 = field1649,
+            field1650 = field1650,
+            field1651 = field1651,
+            field1652 = field1652,
+            field1653 = field1653,
+            field1654 = field1654,
+            field1655 = field1655,
+            field1656 = field1656,
+            field1657 = field1657,
+            field1658 = field1658,
+            field1659 = field1659,
+            field1660 = field1660,
+            field1661 = field1661,
+            field1662 = field1662,
+            field1663 = field1663,
+            field1664 = field1664,
+            field1665 = field1665,
+            field1666 = field1666,
+            field1667 = field1667,
+            field1668 = field1668,
+            field1669 = field1669,
+            field1670 = field1670,
+            field1671 = field1671,
+            field1672 = field1672,
+            field1673 = field1673,
+            field1674 = field1674,
+            field1675 = field1675,
+            field1676 = field1676,
+            field1677 = field1677,
+            field1678 = field1678,
+            field1679 = field1679,
+            field1680 = field1680,
+            field1681 = field1681,
+            field1682 = field1682,
+            field1683 = field1683,
+            field1684 = field1684,
+            field1685 = field1685,
+            field1686 = field1686,
+            field1687 = field1687,
+            field1688 = field1688,
+            field1689 = field1689,
+            field1690 = field1690,
+            field1691 = field1691,
+            field1692 = field1692,
+            field1693 = field1693,
+            field1694 = field1694,
+            field1695 = field1695,
+            field1696 = field1696,
+            field1697 = field1697,
+            field1698 = field1698,
+            field1699 = field1699,
+            field1700 = field1700,
+            field1701 = field1701,
+            field1702 = field1702,
+            field1703 = field1703,
+            field1704 = field1704,
+            field1705 = field1705,
+            field1706 = field1706,
+            field1707 = field1707,
+            field1708 = field1708,
+            field1709 = field1709,
+            field1710 = field1710,
+            field1711 = field1711,
+            field1712 = field1712,
+            field1713 = field1713,
+            field1714 = field1714,
+            field1715 = field1715,
+            field1716 = field1716,
+            field1717 = field1717,
+            field1718 = field1718,
+            field1719 = field1719,
+            field1720 = field1720,
+            field1721 = field1721,
+            field1722 = field1722,
+            field1723 = field1723,
+            field1724 = field1724,
+            field1725 = field1725,
+            field1726 = field1726,
+            field1727 = field1727,
+            field1728 = field1728,
+            field1729 = field1729,
+            field1730 = field1730,
+            field1731 = field1731,
+            field1732 = field1732,
+            field1733 = field1733,
+            field1734 = field1734,
+            field1735 = field1735,
+            field1736 = field1736,
+            field1737 = field1737,
+            field1738 = field1738,
+            field1739 = field1739,
+            field1740 = field1740,
+            field1741 = field1741,
+            field1742 = field1742,
+            field1743 = field1743,
+            field1744 = field1744,
+            field1745 = field1745,
+            field1746 = field1746,
+            field1747 = field1747,
+            field1748 = field1748,
+            field1749 = field1749,
+            field1750 = field1750,
+            field1751 = field1751,
+            field1752 = field1752,
+            field1753 = field1753,
+            field1754 = field1754,
+            field1755 = field1755,
+            field1756 = field1756,
+            field1757 = field1757,
+            field1758 = field1758,
+            field1759 = field1759,
+            field1760 = field1760,
+            field1761 = field1761,
+            field1762 = field1762,
+            field1763 = field1763,
+            field1764 = field1764,
+            field1765 = field1765,
+            field1766 = field1766,
+            field1767 = field1767,
+            field1768 = field1768,
+            field1769 = field1769,
+            field1770 = field1770,
+            field1771 = field1771,
+            field1772 = field1772,
+            field1773 = field1773,
+            field1774 = field1774,
+            field1775 = field1775,
+            field1776 = field1776,
+            field1777 = field1777,
+            field1778 = field1778,
+            field1779 = field1779,
+            field1780 = field1780,
+            field1781 = field1781,
+            field1782 = field1782,
+            field1783 = field1783,
+            field1784 = field1784,
+            field1785 = field1785,
+            field1786 = field1786,
+            field1787 = field1787,
+            field1788 = field1788,
+            field1789 = field1789,
+            field1790 = field1790,
+            field1791 = field1791,
+            field1792 = field1792,
+            field1793 = field1793,
+            field1794 = field1794,
+            field1795 = field1795,
+            field1796 = field1796,
+            field1797 = field1797,
+            field1798 = field1798,
+            field1799 = field1799,
+            field1800 = field1800,
+            field1801 = field1801,
+            field1802 = field1802,
+            field1803 = field1803,
+            field1804 = field1804,
+            field1805 = field1805,
+            field1806 = field1806,
+            field1807 = field1807,
+            field1808 = field1808,
+            field1809 = field1809,
+            field1810 = field1810,
+            field1811 = field1811,
+            field1812 = field1812,
+            field1813 = field1813,
+            field1814 = field1814,
+            field1815 = field1815,
+            field1816 = field1816,
+            field1817 = field1817,
+            field1818 = field1818,
+            field1819 = field1819,
+            field1820 = field1820,
+            field1821 = field1821,
+            field1822 = field1822,
+            field1823 = field1823,
+            field1824 = field1824,
+            field1825 = field1825,
+            field1826 = field1826,
+            field1827 = field1827,
+            field1828 = field1828,
+            field1829 = field1829,
+            field1830 = field1830,
+            field1831 = field1831,
+            field1832 = field1832,
+            field1833 = field1833,
+            field1834 = field1834,
+            field1835 = field1835,
+            field1836 = field1836,
+            field1837 = field1837,
+            field1838 = field1838,
+            field1839 = field1839,
+            field1840 = field1840,
+            field1841 = field1841,
+            field1842 = field1842,
+            field1843 = field1843,
+            field1844 = field1844,
+            field1845 = field1845,
+            field1846 = field1846,
+            field1847 = field1847,
+            field1848 = field1848,
+            field1849 = field1849,
+            field1850 = field1850,
+            field1851 = field1851,
+            field1852 = field1852,
+            field1853 = field1853,
+            field1854 = field1854,
+            field1855 = field1855,
+            field1856 = field1856,
+            field1857 = field1857,
+            field1858 = field1858,
+            field1859 = field1859,
+            field1860 = field1860,
+            field1861 = field1861,
+            field1862 = field1862,
+            field1863 = field1863,
+            field1864 = field1864,
+            field1865 = field1865,
+            field1866 = field1866,
+            field1867 = field1867,
+            field1868 = field1868,
+            field1869 = field1869,
+            field1870 = field1870,
+            field1871 = field1871,
+            field1872 = field1872,
+            field1873 = field1873,
+            field1874 = field1874,
+            field1875 = field1875,
+            field1876 = field1876,
+            field1877 = field1877,
+            field1878 = field1878,
+            field1879 = field1879,
+            field1880 = field1880,
+            field1881 = field1881,
+            field1882 = field1882,
+            field1883 = field1883,
+            field1884 = field1884,
+            field1885 = field1885,
+            field1886 = field1886,
+            field1887 = field1887,
+            field1888 = field1888,
+            field1889 = field1889,
+            field1890 = field1890,
+            field1891 = field1891,
+            field1892 = field1892,
+            field1893 = field1893,
+            field1894 = field1894,
+            field1895 = field1895,
+            field1896 = field1896,
+            field1897 = field1897,
+            field1898 = field1898,
+            field1899 = field1899,
+            field1900 = field1900,
+            field1901 = field1901,
+            field1902 = field1902,
+            field1903 = field1903,
+            field1904 = field1904,
+            field1905 = field1905,
+            field1906 = field1906,
+            field1907 = field1907,
+            field1908 = field1908,
+            field1909 = field1909,
+            field1910 = field1910,
+            field1911 = field1911,
+            field1912 = field1912,
+            field1913 = field1913,
+            field1914 = field1914,
+            field1915 = field1915,
+            field1916 = field1916,
+            field1917 = field1917,
+            field1918 = field1918,
+            field1919 = field1919,
+            field1920 = field1920,
+            field1921 = field1921,
+            field1922 = field1922,
+            field1923 = field1923,
+            field1924 = field1924,
+            field1925 = field1925,
+            field1926 = field1926,
+            field1927 = field1927,
+            field1928 = field1928,
+            field1929 = field1929,
+            field1930 = field1930,
+            field1931 = field1931,
+            field1932 = field1932,
+            field1933 = field1933,
+            field1934 = field1934,
+            field1935 = field1935,
+            field1936 = field1936,
+            field1937 = field1937,
+            field1938 = field1938,
+            field1939 = field1939,
+            field1940 = field1940,
+            field1941 = field1941,
+            field1942 = field1942,
+            field1943 = field1943,
+            field1944 = field1944,
+            field1945 = field1945,
+            field1946 = field1946,
+            field1947 = field1947,
+            field1948 = field1948,
+            field1949 = field1949,
+            field1950 = field1950,
+            field1951 = field1951,
+            field1952 = field1952,
+            field1953 = field1953,
+            field1954 = field1954,
+            field1955 = field1955,
+            field1956 = field1956,
+            field1957 = field1957,
+            field1958 = field1958,
+            field1959 = field1959,
+            field1960 = field1960,
+            field1961 = field1961,
+            field1962 = field1962,
+            field1963 = field1963,
+            field1964 = field1964,
+            field1965 = field1965,
+            field1966 = field1966,
+            field1967 = field1967,
+            field1968 = field1968,
+            field1969 = field1969,
+            field1970 = field1970,
+            field1971 = field1971,
+            field1972 = field1972,
+            field1973 = field1973,
+            field1974 = field1974,
+            field1975 = field1975,
+            field1976 = field1976,
+            field1977 = field1977,
+            field1978 = field1978,
+            field1979 = field1979,
+            field1980 = field1980,
+            field1981 = field1981,
+            field1982 = field1982,
+            field1983 = field1983,
+            field1984 = field1984,
+            field1985 = field1985,
+            field1986 = field1986,
+            field1987 = field1987,
+            field1988 = field1988,
+            field1989 = field1989,
+            field1990 = field1990,
+            field1991 = field1991,
+            field1992 = field1992,
+            field1993 = field1993,
+            field1994 = field1994,
+            field1995 = field1995,
+            field1996 = field1996,
+            field1997 = field1997,
+            field1998 = field1998,
+            field1999 = field1999,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableMessageWithLotsOfFields by lazy { MutableMessageWithLotsOfFields() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithLotsOfFields = pbandk.testpb.MessageWithLotsOfFields.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithLotsOfFields> get() = pbandk.testpb.MessageWithLotsOfFields.descriptor
+    }
+}
+
 public sealed interface MessageWithHugeOneof : pbandk.Message {
     public val hugeOneof: HugeOneof<*>?
 
@@ -19090,6 +22110,7 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithHugeOneof> {
+        @Deprecated("Use messageWithHugeOneof { } instead")
         public operator fun invoke(
             hugeOneof: HugeOneof<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -41163,6 +44184,2035 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
     }
 }
 
+public sealed interface MutableMessageWithHugeOneof : MessageWithHugeOneof, pbandk.MutableMessage {
+    public override var hugeOneof: MessageWithHugeOneof.HugeOneof<*>?
+
+    public override var oneof1000: Int?
+    public override var oneof1001: Int?
+    public override var oneof1002: Int?
+    public override var oneof1003: Int?
+    public override var oneof1004: Int?
+    public override var oneof1005: Int?
+    public override var oneof1006: Int?
+    public override var oneof1007: Int?
+    public override var oneof1008: Int?
+    public override var oneof1009: Int?
+    public override var oneof1010: Int?
+    public override var oneof1011: Int?
+    public override var oneof1012: Int?
+    public override var oneof1013: Int?
+    public override var oneof1014: Int?
+    public override var oneof1015: Int?
+    public override var oneof1016: Int?
+    public override var oneof1017: Int?
+    public override var oneof1018: Int?
+    public override var oneof1019: Int?
+    public override var oneof1020: Int?
+    public override var oneof1021: Int?
+    public override var oneof1022: Int?
+    public override var oneof1023: Int?
+    public override var oneof1024: Int?
+    public override var oneof1025: Int?
+    public override var oneof1026: Int?
+    public override var oneof1027: Int?
+    public override var oneof1028: Int?
+    public override var oneof1029: Int?
+    public override var oneof1030: Int?
+    public override var oneof1031: Int?
+    public override var oneof1032: Int?
+    public override var oneof1033: Int?
+    public override var oneof1034: Int?
+    public override var oneof1035: Int?
+    public override var oneof1036: Int?
+    public override var oneof1037: Int?
+    public override var oneof1038: Int?
+    public override var oneof1039: Int?
+    public override var oneof1040: Int?
+    public override var oneof1041: Int?
+    public override var oneof1042: Int?
+    public override var oneof1043: Int?
+    public override var oneof1044: Int?
+    public override var oneof1045: Int?
+    public override var oneof1046: Int?
+    public override var oneof1047: Int?
+    public override var oneof1048: Int?
+    public override var oneof1049: Int?
+    public override var oneof1050: Int?
+    public override var oneof1051: Int?
+    public override var oneof1052: Int?
+    public override var oneof1053: Int?
+    public override var oneof1054: Int?
+    public override var oneof1055: Int?
+    public override var oneof1056: Int?
+    public override var oneof1057: Int?
+    public override var oneof1058: Int?
+    public override var oneof1059: Int?
+    public override var oneof1060: Int?
+    public override var oneof1061: Int?
+    public override var oneof1062: Int?
+    public override var oneof1063: Int?
+    public override var oneof1064: Int?
+    public override var oneof1065: Int?
+    public override var oneof1066: Int?
+    public override var oneof1067: Int?
+    public override var oneof1068: Int?
+    public override var oneof1069: Int?
+    public override var oneof1070: Int?
+    public override var oneof1071: Int?
+    public override var oneof1072: Int?
+    public override var oneof1073: Int?
+    public override var oneof1074: Int?
+    public override var oneof1075: Int?
+    public override var oneof1076: Int?
+    public override var oneof1077: Int?
+    public override var oneof1078: Int?
+    public override var oneof1079: Int?
+    public override var oneof1080: Int?
+    public override var oneof1081: Int?
+    public override var oneof1082: Int?
+    public override var oneof1083: Int?
+    public override var oneof1084: Int?
+    public override var oneof1085: Int?
+    public override var oneof1086: Int?
+    public override var oneof1087: Int?
+    public override var oneof1088: Int?
+    public override var oneof1089: Int?
+    public override var oneof1090: Int?
+    public override var oneof1091: Int?
+    public override var oneof1092: Int?
+    public override var oneof1093: Int?
+    public override var oneof1094: Int?
+    public override var oneof1095: Int?
+    public override var oneof1096: Int?
+    public override var oneof1097: Int?
+    public override var oneof1098: Int?
+    public override var oneof1099: Int?
+    public override var oneof1100: Int?
+    public override var oneof1101: Int?
+    public override var oneof1102: Int?
+    public override var oneof1103: Int?
+    public override var oneof1104: Int?
+    public override var oneof1105: Int?
+    public override var oneof1106: Int?
+    public override var oneof1107: Int?
+    public override var oneof1108: Int?
+    public override var oneof1109: Int?
+    public override var oneof1110: Int?
+    public override var oneof1111: Int?
+    public override var oneof1112: Int?
+    public override var oneof1113: Int?
+    public override var oneof1114: Int?
+    public override var oneof1115: Int?
+    public override var oneof1116: Int?
+    public override var oneof1117: Int?
+    public override var oneof1118: Int?
+    public override var oneof1119: Int?
+    public override var oneof1120: Int?
+    public override var oneof1121: Int?
+    public override var oneof1122: Int?
+    public override var oneof1123: Int?
+    public override var oneof1124: Int?
+    public override var oneof1125: Int?
+    public override var oneof1126: Int?
+    public override var oneof1127: Int?
+    public override var oneof1128: Int?
+    public override var oneof1129: Int?
+    public override var oneof1130: Int?
+    public override var oneof1131: Int?
+    public override var oneof1132: Int?
+    public override var oneof1133: Int?
+    public override var oneof1134: Int?
+    public override var oneof1135: Int?
+    public override var oneof1136: Int?
+    public override var oneof1137: Int?
+    public override var oneof1138: Int?
+    public override var oneof1139: Int?
+    public override var oneof1140: Int?
+    public override var oneof1141: Int?
+    public override var oneof1142: Int?
+    public override var oneof1143: Int?
+    public override var oneof1144: Int?
+    public override var oneof1145: Int?
+    public override var oneof1146: Int?
+    public override var oneof1147: Int?
+    public override var oneof1148: Int?
+    public override var oneof1149: Int?
+    public override var oneof1150: Int?
+    public override var oneof1151: Int?
+    public override var oneof1152: Int?
+    public override var oneof1153: Int?
+    public override var oneof1154: Int?
+    public override var oneof1155: Int?
+    public override var oneof1156: Int?
+    public override var oneof1157: Int?
+    public override var oneof1158: Int?
+    public override var oneof1159: Int?
+    public override var oneof1160: Int?
+    public override var oneof1161: Int?
+    public override var oneof1162: Int?
+    public override var oneof1163: Int?
+    public override var oneof1164: Int?
+    public override var oneof1165: Int?
+    public override var oneof1166: Int?
+    public override var oneof1167: Int?
+    public override var oneof1168: Int?
+    public override var oneof1169: Int?
+    public override var oneof1170: Int?
+    public override var oneof1171: Int?
+    public override var oneof1172: Int?
+    public override var oneof1173: Int?
+    public override var oneof1174: Int?
+    public override var oneof1175: Int?
+    public override var oneof1176: Int?
+    public override var oneof1177: Int?
+    public override var oneof1178: Int?
+    public override var oneof1179: Int?
+    public override var oneof1180: Int?
+    public override var oneof1181: Int?
+    public override var oneof1182: Int?
+    public override var oneof1183: Int?
+    public override var oneof1184: Int?
+    public override var oneof1185: Int?
+    public override var oneof1186: Int?
+    public override var oneof1187: Int?
+    public override var oneof1188: Int?
+    public override var oneof1189: Int?
+    public override var oneof1190: Int?
+    public override var oneof1191: Int?
+    public override var oneof1192: Int?
+    public override var oneof1193: Int?
+    public override var oneof1194: Int?
+    public override var oneof1195: Int?
+    public override var oneof1196: Int?
+    public override var oneof1197: Int?
+    public override var oneof1198: Int?
+    public override var oneof1199: Int?
+    public override var oneof1200: Int?
+    public override var oneof1201: Int?
+    public override var oneof1202: Int?
+    public override var oneof1203: Int?
+    public override var oneof1204: Int?
+    public override var oneof1205: Int?
+    public override var oneof1206: Int?
+    public override var oneof1207: Int?
+    public override var oneof1208: Int?
+    public override var oneof1209: Int?
+    public override var oneof1210: Int?
+    public override var oneof1211: Int?
+    public override var oneof1212: Int?
+    public override var oneof1213: Int?
+    public override var oneof1214: Int?
+    public override var oneof1215: Int?
+    public override var oneof1216: Int?
+    public override var oneof1217: Int?
+    public override var oneof1218: Int?
+    public override var oneof1219: Int?
+    public override var oneof1220: Int?
+    public override var oneof1221: Int?
+    public override var oneof1222: Int?
+    public override var oneof1223: Int?
+    public override var oneof1224: Int?
+    public override var oneof1225: Int?
+    public override var oneof1226: Int?
+    public override var oneof1227: Int?
+    public override var oneof1228: Int?
+    public override var oneof1229: Int?
+    public override var oneof1230: Int?
+    public override var oneof1231: Int?
+    public override var oneof1232: Int?
+    public override var oneof1233: Int?
+    public override var oneof1234: Int?
+    public override var oneof1235: Int?
+    public override var oneof1236: Int?
+    public override var oneof1237: Int?
+    public override var oneof1238: Int?
+    public override var oneof1239: Int?
+    public override var oneof1240: Int?
+    public override var oneof1241: Int?
+    public override var oneof1242: Int?
+    public override var oneof1243: Int?
+    public override var oneof1244: Int?
+    public override var oneof1245: Int?
+    public override var oneof1246: Int?
+    public override var oneof1247: Int?
+    public override var oneof1248: Int?
+    public override var oneof1249: Int?
+    public override var oneof1250: Int?
+    public override var oneof1251: Int?
+    public override var oneof1252: Int?
+    public override var oneof1253: Int?
+    public override var oneof1254: Int?
+    public override var oneof1255: Int?
+    public override var oneof1256: Int?
+    public override var oneof1257: Int?
+    public override var oneof1258: Int?
+    public override var oneof1259: Int?
+    public override var oneof1260: Int?
+    public override var oneof1261: Int?
+    public override var oneof1262: Int?
+    public override var oneof1263: Int?
+    public override var oneof1264: Int?
+    public override var oneof1265: Int?
+    public override var oneof1266: Int?
+    public override var oneof1267: Int?
+    public override var oneof1268: Int?
+    public override var oneof1269: Int?
+    public override var oneof1270: Int?
+    public override var oneof1271: Int?
+    public override var oneof1272: Int?
+    public override var oneof1273: Int?
+    public override var oneof1274: Int?
+    public override var oneof1275: Int?
+    public override var oneof1276: Int?
+    public override var oneof1277: Int?
+    public override var oneof1278: Int?
+    public override var oneof1279: Int?
+    public override var oneof1280: Int?
+    public override var oneof1281: Int?
+    public override var oneof1282: Int?
+    public override var oneof1283: Int?
+    public override var oneof1284: Int?
+    public override var oneof1285: Int?
+    public override var oneof1286: Int?
+    public override var oneof1287: Int?
+    public override var oneof1288: Int?
+    public override var oneof1289: Int?
+    public override var oneof1290: Int?
+    public override var oneof1291: Int?
+    public override var oneof1292: Int?
+    public override var oneof1293: Int?
+    public override var oneof1294: Int?
+    public override var oneof1295: Int?
+    public override var oneof1296: Int?
+    public override var oneof1297: Int?
+    public override var oneof1298: Int?
+    public override var oneof1299: Int?
+    public override var oneof1300: Int?
+    public override var oneof1301: Int?
+    public override var oneof1302: Int?
+    public override var oneof1303: Int?
+    public override var oneof1304: Int?
+    public override var oneof1305: Int?
+    public override var oneof1306: Int?
+    public override var oneof1307: Int?
+    public override var oneof1308: Int?
+    public override var oneof1309: Int?
+    public override var oneof1310: Int?
+    public override var oneof1311: Int?
+    public override var oneof1312: Int?
+    public override var oneof1313: Int?
+    public override var oneof1314: Int?
+    public override var oneof1315: Int?
+    public override var oneof1316: Int?
+    public override var oneof1317: Int?
+    public override var oneof1318: Int?
+    public override var oneof1319: Int?
+    public override var oneof1320: Int?
+    public override var oneof1321: Int?
+    public override var oneof1322: Int?
+    public override var oneof1323: Int?
+    public override var oneof1324: Int?
+    public override var oneof1325: Int?
+    public override var oneof1326: Int?
+    public override var oneof1327: Int?
+    public override var oneof1328: Int?
+    public override var oneof1329: Int?
+    public override var oneof1330: Int?
+    public override var oneof1331: Int?
+    public override var oneof1332: Int?
+    public override var oneof1333: Int?
+    public override var oneof1334: Int?
+    public override var oneof1335: Int?
+    public override var oneof1336: Int?
+    public override var oneof1337: Int?
+    public override var oneof1338: Int?
+    public override var oneof1339: Int?
+    public override var oneof1340: Int?
+    public override var oneof1341: Int?
+    public override var oneof1342: Int?
+    public override var oneof1343: Int?
+    public override var oneof1344: Int?
+    public override var oneof1345: Int?
+    public override var oneof1346: Int?
+    public override var oneof1347: Int?
+    public override var oneof1348: Int?
+    public override var oneof1349: Int?
+    public override var oneof1350: Int?
+    public override var oneof1351: Int?
+    public override var oneof1352: Int?
+    public override var oneof1353: Int?
+    public override var oneof1354: Int?
+    public override var oneof1355: Int?
+    public override var oneof1356: Int?
+    public override var oneof1357: Int?
+    public override var oneof1358: Int?
+    public override var oneof1359: Int?
+    public override var oneof1360: Int?
+    public override var oneof1361: Int?
+    public override var oneof1362: Int?
+    public override var oneof1363: Int?
+    public override var oneof1364: Int?
+    public override var oneof1365: Int?
+    public override var oneof1366: Int?
+    public override var oneof1367: Int?
+    public override var oneof1368: Int?
+    public override var oneof1369: Int?
+    public override var oneof1370: Int?
+    public override var oneof1371: Int?
+    public override var oneof1372: Int?
+    public override var oneof1373: Int?
+    public override var oneof1374: Int?
+    public override var oneof1375: Int?
+    public override var oneof1376: Int?
+    public override var oneof1377: Int?
+    public override var oneof1378: Int?
+    public override var oneof1379: Int?
+    public override var oneof1380: Int?
+    public override var oneof1381: Int?
+    public override var oneof1382: Int?
+    public override var oneof1383: Int?
+    public override var oneof1384: Int?
+    public override var oneof1385: Int?
+    public override var oneof1386: Int?
+    public override var oneof1387: Int?
+    public override var oneof1388: Int?
+    public override var oneof1389: Int?
+    public override var oneof1390: Int?
+    public override var oneof1391: Int?
+    public override var oneof1392: Int?
+    public override var oneof1393: Int?
+    public override var oneof1394: Int?
+    public override var oneof1395: Int?
+    public override var oneof1396: Int?
+    public override var oneof1397: Int?
+    public override var oneof1398: Int?
+    public override var oneof1399: Int?
+    public override var oneof1400: Int?
+    public override var oneof1401: Int?
+    public override var oneof1402: Int?
+    public override var oneof1403: Int?
+    public override var oneof1404: Int?
+    public override var oneof1405: Int?
+    public override var oneof1406: Int?
+    public override var oneof1407: Int?
+    public override var oneof1408: Int?
+    public override var oneof1409: Int?
+    public override var oneof1410: Int?
+    public override var oneof1411: Int?
+    public override var oneof1412: Int?
+    public override var oneof1413: Int?
+    public override var oneof1414: Int?
+    public override var oneof1415: Int?
+    public override var oneof1416: Int?
+    public override var oneof1417: Int?
+    public override var oneof1418: Int?
+    public override var oneof1419: Int?
+    public override var oneof1420: Int?
+    public override var oneof1421: Int?
+    public override var oneof1422: Int?
+    public override var oneof1423: Int?
+    public override var oneof1424: Int?
+    public override var oneof1425: Int?
+    public override var oneof1426: Int?
+    public override var oneof1427: Int?
+    public override var oneof1428: Int?
+    public override var oneof1429: Int?
+    public override var oneof1430: Int?
+    public override var oneof1431: Int?
+    public override var oneof1432: Int?
+    public override var oneof1433: Int?
+    public override var oneof1434: Int?
+    public override var oneof1435: Int?
+    public override var oneof1436: Int?
+    public override var oneof1437: Int?
+    public override var oneof1438: Int?
+    public override var oneof1439: Int?
+    public override var oneof1440: Int?
+    public override var oneof1441: Int?
+    public override var oneof1442: Int?
+    public override var oneof1443: Int?
+    public override var oneof1444: Int?
+    public override var oneof1445: Int?
+    public override var oneof1446: Int?
+    public override var oneof1447: Int?
+    public override var oneof1448: Int?
+    public override var oneof1449: Int?
+    public override var oneof1450: Int?
+    public override var oneof1451: Int?
+    public override var oneof1452: Int?
+    public override var oneof1453: Int?
+    public override var oneof1454: Int?
+    public override var oneof1455: Int?
+    public override var oneof1456: Int?
+    public override var oneof1457: Int?
+    public override var oneof1458: Int?
+    public override var oneof1459: Int?
+    public override var oneof1460: Int?
+    public override var oneof1461: Int?
+    public override var oneof1462: Int?
+    public override var oneof1463: Int?
+    public override var oneof1464: Int?
+    public override var oneof1465: Int?
+    public override var oneof1466: Int?
+    public override var oneof1467: Int?
+    public override var oneof1468: Int?
+    public override var oneof1469: Int?
+    public override var oneof1470: Int?
+    public override var oneof1471: Int?
+    public override var oneof1472: Int?
+    public override var oneof1473: Int?
+    public override var oneof1474: Int?
+    public override var oneof1475: Int?
+    public override var oneof1476: Int?
+    public override var oneof1477: Int?
+    public override var oneof1478: Int?
+    public override var oneof1479: Int?
+    public override var oneof1480: Int?
+    public override var oneof1481: Int?
+    public override var oneof1482: Int?
+    public override var oneof1483: Int?
+    public override var oneof1484: Int?
+    public override var oneof1485: Int?
+    public override var oneof1486: Int?
+    public override var oneof1487: Int?
+    public override var oneof1488: Int?
+    public override var oneof1489: Int?
+    public override var oneof1490: Int?
+    public override var oneof1491: Int?
+    public override var oneof1492: Int?
+    public override var oneof1493: Int?
+    public override var oneof1494: Int?
+    public override var oneof1495: Int?
+    public override var oneof1496: Int?
+    public override var oneof1497: Int?
+    public override var oneof1498: Int?
+    public override var oneof1499: Int?
+    public override var oneof1500: Int?
+    public override var oneof1501: Int?
+    public override var oneof1502: Int?
+    public override var oneof1503: Int?
+    public override var oneof1504: Int?
+    public override var oneof1505: Int?
+    public override var oneof1506: Int?
+    public override var oneof1507: Int?
+    public override var oneof1508: Int?
+    public override var oneof1509: Int?
+    public override var oneof1510: Int?
+    public override var oneof1511: Int?
+    public override var oneof1512: Int?
+    public override var oneof1513: Int?
+    public override var oneof1514: Int?
+    public override var oneof1515: Int?
+    public override var oneof1516: Int?
+    public override var oneof1517: Int?
+    public override var oneof1518: Int?
+    public override var oneof1519: Int?
+    public override var oneof1520: Int?
+    public override var oneof1521: Int?
+    public override var oneof1522: Int?
+    public override var oneof1523: Int?
+    public override var oneof1524: Int?
+    public override var oneof1525: Int?
+    public override var oneof1526: Int?
+    public override var oneof1527: Int?
+    public override var oneof1528: Int?
+    public override var oneof1529: Int?
+    public override var oneof1530: Int?
+    public override var oneof1531: Int?
+    public override var oneof1532: Int?
+    public override var oneof1533: Int?
+    public override var oneof1534: Int?
+    public override var oneof1535: Int?
+    public override var oneof1536: Int?
+    public override var oneof1537: Int?
+    public override var oneof1538: Int?
+    public override var oneof1539: Int?
+    public override var oneof1540: Int?
+    public override var oneof1541: Int?
+    public override var oneof1542: Int?
+    public override var oneof1543: Int?
+    public override var oneof1544: Int?
+    public override var oneof1545: Int?
+    public override var oneof1546: Int?
+    public override var oneof1547: Int?
+    public override var oneof1548: Int?
+    public override var oneof1549: Int?
+    public override var oneof1550: Int?
+    public override var oneof1551: Int?
+    public override var oneof1552: Int?
+    public override var oneof1553: Int?
+    public override var oneof1554: Int?
+    public override var oneof1555: Int?
+    public override var oneof1556: Int?
+    public override var oneof1557: Int?
+    public override var oneof1558: Int?
+    public override var oneof1559: Int?
+    public override var oneof1560: Int?
+    public override var oneof1561: Int?
+    public override var oneof1562: Int?
+    public override var oneof1563: Int?
+    public override var oneof1564: Int?
+    public override var oneof1565: Int?
+    public override var oneof1566: Int?
+    public override var oneof1567: Int?
+    public override var oneof1568: Int?
+    public override var oneof1569: Int?
+    public override var oneof1570: Int?
+    public override var oneof1571: Int?
+    public override var oneof1572: Int?
+    public override var oneof1573: Int?
+    public override var oneof1574: Int?
+    public override var oneof1575: Int?
+    public override var oneof1576: Int?
+    public override var oneof1577: Int?
+    public override var oneof1578: Int?
+    public override var oneof1579: Int?
+    public override var oneof1580: Int?
+    public override var oneof1581: Int?
+    public override var oneof1582: Int?
+    public override var oneof1583: Int?
+    public override var oneof1584: Int?
+    public override var oneof1585: Int?
+    public override var oneof1586: Int?
+    public override var oneof1587: Int?
+    public override var oneof1588: Int?
+    public override var oneof1589: Int?
+    public override var oneof1590: Int?
+    public override var oneof1591: Int?
+    public override var oneof1592: Int?
+    public override var oneof1593: Int?
+    public override var oneof1594: Int?
+    public override var oneof1595: Int?
+    public override var oneof1596: Int?
+    public override var oneof1597: Int?
+    public override var oneof1598: Int?
+    public override var oneof1599: Int?
+    public override var oneof1600: Int?
+    public override var oneof1601: Int?
+    public override var oneof1602: Int?
+    public override var oneof1603: Int?
+    public override var oneof1604: Int?
+    public override var oneof1605: Int?
+    public override var oneof1606: Int?
+    public override var oneof1607: Int?
+    public override var oneof1608: Int?
+    public override var oneof1609: Int?
+    public override var oneof1610: Int?
+    public override var oneof1611: Int?
+    public override var oneof1612: Int?
+    public override var oneof1613: Int?
+    public override var oneof1614: Int?
+    public override var oneof1615: Int?
+    public override var oneof1616: Int?
+    public override var oneof1617: Int?
+    public override var oneof1618: Int?
+    public override var oneof1619: Int?
+    public override var oneof1620: Int?
+    public override var oneof1621: Int?
+    public override var oneof1622: Int?
+    public override var oneof1623: Int?
+    public override var oneof1624: Int?
+    public override var oneof1625: Int?
+    public override var oneof1626: Int?
+    public override var oneof1627: Int?
+    public override var oneof1628: Int?
+    public override var oneof1629: Int?
+    public override var oneof1630: Int?
+    public override var oneof1631: Int?
+    public override var oneof1632: Int?
+    public override var oneof1633: Int?
+    public override var oneof1634: Int?
+    public override var oneof1635: Int?
+    public override var oneof1636: Int?
+    public override var oneof1637: Int?
+    public override var oneof1638: Int?
+    public override var oneof1639: Int?
+    public override var oneof1640: Int?
+    public override var oneof1641: Int?
+    public override var oneof1642: Int?
+    public override var oneof1643: Int?
+    public override var oneof1644: Int?
+    public override var oneof1645: Int?
+    public override var oneof1646: Int?
+    public override var oneof1647: Int?
+    public override var oneof1648: Int?
+    public override var oneof1649: Int?
+    public override var oneof1650: Int?
+    public override var oneof1651: Int?
+    public override var oneof1652: Int?
+    public override var oneof1653: Int?
+    public override var oneof1654: Int?
+    public override var oneof1655: Int?
+    public override var oneof1656: Int?
+    public override var oneof1657: Int?
+    public override var oneof1658: Int?
+    public override var oneof1659: Int?
+    public override var oneof1660: Int?
+    public override var oneof1661: Int?
+    public override var oneof1662: Int?
+    public override var oneof1663: Int?
+    public override var oneof1664: Int?
+    public override var oneof1665: Int?
+    public override var oneof1666: Int?
+    public override var oneof1667: Int?
+    public override var oneof1668: Int?
+    public override var oneof1669: Int?
+    public override var oneof1670: Int?
+    public override var oneof1671: Int?
+    public override var oneof1672: Int?
+    public override var oneof1673: Int?
+    public override var oneof1674: Int?
+    public override var oneof1675: Int?
+    public override var oneof1676: Int?
+    public override var oneof1677: Int?
+    public override var oneof1678: Int?
+    public override var oneof1679: Int?
+    public override var oneof1680: Int?
+    public override var oneof1681: Int?
+    public override var oneof1682: Int?
+    public override var oneof1683: Int?
+    public override var oneof1684: Int?
+    public override var oneof1685: Int?
+    public override var oneof1686: Int?
+    public override var oneof1687: Int?
+    public override var oneof1688: Int?
+    public override var oneof1689: Int?
+    public override var oneof1690: Int?
+    public override var oneof1691: Int?
+    public override var oneof1692: Int?
+    public override var oneof1693: Int?
+    public override var oneof1694: Int?
+    public override var oneof1695: Int?
+    public override var oneof1696: Int?
+    public override var oneof1697: Int?
+    public override var oneof1698: Int?
+    public override var oneof1699: Int?
+    public override var oneof1700: Int?
+    public override var oneof1701: Int?
+    public override var oneof1702: Int?
+    public override var oneof1703: Int?
+    public override var oneof1704: Int?
+    public override var oneof1705: Int?
+    public override var oneof1706: Int?
+    public override var oneof1707: Int?
+    public override var oneof1708: Int?
+    public override var oneof1709: Int?
+    public override var oneof1710: Int?
+    public override var oneof1711: Int?
+    public override var oneof1712: Int?
+    public override var oneof1713: Int?
+    public override var oneof1714: Int?
+    public override var oneof1715: Int?
+    public override var oneof1716: Int?
+    public override var oneof1717: Int?
+    public override var oneof1718: Int?
+    public override var oneof1719: Int?
+    public override var oneof1720: Int?
+    public override var oneof1721: Int?
+    public override var oneof1722: Int?
+    public override var oneof1723: Int?
+    public override var oneof1724: Int?
+    public override var oneof1725: Int?
+    public override var oneof1726: Int?
+    public override var oneof1727: Int?
+    public override var oneof1728: Int?
+    public override var oneof1729: Int?
+    public override var oneof1730: Int?
+    public override var oneof1731: Int?
+    public override var oneof1732: Int?
+    public override var oneof1733: Int?
+    public override var oneof1734: Int?
+    public override var oneof1735: Int?
+    public override var oneof1736: Int?
+    public override var oneof1737: Int?
+    public override var oneof1738: Int?
+    public override var oneof1739: Int?
+    public override var oneof1740: Int?
+    public override var oneof1741: Int?
+    public override var oneof1742: Int?
+    public override var oneof1743: Int?
+    public override var oneof1744: Int?
+    public override var oneof1745: Int?
+    public override var oneof1746: Int?
+    public override var oneof1747: Int?
+    public override var oneof1748: Int?
+    public override var oneof1749: Int?
+    public override var oneof1750: Int?
+    public override var oneof1751: Int?
+    public override var oneof1752: Int?
+    public override var oneof1753: Int?
+    public override var oneof1754: Int?
+    public override var oneof1755: Int?
+    public override var oneof1756: Int?
+    public override var oneof1757: Int?
+    public override var oneof1758: Int?
+    public override var oneof1759: Int?
+    public override var oneof1760: Int?
+    public override var oneof1761: Int?
+    public override var oneof1762: Int?
+    public override var oneof1763: Int?
+    public override var oneof1764: Int?
+    public override var oneof1765: Int?
+    public override var oneof1766: Int?
+    public override var oneof1767: Int?
+    public override var oneof1768: Int?
+    public override var oneof1769: Int?
+    public override var oneof1770: Int?
+    public override var oneof1771: Int?
+    public override var oneof1772: Int?
+    public override var oneof1773: Int?
+    public override var oneof1774: Int?
+    public override var oneof1775: Int?
+    public override var oneof1776: Int?
+    public override var oneof1777: Int?
+    public override var oneof1778: Int?
+    public override var oneof1779: Int?
+    public override var oneof1780: Int?
+    public override var oneof1781: Int?
+    public override var oneof1782: Int?
+    public override var oneof1783: Int?
+    public override var oneof1784: Int?
+    public override var oneof1785: Int?
+    public override var oneof1786: Int?
+    public override var oneof1787: Int?
+    public override var oneof1788: Int?
+    public override var oneof1789: Int?
+    public override var oneof1790: Int?
+    public override var oneof1791: Int?
+    public override var oneof1792: Int?
+    public override var oneof1793: Int?
+    public override var oneof1794: Int?
+    public override var oneof1795: Int?
+    public override var oneof1796: Int?
+    public override var oneof1797: Int?
+    public override var oneof1798: Int?
+    public override var oneof1799: Int?
+    public override var oneof1800: Int?
+    public override var oneof1801: Int?
+    public override var oneof1802: Int?
+    public override var oneof1803: Int?
+    public override var oneof1804: Int?
+    public override var oneof1805: Int?
+    public override var oneof1806: Int?
+    public override var oneof1807: Int?
+    public override var oneof1808: Int?
+    public override var oneof1809: Int?
+    public override var oneof1810: Int?
+    public override var oneof1811: Int?
+    public override var oneof1812: Int?
+    public override var oneof1813: Int?
+    public override var oneof1814: Int?
+    public override var oneof1815: Int?
+    public override var oneof1816: Int?
+    public override var oneof1817: Int?
+    public override var oneof1818: Int?
+    public override var oneof1819: Int?
+    public override var oneof1820: Int?
+    public override var oneof1821: Int?
+    public override var oneof1822: Int?
+    public override var oneof1823: Int?
+    public override var oneof1824: Int?
+    public override var oneof1825: Int?
+    public override var oneof1826: Int?
+    public override var oneof1827: Int?
+    public override var oneof1828: Int?
+    public override var oneof1829: Int?
+    public override var oneof1830: Int?
+    public override var oneof1831: Int?
+    public override var oneof1832: Int?
+    public override var oneof1833: Int?
+    public override var oneof1834: Int?
+    public override var oneof1835: Int?
+    public override var oneof1836: Int?
+    public override var oneof1837: Int?
+    public override var oneof1838: Int?
+    public override var oneof1839: Int?
+    public override var oneof1840: Int?
+    public override var oneof1841: Int?
+    public override var oneof1842: Int?
+    public override var oneof1843: Int?
+    public override var oneof1844: Int?
+    public override var oneof1845: Int?
+    public override var oneof1846: Int?
+    public override var oneof1847: Int?
+    public override var oneof1848: Int?
+    public override var oneof1849: Int?
+    public override var oneof1850: Int?
+    public override var oneof1851: Int?
+    public override var oneof1852: Int?
+    public override var oneof1853: Int?
+    public override var oneof1854: Int?
+    public override var oneof1855: Int?
+    public override var oneof1856: Int?
+    public override var oneof1857: Int?
+    public override var oneof1858: Int?
+    public override var oneof1859: Int?
+    public override var oneof1860: Int?
+    public override var oneof1861: Int?
+    public override var oneof1862: Int?
+    public override var oneof1863: Int?
+    public override var oneof1864: Int?
+    public override var oneof1865: Int?
+    public override var oneof1866: Int?
+    public override var oneof1867: Int?
+    public override var oneof1868: Int?
+    public override var oneof1869: Int?
+    public override var oneof1870: Int?
+    public override var oneof1871: Int?
+    public override var oneof1872: Int?
+    public override var oneof1873: Int?
+    public override var oneof1874: Int?
+    public override var oneof1875: Int?
+    public override var oneof1876: Int?
+    public override var oneof1877: Int?
+    public override var oneof1878: Int?
+    public override var oneof1879: Int?
+    public override var oneof1880: Int?
+    public override var oneof1881: Int?
+    public override var oneof1882: Int?
+    public override var oneof1883: Int?
+    public override var oneof1884: Int?
+    public override var oneof1885: Int?
+    public override var oneof1886: Int?
+    public override var oneof1887: Int?
+    public override var oneof1888: Int?
+    public override var oneof1889: Int?
+    public override var oneof1890: Int?
+    public override var oneof1891: Int?
+    public override var oneof1892: Int?
+    public override var oneof1893: Int?
+    public override var oneof1894: Int?
+    public override var oneof1895: Int?
+    public override var oneof1896: Int?
+    public override var oneof1897: Int?
+    public override var oneof1898: Int?
+    public override var oneof1899: Int?
+    public override var oneof1900: Int?
+    public override var oneof1901: Int?
+    public override var oneof1902: Int?
+    public override var oneof1903: Int?
+    public override var oneof1904: Int?
+    public override var oneof1905: Int?
+    public override var oneof1906: Int?
+    public override var oneof1907: Int?
+    public override var oneof1908: Int?
+    public override var oneof1909: Int?
+    public override var oneof1910: Int?
+    public override var oneof1911: Int?
+    public override var oneof1912: Int?
+    public override var oneof1913: Int?
+    public override var oneof1914: Int?
+    public override var oneof1915: Int?
+    public override var oneof1916: Int?
+    public override var oneof1917: Int?
+    public override var oneof1918: Int?
+    public override var oneof1919: Int?
+    public override var oneof1920: Int?
+    public override var oneof1921: Int?
+    public override var oneof1922: Int?
+    public override var oneof1923: Int?
+    public override var oneof1924: Int?
+    public override var oneof1925: Int?
+    public override var oneof1926: Int?
+    public override var oneof1927: Int?
+    public override var oneof1928: Int?
+    public override var oneof1929: Int?
+    public override var oneof1930: Int?
+    public override var oneof1931: Int?
+    public override var oneof1932: Int?
+    public override var oneof1933: Int?
+    public override var oneof1934: Int?
+    public override var oneof1935: Int?
+    public override var oneof1936: Int?
+    public override var oneof1937: Int?
+    public override var oneof1938: Int?
+    public override var oneof1939: Int?
+    public override var oneof1940: Int?
+    public override var oneof1941: Int?
+    public override var oneof1942: Int?
+    public override var oneof1943: Int?
+    public override var oneof1944: Int?
+    public override var oneof1945: Int?
+    public override var oneof1946: Int?
+    public override var oneof1947: Int?
+    public override var oneof1948: Int?
+    public override var oneof1949: Int?
+    public override var oneof1950: Int?
+    public override var oneof1951: Int?
+    public override var oneof1952: Int?
+    public override var oneof1953: Int?
+    public override var oneof1954: Int?
+    public override var oneof1955: Int?
+    public override var oneof1956: Int?
+    public override var oneof1957: Int?
+    public override var oneof1958: Int?
+    public override var oneof1959: Int?
+    public override var oneof1960: Int?
+    public override var oneof1961: Int?
+    public override var oneof1962: Int?
+    public override var oneof1963: Int?
+    public override var oneof1964: Int?
+    public override var oneof1965: Int?
+    public override var oneof1966: Int?
+    public override var oneof1967: Int?
+    public override var oneof1968: Int?
+    public override var oneof1969: Int?
+    public override var oneof1970: Int?
+    public override var oneof1971: Int?
+    public override var oneof1972: Int?
+    public override var oneof1973: Int?
+    public override var oneof1974: Int?
+    public override var oneof1975: Int?
+    public override var oneof1976: Int?
+    public override var oneof1977: Int?
+    public override var oneof1978: Int?
+    public override var oneof1979: Int?
+    public override var oneof1980: Int?
+    public override var oneof1981: Int?
+    public override var oneof1982: Int?
+    public override var oneof1983: Int?
+    public override var oneof1984: Int?
+    public override var oneof1985: Int?
+    public override var oneof1986: Int?
+    public override var oneof1987: Int?
+    public override var oneof1988: Int?
+    public override var oneof1989: Int?
+    public override var oneof1990: Int?
+    public override var oneof1991: Int?
+    public override var oneof1992: Int?
+    public override var oneof1993: Int?
+    public override var oneof1994: Int?
+    public override var oneof1995: Int?
+    public override var oneof1996: Int?
+    public override var oneof1997: Int?
+    public override var oneof1998: Int?
+    public override var oneof1999: Int?
+    public override var oneof2000: Int?
+    public override var oneof2001: Int?
+    public override var oneof2002: Int?
+    public override var oneof2003: Int?
+    public override var oneof2004: Int?
+    public override var oneof2005: Int?
+    public override var oneof2006: Int?
+    public override var oneof2007: Int?
+    public override var oneof2008: Int?
+    public override var oneof2009: Int?
+    public override var oneof2010: Int?
+    public override var oneof2011: Int?
+    public override var oneof2012: Int?
+    public override var oneof2013: Int?
+    public override var oneof2014: Int?
+    public override var oneof2015: Int?
+    public override var oneof2016: Int?
+    public override var oneof2017: Int?
+    public override var oneof2018: Int?
+    public override var oneof2019: Int?
+    public override var oneof2020: Int?
+    public override var oneof2021: Int?
+    public override var oneof2022: Int?
+    public override var oneof2023: Int?
+    public override var oneof2024: Int?
+    public override var oneof2025: Int?
+    public override var oneof2026: Int?
+    public override var oneof2027: Int?
+    public override var oneof2028: Int?
+    public override var oneof2029: Int?
+    public override var oneof2030: Int?
+    public override var oneof2031: Int?
+    public override var oneof2032: Int?
+    public override var oneof2033: Int?
+    public override var oneof2034: Int?
+    public override var oneof2035: Int?
+    public override var oneof2036: Int?
+    public override var oneof2037: Int?
+    public override var oneof2038: Int?
+    public override var oneof2039: Int?
+    public override var oneof2040: Int?
+    public override var oneof2041: Int?
+    public override var oneof2042: Int?
+    public override var oneof2043: Int?
+    public override var oneof2044: Int?
+    public override var oneof2045: Int?
+    public override var oneof2046: Int?
+    public override var oneof2047: Int?
+    public override var oneof2048: Int?
+    public override var oneof2049: Int?
+    public override var oneof2050: Int?
+    public override var oneof2051: Int?
+    public override var oneof2052: Int?
+    public override var oneof2053: Int?
+    public override var oneof2054: Int?
+    public override var oneof2055: Int?
+    public override var oneof2056: Int?
+    public override var oneof2057: Int?
+    public override var oneof2058: Int?
+    public override var oneof2059: Int?
+    public override var oneof2060: Int?
+    public override var oneof2061: Int?
+    public override var oneof2062: Int?
+    public override var oneof2063: Int?
+    public override var oneof2064: Int?
+    public override var oneof2065: Int?
+    public override var oneof2066: Int?
+    public override var oneof2067: Int?
+    public override var oneof2068: Int?
+    public override var oneof2069: Int?
+    public override var oneof2070: Int?
+    public override var oneof2071: Int?
+    public override var oneof2072: Int?
+    public override var oneof2073: Int?
+    public override var oneof2074: Int?
+    public override var oneof2075: Int?
+    public override var oneof2076: Int?
+    public override var oneof2077: Int?
+    public override var oneof2078: Int?
+    public override var oneof2079: Int?
+    public override var oneof2080: Int?
+    public override var oneof2081: Int?
+    public override var oneof2082: Int?
+    public override var oneof2083: Int?
+    public override var oneof2084: Int?
+    public override var oneof2085: Int?
+    public override var oneof2086: Int?
+    public override var oneof2087: Int?
+    public override var oneof2088: Int?
+    public override var oneof2089: Int?
+    public override var oneof2090: Int?
+    public override var oneof2091: Int?
+    public override var oneof2092: Int?
+    public override var oneof2093: Int?
+    public override var oneof2094: Int?
+    public override var oneof2095: Int?
+    public override var oneof2096: Int?
+    public override var oneof2097: Int?
+    public override var oneof2098: Int?
+    public override var oneof2099: Int?
+    public override var oneof2100: Int?
+    public override var oneof2101: Int?
+    public override var oneof2102: Int?
+    public override var oneof2103: Int?
+    public override var oneof2104: Int?
+    public override var oneof2105: Int?
+    public override var oneof2106: Int?
+    public override var oneof2107: Int?
+    public override var oneof2108: Int?
+    public override var oneof2109: Int?
+    public override var oneof2110: Int?
+    public override var oneof2111: Int?
+    public override var oneof2112: Int?
+    public override var oneof2113: Int?
+    public override var oneof2114: Int?
+    public override var oneof2115: Int?
+    public override var oneof2116: Int?
+    public override var oneof2117: Int?
+    public override var oneof2118: Int?
+    public override var oneof2119: Int?
+    public override var oneof2120: Int?
+    public override var oneof2121: Int?
+    public override var oneof2122: Int?
+    public override var oneof2123: Int?
+    public override var oneof2124: Int?
+    public override var oneof2125: Int?
+    public override var oneof2126: Int?
+    public override var oneof2127: Int?
+    public override var oneof2128: Int?
+    public override var oneof2129: Int?
+    public override var oneof2130: Int?
+    public override var oneof2131: Int?
+    public override var oneof2132: Int?
+    public override var oneof2133: Int?
+    public override var oneof2134: Int?
+    public override var oneof2135: Int?
+    public override var oneof2136: Int?
+    public override var oneof2137: Int?
+    public override var oneof2138: Int?
+    public override var oneof2139: Int?
+    public override var oneof2140: Int?
+    public override var oneof2141: Int?
+    public override var oneof2142: Int?
+    public override var oneof2143: Int?
+    public override var oneof2144: Int?
+    public override var oneof2145: Int?
+    public override var oneof2146: Int?
+    public override var oneof2147: Int?
+    public override var oneof2148: Int?
+    public override var oneof2149: Int?
+    public override var oneof2150: Int?
+    public override var oneof2151: Int?
+    public override var oneof2152: Int?
+    public override var oneof2153: Int?
+    public override var oneof2154: Int?
+    public override var oneof2155: Int?
+    public override var oneof2156: Int?
+    public override var oneof2157: Int?
+    public override var oneof2158: Int?
+    public override var oneof2159: Int?
+    public override var oneof2160: Int?
+    public override var oneof2161: Int?
+    public override var oneof2162: Int?
+    public override var oneof2163: Int?
+    public override var oneof2164: Int?
+    public override var oneof2165: Int?
+    public override var oneof2166: Int?
+    public override var oneof2167: Int?
+    public override var oneof2168: Int?
+    public override var oneof2169: Int?
+    public override var oneof2170: Int?
+    public override var oneof2171: Int?
+    public override var oneof2172: Int?
+    public override var oneof2173: Int?
+    public override var oneof2174: Int?
+    public override var oneof2175: Int?
+    public override var oneof2176: Int?
+    public override var oneof2177: Int?
+    public override var oneof2178: Int?
+    public override var oneof2179: Int?
+    public override var oneof2180: Int?
+    public override var oneof2181: Int?
+    public override var oneof2182: Int?
+    public override var oneof2183: Int?
+    public override var oneof2184: Int?
+    public override var oneof2185: Int?
+    public override var oneof2186: Int?
+    public override var oneof2187: Int?
+    public override var oneof2188: Int?
+    public override var oneof2189: Int?
+    public override var oneof2190: Int?
+    public override var oneof2191: Int?
+    public override var oneof2192: Int?
+    public override var oneof2193: Int?
+    public override var oneof2194: Int?
+    public override var oneof2195: Int?
+    public override var oneof2196: Int?
+    public override var oneof2197: Int?
+    public override var oneof2198: Int?
+    public override var oneof2199: Int?
+    public override var oneof2200: Int?
+    public override var oneof2201: Int?
+    public override var oneof2202: Int?
+    public override var oneof2203: Int?
+    public override var oneof2204: Int?
+    public override var oneof2205: Int?
+    public override var oneof2206: Int?
+    public override var oneof2207: Int?
+    public override var oneof2208: Int?
+    public override var oneof2209: Int?
+    public override var oneof2210: Int?
+    public override var oneof2211: Int?
+    public override var oneof2212: Int?
+    public override var oneof2213: Int?
+    public override var oneof2214: Int?
+    public override var oneof2215: Int?
+    public override var oneof2216: Int?
+    public override var oneof2217: Int?
+    public override var oneof2218: Int?
+    public override var oneof2219: Int?
+    public override var oneof2220: Int?
+    public override var oneof2221: Int?
+    public override var oneof2222: Int?
+    public override var oneof2223: Int?
+    public override var oneof2224: Int?
+    public override var oneof2225: Int?
+    public override var oneof2226: Int?
+    public override var oneof2227: Int?
+    public override var oneof2228: Int?
+    public override var oneof2229: Int?
+    public override var oneof2230: Int?
+    public override var oneof2231: Int?
+    public override var oneof2232: Int?
+    public override var oneof2233: Int?
+    public override var oneof2234: Int?
+    public override var oneof2235: Int?
+    public override var oneof2236: Int?
+    public override var oneof2237: Int?
+    public override var oneof2238: Int?
+    public override var oneof2239: Int?
+    public override var oneof2240: Int?
+    public override var oneof2241: Int?
+    public override var oneof2242: Int?
+    public override var oneof2243: Int?
+    public override var oneof2244: Int?
+    public override var oneof2245: Int?
+    public override var oneof2246: Int?
+    public override var oneof2247: Int?
+    public override var oneof2248: Int?
+    public override var oneof2249: Int?
+    public override var oneof2250: Int?
+    public override var oneof2251: Int?
+    public override var oneof2252: Int?
+    public override var oneof2253: Int?
+    public override var oneof2254: Int?
+    public override var oneof2255: Int?
+    public override var oneof2256: Int?
+    public override var oneof2257: Int?
+    public override var oneof2258: Int?
+    public override var oneof2259: Int?
+    public override var oneof2260: Int?
+    public override var oneof2261: Int?
+    public override var oneof2262: Int?
+    public override var oneof2263: Int?
+    public override var oneof2264: Int?
+    public override var oneof2265: Int?
+    public override var oneof2266: Int?
+    public override var oneof2267: Int?
+    public override var oneof2268: Int?
+    public override var oneof2269: Int?
+    public override var oneof2270: Int?
+    public override var oneof2271: Int?
+    public override var oneof2272: Int?
+    public override var oneof2273: Int?
+    public override var oneof2274: Int?
+    public override var oneof2275: Int?
+    public override var oneof2276: Int?
+    public override var oneof2277: Int?
+    public override var oneof2278: Int?
+    public override var oneof2279: Int?
+    public override var oneof2280: Int?
+    public override var oneof2281: Int?
+    public override var oneof2282: Int?
+    public override var oneof2283: Int?
+    public override var oneof2284: Int?
+    public override var oneof2285: Int?
+    public override var oneof2286: Int?
+    public override var oneof2287: Int?
+    public override var oneof2288: Int?
+    public override var oneof2289: Int?
+    public override var oneof2290: Int?
+    public override var oneof2291: Int?
+    public override var oneof2292: Int?
+    public override var oneof2293: Int?
+    public override var oneof2294: Int?
+    public override var oneof2295: Int?
+    public override var oneof2296: Int?
+    public override var oneof2297: Int?
+    public override var oneof2298: Int?
+    public override var oneof2299: Int?
+    public override var oneof2300: Int?
+    public override var oneof2301: Int?
+    public override var oneof2302: Int?
+    public override var oneof2303: Int?
+    public override var oneof2304: Int?
+    public override var oneof2305: Int?
+    public override var oneof2306: Int?
+    public override var oneof2307: Int?
+    public override var oneof2308: Int?
+    public override var oneof2309: Int?
+    public override var oneof2310: Int?
+    public override var oneof2311: Int?
+    public override var oneof2312: Int?
+    public override var oneof2313: Int?
+    public override var oneof2314: Int?
+    public override var oneof2315: Int?
+    public override var oneof2316: Int?
+    public override var oneof2317: Int?
+    public override var oneof2318: Int?
+    public override var oneof2319: Int?
+    public override var oneof2320: Int?
+    public override var oneof2321: Int?
+    public override var oneof2322: Int?
+    public override var oneof2323: Int?
+    public override var oneof2324: Int?
+    public override var oneof2325: Int?
+    public override var oneof2326: Int?
+    public override var oneof2327: Int?
+    public override var oneof2328: Int?
+    public override var oneof2329: Int?
+    public override var oneof2330: Int?
+    public override var oneof2331: Int?
+    public override var oneof2332: Int?
+    public override var oneof2333: Int?
+    public override var oneof2334: Int?
+    public override var oneof2335: Int?
+    public override var oneof2336: Int?
+    public override var oneof2337: Int?
+    public override var oneof2338: Int?
+    public override var oneof2339: Int?
+    public override var oneof2340: Int?
+    public override var oneof2341: Int?
+    public override var oneof2342: Int?
+    public override var oneof2343: Int?
+    public override var oneof2344: Int?
+    public override var oneof2345: Int?
+    public override var oneof2346: Int?
+    public override var oneof2347: Int?
+    public override var oneof2348: Int?
+    public override var oneof2349: Int?
+    public override var oneof2350: Int?
+    public override var oneof2351: Int?
+    public override var oneof2352: Int?
+    public override var oneof2353: Int?
+    public override var oneof2354: Int?
+    public override var oneof2355: Int?
+    public override var oneof2356: Int?
+    public override var oneof2357: Int?
+    public override var oneof2358: Int?
+    public override var oneof2359: Int?
+    public override var oneof2360: Int?
+    public override var oneof2361: Int?
+    public override var oneof2362: Int?
+    public override var oneof2363: Int?
+    public override var oneof2364: Int?
+    public override var oneof2365: Int?
+    public override var oneof2366: Int?
+    public override var oneof2367: Int?
+    public override var oneof2368: Int?
+    public override var oneof2369: Int?
+    public override var oneof2370: Int?
+    public override var oneof2371: Int?
+    public override var oneof2372: Int?
+    public override var oneof2373: Int?
+    public override var oneof2374: Int?
+    public override var oneof2375: Int?
+    public override var oneof2376: Int?
+    public override var oneof2377: Int?
+    public override var oneof2378: Int?
+    public override var oneof2379: Int?
+    public override var oneof2380: Int?
+    public override var oneof2381: Int?
+    public override var oneof2382: Int?
+    public override var oneof2383: Int?
+    public override var oneof2384: Int?
+    public override var oneof2385: Int?
+    public override var oneof2386: Int?
+    public override var oneof2387: Int?
+    public override var oneof2388: Int?
+    public override var oneof2389: Int?
+    public override var oneof2390: Int?
+    public override var oneof2391: Int?
+    public override var oneof2392: Int?
+    public override var oneof2393: Int?
+    public override var oneof2394: Int?
+    public override var oneof2395: Int?
+    public override var oneof2396: Int?
+    public override var oneof2397: Int?
+    public override var oneof2398: Int?
+    public override var oneof2399: Int?
+    public override var oneof2400: Int?
+    public override var oneof2401: Int?
+    public override var oneof2402: Int?
+    public override var oneof2403: Int?
+    public override var oneof2404: Int?
+    public override var oneof2405: Int?
+    public override var oneof2406: Int?
+    public override var oneof2407: Int?
+    public override var oneof2408: Int?
+    public override var oneof2409: Int?
+    public override var oneof2410: Int?
+    public override var oneof2411: Int?
+    public override var oneof2412: Int?
+    public override var oneof2413: Int?
+    public override var oneof2414: Int?
+    public override var oneof2415: Int?
+    public override var oneof2416: Int?
+    public override var oneof2417: Int?
+    public override var oneof2418: Int?
+    public override var oneof2419: Int?
+    public override var oneof2420: Int?
+    public override var oneof2421: Int?
+    public override var oneof2422: Int?
+    public override var oneof2423: Int?
+    public override var oneof2424: Int?
+    public override var oneof2425: Int?
+    public override var oneof2426: Int?
+    public override var oneof2427: Int?
+    public override var oneof2428: Int?
+    public override var oneof2429: Int?
+    public override var oneof2430: Int?
+    public override var oneof2431: Int?
+    public override var oneof2432: Int?
+    public override var oneof2433: Int?
+    public override var oneof2434: Int?
+    public override var oneof2435: Int?
+    public override var oneof2436: Int?
+    public override var oneof2437: Int?
+    public override var oneof2438: Int?
+    public override var oneof2439: Int?
+    public override var oneof2440: Int?
+    public override var oneof2441: Int?
+    public override var oneof2442: Int?
+    public override var oneof2443: Int?
+    public override var oneof2444: Int?
+    public override var oneof2445: Int?
+    public override var oneof2446: Int?
+    public override var oneof2447: Int?
+    public override var oneof2448: Int?
+    public override var oneof2449: Int?
+    public override var oneof2450: Int?
+    public override var oneof2451: Int?
+    public override var oneof2452: Int?
+    public override var oneof2453: Int?
+    public override var oneof2454: Int?
+    public override var oneof2455: Int?
+    public override var oneof2456: Int?
+    public override var oneof2457: Int?
+    public override var oneof2458: Int?
+    public override var oneof2459: Int?
+    public override var oneof2460: Int?
+    public override var oneof2461: Int?
+    public override var oneof2462: Int?
+    public override var oneof2463: Int?
+    public override var oneof2464: Int?
+    public override var oneof2465: Int?
+    public override var oneof2466: Int?
+    public override var oneof2467: Int?
+    public override var oneof2468: Int?
+    public override var oneof2469: Int?
+    public override var oneof2470: Int?
+    public override var oneof2471: Int?
+    public override var oneof2472: Int?
+    public override var oneof2473: Int?
+    public override var oneof2474: Int?
+    public override var oneof2475: Int?
+    public override var oneof2476: Int?
+    public override var oneof2477: Int?
+    public override var oneof2478: Int?
+    public override var oneof2479: Int?
+    public override var oneof2480: Int?
+    public override var oneof2481: Int?
+    public override var oneof2482: Int?
+    public override var oneof2483: Int?
+    public override var oneof2484: Int?
+    public override var oneof2485: Int?
+    public override var oneof2486: Int?
+    public override var oneof2487: Int?
+    public override var oneof2488: Int?
+    public override var oneof2489: Int?
+    public override var oneof2490: Int?
+    public override var oneof2491: Int?
+    public override var oneof2492: Int?
+    public override var oneof2493: Int?
+    public override var oneof2494: Int?
+    public override var oneof2495: Int?
+    public override var oneof2496: Int?
+    public override var oneof2497: Int?
+    public override var oneof2498: Int?
+    public override var oneof2499: Int?
+    public override var oneof2500: Int?
+    public override var oneof2501: Int?
+    public override var oneof2502: Int?
+    public override var oneof2503: Int?
+    public override var oneof2504: Int?
+    public override var oneof2505: Int?
+    public override var oneof2506: Int?
+    public override var oneof2507: Int?
+    public override var oneof2508: Int?
+    public override var oneof2509: Int?
+    public override var oneof2510: Int?
+    public override var oneof2511: Int?
+    public override var oneof2512: Int?
+    public override var oneof2513: Int?
+    public override var oneof2514: Int?
+    public override var oneof2515: Int?
+    public override var oneof2516: Int?
+    public override var oneof2517: Int?
+    public override var oneof2518: Int?
+    public override var oneof2519: Int?
+    public override var oneof2520: Int?
+    public override var oneof2521: Int?
+    public override var oneof2522: Int?
+    public override var oneof2523: Int?
+    public override var oneof2524: Int?
+    public override var oneof2525: Int?
+    public override var oneof2526: Int?
+    public override var oneof2527: Int?
+    public override var oneof2528: Int?
+    public override var oneof2529: Int?
+    public override var oneof2530: Int?
+    public override var oneof2531: Int?
+    public override var oneof2532: Int?
+    public override var oneof2533: Int?
+    public override var oneof2534: Int?
+    public override var oneof2535: Int?
+    public override var oneof2536: Int?
+    public override var oneof2537: Int?
+    public override var oneof2538: Int?
+    public override var oneof2539: Int?
+    public override var oneof2540: Int?
+    public override var oneof2541: Int?
+    public override var oneof2542: Int?
+    public override var oneof2543: Int?
+    public override var oneof2544: Int?
+    public override var oneof2545: Int?
+    public override var oneof2546: Int?
+    public override var oneof2547: Int?
+    public override var oneof2548: Int?
+    public override var oneof2549: Int?
+    public override var oneof2550: Int?
+    public override var oneof2551: Int?
+    public override var oneof2552: Int?
+    public override var oneof2553: Int?
+    public override var oneof2554: Int?
+    public override var oneof2555: Int?
+    public override var oneof2556: Int?
+    public override var oneof2557: Int?
+    public override var oneof2558: Int?
+    public override var oneof2559: Int?
+    public override var oneof2560: Int?
+    public override var oneof2561: Int?
+    public override var oneof2562: Int?
+    public override var oneof2563: Int?
+    public override var oneof2564: Int?
+    public override var oneof2565: Int?
+    public override var oneof2566: Int?
+    public override var oneof2567: Int?
+    public override var oneof2568: Int?
+    public override var oneof2569: Int?
+    public override var oneof2570: Int?
+    public override var oneof2571: Int?
+    public override var oneof2572: Int?
+    public override var oneof2573: Int?
+    public override var oneof2574: Int?
+    public override var oneof2575: Int?
+    public override var oneof2576: Int?
+    public override var oneof2577: Int?
+    public override var oneof2578: Int?
+    public override var oneof2579: Int?
+    public override var oneof2580: Int?
+    public override var oneof2581: Int?
+    public override var oneof2582: Int?
+    public override var oneof2583: Int?
+    public override var oneof2584: Int?
+    public override var oneof2585: Int?
+    public override var oneof2586: Int?
+    public override var oneof2587: Int?
+    public override var oneof2588: Int?
+    public override var oneof2589: Int?
+    public override var oneof2590: Int?
+    public override var oneof2591: Int?
+    public override var oneof2592: Int?
+    public override var oneof2593: Int?
+    public override var oneof2594: Int?
+    public override var oneof2595: Int?
+    public override var oneof2596: Int?
+    public override var oneof2597: Int?
+    public override var oneof2598: Int?
+    public override var oneof2599: Int?
+    public override var oneof2600: Int?
+    public override var oneof2601: Int?
+    public override var oneof2602: Int?
+    public override var oneof2603: Int?
+    public override var oneof2604: Int?
+    public override var oneof2605: Int?
+    public override var oneof2606: Int?
+    public override var oneof2607: Int?
+    public override var oneof2608: Int?
+    public override var oneof2609: Int?
+    public override var oneof2610: Int?
+    public override var oneof2611: Int?
+    public override var oneof2612: Int?
+    public override var oneof2613: Int?
+    public override var oneof2614: Int?
+    public override var oneof2615: Int?
+    public override var oneof2616: Int?
+    public override var oneof2617: Int?
+    public override var oneof2618: Int?
+    public override var oneof2619: Int?
+    public override var oneof2620: Int?
+    public override var oneof2621: Int?
+    public override var oneof2622: Int?
+    public override var oneof2623: Int?
+    public override var oneof2624: Int?
+    public override var oneof2625: Int?
+    public override var oneof2626: Int?
+    public override var oneof2627: Int?
+    public override var oneof2628: Int?
+    public override var oneof2629: Int?
+    public override var oneof2630: Int?
+    public override var oneof2631: Int?
+    public override var oneof2632: Int?
+    public override var oneof2633: Int?
+    public override var oneof2634: Int?
+    public override var oneof2635: Int?
+    public override var oneof2636: Int?
+    public override var oneof2637: Int?
+    public override var oneof2638: Int?
+    public override var oneof2639: Int?
+    public override var oneof2640: Int?
+    public override var oneof2641: Int?
+    public override var oneof2642: Int?
+    public override var oneof2643: Int?
+    public override var oneof2644: Int?
+    public override var oneof2645: Int?
+    public override var oneof2646: Int?
+    public override var oneof2647: Int?
+    public override var oneof2648: Int?
+    public override var oneof2649: Int?
+    public override var oneof2650: Int?
+    public override var oneof2651: Int?
+    public override var oneof2652: Int?
+    public override var oneof2653: Int?
+    public override var oneof2654: Int?
+    public override var oneof2655: Int?
+    public override var oneof2656: Int?
+    public override var oneof2657: Int?
+    public override var oneof2658: Int?
+    public override var oneof2659: Int?
+    public override var oneof2660: Int?
+    public override var oneof2661: Int?
+    public override var oneof2662: Int?
+    public override var oneof2663: Int?
+    public override var oneof2664: Int?
+    public override var oneof2665: Int?
+    public override var oneof2666: Int?
+    public override var oneof2667: Int?
+    public override var oneof2668: Int?
+    public override var oneof2669: Int?
+    public override var oneof2670: Int?
+    public override var oneof2671: Int?
+    public override var oneof2672: Int?
+    public override var oneof2673: Int?
+    public override var oneof2674: Int?
+    public override var oneof2675: Int?
+    public override var oneof2676: Int?
+    public override var oneof2677: Int?
+    public override var oneof2678: Int?
+    public override var oneof2679: Int?
+    public override var oneof2680: Int?
+    public override var oneof2681: Int?
+    public override var oneof2682: Int?
+    public override var oneof2683: Int?
+    public override var oneof2684: Int?
+    public override var oneof2685: Int?
+    public override var oneof2686: Int?
+    public override var oneof2687: Int?
+    public override var oneof2688: Int?
+    public override var oneof2689: Int?
+    public override var oneof2690: Int?
+    public override var oneof2691: Int?
+    public override var oneof2692: Int?
+    public override var oneof2693: Int?
+    public override var oneof2694: Int?
+    public override var oneof2695: Int?
+    public override var oneof2696: Int?
+    public override var oneof2697: Int?
+    public override var oneof2698: Int?
+    public override var oneof2699: Int?
+    public override var oneof2700: Int?
+    public override var oneof2701: Int?
+    public override var oneof2702: Int?
+    public override var oneof2703: Int?
+    public override var oneof2704: Int?
+    public override var oneof2705: Int?
+    public override var oneof2706: Int?
+    public override var oneof2707: Int?
+    public override var oneof2708: Int?
+    public override var oneof2709: Int?
+    public override var oneof2710: Int?
+    public override var oneof2711: Int?
+    public override var oneof2712: Int?
+    public override var oneof2713: Int?
+    public override var oneof2714: Int?
+    public override var oneof2715: Int?
+    public override var oneof2716: Int?
+    public override var oneof2717: Int?
+    public override var oneof2718: Int?
+    public override var oneof2719: Int?
+    public override var oneof2720: Int?
+    public override var oneof2721: Int?
+    public override var oneof2722: Int?
+    public override var oneof2723: Int?
+    public override var oneof2724: Int?
+    public override var oneof2725: Int?
+    public override var oneof2726: Int?
+    public override var oneof2727: Int?
+    public override var oneof2728: Int?
+    public override var oneof2729: Int?
+    public override var oneof2730: Int?
+    public override var oneof2731: Int?
+    public override var oneof2732: Int?
+    public override var oneof2733: Int?
+    public override var oneof2734: Int?
+    public override var oneof2735: Int?
+    public override var oneof2736: Int?
+    public override var oneof2737: Int?
+    public override var oneof2738: Int?
+    public override var oneof2739: Int?
+    public override var oneof2740: Int?
+    public override var oneof2741: Int?
+    public override var oneof2742: Int?
+    public override var oneof2743: Int?
+    public override var oneof2744: Int?
+    public override var oneof2745: Int?
+    public override var oneof2746: Int?
+    public override var oneof2747: Int?
+    public override var oneof2748: Int?
+    public override var oneof2749: Int?
+    public override var oneof2750: Int?
+    public override var oneof2751: Int?
+    public override var oneof2752: Int?
+    public override var oneof2753: Int?
+    public override var oneof2754: Int?
+    public override var oneof2755: Int?
+    public override var oneof2756: Int?
+    public override var oneof2757: Int?
+    public override var oneof2758: Int?
+    public override var oneof2759: Int?
+    public override var oneof2760: Int?
+    public override var oneof2761: Int?
+    public override var oneof2762: Int?
+    public override var oneof2763: Int?
+    public override var oneof2764: Int?
+    public override var oneof2765: Int?
+    public override var oneof2766: Int?
+    public override var oneof2767: Int?
+    public override var oneof2768: Int?
+    public override var oneof2769: Int?
+    public override var oneof2770: Int?
+    public override var oneof2771: Int?
+    public override var oneof2772: Int?
+    public override var oneof2773: Int?
+    public override var oneof2774: Int?
+    public override var oneof2775: Int?
+    public override var oneof2776: Int?
+    public override var oneof2777: Int?
+    public override var oneof2778: Int?
+    public override var oneof2779: Int?
+    public override var oneof2780: Int?
+    public override var oneof2781: Int?
+    public override var oneof2782: Int?
+    public override var oneof2783: Int?
+    public override var oneof2784: Int?
+    public override var oneof2785: Int?
+    public override var oneof2786: Int?
+    public override var oneof2787: Int?
+    public override var oneof2788: Int?
+    public override var oneof2789: Int?
+    public override var oneof2790: Int?
+    public override var oneof2791: Int?
+    public override var oneof2792: Int?
+    public override var oneof2793: Int?
+    public override var oneof2794: Int?
+    public override var oneof2795: Int?
+    public override var oneof2796: Int?
+    public override var oneof2797: Int?
+    public override var oneof2798: Int?
+    public override var oneof2799: Int?
+    public override var oneof2800: Int?
+    public override var oneof2801: Int?
+    public override var oneof2802: Int?
+    public override var oneof2803: Int?
+    public override var oneof2804: Int?
+    public override var oneof2805: Int?
+    public override var oneof2806: Int?
+    public override var oneof2807: Int?
+    public override var oneof2808: Int?
+    public override var oneof2809: Int?
+    public override var oneof2810: Int?
+    public override var oneof2811: Int?
+    public override var oneof2812: Int?
+    public override var oneof2813: Int?
+    public override var oneof2814: Int?
+    public override var oneof2815: Int?
+    public override var oneof2816: Int?
+    public override var oneof2817: Int?
+    public override var oneof2818: Int?
+    public override var oneof2819: Int?
+    public override var oneof2820: Int?
+    public override var oneof2821: Int?
+    public override var oneof2822: Int?
+    public override var oneof2823: Int?
+    public override var oneof2824: Int?
+    public override var oneof2825: Int?
+    public override var oneof2826: Int?
+    public override var oneof2827: Int?
+    public override var oneof2828: Int?
+    public override var oneof2829: Int?
+    public override var oneof2830: Int?
+    public override var oneof2831: Int?
+    public override var oneof2832: Int?
+    public override var oneof2833: Int?
+    public override var oneof2834: Int?
+    public override var oneof2835: Int?
+    public override var oneof2836: Int?
+    public override var oneof2837: Int?
+    public override var oneof2838: Int?
+    public override var oneof2839: Int?
+    public override var oneof2840: Int?
+    public override var oneof2841: Int?
+    public override var oneof2842: Int?
+    public override var oneof2843: Int?
+    public override var oneof2844: Int?
+    public override var oneof2845: Int?
+    public override var oneof2846: Int?
+    public override var oneof2847: Int?
+    public override var oneof2848: Int?
+    public override var oneof2849: Int?
+    public override var oneof2850: Int?
+    public override var oneof2851: Int?
+    public override var oneof2852: Int?
+    public override var oneof2853: Int?
+    public override var oneof2854: Int?
+    public override var oneof2855: Int?
+    public override var oneof2856: Int?
+    public override var oneof2857: Int?
+    public override var oneof2858: Int?
+    public override var oneof2859: Int?
+    public override var oneof2860: Int?
+    public override var oneof2861: Int?
+    public override var oneof2862: Int?
+    public override var oneof2863: Int?
+    public override var oneof2864: Int?
+    public override var oneof2865: Int?
+    public override var oneof2866: Int?
+    public override var oneof2867: Int?
+    public override var oneof2868: Int?
+    public override var oneof2869: Int?
+    public override var oneof2870: Int?
+    public override var oneof2871: Int?
+    public override var oneof2872: Int?
+    public override var oneof2873: Int?
+    public override var oneof2874: Int?
+    public override var oneof2875: Int?
+    public override var oneof2876: Int?
+    public override var oneof2877: Int?
+    public override var oneof2878: Int?
+    public override var oneof2879: Int?
+    public override var oneof2880: Int?
+    public override var oneof2881: Int?
+    public override var oneof2882: Int?
+    public override var oneof2883: Int?
+    public override var oneof2884: Int?
+    public override var oneof2885: Int?
+    public override var oneof2886: Int?
+    public override var oneof2887: Int?
+    public override var oneof2888: Int?
+    public override var oneof2889: Int?
+    public override var oneof2890: Int?
+    public override var oneof2891: Int?
+    public override var oneof2892: Int?
+    public override var oneof2893: Int?
+    public override var oneof2894: Int?
+    public override var oneof2895: Int?
+    public override var oneof2896: Int?
+    public override var oneof2897: Int?
+    public override var oneof2898: Int?
+    public override var oneof2899: Int?
+    public override var oneof2900: Int?
+    public override var oneof2901: Int?
+    public override var oneof2902: Int?
+    public override var oneof2903: Int?
+    public override var oneof2904: Int?
+    public override var oneof2905: Int?
+    public override var oneof2906: Int?
+    public override var oneof2907: Int?
+    public override var oneof2908: Int?
+    public override var oneof2909: Int?
+    public override var oneof2910: Int?
+    public override var oneof2911: Int?
+    public override var oneof2912: Int?
+    public override var oneof2913: Int?
+    public override var oneof2914: Int?
+    public override var oneof2915: Int?
+    public override var oneof2916: Int?
+    public override var oneof2917: Int?
+    public override var oneof2918: Int?
+    public override var oneof2919: Int?
+    public override var oneof2920: Int?
+    public override var oneof2921: Int?
+    public override var oneof2922: Int?
+    public override var oneof2923: Int?
+    public override var oneof2924: Int?
+    public override var oneof2925: Int?
+    public override var oneof2926: Int?
+    public override var oneof2927: Int?
+    public override var oneof2928: Int?
+    public override var oneof2929: Int?
+    public override var oneof2930: Int?
+    public override var oneof2931: Int?
+    public override var oneof2932: Int?
+    public override var oneof2933: Int?
+    public override var oneof2934: Int?
+    public override var oneof2935: Int?
+    public override var oneof2936: Int?
+    public override var oneof2937: Int?
+    public override var oneof2938: Int?
+    public override var oneof2939: Int?
+    public override var oneof2940: Int?
+    public override var oneof2941: Int?
+    public override var oneof2942: Int?
+    public override var oneof2943: Int?
+    public override var oneof2944: Int?
+    public override var oneof2945: Int?
+    public override var oneof2946: Int?
+    public override var oneof2947: Int?
+    public override var oneof2948: Int?
+    public override var oneof2949: Int?
+    public override var oneof2950: Int?
+    public override var oneof2951: Int?
+    public override var oneof2952: Int?
+    public override var oneof2953: Int?
+    public override var oneof2954: Int?
+    public override var oneof2955: Int?
+    public override var oneof2956: Int?
+    public override var oneof2957: Int?
+    public override var oneof2958: Int?
+    public override var oneof2959: Int?
+    public override var oneof2960: Int?
+    public override var oneof2961: Int?
+    public override var oneof2962: Int?
+    public override var oneof2963: Int?
+    public override var oneof2964: Int?
+    public override var oneof2965: Int?
+    public override var oneof2966: Int?
+    public override var oneof2967: Int?
+    public override var oneof2968: Int?
+    public override var oneof2969: Int?
+    public override var oneof2970: Int?
+    public override var oneof2971: Int?
+    public override var oneof2972: Int?
+    public override var oneof2973: Int?
+    public override var oneof2974: Int?
+    public override var oneof2975: Int?
+    public override var oneof2976: Int?
+    public override var oneof2977: Int?
+    public override var oneof2978: Int?
+    public override var oneof2979: Int?
+    public override var oneof2980: Int?
+    public override var oneof2981: Int?
+    public override var oneof2982: Int?
+    public override var oneof2983: Int?
+    public override var oneof2984: Int?
+    public override var oneof2985: Int?
+    public override var oneof2986: Int?
+    public override var oneof2987: Int?
+    public override var oneof2988: Int?
+    public override var oneof2989: Int?
+    public override var oneof2990: Int?
+    public override var oneof2991: Int?
+    public override var oneof2992: Int?
+    public override var oneof2993: Int?
+    public override var oneof2994: Int?
+    public override var oneof2995: Int?
+    public override var oneof2996: Int?
+    public override var oneof2997: Int?
+    public override var oneof2998: Int?
+    public override var oneof2999: Int?
+
+    public fun toMessageWithHugeOneof(): MessageWithHugeOneof
+
+    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithHugeOneof> {
+        @Deprecated("Use messageWithHugeOneof { } instead")
+        public operator fun invoke(
+            hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableMessageWithHugeOneof = MutableMessageWithHugeOneof_Impl(
+            hugeOneof = hugeOneof,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableMessageWithHugeOneof by lazy { MutableMessageWithHugeOneof() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithHugeOneof = pbandk.testpb.MessageWithHugeOneof.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithHugeOneof> get() = pbandk.testpb.MessageWithHugeOneof.descriptor
+    }
+}
+
+public fun messageWithLotsOfFields(builderAction: MutableMessageWithLotsOfFields.() -> Unit): MessageWithLotsOfFields {
+    val builder = MutableMessageWithLotsOfFields()
+    builder.builderAction()
+    return builder.toMessageWithLotsOfFields()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithLotsOfFields")
 public fun MessageWithLotsOfFields?.orDefault(): pbandk.testpb.MessageWithLotsOfFields = this ?: MessageWithLotsOfFields.defaultInstance
@@ -44185,6 +49235,4028 @@ private class MessageWithLotsOfFields_Impl(
     } ?: this
 }
 
+private class MutableMessageWithLotsOfFields_Impl(
+    override var field1000: String,
+    override var field1001: String,
+    override var field1002: String,
+    override var field1003: String,
+    override var field1004: String,
+    override var field1005: String,
+    override var field1006: String,
+    override var field1007: String,
+    override var field1008: String,
+    override var field1009: String,
+    override var field1010: String,
+    override var field1011: String,
+    override var field1012: String,
+    override var field1013: String,
+    override var field1014: String,
+    override var field1015: String,
+    override var field1016: String,
+    override var field1017: String,
+    override var field1018: String,
+    override var field1019: String,
+    override var field1020: String,
+    override var field1021: String,
+    override var field1022: String,
+    override var field1023: String,
+    override var field1024: String,
+    override var field1025: String,
+    override var field1026: String,
+    override var field1027: String,
+    override var field1028: String,
+    override var field1029: String,
+    override var field1030: String,
+    override var field1031: String,
+    override var field1032: String,
+    override var field1033: String,
+    override var field1034: String,
+    override var field1035: String,
+    override var field1036: String,
+    override var field1037: String,
+    override var field1038: String,
+    override var field1039: String,
+    override var field1040: String,
+    override var field1041: String,
+    override var field1042: String,
+    override var field1043: String,
+    override var field1044: String,
+    override var field1045: String,
+    override var field1046: String,
+    override var field1047: String,
+    override var field1048: String,
+    override var field1049: String,
+    override var field1050: String,
+    override var field1051: String,
+    override var field1052: String,
+    override var field1053: String,
+    override var field1054: String,
+    override var field1055: String,
+    override var field1056: String,
+    override var field1057: String,
+    override var field1058: String,
+    override var field1059: String,
+    override var field1060: String,
+    override var field1061: String,
+    override var field1062: String,
+    override var field1063: String,
+    override var field1064: String,
+    override var field1065: String,
+    override var field1066: String,
+    override var field1067: String,
+    override var field1068: String,
+    override var field1069: String,
+    override var field1070: String,
+    override var field1071: String,
+    override var field1072: String,
+    override var field1073: String,
+    override var field1074: String,
+    override var field1075: String,
+    override var field1076: String,
+    override var field1077: String,
+    override var field1078: String,
+    override var field1079: String,
+    override var field1080: String,
+    override var field1081: String,
+    override var field1082: String,
+    override var field1083: String,
+    override var field1084: String,
+    override var field1085: String,
+    override var field1086: String,
+    override var field1087: String,
+    override var field1088: String,
+    override var field1089: String,
+    override var field1090: String,
+    override var field1091: String,
+    override var field1092: String,
+    override var field1093: String,
+    override var field1094: String,
+    override var field1095: String,
+    override var field1096: String,
+    override var field1097: String,
+    override var field1098: String,
+    override var field1099: String,
+    override var field1100: String,
+    override var field1101: String,
+    override var field1102: String,
+    override var field1103: String,
+    override var field1104: String,
+    override var field1105: String,
+    override var field1106: String,
+    override var field1107: String,
+    override var field1108: String,
+    override var field1109: String,
+    override var field1110: String,
+    override var field1111: String,
+    override var field1112: String,
+    override var field1113: String,
+    override var field1114: String,
+    override var field1115: String,
+    override var field1116: String,
+    override var field1117: String,
+    override var field1118: String,
+    override var field1119: String,
+    override var field1120: String,
+    override var field1121: String,
+    override var field1122: String,
+    override var field1123: String,
+    override var field1124: String,
+    override var field1125: String,
+    override var field1126: String,
+    override var field1127: String,
+    override var field1128: String,
+    override var field1129: String,
+    override var field1130: String,
+    override var field1131: String,
+    override var field1132: String,
+    override var field1133: String,
+    override var field1134: String,
+    override var field1135: String,
+    override var field1136: String,
+    override var field1137: String,
+    override var field1138: String,
+    override var field1139: String,
+    override var field1140: String,
+    override var field1141: String,
+    override var field1142: String,
+    override var field1143: String,
+    override var field1144: String,
+    override var field1145: String,
+    override var field1146: String,
+    override var field1147: String,
+    override var field1148: String,
+    override var field1149: String,
+    override var field1150: String,
+    override var field1151: String,
+    override var field1152: String,
+    override var field1153: String,
+    override var field1154: String,
+    override var field1155: String,
+    override var field1156: String,
+    override var field1157: String,
+    override var field1158: String,
+    override var field1159: String,
+    override var field1160: String,
+    override var field1161: String,
+    override var field1162: String,
+    override var field1163: String,
+    override var field1164: String,
+    override var field1165: String,
+    override var field1166: String,
+    override var field1167: String,
+    override var field1168: String,
+    override var field1169: String,
+    override var field1170: String,
+    override var field1171: String,
+    override var field1172: String,
+    override var field1173: String,
+    override var field1174: String,
+    override var field1175: String,
+    override var field1176: String,
+    override var field1177: String,
+    override var field1178: String,
+    override var field1179: String,
+    override var field1180: String,
+    override var field1181: String,
+    override var field1182: String,
+    override var field1183: String,
+    override var field1184: String,
+    override var field1185: String,
+    override var field1186: String,
+    override var field1187: String,
+    override var field1188: String,
+    override var field1189: String,
+    override var field1190: String,
+    override var field1191: String,
+    override var field1192: String,
+    override var field1193: String,
+    override var field1194: String,
+    override var field1195: String,
+    override var field1196: String,
+    override var field1197: String,
+    override var field1198: String,
+    override var field1199: String,
+    override var field1200: String,
+    override var field1201: String,
+    override var field1202: String,
+    override var field1203: String,
+    override var field1204: String,
+    override var field1205: String,
+    override var field1206: String,
+    override var field1207: String,
+    override var field1208: String,
+    override var field1209: String,
+    override var field1210: String,
+    override var field1211: String,
+    override var field1212: String,
+    override var field1213: String,
+    override var field1214: String,
+    override var field1215: String,
+    override var field1216: String,
+    override var field1217: String,
+    override var field1218: String,
+    override var field1219: String,
+    override var field1220: String,
+    override var field1221: String,
+    override var field1222: String,
+    override var field1223: String,
+    override var field1224: String,
+    override var field1225: String,
+    override var field1226: String,
+    override var field1227: String,
+    override var field1228: String,
+    override var field1229: String,
+    override var field1230: String,
+    override var field1231: String,
+    override var field1232: String,
+    override var field1233: String,
+    override var field1234: String,
+    override var field1235: String,
+    override var field1236: String,
+    override var field1237: String,
+    override var field1238: String,
+    override var field1239: String,
+    override var field1240: String,
+    override var field1241: String,
+    override var field1242: String,
+    override var field1243: String,
+    override var field1244: String,
+    override var field1245: String,
+    override var field1246: String,
+    override var field1247: String,
+    override var field1248: String,
+    override var field1249: String,
+    override var field1250: String,
+    override var field1251: String,
+    override var field1252: String,
+    override var field1253: String,
+    override var field1254: String,
+    override var field1255: String,
+    override var field1256: String,
+    override var field1257: String,
+    override var field1258: String,
+    override var field1259: String,
+    override var field1260: String,
+    override var field1261: String,
+    override var field1262: String,
+    override var field1263: String,
+    override var field1264: String,
+    override var field1265: String,
+    override var field1266: String,
+    override var field1267: String,
+    override var field1268: String,
+    override var field1269: String,
+    override var field1270: String,
+    override var field1271: String,
+    override var field1272: String,
+    override var field1273: String,
+    override var field1274: String,
+    override var field1275: String,
+    override var field1276: String,
+    override var field1277: String,
+    override var field1278: String,
+    override var field1279: String,
+    override var field1280: String,
+    override var field1281: String,
+    override var field1282: String,
+    override var field1283: String,
+    override var field1284: String,
+    override var field1285: String,
+    override var field1286: String,
+    override var field1287: String,
+    override var field1288: String,
+    override var field1289: String,
+    override var field1290: String,
+    override var field1291: String,
+    override var field1292: String,
+    override var field1293: String,
+    override var field1294: String,
+    override var field1295: String,
+    override var field1296: String,
+    override var field1297: String,
+    override var field1298: String,
+    override var field1299: String,
+    override var field1300: String,
+    override var field1301: String,
+    override var field1302: String,
+    override var field1303: String,
+    override var field1304: String,
+    override var field1305: String,
+    override var field1306: String,
+    override var field1307: String,
+    override var field1308: String,
+    override var field1309: String,
+    override var field1310: String,
+    override var field1311: String,
+    override var field1312: String,
+    override var field1313: String,
+    override var field1314: String,
+    override var field1315: String,
+    override var field1316: String,
+    override var field1317: String,
+    override var field1318: String,
+    override var field1319: String,
+    override var field1320: String,
+    override var field1321: String,
+    override var field1322: String,
+    override var field1323: String,
+    override var field1324: String,
+    override var field1325: String,
+    override var field1326: String,
+    override var field1327: String,
+    override var field1328: String,
+    override var field1329: String,
+    override var field1330: String,
+    override var field1331: String,
+    override var field1332: String,
+    override var field1333: String,
+    override var field1334: String,
+    override var field1335: String,
+    override var field1336: String,
+    override var field1337: String,
+    override var field1338: String,
+    override var field1339: String,
+    override var field1340: String,
+    override var field1341: String,
+    override var field1342: String,
+    override var field1343: String,
+    override var field1344: String,
+    override var field1345: String,
+    override var field1346: String,
+    override var field1347: String,
+    override var field1348: String,
+    override var field1349: String,
+    override var field1350: String,
+    override var field1351: String,
+    override var field1352: String,
+    override var field1353: String,
+    override var field1354: String,
+    override var field1355: String,
+    override var field1356: String,
+    override var field1357: String,
+    override var field1358: String,
+    override var field1359: String,
+    override var field1360: String,
+    override var field1361: String,
+    override var field1362: String,
+    override var field1363: String,
+    override var field1364: String,
+    override var field1365: String,
+    override var field1366: String,
+    override var field1367: String,
+    override var field1368: String,
+    override var field1369: String,
+    override var field1370: String,
+    override var field1371: String,
+    override var field1372: String,
+    override var field1373: String,
+    override var field1374: String,
+    override var field1375: String,
+    override var field1376: String,
+    override var field1377: String,
+    override var field1378: String,
+    override var field1379: String,
+    override var field1380: String,
+    override var field1381: String,
+    override var field1382: String,
+    override var field1383: String,
+    override var field1384: String,
+    override var field1385: String,
+    override var field1386: String,
+    override var field1387: String,
+    override var field1388: String,
+    override var field1389: String,
+    override var field1390: String,
+    override var field1391: String,
+    override var field1392: String,
+    override var field1393: String,
+    override var field1394: String,
+    override var field1395: String,
+    override var field1396: String,
+    override var field1397: String,
+    override var field1398: String,
+    override var field1399: String,
+    override var field1400: String,
+    override var field1401: String,
+    override var field1402: String,
+    override var field1403: String,
+    override var field1404: String,
+    override var field1405: String,
+    override var field1406: String,
+    override var field1407: String,
+    override var field1408: String,
+    override var field1409: String,
+    override var field1410: String,
+    override var field1411: String,
+    override var field1412: String,
+    override var field1413: String,
+    override var field1414: String,
+    override var field1415: String,
+    override var field1416: String,
+    override var field1417: String,
+    override var field1418: String,
+    override var field1419: String,
+    override var field1420: String,
+    override var field1421: String,
+    override var field1422: String,
+    override var field1423: String,
+    override var field1424: String,
+    override var field1425: String,
+    override var field1426: String,
+    override var field1427: String,
+    override var field1428: String,
+    override var field1429: String,
+    override var field1430: String,
+    override var field1431: String,
+    override var field1432: String,
+    override var field1433: String,
+    override var field1434: String,
+    override var field1435: String,
+    override var field1436: String,
+    override var field1437: String,
+    override var field1438: String,
+    override var field1439: String,
+    override var field1440: String,
+    override var field1441: String,
+    override var field1442: String,
+    override var field1443: String,
+    override var field1444: String,
+    override var field1445: String,
+    override var field1446: String,
+    override var field1447: String,
+    override var field1448: String,
+    override var field1449: String,
+    override var field1450: String,
+    override var field1451: String,
+    override var field1452: String,
+    override var field1453: String,
+    override var field1454: String,
+    override var field1455: String,
+    override var field1456: String,
+    override var field1457: String,
+    override var field1458: String,
+    override var field1459: String,
+    override var field1460: String,
+    override var field1461: String,
+    override var field1462: String,
+    override var field1463: String,
+    override var field1464: String,
+    override var field1465: String,
+    override var field1466: String,
+    override var field1467: String,
+    override var field1468: String,
+    override var field1469: String,
+    override var field1470: String,
+    override var field1471: String,
+    override var field1472: String,
+    override var field1473: String,
+    override var field1474: String,
+    override var field1475: String,
+    override var field1476: String,
+    override var field1477: String,
+    override var field1478: String,
+    override var field1479: String,
+    override var field1480: String,
+    override var field1481: String,
+    override var field1482: String,
+    override var field1483: String,
+    override var field1484: String,
+    override var field1485: String,
+    override var field1486: String,
+    override var field1487: String,
+    override var field1488: String,
+    override var field1489: String,
+    override var field1490: String,
+    override var field1491: String,
+    override var field1492: String,
+    override var field1493: String,
+    override var field1494: String,
+    override var field1495: String,
+    override var field1496: String,
+    override var field1497: String,
+    override var field1498: String,
+    override var field1499: String,
+    override var field1500: String,
+    override var field1501: String,
+    override var field1502: String,
+    override var field1503: String,
+    override var field1504: String,
+    override var field1505: String,
+    override var field1506: String,
+    override var field1507: String,
+    override var field1508: String,
+    override var field1509: String,
+    override var field1510: String,
+    override var field1511: String,
+    override var field1512: String,
+    override var field1513: String,
+    override var field1514: String,
+    override var field1515: String,
+    override var field1516: String,
+    override var field1517: String,
+    override var field1518: String,
+    override var field1519: String,
+    override var field1520: String,
+    override var field1521: String,
+    override var field1522: String,
+    override var field1523: String,
+    override var field1524: String,
+    override var field1525: String,
+    override var field1526: String,
+    override var field1527: String,
+    override var field1528: String,
+    override var field1529: String,
+    override var field1530: String,
+    override var field1531: String,
+    override var field1532: String,
+    override var field1533: String,
+    override var field1534: String,
+    override var field1535: String,
+    override var field1536: String,
+    override var field1537: String,
+    override var field1538: String,
+    override var field1539: String,
+    override var field1540: String,
+    override var field1541: String,
+    override var field1542: String,
+    override var field1543: String,
+    override var field1544: String,
+    override var field1545: String,
+    override var field1546: String,
+    override var field1547: String,
+    override var field1548: String,
+    override var field1549: String,
+    override var field1550: String,
+    override var field1551: String,
+    override var field1552: String,
+    override var field1553: String,
+    override var field1554: String,
+    override var field1555: String,
+    override var field1556: String,
+    override var field1557: String,
+    override var field1558: String,
+    override var field1559: String,
+    override var field1560: String,
+    override var field1561: String,
+    override var field1562: String,
+    override var field1563: String,
+    override var field1564: String,
+    override var field1565: String,
+    override var field1566: String,
+    override var field1567: String,
+    override var field1568: String,
+    override var field1569: String,
+    override var field1570: String,
+    override var field1571: String,
+    override var field1572: String,
+    override var field1573: String,
+    override var field1574: String,
+    override var field1575: String,
+    override var field1576: String,
+    override var field1577: String,
+    override var field1578: String,
+    override var field1579: String,
+    override var field1580: String,
+    override var field1581: String,
+    override var field1582: String,
+    override var field1583: String,
+    override var field1584: String,
+    override var field1585: String,
+    override var field1586: String,
+    override var field1587: String,
+    override var field1588: String,
+    override var field1589: String,
+    override var field1590: String,
+    override var field1591: String,
+    override var field1592: String,
+    override var field1593: String,
+    override var field1594: String,
+    override var field1595: String,
+    override var field1596: String,
+    override var field1597: String,
+    override var field1598: String,
+    override var field1599: String,
+    override var field1600: String,
+    override var field1601: String,
+    override var field1602: String,
+    override var field1603: String,
+    override var field1604: String,
+    override var field1605: String,
+    override var field1606: String,
+    override var field1607: String,
+    override var field1608: String,
+    override var field1609: String,
+    override var field1610: String,
+    override var field1611: String,
+    override var field1612: String,
+    override var field1613: String,
+    override var field1614: String,
+    override var field1615: String,
+    override var field1616: String,
+    override var field1617: String,
+    override var field1618: String,
+    override var field1619: String,
+    override var field1620: String,
+    override var field1621: String,
+    override var field1622: String,
+    override var field1623: String,
+    override var field1624: String,
+    override var field1625: String,
+    override var field1626: String,
+    override var field1627: String,
+    override var field1628: String,
+    override var field1629: String,
+    override var field1630: String,
+    override var field1631: String,
+    override var field1632: String,
+    override var field1633: String,
+    override var field1634: String,
+    override var field1635: String,
+    override var field1636: String,
+    override var field1637: String,
+    override var field1638: String,
+    override var field1639: String,
+    override var field1640: String,
+    override var field1641: String,
+    override var field1642: String,
+    override var field1643: String,
+    override var field1644: String,
+    override var field1645: String,
+    override var field1646: String,
+    override var field1647: String,
+    override var field1648: String,
+    override var field1649: String,
+    override var field1650: String,
+    override var field1651: String,
+    override var field1652: String,
+    override var field1653: String,
+    override var field1654: String,
+    override var field1655: String,
+    override var field1656: String,
+    override var field1657: String,
+    override var field1658: String,
+    override var field1659: String,
+    override var field1660: String,
+    override var field1661: String,
+    override var field1662: String,
+    override var field1663: String,
+    override var field1664: String,
+    override var field1665: String,
+    override var field1666: String,
+    override var field1667: String,
+    override var field1668: String,
+    override var field1669: String,
+    override var field1670: String,
+    override var field1671: String,
+    override var field1672: String,
+    override var field1673: String,
+    override var field1674: String,
+    override var field1675: String,
+    override var field1676: String,
+    override var field1677: String,
+    override var field1678: String,
+    override var field1679: String,
+    override var field1680: String,
+    override var field1681: String,
+    override var field1682: String,
+    override var field1683: String,
+    override var field1684: String,
+    override var field1685: String,
+    override var field1686: String,
+    override var field1687: String,
+    override var field1688: String,
+    override var field1689: String,
+    override var field1690: String,
+    override var field1691: String,
+    override var field1692: String,
+    override var field1693: String,
+    override var field1694: String,
+    override var field1695: String,
+    override var field1696: String,
+    override var field1697: String,
+    override var field1698: String,
+    override var field1699: String,
+    override var field1700: String,
+    override var field1701: String,
+    override var field1702: String,
+    override var field1703: String,
+    override var field1704: String,
+    override var field1705: String,
+    override var field1706: String,
+    override var field1707: String,
+    override var field1708: String,
+    override var field1709: String,
+    override var field1710: String,
+    override var field1711: String,
+    override var field1712: String,
+    override var field1713: String,
+    override var field1714: String,
+    override var field1715: String,
+    override var field1716: String,
+    override var field1717: String,
+    override var field1718: String,
+    override var field1719: String,
+    override var field1720: String,
+    override var field1721: String,
+    override var field1722: String,
+    override var field1723: String,
+    override var field1724: String,
+    override var field1725: String,
+    override var field1726: String,
+    override var field1727: String,
+    override var field1728: String,
+    override var field1729: String,
+    override var field1730: String,
+    override var field1731: String,
+    override var field1732: String,
+    override var field1733: String,
+    override var field1734: String,
+    override var field1735: String,
+    override var field1736: String,
+    override var field1737: String,
+    override var field1738: String,
+    override var field1739: String,
+    override var field1740: String,
+    override var field1741: String,
+    override var field1742: String,
+    override var field1743: String,
+    override var field1744: String,
+    override var field1745: String,
+    override var field1746: String,
+    override var field1747: String,
+    override var field1748: String,
+    override var field1749: String,
+    override var field1750: String,
+    override var field1751: String,
+    override var field1752: String,
+    override var field1753: String,
+    override var field1754: String,
+    override var field1755: String,
+    override var field1756: String,
+    override var field1757: String,
+    override var field1758: String,
+    override var field1759: String,
+    override var field1760: String,
+    override var field1761: String,
+    override var field1762: String,
+    override var field1763: String,
+    override var field1764: String,
+    override var field1765: String,
+    override var field1766: String,
+    override var field1767: String,
+    override var field1768: String,
+    override var field1769: String,
+    override var field1770: String,
+    override var field1771: String,
+    override var field1772: String,
+    override var field1773: String,
+    override var field1774: String,
+    override var field1775: String,
+    override var field1776: String,
+    override var field1777: String,
+    override var field1778: String,
+    override var field1779: String,
+    override var field1780: String,
+    override var field1781: String,
+    override var field1782: String,
+    override var field1783: String,
+    override var field1784: String,
+    override var field1785: String,
+    override var field1786: String,
+    override var field1787: String,
+    override var field1788: String,
+    override var field1789: String,
+    override var field1790: String,
+    override var field1791: String,
+    override var field1792: String,
+    override var field1793: String,
+    override var field1794: String,
+    override var field1795: String,
+    override var field1796: String,
+    override var field1797: String,
+    override var field1798: String,
+    override var field1799: String,
+    override var field1800: String,
+    override var field1801: String,
+    override var field1802: String,
+    override var field1803: String,
+    override var field1804: String,
+    override var field1805: String,
+    override var field1806: String,
+    override var field1807: String,
+    override var field1808: String,
+    override var field1809: String,
+    override var field1810: String,
+    override var field1811: String,
+    override var field1812: String,
+    override var field1813: String,
+    override var field1814: String,
+    override var field1815: String,
+    override var field1816: String,
+    override var field1817: String,
+    override var field1818: String,
+    override var field1819: String,
+    override var field1820: String,
+    override var field1821: String,
+    override var field1822: String,
+    override var field1823: String,
+    override var field1824: String,
+    override var field1825: String,
+    override var field1826: String,
+    override var field1827: String,
+    override var field1828: String,
+    override var field1829: String,
+    override var field1830: String,
+    override var field1831: String,
+    override var field1832: String,
+    override var field1833: String,
+    override var field1834: String,
+    override var field1835: String,
+    override var field1836: String,
+    override var field1837: String,
+    override var field1838: String,
+    override var field1839: String,
+    override var field1840: String,
+    override var field1841: String,
+    override var field1842: String,
+    override var field1843: String,
+    override var field1844: String,
+    override var field1845: String,
+    override var field1846: String,
+    override var field1847: String,
+    override var field1848: String,
+    override var field1849: String,
+    override var field1850: String,
+    override var field1851: String,
+    override var field1852: String,
+    override var field1853: String,
+    override var field1854: String,
+    override var field1855: String,
+    override var field1856: String,
+    override var field1857: String,
+    override var field1858: String,
+    override var field1859: String,
+    override var field1860: String,
+    override var field1861: String,
+    override var field1862: String,
+    override var field1863: String,
+    override var field1864: String,
+    override var field1865: String,
+    override var field1866: String,
+    override var field1867: String,
+    override var field1868: String,
+    override var field1869: String,
+    override var field1870: String,
+    override var field1871: String,
+    override var field1872: String,
+    override var field1873: String,
+    override var field1874: String,
+    override var field1875: String,
+    override var field1876: String,
+    override var field1877: String,
+    override var field1878: String,
+    override var field1879: String,
+    override var field1880: String,
+    override var field1881: String,
+    override var field1882: String,
+    override var field1883: String,
+    override var field1884: String,
+    override var field1885: String,
+    override var field1886: String,
+    override var field1887: String,
+    override var field1888: String,
+    override var field1889: String,
+    override var field1890: String,
+    override var field1891: String,
+    override var field1892: String,
+    override var field1893: String,
+    override var field1894: String,
+    override var field1895: String,
+    override var field1896: String,
+    override var field1897: String,
+    override var field1898: String,
+    override var field1899: String,
+    override var field1900: String,
+    override var field1901: String,
+    override var field1902: String,
+    override var field1903: String,
+    override var field1904: String,
+    override var field1905: String,
+    override var field1906: String,
+    override var field1907: String,
+    override var field1908: String,
+    override var field1909: String,
+    override var field1910: String,
+    override var field1911: String,
+    override var field1912: String,
+    override var field1913: String,
+    override var field1914: String,
+    override var field1915: String,
+    override var field1916: String,
+    override var field1917: String,
+    override var field1918: String,
+    override var field1919: String,
+    override var field1920: String,
+    override var field1921: String,
+    override var field1922: String,
+    override var field1923: String,
+    override var field1924: String,
+    override var field1925: String,
+    override var field1926: String,
+    override var field1927: String,
+    override var field1928: String,
+    override var field1929: String,
+    override var field1930: String,
+    override var field1931: String,
+    override var field1932: String,
+    override var field1933: String,
+    override var field1934: String,
+    override var field1935: String,
+    override var field1936: String,
+    override var field1937: String,
+    override var field1938: String,
+    override var field1939: String,
+    override var field1940: String,
+    override var field1941: String,
+    override var field1942: String,
+    override var field1943: String,
+    override var field1944: String,
+    override var field1945: String,
+    override var field1946: String,
+    override var field1947: String,
+    override var field1948: String,
+    override var field1949: String,
+    override var field1950: String,
+    override var field1951: String,
+    override var field1952: String,
+    override var field1953: String,
+    override var field1954: String,
+    override var field1955: String,
+    override var field1956: String,
+    override var field1957: String,
+    override var field1958: String,
+    override var field1959: String,
+    override var field1960: String,
+    override var field1961: String,
+    override var field1962: String,
+    override var field1963: String,
+    override var field1964: String,
+    override var field1965: String,
+    override var field1966: String,
+    override var field1967: String,
+    override var field1968: String,
+    override var field1969: String,
+    override var field1970: String,
+    override var field1971: String,
+    override var field1972: String,
+    override var field1973: String,
+    override var field1974: String,
+    override var field1975: String,
+    override var field1976: String,
+    override var field1977: String,
+    override var field1978: String,
+    override var field1979: String,
+    override var field1980: String,
+    override var field1981: String,
+    override var field1982: String,
+    override var field1983: String,
+    override var field1984: String,
+    override var field1985: String,
+    override var field1986: String,
+    override var field1987: String,
+    override var field1988: String,
+    override var field1989: String,
+    override var field1990: String,
+    override var field1991: String,
+    override var field1992: String,
+    override var field1993: String,
+    override var field1994: String,
+    override var field1995: String,
+    override var field1996: String,
+    override var field1997: String,
+    override var field1998: String,
+    override var field1999: String,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableMessageWithLotsOfFields, pbandk.MutableGeneratedMessage<MutableMessageWithLotsOfFields>() {
+    override val descriptor get() = MessageWithLotsOfFields.descriptor
+
+    override fun copy(
+        field1000: String,
+        field1001: String,
+        field1002: String,
+        field1003: String,
+        field1004: String,
+        field1005: String,
+        field1006: String,
+        field1007: String,
+        field1008: String,
+        field1009: String,
+        field1010: String,
+        field1011: String,
+        field1012: String,
+        field1013: String,
+        field1014: String,
+        field1015: String,
+        field1016: String,
+        field1017: String,
+        field1018: String,
+        field1019: String,
+        field1020: String,
+        field1021: String,
+        field1022: String,
+        field1023: String,
+        field1024: String,
+        field1025: String,
+        field1026: String,
+        field1027: String,
+        field1028: String,
+        field1029: String,
+        field1030: String,
+        field1031: String,
+        field1032: String,
+        field1033: String,
+        field1034: String,
+        field1035: String,
+        field1036: String,
+        field1037: String,
+        field1038: String,
+        field1039: String,
+        field1040: String,
+        field1041: String,
+        field1042: String,
+        field1043: String,
+        field1044: String,
+        field1045: String,
+        field1046: String,
+        field1047: String,
+        field1048: String,
+        field1049: String,
+        field1050: String,
+        field1051: String,
+        field1052: String,
+        field1053: String,
+        field1054: String,
+        field1055: String,
+        field1056: String,
+        field1057: String,
+        field1058: String,
+        field1059: String,
+        field1060: String,
+        field1061: String,
+        field1062: String,
+        field1063: String,
+        field1064: String,
+        field1065: String,
+        field1066: String,
+        field1067: String,
+        field1068: String,
+        field1069: String,
+        field1070: String,
+        field1071: String,
+        field1072: String,
+        field1073: String,
+        field1074: String,
+        field1075: String,
+        field1076: String,
+        field1077: String,
+        field1078: String,
+        field1079: String,
+        field1080: String,
+        field1081: String,
+        field1082: String,
+        field1083: String,
+        field1084: String,
+        field1085: String,
+        field1086: String,
+        field1087: String,
+        field1088: String,
+        field1089: String,
+        field1090: String,
+        field1091: String,
+        field1092: String,
+        field1093: String,
+        field1094: String,
+        field1095: String,
+        field1096: String,
+        field1097: String,
+        field1098: String,
+        field1099: String,
+        field1100: String,
+        field1101: String,
+        field1102: String,
+        field1103: String,
+        field1104: String,
+        field1105: String,
+        field1106: String,
+        field1107: String,
+        field1108: String,
+        field1109: String,
+        field1110: String,
+        field1111: String,
+        field1112: String,
+        field1113: String,
+        field1114: String,
+        field1115: String,
+        field1116: String,
+        field1117: String,
+        field1118: String,
+        field1119: String,
+        field1120: String,
+        field1121: String,
+        field1122: String,
+        field1123: String,
+        field1124: String,
+        field1125: String,
+        field1126: String,
+        field1127: String,
+        field1128: String,
+        field1129: String,
+        field1130: String,
+        field1131: String,
+        field1132: String,
+        field1133: String,
+        field1134: String,
+        field1135: String,
+        field1136: String,
+        field1137: String,
+        field1138: String,
+        field1139: String,
+        field1140: String,
+        field1141: String,
+        field1142: String,
+        field1143: String,
+        field1144: String,
+        field1145: String,
+        field1146: String,
+        field1147: String,
+        field1148: String,
+        field1149: String,
+        field1150: String,
+        field1151: String,
+        field1152: String,
+        field1153: String,
+        field1154: String,
+        field1155: String,
+        field1156: String,
+        field1157: String,
+        field1158: String,
+        field1159: String,
+        field1160: String,
+        field1161: String,
+        field1162: String,
+        field1163: String,
+        field1164: String,
+        field1165: String,
+        field1166: String,
+        field1167: String,
+        field1168: String,
+        field1169: String,
+        field1170: String,
+        field1171: String,
+        field1172: String,
+        field1173: String,
+        field1174: String,
+        field1175: String,
+        field1176: String,
+        field1177: String,
+        field1178: String,
+        field1179: String,
+        field1180: String,
+        field1181: String,
+        field1182: String,
+        field1183: String,
+        field1184: String,
+        field1185: String,
+        field1186: String,
+        field1187: String,
+        field1188: String,
+        field1189: String,
+        field1190: String,
+        field1191: String,
+        field1192: String,
+        field1193: String,
+        field1194: String,
+        field1195: String,
+        field1196: String,
+        field1197: String,
+        field1198: String,
+        field1199: String,
+        field1200: String,
+        field1201: String,
+        field1202: String,
+        field1203: String,
+        field1204: String,
+        field1205: String,
+        field1206: String,
+        field1207: String,
+        field1208: String,
+        field1209: String,
+        field1210: String,
+        field1211: String,
+        field1212: String,
+        field1213: String,
+        field1214: String,
+        field1215: String,
+        field1216: String,
+        field1217: String,
+        field1218: String,
+        field1219: String,
+        field1220: String,
+        field1221: String,
+        field1222: String,
+        field1223: String,
+        field1224: String,
+        field1225: String,
+        field1226: String,
+        field1227: String,
+        field1228: String,
+        field1229: String,
+        field1230: String,
+        field1231: String,
+        field1232: String,
+        field1233: String,
+        field1234: String,
+        field1235: String,
+        field1236: String,
+        field1237: String,
+        field1238: String,
+        field1239: String,
+        field1240: String,
+        field1241: String,
+        field1242: String,
+        field1243: String,
+        field1244: String,
+        field1245: String,
+        field1246: String,
+        field1247: String,
+        field1248: String,
+        field1249: String,
+        field1250: String,
+        field1251: String,
+        field1252: String,
+        field1253: String,
+        field1254: String,
+        field1255: String,
+        field1256: String,
+        field1257: String,
+        field1258: String,
+        field1259: String,
+        field1260: String,
+        field1261: String,
+        field1262: String,
+        field1263: String,
+        field1264: String,
+        field1265: String,
+        field1266: String,
+        field1267: String,
+        field1268: String,
+        field1269: String,
+        field1270: String,
+        field1271: String,
+        field1272: String,
+        field1273: String,
+        field1274: String,
+        field1275: String,
+        field1276: String,
+        field1277: String,
+        field1278: String,
+        field1279: String,
+        field1280: String,
+        field1281: String,
+        field1282: String,
+        field1283: String,
+        field1284: String,
+        field1285: String,
+        field1286: String,
+        field1287: String,
+        field1288: String,
+        field1289: String,
+        field1290: String,
+        field1291: String,
+        field1292: String,
+        field1293: String,
+        field1294: String,
+        field1295: String,
+        field1296: String,
+        field1297: String,
+        field1298: String,
+        field1299: String,
+        field1300: String,
+        field1301: String,
+        field1302: String,
+        field1303: String,
+        field1304: String,
+        field1305: String,
+        field1306: String,
+        field1307: String,
+        field1308: String,
+        field1309: String,
+        field1310: String,
+        field1311: String,
+        field1312: String,
+        field1313: String,
+        field1314: String,
+        field1315: String,
+        field1316: String,
+        field1317: String,
+        field1318: String,
+        field1319: String,
+        field1320: String,
+        field1321: String,
+        field1322: String,
+        field1323: String,
+        field1324: String,
+        field1325: String,
+        field1326: String,
+        field1327: String,
+        field1328: String,
+        field1329: String,
+        field1330: String,
+        field1331: String,
+        field1332: String,
+        field1333: String,
+        field1334: String,
+        field1335: String,
+        field1336: String,
+        field1337: String,
+        field1338: String,
+        field1339: String,
+        field1340: String,
+        field1341: String,
+        field1342: String,
+        field1343: String,
+        field1344: String,
+        field1345: String,
+        field1346: String,
+        field1347: String,
+        field1348: String,
+        field1349: String,
+        field1350: String,
+        field1351: String,
+        field1352: String,
+        field1353: String,
+        field1354: String,
+        field1355: String,
+        field1356: String,
+        field1357: String,
+        field1358: String,
+        field1359: String,
+        field1360: String,
+        field1361: String,
+        field1362: String,
+        field1363: String,
+        field1364: String,
+        field1365: String,
+        field1366: String,
+        field1367: String,
+        field1368: String,
+        field1369: String,
+        field1370: String,
+        field1371: String,
+        field1372: String,
+        field1373: String,
+        field1374: String,
+        field1375: String,
+        field1376: String,
+        field1377: String,
+        field1378: String,
+        field1379: String,
+        field1380: String,
+        field1381: String,
+        field1382: String,
+        field1383: String,
+        field1384: String,
+        field1385: String,
+        field1386: String,
+        field1387: String,
+        field1388: String,
+        field1389: String,
+        field1390: String,
+        field1391: String,
+        field1392: String,
+        field1393: String,
+        field1394: String,
+        field1395: String,
+        field1396: String,
+        field1397: String,
+        field1398: String,
+        field1399: String,
+        field1400: String,
+        field1401: String,
+        field1402: String,
+        field1403: String,
+        field1404: String,
+        field1405: String,
+        field1406: String,
+        field1407: String,
+        field1408: String,
+        field1409: String,
+        field1410: String,
+        field1411: String,
+        field1412: String,
+        field1413: String,
+        field1414: String,
+        field1415: String,
+        field1416: String,
+        field1417: String,
+        field1418: String,
+        field1419: String,
+        field1420: String,
+        field1421: String,
+        field1422: String,
+        field1423: String,
+        field1424: String,
+        field1425: String,
+        field1426: String,
+        field1427: String,
+        field1428: String,
+        field1429: String,
+        field1430: String,
+        field1431: String,
+        field1432: String,
+        field1433: String,
+        field1434: String,
+        field1435: String,
+        field1436: String,
+        field1437: String,
+        field1438: String,
+        field1439: String,
+        field1440: String,
+        field1441: String,
+        field1442: String,
+        field1443: String,
+        field1444: String,
+        field1445: String,
+        field1446: String,
+        field1447: String,
+        field1448: String,
+        field1449: String,
+        field1450: String,
+        field1451: String,
+        field1452: String,
+        field1453: String,
+        field1454: String,
+        field1455: String,
+        field1456: String,
+        field1457: String,
+        field1458: String,
+        field1459: String,
+        field1460: String,
+        field1461: String,
+        field1462: String,
+        field1463: String,
+        field1464: String,
+        field1465: String,
+        field1466: String,
+        field1467: String,
+        field1468: String,
+        field1469: String,
+        field1470: String,
+        field1471: String,
+        field1472: String,
+        field1473: String,
+        field1474: String,
+        field1475: String,
+        field1476: String,
+        field1477: String,
+        field1478: String,
+        field1479: String,
+        field1480: String,
+        field1481: String,
+        field1482: String,
+        field1483: String,
+        field1484: String,
+        field1485: String,
+        field1486: String,
+        field1487: String,
+        field1488: String,
+        field1489: String,
+        field1490: String,
+        field1491: String,
+        field1492: String,
+        field1493: String,
+        field1494: String,
+        field1495: String,
+        field1496: String,
+        field1497: String,
+        field1498: String,
+        field1499: String,
+        field1500: String,
+        field1501: String,
+        field1502: String,
+        field1503: String,
+        field1504: String,
+        field1505: String,
+        field1506: String,
+        field1507: String,
+        field1508: String,
+        field1509: String,
+        field1510: String,
+        field1511: String,
+        field1512: String,
+        field1513: String,
+        field1514: String,
+        field1515: String,
+        field1516: String,
+        field1517: String,
+        field1518: String,
+        field1519: String,
+        field1520: String,
+        field1521: String,
+        field1522: String,
+        field1523: String,
+        field1524: String,
+        field1525: String,
+        field1526: String,
+        field1527: String,
+        field1528: String,
+        field1529: String,
+        field1530: String,
+        field1531: String,
+        field1532: String,
+        field1533: String,
+        field1534: String,
+        field1535: String,
+        field1536: String,
+        field1537: String,
+        field1538: String,
+        field1539: String,
+        field1540: String,
+        field1541: String,
+        field1542: String,
+        field1543: String,
+        field1544: String,
+        field1545: String,
+        field1546: String,
+        field1547: String,
+        field1548: String,
+        field1549: String,
+        field1550: String,
+        field1551: String,
+        field1552: String,
+        field1553: String,
+        field1554: String,
+        field1555: String,
+        field1556: String,
+        field1557: String,
+        field1558: String,
+        field1559: String,
+        field1560: String,
+        field1561: String,
+        field1562: String,
+        field1563: String,
+        field1564: String,
+        field1565: String,
+        field1566: String,
+        field1567: String,
+        field1568: String,
+        field1569: String,
+        field1570: String,
+        field1571: String,
+        field1572: String,
+        field1573: String,
+        field1574: String,
+        field1575: String,
+        field1576: String,
+        field1577: String,
+        field1578: String,
+        field1579: String,
+        field1580: String,
+        field1581: String,
+        field1582: String,
+        field1583: String,
+        field1584: String,
+        field1585: String,
+        field1586: String,
+        field1587: String,
+        field1588: String,
+        field1589: String,
+        field1590: String,
+        field1591: String,
+        field1592: String,
+        field1593: String,
+        field1594: String,
+        field1595: String,
+        field1596: String,
+        field1597: String,
+        field1598: String,
+        field1599: String,
+        field1600: String,
+        field1601: String,
+        field1602: String,
+        field1603: String,
+        field1604: String,
+        field1605: String,
+        field1606: String,
+        field1607: String,
+        field1608: String,
+        field1609: String,
+        field1610: String,
+        field1611: String,
+        field1612: String,
+        field1613: String,
+        field1614: String,
+        field1615: String,
+        field1616: String,
+        field1617: String,
+        field1618: String,
+        field1619: String,
+        field1620: String,
+        field1621: String,
+        field1622: String,
+        field1623: String,
+        field1624: String,
+        field1625: String,
+        field1626: String,
+        field1627: String,
+        field1628: String,
+        field1629: String,
+        field1630: String,
+        field1631: String,
+        field1632: String,
+        field1633: String,
+        field1634: String,
+        field1635: String,
+        field1636: String,
+        field1637: String,
+        field1638: String,
+        field1639: String,
+        field1640: String,
+        field1641: String,
+        field1642: String,
+        field1643: String,
+        field1644: String,
+        field1645: String,
+        field1646: String,
+        field1647: String,
+        field1648: String,
+        field1649: String,
+        field1650: String,
+        field1651: String,
+        field1652: String,
+        field1653: String,
+        field1654: String,
+        field1655: String,
+        field1656: String,
+        field1657: String,
+        field1658: String,
+        field1659: String,
+        field1660: String,
+        field1661: String,
+        field1662: String,
+        field1663: String,
+        field1664: String,
+        field1665: String,
+        field1666: String,
+        field1667: String,
+        field1668: String,
+        field1669: String,
+        field1670: String,
+        field1671: String,
+        field1672: String,
+        field1673: String,
+        field1674: String,
+        field1675: String,
+        field1676: String,
+        field1677: String,
+        field1678: String,
+        field1679: String,
+        field1680: String,
+        field1681: String,
+        field1682: String,
+        field1683: String,
+        field1684: String,
+        field1685: String,
+        field1686: String,
+        field1687: String,
+        field1688: String,
+        field1689: String,
+        field1690: String,
+        field1691: String,
+        field1692: String,
+        field1693: String,
+        field1694: String,
+        field1695: String,
+        field1696: String,
+        field1697: String,
+        field1698: String,
+        field1699: String,
+        field1700: String,
+        field1701: String,
+        field1702: String,
+        field1703: String,
+        field1704: String,
+        field1705: String,
+        field1706: String,
+        field1707: String,
+        field1708: String,
+        field1709: String,
+        field1710: String,
+        field1711: String,
+        field1712: String,
+        field1713: String,
+        field1714: String,
+        field1715: String,
+        field1716: String,
+        field1717: String,
+        field1718: String,
+        field1719: String,
+        field1720: String,
+        field1721: String,
+        field1722: String,
+        field1723: String,
+        field1724: String,
+        field1725: String,
+        field1726: String,
+        field1727: String,
+        field1728: String,
+        field1729: String,
+        field1730: String,
+        field1731: String,
+        field1732: String,
+        field1733: String,
+        field1734: String,
+        field1735: String,
+        field1736: String,
+        field1737: String,
+        field1738: String,
+        field1739: String,
+        field1740: String,
+        field1741: String,
+        field1742: String,
+        field1743: String,
+        field1744: String,
+        field1745: String,
+        field1746: String,
+        field1747: String,
+        field1748: String,
+        field1749: String,
+        field1750: String,
+        field1751: String,
+        field1752: String,
+        field1753: String,
+        field1754: String,
+        field1755: String,
+        field1756: String,
+        field1757: String,
+        field1758: String,
+        field1759: String,
+        field1760: String,
+        field1761: String,
+        field1762: String,
+        field1763: String,
+        field1764: String,
+        field1765: String,
+        field1766: String,
+        field1767: String,
+        field1768: String,
+        field1769: String,
+        field1770: String,
+        field1771: String,
+        field1772: String,
+        field1773: String,
+        field1774: String,
+        field1775: String,
+        field1776: String,
+        field1777: String,
+        field1778: String,
+        field1779: String,
+        field1780: String,
+        field1781: String,
+        field1782: String,
+        field1783: String,
+        field1784: String,
+        field1785: String,
+        field1786: String,
+        field1787: String,
+        field1788: String,
+        field1789: String,
+        field1790: String,
+        field1791: String,
+        field1792: String,
+        field1793: String,
+        field1794: String,
+        field1795: String,
+        field1796: String,
+        field1797: String,
+        field1798: String,
+        field1799: String,
+        field1800: String,
+        field1801: String,
+        field1802: String,
+        field1803: String,
+        field1804: String,
+        field1805: String,
+        field1806: String,
+        field1807: String,
+        field1808: String,
+        field1809: String,
+        field1810: String,
+        field1811: String,
+        field1812: String,
+        field1813: String,
+        field1814: String,
+        field1815: String,
+        field1816: String,
+        field1817: String,
+        field1818: String,
+        field1819: String,
+        field1820: String,
+        field1821: String,
+        field1822: String,
+        field1823: String,
+        field1824: String,
+        field1825: String,
+        field1826: String,
+        field1827: String,
+        field1828: String,
+        field1829: String,
+        field1830: String,
+        field1831: String,
+        field1832: String,
+        field1833: String,
+        field1834: String,
+        field1835: String,
+        field1836: String,
+        field1837: String,
+        field1838: String,
+        field1839: String,
+        field1840: String,
+        field1841: String,
+        field1842: String,
+        field1843: String,
+        field1844: String,
+        field1845: String,
+        field1846: String,
+        field1847: String,
+        field1848: String,
+        field1849: String,
+        field1850: String,
+        field1851: String,
+        field1852: String,
+        field1853: String,
+        field1854: String,
+        field1855: String,
+        field1856: String,
+        field1857: String,
+        field1858: String,
+        field1859: String,
+        field1860: String,
+        field1861: String,
+        field1862: String,
+        field1863: String,
+        field1864: String,
+        field1865: String,
+        field1866: String,
+        field1867: String,
+        field1868: String,
+        field1869: String,
+        field1870: String,
+        field1871: String,
+        field1872: String,
+        field1873: String,
+        field1874: String,
+        field1875: String,
+        field1876: String,
+        field1877: String,
+        field1878: String,
+        field1879: String,
+        field1880: String,
+        field1881: String,
+        field1882: String,
+        field1883: String,
+        field1884: String,
+        field1885: String,
+        field1886: String,
+        field1887: String,
+        field1888: String,
+        field1889: String,
+        field1890: String,
+        field1891: String,
+        field1892: String,
+        field1893: String,
+        field1894: String,
+        field1895: String,
+        field1896: String,
+        field1897: String,
+        field1898: String,
+        field1899: String,
+        field1900: String,
+        field1901: String,
+        field1902: String,
+        field1903: String,
+        field1904: String,
+        field1905: String,
+        field1906: String,
+        field1907: String,
+        field1908: String,
+        field1909: String,
+        field1910: String,
+        field1911: String,
+        field1912: String,
+        field1913: String,
+        field1914: String,
+        field1915: String,
+        field1916: String,
+        field1917: String,
+        field1918: String,
+        field1919: String,
+        field1920: String,
+        field1921: String,
+        field1922: String,
+        field1923: String,
+        field1924: String,
+        field1925: String,
+        field1926: String,
+        field1927: String,
+        field1928: String,
+        field1929: String,
+        field1930: String,
+        field1931: String,
+        field1932: String,
+        field1933: String,
+        field1934: String,
+        field1935: String,
+        field1936: String,
+        field1937: String,
+        field1938: String,
+        field1939: String,
+        field1940: String,
+        field1941: String,
+        field1942: String,
+        field1943: String,
+        field1944: String,
+        field1945: String,
+        field1946: String,
+        field1947: String,
+        field1948: String,
+        field1949: String,
+        field1950: String,
+        field1951: String,
+        field1952: String,
+        field1953: String,
+        field1954: String,
+        field1955: String,
+        field1956: String,
+        field1957: String,
+        field1958: String,
+        field1959: String,
+        field1960: String,
+        field1961: String,
+        field1962: String,
+        field1963: String,
+        field1964: String,
+        field1965: String,
+        field1966: String,
+        field1967: String,
+        field1968: String,
+        field1969: String,
+        field1970: String,
+        field1971: String,
+        field1972: String,
+        field1973: String,
+        field1974: String,
+        field1975: String,
+        field1976: String,
+        field1977: String,
+        field1978: String,
+        field1979: String,
+        field1980: String,
+        field1981: String,
+        field1982: String,
+        field1983: String,
+        field1984: String,
+        field1985: String,
+        field1986: String,
+        field1987: String,
+        field1988: String,
+        field1989: String,
+        field1990: String,
+        field1991: String,
+        field1992: String,
+        field1993: String,
+        field1994: String,
+        field1995: String,
+        field1996: String,
+        field1997: String,
+        field1998: String,
+        field1999: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = MessageWithLotsOfFields_Impl(
+        field1000 = field1000,
+        field1001 = field1001,
+        field1002 = field1002,
+        field1003 = field1003,
+        field1004 = field1004,
+        field1005 = field1005,
+        field1006 = field1006,
+        field1007 = field1007,
+        field1008 = field1008,
+        field1009 = field1009,
+        field1010 = field1010,
+        field1011 = field1011,
+        field1012 = field1012,
+        field1013 = field1013,
+        field1014 = field1014,
+        field1015 = field1015,
+        field1016 = field1016,
+        field1017 = field1017,
+        field1018 = field1018,
+        field1019 = field1019,
+        field1020 = field1020,
+        field1021 = field1021,
+        field1022 = field1022,
+        field1023 = field1023,
+        field1024 = field1024,
+        field1025 = field1025,
+        field1026 = field1026,
+        field1027 = field1027,
+        field1028 = field1028,
+        field1029 = field1029,
+        field1030 = field1030,
+        field1031 = field1031,
+        field1032 = field1032,
+        field1033 = field1033,
+        field1034 = field1034,
+        field1035 = field1035,
+        field1036 = field1036,
+        field1037 = field1037,
+        field1038 = field1038,
+        field1039 = field1039,
+        field1040 = field1040,
+        field1041 = field1041,
+        field1042 = field1042,
+        field1043 = field1043,
+        field1044 = field1044,
+        field1045 = field1045,
+        field1046 = field1046,
+        field1047 = field1047,
+        field1048 = field1048,
+        field1049 = field1049,
+        field1050 = field1050,
+        field1051 = field1051,
+        field1052 = field1052,
+        field1053 = field1053,
+        field1054 = field1054,
+        field1055 = field1055,
+        field1056 = field1056,
+        field1057 = field1057,
+        field1058 = field1058,
+        field1059 = field1059,
+        field1060 = field1060,
+        field1061 = field1061,
+        field1062 = field1062,
+        field1063 = field1063,
+        field1064 = field1064,
+        field1065 = field1065,
+        field1066 = field1066,
+        field1067 = field1067,
+        field1068 = field1068,
+        field1069 = field1069,
+        field1070 = field1070,
+        field1071 = field1071,
+        field1072 = field1072,
+        field1073 = field1073,
+        field1074 = field1074,
+        field1075 = field1075,
+        field1076 = field1076,
+        field1077 = field1077,
+        field1078 = field1078,
+        field1079 = field1079,
+        field1080 = field1080,
+        field1081 = field1081,
+        field1082 = field1082,
+        field1083 = field1083,
+        field1084 = field1084,
+        field1085 = field1085,
+        field1086 = field1086,
+        field1087 = field1087,
+        field1088 = field1088,
+        field1089 = field1089,
+        field1090 = field1090,
+        field1091 = field1091,
+        field1092 = field1092,
+        field1093 = field1093,
+        field1094 = field1094,
+        field1095 = field1095,
+        field1096 = field1096,
+        field1097 = field1097,
+        field1098 = field1098,
+        field1099 = field1099,
+        field1100 = field1100,
+        field1101 = field1101,
+        field1102 = field1102,
+        field1103 = field1103,
+        field1104 = field1104,
+        field1105 = field1105,
+        field1106 = field1106,
+        field1107 = field1107,
+        field1108 = field1108,
+        field1109 = field1109,
+        field1110 = field1110,
+        field1111 = field1111,
+        field1112 = field1112,
+        field1113 = field1113,
+        field1114 = field1114,
+        field1115 = field1115,
+        field1116 = field1116,
+        field1117 = field1117,
+        field1118 = field1118,
+        field1119 = field1119,
+        field1120 = field1120,
+        field1121 = field1121,
+        field1122 = field1122,
+        field1123 = field1123,
+        field1124 = field1124,
+        field1125 = field1125,
+        field1126 = field1126,
+        field1127 = field1127,
+        field1128 = field1128,
+        field1129 = field1129,
+        field1130 = field1130,
+        field1131 = field1131,
+        field1132 = field1132,
+        field1133 = field1133,
+        field1134 = field1134,
+        field1135 = field1135,
+        field1136 = field1136,
+        field1137 = field1137,
+        field1138 = field1138,
+        field1139 = field1139,
+        field1140 = field1140,
+        field1141 = field1141,
+        field1142 = field1142,
+        field1143 = field1143,
+        field1144 = field1144,
+        field1145 = field1145,
+        field1146 = field1146,
+        field1147 = field1147,
+        field1148 = field1148,
+        field1149 = field1149,
+        field1150 = field1150,
+        field1151 = field1151,
+        field1152 = field1152,
+        field1153 = field1153,
+        field1154 = field1154,
+        field1155 = field1155,
+        field1156 = field1156,
+        field1157 = field1157,
+        field1158 = field1158,
+        field1159 = field1159,
+        field1160 = field1160,
+        field1161 = field1161,
+        field1162 = field1162,
+        field1163 = field1163,
+        field1164 = field1164,
+        field1165 = field1165,
+        field1166 = field1166,
+        field1167 = field1167,
+        field1168 = field1168,
+        field1169 = field1169,
+        field1170 = field1170,
+        field1171 = field1171,
+        field1172 = field1172,
+        field1173 = field1173,
+        field1174 = field1174,
+        field1175 = field1175,
+        field1176 = field1176,
+        field1177 = field1177,
+        field1178 = field1178,
+        field1179 = field1179,
+        field1180 = field1180,
+        field1181 = field1181,
+        field1182 = field1182,
+        field1183 = field1183,
+        field1184 = field1184,
+        field1185 = field1185,
+        field1186 = field1186,
+        field1187 = field1187,
+        field1188 = field1188,
+        field1189 = field1189,
+        field1190 = field1190,
+        field1191 = field1191,
+        field1192 = field1192,
+        field1193 = field1193,
+        field1194 = field1194,
+        field1195 = field1195,
+        field1196 = field1196,
+        field1197 = field1197,
+        field1198 = field1198,
+        field1199 = field1199,
+        field1200 = field1200,
+        field1201 = field1201,
+        field1202 = field1202,
+        field1203 = field1203,
+        field1204 = field1204,
+        field1205 = field1205,
+        field1206 = field1206,
+        field1207 = field1207,
+        field1208 = field1208,
+        field1209 = field1209,
+        field1210 = field1210,
+        field1211 = field1211,
+        field1212 = field1212,
+        field1213 = field1213,
+        field1214 = field1214,
+        field1215 = field1215,
+        field1216 = field1216,
+        field1217 = field1217,
+        field1218 = field1218,
+        field1219 = field1219,
+        field1220 = field1220,
+        field1221 = field1221,
+        field1222 = field1222,
+        field1223 = field1223,
+        field1224 = field1224,
+        field1225 = field1225,
+        field1226 = field1226,
+        field1227 = field1227,
+        field1228 = field1228,
+        field1229 = field1229,
+        field1230 = field1230,
+        field1231 = field1231,
+        field1232 = field1232,
+        field1233 = field1233,
+        field1234 = field1234,
+        field1235 = field1235,
+        field1236 = field1236,
+        field1237 = field1237,
+        field1238 = field1238,
+        field1239 = field1239,
+        field1240 = field1240,
+        field1241 = field1241,
+        field1242 = field1242,
+        field1243 = field1243,
+        field1244 = field1244,
+        field1245 = field1245,
+        field1246 = field1246,
+        field1247 = field1247,
+        field1248 = field1248,
+        field1249 = field1249,
+        field1250 = field1250,
+        field1251 = field1251,
+        field1252 = field1252,
+        field1253 = field1253,
+        field1254 = field1254,
+        field1255 = field1255,
+        field1256 = field1256,
+        field1257 = field1257,
+        field1258 = field1258,
+        field1259 = field1259,
+        field1260 = field1260,
+        field1261 = field1261,
+        field1262 = field1262,
+        field1263 = field1263,
+        field1264 = field1264,
+        field1265 = field1265,
+        field1266 = field1266,
+        field1267 = field1267,
+        field1268 = field1268,
+        field1269 = field1269,
+        field1270 = field1270,
+        field1271 = field1271,
+        field1272 = field1272,
+        field1273 = field1273,
+        field1274 = field1274,
+        field1275 = field1275,
+        field1276 = field1276,
+        field1277 = field1277,
+        field1278 = field1278,
+        field1279 = field1279,
+        field1280 = field1280,
+        field1281 = field1281,
+        field1282 = field1282,
+        field1283 = field1283,
+        field1284 = field1284,
+        field1285 = field1285,
+        field1286 = field1286,
+        field1287 = field1287,
+        field1288 = field1288,
+        field1289 = field1289,
+        field1290 = field1290,
+        field1291 = field1291,
+        field1292 = field1292,
+        field1293 = field1293,
+        field1294 = field1294,
+        field1295 = field1295,
+        field1296 = field1296,
+        field1297 = field1297,
+        field1298 = field1298,
+        field1299 = field1299,
+        field1300 = field1300,
+        field1301 = field1301,
+        field1302 = field1302,
+        field1303 = field1303,
+        field1304 = field1304,
+        field1305 = field1305,
+        field1306 = field1306,
+        field1307 = field1307,
+        field1308 = field1308,
+        field1309 = field1309,
+        field1310 = field1310,
+        field1311 = field1311,
+        field1312 = field1312,
+        field1313 = field1313,
+        field1314 = field1314,
+        field1315 = field1315,
+        field1316 = field1316,
+        field1317 = field1317,
+        field1318 = field1318,
+        field1319 = field1319,
+        field1320 = field1320,
+        field1321 = field1321,
+        field1322 = field1322,
+        field1323 = field1323,
+        field1324 = field1324,
+        field1325 = field1325,
+        field1326 = field1326,
+        field1327 = field1327,
+        field1328 = field1328,
+        field1329 = field1329,
+        field1330 = field1330,
+        field1331 = field1331,
+        field1332 = field1332,
+        field1333 = field1333,
+        field1334 = field1334,
+        field1335 = field1335,
+        field1336 = field1336,
+        field1337 = field1337,
+        field1338 = field1338,
+        field1339 = field1339,
+        field1340 = field1340,
+        field1341 = field1341,
+        field1342 = field1342,
+        field1343 = field1343,
+        field1344 = field1344,
+        field1345 = field1345,
+        field1346 = field1346,
+        field1347 = field1347,
+        field1348 = field1348,
+        field1349 = field1349,
+        field1350 = field1350,
+        field1351 = field1351,
+        field1352 = field1352,
+        field1353 = field1353,
+        field1354 = field1354,
+        field1355 = field1355,
+        field1356 = field1356,
+        field1357 = field1357,
+        field1358 = field1358,
+        field1359 = field1359,
+        field1360 = field1360,
+        field1361 = field1361,
+        field1362 = field1362,
+        field1363 = field1363,
+        field1364 = field1364,
+        field1365 = field1365,
+        field1366 = field1366,
+        field1367 = field1367,
+        field1368 = field1368,
+        field1369 = field1369,
+        field1370 = field1370,
+        field1371 = field1371,
+        field1372 = field1372,
+        field1373 = field1373,
+        field1374 = field1374,
+        field1375 = field1375,
+        field1376 = field1376,
+        field1377 = field1377,
+        field1378 = field1378,
+        field1379 = field1379,
+        field1380 = field1380,
+        field1381 = field1381,
+        field1382 = field1382,
+        field1383 = field1383,
+        field1384 = field1384,
+        field1385 = field1385,
+        field1386 = field1386,
+        field1387 = field1387,
+        field1388 = field1388,
+        field1389 = field1389,
+        field1390 = field1390,
+        field1391 = field1391,
+        field1392 = field1392,
+        field1393 = field1393,
+        field1394 = field1394,
+        field1395 = field1395,
+        field1396 = field1396,
+        field1397 = field1397,
+        field1398 = field1398,
+        field1399 = field1399,
+        field1400 = field1400,
+        field1401 = field1401,
+        field1402 = field1402,
+        field1403 = field1403,
+        field1404 = field1404,
+        field1405 = field1405,
+        field1406 = field1406,
+        field1407 = field1407,
+        field1408 = field1408,
+        field1409 = field1409,
+        field1410 = field1410,
+        field1411 = field1411,
+        field1412 = field1412,
+        field1413 = field1413,
+        field1414 = field1414,
+        field1415 = field1415,
+        field1416 = field1416,
+        field1417 = field1417,
+        field1418 = field1418,
+        field1419 = field1419,
+        field1420 = field1420,
+        field1421 = field1421,
+        field1422 = field1422,
+        field1423 = field1423,
+        field1424 = field1424,
+        field1425 = field1425,
+        field1426 = field1426,
+        field1427 = field1427,
+        field1428 = field1428,
+        field1429 = field1429,
+        field1430 = field1430,
+        field1431 = field1431,
+        field1432 = field1432,
+        field1433 = field1433,
+        field1434 = field1434,
+        field1435 = field1435,
+        field1436 = field1436,
+        field1437 = field1437,
+        field1438 = field1438,
+        field1439 = field1439,
+        field1440 = field1440,
+        field1441 = field1441,
+        field1442 = field1442,
+        field1443 = field1443,
+        field1444 = field1444,
+        field1445 = field1445,
+        field1446 = field1446,
+        field1447 = field1447,
+        field1448 = field1448,
+        field1449 = field1449,
+        field1450 = field1450,
+        field1451 = field1451,
+        field1452 = field1452,
+        field1453 = field1453,
+        field1454 = field1454,
+        field1455 = field1455,
+        field1456 = field1456,
+        field1457 = field1457,
+        field1458 = field1458,
+        field1459 = field1459,
+        field1460 = field1460,
+        field1461 = field1461,
+        field1462 = field1462,
+        field1463 = field1463,
+        field1464 = field1464,
+        field1465 = field1465,
+        field1466 = field1466,
+        field1467 = field1467,
+        field1468 = field1468,
+        field1469 = field1469,
+        field1470 = field1470,
+        field1471 = field1471,
+        field1472 = field1472,
+        field1473 = field1473,
+        field1474 = field1474,
+        field1475 = field1475,
+        field1476 = field1476,
+        field1477 = field1477,
+        field1478 = field1478,
+        field1479 = field1479,
+        field1480 = field1480,
+        field1481 = field1481,
+        field1482 = field1482,
+        field1483 = field1483,
+        field1484 = field1484,
+        field1485 = field1485,
+        field1486 = field1486,
+        field1487 = field1487,
+        field1488 = field1488,
+        field1489 = field1489,
+        field1490 = field1490,
+        field1491 = field1491,
+        field1492 = field1492,
+        field1493 = field1493,
+        field1494 = field1494,
+        field1495 = field1495,
+        field1496 = field1496,
+        field1497 = field1497,
+        field1498 = field1498,
+        field1499 = field1499,
+        field1500 = field1500,
+        field1501 = field1501,
+        field1502 = field1502,
+        field1503 = field1503,
+        field1504 = field1504,
+        field1505 = field1505,
+        field1506 = field1506,
+        field1507 = field1507,
+        field1508 = field1508,
+        field1509 = field1509,
+        field1510 = field1510,
+        field1511 = field1511,
+        field1512 = field1512,
+        field1513 = field1513,
+        field1514 = field1514,
+        field1515 = field1515,
+        field1516 = field1516,
+        field1517 = field1517,
+        field1518 = field1518,
+        field1519 = field1519,
+        field1520 = field1520,
+        field1521 = field1521,
+        field1522 = field1522,
+        field1523 = field1523,
+        field1524 = field1524,
+        field1525 = field1525,
+        field1526 = field1526,
+        field1527 = field1527,
+        field1528 = field1528,
+        field1529 = field1529,
+        field1530 = field1530,
+        field1531 = field1531,
+        field1532 = field1532,
+        field1533 = field1533,
+        field1534 = field1534,
+        field1535 = field1535,
+        field1536 = field1536,
+        field1537 = field1537,
+        field1538 = field1538,
+        field1539 = field1539,
+        field1540 = field1540,
+        field1541 = field1541,
+        field1542 = field1542,
+        field1543 = field1543,
+        field1544 = field1544,
+        field1545 = field1545,
+        field1546 = field1546,
+        field1547 = field1547,
+        field1548 = field1548,
+        field1549 = field1549,
+        field1550 = field1550,
+        field1551 = field1551,
+        field1552 = field1552,
+        field1553 = field1553,
+        field1554 = field1554,
+        field1555 = field1555,
+        field1556 = field1556,
+        field1557 = field1557,
+        field1558 = field1558,
+        field1559 = field1559,
+        field1560 = field1560,
+        field1561 = field1561,
+        field1562 = field1562,
+        field1563 = field1563,
+        field1564 = field1564,
+        field1565 = field1565,
+        field1566 = field1566,
+        field1567 = field1567,
+        field1568 = field1568,
+        field1569 = field1569,
+        field1570 = field1570,
+        field1571 = field1571,
+        field1572 = field1572,
+        field1573 = field1573,
+        field1574 = field1574,
+        field1575 = field1575,
+        field1576 = field1576,
+        field1577 = field1577,
+        field1578 = field1578,
+        field1579 = field1579,
+        field1580 = field1580,
+        field1581 = field1581,
+        field1582 = field1582,
+        field1583 = field1583,
+        field1584 = field1584,
+        field1585 = field1585,
+        field1586 = field1586,
+        field1587 = field1587,
+        field1588 = field1588,
+        field1589 = field1589,
+        field1590 = field1590,
+        field1591 = field1591,
+        field1592 = field1592,
+        field1593 = field1593,
+        field1594 = field1594,
+        field1595 = field1595,
+        field1596 = field1596,
+        field1597 = field1597,
+        field1598 = field1598,
+        field1599 = field1599,
+        field1600 = field1600,
+        field1601 = field1601,
+        field1602 = field1602,
+        field1603 = field1603,
+        field1604 = field1604,
+        field1605 = field1605,
+        field1606 = field1606,
+        field1607 = field1607,
+        field1608 = field1608,
+        field1609 = field1609,
+        field1610 = field1610,
+        field1611 = field1611,
+        field1612 = field1612,
+        field1613 = field1613,
+        field1614 = field1614,
+        field1615 = field1615,
+        field1616 = field1616,
+        field1617 = field1617,
+        field1618 = field1618,
+        field1619 = field1619,
+        field1620 = field1620,
+        field1621 = field1621,
+        field1622 = field1622,
+        field1623 = field1623,
+        field1624 = field1624,
+        field1625 = field1625,
+        field1626 = field1626,
+        field1627 = field1627,
+        field1628 = field1628,
+        field1629 = field1629,
+        field1630 = field1630,
+        field1631 = field1631,
+        field1632 = field1632,
+        field1633 = field1633,
+        field1634 = field1634,
+        field1635 = field1635,
+        field1636 = field1636,
+        field1637 = field1637,
+        field1638 = field1638,
+        field1639 = field1639,
+        field1640 = field1640,
+        field1641 = field1641,
+        field1642 = field1642,
+        field1643 = field1643,
+        field1644 = field1644,
+        field1645 = field1645,
+        field1646 = field1646,
+        field1647 = field1647,
+        field1648 = field1648,
+        field1649 = field1649,
+        field1650 = field1650,
+        field1651 = field1651,
+        field1652 = field1652,
+        field1653 = field1653,
+        field1654 = field1654,
+        field1655 = field1655,
+        field1656 = field1656,
+        field1657 = field1657,
+        field1658 = field1658,
+        field1659 = field1659,
+        field1660 = field1660,
+        field1661 = field1661,
+        field1662 = field1662,
+        field1663 = field1663,
+        field1664 = field1664,
+        field1665 = field1665,
+        field1666 = field1666,
+        field1667 = field1667,
+        field1668 = field1668,
+        field1669 = field1669,
+        field1670 = field1670,
+        field1671 = field1671,
+        field1672 = field1672,
+        field1673 = field1673,
+        field1674 = field1674,
+        field1675 = field1675,
+        field1676 = field1676,
+        field1677 = field1677,
+        field1678 = field1678,
+        field1679 = field1679,
+        field1680 = field1680,
+        field1681 = field1681,
+        field1682 = field1682,
+        field1683 = field1683,
+        field1684 = field1684,
+        field1685 = field1685,
+        field1686 = field1686,
+        field1687 = field1687,
+        field1688 = field1688,
+        field1689 = field1689,
+        field1690 = field1690,
+        field1691 = field1691,
+        field1692 = field1692,
+        field1693 = field1693,
+        field1694 = field1694,
+        field1695 = field1695,
+        field1696 = field1696,
+        field1697 = field1697,
+        field1698 = field1698,
+        field1699 = field1699,
+        field1700 = field1700,
+        field1701 = field1701,
+        field1702 = field1702,
+        field1703 = field1703,
+        field1704 = field1704,
+        field1705 = field1705,
+        field1706 = field1706,
+        field1707 = field1707,
+        field1708 = field1708,
+        field1709 = field1709,
+        field1710 = field1710,
+        field1711 = field1711,
+        field1712 = field1712,
+        field1713 = field1713,
+        field1714 = field1714,
+        field1715 = field1715,
+        field1716 = field1716,
+        field1717 = field1717,
+        field1718 = field1718,
+        field1719 = field1719,
+        field1720 = field1720,
+        field1721 = field1721,
+        field1722 = field1722,
+        field1723 = field1723,
+        field1724 = field1724,
+        field1725 = field1725,
+        field1726 = field1726,
+        field1727 = field1727,
+        field1728 = field1728,
+        field1729 = field1729,
+        field1730 = field1730,
+        field1731 = field1731,
+        field1732 = field1732,
+        field1733 = field1733,
+        field1734 = field1734,
+        field1735 = field1735,
+        field1736 = field1736,
+        field1737 = field1737,
+        field1738 = field1738,
+        field1739 = field1739,
+        field1740 = field1740,
+        field1741 = field1741,
+        field1742 = field1742,
+        field1743 = field1743,
+        field1744 = field1744,
+        field1745 = field1745,
+        field1746 = field1746,
+        field1747 = field1747,
+        field1748 = field1748,
+        field1749 = field1749,
+        field1750 = field1750,
+        field1751 = field1751,
+        field1752 = field1752,
+        field1753 = field1753,
+        field1754 = field1754,
+        field1755 = field1755,
+        field1756 = field1756,
+        field1757 = field1757,
+        field1758 = field1758,
+        field1759 = field1759,
+        field1760 = field1760,
+        field1761 = field1761,
+        field1762 = field1762,
+        field1763 = field1763,
+        field1764 = field1764,
+        field1765 = field1765,
+        field1766 = field1766,
+        field1767 = field1767,
+        field1768 = field1768,
+        field1769 = field1769,
+        field1770 = field1770,
+        field1771 = field1771,
+        field1772 = field1772,
+        field1773 = field1773,
+        field1774 = field1774,
+        field1775 = field1775,
+        field1776 = field1776,
+        field1777 = field1777,
+        field1778 = field1778,
+        field1779 = field1779,
+        field1780 = field1780,
+        field1781 = field1781,
+        field1782 = field1782,
+        field1783 = field1783,
+        field1784 = field1784,
+        field1785 = field1785,
+        field1786 = field1786,
+        field1787 = field1787,
+        field1788 = field1788,
+        field1789 = field1789,
+        field1790 = field1790,
+        field1791 = field1791,
+        field1792 = field1792,
+        field1793 = field1793,
+        field1794 = field1794,
+        field1795 = field1795,
+        field1796 = field1796,
+        field1797 = field1797,
+        field1798 = field1798,
+        field1799 = field1799,
+        field1800 = field1800,
+        field1801 = field1801,
+        field1802 = field1802,
+        field1803 = field1803,
+        field1804 = field1804,
+        field1805 = field1805,
+        field1806 = field1806,
+        field1807 = field1807,
+        field1808 = field1808,
+        field1809 = field1809,
+        field1810 = field1810,
+        field1811 = field1811,
+        field1812 = field1812,
+        field1813 = field1813,
+        field1814 = field1814,
+        field1815 = field1815,
+        field1816 = field1816,
+        field1817 = field1817,
+        field1818 = field1818,
+        field1819 = field1819,
+        field1820 = field1820,
+        field1821 = field1821,
+        field1822 = field1822,
+        field1823 = field1823,
+        field1824 = field1824,
+        field1825 = field1825,
+        field1826 = field1826,
+        field1827 = field1827,
+        field1828 = field1828,
+        field1829 = field1829,
+        field1830 = field1830,
+        field1831 = field1831,
+        field1832 = field1832,
+        field1833 = field1833,
+        field1834 = field1834,
+        field1835 = field1835,
+        field1836 = field1836,
+        field1837 = field1837,
+        field1838 = field1838,
+        field1839 = field1839,
+        field1840 = field1840,
+        field1841 = field1841,
+        field1842 = field1842,
+        field1843 = field1843,
+        field1844 = field1844,
+        field1845 = field1845,
+        field1846 = field1846,
+        field1847 = field1847,
+        field1848 = field1848,
+        field1849 = field1849,
+        field1850 = field1850,
+        field1851 = field1851,
+        field1852 = field1852,
+        field1853 = field1853,
+        field1854 = field1854,
+        field1855 = field1855,
+        field1856 = field1856,
+        field1857 = field1857,
+        field1858 = field1858,
+        field1859 = field1859,
+        field1860 = field1860,
+        field1861 = field1861,
+        field1862 = field1862,
+        field1863 = field1863,
+        field1864 = field1864,
+        field1865 = field1865,
+        field1866 = field1866,
+        field1867 = field1867,
+        field1868 = field1868,
+        field1869 = field1869,
+        field1870 = field1870,
+        field1871 = field1871,
+        field1872 = field1872,
+        field1873 = field1873,
+        field1874 = field1874,
+        field1875 = field1875,
+        field1876 = field1876,
+        field1877 = field1877,
+        field1878 = field1878,
+        field1879 = field1879,
+        field1880 = field1880,
+        field1881 = field1881,
+        field1882 = field1882,
+        field1883 = field1883,
+        field1884 = field1884,
+        field1885 = field1885,
+        field1886 = field1886,
+        field1887 = field1887,
+        field1888 = field1888,
+        field1889 = field1889,
+        field1890 = field1890,
+        field1891 = field1891,
+        field1892 = field1892,
+        field1893 = field1893,
+        field1894 = field1894,
+        field1895 = field1895,
+        field1896 = field1896,
+        field1897 = field1897,
+        field1898 = field1898,
+        field1899 = field1899,
+        field1900 = field1900,
+        field1901 = field1901,
+        field1902 = field1902,
+        field1903 = field1903,
+        field1904 = field1904,
+        field1905 = field1905,
+        field1906 = field1906,
+        field1907 = field1907,
+        field1908 = field1908,
+        field1909 = field1909,
+        field1910 = field1910,
+        field1911 = field1911,
+        field1912 = field1912,
+        field1913 = field1913,
+        field1914 = field1914,
+        field1915 = field1915,
+        field1916 = field1916,
+        field1917 = field1917,
+        field1918 = field1918,
+        field1919 = field1919,
+        field1920 = field1920,
+        field1921 = field1921,
+        field1922 = field1922,
+        field1923 = field1923,
+        field1924 = field1924,
+        field1925 = field1925,
+        field1926 = field1926,
+        field1927 = field1927,
+        field1928 = field1928,
+        field1929 = field1929,
+        field1930 = field1930,
+        field1931 = field1931,
+        field1932 = field1932,
+        field1933 = field1933,
+        field1934 = field1934,
+        field1935 = field1935,
+        field1936 = field1936,
+        field1937 = field1937,
+        field1938 = field1938,
+        field1939 = field1939,
+        field1940 = field1940,
+        field1941 = field1941,
+        field1942 = field1942,
+        field1943 = field1943,
+        field1944 = field1944,
+        field1945 = field1945,
+        field1946 = field1946,
+        field1947 = field1947,
+        field1948 = field1948,
+        field1949 = field1949,
+        field1950 = field1950,
+        field1951 = field1951,
+        field1952 = field1952,
+        field1953 = field1953,
+        field1954 = field1954,
+        field1955 = field1955,
+        field1956 = field1956,
+        field1957 = field1957,
+        field1958 = field1958,
+        field1959 = field1959,
+        field1960 = field1960,
+        field1961 = field1961,
+        field1962 = field1962,
+        field1963 = field1963,
+        field1964 = field1964,
+        field1965 = field1965,
+        field1966 = field1966,
+        field1967 = field1967,
+        field1968 = field1968,
+        field1969 = field1969,
+        field1970 = field1970,
+        field1971 = field1971,
+        field1972 = field1972,
+        field1973 = field1973,
+        field1974 = field1974,
+        field1975 = field1975,
+        field1976 = field1976,
+        field1977 = field1977,
+        field1978 = field1978,
+        field1979 = field1979,
+        field1980 = field1980,
+        field1981 = field1981,
+        field1982 = field1982,
+        field1983 = field1983,
+        field1984 = field1984,
+        field1985 = field1985,
+        field1986 = field1986,
+        field1987 = field1987,
+        field1988 = field1988,
+        field1989 = field1989,
+        field1990 = field1990,
+        field1991 = field1991,
+        field1992 = field1992,
+        field1993 = field1993,
+        field1994 = field1994,
+        field1995 = field1995,
+        field1996 = field1996,
+        field1997 = field1997,
+        field1998 = field1998,
+        field1999 = field1999,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? MessageWithLotsOfFields)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMessageWithLotsOfFields() = MessageWithLotsOfFields_Impl(
+        field1000 = field1000,
+        field1001 = field1001,
+        field1002 = field1002,
+        field1003 = field1003,
+        field1004 = field1004,
+        field1005 = field1005,
+        field1006 = field1006,
+        field1007 = field1007,
+        field1008 = field1008,
+        field1009 = field1009,
+        field1010 = field1010,
+        field1011 = field1011,
+        field1012 = field1012,
+        field1013 = field1013,
+        field1014 = field1014,
+        field1015 = field1015,
+        field1016 = field1016,
+        field1017 = field1017,
+        field1018 = field1018,
+        field1019 = field1019,
+        field1020 = field1020,
+        field1021 = field1021,
+        field1022 = field1022,
+        field1023 = field1023,
+        field1024 = field1024,
+        field1025 = field1025,
+        field1026 = field1026,
+        field1027 = field1027,
+        field1028 = field1028,
+        field1029 = field1029,
+        field1030 = field1030,
+        field1031 = field1031,
+        field1032 = field1032,
+        field1033 = field1033,
+        field1034 = field1034,
+        field1035 = field1035,
+        field1036 = field1036,
+        field1037 = field1037,
+        field1038 = field1038,
+        field1039 = field1039,
+        field1040 = field1040,
+        field1041 = field1041,
+        field1042 = field1042,
+        field1043 = field1043,
+        field1044 = field1044,
+        field1045 = field1045,
+        field1046 = field1046,
+        field1047 = field1047,
+        field1048 = field1048,
+        field1049 = field1049,
+        field1050 = field1050,
+        field1051 = field1051,
+        field1052 = field1052,
+        field1053 = field1053,
+        field1054 = field1054,
+        field1055 = field1055,
+        field1056 = field1056,
+        field1057 = field1057,
+        field1058 = field1058,
+        field1059 = field1059,
+        field1060 = field1060,
+        field1061 = field1061,
+        field1062 = field1062,
+        field1063 = field1063,
+        field1064 = field1064,
+        field1065 = field1065,
+        field1066 = field1066,
+        field1067 = field1067,
+        field1068 = field1068,
+        field1069 = field1069,
+        field1070 = field1070,
+        field1071 = field1071,
+        field1072 = field1072,
+        field1073 = field1073,
+        field1074 = field1074,
+        field1075 = field1075,
+        field1076 = field1076,
+        field1077 = field1077,
+        field1078 = field1078,
+        field1079 = field1079,
+        field1080 = field1080,
+        field1081 = field1081,
+        field1082 = field1082,
+        field1083 = field1083,
+        field1084 = field1084,
+        field1085 = field1085,
+        field1086 = field1086,
+        field1087 = field1087,
+        field1088 = field1088,
+        field1089 = field1089,
+        field1090 = field1090,
+        field1091 = field1091,
+        field1092 = field1092,
+        field1093 = field1093,
+        field1094 = field1094,
+        field1095 = field1095,
+        field1096 = field1096,
+        field1097 = field1097,
+        field1098 = field1098,
+        field1099 = field1099,
+        field1100 = field1100,
+        field1101 = field1101,
+        field1102 = field1102,
+        field1103 = field1103,
+        field1104 = field1104,
+        field1105 = field1105,
+        field1106 = field1106,
+        field1107 = field1107,
+        field1108 = field1108,
+        field1109 = field1109,
+        field1110 = field1110,
+        field1111 = field1111,
+        field1112 = field1112,
+        field1113 = field1113,
+        field1114 = field1114,
+        field1115 = field1115,
+        field1116 = field1116,
+        field1117 = field1117,
+        field1118 = field1118,
+        field1119 = field1119,
+        field1120 = field1120,
+        field1121 = field1121,
+        field1122 = field1122,
+        field1123 = field1123,
+        field1124 = field1124,
+        field1125 = field1125,
+        field1126 = field1126,
+        field1127 = field1127,
+        field1128 = field1128,
+        field1129 = field1129,
+        field1130 = field1130,
+        field1131 = field1131,
+        field1132 = field1132,
+        field1133 = field1133,
+        field1134 = field1134,
+        field1135 = field1135,
+        field1136 = field1136,
+        field1137 = field1137,
+        field1138 = field1138,
+        field1139 = field1139,
+        field1140 = field1140,
+        field1141 = field1141,
+        field1142 = field1142,
+        field1143 = field1143,
+        field1144 = field1144,
+        field1145 = field1145,
+        field1146 = field1146,
+        field1147 = field1147,
+        field1148 = field1148,
+        field1149 = field1149,
+        field1150 = field1150,
+        field1151 = field1151,
+        field1152 = field1152,
+        field1153 = field1153,
+        field1154 = field1154,
+        field1155 = field1155,
+        field1156 = field1156,
+        field1157 = field1157,
+        field1158 = field1158,
+        field1159 = field1159,
+        field1160 = field1160,
+        field1161 = field1161,
+        field1162 = field1162,
+        field1163 = field1163,
+        field1164 = field1164,
+        field1165 = field1165,
+        field1166 = field1166,
+        field1167 = field1167,
+        field1168 = field1168,
+        field1169 = field1169,
+        field1170 = field1170,
+        field1171 = field1171,
+        field1172 = field1172,
+        field1173 = field1173,
+        field1174 = field1174,
+        field1175 = field1175,
+        field1176 = field1176,
+        field1177 = field1177,
+        field1178 = field1178,
+        field1179 = field1179,
+        field1180 = field1180,
+        field1181 = field1181,
+        field1182 = field1182,
+        field1183 = field1183,
+        field1184 = field1184,
+        field1185 = field1185,
+        field1186 = field1186,
+        field1187 = field1187,
+        field1188 = field1188,
+        field1189 = field1189,
+        field1190 = field1190,
+        field1191 = field1191,
+        field1192 = field1192,
+        field1193 = field1193,
+        field1194 = field1194,
+        field1195 = field1195,
+        field1196 = field1196,
+        field1197 = field1197,
+        field1198 = field1198,
+        field1199 = field1199,
+        field1200 = field1200,
+        field1201 = field1201,
+        field1202 = field1202,
+        field1203 = field1203,
+        field1204 = field1204,
+        field1205 = field1205,
+        field1206 = field1206,
+        field1207 = field1207,
+        field1208 = field1208,
+        field1209 = field1209,
+        field1210 = field1210,
+        field1211 = field1211,
+        field1212 = field1212,
+        field1213 = field1213,
+        field1214 = field1214,
+        field1215 = field1215,
+        field1216 = field1216,
+        field1217 = field1217,
+        field1218 = field1218,
+        field1219 = field1219,
+        field1220 = field1220,
+        field1221 = field1221,
+        field1222 = field1222,
+        field1223 = field1223,
+        field1224 = field1224,
+        field1225 = field1225,
+        field1226 = field1226,
+        field1227 = field1227,
+        field1228 = field1228,
+        field1229 = field1229,
+        field1230 = field1230,
+        field1231 = field1231,
+        field1232 = field1232,
+        field1233 = field1233,
+        field1234 = field1234,
+        field1235 = field1235,
+        field1236 = field1236,
+        field1237 = field1237,
+        field1238 = field1238,
+        field1239 = field1239,
+        field1240 = field1240,
+        field1241 = field1241,
+        field1242 = field1242,
+        field1243 = field1243,
+        field1244 = field1244,
+        field1245 = field1245,
+        field1246 = field1246,
+        field1247 = field1247,
+        field1248 = field1248,
+        field1249 = field1249,
+        field1250 = field1250,
+        field1251 = field1251,
+        field1252 = field1252,
+        field1253 = field1253,
+        field1254 = field1254,
+        field1255 = field1255,
+        field1256 = field1256,
+        field1257 = field1257,
+        field1258 = field1258,
+        field1259 = field1259,
+        field1260 = field1260,
+        field1261 = field1261,
+        field1262 = field1262,
+        field1263 = field1263,
+        field1264 = field1264,
+        field1265 = field1265,
+        field1266 = field1266,
+        field1267 = field1267,
+        field1268 = field1268,
+        field1269 = field1269,
+        field1270 = field1270,
+        field1271 = field1271,
+        field1272 = field1272,
+        field1273 = field1273,
+        field1274 = field1274,
+        field1275 = field1275,
+        field1276 = field1276,
+        field1277 = field1277,
+        field1278 = field1278,
+        field1279 = field1279,
+        field1280 = field1280,
+        field1281 = field1281,
+        field1282 = field1282,
+        field1283 = field1283,
+        field1284 = field1284,
+        field1285 = field1285,
+        field1286 = field1286,
+        field1287 = field1287,
+        field1288 = field1288,
+        field1289 = field1289,
+        field1290 = field1290,
+        field1291 = field1291,
+        field1292 = field1292,
+        field1293 = field1293,
+        field1294 = field1294,
+        field1295 = field1295,
+        field1296 = field1296,
+        field1297 = field1297,
+        field1298 = field1298,
+        field1299 = field1299,
+        field1300 = field1300,
+        field1301 = field1301,
+        field1302 = field1302,
+        field1303 = field1303,
+        field1304 = field1304,
+        field1305 = field1305,
+        field1306 = field1306,
+        field1307 = field1307,
+        field1308 = field1308,
+        field1309 = field1309,
+        field1310 = field1310,
+        field1311 = field1311,
+        field1312 = field1312,
+        field1313 = field1313,
+        field1314 = field1314,
+        field1315 = field1315,
+        field1316 = field1316,
+        field1317 = field1317,
+        field1318 = field1318,
+        field1319 = field1319,
+        field1320 = field1320,
+        field1321 = field1321,
+        field1322 = field1322,
+        field1323 = field1323,
+        field1324 = field1324,
+        field1325 = field1325,
+        field1326 = field1326,
+        field1327 = field1327,
+        field1328 = field1328,
+        field1329 = field1329,
+        field1330 = field1330,
+        field1331 = field1331,
+        field1332 = field1332,
+        field1333 = field1333,
+        field1334 = field1334,
+        field1335 = field1335,
+        field1336 = field1336,
+        field1337 = field1337,
+        field1338 = field1338,
+        field1339 = field1339,
+        field1340 = field1340,
+        field1341 = field1341,
+        field1342 = field1342,
+        field1343 = field1343,
+        field1344 = field1344,
+        field1345 = field1345,
+        field1346 = field1346,
+        field1347 = field1347,
+        field1348 = field1348,
+        field1349 = field1349,
+        field1350 = field1350,
+        field1351 = field1351,
+        field1352 = field1352,
+        field1353 = field1353,
+        field1354 = field1354,
+        field1355 = field1355,
+        field1356 = field1356,
+        field1357 = field1357,
+        field1358 = field1358,
+        field1359 = field1359,
+        field1360 = field1360,
+        field1361 = field1361,
+        field1362 = field1362,
+        field1363 = field1363,
+        field1364 = field1364,
+        field1365 = field1365,
+        field1366 = field1366,
+        field1367 = field1367,
+        field1368 = field1368,
+        field1369 = field1369,
+        field1370 = field1370,
+        field1371 = field1371,
+        field1372 = field1372,
+        field1373 = field1373,
+        field1374 = field1374,
+        field1375 = field1375,
+        field1376 = field1376,
+        field1377 = field1377,
+        field1378 = field1378,
+        field1379 = field1379,
+        field1380 = field1380,
+        field1381 = field1381,
+        field1382 = field1382,
+        field1383 = field1383,
+        field1384 = field1384,
+        field1385 = field1385,
+        field1386 = field1386,
+        field1387 = field1387,
+        field1388 = field1388,
+        field1389 = field1389,
+        field1390 = field1390,
+        field1391 = field1391,
+        field1392 = field1392,
+        field1393 = field1393,
+        field1394 = field1394,
+        field1395 = field1395,
+        field1396 = field1396,
+        field1397 = field1397,
+        field1398 = field1398,
+        field1399 = field1399,
+        field1400 = field1400,
+        field1401 = field1401,
+        field1402 = field1402,
+        field1403 = field1403,
+        field1404 = field1404,
+        field1405 = field1405,
+        field1406 = field1406,
+        field1407 = field1407,
+        field1408 = field1408,
+        field1409 = field1409,
+        field1410 = field1410,
+        field1411 = field1411,
+        field1412 = field1412,
+        field1413 = field1413,
+        field1414 = field1414,
+        field1415 = field1415,
+        field1416 = field1416,
+        field1417 = field1417,
+        field1418 = field1418,
+        field1419 = field1419,
+        field1420 = field1420,
+        field1421 = field1421,
+        field1422 = field1422,
+        field1423 = field1423,
+        field1424 = field1424,
+        field1425 = field1425,
+        field1426 = field1426,
+        field1427 = field1427,
+        field1428 = field1428,
+        field1429 = field1429,
+        field1430 = field1430,
+        field1431 = field1431,
+        field1432 = field1432,
+        field1433 = field1433,
+        field1434 = field1434,
+        field1435 = field1435,
+        field1436 = field1436,
+        field1437 = field1437,
+        field1438 = field1438,
+        field1439 = field1439,
+        field1440 = field1440,
+        field1441 = field1441,
+        field1442 = field1442,
+        field1443 = field1443,
+        field1444 = field1444,
+        field1445 = field1445,
+        field1446 = field1446,
+        field1447 = field1447,
+        field1448 = field1448,
+        field1449 = field1449,
+        field1450 = field1450,
+        field1451 = field1451,
+        field1452 = field1452,
+        field1453 = field1453,
+        field1454 = field1454,
+        field1455 = field1455,
+        field1456 = field1456,
+        field1457 = field1457,
+        field1458 = field1458,
+        field1459 = field1459,
+        field1460 = field1460,
+        field1461 = field1461,
+        field1462 = field1462,
+        field1463 = field1463,
+        field1464 = field1464,
+        field1465 = field1465,
+        field1466 = field1466,
+        field1467 = field1467,
+        field1468 = field1468,
+        field1469 = field1469,
+        field1470 = field1470,
+        field1471 = field1471,
+        field1472 = field1472,
+        field1473 = field1473,
+        field1474 = field1474,
+        field1475 = field1475,
+        field1476 = field1476,
+        field1477 = field1477,
+        field1478 = field1478,
+        field1479 = field1479,
+        field1480 = field1480,
+        field1481 = field1481,
+        field1482 = field1482,
+        field1483 = field1483,
+        field1484 = field1484,
+        field1485 = field1485,
+        field1486 = field1486,
+        field1487 = field1487,
+        field1488 = field1488,
+        field1489 = field1489,
+        field1490 = field1490,
+        field1491 = field1491,
+        field1492 = field1492,
+        field1493 = field1493,
+        field1494 = field1494,
+        field1495 = field1495,
+        field1496 = field1496,
+        field1497 = field1497,
+        field1498 = field1498,
+        field1499 = field1499,
+        field1500 = field1500,
+        field1501 = field1501,
+        field1502 = field1502,
+        field1503 = field1503,
+        field1504 = field1504,
+        field1505 = field1505,
+        field1506 = field1506,
+        field1507 = field1507,
+        field1508 = field1508,
+        field1509 = field1509,
+        field1510 = field1510,
+        field1511 = field1511,
+        field1512 = field1512,
+        field1513 = field1513,
+        field1514 = field1514,
+        field1515 = field1515,
+        field1516 = field1516,
+        field1517 = field1517,
+        field1518 = field1518,
+        field1519 = field1519,
+        field1520 = field1520,
+        field1521 = field1521,
+        field1522 = field1522,
+        field1523 = field1523,
+        field1524 = field1524,
+        field1525 = field1525,
+        field1526 = field1526,
+        field1527 = field1527,
+        field1528 = field1528,
+        field1529 = field1529,
+        field1530 = field1530,
+        field1531 = field1531,
+        field1532 = field1532,
+        field1533 = field1533,
+        field1534 = field1534,
+        field1535 = field1535,
+        field1536 = field1536,
+        field1537 = field1537,
+        field1538 = field1538,
+        field1539 = field1539,
+        field1540 = field1540,
+        field1541 = field1541,
+        field1542 = field1542,
+        field1543 = field1543,
+        field1544 = field1544,
+        field1545 = field1545,
+        field1546 = field1546,
+        field1547 = field1547,
+        field1548 = field1548,
+        field1549 = field1549,
+        field1550 = field1550,
+        field1551 = field1551,
+        field1552 = field1552,
+        field1553 = field1553,
+        field1554 = field1554,
+        field1555 = field1555,
+        field1556 = field1556,
+        field1557 = field1557,
+        field1558 = field1558,
+        field1559 = field1559,
+        field1560 = field1560,
+        field1561 = field1561,
+        field1562 = field1562,
+        field1563 = field1563,
+        field1564 = field1564,
+        field1565 = field1565,
+        field1566 = field1566,
+        field1567 = field1567,
+        field1568 = field1568,
+        field1569 = field1569,
+        field1570 = field1570,
+        field1571 = field1571,
+        field1572 = field1572,
+        field1573 = field1573,
+        field1574 = field1574,
+        field1575 = field1575,
+        field1576 = field1576,
+        field1577 = field1577,
+        field1578 = field1578,
+        field1579 = field1579,
+        field1580 = field1580,
+        field1581 = field1581,
+        field1582 = field1582,
+        field1583 = field1583,
+        field1584 = field1584,
+        field1585 = field1585,
+        field1586 = field1586,
+        field1587 = field1587,
+        field1588 = field1588,
+        field1589 = field1589,
+        field1590 = field1590,
+        field1591 = field1591,
+        field1592 = field1592,
+        field1593 = field1593,
+        field1594 = field1594,
+        field1595 = field1595,
+        field1596 = field1596,
+        field1597 = field1597,
+        field1598 = field1598,
+        field1599 = field1599,
+        field1600 = field1600,
+        field1601 = field1601,
+        field1602 = field1602,
+        field1603 = field1603,
+        field1604 = field1604,
+        field1605 = field1605,
+        field1606 = field1606,
+        field1607 = field1607,
+        field1608 = field1608,
+        field1609 = field1609,
+        field1610 = field1610,
+        field1611 = field1611,
+        field1612 = field1612,
+        field1613 = field1613,
+        field1614 = field1614,
+        field1615 = field1615,
+        field1616 = field1616,
+        field1617 = field1617,
+        field1618 = field1618,
+        field1619 = field1619,
+        field1620 = field1620,
+        field1621 = field1621,
+        field1622 = field1622,
+        field1623 = field1623,
+        field1624 = field1624,
+        field1625 = field1625,
+        field1626 = field1626,
+        field1627 = field1627,
+        field1628 = field1628,
+        field1629 = field1629,
+        field1630 = field1630,
+        field1631 = field1631,
+        field1632 = field1632,
+        field1633 = field1633,
+        field1634 = field1634,
+        field1635 = field1635,
+        field1636 = field1636,
+        field1637 = field1637,
+        field1638 = field1638,
+        field1639 = field1639,
+        field1640 = field1640,
+        field1641 = field1641,
+        field1642 = field1642,
+        field1643 = field1643,
+        field1644 = field1644,
+        field1645 = field1645,
+        field1646 = field1646,
+        field1647 = field1647,
+        field1648 = field1648,
+        field1649 = field1649,
+        field1650 = field1650,
+        field1651 = field1651,
+        field1652 = field1652,
+        field1653 = field1653,
+        field1654 = field1654,
+        field1655 = field1655,
+        field1656 = field1656,
+        field1657 = field1657,
+        field1658 = field1658,
+        field1659 = field1659,
+        field1660 = field1660,
+        field1661 = field1661,
+        field1662 = field1662,
+        field1663 = field1663,
+        field1664 = field1664,
+        field1665 = field1665,
+        field1666 = field1666,
+        field1667 = field1667,
+        field1668 = field1668,
+        field1669 = field1669,
+        field1670 = field1670,
+        field1671 = field1671,
+        field1672 = field1672,
+        field1673 = field1673,
+        field1674 = field1674,
+        field1675 = field1675,
+        field1676 = field1676,
+        field1677 = field1677,
+        field1678 = field1678,
+        field1679 = field1679,
+        field1680 = field1680,
+        field1681 = field1681,
+        field1682 = field1682,
+        field1683 = field1683,
+        field1684 = field1684,
+        field1685 = field1685,
+        field1686 = field1686,
+        field1687 = field1687,
+        field1688 = field1688,
+        field1689 = field1689,
+        field1690 = field1690,
+        field1691 = field1691,
+        field1692 = field1692,
+        field1693 = field1693,
+        field1694 = field1694,
+        field1695 = field1695,
+        field1696 = field1696,
+        field1697 = field1697,
+        field1698 = field1698,
+        field1699 = field1699,
+        field1700 = field1700,
+        field1701 = field1701,
+        field1702 = field1702,
+        field1703 = field1703,
+        field1704 = field1704,
+        field1705 = field1705,
+        field1706 = field1706,
+        field1707 = field1707,
+        field1708 = field1708,
+        field1709 = field1709,
+        field1710 = field1710,
+        field1711 = field1711,
+        field1712 = field1712,
+        field1713 = field1713,
+        field1714 = field1714,
+        field1715 = field1715,
+        field1716 = field1716,
+        field1717 = field1717,
+        field1718 = field1718,
+        field1719 = field1719,
+        field1720 = field1720,
+        field1721 = field1721,
+        field1722 = field1722,
+        field1723 = field1723,
+        field1724 = field1724,
+        field1725 = field1725,
+        field1726 = field1726,
+        field1727 = field1727,
+        field1728 = field1728,
+        field1729 = field1729,
+        field1730 = field1730,
+        field1731 = field1731,
+        field1732 = field1732,
+        field1733 = field1733,
+        field1734 = field1734,
+        field1735 = field1735,
+        field1736 = field1736,
+        field1737 = field1737,
+        field1738 = field1738,
+        field1739 = field1739,
+        field1740 = field1740,
+        field1741 = field1741,
+        field1742 = field1742,
+        field1743 = field1743,
+        field1744 = field1744,
+        field1745 = field1745,
+        field1746 = field1746,
+        field1747 = field1747,
+        field1748 = field1748,
+        field1749 = field1749,
+        field1750 = field1750,
+        field1751 = field1751,
+        field1752 = field1752,
+        field1753 = field1753,
+        field1754 = field1754,
+        field1755 = field1755,
+        field1756 = field1756,
+        field1757 = field1757,
+        field1758 = field1758,
+        field1759 = field1759,
+        field1760 = field1760,
+        field1761 = field1761,
+        field1762 = field1762,
+        field1763 = field1763,
+        field1764 = field1764,
+        field1765 = field1765,
+        field1766 = field1766,
+        field1767 = field1767,
+        field1768 = field1768,
+        field1769 = field1769,
+        field1770 = field1770,
+        field1771 = field1771,
+        field1772 = field1772,
+        field1773 = field1773,
+        field1774 = field1774,
+        field1775 = field1775,
+        field1776 = field1776,
+        field1777 = field1777,
+        field1778 = field1778,
+        field1779 = field1779,
+        field1780 = field1780,
+        field1781 = field1781,
+        field1782 = field1782,
+        field1783 = field1783,
+        field1784 = field1784,
+        field1785 = field1785,
+        field1786 = field1786,
+        field1787 = field1787,
+        field1788 = field1788,
+        field1789 = field1789,
+        field1790 = field1790,
+        field1791 = field1791,
+        field1792 = field1792,
+        field1793 = field1793,
+        field1794 = field1794,
+        field1795 = field1795,
+        field1796 = field1796,
+        field1797 = field1797,
+        field1798 = field1798,
+        field1799 = field1799,
+        field1800 = field1800,
+        field1801 = field1801,
+        field1802 = field1802,
+        field1803 = field1803,
+        field1804 = field1804,
+        field1805 = field1805,
+        field1806 = field1806,
+        field1807 = field1807,
+        field1808 = field1808,
+        field1809 = field1809,
+        field1810 = field1810,
+        field1811 = field1811,
+        field1812 = field1812,
+        field1813 = field1813,
+        field1814 = field1814,
+        field1815 = field1815,
+        field1816 = field1816,
+        field1817 = field1817,
+        field1818 = field1818,
+        field1819 = field1819,
+        field1820 = field1820,
+        field1821 = field1821,
+        field1822 = field1822,
+        field1823 = field1823,
+        field1824 = field1824,
+        field1825 = field1825,
+        field1826 = field1826,
+        field1827 = field1827,
+        field1828 = field1828,
+        field1829 = field1829,
+        field1830 = field1830,
+        field1831 = field1831,
+        field1832 = field1832,
+        field1833 = field1833,
+        field1834 = field1834,
+        field1835 = field1835,
+        field1836 = field1836,
+        field1837 = field1837,
+        field1838 = field1838,
+        field1839 = field1839,
+        field1840 = field1840,
+        field1841 = field1841,
+        field1842 = field1842,
+        field1843 = field1843,
+        field1844 = field1844,
+        field1845 = field1845,
+        field1846 = field1846,
+        field1847 = field1847,
+        field1848 = field1848,
+        field1849 = field1849,
+        field1850 = field1850,
+        field1851 = field1851,
+        field1852 = field1852,
+        field1853 = field1853,
+        field1854 = field1854,
+        field1855 = field1855,
+        field1856 = field1856,
+        field1857 = field1857,
+        field1858 = field1858,
+        field1859 = field1859,
+        field1860 = field1860,
+        field1861 = field1861,
+        field1862 = field1862,
+        field1863 = field1863,
+        field1864 = field1864,
+        field1865 = field1865,
+        field1866 = field1866,
+        field1867 = field1867,
+        field1868 = field1868,
+        field1869 = field1869,
+        field1870 = field1870,
+        field1871 = field1871,
+        field1872 = field1872,
+        field1873 = field1873,
+        field1874 = field1874,
+        field1875 = field1875,
+        field1876 = field1876,
+        field1877 = field1877,
+        field1878 = field1878,
+        field1879 = field1879,
+        field1880 = field1880,
+        field1881 = field1881,
+        field1882 = field1882,
+        field1883 = field1883,
+        field1884 = field1884,
+        field1885 = field1885,
+        field1886 = field1886,
+        field1887 = field1887,
+        field1888 = field1888,
+        field1889 = field1889,
+        field1890 = field1890,
+        field1891 = field1891,
+        field1892 = field1892,
+        field1893 = field1893,
+        field1894 = field1894,
+        field1895 = field1895,
+        field1896 = field1896,
+        field1897 = field1897,
+        field1898 = field1898,
+        field1899 = field1899,
+        field1900 = field1900,
+        field1901 = field1901,
+        field1902 = field1902,
+        field1903 = field1903,
+        field1904 = field1904,
+        field1905 = field1905,
+        field1906 = field1906,
+        field1907 = field1907,
+        field1908 = field1908,
+        field1909 = field1909,
+        field1910 = field1910,
+        field1911 = field1911,
+        field1912 = field1912,
+        field1913 = field1913,
+        field1914 = field1914,
+        field1915 = field1915,
+        field1916 = field1916,
+        field1917 = field1917,
+        field1918 = field1918,
+        field1919 = field1919,
+        field1920 = field1920,
+        field1921 = field1921,
+        field1922 = field1922,
+        field1923 = field1923,
+        field1924 = field1924,
+        field1925 = field1925,
+        field1926 = field1926,
+        field1927 = field1927,
+        field1928 = field1928,
+        field1929 = field1929,
+        field1930 = field1930,
+        field1931 = field1931,
+        field1932 = field1932,
+        field1933 = field1933,
+        field1934 = field1934,
+        field1935 = field1935,
+        field1936 = field1936,
+        field1937 = field1937,
+        field1938 = field1938,
+        field1939 = field1939,
+        field1940 = field1940,
+        field1941 = field1941,
+        field1942 = field1942,
+        field1943 = field1943,
+        field1944 = field1944,
+        field1945 = field1945,
+        field1946 = field1946,
+        field1947 = field1947,
+        field1948 = field1948,
+        field1949 = field1949,
+        field1950 = field1950,
+        field1951 = field1951,
+        field1952 = field1952,
+        field1953 = field1953,
+        field1954 = field1954,
+        field1955 = field1955,
+        field1956 = field1956,
+        field1957 = field1957,
+        field1958 = field1958,
+        field1959 = field1959,
+        field1960 = field1960,
+        field1961 = field1961,
+        field1962 = field1962,
+        field1963 = field1963,
+        field1964 = field1964,
+        field1965 = field1965,
+        field1966 = field1966,
+        field1967 = field1967,
+        field1968 = field1968,
+        field1969 = field1969,
+        field1970 = field1970,
+        field1971 = field1971,
+        field1972 = field1972,
+        field1973 = field1973,
+        field1974 = field1974,
+        field1975 = field1975,
+        field1976 = field1976,
+        field1977 = field1977,
+        field1978 = field1978,
+        field1979 = field1979,
+        field1980 = field1980,
+        field1981 = field1981,
+        field1982 = field1982,
+        field1983 = field1983,
+        field1984 = field1984,
+        field1985 = field1985,
+        field1986 = field1986,
+        field1987 = field1987,
+        field1988 = field1988,
+        field1989 = field1989,
+        field1990 = field1990,
+        field1991 = field1991,
+        field1992 = field1992,
+        field1993 = field1993,
+        field1994 = field1994,
+        field1995 = field1995,
+        field1996 = field1996,
+        field1997 = field1997,
+        field1998 = field1998,
+        field1999 = field1999,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithLotsOfFields {
     var field1000 = ""
@@ -46442,6 +55514,12 @@ private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDe
         field1988, field1989, field1990, field1991,
         field1992, field1993, field1994, field1995,
         field1996, field1997, field1998, field1999, unknownFields)
+}
+
+public fun messageWithHugeOneof(builderAction: MutableMessageWithHugeOneof.() -> Unit): MessageWithHugeOneof {
+    val builder = MutableMessageWithHugeOneof()
+    builder.builderAction()
+    return builder.toMessageWithHugeOneof()
 }
 
 @pbandk.Export
@@ -50469,6 +59547,6034 @@ private class MessageWithHugeOneof_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableMessageWithHugeOneof_Impl(
+    override var hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableMessageWithHugeOneof, pbandk.MutableGeneratedMessage<MutableMessageWithHugeOneof>() {
+    override val descriptor get() = MessageWithHugeOneof.descriptor
+
+    override var oneof1000: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1000)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1000(it) } }
+    override var oneof1001: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1001)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1001(it) } }
+    override var oneof1002: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1002)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1002(it) } }
+    override var oneof1003: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1003)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1003(it) } }
+    override var oneof1004: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1004)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1004(it) } }
+    override var oneof1005: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1005)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1005(it) } }
+    override var oneof1006: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1006)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1006(it) } }
+    override var oneof1007: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1007)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1007(it) } }
+    override var oneof1008: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1008)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1008(it) } }
+    override var oneof1009: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1009)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1009(it) } }
+    override var oneof1010: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1010)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1010(it) } }
+    override var oneof1011: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1011)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1011(it) } }
+    override var oneof1012: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1012)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1012(it) } }
+    override var oneof1013: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1013)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1013(it) } }
+    override var oneof1014: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1014)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1014(it) } }
+    override var oneof1015: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1015)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1015(it) } }
+    override var oneof1016: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1016)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1016(it) } }
+    override var oneof1017: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1017)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1017(it) } }
+    override var oneof1018: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1018)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1018(it) } }
+    override var oneof1019: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1019)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1019(it) } }
+    override var oneof1020: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1020)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1020(it) } }
+    override var oneof1021: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1021)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1021(it) } }
+    override var oneof1022: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1022)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1022(it) } }
+    override var oneof1023: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1023)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1023(it) } }
+    override var oneof1024: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1024)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1024(it) } }
+    override var oneof1025: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1025)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1025(it) } }
+    override var oneof1026: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1026)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1026(it) } }
+    override var oneof1027: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1027)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1027(it) } }
+    override var oneof1028: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1028)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1028(it) } }
+    override var oneof1029: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1029)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1029(it) } }
+    override var oneof1030: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1030)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1030(it) } }
+    override var oneof1031: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1031)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1031(it) } }
+    override var oneof1032: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1032)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1032(it) } }
+    override var oneof1033: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1033)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1033(it) } }
+    override var oneof1034: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1034)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1034(it) } }
+    override var oneof1035: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1035)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1035(it) } }
+    override var oneof1036: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1036)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1036(it) } }
+    override var oneof1037: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1037)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1037(it) } }
+    override var oneof1038: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1038)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1038(it) } }
+    override var oneof1039: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1039)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1039(it) } }
+    override var oneof1040: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1040)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1040(it) } }
+    override var oneof1041: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1041)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1041(it) } }
+    override var oneof1042: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1042)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1042(it) } }
+    override var oneof1043: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1043)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1043(it) } }
+    override var oneof1044: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1044)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1044(it) } }
+    override var oneof1045: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1045)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1045(it) } }
+    override var oneof1046: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1046)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1046(it) } }
+    override var oneof1047: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1047)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1047(it) } }
+    override var oneof1048: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1048)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1048(it) } }
+    override var oneof1049: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1049)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1049(it) } }
+    override var oneof1050: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1050)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1050(it) } }
+    override var oneof1051: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1051)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1051(it) } }
+    override var oneof1052: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1052)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1052(it) } }
+    override var oneof1053: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1053)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1053(it) } }
+    override var oneof1054: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1054)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1054(it) } }
+    override var oneof1055: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1055)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1055(it) } }
+    override var oneof1056: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1056)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1056(it) } }
+    override var oneof1057: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1057)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1057(it) } }
+    override var oneof1058: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1058)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1058(it) } }
+    override var oneof1059: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1059)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1059(it) } }
+    override var oneof1060: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1060)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1060(it) } }
+    override var oneof1061: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1061)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1061(it) } }
+    override var oneof1062: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1062)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1062(it) } }
+    override var oneof1063: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1063)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1063(it) } }
+    override var oneof1064: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1064)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1064(it) } }
+    override var oneof1065: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1065)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1065(it) } }
+    override var oneof1066: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1066)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1066(it) } }
+    override var oneof1067: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1067)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1067(it) } }
+    override var oneof1068: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1068)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1068(it) } }
+    override var oneof1069: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1069)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1069(it) } }
+    override var oneof1070: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1070)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1070(it) } }
+    override var oneof1071: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1071)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1071(it) } }
+    override var oneof1072: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1072)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1072(it) } }
+    override var oneof1073: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1073)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1073(it) } }
+    override var oneof1074: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1074)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1074(it) } }
+    override var oneof1075: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1075)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1075(it) } }
+    override var oneof1076: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1076)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1076(it) } }
+    override var oneof1077: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1077)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1077(it) } }
+    override var oneof1078: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1078)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1078(it) } }
+    override var oneof1079: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1079)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1079(it) } }
+    override var oneof1080: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1080)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1080(it) } }
+    override var oneof1081: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1081)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1081(it) } }
+    override var oneof1082: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1082)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1082(it) } }
+    override var oneof1083: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1083)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1083(it) } }
+    override var oneof1084: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1084)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1084(it) } }
+    override var oneof1085: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1085)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1085(it) } }
+    override var oneof1086: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1086)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1086(it) } }
+    override var oneof1087: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1087)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1087(it) } }
+    override var oneof1088: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1088)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1088(it) } }
+    override var oneof1089: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1089)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1089(it) } }
+    override var oneof1090: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1090)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1090(it) } }
+    override var oneof1091: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1091)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1091(it) } }
+    override var oneof1092: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1092)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1092(it) } }
+    override var oneof1093: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1093)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1093(it) } }
+    override var oneof1094: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1094)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1094(it) } }
+    override var oneof1095: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1095)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1095(it) } }
+    override var oneof1096: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1096)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1096(it) } }
+    override var oneof1097: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1097)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1097(it) } }
+    override var oneof1098: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1098)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1098(it) } }
+    override var oneof1099: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1099)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1099(it) } }
+    override var oneof1100: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1100)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1100(it) } }
+    override var oneof1101: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1101)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1101(it) } }
+    override var oneof1102: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1102)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1102(it) } }
+    override var oneof1103: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1103)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1103(it) } }
+    override var oneof1104: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1104)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1104(it) } }
+    override var oneof1105: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1105)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1105(it) } }
+    override var oneof1106: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1106)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1106(it) } }
+    override var oneof1107: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1107)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1107(it) } }
+    override var oneof1108: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1108)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1108(it) } }
+    override var oneof1109: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1109)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1109(it) } }
+    override var oneof1110: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1110)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1110(it) } }
+    override var oneof1111: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1111)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1111(it) } }
+    override var oneof1112: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1112)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1112(it) } }
+    override var oneof1113: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1113)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1113(it) } }
+    override var oneof1114: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1114)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1114(it) } }
+    override var oneof1115: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1115)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1115(it) } }
+    override var oneof1116: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1116)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1116(it) } }
+    override var oneof1117: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1117)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1117(it) } }
+    override var oneof1118: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1118)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1118(it) } }
+    override var oneof1119: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1119)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1119(it) } }
+    override var oneof1120: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1120)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1120(it) } }
+    override var oneof1121: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1121)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1121(it) } }
+    override var oneof1122: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1122)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1122(it) } }
+    override var oneof1123: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1123)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1123(it) } }
+    override var oneof1124: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1124)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1124(it) } }
+    override var oneof1125: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1125)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1125(it) } }
+    override var oneof1126: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1126)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1126(it) } }
+    override var oneof1127: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1127)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1127(it) } }
+    override var oneof1128: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1128)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1128(it) } }
+    override var oneof1129: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1129)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1129(it) } }
+    override var oneof1130: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1130)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1130(it) } }
+    override var oneof1131: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1131)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1131(it) } }
+    override var oneof1132: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1132)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1132(it) } }
+    override var oneof1133: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1133)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1133(it) } }
+    override var oneof1134: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1134)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1134(it) } }
+    override var oneof1135: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1135)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1135(it) } }
+    override var oneof1136: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1136)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1136(it) } }
+    override var oneof1137: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1137)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1137(it) } }
+    override var oneof1138: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1138)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1138(it) } }
+    override var oneof1139: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1139)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1139(it) } }
+    override var oneof1140: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1140)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1140(it) } }
+    override var oneof1141: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1141)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1141(it) } }
+    override var oneof1142: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1142)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1142(it) } }
+    override var oneof1143: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1143)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1143(it) } }
+    override var oneof1144: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1144)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1144(it) } }
+    override var oneof1145: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1145)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1145(it) } }
+    override var oneof1146: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1146)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1146(it) } }
+    override var oneof1147: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1147)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1147(it) } }
+    override var oneof1148: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1148)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1148(it) } }
+    override var oneof1149: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1149)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1149(it) } }
+    override var oneof1150: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1150)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1150(it) } }
+    override var oneof1151: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1151)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1151(it) } }
+    override var oneof1152: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1152)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1152(it) } }
+    override var oneof1153: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1153)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1153(it) } }
+    override var oneof1154: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1154)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1154(it) } }
+    override var oneof1155: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1155)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1155(it) } }
+    override var oneof1156: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1156)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1156(it) } }
+    override var oneof1157: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1157)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1157(it) } }
+    override var oneof1158: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1158)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1158(it) } }
+    override var oneof1159: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1159)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1159(it) } }
+    override var oneof1160: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1160)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1160(it) } }
+    override var oneof1161: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1161)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1161(it) } }
+    override var oneof1162: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1162)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1162(it) } }
+    override var oneof1163: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1163)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1163(it) } }
+    override var oneof1164: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1164)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1164(it) } }
+    override var oneof1165: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1165)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1165(it) } }
+    override var oneof1166: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1166)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1166(it) } }
+    override var oneof1167: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1167)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1167(it) } }
+    override var oneof1168: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1168)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1168(it) } }
+    override var oneof1169: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1169)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1169(it) } }
+    override var oneof1170: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1170)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1170(it) } }
+    override var oneof1171: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1171)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1171(it) } }
+    override var oneof1172: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1172)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1172(it) } }
+    override var oneof1173: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1173)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1173(it) } }
+    override var oneof1174: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1174)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1174(it) } }
+    override var oneof1175: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1175)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1175(it) } }
+    override var oneof1176: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1176)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1176(it) } }
+    override var oneof1177: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1177)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1177(it) } }
+    override var oneof1178: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1178)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1178(it) } }
+    override var oneof1179: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1179)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1179(it) } }
+    override var oneof1180: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1180)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1180(it) } }
+    override var oneof1181: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1181)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1181(it) } }
+    override var oneof1182: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1182)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1182(it) } }
+    override var oneof1183: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1183)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1183(it) } }
+    override var oneof1184: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1184)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1184(it) } }
+    override var oneof1185: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1185)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1185(it) } }
+    override var oneof1186: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1186)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1186(it) } }
+    override var oneof1187: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1187)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1187(it) } }
+    override var oneof1188: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1188)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1188(it) } }
+    override var oneof1189: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1189)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1189(it) } }
+    override var oneof1190: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1190)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1190(it) } }
+    override var oneof1191: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1191)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1191(it) } }
+    override var oneof1192: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1192)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1192(it) } }
+    override var oneof1193: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1193)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1193(it) } }
+    override var oneof1194: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1194)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1194(it) } }
+    override var oneof1195: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1195)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1195(it) } }
+    override var oneof1196: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1196)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1196(it) } }
+    override var oneof1197: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1197)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1197(it) } }
+    override var oneof1198: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1198)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1198(it) } }
+    override var oneof1199: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1199)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1199(it) } }
+    override var oneof1200: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1200)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1200(it) } }
+    override var oneof1201: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1201)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1201(it) } }
+    override var oneof1202: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1202)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1202(it) } }
+    override var oneof1203: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1203)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1203(it) } }
+    override var oneof1204: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1204)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1204(it) } }
+    override var oneof1205: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1205)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1205(it) } }
+    override var oneof1206: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1206)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1206(it) } }
+    override var oneof1207: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1207)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1207(it) } }
+    override var oneof1208: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1208)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1208(it) } }
+    override var oneof1209: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1209)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1209(it) } }
+    override var oneof1210: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1210)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1210(it) } }
+    override var oneof1211: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1211)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1211(it) } }
+    override var oneof1212: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1212)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1212(it) } }
+    override var oneof1213: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1213)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1213(it) } }
+    override var oneof1214: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1214)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1214(it) } }
+    override var oneof1215: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1215)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1215(it) } }
+    override var oneof1216: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1216)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1216(it) } }
+    override var oneof1217: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1217)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1217(it) } }
+    override var oneof1218: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1218)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1218(it) } }
+    override var oneof1219: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1219)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1219(it) } }
+    override var oneof1220: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1220)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1220(it) } }
+    override var oneof1221: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1221)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1221(it) } }
+    override var oneof1222: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1222)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1222(it) } }
+    override var oneof1223: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1223)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1223(it) } }
+    override var oneof1224: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1224)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1224(it) } }
+    override var oneof1225: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1225)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1225(it) } }
+    override var oneof1226: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1226)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1226(it) } }
+    override var oneof1227: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1227)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1227(it) } }
+    override var oneof1228: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1228)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1228(it) } }
+    override var oneof1229: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1229)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1229(it) } }
+    override var oneof1230: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1230)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1230(it) } }
+    override var oneof1231: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1231)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1231(it) } }
+    override var oneof1232: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1232)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1232(it) } }
+    override var oneof1233: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1233)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1233(it) } }
+    override var oneof1234: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1234)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1234(it) } }
+    override var oneof1235: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1235)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1235(it) } }
+    override var oneof1236: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1236)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1236(it) } }
+    override var oneof1237: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1237)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1237(it) } }
+    override var oneof1238: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1238)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1238(it) } }
+    override var oneof1239: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1239)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1239(it) } }
+    override var oneof1240: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1240)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1240(it) } }
+    override var oneof1241: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1241)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1241(it) } }
+    override var oneof1242: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1242)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1242(it) } }
+    override var oneof1243: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1243)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1243(it) } }
+    override var oneof1244: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1244)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1244(it) } }
+    override var oneof1245: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1245)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1245(it) } }
+    override var oneof1246: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1246)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1246(it) } }
+    override var oneof1247: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1247)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1247(it) } }
+    override var oneof1248: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1248)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1248(it) } }
+    override var oneof1249: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1249)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1249(it) } }
+    override var oneof1250: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1250)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1250(it) } }
+    override var oneof1251: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1251)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1251(it) } }
+    override var oneof1252: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1252)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1252(it) } }
+    override var oneof1253: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1253)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1253(it) } }
+    override var oneof1254: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1254)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1254(it) } }
+    override var oneof1255: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1255)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1255(it) } }
+    override var oneof1256: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1256)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1256(it) } }
+    override var oneof1257: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1257)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1257(it) } }
+    override var oneof1258: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1258)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1258(it) } }
+    override var oneof1259: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1259)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1259(it) } }
+    override var oneof1260: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1260)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1260(it) } }
+    override var oneof1261: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1261)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1261(it) } }
+    override var oneof1262: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1262)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1262(it) } }
+    override var oneof1263: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1263)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1263(it) } }
+    override var oneof1264: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1264)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1264(it) } }
+    override var oneof1265: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1265)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1265(it) } }
+    override var oneof1266: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1266)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1266(it) } }
+    override var oneof1267: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1267)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1267(it) } }
+    override var oneof1268: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1268)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1268(it) } }
+    override var oneof1269: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1269)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1269(it) } }
+    override var oneof1270: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1270)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1270(it) } }
+    override var oneof1271: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1271)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1271(it) } }
+    override var oneof1272: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1272)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1272(it) } }
+    override var oneof1273: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1273)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1273(it) } }
+    override var oneof1274: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1274)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1274(it) } }
+    override var oneof1275: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1275)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1275(it) } }
+    override var oneof1276: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1276)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1276(it) } }
+    override var oneof1277: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1277)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1277(it) } }
+    override var oneof1278: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1278)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1278(it) } }
+    override var oneof1279: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1279)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1279(it) } }
+    override var oneof1280: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1280)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1280(it) } }
+    override var oneof1281: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1281)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1281(it) } }
+    override var oneof1282: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1282)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1282(it) } }
+    override var oneof1283: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1283)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1283(it) } }
+    override var oneof1284: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1284)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1284(it) } }
+    override var oneof1285: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1285)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1285(it) } }
+    override var oneof1286: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1286)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1286(it) } }
+    override var oneof1287: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1287)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1287(it) } }
+    override var oneof1288: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1288)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1288(it) } }
+    override var oneof1289: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1289)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1289(it) } }
+    override var oneof1290: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1290)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1290(it) } }
+    override var oneof1291: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1291)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1291(it) } }
+    override var oneof1292: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1292)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1292(it) } }
+    override var oneof1293: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1293)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1293(it) } }
+    override var oneof1294: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1294)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1294(it) } }
+    override var oneof1295: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1295)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1295(it) } }
+    override var oneof1296: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1296)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1296(it) } }
+    override var oneof1297: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1297)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1297(it) } }
+    override var oneof1298: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1298)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1298(it) } }
+    override var oneof1299: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1299)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1299(it) } }
+    override var oneof1300: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1300)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1300(it) } }
+    override var oneof1301: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1301)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1301(it) } }
+    override var oneof1302: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1302)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1302(it) } }
+    override var oneof1303: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1303)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1303(it) } }
+    override var oneof1304: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1304)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1304(it) } }
+    override var oneof1305: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1305)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1305(it) } }
+    override var oneof1306: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1306)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1306(it) } }
+    override var oneof1307: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1307)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1307(it) } }
+    override var oneof1308: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1308)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1308(it) } }
+    override var oneof1309: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1309)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1309(it) } }
+    override var oneof1310: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1310)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1310(it) } }
+    override var oneof1311: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1311)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1311(it) } }
+    override var oneof1312: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1312)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1312(it) } }
+    override var oneof1313: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1313)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1313(it) } }
+    override var oneof1314: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1314)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1314(it) } }
+    override var oneof1315: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1315)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1315(it) } }
+    override var oneof1316: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1316)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1316(it) } }
+    override var oneof1317: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1317)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1317(it) } }
+    override var oneof1318: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1318)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1318(it) } }
+    override var oneof1319: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1319)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1319(it) } }
+    override var oneof1320: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1320)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1320(it) } }
+    override var oneof1321: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1321)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1321(it) } }
+    override var oneof1322: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1322)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1322(it) } }
+    override var oneof1323: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1323)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1323(it) } }
+    override var oneof1324: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1324)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1324(it) } }
+    override var oneof1325: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1325)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1325(it) } }
+    override var oneof1326: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1326)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1326(it) } }
+    override var oneof1327: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1327)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1327(it) } }
+    override var oneof1328: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1328)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1328(it) } }
+    override var oneof1329: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1329)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1329(it) } }
+    override var oneof1330: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1330)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1330(it) } }
+    override var oneof1331: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1331)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1331(it) } }
+    override var oneof1332: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1332)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1332(it) } }
+    override var oneof1333: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1333)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1333(it) } }
+    override var oneof1334: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1334)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1334(it) } }
+    override var oneof1335: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1335)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1335(it) } }
+    override var oneof1336: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1336)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1336(it) } }
+    override var oneof1337: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1337)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1337(it) } }
+    override var oneof1338: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1338)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1338(it) } }
+    override var oneof1339: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1339)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1339(it) } }
+    override var oneof1340: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1340)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1340(it) } }
+    override var oneof1341: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1341)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1341(it) } }
+    override var oneof1342: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1342)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1342(it) } }
+    override var oneof1343: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1343)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1343(it) } }
+    override var oneof1344: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1344)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1344(it) } }
+    override var oneof1345: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1345)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1345(it) } }
+    override var oneof1346: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1346)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1346(it) } }
+    override var oneof1347: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1347)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1347(it) } }
+    override var oneof1348: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1348)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1348(it) } }
+    override var oneof1349: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1349)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1349(it) } }
+    override var oneof1350: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1350)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1350(it) } }
+    override var oneof1351: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1351)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1351(it) } }
+    override var oneof1352: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1352)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1352(it) } }
+    override var oneof1353: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1353)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1353(it) } }
+    override var oneof1354: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1354)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1354(it) } }
+    override var oneof1355: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1355)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1355(it) } }
+    override var oneof1356: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1356)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1356(it) } }
+    override var oneof1357: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1357)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1357(it) } }
+    override var oneof1358: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1358)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1358(it) } }
+    override var oneof1359: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1359)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1359(it) } }
+    override var oneof1360: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1360)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1360(it) } }
+    override var oneof1361: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1361)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1361(it) } }
+    override var oneof1362: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1362)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1362(it) } }
+    override var oneof1363: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1363)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1363(it) } }
+    override var oneof1364: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1364)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1364(it) } }
+    override var oneof1365: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1365)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1365(it) } }
+    override var oneof1366: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1366)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1366(it) } }
+    override var oneof1367: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1367)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1367(it) } }
+    override var oneof1368: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1368)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1368(it) } }
+    override var oneof1369: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1369)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1369(it) } }
+    override var oneof1370: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1370)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1370(it) } }
+    override var oneof1371: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1371)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1371(it) } }
+    override var oneof1372: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1372)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1372(it) } }
+    override var oneof1373: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1373)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1373(it) } }
+    override var oneof1374: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1374)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1374(it) } }
+    override var oneof1375: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1375)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1375(it) } }
+    override var oneof1376: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1376)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1376(it) } }
+    override var oneof1377: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1377)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1377(it) } }
+    override var oneof1378: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1378)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1378(it) } }
+    override var oneof1379: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1379)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1379(it) } }
+    override var oneof1380: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1380)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1380(it) } }
+    override var oneof1381: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1381)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1381(it) } }
+    override var oneof1382: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1382)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1382(it) } }
+    override var oneof1383: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1383)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1383(it) } }
+    override var oneof1384: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1384)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1384(it) } }
+    override var oneof1385: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1385)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1385(it) } }
+    override var oneof1386: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1386)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1386(it) } }
+    override var oneof1387: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1387)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1387(it) } }
+    override var oneof1388: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1388)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1388(it) } }
+    override var oneof1389: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1389)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1389(it) } }
+    override var oneof1390: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1390)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1390(it) } }
+    override var oneof1391: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1391)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1391(it) } }
+    override var oneof1392: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1392)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1392(it) } }
+    override var oneof1393: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1393)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1393(it) } }
+    override var oneof1394: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1394)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1394(it) } }
+    override var oneof1395: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1395)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1395(it) } }
+    override var oneof1396: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1396)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1396(it) } }
+    override var oneof1397: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1397)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1397(it) } }
+    override var oneof1398: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1398)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1398(it) } }
+    override var oneof1399: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1399)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1399(it) } }
+    override var oneof1400: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1400)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1400(it) } }
+    override var oneof1401: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1401)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1401(it) } }
+    override var oneof1402: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1402)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1402(it) } }
+    override var oneof1403: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1403)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1403(it) } }
+    override var oneof1404: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1404)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1404(it) } }
+    override var oneof1405: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1405)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1405(it) } }
+    override var oneof1406: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1406)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1406(it) } }
+    override var oneof1407: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1407)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1407(it) } }
+    override var oneof1408: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1408)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1408(it) } }
+    override var oneof1409: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1409)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1409(it) } }
+    override var oneof1410: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1410)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1410(it) } }
+    override var oneof1411: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1411)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1411(it) } }
+    override var oneof1412: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1412)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1412(it) } }
+    override var oneof1413: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1413)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1413(it) } }
+    override var oneof1414: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1414)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1414(it) } }
+    override var oneof1415: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1415)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1415(it) } }
+    override var oneof1416: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1416)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1416(it) } }
+    override var oneof1417: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1417)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1417(it) } }
+    override var oneof1418: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1418)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1418(it) } }
+    override var oneof1419: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1419)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1419(it) } }
+    override var oneof1420: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1420)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1420(it) } }
+    override var oneof1421: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1421)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1421(it) } }
+    override var oneof1422: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1422)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1422(it) } }
+    override var oneof1423: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1423)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1423(it) } }
+    override var oneof1424: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1424)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1424(it) } }
+    override var oneof1425: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1425)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1425(it) } }
+    override var oneof1426: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1426)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1426(it) } }
+    override var oneof1427: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1427)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1427(it) } }
+    override var oneof1428: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1428)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1428(it) } }
+    override var oneof1429: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1429)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1429(it) } }
+    override var oneof1430: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1430)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1430(it) } }
+    override var oneof1431: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1431)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1431(it) } }
+    override var oneof1432: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1432)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1432(it) } }
+    override var oneof1433: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1433)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1433(it) } }
+    override var oneof1434: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1434)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1434(it) } }
+    override var oneof1435: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1435)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1435(it) } }
+    override var oneof1436: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1436)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1436(it) } }
+    override var oneof1437: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1437)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1437(it) } }
+    override var oneof1438: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1438)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1438(it) } }
+    override var oneof1439: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1439)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1439(it) } }
+    override var oneof1440: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1440)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1440(it) } }
+    override var oneof1441: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1441)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1441(it) } }
+    override var oneof1442: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1442)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1442(it) } }
+    override var oneof1443: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1443)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1443(it) } }
+    override var oneof1444: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1444)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1444(it) } }
+    override var oneof1445: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1445)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1445(it) } }
+    override var oneof1446: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1446)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1446(it) } }
+    override var oneof1447: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1447)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1447(it) } }
+    override var oneof1448: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1448)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1448(it) } }
+    override var oneof1449: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1449)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1449(it) } }
+    override var oneof1450: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1450)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1450(it) } }
+    override var oneof1451: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1451)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1451(it) } }
+    override var oneof1452: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1452)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1452(it) } }
+    override var oneof1453: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1453)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1453(it) } }
+    override var oneof1454: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1454)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1454(it) } }
+    override var oneof1455: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1455)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1455(it) } }
+    override var oneof1456: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1456)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1456(it) } }
+    override var oneof1457: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1457)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1457(it) } }
+    override var oneof1458: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1458)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1458(it) } }
+    override var oneof1459: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1459)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1459(it) } }
+    override var oneof1460: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1460)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1460(it) } }
+    override var oneof1461: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1461)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1461(it) } }
+    override var oneof1462: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1462)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1462(it) } }
+    override var oneof1463: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1463)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1463(it) } }
+    override var oneof1464: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1464)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1464(it) } }
+    override var oneof1465: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1465)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1465(it) } }
+    override var oneof1466: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1466)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1466(it) } }
+    override var oneof1467: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1467)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1467(it) } }
+    override var oneof1468: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1468)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1468(it) } }
+    override var oneof1469: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1469)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1469(it) } }
+    override var oneof1470: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1470)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1470(it) } }
+    override var oneof1471: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1471)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1471(it) } }
+    override var oneof1472: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1472)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1472(it) } }
+    override var oneof1473: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1473)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1473(it) } }
+    override var oneof1474: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1474)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1474(it) } }
+    override var oneof1475: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1475)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1475(it) } }
+    override var oneof1476: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1476)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1476(it) } }
+    override var oneof1477: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1477)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1477(it) } }
+    override var oneof1478: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1478)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1478(it) } }
+    override var oneof1479: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1479)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1479(it) } }
+    override var oneof1480: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1480)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1480(it) } }
+    override var oneof1481: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1481)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1481(it) } }
+    override var oneof1482: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1482)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1482(it) } }
+    override var oneof1483: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1483)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1483(it) } }
+    override var oneof1484: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1484)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1484(it) } }
+    override var oneof1485: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1485)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1485(it) } }
+    override var oneof1486: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1486)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1486(it) } }
+    override var oneof1487: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1487)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1487(it) } }
+    override var oneof1488: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1488)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1488(it) } }
+    override var oneof1489: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1489)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1489(it) } }
+    override var oneof1490: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1490)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1490(it) } }
+    override var oneof1491: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1491)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1491(it) } }
+    override var oneof1492: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1492)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1492(it) } }
+    override var oneof1493: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1493)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1493(it) } }
+    override var oneof1494: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1494)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1494(it) } }
+    override var oneof1495: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1495)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1495(it) } }
+    override var oneof1496: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1496)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1496(it) } }
+    override var oneof1497: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1497)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1497(it) } }
+    override var oneof1498: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1498)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1498(it) } }
+    override var oneof1499: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1499)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1499(it) } }
+    override var oneof1500: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1500)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1500(it) } }
+    override var oneof1501: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1501)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1501(it) } }
+    override var oneof1502: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1502)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1502(it) } }
+    override var oneof1503: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1503)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1503(it) } }
+    override var oneof1504: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1504)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1504(it) } }
+    override var oneof1505: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1505)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1505(it) } }
+    override var oneof1506: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1506)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1506(it) } }
+    override var oneof1507: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1507)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1507(it) } }
+    override var oneof1508: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1508)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1508(it) } }
+    override var oneof1509: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1509)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1509(it) } }
+    override var oneof1510: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1510)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1510(it) } }
+    override var oneof1511: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1511)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1511(it) } }
+    override var oneof1512: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1512)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1512(it) } }
+    override var oneof1513: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1513)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1513(it) } }
+    override var oneof1514: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1514)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1514(it) } }
+    override var oneof1515: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1515)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1515(it) } }
+    override var oneof1516: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1516)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1516(it) } }
+    override var oneof1517: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1517)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1517(it) } }
+    override var oneof1518: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1518)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1518(it) } }
+    override var oneof1519: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1519)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1519(it) } }
+    override var oneof1520: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1520)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1520(it) } }
+    override var oneof1521: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1521)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1521(it) } }
+    override var oneof1522: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1522)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1522(it) } }
+    override var oneof1523: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1523)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1523(it) } }
+    override var oneof1524: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1524)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1524(it) } }
+    override var oneof1525: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1525)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1525(it) } }
+    override var oneof1526: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1526)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1526(it) } }
+    override var oneof1527: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1527)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1527(it) } }
+    override var oneof1528: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1528)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1528(it) } }
+    override var oneof1529: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1529)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1529(it) } }
+    override var oneof1530: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1530)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1530(it) } }
+    override var oneof1531: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1531)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1531(it) } }
+    override var oneof1532: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1532)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1532(it) } }
+    override var oneof1533: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1533)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1533(it) } }
+    override var oneof1534: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1534)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1534(it) } }
+    override var oneof1535: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1535)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1535(it) } }
+    override var oneof1536: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1536)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1536(it) } }
+    override var oneof1537: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1537)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1537(it) } }
+    override var oneof1538: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1538)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1538(it) } }
+    override var oneof1539: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1539)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1539(it) } }
+    override var oneof1540: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1540)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1540(it) } }
+    override var oneof1541: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1541)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1541(it) } }
+    override var oneof1542: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1542)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1542(it) } }
+    override var oneof1543: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1543)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1543(it) } }
+    override var oneof1544: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1544)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1544(it) } }
+    override var oneof1545: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1545)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1545(it) } }
+    override var oneof1546: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1546)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1546(it) } }
+    override var oneof1547: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1547)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1547(it) } }
+    override var oneof1548: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1548)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1548(it) } }
+    override var oneof1549: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1549)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1549(it) } }
+    override var oneof1550: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1550)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1550(it) } }
+    override var oneof1551: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1551)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1551(it) } }
+    override var oneof1552: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1552)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1552(it) } }
+    override var oneof1553: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1553)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1553(it) } }
+    override var oneof1554: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1554)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1554(it) } }
+    override var oneof1555: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1555)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1555(it) } }
+    override var oneof1556: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1556)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1556(it) } }
+    override var oneof1557: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1557)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1557(it) } }
+    override var oneof1558: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1558)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1558(it) } }
+    override var oneof1559: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1559)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1559(it) } }
+    override var oneof1560: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1560)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1560(it) } }
+    override var oneof1561: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1561)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1561(it) } }
+    override var oneof1562: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1562)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1562(it) } }
+    override var oneof1563: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1563)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1563(it) } }
+    override var oneof1564: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1564)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1564(it) } }
+    override var oneof1565: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1565)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1565(it) } }
+    override var oneof1566: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1566)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1566(it) } }
+    override var oneof1567: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1567)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1567(it) } }
+    override var oneof1568: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1568)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1568(it) } }
+    override var oneof1569: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1569)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1569(it) } }
+    override var oneof1570: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1570)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1570(it) } }
+    override var oneof1571: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1571)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1571(it) } }
+    override var oneof1572: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1572)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1572(it) } }
+    override var oneof1573: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1573)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1573(it) } }
+    override var oneof1574: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1574)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1574(it) } }
+    override var oneof1575: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1575)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1575(it) } }
+    override var oneof1576: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1576)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1576(it) } }
+    override var oneof1577: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1577)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1577(it) } }
+    override var oneof1578: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1578)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1578(it) } }
+    override var oneof1579: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1579)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1579(it) } }
+    override var oneof1580: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1580)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1580(it) } }
+    override var oneof1581: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1581)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1581(it) } }
+    override var oneof1582: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1582)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1582(it) } }
+    override var oneof1583: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1583)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1583(it) } }
+    override var oneof1584: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1584)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1584(it) } }
+    override var oneof1585: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1585)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1585(it) } }
+    override var oneof1586: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1586)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1586(it) } }
+    override var oneof1587: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1587)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1587(it) } }
+    override var oneof1588: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1588)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1588(it) } }
+    override var oneof1589: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1589)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1589(it) } }
+    override var oneof1590: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1590)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1590(it) } }
+    override var oneof1591: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1591)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1591(it) } }
+    override var oneof1592: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1592)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1592(it) } }
+    override var oneof1593: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1593)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1593(it) } }
+    override var oneof1594: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1594)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1594(it) } }
+    override var oneof1595: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1595)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1595(it) } }
+    override var oneof1596: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1596)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1596(it) } }
+    override var oneof1597: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1597)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1597(it) } }
+    override var oneof1598: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1598)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1598(it) } }
+    override var oneof1599: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1599)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1599(it) } }
+    override var oneof1600: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1600)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1600(it) } }
+    override var oneof1601: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1601)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1601(it) } }
+    override var oneof1602: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1602)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1602(it) } }
+    override var oneof1603: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1603)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1603(it) } }
+    override var oneof1604: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1604)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1604(it) } }
+    override var oneof1605: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1605)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1605(it) } }
+    override var oneof1606: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1606)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1606(it) } }
+    override var oneof1607: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1607)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1607(it) } }
+    override var oneof1608: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1608)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1608(it) } }
+    override var oneof1609: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1609)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1609(it) } }
+    override var oneof1610: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1610)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1610(it) } }
+    override var oneof1611: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1611)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1611(it) } }
+    override var oneof1612: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1612)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1612(it) } }
+    override var oneof1613: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1613)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1613(it) } }
+    override var oneof1614: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1614)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1614(it) } }
+    override var oneof1615: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1615)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1615(it) } }
+    override var oneof1616: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1616)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1616(it) } }
+    override var oneof1617: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1617)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1617(it) } }
+    override var oneof1618: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1618)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1618(it) } }
+    override var oneof1619: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1619)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1619(it) } }
+    override var oneof1620: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1620)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1620(it) } }
+    override var oneof1621: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1621)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1621(it) } }
+    override var oneof1622: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1622)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1622(it) } }
+    override var oneof1623: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1623)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1623(it) } }
+    override var oneof1624: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1624)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1624(it) } }
+    override var oneof1625: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1625)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1625(it) } }
+    override var oneof1626: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1626)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1626(it) } }
+    override var oneof1627: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1627)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1627(it) } }
+    override var oneof1628: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1628)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1628(it) } }
+    override var oneof1629: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1629)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1629(it) } }
+    override var oneof1630: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1630)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1630(it) } }
+    override var oneof1631: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1631)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1631(it) } }
+    override var oneof1632: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1632)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1632(it) } }
+    override var oneof1633: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1633)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1633(it) } }
+    override var oneof1634: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1634)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1634(it) } }
+    override var oneof1635: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1635)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1635(it) } }
+    override var oneof1636: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1636)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1636(it) } }
+    override var oneof1637: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1637)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1637(it) } }
+    override var oneof1638: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1638)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1638(it) } }
+    override var oneof1639: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1639)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1639(it) } }
+    override var oneof1640: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1640)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1640(it) } }
+    override var oneof1641: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1641)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1641(it) } }
+    override var oneof1642: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1642)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1642(it) } }
+    override var oneof1643: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1643)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1643(it) } }
+    override var oneof1644: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1644)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1644(it) } }
+    override var oneof1645: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1645)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1645(it) } }
+    override var oneof1646: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1646)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1646(it) } }
+    override var oneof1647: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1647)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1647(it) } }
+    override var oneof1648: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1648)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1648(it) } }
+    override var oneof1649: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1649)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1649(it) } }
+    override var oneof1650: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1650)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1650(it) } }
+    override var oneof1651: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1651)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1651(it) } }
+    override var oneof1652: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1652)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1652(it) } }
+    override var oneof1653: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1653)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1653(it) } }
+    override var oneof1654: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1654)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1654(it) } }
+    override var oneof1655: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1655)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1655(it) } }
+    override var oneof1656: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1656)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1656(it) } }
+    override var oneof1657: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1657)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1657(it) } }
+    override var oneof1658: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1658)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1658(it) } }
+    override var oneof1659: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1659)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1659(it) } }
+    override var oneof1660: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1660)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1660(it) } }
+    override var oneof1661: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1661)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1661(it) } }
+    override var oneof1662: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1662)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1662(it) } }
+    override var oneof1663: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1663)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1663(it) } }
+    override var oneof1664: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1664)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1664(it) } }
+    override var oneof1665: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1665)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1665(it) } }
+    override var oneof1666: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1666)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1666(it) } }
+    override var oneof1667: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1667)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1667(it) } }
+    override var oneof1668: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1668)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1668(it) } }
+    override var oneof1669: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1669)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1669(it) } }
+    override var oneof1670: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1670)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1670(it) } }
+    override var oneof1671: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1671)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1671(it) } }
+    override var oneof1672: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1672)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1672(it) } }
+    override var oneof1673: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1673)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1673(it) } }
+    override var oneof1674: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1674)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1674(it) } }
+    override var oneof1675: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1675)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1675(it) } }
+    override var oneof1676: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1676)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1676(it) } }
+    override var oneof1677: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1677)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1677(it) } }
+    override var oneof1678: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1678)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1678(it) } }
+    override var oneof1679: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1679)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1679(it) } }
+    override var oneof1680: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1680)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1680(it) } }
+    override var oneof1681: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1681)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1681(it) } }
+    override var oneof1682: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1682)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1682(it) } }
+    override var oneof1683: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1683)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1683(it) } }
+    override var oneof1684: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1684)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1684(it) } }
+    override var oneof1685: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1685)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1685(it) } }
+    override var oneof1686: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1686)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1686(it) } }
+    override var oneof1687: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1687)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1687(it) } }
+    override var oneof1688: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1688)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1688(it) } }
+    override var oneof1689: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1689)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1689(it) } }
+    override var oneof1690: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1690)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1690(it) } }
+    override var oneof1691: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1691)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1691(it) } }
+    override var oneof1692: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1692)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1692(it) } }
+    override var oneof1693: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1693)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1693(it) } }
+    override var oneof1694: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1694)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1694(it) } }
+    override var oneof1695: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1695)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1695(it) } }
+    override var oneof1696: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1696)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1696(it) } }
+    override var oneof1697: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1697)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1697(it) } }
+    override var oneof1698: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1698)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1698(it) } }
+    override var oneof1699: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1699)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1699(it) } }
+    override var oneof1700: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1700)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1700(it) } }
+    override var oneof1701: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1701)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1701(it) } }
+    override var oneof1702: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1702)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1702(it) } }
+    override var oneof1703: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1703)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1703(it) } }
+    override var oneof1704: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1704)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1704(it) } }
+    override var oneof1705: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1705)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1705(it) } }
+    override var oneof1706: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1706)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1706(it) } }
+    override var oneof1707: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1707)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1707(it) } }
+    override var oneof1708: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1708)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1708(it) } }
+    override var oneof1709: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1709)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1709(it) } }
+    override var oneof1710: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1710)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1710(it) } }
+    override var oneof1711: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1711)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1711(it) } }
+    override var oneof1712: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1712)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1712(it) } }
+    override var oneof1713: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1713)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1713(it) } }
+    override var oneof1714: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1714)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1714(it) } }
+    override var oneof1715: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1715)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1715(it) } }
+    override var oneof1716: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1716)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1716(it) } }
+    override var oneof1717: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1717)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1717(it) } }
+    override var oneof1718: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1718)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1718(it) } }
+    override var oneof1719: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1719)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1719(it) } }
+    override var oneof1720: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1720)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1720(it) } }
+    override var oneof1721: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1721)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1721(it) } }
+    override var oneof1722: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1722)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1722(it) } }
+    override var oneof1723: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1723)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1723(it) } }
+    override var oneof1724: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1724)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1724(it) } }
+    override var oneof1725: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1725)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1725(it) } }
+    override var oneof1726: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1726)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1726(it) } }
+    override var oneof1727: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1727)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1727(it) } }
+    override var oneof1728: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1728)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1728(it) } }
+    override var oneof1729: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1729)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1729(it) } }
+    override var oneof1730: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1730)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1730(it) } }
+    override var oneof1731: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1731)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1731(it) } }
+    override var oneof1732: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1732)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1732(it) } }
+    override var oneof1733: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1733)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1733(it) } }
+    override var oneof1734: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1734)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1734(it) } }
+    override var oneof1735: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1735)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1735(it) } }
+    override var oneof1736: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1736)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1736(it) } }
+    override var oneof1737: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1737)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1737(it) } }
+    override var oneof1738: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1738)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1738(it) } }
+    override var oneof1739: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1739)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1739(it) } }
+    override var oneof1740: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1740)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1740(it) } }
+    override var oneof1741: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1741)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1741(it) } }
+    override var oneof1742: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1742)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1742(it) } }
+    override var oneof1743: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1743)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1743(it) } }
+    override var oneof1744: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1744)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1744(it) } }
+    override var oneof1745: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1745)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1745(it) } }
+    override var oneof1746: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1746)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1746(it) } }
+    override var oneof1747: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1747)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1747(it) } }
+    override var oneof1748: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1748)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1748(it) } }
+    override var oneof1749: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1749)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1749(it) } }
+    override var oneof1750: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1750)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1750(it) } }
+    override var oneof1751: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1751)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1751(it) } }
+    override var oneof1752: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1752)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1752(it) } }
+    override var oneof1753: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1753)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1753(it) } }
+    override var oneof1754: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1754)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1754(it) } }
+    override var oneof1755: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1755)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1755(it) } }
+    override var oneof1756: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1756)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1756(it) } }
+    override var oneof1757: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1757)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1757(it) } }
+    override var oneof1758: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1758)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1758(it) } }
+    override var oneof1759: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1759)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1759(it) } }
+    override var oneof1760: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1760)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1760(it) } }
+    override var oneof1761: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1761)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1761(it) } }
+    override var oneof1762: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1762)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1762(it) } }
+    override var oneof1763: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1763)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1763(it) } }
+    override var oneof1764: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1764)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1764(it) } }
+    override var oneof1765: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1765)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1765(it) } }
+    override var oneof1766: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1766)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1766(it) } }
+    override var oneof1767: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1767)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1767(it) } }
+    override var oneof1768: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1768)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1768(it) } }
+    override var oneof1769: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1769)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1769(it) } }
+    override var oneof1770: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1770)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1770(it) } }
+    override var oneof1771: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1771)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1771(it) } }
+    override var oneof1772: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1772)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1772(it) } }
+    override var oneof1773: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1773)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1773(it) } }
+    override var oneof1774: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1774)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1774(it) } }
+    override var oneof1775: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1775)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1775(it) } }
+    override var oneof1776: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1776)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1776(it) } }
+    override var oneof1777: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1777)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1777(it) } }
+    override var oneof1778: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1778)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1778(it) } }
+    override var oneof1779: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1779)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1779(it) } }
+    override var oneof1780: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1780)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1780(it) } }
+    override var oneof1781: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1781)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1781(it) } }
+    override var oneof1782: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1782)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1782(it) } }
+    override var oneof1783: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1783)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1783(it) } }
+    override var oneof1784: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1784)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1784(it) } }
+    override var oneof1785: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1785)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1785(it) } }
+    override var oneof1786: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1786)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1786(it) } }
+    override var oneof1787: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1787)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1787(it) } }
+    override var oneof1788: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1788)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1788(it) } }
+    override var oneof1789: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1789)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1789(it) } }
+    override var oneof1790: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1790)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1790(it) } }
+    override var oneof1791: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1791)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1791(it) } }
+    override var oneof1792: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1792)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1792(it) } }
+    override var oneof1793: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1793)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1793(it) } }
+    override var oneof1794: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1794)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1794(it) } }
+    override var oneof1795: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1795)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1795(it) } }
+    override var oneof1796: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1796)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1796(it) } }
+    override var oneof1797: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1797)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1797(it) } }
+    override var oneof1798: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1798)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1798(it) } }
+    override var oneof1799: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1799)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1799(it) } }
+    override var oneof1800: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1800)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1800(it) } }
+    override var oneof1801: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1801)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1801(it) } }
+    override var oneof1802: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1802)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1802(it) } }
+    override var oneof1803: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1803)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1803(it) } }
+    override var oneof1804: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1804)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1804(it) } }
+    override var oneof1805: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1805)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1805(it) } }
+    override var oneof1806: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1806)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1806(it) } }
+    override var oneof1807: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1807)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1807(it) } }
+    override var oneof1808: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1808)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1808(it) } }
+    override var oneof1809: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1809)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1809(it) } }
+    override var oneof1810: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1810)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1810(it) } }
+    override var oneof1811: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1811)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1811(it) } }
+    override var oneof1812: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1812)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1812(it) } }
+    override var oneof1813: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1813)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1813(it) } }
+    override var oneof1814: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1814)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1814(it) } }
+    override var oneof1815: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1815)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1815(it) } }
+    override var oneof1816: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1816)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1816(it) } }
+    override var oneof1817: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1817)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1817(it) } }
+    override var oneof1818: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1818)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1818(it) } }
+    override var oneof1819: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1819)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1819(it) } }
+    override var oneof1820: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1820)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1820(it) } }
+    override var oneof1821: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1821)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1821(it) } }
+    override var oneof1822: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1822)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1822(it) } }
+    override var oneof1823: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1823)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1823(it) } }
+    override var oneof1824: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1824)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1824(it) } }
+    override var oneof1825: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1825)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1825(it) } }
+    override var oneof1826: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1826)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1826(it) } }
+    override var oneof1827: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1827)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1827(it) } }
+    override var oneof1828: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1828)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1828(it) } }
+    override var oneof1829: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1829)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1829(it) } }
+    override var oneof1830: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1830)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1830(it) } }
+    override var oneof1831: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1831)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1831(it) } }
+    override var oneof1832: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1832)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1832(it) } }
+    override var oneof1833: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1833)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1833(it) } }
+    override var oneof1834: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1834)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1834(it) } }
+    override var oneof1835: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1835)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1835(it) } }
+    override var oneof1836: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1836)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1836(it) } }
+    override var oneof1837: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1837)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1837(it) } }
+    override var oneof1838: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1838)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1838(it) } }
+    override var oneof1839: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1839)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1839(it) } }
+    override var oneof1840: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1840)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1840(it) } }
+    override var oneof1841: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1841)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1841(it) } }
+    override var oneof1842: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1842)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1842(it) } }
+    override var oneof1843: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1843)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1843(it) } }
+    override var oneof1844: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1844)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1844(it) } }
+    override var oneof1845: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1845)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1845(it) } }
+    override var oneof1846: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1846)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1846(it) } }
+    override var oneof1847: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1847)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1847(it) } }
+    override var oneof1848: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1848)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1848(it) } }
+    override var oneof1849: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1849)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1849(it) } }
+    override var oneof1850: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1850)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1850(it) } }
+    override var oneof1851: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1851)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1851(it) } }
+    override var oneof1852: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1852)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1852(it) } }
+    override var oneof1853: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1853)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1853(it) } }
+    override var oneof1854: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1854)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1854(it) } }
+    override var oneof1855: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1855)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1855(it) } }
+    override var oneof1856: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1856)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1856(it) } }
+    override var oneof1857: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1857)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1857(it) } }
+    override var oneof1858: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1858)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1858(it) } }
+    override var oneof1859: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1859)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1859(it) } }
+    override var oneof1860: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1860)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1860(it) } }
+    override var oneof1861: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1861)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1861(it) } }
+    override var oneof1862: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1862)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1862(it) } }
+    override var oneof1863: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1863)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1863(it) } }
+    override var oneof1864: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1864)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1864(it) } }
+    override var oneof1865: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1865)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1865(it) } }
+    override var oneof1866: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1866)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1866(it) } }
+    override var oneof1867: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1867)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1867(it) } }
+    override var oneof1868: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1868)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1868(it) } }
+    override var oneof1869: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1869)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1869(it) } }
+    override var oneof1870: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1870)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1870(it) } }
+    override var oneof1871: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1871)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1871(it) } }
+    override var oneof1872: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1872)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1872(it) } }
+    override var oneof1873: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1873)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1873(it) } }
+    override var oneof1874: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1874)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1874(it) } }
+    override var oneof1875: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1875)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1875(it) } }
+    override var oneof1876: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1876)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1876(it) } }
+    override var oneof1877: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1877)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1877(it) } }
+    override var oneof1878: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1878)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1878(it) } }
+    override var oneof1879: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1879)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1879(it) } }
+    override var oneof1880: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1880)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1880(it) } }
+    override var oneof1881: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1881)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1881(it) } }
+    override var oneof1882: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1882)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1882(it) } }
+    override var oneof1883: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1883)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1883(it) } }
+    override var oneof1884: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1884)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1884(it) } }
+    override var oneof1885: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1885)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1885(it) } }
+    override var oneof1886: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1886)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1886(it) } }
+    override var oneof1887: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1887)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1887(it) } }
+    override var oneof1888: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1888)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1888(it) } }
+    override var oneof1889: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1889)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1889(it) } }
+    override var oneof1890: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1890)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1890(it) } }
+    override var oneof1891: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1891)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1891(it) } }
+    override var oneof1892: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1892)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1892(it) } }
+    override var oneof1893: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1893)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1893(it) } }
+    override var oneof1894: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1894)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1894(it) } }
+    override var oneof1895: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1895)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1895(it) } }
+    override var oneof1896: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1896)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1896(it) } }
+    override var oneof1897: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1897)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1897(it) } }
+    override var oneof1898: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1898)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1898(it) } }
+    override var oneof1899: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1899)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1899(it) } }
+    override var oneof1900: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1900)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1900(it) } }
+    override var oneof1901: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1901)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1901(it) } }
+    override var oneof1902: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1902)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1902(it) } }
+    override var oneof1903: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1903)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1903(it) } }
+    override var oneof1904: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1904)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1904(it) } }
+    override var oneof1905: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1905)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1905(it) } }
+    override var oneof1906: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1906)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1906(it) } }
+    override var oneof1907: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1907)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1907(it) } }
+    override var oneof1908: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1908)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1908(it) } }
+    override var oneof1909: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1909)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1909(it) } }
+    override var oneof1910: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1910)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1910(it) } }
+    override var oneof1911: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1911)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1911(it) } }
+    override var oneof1912: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1912)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1912(it) } }
+    override var oneof1913: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1913)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1913(it) } }
+    override var oneof1914: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1914)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1914(it) } }
+    override var oneof1915: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1915)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1915(it) } }
+    override var oneof1916: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1916)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1916(it) } }
+    override var oneof1917: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1917)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1917(it) } }
+    override var oneof1918: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1918)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1918(it) } }
+    override var oneof1919: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1919)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1919(it) } }
+    override var oneof1920: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1920)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1920(it) } }
+    override var oneof1921: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1921)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1921(it) } }
+    override var oneof1922: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1922)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1922(it) } }
+    override var oneof1923: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1923)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1923(it) } }
+    override var oneof1924: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1924)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1924(it) } }
+    override var oneof1925: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1925)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1925(it) } }
+    override var oneof1926: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1926)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1926(it) } }
+    override var oneof1927: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1927)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1927(it) } }
+    override var oneof1928: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1928)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1928(it) } }
+    override var oneof1929: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1929)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1929(it) } }
+    override var oneof1930: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1930)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1930(it) } }
+    override var oneof1931: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1931)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1931(it) } }
+    override var oneof1932: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1932)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1932(it) } }
+    override var oneof1933: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1933)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1933(it) } }
+    override var oneof1934: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1934)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1934(it) } }
+    override var oneof1935: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1935)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1935(it) } }
+    override var oneof1936: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1936)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1936(it) } }
+    override var oneof1937: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1937)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1937(it) } }
+    override var oneof1938: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1938)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1938(it) } }
+    override var oneof1939: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1939)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1939(it) } }
+    override var oneof1940: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1940)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1940(it) } }
+    override var oneof1941: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1941)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1941(it) } }
+    override var oneof1942: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1942)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1942(it) } }
+    override var oneof1943: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1943)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1943(it) } }
+    override var oneof1944: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1944)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1944(it) } }
+    override var oneof1945: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1945)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1945(it) } }
+    override var oneof1946: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1946)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1946(it) } }
+    override var oneof1947: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1947)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1947(it) } }
+    override var oneof1948: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1948)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1948(it) } }
+    override var oneof1949: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1949)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1949(it) } }
+    override var oneof1950: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1950)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1950(it) } }
+    override var oneof1951: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1951)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1951(it) } }
+    override var oneof1952: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1952)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1952(it) } }
+    override var oneof1953: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1953)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1953(it) } }
+    override var oneof1954: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1954)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1954(it) } }
+    override var oneof1955: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1955)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1955(it) } }
+    override var oneof1956: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1956)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1956(it) } }
+    override var oneof1957: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1957)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1957(it) } }
+    override var oneof1958: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1958)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1958(it) } }
+    override var oneof1959: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1959)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1959(it) } }
+    override var oneof1960: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1960)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1960(it) } }
+    override var oneof1961: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1961)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1961(it) } }
+    override var oneof1962: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1962)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1962(it) } }
+    override var oneof1963: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1963)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1963(it) } }
+    override var oneof1964: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1964)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1964(it) } }
+    override var oneof1965: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1965)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1965(it) } }
+    override var oneof1966: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1966)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1966(it) } }
+    override var oneof1967: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1967)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1967(it) } }
+    override var oneof1968: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1968)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1968(it) } }
+    override var oneof1969: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1969)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1969(it) } }
+    override var oneof1970: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1970)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1970(it) } }
+    override var oneof1971: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1971)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1971(it) } }
+    override var oneof1972: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1972)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1972(it) } }
+    override var oneof1973: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1973)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1973(it) } }
+    override var oneof1974: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1974)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1974(it) } }
+    override var oneof1975: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1975)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1975(it) } }
+    override var oneof1976: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1976)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1976(it) } }
+    override var oneof1977: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1977)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1977(it) } }
+    override var oneof1978: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1978)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1978(it) } }
+    override var oneof1979: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1979)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1979(it) } }
+    override var oneof1980: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1980)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1980(it) } }
+    override var oneof1981: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1981)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1981(it) } }
+    override var oneof1982: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1982)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1982(it) } }
+    override var oneof1983: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1983)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1983(it) } }
+    override var oneof1984: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1984)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1984(it) } }
+    override var oneof1985: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1985)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1985(it) } }
+    override var oneof1986: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1986)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1986(it) } }
+    override var oneof1987: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1987)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1987(it) } }
+    override var oneof1988: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1988)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1988(it) } }
+    override var oneof1989: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1989)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1989(it) } }
+    override var oneof1990: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1990)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1990(it) } }
+    override var oneof1991: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1991)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1991(it) } }
+    override var oneof1992: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1992)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1992(it) } }
+    override var oneof1993: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1993)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1993(it) } }
+    override var oneof1994: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1994)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1994(it) } }
+    override var oneof1995: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1995)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1995(it) } }
+    override var oneof1996: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1996)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1996(it) } }
+    override var oneof1997: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1997)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1997(it) } }
+    override var oneof1998: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1998)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1998(it) } }
+    override var oneof1999: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1999)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1999(it) } }
+    override var oneof2000: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2000)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2000(it) } }
+    override var oneof2001: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2001)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2001(it) } }
+    override var oneof2002: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2002)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2002(it) } }
+    override var oneof2003: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2003)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2003(it) } }
+    override var oneof2004: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2004)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2004(it) } }
+    override var oneof2005: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2005)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2005(it) } }
+    override var oneof2006: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2006)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2006(it) } }
+    override var oneof2007: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2007)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2007(it) } }
+    override var oneof2008: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2008)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2008(it) } }
+    override var oneof2009: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2009)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2009(it) } }
+    override var oneof2010: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2010)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2010(it) } }
+    override var oneof2011: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2011)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2011(it) } }
+    override var oneof2012: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2012)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2012(it) } }
+    override var oneof2013: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2013)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2013(it) } }
+    override var oneof2014: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2014)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2014(it) } }
+    override var oneof2015: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2015)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2015(it) } }
+    override var oneof2016: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2016)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2016(it) } }
+    override var oneof2017: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2017)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2017(it) } }
+    override var oneof2018: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2018)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2018(it) } }
+    override var oneof2019: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2019)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2019(it) } }
+    override var oneof2020: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2020)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2020(it) } }
+    override var oneof2021: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2021)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2021(it) } }
+    override var oneof2022: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2022)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2022(it) } }
+    override var oneof2023: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2023)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2023(it) } }
+    override var oneof2024: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2024)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2024(it) } }
+    override var oneof2025: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2025)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2025(it) } }
+    override var oneof2026: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2026)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2026(it) } }
+    override var oneof2027: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2027)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2027(it) } }
+    override var oneof2028: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2028)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2028(it) } }
+    override var oneof2029: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2029)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2029(it) } }
+    override var oneof2030: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2030)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2030(it) } }
+    override var oneof2031: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2031)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2031(it) } }
+    override var oneof2032: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2032)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2032(it) } }
+    override var oneof2033: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2033)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2033(it) } }
+    override var oneof2034: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2034)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2034(it) } }
+    override var oneof2035: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2035)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2035(it) } }
+    override var oneof2036: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2036)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2036(it) } }
+    override var oneof2037: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2037)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2037(it) } }
+    override var oneof2038: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2038)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2038(it) } }
+    override var oneof2039: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2039)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2039(it) } }
+    override var oneof2040: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2040)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2040(it) } }
+    override var oneof2041: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2041)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2041(it) } }
+    override var oneof2042: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2042)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2042(it) } }
+    override var oneof2043: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2043)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2043(it) } }
+    override var oneof2044: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2044)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2044(it) } }
+    override var oneof2045: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2045)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2045(it) } }
+    override var oneof2046: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2046)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2046(it) } }
+    override var oneof2047: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2047)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2047(it) } }
+    override var oneof2048: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2048)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2048(it) } }
+    override var oneof2049: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2049)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2049(it) } }
+    override var oneof2050: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2050)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2050(it) } }
+    override var oneof2051: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2051)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2051(it) } }
+    override var oneof2052: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2052)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2052(it) } }
+    override var oneof2053: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2053)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2053(it) } }
+    override var oneof2054: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2054)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2054(it) } }
+    override var oneof2055: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2055)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2055(it) } }
+    override var oneof2056: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2056)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2056(it) } }
+    override var oneof2057: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2057)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2057(it) } }
+    override var oneof2058: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2058)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2058(it) } }
+    override var oneof2059: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2059)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2059(it) } }
+    override var oneof2060: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2060)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2060(it) } }
+    override var oneof2061: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2061)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2061(it) } }
+    override var oneof2062: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2062)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2062(it) } }
+    override var oneof2063: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2063)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2063(it) } }
+    override var oneof2064: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2064)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2064(it) } }
+    override var oneof2065: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2065)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2065(it) } }
+    override var oneof2066: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2066)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2066(it) } }
+    override var oneof2067: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2067)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2067(it) } }
+    override var oneof2068: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2068)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2068(it) } }
+    override var oneof2069: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2069)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2069(it) } }
+    override var oneof2070: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2070)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2070(it) } }
+    override var oneof2071: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2071)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2071(it) } }
+    override var oneof2072: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2072)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2072(it) } }
+    override var oneof2073: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2073)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2073(it) } }
+    override var oneof2074: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2074)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2074(it) } }
+    override var oneof2075: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2075)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2075(it) } }
+    override var oneof2076: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2076)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2076(it) } }
+    override var oneof2077: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2077)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2077(it) } }
+    override var oneof2078: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2078)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2078(it) } }
+    override var oneof2079: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2079)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2079(it) } }
+    override var oneof2080: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2080)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2080(it) } }
+    override var oneof2081: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2081)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2081(it) } }
+    override var oneof2082: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2082)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2082(it) } }
+    override var oneof2083: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2083)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2083(it) } }
+    override var oneof2084: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2084)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2084(it) } }
+    override var oneof2085: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2085)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2085(it) } }
+    override var oneof2086: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2086)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2086(it) } }
+    override var oneof2087: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2087)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2087(it) } }
+    override var oneof2088: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2088)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2088(it) } }
+    override var oneof2089: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2089)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2089(it) } }
+    override var oneof2090: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2090)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2090(it) } }
+    override var oneof2091: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2091)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2091(it) } }
+    override var oneof2092: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2092)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2092(it) } }
+    override var oneof2093: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2093)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2093(it) } }
+    override var oneof2094: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2094)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2094(it) } }
+    override var oneof2095: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2095)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2095(it) } }
+    override var oneof2096: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2096)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2096(it) } }
+    override var oneof2097: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2097)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2097(it) } }
+    override var oneof2098: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2098)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2098(it) } }
+    override var oneof2099: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2099)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2099(it) } }
+    override var oneof2100: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2100)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2100(it) } }
+    override var oneof2101: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2101)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2101(it) } }
+    override var oneof2102: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2102)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2102(it) } }
+    override var oneof2103: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2103)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2103(it) } }
+    override var oneof2104: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2104)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2104(it) } }
+    override var oneof2105: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2105)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2105(it) } }
+    override var oneof2106: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2106)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2106(it) } }
+    override var oneof2107: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2107)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2107(it) } }
+    override var oneof2108: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2108)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2108(it) } }
+    override var oneof2109: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2109)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2109(it) } }
+    override var oneof2110: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2110)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2110(it) } }
+    override var oneof2111: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2111)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2111(it) } }
+    override var oneof2112: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2112)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2112(it) } }
+    override var oneof2113: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2113)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2113(it) } }
+    override var oneof2114: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2114)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2114(it) } }
+    override var oneof2115: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2115)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2115(it) } }
+    override var oneof2116: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2116)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2116(it) } }
+    override var oneof2117: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2117)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2117(it) } }
+    override var oneof2118: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2118)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2118(it) } }
+    override var oneof2119: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2119)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2119(it) } }
+    override var oneof2120: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2120)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2120(it) } }
+    override var oneof2121: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2121)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2121(it) } }
+    override var oneof2122: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2122)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2122(it) } }
+    override var oneof2123: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2123)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2123(it) } }
+    override var oneof2124: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2124)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2124(it) } }
+    override var oneof2125: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2125)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2125(it) } }
+    override var oneof2126: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2126)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2126(it) } }
+    override var oneof2127: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2127)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2127(it) } }
+    override var oneof2128: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2128)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2128(it) } }
+    override var oneof2129: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2129)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2129(it) } }
+    override var oneof2130: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2130)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2130(it) } }
+    override var oneof2131: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2131)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2131(it) } }
+    override var oneof2132: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2132)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2132(it) } }
+    override var oneof2133: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2133)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2133(it) } }
+    override var oneof2134: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2134)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2134(it) } }
+    override var oneof2135: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2135)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2135(it) } }
+    override var oneof2136: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2136)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2136(it) } }
+    override var oneof2137: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2137)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2137(it) } }
+    override var oneof2138: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2138)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2138(it) } }
+    override var oneof2139: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2139)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2139(it) } }
+    override var oneof2140: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2140)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2140(it) } }
+    override var oneof2141: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2141)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2141(it) } }
+    override var oneof2142: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2142)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2142(it) } }
+    override var oneof2143: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2143)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2143(it) } }
+    override var oneof2144: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2144)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2144(it) } }
+    override var oneof2145: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2145)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2145(it) } }
+    override var oneof2146: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2146)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2146(it) } }
+    override var oneof2147: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2147)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2147(it) } }
+    override var oneof2148: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2148)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2148(it) } }
+    override var oneof2149: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2149)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2149(it) } }
+    override var oneof2150: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2150)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2150(it) } }
+    override var oneof2151: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2151)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2151(it) } }
+    override var oneof2152: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2152)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2152(it) } }
+    override var oneof2153: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2153)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2153(it) } }
+    override var oneof2154: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2154)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2154(it) } }
+    override var oneof2155: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2155)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2155(it) } }
+    override var oneof2156: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2156)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2156(it) } }
+    override var oneof2157: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2157)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2157(it) } }
+    override var oneof2158: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2158)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2158(it) } }
+    override var oneof2159: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2159)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2159(it) } }
+    override var oneof2160: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2160)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2160(it) } }
+    override var oneof2161: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2161)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2161(it) } }
+    override var oneof2162: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2162)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2162(it) } }
+    override var oneof2163: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2163)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2163(it) } }
+    override var oneof2164: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2164)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2164(it) } }
+    override var oneof2165: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2165)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2165(it) } }
+    override var oneof2166: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2166)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2166(it) } }
+    override var oneof2167: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2167)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2167(it) } }
+    override var oneof2168: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2168)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2168(it) } }
+    override var oneof2169: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2169)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2169(it) } }
+    override var oneof2170: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2170)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2170(it) } }
+    override var oneof2171: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2171)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2171(it) } }
+    override var oneof2172: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2172)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2172(it) } }
+    override var oneof2173: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2173)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2173(it) } }
+    override var oneof2174: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2174)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2174(it) } }
+    override var oneof2175: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2175)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2175(it) } }
+    override var oneof2176: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2176)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2176(it) } }
+    override var oneof2177: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2177)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2177(it) } }
+    override var oneof2178: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2178)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2178(it) } }
+    override var oneof2179: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2179)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2179(it) } }
+    override var oneof2180: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2180)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2180(it) } }
+    override var oneof2181: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2181)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2181(it) } }
+    override var oneof2182: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2182)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2182(it) } }
+    override var oneof2183: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2183)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2183(it) } }
+    override var oneof2184: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2184)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2184(it) } }
+    override var oneof2185: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2185)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2185(it) } }
+    override var oneof2186: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2186)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2186(it) } }
+    override var oneof2187: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2187)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2187(it) } }
+    override var oneof2188: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2188)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2188(it) } }
+    override var oneof2189: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2189)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2189(it) } }
+    override var oneof2190: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2190)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2190(it) } }
+    override var oneof2191: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2191)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2191(it) } }
+    override var oneof2192: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2192)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2192(it) } }
+    override var oneof2193: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2193)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2193(it) } }
+    override var oneof2194: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2194)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2194(it) } }
+    override var oneof2195: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2195)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2195(it) } }
+    override var oneof2196: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2196)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2196(it) } }
+    override var oneof2197: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2197)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2197(it) } }
+    override var oneof2198: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2198)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2198(it) } }
+    override var oneof2199: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2199)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2199(it) } }
+    override var oneof2200: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2200)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2200(it) } }
+    override var oneof2201: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2201)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2201(it) } }
+    override var oneof2202: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2202)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2202(it) } }
+    override var oneof2203: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2203)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2203(it) } }
+    override var oneof2204: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2204)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2204(it) } }
+    override var oneof2205: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2205)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2205(it) } }
+    override var oneof2206: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2206)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2206(it) } }
+    override var oneof2207: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2207)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2207(it) } }
+    override var oneof2208: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2208)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2208(it) } }
+    override var oneof2209: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2209)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2209(it) } }
+    override var oneof2210: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2210)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2210(it) } }
+    override var oneof2211: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2211)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2211(it) } }
+    override var oneof2212: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2212)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2212(it) } }
+    override var oneof2213: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2213)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2213(it) } }
+    override var oneof2214: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2214)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2214(it) } }
+    override var oneof2215: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2215)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2215(it) } }
+    override var oneof2216: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2216)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2216(it) } }
+    override var oneof2217: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2217)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2217(it) } }
+    override var oneof2218: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2218)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2218(it) } }
+    override var oneof2219: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2219)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2219(it) } }
+    override var oneof2220: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2220)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2220(it) } }
+    override var oneof2221: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2221)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2221(it) } }
+    override var oneof2222: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2222)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2222(it) } }
+    override var oneof2223: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2223)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2223(it) } }
+    override var oneof2224: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2224)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2224(it) } }
+    override var oneof2225: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2225)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2225(it) } }
+    override var oneof2226: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2226)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2226(it) } }
+    override var oneof2227: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2227)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2227(it) } }
+    override var oneof2228: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2228)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2228(it) } }
+    override var oneof2229: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2229)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2229(it) } }
+    override var oneof2230: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2230)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2230(it) } }
+    override var oneof2231: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2231)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2231(it) } }
+    override var oneof2232: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2232)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2232(it) } }
+    override var oneof2233: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2233)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2233(it) } }
+    override var oneof2234: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2234)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2234(it) } }
+    override var oneof2235: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2235)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2235(it) } }
+    override var oneof2236: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2236)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2236(it) } }
+    override var oneof2237: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2237)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2237(it) } }
+    override var oneof2238: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2238)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2238(it) } }
+    override var oneof2239: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2239)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2239(it) } }
+    override var oneof2240: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2240)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2240(it) } }
+    override var oneof2241: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2241)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2241(it) } }
+    override var oneof2242: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2242)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2242(it) } }
+    override var oneof2243: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2243)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2243(it) } }
+    override var oneof2244: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2244)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2244(it) } }
+    override var oneof2245: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2245)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2245(it) } }
+    override var oneof2246: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2246)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2246(it) } }
+    override var oneof2247: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2247)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2247(it) } }
+    override var oneof2248: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2248)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2248(it) } }
+    override var oneof2249: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2249)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2249(it) } }
+    override var oneof2250: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2250)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2250(it) } }
+    override var oneof2251: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2251)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2251(it) } }
+    override var oneof2252: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2252)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2252(it) } }
+    override var oneof2253: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2253)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2253(it) } }
+    override var oneof2254: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2254)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2254(it) } }
+    override var oneof2255: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2255)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2255(it) } }
+    override var oneof2256: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2256)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2256(it) } }
+    override var oneof2257: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2257)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2257(it) } }
+    override var oneof2258: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2258)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2258(it) } }
+    override var oneof2259: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2259)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2259(it) } }
+    override var oneof2260: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2260)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2260(it) } }
+    override var oneof2261: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2261)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2261(it) } }
+    override var oneof2262: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2262)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2262(it) } }
+    override var oneof2263: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2263)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2263(it) } }
+    override var oneof2264: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2264)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2264(it) } }
+    override var oneof2265: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2265)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2265(it) } }
+    override var oneof2266: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2266)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2266(it) } }
+    override var oneof2267: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2267)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2267(it) } }
+    override var oneof2268: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2268)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2268(it) } }
+    override var oneof2269: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2269)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2269(it) } }
+    override var oneof2270: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2270)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2270(it) } }
+    override var oneof2271: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2271)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2271(it) } }
+    override var oneof2272: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2272)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2272(it) } }
+    override var oneof2273: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2273)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2273(it) } }
+    override var oneof2274: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2274)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2274(it) } }
+    override var oneof2275: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2275)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2275(it) } }
+    override var oneof2276: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2276)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2276(it) } }
+    override var oneof2277: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2277)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2277(it) } }
+    override var oneof2278: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2278)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2278(it) } }
+    override var oneof2279: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2279)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2279(it) } }
+    override var oneof2280: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2280)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2280(it) } }
+    override var oneof2281: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2281)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2281(it) } }
+    override var oneof2282: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2282)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2282(it) } }
+    override var oneof2283: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2283)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2283(it) } }
+    override var oneof2284: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2284)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2284(it) } }
+    override var oneof2285: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2285)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2285(it) } }
+    override var oneof2286: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2286)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2286(it) } }
+    override var oneof2287: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2287)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2287(it) } }
+    override var oneof2288: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2288)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2288(it) } }
+    override var oneof2289: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2289)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2289(it) } }
+    override var oneof2290: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2290)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2290(it) } }
+    override var oneof2291: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2291)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2291(it) } }
+    override var oneof2292: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2292)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2292(it) } }
+    override var oneof2293: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2293)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2293(it) } }
+    override var oneof2294: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2294)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2294(it) } }
+    override var oneof2295: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2295)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2295(it) } }
+    override var oneof2296: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2296)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2296(it) } }
+    override var oneof2297: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2297)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2297(it) } }
+    override var oneof2298: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2298)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2298(it) } }
+    override var oneof2299: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2299)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2299(it) } }
+    override var oneof2300: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2300)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2300(it) } }
+    override var oneof2301: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2301)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2301(it) } }
+    override var oneof2302: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2302)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2302(it) } }
+    override var oneof2303: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2303)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2303(it) } }
+    override var oneof2304: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2304)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2304(it) } }
+    override var oneof2305: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2305)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2305(it) } }
+    override var oneof2306: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2306)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2306(it) } }
+    override var oneof2307: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2307)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2307(it) } }
+    override var oneof2308: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2308)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2308(it) } }
+    override var oneof2309: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2309)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2309(it) } }
+    override var oneof2310: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2310)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2310(it) } }
+    override var oneof2311: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2311)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2311(it) } }
+    override var oneof2312: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2312)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2312(it) } }
+    override var oneof2313: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2313)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2313(it) } }
+    override var oneof2314: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2314)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2314(it) } }
+    override var oneof2315: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2315)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2315(it) } }
+    override var oneof2316: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2316)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2316(it) } }
+    override var oneof2317: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2317)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2317(it) } }
+    override var oneof2318: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2318)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2318(it) } }
+    override var oneof2319: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2319)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2319(it) } }
+    override var oneof2320: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2320)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2320(it) } }
+    override var oneof2321: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2321)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2321(it) } }
+    override var oneof2322: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2322)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2322(it) } }
+    override var oneof2323: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2323)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2323(it) } }
+    override var oneof2324: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2324)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2324(it) } }
+    override var oneof2325: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2325)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2325(it) } }
+    override var oneof2326: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2326)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2326(it) } }
+    override var oneof2327: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2327)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2327(it) } }
+    override var oneof2328: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2328)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2328(it) } }
+    override var oneof2329: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2329)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2329(it) } }
+    override var oneof2330: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2330)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2330(it) } }
+    override var oneof2331: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2331)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2331(it) } }
+    override var oneof2332: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2332)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2332(it) } }
+    override var oneof2333: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2333)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2333(it) } }
+    override var oneof2334: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2334)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2334(it) } }
+    override var oneof2335: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2335)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2335(it) } }
+    override var oneof2336: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2336)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2336(it) } }
+    override var oneof2337: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2337)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2337(it) } }
+    override var oneof2338: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2338)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2338(it) } }
+    override var oneof2339: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2339)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2339(it) } }
+    override var oneof2340: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2340)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2340(it) } }
+    override var oneof2341: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2341)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2341(it) } }
+    override var oneof2342: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2342)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2342(it) } }
+    override var oneof2343: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2343)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2343(it) } }
+    override var oneof2344: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2344)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2344(it) } }
+    override var oneof2345: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2345)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2345(it) } }
+    override var oneof2346: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2346)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2346(it) } }
+    override var oneof2347: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2347)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2347(it) } }
+    override var oneof2348: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2348)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2348(it) } }
+    override var oneof2349: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2349)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2349(it) } }
+    override var oneof2350: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2350)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2350(it) } }
+    override var oneof2351: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2351)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2351(it) } }
+    override var oneof2352: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2352)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2352(it) } }
+    override var oneof2353: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2353)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2353(it) } }
+    override var oneof2354: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2354)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2354(it) } }
+    override var oneof2355: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2355)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2355(it) } }
+    override var oneof2356: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2356)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2356(it) } }
+    override var oneof2357: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2357)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2357(it) } }
+    override var oneof2358: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2358)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2358(it) } }
+    override var oneof2359: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2359)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2359(it) } }
+    override var oneof2360: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2360)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2360(it) } }
+    override var oneof2361: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2361)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2361(it) } }
+    override var oneof2362: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2362)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2362(it) } }
+    override var oneof2363: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2363)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2363(it) } }
+    override var oneof2364: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2364)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2364(it) } }
+    override var oneof2365: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2365)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2365(it) } }
+    override var oneof2366: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2366)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2366(it) } }
+    override var oneof2367: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2367)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2367(it) } }
+    override var oneof2368: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2368)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2368(it) } }
+    override var oneof2369: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2369)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2369(it) } }
+    override var oneof2370: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2370)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2370(it) } }
+    override var oneof2371: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2371)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2371(it) } }
+    override var oneof2372: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2372)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2372(it) } }
+    override var oneof2373: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2373)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2373(it) } }
+    override var oneof2374: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2374)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2374(it) } }
+    override var oneof2375: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2375)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2375(it) } }
+    override var oneof2376: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2376)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2376(it) } }
+    override var oneof2377: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2377)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2377(it) } }
+    override var oneof2378: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2378)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2378(it) } }
+    override var oneof2379: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2379)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2379(it) } }
+    override var oneof2380: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2380)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2380(it) } }
+    override var oneof2381: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2381)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2381(it) } }
+    override var oneof2382: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2382)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2382(it) } }
+    override var oneof2383: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2383)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2383(it) } }
+    override var oneof2384: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2384)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2384(it) } }
+    override var oneof2385: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2385)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2385(it) } }
+    override var oneof2386: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2386)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2386(it) } }
+    override var oneof2387: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2387)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2387(it) } }
+    override var oneof2388: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2388)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2388(it) } }
+    override var oneof2389: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2389)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2389(it) } }
+    override var oneof2390: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2390)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2390(it) } }
+    override var oneof2391: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2391)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2391(it) } }
+    override var oneof2392: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2392)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2392(it) } }
+    override var oneof2393: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2393)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2393(it) } }
+    override var oneof2394: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2394)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2394(it) } }
+    override var oneof2395: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2395)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2395(it) } }
+    override var oneof2396: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2396)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2396(it) } }
+    override var oneof2397: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2397)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2397(it) } }
+    override var oneof2398: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2398)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2398(it) } }
+    override var oneof2399: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2399)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2399(it) } }
+    override var oneof2400: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2400)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2400(it) } }
+    override var oneof2401: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2401)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2401(it) } }
+    override var oneof2402: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2402)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2402(it) } }
+    override var oneof2403: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2403)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2403(it) } }
+    override var oneof2404: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2404)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2404(it) } }
+    override var oneof2405: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2405)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2405(it) } }
+    override var oneof2406: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2406)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2406(it) } }
+    override var oneof2407: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2407)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2407(it) } }
+    override var oneof2408: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2408)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2408(it) } }
+    override var oneof2409: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2409)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2409(it) } }
+    override var oneof2410: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2410)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2410(it) } }
+    override var oneof2411: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2411)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2411(it) } }
+    override var oneof2412: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2412)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2412(it) } }
+    override var oneof2413: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2413)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2413(it) } }
+    override var oneof2414: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2414)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2414(it) } }
+    override var oneof2415: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2415)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2415(it) } }
+    override var oneof2416: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2416)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2416(it) } }
+    override var oneof2417: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2417)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2417(it) } }
+    override var oneof2418: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2418)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2418(it) } }
+    override var oneof2419: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2419)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2419(it) } }
+    override var oneof2420: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2420)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2420(it) } }
+    override var oneof2421: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2421)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2421(it) } }
+    override var oneof2422: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2422)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2422(it) } }
+    override var oneof2423: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2423)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2423(it) } }
+    override var oneof2424: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2424)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2424(it) } }
+    override var oneof2425: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2425)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2425(it) } }
+    override var oneof2426: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2426)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2426(it) } }
+    override var oneof2427: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2427)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2427(it) } }
+    override var oneof2428: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2428)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2428(it) } }
+    override var oneof2429: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2429)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2429(it) } }
+    override var oneof2430: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2430)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2430(it) } }
+    override var oneof2431: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2431)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2431(it) } }
+    override var oneof2432: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2432)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2432(it) } }
+    override var oneof2433: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2433)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2433(it) } }
+    override var oneof2434: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2434)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2434(it) } }
+    override var oneof2435: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2435)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2435(it) } }
+    override var oneof2436: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2436)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2436(it) } }
+    override var oneof2437: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2437)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2437(it) } }
+    override var oneof2438: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2438)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2438(it) } }
+    override var oneof2439: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2439)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2439(it) } }
+    override var oneof2440: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2440)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2440(it) } }
+    override var oneof2441: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2441)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2441(it) } }
+    override var oneof2442: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2442)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2442(it) } }
+    override var oneof2443: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2443)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2443(it) } }
+    override var oneof2444: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2444)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2444(it) } }
+    override var oneof2445: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2445)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2445(it) } }
+    override var oneof2446: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2446)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2446(it) } }
+    override var oneof2447: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2447)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2447(it) } }
+    override var oneof2448: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2448)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2448(it) } }
+    override var oneof2449: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2449)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2449(it) } }
+    override var oneof2450: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2450)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2450(it) } }
+    override var oneof2451: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2451)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2451(it) } }
+    override var oneof2452: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2452)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2452(it) } }
+    override var oneof2453: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2453)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2453(it) } }
+    override var oneof2454: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2454)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2454(it) } }
+    override var oneof2455: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2455)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2455(it) } }
+    override var oneof2456: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2456)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2456(it) } }
+    override var oneof2457: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2457)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2457(it) } }
+    override var oneof2458: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2458)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2458(it) } }
+    override var oneof2459: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2459)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2459(it) } }
+    override var oneof2460: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2460)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2460(it) } }
+    override var oneof2461: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2461)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2461(it) } }
+    override var oneof2462: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2462)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2462(it) } }
+    override var oneof2463: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2463)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2463(it) } }
+    override var oneof2464: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2464)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2464(it) } }
+    override var oneof2465: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2465)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2465(it) } }
+    override var oneof2466: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2466)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2466(it) } }
+    override var oneof2467: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2467)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2467(it) } }
+    override var oneof2468: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2468)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2468(it) } }
+    override var oneof2469: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2469)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2469(it) } }
+    override var oneof2470: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2470)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2470(it) } }
+    override var oneof2471: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2471)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2471(it) } }
+    override var oneof2472: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2472)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2472(it) } }
+    override var oneof2473: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2473)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2473(it) } }
+    override var oneof2474: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2474)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2474(it) } }
+    override var oneof2475: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2475)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2475(it) } }
+    override var oneof2476: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2476)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2476(it) } }
+    override var oneof2477: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2477)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2477(it) } }
+    override var oneof2478: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2478)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2478(it) } }
+    override var oneof2479: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2479)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2479(it) } }
+    override var oneof2480: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2480)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2480(it) } }
+    override var oneof2481: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2481)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2481(it) } }
+    override var oneof2482: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2482)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2482(it) } }
+    override var oneof2483: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2483)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2483(it) } }
+    override var oneof2484: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2484)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2484(it) } }
+    override var oneof2485: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2485)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2485(it) } }
+    override var oneof2486: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2486)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2486(it) } }
+    override var oneof2487: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2487)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2487(it) } }
+    override var oneof2488: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2488)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2488(it) } }
+    override var oneof2489: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2489)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2489(it) } }
+    override var oneof2490: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2490)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2490(it) } }
+    override var oneof2491: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2491)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2491(it) } }
+    override var oneof2492: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2492)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2492(it) } }
+    override var oneof2493: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2493)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2493(it) } }
+    override var oneof2494: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2494)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2494(it) } }
+    override var oneof2495: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2495)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2495(it) } }
+    override var oneof2496: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2496)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2496(it) } }
+    override var oneof2497: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2497)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2497(it) } }
+    override var oneof2498: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2498)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2498(it) } }
+    override var oneof2499: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2499)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2499(it) } }
+    override var oneof2500: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2500)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2500(it) } }
+    override var oneof2501: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2501)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2501(it) } }
+    override var oneof2502: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2502)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2502(it) } }
+    override var oneof2503: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2503)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2503(it) } }
+    override var oneof2504: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2504)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2504(it) } }
+    override var oneof2505: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2505)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2505(it) } }
+    override var oneof2506: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2506)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2506(it) } }
+    override var oneof2507: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2507)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2507(it) } }
+    override var oneof2508: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2508)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2508(it) } }
+    override var oneof2509: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2509)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2509(it) } }
+    override var oneof2510: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2510)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2510(it) } }
+    override var oneof2511: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2511)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2511(it) } }
+    override var oneof2512: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2512)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2512(it) } }
+    override var oneof2513: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2513)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2513(it) } }
+    override var oneof2514: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2514)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2514(it) } }
+    override var oneof2515: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2515)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2515(it) } }
+    override var oneof2516: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2516)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2516(it) } }
+    override var oneof2517: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2517)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2517(it) } }
+    override var oneof2518: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2518)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2518(it) } }
+    override var oneof2519: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2519)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2519(it) } }
+    override var oneof2520: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2520)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2520(it) } }
+    override var oneof2521: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2521)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2521(it) } }
+    override var oneof2522: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2522)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2522(it) } }
+    override var oneof2523: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2523)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2523(it) } }
+    override var oneof2524: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2524)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2524(it) } }
+    override var oneof2525: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2525)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2525(it) } }
+    override var oneof2526: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2526)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2526(it) } }
+    override var oneof2527: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2527)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2527(it) } }
+    override var oneof2528: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2528)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2528(it) } }
+    override var oneof2529: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2529)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2529(it) } }
+    override var oneof2530: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2530)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2530(it) } }
+    override var oneof2531: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2531)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2531(it) } }
+    override var oneof2532: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2532)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2532(it) } }
+    override var oneof2533: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2533)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2533(it) } }
+    override var oneof2534: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2534)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2534(it) } }
+    override var oneof2535: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2535)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2535(it) } }
+    override var oneof2536: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2536)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2536(it) } }
+    override var oneof2537: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2537)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2537(it) } }
+    override var oneof2538: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2538)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2538(it) } }
+    override var oneof2539: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2539)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2539(it) } }
+    override var oneof2540: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2540)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2540(it) } }
+    override var oneof2541: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2541)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2541(it) } }
+    override var oneof2542: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2542)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2542(it) } }
+    override var oneof2543: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2543)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2543(it) } }
+    override var oneof2544: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2544)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2544(it) } }
+    override var oneof2545: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2545)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2545(it) } }
+    override var oneof2546: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2546)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2546(it) } }
+    override var oneof2547: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2547)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2547(it) } }
+    override var oneof2548: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2548)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2548(it) } }
+    override var oneof2549: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2549)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2549(it) } }
+    override var oneof2550: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2550)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2550(it) } }
+    override var oneof2551: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2551)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2551(it) } }
+    override var oneof2552: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2552)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2552(it) } }
+    override var oneof2553: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2553)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2553(it) } }
+    override var oneof2554: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2554)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2554(it) } }
+    override var oneof2555: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2555)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2555(it) } }
+    override var oneof2556: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2556)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2556(it) } }
+    override var oneof2557: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2557)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2557(it) } }
+    override var oneof2558: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2558)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2558(it) } }
+    override var oneof2559: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2559)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2559(it) } }
+    override var oneof2560: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2560)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2560(it) } }
+    override var oneof2561: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2561)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2561(it) } }
+    override var oneof2562: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2562)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2562(it) } }
+    override var oneof2563: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2563)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2563(it) } }
+    override var oneof2564: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2564)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2564(it) } }
+    override var oneof2565: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2565)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2565(it) } }
+    override var oneof2566: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2566)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2566(it) } }
+    override var oneof2567: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2567)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2567(it) } }
+    override var oneof2568: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2568)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2568(it) } }
+    override var oneof2569: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2569)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2569(it) } }
+    override var oneof2570: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2570)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2570(it) } }
+    override var oneof2571: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2571)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2571(it) } }
+    override var oneof2572: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2572)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2572(it) } }
+    override var oneof2573: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2573)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2573(it) } }
+    override var oneof2574: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2574)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2574(it) } }
+    override var oneof2575: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2575)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2575(it) } }
+    override var oneof2576: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2576)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2576(it) } }
+    override var oneof2577: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2577)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2577(it) } }
+    override var oneof2578: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2578)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2578(it) } }
+    override var oneof2579: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2579)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2579(it) } }
+    override var oneof2580: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2580)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2580(it) } }
+    override var oneof2581: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2581)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2581(it) } }
+    override var oneof2582: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2582)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2582(it) } }
+    override var oneof2583: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2583)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2583(it) } }
+    override var oneof2584: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2584)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2584(it) } }
+    override var oneof2585: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2585)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2585(it) } }
+    override var oneof2586: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2586)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2586(it) } }
+    override var oneof2587: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2587)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2587(it) } }
+    override var oneof2588: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2588)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2588(it) } }
+    override var oneof2589: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2589)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2589(it) } }
+    override var oneof2590: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2590)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2590(it) } }
+    override var oneof2591: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2591)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2591(it) } }
+    override var oneof2592: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2592)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2592(it) } }
+    override var oneof2593: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2593)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2593(it) } }
+    override var oneof2594: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2594)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2594(it) } }
+    override var oneof2595: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2595)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2595(it) } }
+    override var oneof2596: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2596)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2596(it) } }
+    override var oneof2597: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2597)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2597(it) } }
+    override var oneof2598: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2598)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2598(it) } }
+    override var oneof2599: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2599)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2599(it) } }
+    override var oneof2600: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2600)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2600(it) } }
+    override var oneof2601: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2601)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2601(it) } }
+    override var oneof2602: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2602)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2602(it) } }
+    override var oneof2603: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2603)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2603(it) } }
+    override var oneof2604: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2604)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2604(it) } }
+    override var oneof2605: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2605)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2605(it) } }
+    override var oneof2606: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2606)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2606(it) } }
+    override var oneof2607: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2607)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2607(it) } }
+    override var oneof2608: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2608)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2608(it) } }
+    override var oneof2609: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2609)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2609(it) } }
+    override var oneof2610: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2610)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2610(it) } }
+    override var oneof2611: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2611)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2611(it) } }
+    override var oneof2612: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2612)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2612(it) } }
+    override var oneof2613: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2613)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2613(it) } }
+    override var oneof2614: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2614)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2614(it) } }
+    override var oneof2615: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2615)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2615(it) } }
+    override var oneof2616: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2616)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2616(it) } }
+    override var oneof2617: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2617)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2617(it) } }
+    override var oneof2618: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2618)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2618(it) } }
+    override var oneof2619: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2619)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2619(it) } }
+    override var oneof2620: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2620)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2620(it) } }
+    override var oneof2621: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2621)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2621(it) } }
+    override var oneof2622: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2622)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2622(it) } }
+    override var oneof2623: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2623)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2623(it) } }
+    override var oneof2624: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2624)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2624(it) } }
+    override var oneof2625: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2625)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2625(it) } }
+    override var oneof2626: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2626)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2626(it) } }
+    override var oneof2627: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2627)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2627(it) } }
+    override var oneof2628: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2628)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2628(it) } }
+    override var oneof2629: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2629)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2629(it) } }
+    override var oneof2630: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2630)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2630(it) } }
+    override var oneof2631: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2631)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2631(it) } }
+    override var oneof2632: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2632)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2632(it) } }
+    override var oneof2633: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2633)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2633(it) } }
+    override var oneof2634: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2634)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2634(it) } }
+    override var oneof2635: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2635)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2635(it) } }
+    override var oneof2636: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2636)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2636(it) } }
+    override var oneof2637: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2637)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2637(it) } }
+    override var oneof2638: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2638)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2638(it) } }
+    override var oneof2639: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2639)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2639(it) } }
+    override var oneof2640: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2640)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2640(it) } }
+    override var oneof2641: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2641)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2641(it) } }
+    override var oneof2642: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2642)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2642(it) } }
+    override var oneof2643: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2643)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2643(it) } }
+    override var oneof2644: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2644)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2644(it) } }
+    override var oneof2645: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2645)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2645(it) } }
+    override var oneof2646: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2646)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2646(it) } }
+    override var oneof2647: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2647)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2647(it) } }
+    override var oneof2648: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2648)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2648(it) } }
+    override var oneof2649: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2649)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2649(it) } }
+    override var oneof2650: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2650)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2650(it) } }
+    override var oneof2651: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2651)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2651(it) } }
+    override var oneof2652: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2652)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2652(it) } }
+    override var oneof2653: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2653)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2653(it) } }
+    override var oneof2654: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2654)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2654(it) } }
+    override var oneof2655: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2655)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2655(it) } }
+    override var oneof2656: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2656)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2656(it) } }
+    override var oneof2657: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2657)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2657(it) } }
+    override var oneof2658: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2658)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2658(it) } }
+    override var oneof2659: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2659)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2659(it) } }
+    override var oneof2660: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2660)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2660(it) } }
+    override var oneof2661: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2661)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2661(it) } }
+    override var oneof2662: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2662)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2662(it) } }
+    override var oneof2663: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2663)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2663(it) } }
+    override var oneof2664: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2664)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2664(it) } }
+    override var oneof2665: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2665)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2665(it) } }
+    override var oneof2666: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2666)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2666(it) } }
+    override var oneof2667: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2667)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2667(it) } }
+    override var oneof2668: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2668)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2668(it) } }
+    override var oneof2669: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2669)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2669(it) } }
+    override var oneof2670: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2670)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2670(it) } }
+    override var oneof2671: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2671)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2671(it) } }
+    override var oneof2672: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2672)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2672(it) } }
+    override var oneof2673: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2673)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2673(it) } }
+    override var oneof2674: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2674)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2674(it) } }
+    override var oneof2675: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2675)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2675(it) } }
+    override var oneof2676: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2676)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2676(it) } }
+    override var oneof2677: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2677)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2677(it) } }
+    override var oneof2678: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2678)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2678(it) } }
+    override var oneof2679: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2679)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2679(it) } }
+    override var oneof2680: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2680)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2680(it) } }
+    override var oneof2681: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2681)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2681(it) } }
+    override var oneof2682: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2682)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2682(it) } }
+    override var oneof2683: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2683)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2683(it) } }
+    override var oneof2684: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2684)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2684(it) } }
+    override var oneof2685: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2685)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2685(it) } }
+    override var oneof2686: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2686)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2686(it) } }
+    override var oneof2687: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2687)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2687(it) } }
+    override var oneof2688: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2688)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2688(it) } }
+    override var oneof2689: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2689)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2689(it) } }
+    override var oneof2690: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2690)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2690(it) } }
+    override var oneof2691: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2691)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2691(it) } }
+    override var oneof2692: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2692)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2692(it) } }
+    override var oneof2693: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2693)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2693(it) } }
+    override var oneof2694: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2694)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2694(it) } }
+    override var oneof2695: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2695)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2695(it) } }
+    override var oneof2696: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2696)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2696(it) } }
+    override var oneof2697: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2697)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2697(it) } }
+    override var oneof2698: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2698)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2698(it) } }
+    override var oneof2699: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2699)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2699(it) } }
+    override var oneof2700: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2700)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2700(it) } }
+    override var oneof2701: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2701)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2701(it) } }
+    override var oneof2702: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2702)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2702(it) } }
+    override var oneof2703: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2703)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2703(it) } }
+    override var oneof2704: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2704)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2704(it) } }
+    override var oneof2705: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2705)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2705(it) } }
+    override var oneof2706: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2706)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2706(it) } }
+    override var oneof2707: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2707)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2707(it) } }
+    override var oneof2708: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2708)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2708(it) } }
+    override var oneof2709: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2709)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2709(it) } }
+    override var oneof2710: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2710)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2710(it) } }
+    override var oneof2711: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2711)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2711(it) } }
+    override var oneof2712: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2712)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2712(it) } }
+    override var oneof2713: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2713)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2713(it) } }
+    override var oneof2714: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2714)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2714(it) } }
+    override var oneof2715: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2715)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2715(it) } }
+    override var oneof2716: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2716)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2716(it) } }
+    override var oneof2717: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2717)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2717(it) } }
+    override var oneof2718: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2718)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2718(it) } }
+    override var oneof2719: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2719)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2719(it) } }
+    override var oneof2720: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2720)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2720(it) } }
+    override var oneof2721: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2721)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2721(it) } }
+    override var oneof2722: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2722)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2722(it) } }
+    override var oneof2723: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2723)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2723(it) } }
+    override var oneof2724: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2724)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2724(it) } }
+    override var oneof2725: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2725)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2725(it) } }
+    override var oneof2726: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2726)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2726(it) } }
+    override var oneof2727: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2727)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2727(it) } }
+    override var oneof2728: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2728)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2728(it) } }
+    override var oneof2729: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2729)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2729(it) } }
+    override var oneof2730: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2730)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2730(it) } }
+    override var oneof2731: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2731)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2731(it) } }
+    override var oneof2732: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2732)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2732(it) } }
+    override var oneof2733: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2733)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2733(it) } }
+    override var oneof2734: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2734)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2734(it) } }
+    override var oneof2735: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2735)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2735(it) } }
+    override var oneof2736: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2736)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2736(it) } }
+    override var oneof2737: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2737)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2737(it) } }
+    override var oneof2738: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2738)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2738(it) } }
+    override var oneof2739: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2739)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2739(it) } }
+    override var oneof2740: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2740)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2740(it) } }
+    override var oneof2741: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2741)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2741(it) } }
+    override var oneof2742: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2742)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2742(it) } }
+    override var oneof2743: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2743)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2743(it) } }
+    override var oneof2744: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2744)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2744(it) } }
+    override var oneof2745: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2745)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2745(it) } }
+    override var oneof2746: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2746)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2746(it) } }
+    override var oneof2747: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2747)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2747(it) } }
+    override var oneof2748: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2748)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2748(it) } }
+    override var oneof2749: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2749)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2749(it) } }
+    override var oneof2750: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2750)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2750(it) } }
+    override var oneof2751: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2751)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2751(it) } }
+    override var oneof2752: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2752)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2752(it) } }
+    override var oneof2753: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2753)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2753(it) } }
+    override var oneof2754: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2754)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2754(it) } }
+    override var oneof2755: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2755)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2755(it) } }
+    override var oneof2756: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2756)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2756(it) } }
+    override var oneof2757: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2757)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2757(it) } }
+    override var oneof2758: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2758)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2758(it) } }
+    override var oneof2759: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2759)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2759(it) } }
+    override var oneof2760: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2760)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2760(it) } }
+    override var oneof2761: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2761)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2761(it) } }
+    override var oneof2762: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2762)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2762(it) } }
+    override var oneof2763: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2763)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2763(it) } }
+    override var oneof2764: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2764)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2764(it) } }
+    override var oneof2765: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2765)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2765(it) } }
+    override var oneof2766: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2766)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2766(it) } }
+    override var oneof2767: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2767)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2767(it) } }
+    override var oneof2768: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2768)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2768(it) } }
+    override var oneof2769: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2769)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2769(it) } }
+    override var oneof2770: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2770)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2770(it) } }
+    override var oneof2771: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2771)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2771(it) } }
+    override var oneof2772: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2772)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2772(it) } }
+    override var oneof2773: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2773)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2773(it) } }
+    override var oneof2774: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2774)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2774(it) } }
+    override var oneof2775: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2775)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2775(it) } }
+    override var oneof2776: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2776)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2776(it) } }
+    override var oneof2777: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2777)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2777(it) } }
+    override var oneof2778: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2778)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2778(it) } }
+    override var oneof2779: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2779)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2779(it) } }
+    override var oneof2780: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2780)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2780(it) } }
+    override var oneof2781: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2781)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2781(it) } }
+    override var oneof2782: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2782)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2782(it) } }
+    override var oneof2783: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2783)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2783(it) } }
+    override var oneof2784: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2784)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2784(it) } }
+    override var oneof2785: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2785)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2785(it) } }
+    override var oneof2786: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2786)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2786(it) } }
+    override var oneof2787: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2787)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2787(it) } }
+    override var oneof2788: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2788)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2788(it) } }
+    override var oneof2789: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2789)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2789(it) } }
+    override var oneof2790: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2790)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2790(it) } }
+    override var oneof2791: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2791)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2791(it) } }
+    override var oneof2792: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2792)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2792(it) } }
+    override var oneof2793: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2793)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2793(it) } }
+    override var oneof2794: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2794)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2794(it) } }
+    override var oneof2795: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2795)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2795(it) } }
+    override var oneof2796: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2796)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2796(it) } }
+    override var oneof2797: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2797)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2797(it) } }
+    override var oneof2798: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2798)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2798(it) } }
+    override var oneof2799: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2799)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2799(it) } }
+    override var oneof2800: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2800)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2800(it) } }
+    override var oneof2801: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2801)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2801(it) } }
+    override var oneof2802: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2802)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2802(it) } }
+    override var oneof2803: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2803)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2803(it) } }
+    override var oneof2804: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2804)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2804(it) } }
+    override var oneof2805: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2805)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2805(it) } }
+    override var oneof2806: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2806)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2806(it) } }
+    override var oneof2807: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2807)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2807(it) } }
+    override var oneof2808: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2808)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2808(it) } }
+    override var oneof2809: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2809)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2809(it) } }
+    override var oneof2810: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2810)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2810(it) } }
+    override var oneof2811: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2811)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2811(it) } }
+    override var oneof2812: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2812)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2812(it) } }
+    override var oneof2813: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2813)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2813(it) } }
+    override var oneof2814: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2814)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2814(it) } }
+    override var oneof2815: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2815)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2815(it) } }
+    override var oneof2816: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2816)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2816(it) } }
+    override var oneof2817: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2817)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2817(it) } }
+    override var oneof2818: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2818)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2818(it) } }
+    override var oneof2819: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2819)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2819(it) } }
+    override var oneof2820: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2820)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2820(it) } }
+    override var oneof2821: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2821)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2821(it) } }
+    override var oneof2822: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2822)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2822(it) } }
+    override var oneof2823: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2823)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2823(it) } }
+    override var oneof2824: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2824)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2824(it) } }
+    override var oneof2825: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2825)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2825(it) } }
+    override var oneof2826: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2826)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2826(it) } }
+    override var oneof2827: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2827)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2827(it) } }
+    override var oneof2828: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2828)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2828(it) } }
+    override var oneof2829: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2829)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2829(it) } }
+    override var oneof2830: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2830)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2830(it) } }
+    override var oneof2831: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2831)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2831(it) } }
+    override var oneof2832: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2832)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2832(it) } }
+    override var oneof2833: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2833)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2833(it) } }
+    override var oneof2834: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2834)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2834(it) } }
+    override var oneof2835: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2835)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2835(it) } }
+    override var oneof2836: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2836)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2836(it) } }
+    override var oneof2837: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2837)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2837(it) } }
+    override var oneof2838: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2838)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2838(it) } }
+    override var oneof2839: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2839)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2839(it) } }
+    override var oneof2840: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2840)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2840(it) } }
+    override var oneof2841: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2841)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2841(it) } }
+    override var oneof2842: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2842)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2842(it) } }
+    override var oneof2843: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2843)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2843(it) } }
+    override var oneof2844: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2844)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2844(it) } }
+    override var oneof2845: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2845)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2845(it) } }
+    override var oneof2846: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2846)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2846(it) } }
+    override var oneof2847: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2847)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2847(it) } }
+    override var oneof2848: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2848)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2848(it) } }
+    override var oneof2849: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2849)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2849(it) } }
+    override var oneof2850: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2850)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2850(it) } }
+    override var oneof2851: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2851)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2851(it) } }
+    override var oneof2852: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2852)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2852(it) } }
+    override var oneof2853: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2853)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2853(it) } }
+    override var oneof2854: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2854)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2854(it) } }
+    override var oneof2855: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2855)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2855(it) } }
+    override var oneof2856: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2856)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2856(it) } }
+    override var oneof2857: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2857)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2857(it) } }
+    override var oneof2858: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2858)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2858(it) } }
+    override var oneof2859: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2859)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2859(it) } }
+    override var oneof2860: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2860)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2860(it) } }
+    override var oneof2861: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2861)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2861(it) } }
+    override var oneof2862: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2862)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2862(it) } }
+    override var oneof2863: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2863)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2863(it) } }
+    override var oneof2864: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2864)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2864(it) } }
+    override var oneof2865: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2865)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2865(it) } }
+    override var oneof2866: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2866)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2866(it) } }
+    override var oneof2867: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2867)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2867(it) } }
+    override var oneof2868: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2868)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2868(it) } }
+    override var oneof2869: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2869)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2869(it) } }
+    override var oneof2870: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2870)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2870(it) } }
+    override var oneof2871: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2871)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2871(it) } }
+    override var oneof2872: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2872)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2872(it) } }
+    override var oneof2873: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2873)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2873(it) } }
+    override var oneof2874: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2874)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2874(it) } }
+    override var oneof2875: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2875)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2875(it) } }
+    override var oneof2876: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2876)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2876(it) } }
+    override var oneof2877: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2877)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2877(it) } }
+    override var oneof2878: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2878)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2878(it) } }
+    override var oneof2879: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2879)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2879(it) } }
+    override var oneof2880: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2880)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2880(it) } }
+    override var oneof2881: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2881)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2881(it) } }
+    override var oneof2882: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2882)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2882(it) } }
+    override var oneof2883: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2883)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2883(it) } }
+    override var oneof2884: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2884)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2884(it) } }
+    override var oneof2885: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2885)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2885(it) } }
+    override var oneof2886: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2886)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2886(it) } }
+    override var oneof2887: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2887)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2887(it) } }
+    override var oneof2888: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2888)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2888(it) } }
+    override var oneof2889: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2889)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2889(it) } }
+    override var oneof2890: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2890)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2890(it) } }
+    override var oneof2891: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2891)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2891(it) } }
+    override var oneof2892: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2892)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2892(it) } }
+    override var oneof2893: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2893)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2893(it) } }
+    override var oneof2894: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2894)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2894(it) } }
+    override var oneof2895: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2895)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2895(it) } }
+    override var oneof2896: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2896)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2896(it) } }
+    override var oneof2897: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2897)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2897(it) } }
+    override var oneof2898: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2898)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2898(it) } }
+    override var oneof2899: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2899)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2899(it) } }
+    override var oneof2900: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2900)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2900(it) } }
+    override var oneof2901: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2901)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2901(it) } }
+    override var oneof2902: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2902)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2902(it) } }
+    override var oneof2903: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2903)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2903(it) } }
+    override var oneof2904: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2904)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2904(it) } }
+    override var oneof2905: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2905)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2905(it) } }
+    override var oneof2906: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2906)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2906(it) } }
+    override var oneof2907: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2907)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2907(it) } }
+    override var oneof2908: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2908)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2908(it) } }
+    override var oneof2909: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2909)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2909(it) } }
+    override var oneof2910: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2910)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2910(it) } }
+    override var oneof2911: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2911)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2911(it) } }
+    override var oneof2912: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2912)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2912(it) } }
+    override var oneof2913: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2913)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2913(it) } }
+    override var oneof2914: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2914)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2914(it) } }
+    override var oneof2915: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2915)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2915(it) } }
+    override var oneof2916: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2916)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2916(it) } }
+    override var oneof2917: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2917)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2917(it) } }
+    override var oneof2918: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2918)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2918(it) } }
+    override var oneof2919: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2919)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2919(it) } }
+    override var oneof2920: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2920)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2920(it) } }
+    override var oneof2921: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2921)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2921(it) } }
+    override var oneof2922: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2922)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2922(it) } }
+    override var oneof2923: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2923)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2923(it) } }
+    override var oneof2924: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2924)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2924(it) } }
+    override var oneof2925: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2925)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2925(it) } }
+    override var oneof2926: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2926)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2926(it) } }
+    override var oneof2927: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2927)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2927(it) } }
+    override var oneof2928: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2928)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2928(it) } }
+    override var oneof2929: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2929)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2929(it) } }
+    override var oneof2930: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2930)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2930(it) } }
+    override var oneof2931: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2931)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2931(it) } }
+    override var oneof2932: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2932)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2932(it) } }
+    override var oneof2933: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2933)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2933(it) } }
+    override var oneof2934: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2934)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2934(it) } }
+    override var oneof2935: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2935)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2935(it) } }
+    override var oneof2936: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2936)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2936(it) } }
+    override var oneof2937: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2937)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2937(it) } }
+    override var oneof2938: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2938)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2938(it) } }
+    override var oneof2939: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2939)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2939(it) } }
+    override var oneof2940: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2940)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2940(it) } }
+    override var oneof2941: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2941)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2941(it) } }
+    override var oneof2942: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2942)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2942(it) } }
+    override var oneof2943: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2943)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2943(it) } }
+    override var oneof2944: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2944)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2944(it) } }
+    override var oneof2945: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2945)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2945(it) } }
+    override var oneof2946: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2946)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2946(it) } }
+    override var oneof2947: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2947)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2947(it) } }
+    override var oneof2948: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2948)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2948(it) } }
+    override var oneof2949: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2949)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2949(it) } }
+    override var oneof2950: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2950)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2950(it) } }
+    override var oneof2951: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2951)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2951(it) } }
+    override var oneof2952: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2952)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2952(it) } }
+    override var oneof2953: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2953)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2953(it) } }
+    override var oneof2954: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2954)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2954(it) } }
+    override var oneof2955: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2955)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2955(it) } }
+    override var oneof2956: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2956)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2956(it) } }
+    override var oneof2957: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2957)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2957(it) } }
+    override var oneof2958: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2958)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2958(it) } }
+    override var oneof2959: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2959)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2959(it) } }
+    override var oneof2960: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2960)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2960(it) } }
+    override var oneof2961: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2961)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2961(it) } }
+    override var oneof2962: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2962)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2962(it) } }
+    override var oneof2963: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2963)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2963(it) } }
+    override var oneof2964: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2964)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2964(it) } }
+    override var oneof2965: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2965)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2965(it) } }
+    override var oneof2966: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2966)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2966(it) } }
+    override var oneof2967: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2967)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2967(it) } }
+    override var oneof2968: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2968)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2968(it) } }
+    override var oneof2969: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2969)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2969(it) } }
+    override var oneof2970: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2970)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2970(it) } }
+    override var oneof2971: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2971)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2971(it) } }
+    override var oneof2972: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2972)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2972(it) } }
+    override var oneof2973: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2973)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2973(it) } }
+    override var oneof2974: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2974)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2974(it) } }
+    override var oneof2975: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2975)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2975(it) } }
+    override var oneof2976: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2976)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2976(it) } }
+    override var oneof2977: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2977)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2977(it) } }
+    override var oneof2978: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2978)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2978(it) } }
+    override var oneof2979: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2979)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2979(it) } }
+    override var oneof2980: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2980)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2980(it) } }
+    override var oneof2981: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2981)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2981(it) } }
+    override var oneof2982: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2982)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2982(it) } }
+    override var oneof2983: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2983)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2983(it) } }
+    override var oneof2984: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2984)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2984(it) } }
+    override var oneof2985: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2985)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2985(it) } }
+    override var oneof2986: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2986)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2986(it) } }
+    override var oneof2987: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2987)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2987(it) } }
+    override var oneof2988: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2988)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2988(it) } }
+    override var oneof2989: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2989)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2989(it) } }
+    override var oneof2990: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2990)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2990(it) } }
+    override var oneof2991: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2991)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2991(it) } }
+    override var oneof2992: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2992)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2992(it) } }
+    override var oneof2993: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2993)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2993(it) } }
+    override var oneof2994: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2994)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2994(it) } }
+    override var oneof2995: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2995)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2995(it) } }
+    override var oneof2996: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2996)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2996(it) } }
+    override var oneof2997: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2997)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2997(it) } }
+    override var oneof2998: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2998)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2998(it) } }
+    override var oneof2999: Int?
+        get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2999)?.value
+        set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2999(it) } }
+
+    override fun copy(
+        hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = MessageWithHugeOneof_Impl(
+        hugeOneof = hugeOneof,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? MessageWithHugeOneof)?.let {
+        it.copy(
+            hugeOneof = other.hugeOneof ?: hugeOneof,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMessageWithHugeOneof() = MessageWithHugeOneof_Impl(
+        hugeOneof = hugeOneof,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

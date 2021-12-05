@@ -270,6 +270,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2> {
+        @Deprecated("Use testAllTypesProto2 { } instead")
         public operator fun invoke(
             optionalInt32: Int? = null,
             optionalInt64: Long? = null,
@@ -1721,6 +1722,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
+            @Deprecated("Use nestedMessage { } instead")
             public operator fun invoke(
                 a: Int? = null,
                 corecursive: pbandk.conformance.pb.TestAllTypesProto2? = null,
@@ -1768,9 +1770,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableNestedMessage : TestAllTypesProto2.NestedMessage, pbandk.MutableMessage {
+        public override var a: Int?
+        public override var corecursive: pbandk.conformance.pb.TestAllTypesProto2?
+
+        public fun toNestedMessage(): TestAllTypesProto2.NestedMessage
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
+            @Deprecated("Use nestedMessage { } instead")
+            public operator fun invoke(
+                a: Int? = null,
+                corecursive: pbandk.conformance.pb.TestAllTypesProto2? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableNestedMessage = TestAllTypesProto2_MutableNestedMessage_Impl(
+                a = a,
+                corecursive = corecursive,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableNestedMessage by lazy { MutableNestedMessage() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> get() = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.descriptor
+        }
+    }
+
     public sealed interface MapInt32Int32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
-        override public val key: Int?
-        override public val value: Int?
+        public override val key: Int?
+        public override val value: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry>
@@ -1782,6 +1809,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> {
+            @Deprecated("Use mapInt32Int32Entry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Int? = null,
@@ -1829,9 +1857,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapInt32Int32Entry : TestAllTypesProto2.MapInt32Int32Entry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Int?
+
+        public fun toMapInt32Int32Entry(): TestAllTypesProto2.MapInt32Int32Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> {
+            @Deprecated("Use mapInt32Int32Entry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapInt32Int32Entry = TestAllTypesProto2_MutableMapInt32Int32Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapInt32Int32Entry by lazy { MutableMapInt32Int32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.descriptor
+        }
+    }
+
     public sealed interface MapInt64Int64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
-        override public val key: Long?
-        override public val value: Long?
+        public override val key: Long?
+        public override val value: Long?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry>
@@ -1843,6 +1896,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> {
+            @Deprecated("Use mapInt64Int64Entry { } instead")
             public operator fun invoke(
                 key: Long? = null,
                 value: Long? = null,
@@ -1890,9 +1944,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapInt64Int64Entry : TestAllTypesProto2.MapInt64Int64Entry, pbandk.MutableMessage {
+        public override var key: Long?
+        public override var value: Long?
+
+        public fun toMapInt64Int64Entry(): TestAllTypesProto2.MapInt64Int64Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> {
+            @Deprecated("Use mapInt64Int64Entry { } instead")
+            public operator fun invoke(
+                key: Long? = null,
+                value: Long? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapInt64Int64Entry = TestAllTypesProto2_MutableMapInt64Int64Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapInt64Int64Entry by lazy { MutableMapInt64Int64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.descriptor
+        }
+    }
+
     public sealed interface MapUint32Uint32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
-        override public val key: Int?
-        override public val value: Int?
+        public override val key: Int?
+        public override val value: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry>
@@ -1904,6 +1983,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> {
+            @Deprecated("Use mapUint32Uint32Entry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Int? = null,
@@ -1951,9 +2031,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapUint32Uint32Entry : TestAllTypesProto2.MapUint32Uint32Entry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Int?
+
+        public fun toMapUint32Uint32Entry(): TestAllTypesProto2.MapUint32Uint32Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> {
+            @Deprecated("Use mapUint32Uint32Entry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapUint32Uint32Entry = TestAllTypesProto2_MutableMapUint32Uint32Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapUint32Uint32Entry by lazy { MutableMapUint32Uint32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.descriptor
+        }
+    }
+
     public sealed interface MapUint64Uint64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
-        override public val key: Long?
-        override public val value: Long?
+        public override val key: Long?
+        public override val value: Long?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry>
@@ -1965,6 +2070,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> {
+            @Deprecated("Use mapUint64Uint64Entry { } instead")
             public operator fun invoke(
                 key: Long? = null,
                 value: Long? = null,
@@ -2012,9 +2118,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapUint64Uint64Entry : TestAllTypesProto2.MapUint64Uint64Entry, pbandk.MutableMessage {
+        public override var key: Long?
+        public override var value: Long?
+
+        public fun toMapUint64Uint64Entry(): TestAllTypesProto2.MapUint64Uint64Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> {
+            @Deprecated("Use mapUint64Uint64Entry { } instead")
+            public operator fun invoke(
+                key: Long? = null,
+                value: Long? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapUint64Uint64Entry = TestAllTypesProto2_MutableMapUint64Uint64Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapUint64Uint64Entry by lazy { MutableMapUint64Uint64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.descriptor
+        }
+    }
+
     public sealed interface MapSint32Sint32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
-        override public val key: Int?
-        override public val value: Int?
+        public override val key: Int?
+        public override val value: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry>
@@ -2026,6 +2157,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> {
+            @Deprecated("Use mapSint32Sint32Entry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Int? = null,
@@ -2073,9 +2205,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapSint32Sint32Entry : TestAllTypesProto2.MapSint32Sint32Entry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Int?
+
+        public fun toMapSint32Sint32Entry(): TestAllTypesProto2.MapSint32Sint32Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> {
+            @Deprecated("Use mapSint32Sint32Entry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapSint32Sint32Entry = TestAllTypesProto2_MutableMapSint32Sint32Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapSint32Sint32Entry by lazy { MutableMapSint32Sint32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.descriptor
+        }
+    }
+
     public sealed interface MapSint64Sint64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
-        override public val key: Long?
-        override public val value: Long?
+        public override val key: Long?
+        public override val value: Long?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry>
@@ -2087,6 +2244,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> {
+            @Deprecated("Use mapSint64Sint64Entry { } instead")
             public operator fun invoke(
                 key: Long? = null,
                 value: Long? = null,
@@ -2134,9 +2292,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapSint64Sint64Entry : TestAllTypesProto2.MapSint64Sint64Entry, pbandk.MutableMessage {
+        public override var key: Long?
+        public override var value: Long?
+
+        public fun toMapSint64Sint64Entry(): TestAllTypesProto2.MapSint64Sint64Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> {
+            @Deprecated("Use mapSint64Sint64Entry { } instead")
+            public operator fun invoke(
+                key: Long? = null,
+                value: Long? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapSint64Sint64Entry = TestAllTypesProto2_MutableMapSint64Sint64Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapSint64Sint64Entry by lazy { MutableMapSint64Sint64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.descriptor
+        }
+    }
+
     public sealed interface MapFixed32Fixed32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
-        override public val key: Int?
-        override public val value: Int?
+        public override val key: Int?
+        public override val value: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry>
@@ -2148,6 +2331,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> {
+            @Deprecated("Use mapFixed32Fixed32Entry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Int? = null,
@@ -2195,9 +2379,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapFixed32Fixed32Entry : TestAllTypesProto2.MapFixed32Fixed32Entry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Int?
+
+        public fun toMapFixed32Fixed32Entry(): TestAllTypesProto2.MapFixed32Fixed32Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> {
+            @Deprecated("Use mapFixed32Fixed32Entry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapFixed32Fixed32Entry = TestAllTypesProto2_MutableMapFixed32Fixed32Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapFixed32Fixed32Entry by lazy { MutableMapFixed32Fixed32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.descriptor
+        }
+    }
+
     public sealed interface MapFixed64Fixed64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
-        override public val key: Long?
-        override public val value: Long?
+        public override val key: Long?
+        public override val value: Long?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry>
@@ -2209,6 +2418,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> {
+            @Deprecated("Use mapFixed64Fixed64Entry { } instead")
             public operator fun invoke(
                 key: Long? = null,
                 value: Long? = null,
@@ -2256,9 +2466,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapFixed64Fixed64Entry : TestAllTypesProto2.MapFixed64Fixed64Entry, pbandk.MutableMessage {
+        public override var key: Long?
+        public override var value: Long?
+
+        public fun toMapFixed64Fixed64Entry(): TestAllTypesProto2.MapFixed64Fixed64Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> {
+            @Deprecated("Use mapFixed64Fixed64Entry { } instead")
+            public operator fun invoke(
+                key: Long? = null,
+                value: Long? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapFixed64Fixed64Entry = TestAllTypesProto2_MutableMapFixed64Fixed64Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapFixed64Fixed64Entry by lazy { MutableMapFixed64Fixed64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.descriptor
+        }
+    }
+
     public sealed interface MapSfixed32Sfixed32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
-        override public val key: Int?
-        override public val value: Int?
+        public override val key: Int?
+        public override val value: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry>
@@ -2270,6 +2505,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
+            @Deprecated("Use mapSfixed32Sfixed32Entry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Int? = null,
@@ -2317,9 +2553,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapSfixed32Sfixed32Entry : TestAllTypesProto2.MapSfixed32Sfixed32Entry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Int?
+
+        public fun toMapSfixed32Sfixed32Entry(): TestAllTypesProto2.MapSfixed32Sfixed32Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
+            @Deprecated("Use mapSfixed32Sfixed32Entry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapSfixed32Sfixed32Entry = TestAllTypesProto2_MutableMapSfixed32Sfixed32Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapSfixed32Sfixed32Entry by lazy { MutableMapSfixed32Sfixed32Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.descriptor
+        }
+    }
+
     public sealed interface MapSfixed64Sfixed64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
-        override public val key: Long?
-        override public val value: Long?
+        public override val key: Long?
+        public override val value: Long?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry>
@@ -2331,6 +2592,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
+            @Deprecated("Use mapSfixed64Sfixed64Entry { } instead")
             public operator fun invoke(
                 key: Long? = null,
                 value: Long? = null,
@@ -2378,9 +2640,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapSfixed64Sfixed64Entry : TestAllTypesProto2.MapSfixed64Sfixed64Entry, pbandk.MutableMessage {
+        public override var key: Long?
+        public override var value: Long?
+
+        public fun toMapSfixed64Sfixed64Entry(): TestAllTypesProto2.MapSfixed64Sfixed64Entry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
+            @Deprecated("Use mapSfixed64Sfixed64Entry { } instead")
+            public operator fun invoke(
+                key: Long? = null,
+                value: Long? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapSfixed64Sfixed64Entry = TestAllTypesProto2_MutableMapSfixed64Sfixed64Entry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapSfixed64Sfixed64Entry by lazy { MutableMapSfixed64Sfixed64Entry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.descriptor
+        }
+    }
+
     public sealed interface MapInt32FloatEntry : pbandk.Message, Map.Entry<Int?, Float?> {
-        override public val key: Int?
-        override public val value: Float?
+        public override val key: Int?
+        public override val value: Float?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry>
@@ -2392,6 +2679,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> {
+            @Deprecated("Use mapInt32FloatEntry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Float? = null,
@@ -2439,9 +2727,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapInt32FloatEntry : TestAllTypesProto2.MapInt32FloatEntry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Float?
+
+        public fun toMapInt32FloatEntry(): TestAllTypesProto2.MapInt32FloatEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> {
+            @Deprecated("Use mapInt32FloatEntry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Float? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapInt32FloatEntry = TestAllTypesProto2_MutableMapInt32FloatEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapInt32FloatEntry by lazy { MutableMapInt32FloatEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.descriptor
+        }
+    }
+
     public sealed interface MapInt32DoubleEntry : pbandk.Message, Map.Entry<Int?, Double?> {
-        override public val key: Int?
-        override public val value: Double?
+        public override val key: Int?
+        public override val value: Double?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry>
@@ -2453,6 +2766,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> {
+            @Deprecated("Use mapInt32DoubleEntry { } instead")
             public operator fun invoke(
                 key: Int? = null,
                 value: Double? = null,
@@ -2500,9 +2814,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapInt32DoubleEntry : TestAllTypesProto2.MapInt32DoubleEntry, pbandk.MutableMessage {
+        public override var key: Int?
+        public override var value: Double?
+
+        public fun toMapInt32DoubleEntry(): TestAllTypesProto2.MapInt32DoubleEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> {
+            @Deprecated("Use mapInt32DoubleEntry { } instead")
+            public operator fun invoke(
+                key: Int? = null,
+                value: Double? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapInt32DoubleEntry = TestAllTypesProto2_MutableMapInt32DoubleEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapInt32DoubleEntry by lazy { MutableMapInt32DoubleEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.descriptor
+        }
+    }
+
     public sealed interface MapBoolBoolEntry : pbandk.Message, Map.Entry<Boolean?, Boolean?> {
-        override public val key: Boolean?
-        override public val value: Boolean?
+        public override val key: Boolean?
+        public override val value: Boolean?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry>
@@ -2514,6 +2853,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> {
+            @Deprecated("Use mapBoolBoolEntry { } instead")
             public operator fun invoke(
                 key: Boolean? = null,
                 value: Boolean? = null,
@@ -2561,9 +2901,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapBoolBoolEntry : TestAllTypesProto2.MapBoolBoolEntry, pbandk.MutableMessage {
+        public override var key: Boolean?
+        public override var value: Boolean?
+
+        public fun toMapBoolBoolEntry(): TestAllTypesProto2.MapBoolBoolEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> {
+            @Deprecated("Use mapBoolBoolEntry { } instead")
+            public operator fun invoke(
+                key: Boolean? = null,
+                value: Boolean? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapBoolBoolEntry = TestAllTypesProto2_MutableMapBoolBoolEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapBoolBoolEntry by lazy { MutableMapBoolBoolEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.descriptor
+        }
+    }
+
     public sealed interface MapStringStringEntry : pbandk.Message, Map.Entry<String?, String?> {
-        override public val key: String?
-        override public val value: String?
+        public override val key: String?
+        public override val value: String?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry>
@@ -2575,6 +2940,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> {
+            @Deprecated("Use mapStringStringEntry { } instead")
             public operator fun invoke(
                 key: String? = null,
                 value: String? = null,
@@ -2622,9 +2988,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapStringStringEntry : TestAllTypesProto2.MapStringStringEntry, pbandk.MutableMessage {
+        public override var key: String?
+        public override var value: String?
+
+        public fun toMapStringStringEntry(): TestAllTypesProto2.MapStringStringEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> {
+            @Deprecated("Use mapStringStringEntry { } instead")
+            public operator fun invoke(
+                key: String? = null,
+                value: String? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapStringStringEntry = TestAllTypesProto2_MutableMapStringStringEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapStringStringEntry by lazy { MutableMapStringStringEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.descriptor
+        }
+    }
+
     public sealed interface MapStringBytesEntry : pbandk.Message, Map.Entry<String?, pbandk.ByteArr?> {
-        override public val key: String?
-        override public val value: pbandk.ByteArr?
+        public override val key: String?
+        public override val value: pbandk.ByteArr?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry>
@@ -2636,6 +3027,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> {
+            @Deprecated("Use mapStringBytesEntry { } instead")
             public operator fun invoke(
                 key: String? = null,
                 value: pbandk.ByteArr? = null,
@@ -2683,9 +3075,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapStringBytesEntry : TestAllTypesProto2.MapStringBytesEntry, pbandk.MutableMessage {
+        public override var key: String?
+        public override var value: pbandk.ByteArr?
+
+        public fun toMapStringBytesEntry(): TestAllTypesProto2.MapStringBytesEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> {
+            @Deprecated("Use mapStringBytesEntry { } instead")
+            public operator fun invoke(
+                key: String? = null,
+                value: pbandk.ByteArr? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapStringBytesEntry = TestAllTypesProto2_MutableMapStringBytesEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapStringBytesEntry by lazy { MutableMapStringBytesEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.descriptor
+        }
+    }
+
     public sealed interface MapStringNestedMessageEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> {
-        override public val key: String?
-        override public val value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
+        public override val key: String?
+        public override val value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry>
@@ -2697,6 +3114,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> {
+            @Deprecated("Use mapStringNestedMessageEntry { } instead")
             public operator fun invoke(
                 key: String? = null,
                 value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage? = null,
@@ -2744,9 +3162,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapStringNestedMessageEntry : TestAllTypesProto2.MapStringNestedMessageEntry, pbandk.MutableMessage {
+        public override var key: String?
+        public override var value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
+
+        public fun toMapStringNestedMessageEntry(): TestAllTypesProto2.MapStringNestedMessageEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> {
+            @Deprecated("Use mapStringNestedMessageEntry { } instead")
+            public operator fun invoke(
+                key: String? = null,
+                value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapStringNestedMessageEntry = TestAllTypesProto2_MutableMapStringNestedMessageEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapStringNestedMessageEntry by lazy { MutableMapStringNestedMessageEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.descriptor
+        }
+    }
+
     public sealed interface MapStringForeignMessageEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignMessageProto2?> {
-        override public val key: String?
-        override public val value: pbandk.conformance.pb.ForeignMessageProto2?
+        public override val key: String?
+        public override val value: pbandk.conformance.pb.ForeignMessageProto2?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry>
@@ -2758,6 +3201,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> {
+            @Deprecated("Use mapStringForeignMessageEntry { } instead")
             public operator fun invoke(
                 key: String? = null,
                 value: pbandk.conformance.pb.ForeignMessageProto2? = null,
@@ -2805,9 +3249,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapStringForeignMessageEntry : TestAllTypesProto2.MapStringForeignMessageEntry, pbandk.MutableMessage {
+        public override var key: String?
+        public override var value: pbandk.conformance.pb.ForeignMessageProto2?
+
+        public fun toMapStringForeignMessageEntry(): TestAllTypesProto2.MapStringForeignMessageEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> {
+            @Deprecated("Use mapStringForeignMessageEntry { } instead")
+            public operator fun invoke(
+                key: String? = null,
+                value: pbandk.conformance.pb.ForeignMessageProto2? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapStringForeignMessageEntry = TestAllTypesProto2_MutableMapStringForeignMessageEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapStringForeignMessageEntry by lazy { MutableMapStringForeignMessageEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.descriptor
+        }
+    }
+
     public sealed interface MapStringNestedEnumEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> {
-        override public val key: String?
-        override public val value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
+        public override val key: String?
+        public override val value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry>
@@ -2819,6 +3288,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> {
+            @Deprecated("Use mapStringNestedEnumEntry { } instead")
             public operator fun invoke(
                 key: String? = null,
                 value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum? = null,
@@ -2866,9 +3336,34 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapStringNestedEnumEntry : TestAllTypesProto2.MapStringNestedEnumEntry, pbandk.MutableMessage {
+        public override var key: String?
+        public override var value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
+
+        public fun toMapStringNestedEnumEntry(): TestAllTypesProto2.MapStringNestedEnumEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> {
+            @Deprecated("Use mapStringNestedEnumEntry { } instead")
+            public operator fun invoke(
+                key: String? = null,
+                value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapStringNestedEnumEntry = TestAllTypesProto2_MutableMapStringNestedEnumEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapStringNestedEnumEntry by lazy { MutableMapStringNestedEnumEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.descriptor
+        }
+    }
+
     public sealed interface MapStringForeignEnumEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignEnumProto2?> {
-        override public val key: String?
-        override public val value: pbandk.conformance.pb.ForeignEnumProto2?
+        public override val key: String?
+        public override val value: pbandk.conformance.pb.ForeignEnumProto2?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry>
@@ -2880,6 +3375,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> {
+            @Deprecated("Use mapStringForeignEnumEntry { } instead")
             public operator fun invoke(
                 key: String? = null,
                 value: pbandk.conformance.pb.ForeignEnumProto2? = null,
@@ -2927,6 +3423,31 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMapStringForeignEnumEntry : TestAllTypesProto2.MapStringForeignEnumEntry, pbandk.MutableMessage {
+        public override var key: String?
+        public override var value: pbandk.conformance.pb.ForeignEnumProto2?
+
+        public fun toMapStringForeignEnumEntry(): TestAllTypesProto2.MapStringForeignEnumEntry
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> {
+            @Deprecated("Use mapStringForeignEnumEntry { } instead")
+            public operator fun invoke(
+                key: String? = null,
+                value: pbandk.conformance.pb.ForeignEnumProto2? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMapStringForeignEnumEntry = TestAllTypesProto2_MutableMapStringForeignEnumEntry_Impl(
+                key = key,
+                value = value,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMapStringForeignEnumEntry by lazy { MutableMapStringForeignEnumEntry() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.descriptor
+        }
+    }
+
     public sealed interface Data : pbandk.Message {
         public val groupInt32: Int?
         public val groupUint32: Int?
@@ -2941,6 +3462,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.Data
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data> {
+            @Deprecated("Use data { } instead")
             public operator fun invoke(
                 groupInt32: Int? = null,
                 groupUint32: Int? = null,
@@ -2988,6 +3510,31 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableData : TestAllTypesProto2.Data, pbandk.MutableMessage {
+        public override var groupInt32: Int?
+        public override var groupUint32: Int?
+
+        public fun toData(): TestAllTypesProto2.Data
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data> {
+            @Deprecated("Use data { } instead")
+            public operator fun invoke(
+                groupInt32: Int? = null,
+                groupUint32: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableData = TestAllTypesProto2_MutableData_Impl(
+                groupInt32 = groupInt32,
+                groupUint32 = groupUint32,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableData by lazy { MutableData() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Data.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data> get() = pbandk.conformance.pb.TestAllTypesProto2.Data.descriptor
+        }
+    }
+
     public sealed interface MessageSetCorrect : pbandk.ExtendableMessage {
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
@@ -2998,6 +3545,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
+            @Deprecated("Use messageSetCorrect { } instead")
             public operator fun invoke(
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = TestAllTypesProto2_MessageSetCorrect_Impl(
@@ -3021,6 +3569,25 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMessageSetCorrect : TestAllTypesProto2.MessageSetCorrect, pbandk.MutableMessage {
+
+        public fun toMessageSetCorrect(): TestAllTypesProto2.MessageSetCorrect
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
+            @Deprecated("Use messageSetCorrect { } instead")
+            public operator fun invoke(
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMessageSetCorrect = TestAllTypesProto2_MutableMessageSetCorrect_Impl(
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMessageSetCorrect by lazy { MutableMessageSetCorrect() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.descriptor
+        }
+    }
+
     public sealed interface MessageSetCorrectExtension1 : pbandk.Message {
         public val str: String?
 
@@ -3033,6 +3600,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
+            @Deprecated("Use messageSetCorrectExtension1 { } instead")
             public operator fun invoke(
                 str: String? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -3068,6 +3636,28 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
+    public sealed interface MutableMessageSetCorrectExtension1 : TestAllTypesProto2.MessageSetCorrectExtension1, pbandk.MutableMessage {
+        public override var str: String?
+
+        public fun toMessageSetCorrectExtension1(): TestAllTypesProto2.MessageSetCorrectExtension1
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
+            @Deprecated("Use messageSetCorrectExtension1 { } instead")
+            public operator fun invoke(
+                str: String? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMessageSetCorrectExtension1 = TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
+                str = str,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMessageSetCorrectExtension1 by lazy { MutableMessageSetCorrectExtension1() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.descriptor
+        }
+    }
+
     public sealed interface MessageSetCorrectExtension2 : pbandk.Message {
         public val i: Int?
 
@@ -3080,6 +3670,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
+            @Deprecated("Use messageSetCorrectExtension2 { } instead")
             public operator fun invoke(
                 i: Int? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -3114,6 +3705,384 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
             }
         }
     }
+
+    public sealed interface MutableMessageSetCorrectExtension2 : TestAllTypesProto2.MessageSetCorrectExtension2, pbandk.MutableMessage {
+        public override var i: Int?
+
+        public fun toMessageSetCorrectExtension2(): TestAllTypesProto2.MessageSetCorrectExtension2
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
+            @Deprecated("Use messageSetCorrectExtension2 { } instead")
+            public operator fun invoke(
+                i: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableMessageSetCorrectExtension2 = TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
+                i = i,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableMessageSetCorrectExtension2 by lazy { MutableMessageSetCorrectExtension2() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.descriptor
+        }
+    }
+}
+
+public sealed interface MutableTestAllTypesProto2 : TestAllTypesProto2, pbandk.MutableMessage {
+    public override var optionalInt32: Int?
+    public override var optionalInt64: Long?
+    public override var optionalUint32: Int?
+    public override var optionalUint64: Long?
+    public override var optionalSint32: Int?
+    public override var optionalSint64: Long?
+    public override var optionalFixed32: Int?
+    public override var optionalFixed64: Long?
+    public override var optionalSfixed32: Int?
+    public override var optionalSfixed64: Long?
+    public override var optionalFloat: Float?
+    public override var optionalDouble: Double?
+    public override var optionalBool: Boolean?
+    public override var optionalString: String?
+    public override var optionalBytes: pbandk.ByteArr?
+    public override var optionalNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
+    public override var optionalForeignMessage: pbandk.conformance.pb.ForeignMessageProto2?
+    public override var optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
+    public override var optionalForeignEnum: pbandk.conformance.pb.ForeignEnumProto2?
+    public override var optionalStringPiece: String?
+    public override var optionalCord: String?
+    public override var recursiveMessage: pbandk.conformance.pb.TestAllTypesProto2?
+    public override var repeatedInt32: List<Int>
+    public override var repeatedInt64: List<Long>
+    public override var repeatedUint32: List<Int>
+    public override var repeatedUint64: List<Long>
+    public override var repeatedSint32: List<Int>
+    public override var repeatedSint64: List<Long>
+    public override var repeatedFixed32: List<Int>
+    public override var repeatedFixed64: List<Long>
+    public override var repeatedSfixed32: List<Int>
+    public override var repeatedSfixed64: List<Long>
+    public override var repeatedFloat: List<Float>
+    public override var repeatedDouble: List<Double>
+    public override var repeatedBool: List<Boolean>
+    public override var repeatedString: List<String>
+    public override var repeatedBytes: List<pbandk.ByteArr>
+    public override var repeatedNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>
+    public override var repeatedForeignMessage: List<pbandk.conformance.pb.ForeignMessageProto2>
+    public override var repeatedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>
+    public override var repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnumProto2>
+    public override var repeatedStringPiece: List<String>
+    public override var repeatedCord: List<String>
+    public override var packedInt32: List<Int>
+    public override var packedInt64: List<Long>
+    public override var packedUint32: List<Int>
+    public override var packedUint64: List<Long>
+    public override var packedSint32: List<Int>
+    public override var packedSint64: List<Long>
+    public override var packedFixed32: List<Int>
+    public override var packedFixed64: List<Long>
+    public override var packedSfixed32: List<Int>
+    public override var packedSfixed64: List<Long>
+    public override var packedFloat: List<Float>
+    public override var packedDouble: List<Double>
+    public override var packedBool: List<Boolean>
+    public override var packedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>
+    public override var unpackedInt32: List<Int>
+    public override var unpackedInt64: List<Long>
+    public override var unpackedUint32: List<Int>
+    public override var unpackedUint64: List<Long>
+    public override var unpackedSint32: List<Int>
+    public override var unpackedSint64: List<Long>
+    public override var unpackedFixed32: List<Int>
+    public override var unpackedFixed64: List<Long>
+    public override var unpackedSfixed32: List<Int>
+    public override var unpackedSfixed64: List<Long>
+    public override var unpackedFloat: List<Float>
+    public override var unpackedDouble: List<Double>
+    public override var unpackedBool: List<Boolean>
+    public override var unpackedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>
+    public override var mapInt32Int32: Map<Int?, Int?>
+    public override var mapInt64Int64: Map<Long?, Long?>
+    public override var mapUint32Uint32: Map<Int?, Int?>
+    public override var mapUint64Uint64: Map<Long?, Long?>
+    public override var mapSint32Sint32: Map<Int?, Int?>
+    public override var mapSint64Sint64: Map<Long?, Long?>
+    public override var mapFixed32Fixed32: Map<Int?, Int?>
+    public override var mapFixed64Fixed64: Map<Long?, Long?>
+    public override var mapSfixed32Sfixed32: Map<Int?, Int?>
+    public override var mapSfixed64Sfixed64: Map<Long?, Long?>
+    public override var mapInt32Float: Map<Int?, Float?>
+    public override var mapInt32Double: Map<Int?, Double?>
+    public override var mapBoolBool: Map<Boolean?, Boolean?>
+    public override var mapStringString: Map<String?, String?>
+    public override var mapStringBytes: Map<String?, pbandk.ByteArr?>
+    public override var mapStringNestedMessage: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>
+    public override var mapStringForeignMessage: Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>
+    public override var mapStringNestedEnum: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>
+    public override var mapStringForeignEnum: Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>
+    public override var fieldname1: Int?
+    public override var fieldName2: Int?
+    public override var fieldName3: Int?
+    public override var field_name4: Int?
+    public override var field0name5: Int?
+    public override var field0Name6: Int?
+    public override var fieldName7: Int?
+    public override var fieldName8: Int?
+    public override var fieldName9: Int?
+    public override var fieldName10: Int?
+    public override var fIELDNAME11: Int?
+    public override var fIELDName12: Int?
+    public override var _fieldName13: Int?
+    public override var _FieldName14: Int?
+    public override var field_name15: Int?
+    public override var field_Name16: Int?
+    public override var fieldName17_: Int?
+    public override var fieldName18_: Int?
+    public override var oneofField: TestAllTypesProto2.OneofField<*>?
+
+    public override var oneofUint32: Int?
+    public override var oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
+    public override var oneofString: String?
+    public override var oneofBytes: pbandk.ByteArr?
+    public override var oneofBool: Boolean?
+    public override var oneofUint64: Long?
+    public override var oneofFloat: Float?
+    public override var oneofDouble: Double?
+    public override var oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
+
+    public fun toTestAllTypesProto2(): TestAllTypesProto2
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2> {
+        @Deprecated("Use testAllTypesProto2 { } instead")
+        public operator fun invoke(
+            optionalInt32: Int? = null,
+            optionalInt64: Long? = null,
+            optionalUint32: Int? = null,
+            optionalUint64: Long? = null,
+            optionalSint32: Int? = null,
+            optionalSint64: Long? = null,
+            optionalFixed32: Int? = null,
+            optionalFixed64: Long? = null,
+            optionalSfixed32: Int? = null,
+            optionalSfixed64: Long? = null,
+            optionalFloat: Float? = null,
+            optionalDouble: Double? = null,
+            optionalBool: Boolean? = null,
+            optionalString: String? = null,
+            optionalBytes: pbandk.ByteArr? = null,
+            optionalNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage? = null,
+            optionalForeignMessage: pbandk.conformance.pb.ForeignMessageProto2? = null,
+            optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum? = null,
+            optionalForeignEnum: pbandk.conformance.pb.ForeignEnumProto2? = null,
+            optionalStringPiece: String? = null,
+            optionalCord: String? = null,
+            recursiveMessage: pbandk.conformance.pb.TestAllTypesProto2? = null,
+            repeatedInt32: List<Int> = emptyList(),
+            repeatedInt64: List<Long> = emptyList(),
+            repeatedUint32: List<Int> = emptyList(),
+            repeatedUint64: List<Long> = emptyList(),
+            repeatedSint32: List<Int> = emptyList(),
+            repeatedSint64: List<Long> = emptyList(),
+            repeatedFixed32: List<Int> = emptyList(),
+            repeatedFixed64: List<Long> = emptyList(),
+            repeatedSfixed32: List<Int> = emptyList(),
+            repeatedSfixed64: List<Long> = emptyList(),
+            repeatedFloat: List<Float> = emptyList(),
+            repeatedDouble: List<Double> = emptyList(),
+            repeatedBool: List<Boolean> = emptyList(),
+            repeatedString: List<String> = emptyList(),
+            repeatedBytes: List<pbandk.ByteArr> = emptyList(),
+            repeatedNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> = emptyList(),
+            repeatedForeignMessage: List<pbandk.conformance.pb.ForeignMessageProto2> = emptyList(),
+            repeatedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> = emptyList(),
+            repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnumProto2> = emptyList(),
+            repeatedStringPiece: List<String> = emptyList(),
+            repeatedCord: List<String> = emptyList(),
+            packedInt32: List<Int> = emptyList(),
+            packedInt64: List<Long> = emptyList(),
+            packedUint32: List<Int> = emptyList(),
+            packedUint64: List<Long> = emptyList(),
+            packedSint32: List<Int> = emptyList(),
+            packedSint64: List<Long> = emptyList(),
+            packedFixed32: List<Int> = emptyList(),
+            packedFixed64: List<Long> = emptyList(),
+            packedSfixed32: List<Int> = emptyList(),
+            packedSfixed64: List<Long> = emptyList(),
+            packedFloat: List<Float> = emptyList(),
+            packedDouble: List<Double> = emptyList(),
+            packedBool: List<Boolean> = emptyList(),
+            packedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> = emptyList(),
+            unpackedInt32: List<Int> = emptyList(),
+            unpackedInt64: List<Long> = emptyList(),
+            unpackedUint32: List<Int> = emptyList(),
+            unpackedUint64: List<Long> = emptyList(),
+            unpackedSint32: List<Int> = emptyList(),
+            unpackedSint64: List<Long> = emptyList(),
+            unpackedFixed32: List<Int> = emptyList(),
+            unpackedFixed64: List<Long> = emptyList(),
+            unpackedSfixed32: List<Int> = emptyList(),
+            unpackedSfixed64: List<Long> = emptyList(),
+            unpackedFloat: List<Float> = emptyList(),
+            unpackedDouble: List<Double> = emptyList(),
+            unpackedBool: List<Boolean> = emptyList(),
+            unpackedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum> = emptyList(),
+            mapInt32Int32: Map<Int?, Int?> = emptyMap(),
+            mapInt64Int64: Map<Long?, Long?> = emptyMap(),
+            mapUint32Uint32: Map<Int?, Int?> = emptyMap(),
+            mapUint64Uint64: Map<Long?, Long?> = emptyMap(),
+            mapSint32Sint32: Map<Int?, Int?> = emptyMap(),
+            mapSint64Sint64: Map<Long?, Long?> = emptyMap(),
+            mapFixed32Fixed32: Map<Int?, Int?> = emptyMap(),
+            mapFixed64Fixed64: Map<Long?, Long?> = emptyMap(),
+            mapSfixed32Sfixed32: Map<Int?, Int?> = emptyMap(),
+            mapSfixed64Sfixed64: Map<Long?, Long?> = emptyMap(),
+            mapInt32Float: Map<Int?, Float?> = emptyMap(),
+            mapInt32Double: Map<Int?, Double?> = emptyMap(),
+            mapBoolBool: Map<Boolean?, Boolean?> = emptyMap(),
+            mapStringString: Map<String?, String?> = emptyMap(),
+            mapStringBytes: Map<String?, pbandk.ByteArr?> = emptyMap(),
+            mapStringNestedMessage: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> = emptyMap(),
+            mapStringForeignMessage: Map<String?, pbandk.conformance.pb.ForeignMessageProto2?> = emptyMap(),
+            mapStringNestedEnum: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> = emptyMap(),
+            mapStringForeignEnum: Map<String?, pbandk.conformance.pb.ForeignEnumProto2?> = emptyMap(),
+            fieldname1: Int? = null,
+            fieldName2: Int? = null,
+            fieldName3: Int? = null,
+            field_name4: Int? = null,
+            field0name5: Int? = null,
+            field0Name6: Int? = null,
+            fieldName7: Int? = null,
+            fieldName8: Int? = null,
+            fieldName9: Int? = null,
+            fieldName10: Int? = null,
+            fIELDNAME11: Int? = null,
+            fIELDName12: Int? = null,
+            _fieldName13: Int? = null,
+            _FieldName14: Int? = null,
+            field_name15: Int? = null,
+            field_Name16: Int? = null,
+            fieldName17_: Int? = null,
+            fieldName18_: Int? = null,
+            oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableTestAllTypesProto2 = MutableTestAllTypesProto2_Impl(
+            optionalInt32 = optionalInt32,
+            optionalInt64 = optionalInt64,
+            optionalUint32 = optionalUint32,
+            optionalUint64 = optionalUint64,
+            optionalSint32 = optionalSint32,
+            optionalSint64 = optionalSint64,
+            optionalFixed32 = optionalFixed32,
+            optionalFixed64 = optionalFixed64,
+            optionalSfixed32 = optionalSfixed32,
+            optionalSfixed64 = optionalSfixed64,
+            optionalFloat = optionalFloat,
+            optionalDouble = optionalDouble,
+            optionalBool = optionalBool,
+            optionalString = optionalString,
+            optionalBytes = optionalBytes,
+            optionalNestedMessage = optionalNestedMessage,
+            optionalForeignMessage = optionalForeignMessage,
+            optionalNestedEnum = optionalNestedEnum,
+            optionalForeignEnum = optionalForeignEnum,
+            optionalStringPiece = optionalStringPiece,
+            optionalCord = optionalCord,
+            recursiveMessage = recursiveMessage,
+            repeatedInt32 = repeatedInt32,
+            repeatedInt64 = repeatedInt64,
+            repeatedUint32 = repeatedUint32,
+            repeatedUint64 = repeatedUint64,
+            repeatedSint32 = repeatedSint32,
+            repeatedSint64 = repeatedSint64,
+            repeatedFixed32 = repeatedFixed32,
+            repeatedFixed64 = repeatedFixed64,
+            repeatedSfixed32 = repeatedSfixed32,
+            repeatedSfixed64 = repeatedSfixed64,
+            repeatedFloat = repeatedFloat,
+            repeatedDouble = repeatedDouble,
+            repeatedBool = repeatedBool,
+            repeatedString = repeatedString,
+            repeatedBytes = repeatedBytes,
+            repeatedNestedMessage = repeatedNestedMessage,
+            repeatedForeignMessage = repeatedForeignMessage,
+            repeatedNestedEnum = repeatedNestedEnum,
+            repeatedForeignEnum = repeatedForeignEnum,
+            repeatedStringPiece = repeatedStringPiece,
+            repeatedCord = repeatedCord,
+            packedInt32 = packedInt32,
+            packedInt64 = packedInt64,
+            packedUint32 = packedUint32,
+            packedUint64 = packedUint64,
+            packedSint32 = packedSint32,
+            packedSint64 = packedSint64,
+            packedFixed32 = packedFixed32,
+            packedFixed64 = packedFixed64,
+            packedSfixed32 = packedSfixed32,
+            packedSfixed64 = packedSfixed64,
+            packedFloat = packedFloat,
+            packedDouble = packedDouble,
+            packedBool = packedBool,
+            packedNestedEnum = packedNestedEnum,
+            unpackedInt32 = unpackedInt32,
+            unpackedInt64 = unpackedInt64,
+            unpackedUint32 = unpackedUint32,
+            unpackedUint64 = unpackedUint64,
+            unpackedSint32 = unpackedSint32,
+            unpackedSint64 = unpackedSint64,
+            unpackedFixed32 = unpackedFixed32,
+            unpackedFixed64 = unpackedFixed64,
+            unpackedSfixed32 = unpackedSfixed32,
+            unpackedSfixed64 = unpackedSfixed64,
+            unpackedFloat = unpackedFloat,
+            unpackedDouble = unpackedDouble,
+            unpackedBool = unpackedBool,
+            unpackedNestedEnum = unpackedNestedEnum,
+            mapInt32Int32 = mapInt32Int32,
+            mapInt64Int64 = mapInt64Int64,
+            mapUint32Uint32 = mapUint32Uint32,
+            mapUint64Uint64 = mapUint64Uint64,
+            mapSint32Sint32 = mapSint32Sint32,
+            mapSint64Sint64 = mapSint64Sint64,
+            mapFixed32Fixed32 = mapFixed32Fixed32,
+            mapFixed64Fixed64 = mapFixed64Fixed64,
+            mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
+            mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
+            mapInt32Float = mapInt32Float,
+            mapInt32Double = mapInt32Double,
+            mapBoolBool = mapBoolBool,
+            mapStringString = mapStringString,
+            mapStringBytes = mapStringBytes,
+            mapStringNestedMessage = mapStringNestedMessage,
+            mapStringForeignMessage = mapStringForeignMessage,
+            mapStringNestedEnum = mapStringNestedEnum,
+            mapStringForeignEnum = mapStringForeignEnum,
+            fieldname1 = fieldname1,
+            fieldName2 = fieldName2,
+            fieldName3 = fieldName3,
+            field_name4 = field_name4,
+            field0name5 = field0name5,
+            field0Name6 = field0Name6,
+            fieldName7 = fieldName7,
+            fieldName8 = fieldName8,
+            fieldName9 = fieldName9,
+            fieldName10 = fieldName10,
+            fIELDNAME11 = fIELDNAME11,
+            fIELDName12 = fIELDName12,
+            _fieldName13 = _fieldName13,
+            _FieldName14 = _FieldName14,
+            field_name15 = field_name15,
+            field_Name16 = field_Name16,
+            fieldName17_ = fieldName17_,
+            fieldName18_ = fieldName18_,
+            oneofField = oneofField,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableTestAllTypesProto2 by lazy { MutableTestAllTypesProto2() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.TestAllTypesProto2.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2> get() = pbandk.conformance.pb.TestAllTypesProto2.descriptor
+    }
 }
 
 public sealed interface ForeignMessageProto2 : pbandk.Message {
@@ -3128,6 +4097,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
     ): pbandk.conformance.pb.ForeignMessageProto2
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessageProto2> {
+        @Deprecated("Use foreignMessageProto2 { } instead")
         public operator fun invoke(
             c: Int? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -3163,6 +4133,28 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
     }
 }
 
+public sealed interface MutableForeignMessageProto2 : ForeignMessageProto2, pbandk.MutableMessage {
+    public override var c: Int?
+
+    public fun toForeignMessageProto2(): ForeignMessageProto2
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessageProto2> {
+        @Deprecated("Use foreignMessageProto2 { } instead")
+        public operator fun invoke(
+            c: Int? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableForeignMessageProto2 = MutableForeignMessageProto2_Impl(
+            c = c,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableForeignMessageProto2 by lazy { MutableForeignMessageProto2() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.ForeignMessageProto2.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessageProto2> get() = pbandk.conformance.pb.ForeignMessageProto2.descriptor
+    }
+}
+
 public sealed interface UnknownToTestAllTypes : pbandk.Message {
     public val optionalInt32: Int?
     public val optionalString: String?
@@ -3183,6 +4175,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
     ): pbandk.conformance.pb.UnknownToTestAllTypes
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes> {
+        @Deprecated("Use unknownToTestAllTypes { } instead")
         public operator fun invoke(
             optionalInt32: Int? = null,
             optionalString: String? = null,
@@ -3277,6 +4270,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
         ): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup
 
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
+            @Deprecated("Use optionalGroup { } instead")
             public operator fun invoke(
                 a: Int? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -3311,6 +4305,62 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
             }
         }
     }
+
+    public sealed interface MutableOptionalGroup : UnknownToTestAllTypes.OptionalGroup, pbandk.MutableMessage {
+        public override var a: Int?
+
+        public fun toOptionalGroup(): UnknownToTestAllTypes.OptionalGroup
+
+        public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
+            @Deprecated("Use optionalGroup { } instead")
+            public operator fun invoke(
+                a: Int? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): MutableOptionalGroup = UnknownToTestAllTypes_MutableOptionalGroup_Impl(
+                a = a,
+                unknownFields = unknownFields.toMutableMap()
+            )
+
+            public val defaultInstance: MutableOptionalGroup by lazy { MutableOptionalGroup() }
+            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
+
+            override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> get() = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.descriptor
+        }
+    }
+}
+
+public sealed interface MutableUnknownToTestAllTypes : UnknownToTestAllTypes, pbandk.MutableMessage {
+    public override var optionalInt32: Int?
+    public override var optionalString: String?
+    public override var nestedMessage: pbandk.conformance.pb.ForeignMessageProto2?
+    public override var optionalBool: Boolean?
+    public override var repeatedInt32: List<Int>
+
+    public fun toUnknownToTestAllTypes(): UnknownToTestAllTypes
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes> {
+        @Deprecated("Use unknownToTestAllTypes { } instead")
+        public operator fun invoke(
+            optionalInt32: Int? = null,
+            optionalString: String? = null,
+            nestedMessage: pbandk.conformance.pb.ForeignMessageProto2? = null,
+            optionalBool: Boolean? = null,
+            repeatedInt32: List<Int> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableUnknownToTestAllTypes = MutableUnknownToTestAllTypes_Impl(
+            optionalInt32 = optionalInt32,
+            optionalString = optionalString,
+            nestedMessage = nestedMessage,
+            optionalBool = optionalBool,
+            repeatedInt32 = repeatedInt32,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableUnknownToTestAllTypes by lazy { MutableUnknownToTestAllTypes() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.UnknownToTestAllTypes.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes> get() = pbandk.conformance.pb.UnknownToTestAllTypes.descriptor
+    }
 }
 
 val pbandk.conformance.pb.TestAllTypesProto2.extensionInt32: Int? 
@@ -3325,6 +4375,12 @@ val extensionInt32 = pbandk.FieldDescriptor(
     jsonName = "extensionInt32",
     value = pbandk.conformance.pb.TestAllTypesProto2::extensionInt32
 )
+
+public fun testAllTypesProto2(builderAction: MutableTestAllTypesProto2.() -> Unit): TestAllTypesProto2 {
+    val builder = MutableTestAllTypesProto2()
+    builder.builderAction()
+    return builder.toTestAllTypesProto2()
+}
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTestAllTypesProto2")
@@ -3800,13 +4856,614 @@ private class TestAllTypesProto2_Impl(
             fieldName18_ = other.fieldName18_ ?: fieldName18_,
             oneofField = when {
                 oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage && other.oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage ->
-                    TestAllTypesProto2.OneofField.OneofNestedMessage(oneofField.value + (other.oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value)
+                    TestAllTypesProto2.OneofField.OneofNestedMessage((oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value + (other.oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value)
                 else ->
                     other.oneofField ?: oneofField
             },
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableTestAllTypesProto2_Impl(
+    override var optionalInt32: Int?,
+    override var optionalInt64: Long?,
+    override var optionalUint32: Int?,
+    override var optionalUint64: Long?,
+    override var optionalSint32: Int?,
+    override var optionalSint64: Long?,
+    override var optionalFixed32: Int?,
+    override var optionalFixed64: Long?,
+    override var optionalSfixed32: Int?,
+    override var optionalSfixed64: Long?,
+    override var optionalFloat: Float?,
+    override var optionalDouble: Double?,
+    override var optionalBool: Boolean?,
+    override var optionalString: String?,
+    override var optionalBytes: pbandk.ByteArr?,
+    override var optionalNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?,
+    override var optionalForeignMessage: pbandk.conformance.pb.ForeignMessageProto2?,
+    override var optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?,
+    override var optionalForeignEnum: pbandk.conformance.pb.ForeignEnumProto2?,
+    override var optionalStringPiece: String?,
+    override var optionalCord: String?,
+    override var recursiveMessage: pbandk.conformance.pb.TestAllTypesProto2?,
+    override var repeatedInt32: List<Int>,
+    override var repeatedInt64: List<Long>,
+    override var repeatedUint32: List<Int>,
+    override var repeatedUint64: List<Long>,
+    override var repeatedSint32: List<Int>,
+    override var repeatedSint64: List<Long>,
+    override var repeatedFixed32: List<Int>,
+    override var repeatedFixed64: List<Long>,
+    override var repeatedSfixed32: List<Int>,
+    override var repeatedSfixed64: List<Long>,
+    override var repeatedFloat: List<Float>,
+    override var repeatedDouble: List<Double>,
+    override var repeatedBool: List<Boolean>,
+    override var repeatedString: List<String>,
+    override var repeatedBytes: List<pbandk.ByteArr>,
+    override var repeatedNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>,
+    override var repeatedForeignMessage: List<pbandk.conformance.pb.ForeignMessageProto2>,
+    override var repeatedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>,
+    override var repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnumProto2>,
+    override var repeatedStringPiece: List<String>,
+    override var repeatedCord: List<String>,
+    override var packedInt32: List<Int>,
+    override var packedInt64: List<Long>,
+    override var packedUint32: List<Int>,
+    override var packedUint64: List<Long>,
+    override var packedSint32: List<Int>,
+    override var packedSint64: List<Long>,
+    override var packedFixed32: List<Int>,
+    override var packedFixed64: List<Long>,
+    override var packedSfixed32: List<Int>,
+    override var packedSfixed64: List<Long>,
+    override var packedFloat: List<Float>,
+    override var packedDouble: List<Double>,
+    override var packedBool: List<Boolean>,
+    override var packedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>,
+    override var unpackedInt32: List<Int>,
+    override var unpackedInt64: List<Long>,
+    override var unpackedUint32: List<Int>,
+    override var unpackedUint64: List<Long>,
+    override var unpackedSint32: List<Int>,
+    override var unpackedSint64: List<Long>,
+    override var unpackedFixed32: List<Int>,
+    override var unpackedFixed64: List<Long>,
+    override var unpackedSfixed32: List<Int>,
+    override var unpackedSfixed64: List<Long>,
+    override var unpackedFloat: List<Float>,
+    override var unpackedDouble: List<Double>,
+    override var unpackedBool: List<Boolean>,
+    override var unpackedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>,
+    override var mapInt32Int32: Map<Int?, Int?>,
+    override var mapInt64Int64: Map<Long?, Long?>,
+    override var mapUint32Uint32: Map<Int?, Int?>,
+    override var mapUint64Uint64: Map<Long?, Long?>,
+    override var mapSint32Sint32: Map<Int?, Int?>,
+    override var mapSint64Sint64: Map<Long?, Long?>,
+    override var mapFixed32Fixed32: Map<Int?, Int?>,
+    override var mapFixed64Fixed64: Map<Long?, Long?>,
+    override var mapSfixed32Sfixed32: Map<Int?, Int?>,
+    override var mapSfixed64Sfixed64: Map<Long?, Long?>,
+    override var mapInt32Float: Map<Int?, Float?>,
+    override var mapInt32Double: Map<Int?, Double?>,
+    override var mapBoolBool: Map<Boolean?, Boolean?>,
+    override var mapStringString: Map<String?, String?>,
+    override var mapStringBytes: Map<String?, pbandk.ByteArr?>,
+    override var mapStringNestedMessage: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>,
+    override var mapStringForeignMessage: Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>,
+    override var mapStringNestedEnum: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>,
+    override var mapStringForeignEnum: Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>,
+    override var fieldname1: Int?,
+    override var fieldName2: Int?,
+    override var fieldName3: Int?,
+    override var field_name4: Int?,
+    override var field0name5: Int?,
+    override var field0Name6: Int?,
+    override var fieldName7: Int?,
+    override var fieldName8: Int?,
+    override var fieldName9: Int?,
+    override var fieldName10: Int?,
+    override var fIELDNAME11: Int?,
+    override var fIELDName12: Int?,
+    override var _fieldName13: Int?,
+    override var _FieldName14: Int?,
+    override var field_name15: Int?,
+    override var field_Name16: Int?,
+    override var fieldName17_: Int?,
+    override var fieldName18_: Int?,
+    override var oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableTestAllTypesProto2, pbandk.MutableGeneratedMessage<MutableTestAllTypesProto2>() {
+    override val descriptor get() = TestAllTypesProto2.descriptor
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
+
+    override var oneofUint32: Int?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofUint32)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofUint32(it) } }
+    override var oneofNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofNestedMessage)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofNestedMessage(it) } }
+    override var oneofString: String?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofString)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofString(it) } }
+    override var oneofBytes: pbandk.ByteArr?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofBytes)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofBytes(it) } }
+    override var oneofBool: Boolean?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofBool)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofBool(it) } }
+    override var oneofUint64: Long?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofUint64)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofUint64(it) } }
+    override var oneofFloat: Float?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofFloat)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofFloat(it) } }
+    override var oneofDouble: Double?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofDouble)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofDouble(it) } }
+    override var oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
+        get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum)?.value
+        set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum(it) } }
+
+    override fun copy(
+        optionalInt32: Int?,
+        optionalInt64: Long?,
+        optionalUint32: Int?,
+        optionalUint64: Long?,
+        optionalSint32: Int?,
+        optionalSint64: Long?,
+        optionalFixed32: Int?,
+        optionalFixed64: Long?,
+        optionalSfixed32: Int?,
+        optionalSfixed64: Long?,
+        optionalFloat: Float?,
+        optionalDouble: Double?,
+        optionalBool: Boolean?,
+        optionalString: String?,
+        optionalBytes: pbandk.ByteArr?,
+        optionalNestedMessage: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?,
+        optionalForeignMessage: pbandk.conformance.pb.ForeignMessageProto2?,
+        optionalNestedEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?,
+        optionalForeignEnum: pbandk.conformance.pb.ForeignEnumProto2?,
+        optionalStringPiece: String?,
+        optionalCord: String?,
+        recursiveMessage: pbandk.conformance.pb.TestAllTypesProto2?,
+        repeatedInt32: List<Int>,
+        repeatedInt64: List<Long>,
+        repeatedUint32: List<Int>,
+        repeatedUint64: List<Long>,
+        repeatedSint32: List<Int>,
+        repeatedSint64: List<Long>,
+        repeatedFixed32: List<Int>,
+        repeatedFixed64: List<Long>,
+        repeatedSfixed32: List<Int>,
+        repeatedSfixed64: List<Long>,
+        repeatedFloat: List<Float>,
+        repeatedDouble: List<Double>,
+        repeatedBool: List<Boolean>,
+        repeatedString: List<String>,
+        repeatedBytes: List<pbandk.ByteArr>,
+        repeatedNestedMessage: List<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>,
+        repeatedForeignMessage: List<pbandk.conformance.pb.ForeignMessageProto2>,
+        repeatedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>,
+        repeatedForeignEnum: List<pbandk.conformance.pb.ForeignEnumProto2>,
+        repeatedStringPiece: List<String>,
+        repeatedCord: List<String>,
+        packedInt32: List<Int>,
+        packedInt64: List<Long>,
+        packedUint32: List<Int>,
+        packedUint64: List<Long>,
+        packedSint32: List<Int>,
+        packedSint64: List<Long>,
+        packedFixed32: List<Int>,
+        packedFixed64: List<Long>,
+        packedSfixed32: List<Int>,
+        packedSfixed64: List<Long>,
+        packedFloat: List<Float>,
+        packedDouble: List<Double>,
+        packedBool: List<Boolean>,
+        packedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>,
+        unpackedInt32: List<Int>,
+        unpackedInt64: List<Long>,
+        unpackedUint32: List<Int>,
+        unpackedUint64: List<Long>,
+        unpackedSint32: List<Int>,
+        unpackedSint64: List<Long>,
+        unpackedFixed32: List<Int>,
+        unpackedFixed64: List<Long>,
+        unpackedSfixed32: List<Int>,
+        unpackedSfixed64: List<Long>,
+        unpackedFloat: List<Float>,
+        unpackedDouble: List<Double>,
+        unpackedBool: List<Boolean>,
+        unpackedNestedEnum: List<pbandk.conformance.pb.TestAllTypesProto2.NestedEnum>,
+        mapInt32Int32: Map<Int?, Int?>,
+        mapInt64Int64: Map<Long?, Long?>,
+        mapUint32Uint32: Map<Int?, Int?>,
+        mapUint64Uint64: Map<Long?, Long?>,
+        mapSint32Sint32: Map<Int?, Int?>,
+        mapSint64Sint64: Map<Long?, Long?>,
+        mapFixed32Fixed32: Map<Int?, Int?>,
+        mapFixed64Fixed64: Map<Long?, Long?>,
+        mapSfixed32Sfixed32: Map<Int?, Int?>,
+        mapSfixed64Sfixed64: Map<Long?, Long?>,
+        mapInt32Float: Map<Int?, Float?>,
+        mapInt32Double: Map<Int?, Double?>,
+        mapBoolBool: Map<Boolean?, Boolean?>,
+        mapStringString: Map<String?, String?>,
+        mapStringBytes: Map<String?, pbandk.ByteArr?>,
+        mapStringNestedMessage: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?>,
+        mapStringForeignMessage: Map<String?, pbandk.conformance.pb.ForeignMessageProto2?>,
+        mapStringNestedEnum: Map<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?>,
+        mapStringForeignEnum: Map<String?, pbandk.conformance.pb.ForeignEnumProto2?>,
+        fieldname1: Int?,
+        fieldName2: Int?,
+        fieldName3: Int?,
+        field_name4: Int?,
+        field0name5: Int?,
+        field0Name6: Int?,
+        fieldName7: Int?,
+        fieldName8: Int?,
+        fieldName9: Int?,
+        fieldName10: Int?,
+        fIELDNAME11: Int?,
+        fIELDName12: Int?,
+        _fieldName13: Int?,
+        _FieldName14: Int?,
+        field_name15: Int?,
+        field_Name16: Int?,
+        fieldName17_: Int?,
+        fieldName18_: Int?,
+        oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_Impl(
+        optionalInt32 = optionalInt32,
+        optionalInt64 = optionalInt64,
+        optionalUint32 = optionalUint32,
+        optionalUint64 = optionalUint64,
+        optionalSint32 = optionalSint32,
+        optionalSint64 = optionalSint64,
+        optionalFixed32 = optionalFixed32,
+        optionalFixed64 = optionalFixed64,
+        optionalSfixed32 = optionalSfixed32,
+        optionalSfixed64 = optionalSfixed64,
+        optionalFloat = optionalFloat,
+        optionalDouble = optionalDouble,
+        optionalBool = optionalBool,
+        optionalString = optionalString,
+        optionalBytes = optionalBytes,
+        optionalNestedMessage = optionalNestedMessage,
+        optionalForeignMessage = optionalForeignMessage,
+        optionalNestedEnum = optionalNestedEnum,
+        optionalForeignEnum = optionalForeignEnum,
+        optionalStringPiece = optionalStringPiece,
+        optionalCord = optionalCord,
+        recursiveMessage = recursiveMessage,
+        repeatedInt32 = repeatedInt32,
+        repeatedInt64 = repeatedInt64,
+        repeatedUint32 = repeatedUint32,
+        repeatedUint64 = repeatedUint64,
+        repeatedSint32 = repeatedSint32,
+        repeatedSint64 = repeatedSint64,
+        repeatedFixed32 = repeatedFixed32,
+        repeatedFixed64 = repeatedFixed64,
+        repeatedSfixed32 = repeatedSfixed32,
+        repeatedSfixed64 = repeatedSfixed64,
+        repeatedFloat = repeatedFloat,
+        repeatedDouble = repeatedDouble,
+        repeatedBool = repeatedBool,
+        repeatedString = repeatedString,
+        repeatedBytes = repeatedBytes,
+        repeatedNestedMessage = repeatedNestedMessage,
+        repeatedForeignMessage = repeatedForeignMessage,
+        repeatedNestedEnum = repeatedNestedEnum,
+        repeatedForeignEnum = repeatedForeignEnum,
+        repeatedStringPiece = repeatedStringPiece,
+        repeatedCord = repeatedCord,
+        packedInt32 = packedInt32,
+        packedInt64 = packedInt64,
+        packedUint32 = packedUint32,
+        packedUint64 = packedUint64,
+        packedSint32 = packedSint32,
+        packedSint64 = packedSint64,
+        packedFixed32 = packedFixed32,
+        packedFixed64 = packedFixed64,
+        packedSfixed32 = packedSfixed32,
+        packedSfixed64 = packedSfixed64,
+        packedFloat = packedFloat,
+        packedDouble = packedDouble,
+        packedBool = packedBool,
+        packedNestedEnum = packedNestedEnum,
+        unpackedInt32 = unpackedInt32,
+        unpackedInt64 = unpackedInt64,
+        unpackedUint32 = unpackedUint32,
+        unpackedUint64 = unpackedUint64,
+        unpackedSint32 = unpackedSint32,
+        unpackedSint64 = unpackedSint64,
+        unpackedFixed32 = unpackedFixed32,
+        unpackedFixed64 = unpackedFixed64,
+        unpackedSfixed32 = unpackedSfixed32,
+        unpackedSfixed64 = unpackedSfixed64,
+        unpackedFloat = unpackedFloat,
+        unpackedDouble = unpackedDouble,
+        unpackedBool = unpackedBool,
+        unpackedNestedEnum = unpackedNestedEnum,
+        mapInt32Int32 = mapInt32Int32,
+        mapInt64Int64 = mapInt64Int64,
+        mapUint32Uint32 = mapUint32Uint32,
+        mapUint64Uint64 = mapUint64Uint64,
+        mapSint32Sint32 = mapSint32Sint32,
+        mapSint64Sint64 = mapSint64Sint64,
+        mapFixed32Fixed32 = mapFixed32Fixed32,
+        mapFixed64Fixed64 = mapFixed64Fixed64,
+        mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
+        mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
+        mapInt32Float = mapInt32Float,
+        mapInt32Double = mapInt32Double,
+        mapBoolBool = mapBoolBool,
+        mapStringString = mapStringString,
+        mapStringBytes = mapStringBytes,
+        mapStringNestedMessage = mapStringNestedMessage,
+        mapStringForeignMessage = mapStringForeignMessage,
+        mapStringNestedEnum = mapStringNestedEnum,
+        mapStringForeignEnum = mapStringForeignEnum,
+        fieldname1 = fieldname1,
+        fieldName2 = fieldName2,
+        fieldName3 = fieldName3,
+        field_name4 = field_name4,
+        field0name5 = field0name5,
+        field0Name6 = field0Name6,
+        fieldName7 = fieldName7,
+        fieldName8 = fieldName8,
+        fieldName9 = fieldName9,
+        fieldName10 = fieldName10,
+        fIELDNAME11 = fIELDNAME11,
+        fIELDName12 = fIELDName12,
+        _fieldName13 = _fieldName13,
+        _FieldName14 = _FieldName14,
+        field_name15 = field_name15,
+        field_Name16 = field_Name16,
+        fieldName17_ = fieldName17_,
+        fieldName18_ = fieldName18_,
+        oneofField = oneofField,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2)?.let {
+        it.copy(
+            optionalInt32 = other.optionalInt32 ?: optionalInt32,
+            optionalInt64 = other.optionalInt64 ?: optionalInt64,
+            optionalUint32 = other.optionalUint32 ?: optionalUint32,
+            optionalUint64 = other.optionalUint64 ?: optionalUint64,
+            optionalSint32 = other.optionalSint32 ?: optionalSint32,
+            optionalSint64 = other.optionalSint64 ?: optionalSint64,
+            optionalFixed32 = other.optionalFixed32 ?: optionalFixed32,
+            optionalFixed64 = other.optionalFixed64 ?: optionalFixed64,
+            optionalSfixed32 = other.optionalSfixed32 ?: optionalSfixed32,
+            optionalSfixed64 = other.optionalSfixed64 ?: optionalSfixed64,
+            optionalFloat = other.optionalFloat ?: optionalFloat,
+            optionalDouble = other.optionalDouble ?: optionalDouble,
+            optionalBool = other.optionalBool ?: optionalBool,
+            optionalString = other.optionalString ?: optionalString,
+            optionalBytes = other.optionalBytes ?: optionalBytes,
+            optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage,
+            optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage,
+            optionalNestedEnum = other.optionalNestedEnum ?: optionalNestedEnum,
+            optionalForeignEnum = other.optionalForeignEnum ?: optionalForeignEnum,
+            optionalStringPiece = other.optionalStringPiece ?: optionalStringPiece,
+            optionalCord = other.optionalCord ?: optionalCord,
+            recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage,
+            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
+            repeatedInt64 = repeatedInt64 + other.repeatedInt64,
+            repeatedUint32 = repeatedUint32 + other.repeatedUint32,
+            repeatedUint64 = repeatedUint64 + other.repeatedUint64,
+            repeatedSint32 = repeatedSint32 + other.repeatedSint32,
+            repeatedSint64 = repeatedSint64 + other.repeatedSint64,
+            repeatedFixed32 = repeatedFixed32 + other.repeatedFixed32,
+            repeatedFixed64 = repeatedFixed64 + other.repeatedFixed64,
+            repeatedSfixed32 = repeatedSfixed32 + other.repeatedSfixed32,
+            repeatedSfixed64 = repeatedSfixed64 + other.repeatedSfixed64,
+            repeatedFloat = repeatedFloat + other.repeatedFloat,
+            repeatedDouble = repeatedDouble + other.repeatedDouble,
+            repeatedBool = repeatedBool + other.repeatedBool,
+            repeatedString = repeatedString + other.repeatedString,
+            repeatedBytes = repeatedBytes + other.repeatedBytes,
+            repeatedNestedMessage = repeatedNestedMessage + other.repeatedNestedMessage,
+            repeatedForeignMessage = repeatedForeignMessage + other.repeatedForeignMessage,
+            repeatedNestedEnum = repeatedNestedEnum + other.repeatedNestedEnum,
+            repeatedForeignEnum = repeatedForeignEnum + other.repeatedForeignEnum,
+            repeatedStringPiece = repeatedStringPiece + other.repeatedStringPiece,
+            repeatedCord = repeatedCord + other.repeatedCord,
+            packedInt32 = packedInt32 + other.packedInt32,
+            packedInt64 = packedInt64 + other.packedInt64,
+            packedUint32 = packedUint32 + other.packedUint32,
+            packedUint64 = packedUint64 + other.packedUint64,
+            packedSint32 = packedSint32 + other.packedSint32,
+            packedSint64 = packedSint64 + other.packedSint64,
+            packedFixed32 = packedFixed32 + other.packedFixed32,
+            packedFixed64 = packedFixed64 + other.packedFixed64,
+            packedSfixed32 = packedSfixed32 + other.packedSfixed32,
+            packedSfixed64 = packedSfixed64 + other.packedSfixed64,
+            packedFloat = packedFloat + other.packedFloat,
+            packedDouble = packedDouble + other.packedDouble,
+            packedBool = packedBool + other.packedBool,
+            packedNestedEnum = packedNestedEnum + other.packedNestedEnum,
+            unpackedInt32 = unpackedInt32 + other.unpackedInt32,
+            unpackedInt64 = unpackedInt64 + other.unpackedInt64,
+            unpackedUint32 = unpackedUint32 + other.unpackedUint32,
+            unpackedUint64 = unpackedUint64 + other.unpackedUint64,
+            unpackedSint32 = unpackedSint32 + other.unpackedSint32,
+            unpackedSint64 = unpackedSint64 + other.unpackedSint64,
+            unpackedFixed32 = unpackedFixed32 + other.unpackedFixed32,
+            unpackedFixed64 = unpackedFixed64 + other.unpackedFixed64,
+            unpackedSfixed32 = unpackedSfixed32 + other.unpackedSfixed32,
+            unpackedSfixed64 = unpackedSfixed64 + other.unpackedSfixed64,
+            unpackedFloat = unpackedFloat + other.unpackedFloat,
+            unpackedDouble = unpackedDouble + other.unpackedDouble,
+            unpackedBool = unpackedBool + other.unpackedBool,
+            unpackedNestedEnum = unpackedNestedEnum + other.unpackedNestedEnum,
+            mapInt32Int32 = mapInt32Int32 + other.mapInt32Int32,
+            mapInt64Int64 = mapInt64Int64 + other.mapInt64Int64,
+            mapUint32Uint32 = mapUint32Uint32 + other.mapUint32Uint32,
+            mapUint64Uint64 = mapUint64Uint64 + other.mapUint64Uint64,
+            mapSint32Sint32 = mapSint32Sint32 + other.mapSint32Sint32,
+            mapSint64Sint64 = mapSint64Sint64 + other.mapSint64Sint64,
+            mapFixed32Fixed32 = mapFixed32Fixed32 + other.mapFixed32Fixed32,
+            mapFixed64Fixed64 = mapFixed64Fixed64 + other.mapFixed64Fixed64,
+            mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + other.mapSfixed32Sfixed32,
+            mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + other.mapSfixed64Sfixed64,
+            mapInt32Float = mapInt32Float + other.mapInt32Float,
+            mapInt32Double = mapInt32Double + other.mapInt32Double,
+            mapBoolBool = mapBoolBool + other.mapBoolBool,
+            mapStringString = mapStringString + other.mapStringString,
+            mapStringBytes = mapStringBytes + other.mapStringBytes,
+            mapStringNestedMessage = mapStringNestedMessage + other.mapStringNestedMessage,
+            mapStringForeignMessage = mapStringForeignMessage + other.mapStringForeignMessage,
+            mapStringNestedEnum = mapStringNestedEnum + other.mapStringNestedEnum,
+            mapStringForeignEnum = mapStringForeignEnum + other.mapStringForeignEnum,
+            fieldname1 = other.fieldname1 ?: fieldname1,
+            fieldName2 = other.fieldName2 ?: fieldName2,
+            fieldName3 = other.fieldName3 ?: fieldName3,
+            field_name4 = other.field_name4 ?: field_name4,
+            field0name5 = other.field0name5 ?: field0name5,
+            field0Name6 = other.field0Name6 ?: field0Name6,
+            fieldName7 = other.fieldName7 ?: fieldName7,
+            fieldName8 = other.fieldName8 ?: fieldName8,
+            fieldName9 = other.fieldName9 ?: fieldName9,
+            fieldName10 = other.fieldName10 ?: fieldName10,
+            fIELDNAME11 = other.fIELDNAME11 ?: fIELDNAME11,
+            fIELDName12 = other.fIELDName12 ?: fIELDName12,
+            _fieldName13 = other._fieldName13 ?: _fieldName13,
+            _FieldName14 = other._FieldName14 ?: _FieldName14,
+            field_name15 = other.field_name15 ?: field_name15,
+            field_Name16 = other.field_Name16 ?: field_Name16,
+            fieldName17_ = other.fieldName17_ ?: fieldName17_,
+            fieldName18_ = other.fieldName18_ ?: fieldName18_,
+            oneofField = when {
+                oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage && other.oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage ->
+                    TestAllTypesProto2.OneofField.OneofNestedMessage((oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value + (other.oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value)
+                else ->
+                    other.oneofField ?: oneofField
+            },
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toTestAllTypesProto2() = TestAllTypesProto2_Impl(
+        optionalInt32 = optionalInt32,
+        optionalInt64 = optionalInt64,
+        optionalUint32 = optionalUint32,
+        optionalUint64 = optionalUint64,
+        optionalSint32 = optionalSint32,
+        optionalSint64 = optionalSint64,
+        optionalFixed32 = optionalFixed32,
+        optionalFixed64 = optionalFixed64,
+        optionalSfixed32 = optionalSfixed32,
+        optionalSfixed64 = optionalSfixed64,
+        optionalFloat = optionalFloat,
+        optionalDouble = optionalDouble,
+        optionalBool = optionalBool,
+        optionalString = optionalString,
+        optionalBytes = optionalBytes,
+        optionalNestedMessage = optionalNestedMessage,
+        optionalForeignMessage = optionalForeignMessage,
+        optionalNestedEnum = optionalNestedEnum,
+        optionalForeignEnum = optionalForeignEnum,
+        optionalStringPiece = optionalStringPiece,
+        optionalCord = optionalCord,
+        recursiveMessage = recursiveMessage,
+        repeatedInt32 = repeatedInt32,
+        repeatedInt64 = repeatedInt64,
+        repeatedUint32 = repeatedUint32,
+        repeatedUint64 = repeatedUint64,
+        repeatedSint32 = repeatedSint32,
+        repeatedSint64 = repeatedSint64,
+        repeatedFixed32 = repeatedFixed32,
+        repeatedFixed64 = repeatedFixed64,
+        repeatedSfixed32 = repeatedSfixed32,
+        repeatedSfixed64 = repeatedSfixed64,
+        repeatedFloat = repeatedFloat,
+        repeatedDouble = repeatedDouble,
+        repeatedBool = repeatedBool,
+        repeatedString = repeatedString,
+        repeatedBytes = repeatedBytes,
+        repeatedNestedMessage = repeatedNestedMessage,
+        repeatedForeignMessage = repeatedForeignMessage,
+        repeatedNestedEnum = repeatedNestedEnum,
+        repeatedForeignEnum = repeatedForeignEnum,
+        repeatedStringPiece = repeatedStringPiece,
+        repeatedCord = repeatedCord,
+        packedInt32 = packedInt32,
+        packedInt64 = packedInt64,
+        packedUint32 = packedUint32,
+        packedUint64 = packedUint64,
+        packedSint32 = packedSint32,
+        packedSint64 = packedSint64,
+        packedFixed32 = packedFixed32,
+        packedFixed64 = packedFixed64,
+        packedSfixed32 = packedSfixed32,
+        packedSfixed64 = packedSfixed64,
+        packedFloat = packedFloat,
+        packedDouble = packedDouble,
+        packedBool = packedBool,
+        packedNestedEnum = packedNestedEnum,
+        unpackedInt32 = unpackedInt32,
+        unpackedInt64 = unpackedInt64,
+        unpackedUint32 = unpackedUint32,
+        unpackedUint64 = unpackedUint64,
+        unpackedSint32 = unpackedSint32,
+        unpackedSint64 = unpackedSint64,
+        unpackedFixed32 = unpackedFixed32,
+        unpackedFixed64 = unpackedFixed64,
+        unpackedSfixed32 = unpackedSfixed32,
+        unpackedSfixed64 = unpackedSfixed64,
+        unpackedFloat = unpackedFloat,
+        unpackedDouble = unpackedDouble,
+        unpackedBool = unpackedBool,
+        unpackedNestedEnum = unpackedNestedEnum,
+        mapInt32Int32 = mapInt32Int32,
+        mapInt64Int64 = mapInt64Int64,
+        mapUint32Uint32 = mapUint32Uint32,
+        mapUint64Uint64 = mapUint64Uint64,
+        mapSint32Sint32 = mapSint32Sint32,
+        mapSint64Sint64 = mapSint64Sint64,
+        mapFixed32Fixed32 = mapFixed32Fixed32,
+        mapFixed64Fixed64 = mapFixed64Fixed64,
+        mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
+        mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
+        mapInt32Float = mapInt32Float,
+        mapInt32Double = mapInt32Double,
+        mapBoolBool = mapBoolBool,
+        mapStringString = mapStringString,
+        mapStringBytes = mapStringBytes,
+        mapStringNestedMessage = mapStringNestedMessage,
+        mapStringForeignMessage = mapStringForeignMessage,
+        mapStringNestedEnum = mapStringNestedEnum,
+        mapStringForeignEnum = mapStringForeignEnum,
+        fieldname1 = fieldname1,
+        fieldName2 = fieldName2,
+        fieldName3 = fieldName3,
+        field_name4 = field_name4,
+        field0name5 = field0name5,
+        field0Name6 = field0Name6,
+        fieldName7 = fieldName7,
+        fieldName8 = fieldName8,
+        fieldName9 = fieldName9,
+        fieldName10 = fieldName10,
+        fIELDNAME11 = fIELDNAME11,
+        fIELDName12 = fIELDName12,
+        _fieldName13 = _fieldName13,
+        _FieldName14 = _FieldName14,
+        field_name15 = field_name15,
+        field_Name16 = field_Name16,
+        fieldName17_ = fieldName17_,
+        fieldName18_ = fieldName18_,
+        oneofField = oneofField,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4072,6 +5729,12 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         oneofField, unknownFields)
 }
 
+public fun TestAllTypesProto2.Companion.nestedMessage(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit): TestAllTypesProto2.NestedMessage {
+    val builder = TestAllTypesProto2.MutableNestedMessage()
+    builder.builderAction()
+    return builder.toNestedMessage()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForTestAllTypesProto2NestedMessage")
 public fun TestAllTypesProto2.NestedMessage?.orDefault(): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = this ?: TestAllTypesProto2.NestedMessage.defaultInstance
@@ -4102,6 +5765,38 @@ private class TestAllTypesProto2_NestedMessage_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableNestedMessage_Impl(
+    override var a: Int?,
+    override var corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableNestedMessage, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableNestedMessage>() {
+    override val descriptor get() = TestAllTypesProto2.NestedMessage.descriptor
+
+    override fun copy(
+        a: Int?,
+        corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_NestedMessage_Impl(
+        a = a,
+        corecursive = corecursive,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.NestedMessage)?.let {
+        it.copy(
+            a = other.a ?: a,
+            corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toNestedMessage() = TestAllTypesProto2_NestedMessage_Impl(
+        a = a,
+        corecursive = corecursive,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.NestedMessage {
     var a: Int? = null
@@ -4114,6 +5809,12 @@ private fun TestAllTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.
         }
     }
     return TestAllTypesProto2.NestedMessage(a, corecursive, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapInt32Int32Entry(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit): TestAllTypesProto2.MapInt32Int32Entry {
+    val builder = TestAllTypesProto2.MutableMapInt32Int32Entry()
+    builder.builderAction()
+    return builder.toMapInt32Int32Entry()
 }
 
 @pbandk.Export
@@ -4146,6 +5847,38 @@ private class TestAllTypesProto2_MapInt32Int32Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapInt32Int32Entry_Impl(
+    override var key: Int?,
+    override var value: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapInt32Int32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt32Int32Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapInt32Int32Entry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapInt32Int32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapInt32Int32Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapInt32Int32Entry() = TestAllTypesProto2_MapInt32Int32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt32Int32Entry {
     var key: Int? = null
@@ -4158,6 +5891,12 @@ private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.decodeWithImpl(u: pb
         }
     }
     return TestAllTypesProto2.MapInt32Int32Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapInt64Int64Entry(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit): TestAllTypesProto2.MapInt64Int64Entry {
+    val builder = TestAllTypesProto2.MutableMapInt64Int64Entry()
+    builder.builderAction()
+    return builder.toMapInt64Int64Entry()
 }
 
 @pbandk.Export
@@ -4190,6 +5929,38 @@ private class TestAllTypesProto2_MapInt64Int64Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapInt64Int64Entry_Impl(
+    override var key: Long?,
+    override var value: Long?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapInt64Int64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt64Int64Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapInt64Int64Entry.descriptor
+
+    override fun copy(
+        key: Long?,
+        value: Long?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapInt64Int64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapInt64Int64Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapInt64Int64Entry() = TestAllTypesProto2_MapInt64Int64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt64Int64Entry {
     var key: Long? = null
@@ -4202,6 +5973,12 @@ private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.decodeWithImpl(u: pb
         }
     }
     return TestAllTypesProto2.MapInt64Int64Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapUint32Uint32Entry(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit): TestAllTypesProto2.MapUint32Uint32Entry {
+    val builder = TestAllTypesProto2.MutableMapUint32Uint32Entry()
+    builder.builderAction()
+    return builder.toMapUint32Uint32Entry()
 }
 
 @pbandk.Export
@@ -4234,6 +6011,38 @@ private class TestAllTypesProto2_MapUint32Uint32Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapUint32Uint32Entry_Impl(
+    override var key: Int?,
+    override var value: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapUint32Uint32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapUint32Uint32Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapUint32Uint32Entry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapUint32Uint32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapUint32Uint32Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapUint32Uint32Entry() = TestAllTypesProto2_MapUint32Uint32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapUint32Uint32Entry {
     var key: Int? = null
@@ -4246,6 +6055,12 @@ private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.decodeWithImpl(u: 
         }
     }
     return TestAllTypesProto2.MapUint32Uint32Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapUint64Uint64Entry(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit): TestAllTypesProto2.MapUint64Uint64Entry {
+    val builder = TestAllTypesProto2.MutableMapUint64Uint64Entry()
+    builder.builderAction()
+    return builder.toMapUint64Uint64Entry()
 }
 
 @pbandk.Export
@@ -4278,6 +6093,38 @@ private class TestAllTypesProto2_MapUint64Uint64Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapUint64Uint64Entry_Impl(
+    override var key: Long?,
+    override var value: Long?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapUint64Uint64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapUint64Uint64Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapUint64Uint64Entry.descriptor
+
+    override fun copy(
+        key: Long?,
+        value: Long?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapUint64Uint64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapUint64Uint64Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapUint64Uint64Entry() = TestAllTypesProto2_MapUint64Uint64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapUint64Uint64Entry {
     var key: Long? = null
@@ -4290,6 +6137,12 @@ private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.decodeWithImpl(u: 
         }
     }
     return TestAllTypesProto2.MapUint64Uint64Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapSint32Sint32Entry(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit): TestAllTypesProto2.MapSint32Sint32Entry {
+    val builder = TestAllTypesProto2.MutableMapSint32Sint32Entry()
+    builder.builderAction()
+    return builder.toMapSint32Sint32Entry()
 }
 
 @pbandk.Export
@@ -4322,6 +6175,38 @@ private class TestAllTypesProto2_MapSint32Sint32Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapSint32Sint32Entry_Impl(
+    override var key: Int?,
+    override var value: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapSint32Sint32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSint32Sint32Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapSint32Sint32Entry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapSint32Sint32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapSint32Sint32Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapSint32Sint32Entry() = TestAllTypesProto2_MapSint32Sint32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSint32Sint32Entry {
     var key: Int? = null
@@ -4334,6 +6219,12 @@ private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.decodeWithImpl(u: 
         }
     }
     return TestAllTypesProto2.MapSint32Sint32Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapSint64Sint64Entry(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit): TestAllTypesProto2.MapSint64Sint64Entry {
+    val builder = TestAllTypesProto2.MutableMapSint64Sint64Entry()
+    builder.builderAction()
+    return builder.toMapSint64Sint64Entry()
 }
 
 @pbandk.Export
@@ -4366,6 +6257,38 @@ private class TestAllTypesProto2_MapSint64Sint64Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapSint64Sint64Entry_Impl(
+    override var key: Long?,
+    override var value: Long?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapSint64Sint64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSint64Sint64Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapSint64Sint64Entry.descriptor
+
+    override fun copy(
+        key: Long?,
+        value: Long?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapSint64Sint64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapSint64Sint64Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapSint64Sint64Entry() = TestAllTypesProto2_MapSint64Sint64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSint64Sint64Entry {
     var key: Long? = null
@@ -4378,6 +6301,12 @@ private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.decodeWithImpl(u: 
         }
     }
     return TestAllTypesProto2.MapSint64Sint64Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapFixed32Fixed32Entry(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit): TestAllTypesProto2.MapFixed32Fixed32Entry {
+    val builder = TestAllTypesProto2.MutableMapFixed32Fixed32Entry()
+    builder.builderAction()
+    return builder.toMapFixed32Fixed32Entry()
 }
 
 @pbandk.Export
@@ -4410,6 +6339,38 @@ private class TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapFixed32Fixed32Entry_Impl(
+    override var key: Int?,
+    override var value: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapFixed32Fixed32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapFixed32Fixed32Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapFixed32Fixed32Entry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapFixed32Fixed32Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapFixed32Fixed32Entry() = TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapFixed32Fixed32Entry {
     var key: Int? = null
@@ -4422,6 +6383,12 @@ private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u
         }
     }
     return TestAllTypesProto2.MapFixed32Fixed32Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapFixed64Fixed64Entry(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit): TestAllTypesProto2.MapFixed64Fixed64Entry {
+    val builder = TestAllTypesProto2.MutableMapFixed64Fixed64Entry()
+    builder.builderAction()
+    return builder.toMapFixed64Fixed64Entry()
 }
 
 @pbandk.Export
@@ -4454,6 +6421,38 @@ private class TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapFixed64Fixed64Entry_Impl(
+    override var key: Long?,
+    override var value: Long?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapFixed64Fixed64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapFixed64Fixed64Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapFixed64Fixed64Entry.descriptor
+
+    override fun copy(
+        key: Long?,
+        value: Long?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapFixed64Fixed64Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapFixed64Fixed64Entry() = TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapFixed64Fixed64Entry {
     var key: Long? = null
@@ -4466,6 +6465,12 @@ private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u
         }
     }
     return TestAllTypesProto2.MapFixed64Fixed64Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapSfixed32Sfixed32Entry(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit): TestAllTypesProto2.MapSfixed32Sfixed32Entry {
+    val builder = TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry()
+    builder.builderAction()
+    return builder.toMapSfixed32Sfixed32Entry()
 }
 
 @pbandk.Export
@@ -4498,6 +6503,38 @@ private class TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapSfixed32Sfixed32Entry_Impl(
+    override var key: Int?,
+    override var value: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapSfixed32Sfixed32Entry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapSfixed32Sfixed32Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapSfixed32Sfixed32Entry() = TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSfixed32Sfixed32Entry {
     var key: Int? = null
@@ -4510,6 +6547,12 @@ private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl
         }
     }
     return TestAllTypesProto2.MapSfixed32Sfixed32Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapSfixed64Sfixed64Entry(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit): TestAllTypesProto2.MapSfixed64Sfixed64Entry {
+    val builder = TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry()
+    builder.builderAction()
+    return builder.toMapSfixed64Sfixed64Entry()
 }
 
 @pbandk.Export
@@ -4542,6 +6585,38 @@ private class TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapSfixed64Sfixed64Entry_Impl(
+    override var key: Long?,
+    override var value: Long?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry>() {
+    override val descriptor get() = TestAllTypesProto2.MapSfixed64Sfixed64Entry.descriptor
+
+    override fun copy(
+        key: Long?,
+        value: Long?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapSfixed64Sfixed64Entry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapSfixed64Sfixed64Entry() = TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapSfixed64Sfixed64Entry {
     var key: Long? = null
@@ -4554,6 +6629,12 @@ private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl
         }
     }
     return TestAllTypesProto2.MapSfixed64Sfixed64Entry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapInt32FloatEntry(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit): TestAllTypesProto2.MapInt32FloatEntry {
+    val builder = TestAllTypesProto2.MutableMapInt32FloatEntry()
+    builder.builderAction()
+    return builder.toMapInt32FloatEntry()
 }
 
 @pbandk.Export
@@ -4586,6 +6667,38 @@ private class TestAllTypesProto2_MapInt32FloatEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapInt32FloatEntry_Impl(
+    override var key: Int?,
+    override var value: Float?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapInt32FloatEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt32FloatEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapInt32FloatEntry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Float?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapInt32FloatEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapInt32FloatEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapInt32FloatEntry() = TestAllTypesProto2_MapInt32FloatEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt32FloatEntry {
     var key: Int? = null
@@ -4598,6 +6711,12 @@ private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.decodeWithImpl(u: pb
         }
     }
     return TestAllTypesProto2.MapInt32FloatEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapInt32DoubleEntry(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit): TestAllTypesProto2.MapInt32DoubleEntry {
+    val builder = TestAllTypesProto2.MutableMapInt32DoubleEntry()
+    builder.builderAction()
+    return builder.toMapInt32DoubleEntry()
 }
 
 @pbandk.Export
@@ -4630,6 +6749,38 @@ private class TestAllTypesProto2_MapInt32DoubleEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapInt32DoubleEntry_Impl(
+    override var key: Int?,
+    override var value: Double?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapInt32DoubleEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt32DoubleEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapInt32DoubleEntry.descriptor
+
+    override fun copy(
+        key: Int?,
+        value: Double?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapInt32DoubleEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapInt32DoubleEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapInt32DoubleEntry() = TestAllTypesProto2_MapInt32DoubleEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapInt32DoubleEntry {
     var key: Int? = null
@@ -4642,6 +6793,12 @@ private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.decodeWithImpl(u: p
         }
     }
     return TestAllTypesProto2.MapInt32DoubleEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapBoolBoolEntry(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit): TestAllTypesProto2.MapBoolBoolEntry {
+    val builder = TestAllTypesProto2.MutableMapBoolBoolEntry()
+    builder.builderAction()
+    return builder.toMapBoolBoolEntry()
 }
 
 @pbandk.Export
@@ -4674,6 +6831,38 @@ private class TestAllTypesProto2_MapBoolBoolEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapBoolBoolEntry_Impl(
+    override var key: Boolean?,
+    override var value: Boolean?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapBoolBoolEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapBoolBoolEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapBoolBoolEntry.descriptor
+
+    override fun copy(
+        key: Boolean?,
+        value: Boolean?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapBoolBoolEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapBoolBoolEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapBoolBoolEntry() = TestAllTypesProto2_MapBoolBoolEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapBoolBoolEntry {
     var key: Boolean? = null
@@ -4686,6 +6875,12 @@ private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.decodeWithImpl(u: pban
         }
     }
     return TestAllTypesProto2.MapBoolBoolEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapStringStringEntry(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit): TestAllTypesProto2.MapStringStringEntry {
+    val builder = TestAllTypesProto2.MutableMapStringStringEntry()
+    builder.builderAction()
+    return builder.toMapStringStringEntry()
 }
 
 @pbandk.Export
@@ -4718,6 +6913,38 @@ private class TestAllTypesProto2_MapStringStringEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapStringStringEntry_Impl(
+    override var key: String?,
+    override var value: String?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapStringStringEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringStringEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapStringStringEntry.descriptor
+
+    override fun copy(
+        key: String?,
+        value: String?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapStringStringEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapStringStringEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapStringStringEntry() = TestAllTypesProto2_MapStringStringEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapStringStringEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringStringEntry {
     var key: String? = null
@@ -4730,6 +6957,12 @@ private fun TestAllTypesProto2.MapStringStringEntry.Companion.decodeWithImpl(u: 
         }
     }
     return TestAllTypesProto2.MapStringStringEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapStringBytesEntry(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit): TestAllTypesProto2.MapStringBytesEntry {
+    val builder = TestAllTypesProto2.MutableMapStringBytesEntry()
+    builder.builderAction()
+    return builder.toMapStringBytesEntry()
 }
 
 @pbandk.Export
@@ -4762,6 +6995,38 @@ private class TestAllTypesProto2_MapStringBytesEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapStringBytesEntry_Impl(
+    override var key: String?,
+    override var value: pbandk.ByteArr?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapStringBytesEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringBytesEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapStringBytesEntry.descriptor
+
+    override fun copy(
+        key: String?,
+        value: pbandk.ByteArr?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapStringBytesEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapStringBytesEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapStringBytesEntry() = TestAllTypesProto2_MapStringBytesEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapStringBytesEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringBytesEntry {
     var key: String? = null
@@ -4774,6 +7039,12 @@ private fun TestAllTypesProto2.MapStringBytesEntry.Companion.decodeWithImpl(u: p
         }
     }
     return TestAllTypesProto2.MapStringBytesEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapStringNestedMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit): TestAllTypesProto2.MapStringNestedMessageEntry {
+    val builder = TestAllTypesProto2.MutableMapStringNestedMessageEntry()
+    builder.builderAction()
+    return builder.toMapStringNestedMessageEntry()
 }
 
 @pbandk.Export
@@ -4806,6 +7077,38 @@ private class TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapStringNestedMessageEntry_Impl(
+    override var key: String?,
+    override var value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapStringNestedMessageEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringNestedMessageEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapStringNestedMessageEntry.descriptor
+
+    override fun copy(
+        key: String?,
+        value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapStringNestedMessageEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = value?.plus(other.value) ?: other.value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapStringNestedMessageEntry() = TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringNestedMessageEntry {
     var key: String? = null
@@ -4818,6 +7121,12 @@ private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.decodeWithI
         }
     }
     return TestAllTypesProto2.MapStringNestedMessageEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapStringForeignMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit): TestAllTypesProto2.MapStringForeignMessageEntry {
+    val builder = TestAllTypesProto2.MutableMapStringForeignMessageEntry()
+    builder.builderAction()
+    return builder.toMapStringForeignMessageEntry()
 }
 
 @pbandk.Export
@@ -4850,6 +7159,38 @@ private class TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapStringForeignMessageEntry_Impl(
+    override var key: String?,
+    override var value: pbandk.conformance.pb.ForeignMessageProto2?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapStringForeignMessageEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringForeignMessageEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapStringForeignMessageEntry.descriptor
+
+    override fun copy(
+        key: String?,
+        value: pbandk.conformance.pb.ForeignMessageProto2?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapStringForeignMessageEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = value?.plus(other.value) ?: other.value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapStringForeignMessageEntry() = TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringForeignMessageEntry {
     var key: String? = null
@@ -4862,6 +7203,12 @@ private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.decodeWith
         }
     }
     return TestAllTypesProto2.MapStringForeignMessageEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapStringNestedEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit): TestAllTypesProto2.MapStringNestedEnumEntry {
+    val builder = TestAllTypesProto2.MutableMapStringNestedEnumEntry()
+    builder.builderAction()
+    return builder.toMapStringNestedEnumEntry()
 }
 
 @pbandk.Export
@@ -4894,6 +7241,38 @@ private class TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapStringNestedEnumEntry_Impl(
+    override var key: String?,
+    override var value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapStringNestedEnumEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringNestedEnumEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapStringNestedEnumEntry.descriptor
+
+    override fun copy(
+        key: String?,
+        value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapStringNestedEnumEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapStringNestedEnumEntry() = TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringNestedEnumEntry {
     var key: String? = null
@@ -4906,6 +7285,12 @@ private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.decodeWithImpl
         }
     }
     return TestAllTypesProto2.MapStringNestedEnumEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.mapStringForeignEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit): TestAllTypesProto2.MapStringForeignEnumEntry {
+    val builder = TestAllTypesProto2.MutableMapStringForeignEnumEntry()
+    builder.builderAction()
+    return builder.toMapStringForeignEnumEntry()
 }
 
 @pbandk.Export
@@ -4938,6 +7323,38 @@ private class TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMapStringForeignEnumEntry_Impl(
+    override var key: String?,
+    override var value: pbandk.conformance.pb.ForeignEnumProto2?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMapStringForeignEnumEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringForeignEnumEntry>() {
+    override val descriptor get() = TestAllTypesProto2.MapStringForeignEnumEntry.descriptor
+
+    override fun copy(
+        key: String?,
+        value: pbandk.conformance.pb.ForeignEnumProto2?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MapStringForeignEnumEntry)?.let {
+        it.copy(
+            key = other.key ?: key,
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMapStringForeignEnumEntry() = TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MapStringForeignEnumEntry {
     var key: String? = null
@@ -4950,6 +7367,12 @@ private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.decodeWithImp
         }
     }
     return TestAllTypesProto2.MapStringForeignEnumEntry(key, value, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.data(builderAction: TestAllTypesProto2.MutableData.() -> Unit): TestAllTypesProto2.Data {
+    val builder = TestAllTypesProto2.MutableData()
+    builder.builderAction()
+    return builder.toData()
 }
 
 @pbandk.Export
@@ -4982,6 +7405,38 @@ private class TestAllTypesProto2_Data_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableData_Impl(
+    override var groupInt32: Int?,
+    override var groupUint32: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableData, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableData>() {
+    override val descriptor get() = TestAllTypesProto2.Data.descriptor
+
+    override fun copy(
+        groupInt32: Int?,
+        groupUint32: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_Data_Impl(
+        groupInt32 = groupInt32,
+        groupUint32 = groupUint32,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.Data)?.let {
+        it.copy(
+            groupInt32 = other.groupInt32 ?: groupInt32,
+            groupUint32 = other.groupUint32 ?: groupUint32,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toData() = TestAllTypesProto2_Data_Impl(
+        groupInt32 = groupInt32,
+        groupUint32 = groupUint32,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.Data {
     var groupInt32: Int? = null
@@ -4994,6 +7449,12 @@ private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDe
         }
     }
     return TestAllTypesProto2.Data(groupInt32, groupUint32, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.messageSetCorrect(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): TestAllTypesProto2.MessageSetCorrect {
+    val builder = TestAllTypesProto2.MutableMessageSetCorrect()
+    builder.builderAction()
+    return builder.toMessageSetCorrect()
 }
 
 @pbandk.Export
@@ -5019,11 +7480,40 @@ private class TestAllTypesProto2_MessageSetCorrect_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMessageSetCorrect, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMessageSetCorrect>() {
+    override val descriptor get() = TestAllTypesProto2.MessageSetCorrect.descriptor
+    override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
+
+    override fun copy(
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MessageSetCorrect_Impl(
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MessageSetCorrect)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMessageSetCorrect() = TestAllTypesProto2_MessageSetCorrect_Impl(
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrect {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
     return TestAllTypesProto2.MessageSetCorrect(unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.messageSetCorrectExtension1(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension1 {
+    val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension1()
+    builder.builderAction()
+    return builder.toMessageSetCorrectExtension1()
 }
 
 @pbandk.Export
@@ -5052,6 +7542,33 @@ private class TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
+    override var str: String?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMessageSetCorrectExtension1, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMessageSetCorrectExtension1>() {
+    override val descriptor get() = TestAllTypesProto2.MessageSetCorrectExtension1.descriptor
+
+    override fun copy(
+        str: String?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
+        str = str,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MessageSetCorrectExtension1)?.let {
+        it.copy(
+            str = other.str ?: str,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMessageSetCorrectExtension1() = TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
+        str = str,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrectExtension1 {
     var str: String? = null
@@ -5062,6 +7579,12 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithI
         }
     }
     return TestAllTypesProto2.MessageSetCorrectExtension1(str, unknownFields)
+}
+
+public fun TestAllTypesProto2.Companion.messageSetCorrectExtension2(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension2 {
+    val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension2()
+    builder.builderAction()
+    return builder.toMessageSetCorrectExtension2()
 }
 
 @pbandk.Export
@@ -5090,6 +7613,33 @@ private class TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
     } ?: this
 }
 
+private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
+    override var i: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : TestAllTypesProto2.MutableMessageSetCorrectExtension2, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMessageSetCorrectExtension2>() {
+    override val descriptor get() = TestAllTypesProto2.MessageSetCorrectExtension2.descriptor
+
+    override fun copy(
+        i: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
+        i = i,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? TestAllTypesProto2.MessageSetCorrectExtension2)?.let {
+        it.copy(
+            i = other.i ?: i,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMessageSetCorrectExtension2() = TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
+        i = i,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrectExtension2 {
     var i: Int? = null
@@ -5100,6 +7650,12 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithI
         }
     }
     return TestAllTypesProto2.MessageSetCorrectExtension2(i, unknownFields)
+}
+
+public fun foreignMessageProto2(builderAction: MutableForeignMessageProto2.() -> Unit): ForeignMessageProto2 {
+    val builder = MutableForeignMessageProto2()
+    builder.builderAction()
+    return builder.toForeignMessageProto2()
 }
 
 @pbandk.Export
@@ -5128,6 +7684,33 @@ private class ForeignMessageProto2_Impl(
     } ?: this
 }
 
+private class MutableForeignMessageProto2_Impl(
+    override var c: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableForeignMessageProto2, pbandk.MutableGeneratedMessage<MutableForeignMessageProto2>() {
+    override val descriptor get() = ForeignMessageProto2.descriptor
+
+    override fun copy(
+        c: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = ForeignMessageProto2_Impl(
+        c = c,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? ForeignMessageProto2)?.let {
+        it.copy(
+            c = other.c ?: c,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toForeignMessageProto2() = ForeignMessageProto2_Impl(
+        c = c,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ForeignMessageProto2 {
     var c: Int? = null
@@ -5138,6 +7721,12 @@ private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecod
         }
     }
     return ForeignMessageProto2(c, unknownFields)
+}
+
+public fun unknownToTestAllTypes(builderAction: MutableUnknownToTestAllTypes.() -> Unit): UnknownToTestAllTypes {
+    val builder = MutableUnknownToTestAllTypes()
+    builder.builderAction()
+    return builder.toUnknownToTestAllTypes()
 }
 
 @pbandk.Export
@@ -5182,6 +7771,53 @@ private class UnknownToTestAllTypes_Impl(
     } ?: this
 }
 
+private class MutableUnknownToTestAllTypes_Impl(
+    override var optionalInt32: Int?,
+    override var optionalString: String?,
+    override var nestedMessage: pbandk.conformance.pb.ForeignMessageProto2?,
+    override var optionalBool: Boolean?,
+    override var repeatedInt32: List<Int>,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableUnknownToTestAllTypes, pbandk.MutableGeneratedMessage<MutableUnknownToTestAllTypes>() {
+    override val descriptor get() = UnknownToTestAllTypes.descriptor
+
+    override fun copy(
+        optionalInt32: Int?,
+        optionalString: String?,
+        nestedMessage: pbandk.conformance.pb.ForeignMessageProto2?,
+        optionalBool: Boolean?,
+        repeatedInt32: List<Int>,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = UnknownToTestAllTypes_Impl(
+        optionalInt32 = optionalInt32,
+        optionalString = optionalString,
+        nestedMessage = nestedMessage,
+        optionalBool = optionalBool,
+        repeatedInt32 = repeatedInt32,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? UnknownToTestAllTypes)?.let {
+        it.copy(
+            optionalInt32 = other.optionalInt32 ?: optionalInt32,
+            optionalString = other.optionalString ?: optionalString,
+            nestedMessage = nestedMessage?.plus(other.nestedMessage) ?: other.nestedMessage,
+            optionalBool = other.optionalBool ?: optionalBool,
+            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toUnknownToTestAllTypes() = UnknownToTestAllTypes_Impl(
+        optionalInt32 = optionalInt32,
+        optionalString = optionalString,
+        nestedMessage = nestedMessage,
+        optionalBool = optionalBool,
+        repeatedInt32 = repeatedInt32,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UnknownToTestAllTypes {
     var optionalInt32: Int? = null
@@ -5201,6 +7837,12 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
     }
     return UnknownToTestAllTypes(optionalInt32, optionalString, nestedMessage, optionalBool,
         pbandk.ListWithSize.Builder.fixed(repeatedInt32), unknownFields)
+}
+
+public fun UnknownToTestAllTypes.Companion.optionalGroup(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): UnknownToTestAllTypes.OptionalGroup {
+    val builder = UnknownToTestAllTypes.MutableOptionalGroup()
+    builder.builderAction()
+    return builder.toOptionalGroup()
 }
 
 @pbandk.Export
@@ -5227,6 +7869,33 @@ private class UnknownToTestAllTypes_OptionalGroup_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
+    override var a: Int?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : UnknownToTestAllTypes.MutableOptionalGroup, pbandk.MutableGeneratedMessage<UnknownToTestAllTypes.MutableOptionalGroup>() {
+    override val descriptor get() = UnknownToTestAllTypes.OptionalGroup.descriptor
+
+    override fun copy(
+        a: Int?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = UnknownToTestAllTypes_OptionalGroup_Impl(
+        a = a,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? UnknownToTestAllTypes.OptionalGroup)?.let {
+        it.copy(
+            a = other.a ?: a,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toOptionalGroup() = UnknownToTestAllTypes_OptionalGroup_Impl(
+        a = a,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

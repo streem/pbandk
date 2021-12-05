@@ -16,6 +16,7 @@ public sealed interface Duration : pbandk.Message {
     ): pbandk.wkt.Duration
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
+        @Deprecated("Use duration { } instead")
         public operator fun invoke(
             seconds: Long = 0L,
             nanos: Int = 0,
@@ -63,6 +64,37 @@ public sealed interface Duration : pbandk.Message {
     }
 }
 
+public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
+    public override var seconds: Long
+    public override var nanos: Int
+
+    public fun toDuration(): Duration
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
+        @Deprecated("Use duration { } instead")
+        public operator fun invoke(
+            seconds: Long = 0L,
+            nanos: Int = 0,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableDuration = MutableDuration_Impl(
+            seconds = seconds,
+            nanos = nanos,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableDuration by lazy { MutableDuration() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> get() = pbandk.wkt.Duration.descriptor
+    }
+}
+
+public fun duration(builderAction: MutableDuration.() -> Unit): Duration {
+    val builder = MutableDuration()
+    builder.builderAction()
+    return builder.toDuration()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForDuration")
 public fun Duration?.orDefault(): pbandk.wkt.Duration = this ?: Duration.defaultInstance
@@ -89,6 +121,36 @@ private class Duration_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableDuration_Impl(
+    override var seconds: Long,
+    override var nanos: Int,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableDuration, pbandk.MutableGeneratedMessage<MutableDuration>() {
+    override val descriptor get() = Duration.descriptor
+
+    override fun copy(
+        seconds: Long,
+        nanos: Int,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Duration_Impl(
+        seconds = seconds,
+        nanos = nanos,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Duration)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toDuration() = Duration_Impl(
+        seconds = seconds,
+        nanos = nanos,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

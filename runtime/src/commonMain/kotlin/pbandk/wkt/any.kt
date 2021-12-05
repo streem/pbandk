@@ -16,6 +16,7 @@ public sealed interface Any : pbandk.Message {
     ): pbandk.wkt.Any
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
+        @Deprecated("Use any { } instead")
         public operator fun invoke(
             typeUrl: String = "",
             value: pbandk.ByteArr = pbandk.ByteArr.empty,
@@ -63,6 +64,37 @@ public sealed interface Any : pbandk.Message {
     }
 }
 
+public sealed interface MutableAny : Any, pbandk.MutableMessage {
+    public override var typeUrl: String
+    public override var value: pbandk.ByteArr
+
+    public fun toAny(): Any
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
+        @Deprecated("Use any { } instead")
+        public operator fun invoke(
+            typeUrl: String = "",
+            value: pbandk.ByteArr = pbandk.ByteArr.empty,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableAny = MutableAny_Impl(
+            typeUrl = typeUrl,
+            value = value,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableAny by lazy { MutableAny() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> get() = pbandk.wkt.Any.descriptor
+    }
+}
+
+public fun any(builderAction: MutableAny.() -> Unit): Any {
+    val builder = MutableAny()
+    builder.builderAction()
+    return builder.toAny()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForAny")
 public fun Any?.orDefault(): pbandk.wkt.Any = this ?: Any.defaultInstance
@@ -89,6 +121,36 @@ private class Any_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableAny_Impl(
+    override var typeUrl: String,
+    override var value: pbandk.ByteArr,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableAny, pbandk.MutableGeneratedMessage<MutableAny>() {
+    override val descriptor get() = Any.descriptor
+
+    override fun copy(
+        typeUrl: String,
+        value: pbandk.ByteArr,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Any_Impl(
+        typeUrl = typeUrl,
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Any)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toAny() = Any_Impl(
+        typeUrl = typeUrl,
+        value = value,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

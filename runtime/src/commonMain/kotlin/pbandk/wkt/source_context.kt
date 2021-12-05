@@ -14,6 +14,7 @@ public sealed interface SourceContext : pbandk.Message {
     ): pbandk.wkt.SourceContext
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
+        @Deprecated("Use sourceContext { } instead")
         public operator fun invoke(
             fileName: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -49,6 +50,34 @@ public sealed interface SourceContext : pbandk.Message {
     }
 }
 
+public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMessage {
+    public override var fileName: String
+
+    public fun toSourceContext(): SourceContext
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
+        @Deprecated("Use sourceContext { } instead")
+        public operator fun invoke(
+            fileName: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableSourceContext = MutableSourceContext_Impl(
+            fileName = fileName,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableSourceContext by lazy { MutableSourceContext() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> get() = pbandk.wkt.SourceContext.descriptor
+    }
+}
+
+public fun sourceContext(builderAction: MutableSourceContext.() -> Unit): SourceContext {
+    val builder = MutableSourceContext()
+    builder.builderAction()
+    return builder.toSourceContext()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForSourceContext")
 public fun SourceContext?.orDefault(): pbandk.wkt.SourceContext = this ?: SourceContext.defaultInstance
@@ -72,6 +101,32 @@ private class SourceContext_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableSourceContext_Impl(
+    override var fileName: String,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableSourceContext, pbandk.MutableGeneratedMessage<MutableSourceContext>() {
+    override val descriptor get() = SourceContext.descriptor
+
+    override fun copy(
+        fileName: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = SourceContext_Impl(
+        fileName = fileName,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? SourceContext)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toSourceContext() = SourceContext_Impl(
+        fileName = fileName,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

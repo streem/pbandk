@@ -55,6 +55,7 @@ public sealed interface FailureSet : pbandk.Message {
     ): pbandk.conformance.pb.FailureSet
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
+        @Deprecated("Use failureSet { } instead")
         public operator fun invoke(
             failure: List<String> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -87,6 +88,28 @@ public sealed interface FailureSet : pbandk.Message {
                 fields = fieldsList
             )
         }
+    }
+}
+
+public sealed interface MutableFailureSet : FailureSet, pbandk.MutableMessage {
+    public override var failure: List<String>
+
+    public fun toFailureSet(): FailureSet
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
+        @Deprecated("Use failureSet { } instead")
+        public operator fun invoke(
+            failure: List<String> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableFailureSet = MutableFailureSet_Impl(
+            failure = failure,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableFailureSet by lazy { MutableFailureSet() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> get() = pbandk.conformance.pb.FailureSet.descriptor
     }
 }
 
@@ -124,6 +147,7 @@ public sealed interface ConformanceRequest : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
+        @Deprecated("Use conformanceRequest { } instead")
         public operator fun invoke(
             requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
             messageType: String = "",
@@ -253,6 +277,48 @@ public sealed interface ConformanceRequest : pbandk.Message {
     }
 }
 
+public sealed interface MutableConformanceRequest : ConformanceRequest, pbandk.MutableMessage {
+    public override var requestedOutputFormat: pbandk.conformance.pb.WireFormat
+    public override var messageType: String
+    public override var testCategory: pbandk.conformance.pb.TestCategory
+    public override var jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig?
+    public override var printUnknownFields: Boolean
+    public override var payload: ConformanceRequest.Payload<*>?
+
+    public override var protobufPayload: pbandk.ByteArr?
+    public override var jsonPayload: String?
+    public override var jspbPayload: String?
+    public override var textPayload: String?
+
+    public fun toConformanceRequest(): ConformanceRequest
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
+        @Deprecated("Use conformanceRequest { } instead")
+        public operator fun invoke(
+            requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
+            messageType: String = "",
+            testCategory: pbandk.conformance.pb.TestCategory = pbandk.conformance.pb.TestCategory.fromValue(0),
+            jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig? = null,
+            printUnknownFields: Boolean = false,
+            payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableConformanceRequest = MutableConformanceRequest_Impl(
+            requestedOutputFormat = requestedOutputFormat,
+            messageType = messageType,
+            testCategory = testCategory,
+            jspbEncodingOptions = jspbEncodingOptions,
+            printUnknownFields = printUnknownFields,
+            payload = payload,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableConformanceRequest by lazy { MutableConformanceRequest() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> get() = pbandk.conformance.pb.ConformanceRequest.descriptor
+    }
+}
+
 public sealed interface ConformanceResponse : pbandk.Message {
     public val result: Result<*>?
 
@@ -285,6 +351,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
+        @Deprecated("Use conformanceResponse { } instead")
         public operator fun invoke(
             result: Result<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -398,6 +465,37 @@ public sealed interface ConformanceResponse : pbandk.Message {
     }
 }
 
+public sealed interface MutableConformanceResponse : ConformanceResponse, pbandk.MutableMessage {
+    public override var result: ConformanceResponse.Result<*>?
+
+    public override var parseError: String?
+    public override var serializeError: String?
+    public override var runtimeError: String?
+    public override var protobufPayload: pbandk.ByteArr?
+    public override var jsonPayload: String?
+    public override var skipped: String?
+    public override var jspbPayload: String?
+    public override var textPayload: String?
+
+    public fun toConformanceResponse(): ConformanceResponse
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
+        @Deprecated("Use conformanceResponse { } instead")
+        public operator fun invoke(
+            result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableConformanceResponse = MutableConformanceResponse_Impl(
+            result = result,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableConformanceResponse by lazy { MutableConformanceResponse() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> get() = pbandk.conformance.pb.ConformanceResponse.descriptor
+    }
+}
+
 public sealed interface JspbEncodingConfig : pbandk.Message {
     public val useJspbArrayAnyFormat: Boolean
 
@@ -410,6 +508,7 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
     ): pbandk.conformance.pb.JspbEncodingConfig
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
+        @Deprecated("Use jspbEncodingConfig { } instead")
         public operator fun invoke(
             useJspbArrayAnyFormat: Boolean = false,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -445,6 +544,34 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
     }
 }
 
+public sealed interface MutableJspbEncodingConfig : JspbEncodingConfig, pbandk.MutableMessage {
+    public override var useJspbArrayAnyFormat: Boolean
+
+    public fun toJspbEncodingConfig(): JspbEncodingConfig
+
+    public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
+        @Deprecated("Use jspbEncodingConfig { } instead")
+        public operator fun invoke(
+            useJspbArrayAnyFormat: Boolean = false,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableJspbEncodingConfig = MutableJspbEncodingConfig_Impl(
+            useJspbArrayAnyFormat = useJspbArrayAnyFormat,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableJspbEncodingConfig by lazy { MutableJspbEncodingConfig() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> get() = pbandk.conformance.pb.JspbEncodingConfig.descriptor
+    }
+}
+
+public fun failureSet(builderAction: MutableFailureSet.() -> Unit): FailureSet {
+    val builder = MutableFailureSet()
+    builder.builderAction()
+    return builder.toFailureSet()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForFailureSet")
 public fun FailureSet?.orDefault(): pbandk.conformance.pb.FailureSet = this ?: FailureSet.defaultInstance
@@ -471,6 +598,33 @@ private class FailureSet_Impl(
     } ?: this
 }
 
+private class MutableFailureSet_Impl(
+    override var failure: List<String>,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableFailureSet, pbandk.MutableGeneratedMessage<MutableFailureSet>() {
+    override val descriptor get() = FailureSet.descriptor
+
+    override fun copy(
+        failure: List<String>,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = FailureSet_Impl(
+        failure = failure,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? FailureSet)?.let {
+        it.copy(
+            failure = failure + other.failure,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toFailureSet() = FailureSet_Impl(
+        failure = failure,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FailureSet {
     var failure: pbandk.ListWithSize.Builder<String>? = null
@@ -481,6 +635,12 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
         }
     }
     return FailureSet(pbandk.ListWithSize.Builder.fixed(failure), unknownFields)
+}
+
+public fun conformanceRequest(builderAction: MutableConformanceRequest.() -> Unit): ConformanceRequest {
+    val builder = MutableConformanceRequest()
+    builder.builderAction()
+    return builder.toConformanceRequest()
 }
 
 @pbandk.Export
@@ -534,6 +694,67 @@ private class ConformanceRequest_Impl(
     } ?: this
 }
 
+private class MutableConformanceRequest_Impl(
+    override var requestedOutputFormat: pbandk.conformance.pb.WireFormat,
+    override var messageType: String,
+    override var testCategory: pbandk.conformance.pb.TestCategory,
+    override var jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig?,
+    override var printUnknownFields: Boolean,
+    override var payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableConformanceRequest, pbandk.MutableGeneratedMessage<MutableConformanceRequest>() {
+    override val descriptor get() = ConformanceRequest.descriptor
+
+    override var protobufPayload: pbandk.ByteArr?
+        get() = (payload as? pbandk.conformance.pb.ConformanceRequest.Payload.ProtobufPayload)?.value
+        set(value) { payload = value?.let { pbandk.conformance.pb.ConformanceRequest.Payload.ProtobufPayload(it) } }
+    override var jsonPayload: String?
+        get() = (payload as? pbandk.conformance.pb.ConformanceRequest.Payload.JsonPayload)?.value
+        set(value) { payload = value?.let { pbandk.conformance.pb.ConformanceRequest.Payload.JsonPayload(it) } }
+    override var jspbPayload: String?
+        get() = (payload as? pbandk.conformance.pb.ConformanceRequest.Payload.JspbPayload)?.value
+        set(value) { payload = value?.let { pbandk.conformance.pb.ConformanceRequest.Payload.JspbPayload(it) } }
+    override var textPayload: String?
+        get() = (payload as? pbandk.conformance.pb.ConformanceRequest.Payload.TextPayload)?.value
+        set(value) { payload = value?.let { pbandk.conformance.pb.ConformanceRequest.Payload.TextPayload(it) } }
+
+    override fun copy(
+        requestedOutputFormat: pbandk.conformance.pb.WireFormat,
+        messageType: String,
+        testCategory: pbandk.conformance.pb.TestCategory,
+        jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig?,
+        printUnknownFields: Boolean,
+        payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = ConformanceRequest_Impl(
+        requestedOutputFormat = requestedOutputFormat,
+        messageType = messageType,
+        testCategory = testCategory,
+        jspbEncodingOptions = jspbEncodingOptions,
+        printUnknownFields = printUnknownFields,
+        payload = payload,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? ConformanceRequest)?.let {
+        it.copy(
+            jspbEncodingOptions = jspbEncodingOptions?.plus(other.jspbEncodingOptions) ?: other.jspbEncodingOptions,
+            payload = other.payload ?: payload,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toConformanceRequest() = ConformanceRequest_Impl(
+        requestedOutputFormat = requestedOutputFormat,
+        messageType = messageType,
+        testCategory = testCategory,
+        jspbEncodingOptions = jspbEncodingOptions,
+        printUnknownFields = printUnknownFields,
+        payload = payload,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ConformanceRequest {
     var requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0)
@@ -558,6 +779,12 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
     }
     return ConformanceRequest(requestedOutputFormat, messageType, testCategory, jspbEncodingOptions,
         printUnknownFields, payload, unknownFields)
+}
+
+public fun conformanceResponse(builderAction: MutableConformanceResponse.() -> Unit): ConformanceResponse {
+    val builder = MutableConformanceResponse()
+    builder.builderAction()
+    return builder.toConformanceResponse()
 }
 
 @pbandk.Export
@@ -603,6 +830,58 @@ private class ConformanceResponse_Impl(
     } ?: this
 }
 
+private class MutableConformanceResponse_Impl(
+    override var result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableConformanceResponse, pbandk.MutableGeneratedMessage<MutableConformanceResponse>() {
+    override val descriptor get() = ConformanceResponse.descriptor
+
+    override var parseError: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.ParseError)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.ParseError(it) } }
+    override var serializeError: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.SerializeError)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.SerializeError(it) } }
+    override var runtimeError: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.RuntimeError)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.RuntimeError(it) } }
+    override var protobufPayload: pbandk.ByteArr?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.ProtobufPayload)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.ProtobufPayload(it) } }
+    override var jsonPayload: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.JsonPayload)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.JsonPayload(it) } }
+    override var skipped: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.Skipped)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.Skipped(it) } }
+    override var jspbPayload: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.JspbPayload)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.JspbPayload(it) } }
+    override var textPayload: String?
+        get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.TextPayload)?.value
+        set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.TextPayload(it) } }
+
+    override fun copy(
+        result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = ConformanceResponse_Impl(
+        result = result,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? ConformanceResponse)?.let {
+        it.copy(
+            result = other.result ?: result,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toConformanceResponse() = ConformanceResponse_Impl(
+        result = result,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecoder): ConformanceResponse {
     var result: ConformanceResponse.Result<*>? = null
@@ -620,6 +899,12 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
         }
     }
     return ConformanceResponse(result, unknownFields)
+}
+
+public fun jspbEncodingConfig(builderAction: MutableJspbEncodingConfig.() -> Unit): JspbEncodingConfig {
+    val builder = MutableJspbEncodingConfig()
+    builder.builderAction()
+    return builder.toJspbEncodingConfig()
 }
 
 @pbandk.Export
@@ -645,6 +930,32 @@ private class JspbEncodingConfig_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableJspbEncodingConfig_Impl(
+    override var useJspbArrayAnyFormat: Boolean,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableJspbEncodingConfig, pbandk.MutableGeneratedMessage<MutableJspbEncodingConfig>() {
+    override val descriptor get() = JspbEncodingConfig.descriptor
+
+    override fun copy(
+        useJspbArrayAnyFormat: Boolean,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = JspbEncodingConfig_Impl(
+        useJspbArrayAnyFormat = useJspbArrayAnyFormat,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? JspbEncodingConfig)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toJspbEncodingConfig() = JspbEncodingConfig_Impl(
+        useJspbArrayAnyFormat = useJspbArrayAnyFormat,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

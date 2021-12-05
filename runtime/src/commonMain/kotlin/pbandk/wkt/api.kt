@@ -26,6 +26,7 @@ public sealed interface Api : pbandk.Message {
     ): pbandk.wkt.Api
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
+        @Deprecated("Use api { } instead")
         public operator fun invoke(
             name: String = "",
             methods: List<pbandk.wkt.Method> = emptyList(),
@@ -133,6 +134,46 @@ public sealed interface Api : pbandk.Message {
     }
 }
 
+public sealed interface MutableApi : Api, pbandk.MutableMessage {
+    public override var name: String
+    public override var methods: List<pbandk.wkt.Method>
+    public override var options: List<pbandk.wkt.Option>
+    public override var version: String
+    public override var sourceContext: pbandk.wkt.SourceContext?
+    public override var mixins: List<pbandk.wkt.Mixin>
+    public override var syntax: pbandk.wkt.Syntax
+
+    public fun toApi(): Api
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
+        @Deprecated("Use api { } instead")
+        public operator fun invoke(
+            name: String = "",
+            methods: List<pbandk.wkt.Method> = emptyList(),
+            options: List<pbandk.wkt.Option> = emptyList(),
+            version: String = "",
+            sourceContext: pbandk.wkt.SourceContext? = null,
+            mixins: List<pbandk.wkt.Mixin> = emptyList(),
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableApi = MutableApi_Impl(
+            name = name,
+            methods = methods,
+            options = options,
+            version = version,
+            sourceContext = sourceContext,
+            mixins = mixins,
+            syntax = syntax,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableApi by lazy { MutableApi() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> get() = pbandk.wkt.Api.descriptor
+    }
+}
+
 public sealed interface Method : pbandk.Message {
     public val name: String
     public val requestTypeUrl: String
@@ -157,6 +198,7 @@ public sealed interface Method : pbandk.Message {
     ): pbandk.wkt.Method
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
+        @Deprecated("Use method { } instead")
         public operator fun invoke(
             name: String = "",
             requestTypeUrl: String = "",
@@ -264,6 +306,46 @@ public sealed interface Method : pbandk.Message {
     }
 }
 
+public sealed interface MutableMethod : Method, pbandk.MutableMessage {
+    public override var name: String
+    public override var requestTypeUrl: String
+    public override var requestStreaming: Boolean
+    public override var responseTypeUrl: String
+    public override var responseStreaming: Boolean
+    public override var options: List<pbandk.wkt.Option>
+    public override var syntax: pbandk.wkt.Syntax
+
+    public fun toMethod(): Method
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
+        @Deprecated("Use method { } instead")
+        public operator fun invoke(
+            name: String = "",
+            requestTypeUrl: String = "",
+            requestStreaming: Boolean = false,
+            responseTypeUrl: String = "",
+            responseStreaming: Boolean = false,
+            options: List<pbandk.wkt.Option> = emptyList(),
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableMethod = MutableMethod_Impl(
+            name = name,
+            requestTypeUrl = requestTypeUrl,
+            requestStreaming = requestStreaming,
+            responseTypeUrl = responseTypeUrl,
+            responseStreaming = responseStreaming,
+            options = options,
+            syntax = syntax,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableMethod by lazy { MutableMethod() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> get() = pbandk.wkt.Method.descriptor
+    }
+}
+
 public sealed interface Mixin : pbandk.Message {
     public val name: String
     public val root: String
@@ -278,6 +360,7 @@ public sealed interface Mixin : pbandk.Message {
     ): pbandk.wkt.Mixin
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
+        @Deprecated("Use mixin { } instead")
         public operator fun invoke(
             name: String = "",
             root: String = "",
@@ -323,6 +406,37 @@ public sealed interface Mixin : pbandk.Message {
             )
         }
     }
+}
+
+public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
+    public override var name: String
+    public override var root: String
+
+    public fun toMixin(): Mixin
+
+    public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
+        @Deprecated("Use mixin { } instead")
+        public operator fun invoke(
+            name: String = "",
+            root: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableMixin = MutableMixin_Impl(
+            name = name,
+            root = root,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableMixin by lazy { MutableMixin() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> get() = pbandk.wkt.Mixin.descriptor
+    }
+}
+
+public fun api(builderAction: MutableApi.() -> Unit): Api {
+    val builder = MutableApi()
+    builder.builderAction()
+    return builder.toApi()
 }
 
 @pbandk.Export
@@ -372,6 +486,60 @@ private class Api_Impl(
     } ?: this
 }
 
+private class MutableApi_Impl(
+    override var name: String,
+    override var methods: List<pbandk.wkt.Method>,
+    override var options: List<pbandk.wkt.Option>,
+    override var version: String,
+    override var sourceContext: pbandk.wkt.SourceContext?,
+    override var mixins: List<pbandk.wkt.Mixin>,
+    override var syntax: pbandk.wkt.Syntax,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableApi, pbandk.MutableGeneratedMessage<MutableApi>() {
+    override val descriptor get() = Api.descriptor
+
+    override fun copy(
+        name: String,
+        methods: List<pbandk.wkt.Method>,
+        options: List<pbandk.wkt.Option>,
+        version: String,
+        sourceContext: pbandk.wkt.SourceContext?,
+        mixins: List<pbandk.wkt.Mixin>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Api_Impl(
+        name = name,
+        methods = methods,
+        options = options,
+        version = version,
+        sourceContext = sourceContext,
+        mixins = mixins,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Api)?.let {
+        it.copy(
+            methods = methods + other.methods,
+            options = options + other.options,
+            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
+            mixins = mixins + other.mixins,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toApi() = Api_Impl(
+        name = name,
+        methods = methods,
+        options = options,
+        version = version,
+        sourceContext = sourceContext,
+        mixins = mixins,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
     var name = ""
@@ -395,6 +563,12 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
     }
     return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
         sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
+}
+
+public fun method(builderAction: MutableMethod.() -> Unit): Method {
+    val builder = MutableMethod()
+    builder.builderAction()
+    return builder.toMethod()
 }
 
 @pbandk.Export
@@ -441,6 +615,57 @@ private class Method_Impl(
     } ?: this
 }
 
+private class MutableMethod_Impl(
+    override var name: String,
+    override var requestTypeUrl: String,
+    override var requestStreaming: Boolean,
+    override var responseTypeUrl: String,
+    override var responseStreaming: Boolean,
+    override var options: List<pbandk.wkt.Option>,
+    override var syntax: pbandk.wkt.Syntax,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableMethod, pbandk.MutableGeneratedMessage<MutableMethod>() {
+    override val descriptor get() = Method.descriptor
+
+    override fun copy(
+        name: String,
+        requestTypeUrl: String,
+        requestStreaming: Boolean,
+        responseTypeUrl: String,
+        responseStreaming: Boolean,
+        options: List<pbandk.wkt.Option>,
+        syntax: pbandk.wkt.Syntax,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Method_Impl(
+        name = name,
+        requestTypeUrl = requestTypeUrl,
+        requestStreaming = requestStreaming,
+        responseTypeUrl = responseTypeUrl,
+        responseStreaming = responseStreaming,
+        options = options,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Method)?.let {
+        it.copy(
+            options = options + other.options,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMethod() = Method_Impl(
+        name = name,
+        requestTypeUrl = requestTypeUrl,
+        requestStreaming = requestStreaming,
+        responseTypeUrl = responseTypeUrl,
+        responseStreaming = responseStreaming,
+        options = options,
+        syntax = syntax,
+        unknownFields = unknownFields
+    )
+}
+
 @Suppress("UNCHECKED_CAST")
 private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
     var name = ""
@@ -464,6 +689,12 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
     }
     return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl,
         responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
+}
+
+public fun mixin(builderAction: MutableMixin.() -> Unit): Mixin {
+    val builder = MutableMixin()
+    builder.builderAction()
+    return builder.toMixin()
 }
 
 @pbandk.Export
@@ -492,6 +723,36 @@ private class Mixin_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableMixin_Impl(
+    override var name: String,
+    override var root: String,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableMixin, pbandk.MutableGeneratedMessage<MutableMixin>() {
+    override val descriptor get() = Mixin.descriptor
+
+    override fun copy(
+        name: String,
+        root: String,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Mixin_Impl(
+        name = name,
+        root = root,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Mixin)?.let {
+        it.copy(
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toMixin() = Mixin_Impl(
+        name = name,
+        root = root,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")

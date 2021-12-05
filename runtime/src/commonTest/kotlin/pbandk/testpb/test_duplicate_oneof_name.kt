@@ -24,6 +24,7 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
+        @Deprecated("Use value { } instead")
         public operator fun invoke(
             value: Value<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -82,6 +83,38 @@ public sealed interface Value : pbandk.Message {
     }
 }
 
+public sealed interface MutableValue : Value, pbandk.MutableMessage {
+    public override var value: Value.Value<*>?
+
+    public override var stringValue: String?
+    public override var booleanValue: Boolean?
+    public override var integerValue: Int?
+
+    public fun toValue(): Value
+
+    public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
+        @Deprecated("Use value { } instead")
+        public operator fun invoke(
+            value: pbandk.testpb.Value.Value<*>? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): MutableValue = MutableValue_Impl(
+            value = value,
+            unknownFields = unknownFields.toMutableMap()
+        )
+
+        public val defaultInstance: MutableValue by lazy { MutableValue() }
+        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
+
+        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> get() = pbandk.testpb.Value.descriptor
+    }
+}
+
+public fun value(builderAction: MutableValue.() -> Unit): Value {
+    val builder = MutableValue()
+    builder.builderAction()
+    return builder.toValue()
+}
+
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
 public fun Value?.orDefault(): pbandk.testpb.Value = this ?: Value.defaultInstance
@@ -113,6 +146,43 @@ private class Value_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+}
+
+private class MutableValue_Impl(
+    override var value: pbandk.testpb.Value.Value<*>?,
+    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : MutableValue, pbandk.MutableGeneratedMessage<MutableValue>() {
+    override val descriptor get() = Value.descriptor
+
+    override var stringValue: String?
+        get() = (value as? pbandk.testpb.Value.Value.StringValue)?.value
+        set(value) { value = value?.let { pbandk.testpb.Value.Value.StringValue(it) } }
+    override var booleanValue: Boolean?
+        get() = (value as? pbandk.testpb.Value.Value.BooleanValue)?.value
+        set(value) { value = value?.let { pbandk.testpb.Value.Value.BooleanValue(it) } }
+    override var integerValue: Int?
+        get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
+        set(value) { value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
+
+    override fun copy(
+        value: pbandk.testpb.Value.Value<*>?,
+        unknownFields: Map<Int, pbandk.UnknownField>
+    ) = Value_Impl(
+        value = value,
+        unknownFields = unknownFields
+    )
+
+    override operator fun plus(other: pbandk.Message?) = (other as? Value)?.let {
+        it.copy(
+            value = other.value ?: value,
+            unknownFields = unknownFields + other.unknownFields
+        )
+    } ?: this
+
+    override fun toValue() = Value_Impl(
+        value = value,
+        unknownFields = unknownFields
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
