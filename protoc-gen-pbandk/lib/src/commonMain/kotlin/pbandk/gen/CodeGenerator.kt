@@ -138,6 +138,7 @@ public open class CodeGenerator(
 
             // Companion object
             line("$visibility companion object : pbandk.Message.Companion<${type.kotlinTypeNameWithPackage}> {").indented {
+                line("@Deprecated(\"Use ${type.kotlinTypeName.replaceFirstChar { it.lowercase() }} { } instead\")")
                 line("$visibility operator fun invoke(").indented {
                     type.fields.forEach { field ->
                         lineBegin("${field.kotlinFieldName}: ")
@@ -153,7 +154,7 @@ public open class CodeGenerator(
                     line("unknownFields = unknownFields")
                 }.line(")").line()
 
-                line("$visibility val defaultInstance: ${type.kotlinTypeNameWithPackage} by lazy { ${type.kotlinTypeNameWithPackage}() }")
+                line("@Suppress(\"DEPRECATION\")").line("$visibility val defaultInstance: ${type.kotlinTypeNameWithPackage} by lazy { ${type.kotlinTypeNameWithPackage}() }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinTypeNameWithPackage} = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type)
@@ -191,6 +192,7 @@ public open class CodeGenerator(
                 } else {
                     "Mutable${type.kotlinTypeName}_Impl"
                 }
+                line("@Deprecated(\"Use ${type.kotlinTypeName.replaceFirstChar { it.lowercase() }} { } instead\")")
                 line("$visibility operator fun invoke(").indented {
                     type.fields.forEach { field ->
                         lineBegin("${field.kotlinFieldName}: ")
@@ -206,7 +208,7 @@ public open class CodeGenerator(
                     line("unknownFields = unknownFields.toMutableMap()")
                 }.line(")").line()
 
-                line("$visibility val defaultInstance: Mutable${type.kotlinTypeName} by lazy { Mutable${type.kotlinTypeName}() }")
+                line("@Suppress(\"DEPRECATION\")").line("$visibility val defaultInstance: Mutable${type.kotlinTypeName} by lazy { Mutable${type.kotlinTypeName}() }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinTypeNameWithPackage} = ${type.kotlinTypeNameWithPackage}.decodeWithImpl(u)")
                 line()
                 line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinTypeNameWithPackage}> get() = ${type.kotlinTypeNameWithPackage}.descriptor")
@@ -358,10 +360,19 @@ public open class CodeGenerator(
 
         line()
         line("$visibility fun $builderPrefix${builderName}(builderAction: $mutableTypeName.() -> Unit): ${type.kotlinFullTypeName} {").indented {
-            line("val builder = $mutableTypeName()")
+            line("@Suppress(\"DEPRECATION\") val builder = $mutableTypeName()")
             line("builder.builderAction()")
             line("return builder.to${type.kotlinTypeName}()")
         }.line("}")
+
+        /*
+        TODO: implement once "nested" can be a recursive property associated with `type`
+        if (nested) {
+            val parentTypeName = type.kotlinFullTypeName.substringBeforeLast('.')
+            line()
+            line("$visibility fun $mutableParentTypeName.$builderName(builderAction: $mutableTypeName.() -> Unit) = ${parentTypeName}.${builderName}(builderAction)")
+        }
+         */
     }
 
     protected fun writeMessageOrDefaultExtension(type: File.Type.Message) {
@@ -675,7 +686,7 @@ public open class CodeGenerator(
             } ?: lineEnd("_, _ -> }")
 
             // Wrap the params to the class and return it
-            lineBegin("return ${type.kotlinFullTypeName}(")
+            line("@Suppress(\"DEPRECATION\")").lineBegin("return ${type.kotlinFullTypeName}(")
             val chunkedDoneFields = doneKotlinFields.chunked(4)
             chunkedDoneFields.forEachIndexed { index, doneFieldSet ->
                 val doneFieldStr = doneFieldSet.joinToString(", ", postfix = ",")
