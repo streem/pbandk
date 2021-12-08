@@ -2001,9 +2001,9 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
                         number = 20,
                         type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                         jsonName = "javaGenerateEqualsAndHash",
-                        options = pbandk.wkt.FieldOptions(
+                        options = pbandk.wkt.fieldOptions {
                             deprecated = true
-                        ),
+                        },
                         value = pbandk.wkt.FileOptions::javaGenerateEqualsAndHash
                     )
                 )

@@ -41,7 +41,7 @@ class WellKnownTypesTest {
             any {
                 typeUrl = "foo"
                 value = ByteArr("bar".toByteArray())
-                unknownFields = mutableMapOf( // TODO: this should be doable with a regular mapOf()
+                unknownFields += mapOf(
                     35 to UnknownField(
                         35,
                         listOf(

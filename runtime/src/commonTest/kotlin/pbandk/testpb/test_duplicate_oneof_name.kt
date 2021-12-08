@@ -158,13 +158,13 @@ private class MutableValue_Impl(
 
     override var stringValue: String?
         get() = (value as? pbandk.testpb.Value.Value.StringValue)?.value
-        set(value) { value = value?.let { pbandk.testpb.Value.Value.StringValue(it) } }
+        set(value) { this.value = value?.let { pbandk.testpb.Value.Value.StringValue(it) } }
     override var booleanValue: Boolean?
         get() = (value as? pbandk.testpb.Value.Value.BooleanValue)?.value
-        set(value) { value = value?.let { pbandk.testpb.Value.Value.BooleanValue(it) } }
+        set(value) { this.value = value?.let { pbandk.testpb.Value.Value.BooleanValue(it) } }
     override var integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
-        set(value) { value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
+        set(value) { this.value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
 
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,

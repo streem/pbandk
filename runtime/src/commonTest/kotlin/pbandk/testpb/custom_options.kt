@@ -37,8 +37,8 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "single",
-                        options = pbandk.wkt.FieldOptions(
-                            unknownFields = mapOf(
+                        options = pbandk.wkt.fieldOptions {
+                            unknownFields += mapOf(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
                                     values = listOf(
@@ -46,7 +46,7 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
                                     )
                                 )
                             )
-                        ),
+                        },
                         value = pbandk.testpb.SingleRequiredCustomOption::single
                     )
                 )
@@ -119,8 +119,8 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "multiple",
-                        options = pbandk.wkt.FieldOptions(
-                            unknownFields = mapOf(
+                        options = pbandk.wkt.fieldOptions {
+                            unknownFields += mapOf(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
                                     values = listOf(
@@ -129,7 +129,7 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
                                     )
                                 )
                             )
-                        ),
+                        },
                         value = pbandk.testpb.MultipleCustomOptions::multiple
                     )
                 )
@@ -205,9 +205,9 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.String(),
                         jsonName = "multipleDeprecated",
-                        options = pbandk.wkt.FieldOptions(
+                        options = pbandk.wkt.fieldOptions {
                             deprecated = true,
-                            unknownFields = mapOf(
+                            unknownFields += mapOf(
                                 1071 to pbandk.UnknownField(
                                     fieldNum = 1071,
                                     values = listOf(
@@ -216,7 +216,7 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
                                     )
                                 )
                             )
-                        ),
+                        },
                         value = pbandk.testpb.MultipleCustomOptionsPlusDeprecated::multipleDeprecated
                     )
                 )

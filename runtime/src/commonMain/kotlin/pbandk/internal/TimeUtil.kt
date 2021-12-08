@@ -2,6 +2,8 @@ package pbandk.internal
 
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
+import pbandk.wkt.duration
+import pbandk.wkt.timestamp
 
 /*
 These functions are adapted from the similarly-named functions in the protobuf C++ library:
@@ -31,9 +33,9 @@ private const val SECONDS_FROM_ERA_TO_EPOCH = 62135596800L
 // after.
 private fun secondsPer100Years(year: Int): Long {
     return if (year % 400 == 0 || year % 400 > 300) {
-        SECONDS_PER_DAY * (100 * 365 + 100 / 4);
+        SECONDS_PER_DAY * (100 * 365 + 100 / 4)
     } else {
-        SECONDS_PER_DAY * (100 * 365 + 100 / 4 - 1);
+        SECONDS_PER_DAY * (100 * 365 + 100 / 4 - 1)
     }
 }
 
@@ -56,17 +58,17 @@ private fun secondsPerYear(year: Int): Long = SECONDS_PER_DAY * (if (isLeapYear(
 private val DAYS_IN_MONTH = arrayOf(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
 private fun secondsPerMonth(month: Int, leap: Boolean): Long =
-        SECONDS_PER_DAY * (DAYS_IN_MONTH[month] + if (month == 2 && leap) 1 else 0)
+    SECONDS_PER_DAY * (DAYS_IN_MONTH[month] + if (month == 2 && leap) 1 else 0)
 
 private val DAYS_SINCE_JAN = arrayOf(0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334)
 
 private data class DateTime(
-        val year: Int,
-        val month: Int,
-        val day: Int,
-        val hour: Int,
-        val minute: Int,
-        val second: Int
+    val year: Int,
+    val month: Int,
+    val day: Int,
+    val hour: Int,
+    val minute: Int,
+    val second: Int
 ) {
     companion object
 }
@@ -156,13 +158,13 @@ internal fun formatTime(seconds: Long, nanos: Int): String {
 }
 
 private fun formatNanos(nanos: Int): String =
-        when {
-            nanos % NANOS_PER_MILLISECOND == 0 ->
-                (nanos / NANOS_PER_MILLISECOND).toString().padStart(3, '0')
-            nanos % NANOS_PER_MICROSECOND == 0 ->
-                (nanos / NANOS_PER_MICROSECOND).toString().padStart(6, '0')
-            else -> nanos.toString().padStart(9, '0')
-        }
+    when {
+        nanos % NANOS_PER_MILLISECOND == 0 ->
+            (nanos / NANOS_PER_MILLISECOND).toString().padStart(3, '0')
+        nanos % NANOS_PER_MICROSECOND == 0 ->
+            (nanos / NANOS_PER_MICROSECOND).toString().padStart(6, '0')
+        else -> nanos.toString().padStart(9, '0')
+    }
 
 // endregion
 
@@ -277,18 +279,18 @@ private val DateTime.secondsSinceCommonEra: Long
 
 private fun DateTime.validate(): Boolean {
     if (year !in 1..9999 ||
-            month !in 1..12 ||
-            day !in 1..31 ||
-            hour !in 0..23 ||
-            minute !in 0..59 ||
-            second !in 0..59
+        month !in 1..12 ||
+        day !in 1..31 ||
+        hour !in 0..23 ||
+        minute !in 0..59 ||
+        second !in 0..59
     ) {
-        return false;
+        return false
     }
     return if (month == 2 && isLeapYear(year)) {
-        day <= DAYS_IN_MONTH[month] + 1;
+        day <= DAYS_IN_MONTH[month] + 1
     } else {
-        day <= DAYS_IN_MONTH[month];
+        day <= DAYS_IN_MONTH[month]
     }
 }
 
@@ -352,14 +354,17 @@ internal fun parseTime(str: String): Timestamp {
         '+' -> -parseTimezoneOffset(str, parsePosition)
         '-' -> parseTimezoneOffset(str, parsePosition)
         else -> throw IllegalArgumentException(
-                "Expected 'Z' or timezone offset at: ${str.substring(parsePosition.position - 1)}"
+            "Expected 'Z' or timezone offset at: ${str.substring(parsePosition.position - 1)}"
         )
     }
     require(parsePosition.position == str.length) {
         "Didn't parse entire string: position=${parsePosition.position}, length=${str.length}"
     }
 
-    return Timestamp(seconds = seconds + secondsOffset, nanos = nanos)
+    return timestamp {
+        this.seconds = seconds + secondsOffset
+        this.nanos = nanos
+    }
 }
 
 // endregion
@@ -422,7 +427,10 @@ internal fun parseDuration(str: String): Duration {
         "Duration nanos outside of allowed range: '$nanos' !in -999999999..999999999"
     }
 
-    return Duration(seconds, nanos)
+    return duration {
+        this.seconds = seconds
+        this.nanos = nanos
+    }
 }
 
 // endregion

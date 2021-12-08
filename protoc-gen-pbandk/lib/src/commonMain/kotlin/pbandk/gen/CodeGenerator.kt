@@ -302,7 +302,7 @@ public open class CodeGenerator(
         // We don't use/support other field option values currently. Once we support all of the options, this check
         // should change to `fieldOptions != FieldOptions.defaultInstance`
         if (fieldOptions.deprecated != null || fieldOptions.unknownFields.isNotEmpty()) {
-            line("options = pbandk.wkt.FieldOptions(").indented {
+            line("options = pbandk.wkt.fieldOptions {").indented {
                 fieldOptions.deprecated?.let {
                     lineBegin("deprecated = $it")
                     if (fieldOptions.unknownFields.isEmpty()) lineEnd() else lineEnd(",")
@@ -310,12 +310,12 @@ public open class CodeGenerator(
                 if (fieldOptions.unknownFields.isNotEmpty()) {
                     generateUnknownFields(fieldOptions.unknownFields)
                 }
-            }.line("),")
+            }.line("},")
         }
     }
 
     private fun generateUnknownFields(unknownFields: Map<Int, UnknownField>) {
-        line("unknownFields = mapOf(").indented {
+        line("unknownFields += mapOf(").indented {
             val lastFieldIndex = unknownFields.size - 1
             unknownFields.values.forEachIndexed { fieldIndex, field ->
                 line("${field.fieldNum} to pbandk.UnknownField(").indented {
@@ -593,6 +593,7 @@ public open class CodeGenerator(
                         lineMid("(${oneOf.kotlinFieldName} as? ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
                         lineEnd("?.value")
                         lineBegin("set(value) { ")
+                        if (oneOf.kotlinFieldName == "value") lineMid("this.")
                         lineMid("${oneOf.kotlinFieldName} = value?.let { ${type.kotlinTypeNameWithPackage}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]}(it) }")
                         lineEnd(" }")
                     }

@@ -44,7 +44,7 @@ public interface Message {
 }
 
 public interface MutableMessage : Message {
-    public override var unknownFields: MutableMap<Int, UnknownField>
+    public override val unknownFields: MutableMap<Int, UnknownField>
 
     // TODO: public override operator fun plus(other: Message?): MutableMessage
 }

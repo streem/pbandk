@@ -23,9 +23,9 @@ class OutputDefaultValuesTest {
 
     @Test
     fun testOutputDefaultValues_true() {
-        val jsonString = TestAllTypesProto3(
+        val jsonString = testAllTypesProto3 {
             optionalBoolWrapper = false
-        ).encodeToJsonString(JsonConfig.DEFAULT.copy(outputDefaultValues = true))
+        }.encodeToJsonString(JsonConfig.DEFAULT.copy(outputDefaultValues = true))
         val parsedJson = Json.parseToJsonElement(jsonString).jsonObject
 
         assertEquals(JsonPrimitive(false), parsedJson["optionalBool"])
