@@ -5,13 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.13.0] - Unreleased
+## [0.13.0] - 2021-12-08
 
-[0.13.0]: https://github.com/streem/pbandk/compare/v0.12.1...HEAD
+[0.13.0]: https://github.com/streem/pbandk/compare/v0.12.1...v0.13.0
 
 ### Added
 
-* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this version of `protoc-gen-pbandk`. (PR [#184])
+* **[BREAKING CHANGE]** Added `MessageDescriptor.fullName` and `MessageDescriptor.name` properties. All protobuf types have to be regenerated using this version of `protoc-gen-pbandk`. (PRs [#184], [#192])
 * Added special support for protobuf's `google.protobuf.Any` message type. (PR [#185], fixes [#63], partially fixes [#72])
     * Added `Any.Companion.pack()`, `Any.unpack()`, and `Any.isA()` convenience methods for working with `Any` instances. These methods mirror the same-named methods in other protobuf libraries.
     * The special JSON format used for `google.protobuf.Any` messsages is now correctly used during JSON encoding/decoding. Provide a value for `JsonConfig.typeRegistry` (which can be constructed using the new `typeRegistry {...}` builder) when encoding/decoding JSON messages that contain `google.protobuf.Any` fields.
@@ -26,7 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
-* Suppress warnings about deprecated fields used in generated code. (PR [#182], continues [#1])
+* Suppress warnings about deprecated fields used in generated code. (PRs [#182], [#192], continues [#1])
 
 [#63]: https://github.com/streem/pbandk/issues/63
 [#134]: https://github.com/streem/pbandk/issues/134
@@ -37,6 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [#185]: https://github.com/streem/pbandk/pull/185
 [#189]: https://github.com/streem/pbandk/pull/189
 [#191]: https://github.com/streem/pbandk/pull/191
+[#192]: https://github.com/streem/pbandk/pull/192
 
 
 ## [0.12.1] - 2021-11-11
