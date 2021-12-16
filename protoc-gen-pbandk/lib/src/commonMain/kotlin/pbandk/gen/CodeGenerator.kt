@@ -521,7 +521,7 @@ public open class CodeGenerator(
         }
     }
 
-    protected val File.Field.Numbered.Standard.hasPresence: Boolean get() = (file.version == 2 && optional)
+    protected val File.Field.Numbered.Standard.hasPresence: Boolean get() = optional
     protected fun File.Field.Numbered.Standard.mapEntry(): File.Type.Message? =
         if (!map) null else (localType as? File.Type.Message)?.takeIf { it.mapEntry }
 
