@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     kotlin("jvm") version "1.5.32" apply false
     id("com.google.protobuf") version "0.8.18" apply false
@@ -13,11 +11,5 @@ subprojects {
             mavenLocal()
         }
         mavenCentral()
-    }
-
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = "1.8"
-        }
     }
 }
