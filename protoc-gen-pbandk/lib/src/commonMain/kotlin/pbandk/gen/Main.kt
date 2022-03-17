@@ -26,9 +26,9 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
     // Load service generator if it exists
     val serviceGen = Platform.serviceGenerator(params)
 
-    // Convert to file model and generate the code only for ones requested
-    val kotlinTypeMappings = mutableMapOf<String, String>()
+    val kotlinTypeMappings = mutableMapOf<String, Name>()
 
+    // Convert to file model and generate the code only for ones requested
     return codeGeneratorResponse {
         supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong()
         file = request.protoFile.flatMap { protoFile ->
