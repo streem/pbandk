@@ -15,6 +15,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
+* Fixed the `pbandk-protos` library to support Java 8. (PR [#212], fixes [#211])
+
+[#211]: https://github.com/streem/pbandk/issues/211
+[#212]: https://github.com/streem/pbandk/pull/212
+
 
 ## [0.13.0] - 2021-12-08
 
