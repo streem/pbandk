@@ -16,6 +16,12 @@ application {
     applicationName = "greeter"
 }
 
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     implementation("pro.streem.pbandk:pbandk-runtime:$pbandkVersion")

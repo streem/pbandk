@@ -25,6 +25,12 @@ java {
     withJavadocJar()
 }
 
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+
 publishing {
     val protos by publications.creating(MavenPublication::class) {
         from(components["java"])

@@ -22,6 +22,12 @@ application {
     applicationName = "addressbook"
 }
 
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+
 dependencies {
     implementation("pro.streem.pbandk:pbandk-runtime:$pbandkVersion")
 }
@@ -57,7 +63,6 @@ tasks {
 
     withType<KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = "1.8"
             freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
