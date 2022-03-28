@@ -17,7 +17,7 @@ class JvmProto3PresenceTest {
         val fieldsPairs = descriptor.fields.map { it to javaDescriptor.fields.find { jit -> jit.name == it.name }!! }
         fieldsPairs.forEach { (field, jField) ->
             // If instead of assertEquals, to generate more verbose error messages.
-            if(jField.hasPresence()) {
+            if (jField.hasPresence()) {
                 assertTrue("${field.name} should have presence.") { field.type.hasPresence }
             } else {
                 assertFalse("${field.name} should NOT have presence.") { field.type.hasPresence }
@@ -45,8 +45,8 @@ class JvmProto3PresenceTest {
             optionalEnum = Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_SPECIFIED
         )
         val jProto = Proto3Presence.Proto3PresenceMain.newBuilder()
-            .setMessage(Proto3Presence.Proto3PresenceMessage.newBuilder().setRequiredInt(1).build())
-            .setOptionalMessage(Proto3Presence.Proto3PresenceMessage.newBuilder().setRequiredInt(1).build())
+            .setMessage(Proto3Presence.Proto3PresenceMessage.newBuilder().setInt(1).build())
+            .setOptionalMessage(Proto3Presence.Proto3PresenceMessage.newBuilder().setInt(1).build())
             .setString("test")
             .setOptionalString("test")
             .setInt(1)

@@ -127,10 +127,10 @@ public final class Proto3Presence {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 requiredInt = 1;</code>
-     * @return The requiredInt.
+     * <code>int32 int = 1;</code>
+     * @return The int.
      */
-    int getRequiredInt();
+    int getInt();
   }
   /**
    * Protobuf type {@code pbandk.testpb.Proto3PresenceMessage}
@@ -179,7 +179,7 @@ public final class Proto3Presence {
               break;
             case 8: {
 
-              requiredInt_ = input.readInt32();
+              int_ = input.readInt32();
               break;
             }
             default: {
@@ -214,15 +214,15 @@ public final class Proto3Presence {
               pbandk.testpb.Proto3Presence.Proto3PresenceMessage.class, pbandk.testpb.Proto3Presence.Proto3PresenceMessage.Builder.class);
     }
 
-    public static final int REQUIREDINT_FIELD_NUMBER = 1;
-    private int requiredInt_;
+    public static final int INT_FIELD_NUMBER = 1;
+    private int int_;
     /**
-     * <code>int32 requiredInt = 1;</code>
-     * @return The requiredInt.
+     * <code>int32 int = 1;</code>
+     * @return The int.
      */
     @java.lang.Override
-    public int getRequiredInt() {
-      return requiredInt_;
+    public int getInt() {
+      return int_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -239,8 +239,8 @@ public final class Proto3Presence {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (requiredInt_ != 0) {
-        output.writeInt32(1, requiredInt_);
+      if (int_ != 0) {
+        output.writeInt32(1, int_);
       }
       unknownFields.writeTo(output);
     }
@@ -251,9 +251,9 @@ public final class Proto3Presence {
       if (size != -1) return size;
 
       size = 0;
-      if (requiredInt_ != 0) {
+      if (int_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, requiredInt_);
+          .computeInt32Size(1, int_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -270,8 +270,8 @@ public final class Proto3Presence {
       }
       pbandk.testpb.Proto3Presence.Proto3PresenceMessage other = (pbandk.testpb.Proto3Presence.Proto3PresenceMessage) obj;
 
-      if (getRequiredInt()
-          != other.getRequiredInt()) return false;
+      if (getInt()
+          != other.getInt()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -283,8 +283,8 @@ public final class Proto3Presence {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUIREDINT_FIELD_NUMBER;
-      hash = (53 * hash) + getRequiredInt();
+      hash = (37 * hash) + INT_FIELD_NUMBER;
+      hash = (53 * hash) + getInt();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -418,7 +418,7 @@ public final class Proto3Presence {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requiredInt_ = 0;
+        int_ = 0;
 
         return this;
       }
@@ -446,7 +446,7 @@ public final class Proto3Presence {
       @java.lang.Override
       public pbandk.testpb.Proto3Presence.Proto3PresenceMessage buildPartial() {
         pbandk.testpb.Proto3Presence.Proto3PresenceMessage result = new pbandk.testpb.Proto3Presence.Proto3PresenceMessage(this);
-        result.requiredInt_ = requiredInt_;
+        result.int_ = int_;
         onBuilt();
         return result;
       }
@@ -495,8 +495,8 @@ public final class Proto3Presence {
 
       public Builder mergeFrom(pbandk.testpb.Proto3Presence.Proto3PresenceMessage other) {
         if (other == pbandk.testpb.Proto3Presence.Proto3PresenceMessage.getDefaultInstance()) return this;
-        if (other.getRequiredInt() != 0) {
-          setRequiredInt(other.getRequiredInt());
+        if (other.getInt() != 0) {
+          setInt(other.getInt());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -527,33 +527,33 @@ public final class Proto3Presence {
         return this;
       }
 
-      private int requiredInt_ ;
+      private int int_ ;
       /**
-       * <code>int32 requiredInt = 1;</code>
-       * @return The requiredInt.
+       * <code>int32 int = 1;</code>
+       * @return The int.
        */
       @java.lang.Override
-      public int getRequiredInt() {
-        return requiredInt_;
+      public int getInt() {
+        return int_;
       }
       /**
-       * <code>int32 requiredInt = 1;</code>
-       * @param value The requiredInt to set.
+       * <code>int32 int = 1;</code>
+       * @param value The int to set.
        * @return This builder for chaining.
        */
-      public Builder setRequiredInt(int value) {
+      public Builder setInt(int value) {
         
-        requiredInt_ = value;
+        int_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 requiredInt = 1;</code>
+       * <code>int32 int = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearRequiredInt() {
+      public Builder clearInt() {
         
-        requiredInt_ = 0;
+        int_ = 0;
         onChanged();
         return this;
       }
@@ -2576,22 +2576,22 @@ public final class Proto3Presence {
   static {
     java.lang.String[] descriptorData = {
       "\n$pbandk/testpb/proto_3_presence.proto\022\r" +
-      "pbandk.testpb\",\n\025Proto3PresenceMessage\022\023" +
-      "\n\013requiredInt\030\001 \001(\005\"\332\003\n\022Proto3PresenceMa" +
-      "in\022C\n\020optional_message\030\001 \001(\0132$.pbandk.te" +
-      "stpb.Proto3PresenceMessageH\001\210\001\001\0225\n\007messa" +
-      "ge\030\002 \001(\0132$.pbandk.testpb.Proto3PresenceM" +
-      "essage\022\034\n\017optional_string\030\003 \001(\tH\002\210\001\001\022\016\n\006" +
-      "string\030\004 \001(\t\022\031\n\014optional_int\030\005 \001(\005H\003\210\001\001\022" +
-      "\013\n\003int\030\006 \001(\005\022=\n\roptional_enum\030\007 \001(\0162!.pb" +
-      "andk.testpb.Proto3PresenceEnumH\004\210\001\001\022/\n\004e" +
-      "num\030\010 \001(\0162!.pbandk.testpb.Proto3Presence" +
-      "Enum\022\027\n\rone_of_string\030\t \001(\tH\000\022\024\n\none_of_" +
-      "int\030\n \001(\005H\000B\007\n\005oneOfB\023\n\021_optional_messag" +
-      "eB\022\n\020_optional_stringB\017\n\r_optional_intB\020" +
-      "\n\016_optional_enum*^\n\022Proto3PresenceEnum\022$" +
-      "\n PROTO3_PRESENCE_ENUM_UNSPECIFIED\020\000\022\"\n\036" +
-      "PROTO3_PRESENCE_ENUM_SPECIFIED\020\001b\006proto3"
+      "pbandk.testpb\"$\n\025Proto3PresenceMessage\022\013" +
+      "\n\003int\030\001 \001(\005\"\332\003\n\022Proto3PresenceMain\022C\n\020op" +
+      "tional_message\030\001 \001(\0132$.pbandk.testpb.Pro" +
+      "to3PresenceMessageH\001\210\001\001\0225\n\007message\030\002 \001(\013" +
+      "2$.pbandk.testpb.Proto3PresenceMessage\022\034" +
+      "\n\017optional_string\030\003 \001(\tH\002\210\001\001\022\016\n\006string\030\004" +
+      " \001(\t\022\031\n\014optional_int\030\005 \001(\005H\003\210\001\001\022\013\n\003int\030\006" +
+      " \001(\005\022=\n\roptional_enum\030\007 \001(\0162!.pbandk.tes" +
+      "tpb.Proto3PresenceEnumH\004\210\001\001\022/\n\004enum\030\010 \001(" +
+      "\0162!.pbandk.testpb.Proto3PresenceEnum\022\027\n\r" +
+      "one_of_string\030\t \001(\tH\000\022\024\n\none_of_int\030\n \001(" +
+      "\005H\000B\007\n\005oneOfB\023\n\021_optional_messageB\022\n\020_op" +
+      "tional_stringB\017\n\r_optional_intB\020\n\016_optio" +
+      "nal_enum*^\n\022Proto3PresenceEnum\022$\n PROTO3" +
+      "_PRESENCE_ENUM_UNSPECIFIED\020\000\022\"\n\036PROTO3_P" +
+      "RESENCE_ENUM_SPECIFIED\020\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2602,7 +2602,7 @@ public final class Proto3Presence {
     internal_static_pbandk_testpb_Proto3PresenceMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pbandk_testpb_Proto3PresenceMessage_descriptor,
-        new java.lang.String[] { "RequiredInt", });
+        new java.lang.String[] { "Int", });
     internal_static_pbandk_testpb_Proto3PresenceMain_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_pbandk_testpb_Proto3PresenceMain_fieldAccessorTable = new

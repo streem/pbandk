@@ -21,7 +21,7 @@ public sealed class Proto3PresenceEnum(override val value: Int, override val nam
 
 @pbandk.Export
 public data class Proto3PresenceMessage(
-    val requiredInt: Int = 0,
+    val int: Int = 0,
     override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ) : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Proto3PresenceMessage = protoMergeImpl(other)
@@ -37,11 +37,11 @@ public data class Proto3PresenceMessage(
                 add(
                     pbandk.FieldDescriptor(
                         messageDescriptor = this@Companion::descriptor,
-                        name = "requiredInt",
+                        name = "int",
                         number = 1,
                         type = pbandk.FieldDescriptor.Type.Primitive.Int32(),
-                        jsonName = "requiredInt",
-                        value = pbandk.testpb.Proto3PresenceMessage::requiredInt
+                        jsonName = "int",
+                        value = pbandk.testpb.Proto3PresenceMessage::int
                     )
                 )
             }
@@ -213,14 +213,14 @@ private fun Proto3PresenceMessage.protoMergeImpl(plus: pbandk.Message?): Proto3P
 
 @Suppress("UNCHECKED_CAST")
 private fun Proto3PresenceMessage.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Proto3PresenceMessage {
-    var requiredInt = 0
+    var int = 0
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
-            1 -> requiredInt = _fieldValue as Int
+            1 -> int = _fieldValue as Int
         }
     }
-    return Proto3PresenceMessage(requiredInt, unknownFields)
+    return Proto3PresenceMessage(int, unknownFields)
 }
 
 @pbandk.Export

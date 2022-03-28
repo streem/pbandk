@@ -112,21 +112,20 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
             .let { (standardFields, oneofFields) ->
                 standardFields.map {
                     numberedFieldFromProto(ctx, it, usedFieldNames)
-                } + oneofFields.groupBy {
-                    it.oneofIndex!!
-                }.mapNotNull { (oneofIndex, fields) ->
-                    // "Every proto3 optional field is placed into a one-field oneof.
-                    // We call this a "synthetic" oneof, as it was not present in the source .proto file."
-                    // https://github.com/protocolbuffers/protobuf/blob/master/docs/implementing_proto3_presence.md#background
-                    val synthetic = fields.size == 1 && (fields[0].proto3Optional ?: false)
-                    if (synthetic) {
-                        numberedFieldFromProto(ctx, fields[0], usedFieldNames)
-                    } else {
-                        msgDesc.oneofDecl[oneofIndex].name?.let { oneofName ->
-                            oneofFieldFromProto(ctx, oneofName, fields, usedFieldNames, usedTypeNames)
+                } + oneofFields.groupBy { it.oneofIndex!! }
+                    .mapNotNull { (oneofIndex, fields) ->
+                        // "Every proto3 optional field is placed into a one-field oneof.
+                        // We call this a "synthetic" oneof, as it was not present in the source .proto file."
+                        // https://github.com/protocolbuffers/protobuf/blob/master/docs/implementing_proto3_presence.md#background
+                        val synthetic = fields.size == 1 && (fields[0].proto3Optional ?: false)
+                        if (synthetic) {
+                            numberedFieldFromProto(ctx, fields[0], usedFieldNames)
+                        } else {
+                            msgDesc.oneofDecl[oneofIndex].name?.let { oneofName ->
+                                oneofFieldFromProto(ctx, oneofName, fields, usedFieldNames, usedTypeNames)
+                            }
                         }
                     }
-                }
             }
     }
 
