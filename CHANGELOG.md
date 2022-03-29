@@ -5,11 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.13.1] - Unreleased
+## [0.14.0] - Unreleased
 
-[0.13.1]: https://github.com/streem/pbandk/compare/v0.13.0...HEAD
+[0.14.0]: https://github.com/streem/pbandk/compare/v0.13.0...HEAD
 
 ### Added
+
+* `proto3` files that use the `optional` keyword are now supported! Fields with `optional` [field presence] will be nullable in generated Kotlin code. (PR [#200], fixes [#34]) (thanks @NiematojakTomasz)
 
 ### Changed
 
@@ -17,7 +19,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 * Fixed the `pbandk-protos` library to support Java 8. (PR [#212], fixes [#211])
 
+[field presence]: https://github.com/protocolbuffers/protobuf/blob/master/docs/field_presence.md
+[#34]: https://github.com/streem/pbandk/issues/34
 [#211]: https://github.com/streem/pbandk/issues/211
+[#200]: https://github.com/streem/pbandk/pull/200
 [#212]: https://github.com/streem/pbandk/pull/212
 
 
