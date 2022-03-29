@@ -1,0 +1,26 @@
+syntax = "proto3";
+package pbandk.testpb;
+
+message Proto3PresenceMessage {
+  int32 int = 1;
+}
+
+enum Proto3PresenceEnum {
+  PROTO3_PRESENCE_ENUM_UNSPECIFIED = 0;
+  PROTO3_PRESENCE_ENUM_SPECIFIED = 1;
+}
+
+message Proto3PresenceMain {
+  optional Proto3PresenceMessage optional_message = 1;
+  Proto3PresenceMessage message = 2;
+  optional string optional_string = 3;
+  string string = 4;
+  optional int32 optional_int = 5;
+  int32 int = 6;
+  optional Proto3PresenceEnum optional_enum = 7;
+  Proto3PresenceEnum enum = 8;
+  oneof oneOf {
+    string one_of_string = 9;
+    int32 one_of_int = 10;
+  }
+}
