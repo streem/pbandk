@@ -1,7 +1,7 @@
 package pbandk.pbandk
 
 import org.junit.Test
-import pbandk.kotlinJavaRoundtripTest
+import pbandk.pbandkJavaRoundtripTest
 import pbandk.testpb.Proto3Presence
 import pbandk.testpb.Proto3PresenceEnum
 import pbandk.testpb.Proto3PresenceMain
@@ -29,7 +29,7 @@ class JvmProto3PresenceTest {
     fun testDefaults() {
         val proto = Proto3PresenceMain()
         val jProto = Proto3Presence.Proto3PresenceMain.newBuilder().build()
-        kotlinJavaRoundtripTest(jProto, proto, Proto3PresenceMain.Companion)
+        pbandkJavaRoundtripTest(jProto, proto, Proto3PresenceMain.Companion)
     }
 
     @Test
@@ -54,6 +54,6 @@ class JvmProto3PresenceTest {
             .setEnum(Proto3Presence.Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_SPECIFIED)
             .setOptionalEnum(Proto3Presence.Proto3PresenceEnum.PROTO3_PRESENCE_ENUM_SPECIFIED)
             .build()
-        kotlinJavaRoundtripTest(jProto, proto, Proto3PresenceMain.Companion)
+        pbandkJavaRoundtripTest(jProto, proto, Proto3PresenceMain.Companion)
     }
 }

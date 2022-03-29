@@ -1752,19 +1752,17 @@ public final class CustomOptions {
   static {
     java.lang.String[] descriptorData = {
       "\n\"pbandk/testpb/custom_options.proto\022\rpb" +
-      "andk.testpb\032\037google/protobuf/timestamp.p" +
-      "roto\032\034pbandk/testpb/validate.proto\"6\n\032Si" +
-      "ngleRequiredCustomOption\022\030\n\006single\030\001 \001(\t" +
-      "B\010\372B\005\212\001\002\020\001\":\n\025MultipleCustomOptions\022!\n\010m" +
-      "ultiple\030\001 \001(\tB\017\372B\005\212\001\002\020\001\372B\004r\002\020\n\"T\n#Multip" +
-      "leCustomOptionsPlusDeprecated\022-\n\023multipl" +
-      "e_deprecated\030\001 \001(\tB\020\030\001\372B\004r\002\030 \372B\004r\002\020\nb\006pr" +
-      "oto3"
+      "andk.testpb\032\034pbandk/testpb/validate.prot" +
+      "o\"6\n\032SingleRequiredCustomOption\022\030\n\006singl" +
+      "e\030\001 \001(\tB\010\372B\005\212\001\002\020\001\":\n\025MultipleCustomOptio" +
+      "ns\022!\n\010multiple\030\001 \001(\tB\017\372B\005\212\001\002\020\001\372B\004r\002\020\n\"T\n" +
+      "#MultipleCustomOptionsPlusDeprecated\022-\n\023" +
+      "multiple_deprecated\030\001 \001(\tB\020\030\001\372B\004r\002\030 \372B\004r" +
+      "\002\020\nb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.TimestampProto.getDescriptor(),
           pbandk.testpb.Validate.getDescriptor(),
         });
     internal_static_pbandk_testpb_SingleRequiredCustomOption_descriptor =
@@ -1790,7 +1788,6 @@ public final class CustomOptions {
     registry.add(pbandk.testpb.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.protobuf.TimestampProto.getDescriptor();
     pbandk.testpb.Validate.getDescriptor();
   }
 
