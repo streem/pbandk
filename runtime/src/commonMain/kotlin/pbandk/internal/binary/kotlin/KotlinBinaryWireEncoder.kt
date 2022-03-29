@@ -255,3 +255,19 @@ internal class KotlinBinaryWireEncoder(private val wireWriter: WireWriter) : Bin
         writeBytesNoTag(value)
     }
 }
+
+public fun writerRawVarint32(value: Int) : ByteArray {
+    val buffer = ByteArray(MAX_VARINT_SIZE)
+    var position = 0
+    var valueCur = value
+    while (position < MAX_VARINT_SIZE) {
+        if ((valueCur and 0x7F.inv()) == 0) {
+            buffer[position++] = valueCur.toByte()
+            break
+        } else {
+            buffer[position++] = ((valueCur and 0x7F) or 0x80).toByte()
+            valueCur = valueCur ushr 7
+        }
+    }
+    return buffer.copyOfRange(0, position)
+}

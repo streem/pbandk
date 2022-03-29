@@ -2,6 +2,9 @@ package pbandk
 
 import pbandk.internal.binary.*
 import pbandk.internal.binary.kotlin.KotlinBinaryWireEncoder
+import pbandk.internal.binary.kotlin.ReturnRawByte
+import pbandk.internal.binary.kotlin.readerRawVarint64
+import pbandk.internal.binary.kotlin.writerRawVarint32
 import java.io.*
 import java.nio.ByteBuffer
 
@@ -33,39 +36,26 @@ public fun <T : Message> Message.Companion<T>.decodeFromByteBuffer(buffer: ByteB
 /**
  * Read the next message of type T, in the [stream] of size-delimited Messages, such as is written by the Java method
  * AbstractMessageLite.writeDelimitedTo(OutputStream) and read by Message.parseDelimitedFrom(InputStream).
- * A null is returned when all messages have been read, and the stream is closed.
+ * A null is returned when all messages have been read. The caller must close the stream.
  */
-public fun <T : Message> Message.Companion<T>.parseDelimitedFrom(stream: InputStream): T? {
+public fun <T : Message> Message.Companion<T>.decodeDelimitedFromStream(stream: InputStream): T? {
     val length = readVlen(stream)
     if (length < 0) {
-        stream.close()
         return null
     }
-    val message = stream.readNBytes(length)
-    if (message.size != length) {
-        throw IOException("damaged delimited stream")
-    }
-    return this.decodeFromByteArray(message)
+    return this.decodeFromStream(stream, length)
 }
 
 // variable length (base 128) integer returned as an Int
 private fun readVlen(input: InputStream): Int {
-    var ib: Int = input.read()
-    if (ib == -1) {
-        return -1
-    }
-    var result = ib.and(0x7F)
-    var shift = 7
-    while (ib.and(0x80) != 0) {
-        ib = input.read()
-        if (ib == -1) {
-            return -1
-        }
-        val im = ib.and(0x7F).shl(shift)
-        result = result.or(im)
-        shift += 7
-    }
-    return result
+    val lenLong = readerRawVarint64 {readByte(input)}
+    return lenLong.toInt()
+}
+
+private fun readByte(input: InputStream): ReturnRawByte {
+    val ib = input.read()
+    val eof = (ib == -1)
+    return ReturnRawByte(ib.toByte(), eof)
 }
 
 /**
@@ -75,24 +65,13 @@ private fun readVlen(input: InputStream): Int {
  * the message data yourself.
  * Use Message.Companion<T>.parseDelimitedFrom(InputStream) to read these streams.
  */
-public fun <T : Message> T.writeDelimitedTo(stream: OutputStream) {
+public fun <T : Message> T.encodeDelimitedToStream(stream: OutputStream) {
     val bb = this.encodeToByteArray()
     writeVlen(bb.size, stream)
     stream.write(bb)
 }
 
 private fun writeVlen(value: Int, output: OutputStream) {
-    val buffer = ByteArray(MAX_VARINT_SIZE)
-    var position = 0
-    var valueCur = value
-    while (position < MAX_VARINT_SIZE) {
-        if ((valueCur and 0x7F.inv()) == 0) {
-            buffer[position++] = valueCur.toByte()
-            break
-        } else {
-            buffer[position++] = ((valueCur and 0x7F) or 0x80).toByte()
-            valueCur = valueCur ushr 7
-        }
-    }
-    output.write(buffer, 0, position)
+    val buffer = writerRawVarint32(value)
+    output.write(buffer)
 }
