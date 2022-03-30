@@ -66,9 +66,8 @@ private fun readByte(input: InputStream): ReturnRawByte {
  * Use Message.Companion<T>.parseDelimitedFrom(InputStream) to read these streams.
  */
 public fun <T : Message> T.encodeDelimitedToStream(stream: OutputStream) {
-    val bb = this.encodeToByteArray()
-    writeVlen(bb.size, stream)
-    stream.write(bb)
+    writeVlen(this.protoSize, stream)
+    this.encodeToStream(stream)
 }
 
 private fun writeVlen(value: Int, output: OutputStream) {
