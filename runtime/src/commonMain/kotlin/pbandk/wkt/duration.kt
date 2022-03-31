@@ -70,5 +70,6 @@ private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duratio
             2 -> nanos = _fieldValue as Int
         }
     }
+
     return Duration(seconds, nanos, unknownFields)
 }

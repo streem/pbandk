@@ -2819,6 +2819,7 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field
             22 -> type = FieldRules.Type.Timestamp(_fieldValue as pbandk.testpb.TimestampRules)
         }
     }
+
     return FieldRules(message, type, unknownFields)
 }
 
@@ -2860,6 +2861,7 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Float> }
         }
     }
+
     return FloatRules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -2902,6 +2904,7 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Double> }
         }
     }
+
     return DoubleRules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -2944,6 +2947,7 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return Int32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -2986,6 +2990,7 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+
     return Int64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3028,6 +3033,7 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return UInt32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3070,6 +3076,7 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+
     return UInt64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3112,6 +3119,7 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return SInt32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3154,6 +3162,7 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+
     return SInt64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3196,6 +3205,7 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return Fixed32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3238,6 +3248,7 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+
     return Fixed64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3280,6 +3291,7 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return SFixed32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3322,6 +3334,7 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
             7 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+
     return SFixed64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3346,6 +3359,7 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRu
             1 -> const = _fieldValue as Boolean
         }
     }
+
     return BoolRules(const, unknownFields)
 }
 
@@ -3423,6 +3437,7 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
             25 -> strict = _fieldValue as Boolean
         }
     }
+
     return StringRules(const, len, minLen, maxLen,
         lenBytes, minBytes, maxBytes, pattern,
         prefix, suffix, contains, notContains,
@@ -3481,6 +3496,7 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
             13 -> len = _fieldValue as Long
         }
     }
+
     return BytesRules(const, len, minLen, maxLen,
         pattern, prefix, suffix, contains,
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), wellKnown, unknownFields)
@@ -3515,6 +3531,7 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
             4 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return EnumRules(const, definedOnly, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
@@ -3541,6 +3558,7 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mes
             2 -> required = _fieldValue as Boolean
         }
     }
+
     return MessageRules(skip, required, unknownFields)
 }
 
@@ -3573,6 +3591,7 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Re
             4 -> items = _fieldValue as pbandk.testpb.FieldRules
         }
     }
+
     return RepeatedRules(minItems, maxItems, unique, items, unknownFields)
 }
 
@@ -3608,6 +3627,7 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRule
             5 -> values = _fieldValue as pbandk.testpb.FieldRules
         }
     }
+
     return MapRules(minPairs, maxPairs, noSparse, keys,
         values, unknownFields)
 }
@@ -3638,6 +3658,7 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
             3 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+
     return AnyRules(required, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
@@ -3682,6 +3703,7 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
             8 -> notIn = (notIn ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Duration> }
         }
     }
+
     return DurationRules(required, const, lt, lte,
         gt, gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
@@ -3730,6 +3752,7 @@ private fun TimestampRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): T
             9 -> within = _fieldValue as pbandk.wkt.Duration
         }
     }
+
     return TimestampRules(required, const, lt, lte,
         gt, gte, ltNow, gtNow,
         within, unknownFields)

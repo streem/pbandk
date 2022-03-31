@@ -220,6 +220,7 @@ private fun Proto3PresenceMessage.Companion.decodeWithImpl(u: pbandk.MessageDeco
             1 -> int = _fieldValue as Int
         }
     }
+
     return Proto3PresenceMessage(int, unknownFields)
 }
 
@@ -265,6 +266,7 @@ private fun Proto3PresenceMain.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             10 -> oneOf = Proto3PresenceMain.OneOf.OneOfInt(_fieldValue as Int)
         }
     }
+
     return Proto3PresenceMain(message, string, int, enum,
         optionalMessage, optionalString, optionalInt, optionalEnum,
         oneOf, unknownFields)

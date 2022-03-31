@@ -514,6 +514,7 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
             6 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+
     return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
         sourceContext, syntax, unknownFields)
 }
@@ -556,6 +557,7 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
             11 -> defaultValue = _fieldValue as String
         }
     }
+
     return Field(kind, cardinality, number, name,
         typeUrl, oneofIndex, packed, pbandk.ListWithSize.Builder.fixed(options),
         jsonName, defaultValue, unknownFields)
@@ -591,6 +593,7 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
             5 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+
     return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
         syntax, unknownFields)
 }
@@ -619,6 +622,7 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
             3 -> options = (options ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.Option> }
         }
     }
+
     return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
 }
 
@@ -644,5 +648,6 @@ private fun Option.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Option {
             2 -> value = _fieldValue as pbandk.wkt.Any
         }
     }
+
     return Option(name, value, unknownFields)
 }

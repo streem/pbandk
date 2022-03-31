@@ -345,6 +345,7 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
             1 -> value = _fieldValue as Double
         }
     }
+
     return DoubleValue(value, unknownFields)
 }
 
@@ -367,6 +368,7 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
             1 -> value = _fieldValue as Float
         }
     }
+
     return FloatValue(value, unknownFields)
 }
 
@@ -389,6 +391,7 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
             1 -> value = _fieldValue as Long
         }
     }
+
     return Int64Value(value, unknownFields)
 }
 
@@ -411,6 +414,7 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             1 -> value = _fieldValue as Long
         }
     }
+
     return UInt64Value(value, unknownFields)
 }
 
@@ -433,6 +437,7 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
             1 -> value = _fieldValue as Int
         }
     }
+
     return Int32Value(value, unknownFields)
 }
 
@@ -455,6 +460,7 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             1 -> value = _fieldValue as Int
         }
     }
+
     return UInt32Value(value, unknownFields)
 }
 
@@ -477,6 +483,7 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
             1 -> value = _fieldValue as Boolean
         }
     }
+
     return BoolValue(value, unknownFields)
 }
 
@@ -499,6 +506,7 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
             1 -> value = _fieldValue as String
         }
     }
+
     return StringValue(value, unknownFields)
 }
 
@@ -521,5 +529,6 @@ private fun BytesValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
             1 -> value = _fieldValue as pbandk.ByteArr
         }
     }
+
     return BytesValue(value, unknownFields)
 }

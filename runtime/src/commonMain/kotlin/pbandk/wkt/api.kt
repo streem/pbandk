@@ -288,6 +288,7 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
             7 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+
     return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
         sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
@@ -324,6 +325,7 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
             7 -> syntax = _fieldValue as pbandk.wkt.Syntax
         }
     }
+
     return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl,
         responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
 }
@@ -349,5 +351,6 @@ private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {
             2 -> root = _fieldValue as String
         }
     }
+
     return Mixin(name, root, unknownFields)
 }

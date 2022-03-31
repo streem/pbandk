@@ -397,6 +397,7 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
             1 -> `val` = _fieldValue as String
         }
     }
+
     return Foo(`val`, unknownFields)
 }
 
@@ -423,6 +424,7 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
             2 -> singleFoo = _fieldValue as pbandk.testpb.Foo
         }
     }
+
     return Bar(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
 }
 
@@ -446,6 +448,7 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, String>> }
         }
     }
+
     return MessageWithMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
 
@@ -470,6 +473,7 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
             2 -> value = _fieldValue as String
         }
     }
+
     return MessageWithMap.MapEntry(key, value, unknownFields)
 }
 
@@ -493,6 +497,7 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
             1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>> }
         }
     }
+
     return FooMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
 
@@ -518,6 +523,7 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
             2 -> value = _fieldValue as pbandk.testpb.Foo
         }
     }
+
     return FooMap.MapEntry(key, value, unknownFields)
 }
 
@@ -541,6 +547,7 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
             1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
         }
     }
+
     return FooMapEntries(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
 }
 
@@ -566,6 +573,7 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
             2 -> value = _fieldValue as pbandk.testpb.Foo
         }
     }
+
     return FooMapEntries.MapEntry(key, value, unknownFields)
 }
 
@@ -592,5 +600,6 @@ private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Wrapper
             2 -> uint64Values = (uint64Values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
+
     return Wrappers(stringValue, pbandk.ListWithSize.Builder.fixed(uint64Values), unknownFields)
 }

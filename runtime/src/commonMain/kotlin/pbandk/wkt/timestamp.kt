@@ -70,5 +70,6 @@ private fun Timestamp.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Timest
             2 -> nanos = _fieldValue as Int
         }
     }
+
     return Timestamp(seconds, nanos, unknownFields)
 }

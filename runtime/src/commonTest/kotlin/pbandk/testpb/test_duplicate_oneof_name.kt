@@ -96,5 +96,6 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
             3 -> value = Value.Value.IntegerValue(_fieldValue as Int)
         }
     }
+
     return Value(value, unknownFields)
 }

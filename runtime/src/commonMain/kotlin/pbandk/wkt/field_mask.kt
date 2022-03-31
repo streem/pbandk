@@ -58,5 +58,6 @@ private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldM
             1 -> paths = (paths ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+
     return FieldMask(pbandk.ListWithSize.Builder.fixed(paths), unknownFields)
 }

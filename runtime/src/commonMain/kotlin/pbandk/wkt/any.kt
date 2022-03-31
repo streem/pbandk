@@ -70,5 +70,6 @@ private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {
             2 -> value = _fieldValue as pbandk.ByteArr
         }
     }
+
     return Any(typeUrl, value, unknownFields)
 }

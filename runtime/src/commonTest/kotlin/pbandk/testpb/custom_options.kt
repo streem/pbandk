@@ -164,6 +164,7 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
             1 -> single = _fieldValue as String
         }
     }
+
     return SingleRequiredCustomOption(single, unknownFields)
 }
 
@@ -186,6 +187,7 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
             1 -> multiple = _fieldValue as String
         }
     }
+
     return MultipleCustomOptions(multiple, unknownFields)
 }
 
@@ -209,5 +211,6 @@ private fun MultipleCustomOptionsPlusDeprecated.Companion.decodeWithImpl(u: pban
             1 -> multipleDeprecated = _fieldValue as String
         }
     }
+
     return MultipleCustomOptionsPlusDeprecated(multipleDeprecated, unknownFields)
 }

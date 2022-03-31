@@ -2967,6 +2967,7 @@ private fun TestAllTypesProto2.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             418 -> fieldName18_ = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2(optionalInt32, optionalInt64, optionalUint32, optionalUint64,
         optionalSint32, optionalSint64, optionalFixed32, optionalFixed64,
         optionalSfixed32, optionalSfixed64, optionalFloat, optionalDouble,
@@ -3020,6 +3021,7 @@ private fun TestAllTypesProto2.NestedMessage.Companion.decodeWithImpl(u: pbandk.
             2 -> corecursive = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2
         }
     }
+
     return TestAllTypesProto2.NestedMessage(a, corecursive, unknownFields)
 }
 
@@ -3046,6 +3048,7 @@ private fun TestAllTypesProto2.MapInt32Int32Entry.Companion.decodeWithImpl(u: pb
             2 -> value = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.MapInt32Int32Entry(key, value, unknownFields)
 }
 
@@ -3072,6 +3075,7 @@ private fun TestAllTypesProto2.MapInt64Int64Entry.Companion.decodeWithImpl(u: pb
             2 -> value = _fieldValue as Long
         }
     }
+
     return TestAllTypesProto2.MapInt64Int64Entry(key, value, unknownFields)
 }
 
@@ -3098,6 +3102,7 @@ private fun TestAllTypesProto2.MapUint32Uint32Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.MapUint32Uint32Entry(key, value, unknownFields)
 }
 
@@ -3124,6 +3129,7 @@ private fun TestAllTypesProto2.MapUint64Uint64Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Long
         }
     }
+
     return TestAllTypesProto2.MapUint64Uint64Entry(key, value, unknownFields)
 }
 
@@ -3150,6 +3156,7 @@ private fun TestAllTypesProto2.MapSint32Sint32Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.MapSint32Sint32Entry(key, value, unknownFields)
 }
 
@@ -3176,6 +3183,7 @@ private fun TestAllTypesProto2.MapSint64Sint64Entry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as Long
         }
     }
+
     return TestAllTypesProto2.MapSint64Sint64Entry(key, value, unknownFields)
 }
 
@@ -3202,6 +3210,7 @@ private fun TestAllTypesProto2.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u
             2 -> value = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.MapFixed32Fixed32Entry(key, value, unknownFields)
 }
 
@@ -3228,6 +3237,7 @@ private fun TestAllTypesProto2.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u
             2 -> value = _fieldValue as Long
         }
     }
+
     return TestAllTypesProto2.MapFixed64Fixed64Entry(key, value, unknownFields)
 }
 
@@ -3254,6 +3264,7 @@ private fun TestAllTypesProto2.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl
             2 -> value = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.MapSfixed32Sfixed32Entry(key, value, unknownFields)
 }
 
@@ -3280,6 +3291,7 @@ private fun TestAllTypesProto2.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl
             2 -> value = _fieldValue as Long
         }
     }
+
     return TestAllTypesProto2.MapSfixed64Sfixed64Entry(key, value, unknownFields)
 }
 
@@ -3306,6 +3318,7 @@ private fun TestAllTypesProto2.MapInt32FloatEntry.Companion.decodeWithImpl(u: pb
             2 -> value = _fieldValue as Float
         }
     }
+
     return TestAllTypesProto2.MapInt32FloatEntry(key, value, unknownFields)
 }
 
@@ -3332,6 +3345,7 @@ private fun TestAllTypesProto2.MapInt32DoubleEntry.Companion.decodeWithImpl(u: p
             2 -> value = _fieldValue as Double
         }
     }
+
     return TestAllTypesProto2.MapInt32DoubleEntry(key, value, unknownFields)
 }
 
@@ -3358,6 +3372,7 @@ private fun TestAllTypesProto2.MapBoolBoolEntry.Companion.decodeWithImpl(u: pban
             2 -> value = _fieldValue as Boolean
         }
     }
+
     return TestAllTypesProto2.MapBoolBoolEntry(key, value, unknownFields)
 }
 
@@ -3384,6 +3399,7 @@ private fun TestAllTypesProto2.MapStringStringEntry.Companion.decodeWithImpl(u: 
             2 -> value = _fieldValue as String
         }
     }
+
     return TestAllTypesProto2.MapStringStringEntry(key, value, unknownFields)
 }
 
@@ -3410,6 +3426,7 @@ private fun TestAllTypesProto2.MapStringBytesEntry.Companion.decodeWithImpl(u: p
             2 -> value = _fieldValue as pbandk.ByteArr
         }
     }
+
     return TestAllTypesProto2.MapStringBytesEntry(key, value, unknownFields)
 }
 
@@ -3436,6 +3453,7 @@ private fun TestAllTypesProto2.MapStringNestedMessageEntry.Companion.decodeWithI
             2 -> value = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2.NestedMessage
         }
     }
+
     return TestAllTypesProto2.MapStringNestedMessageEntry(key, value, unknownFields)
 }
 
@@ -3462,6 +3480,7 @@ private fun TestAllTypesProto2.MapStringForeignMessageEntry.Companion.decodeWith
             2 -> value = _fieldValue as pbandk.conformance.pb.ForeignMessageProto2
         }
     }
+
     return TestAllTypesProto2.MapStringForeignMessageEntry(key, value, unknownFields)
 }
 
@@ -3488,6 +3507,7 @@ private fun TestAllTypesProto2.MapStringNestedEnumEntry.Companion.decodeWithImpl
             2 -> value = _fieldValue as pbandk.conformance.pb.TestAllTypesProto2.NestedEnum
         }
     }
+
     return TestAllTypesProto2.MapStringNestedEnumEntry(key, value, unknownFields)
 }
 
@@ -3514,6 +3534,7 @@ private fun TestAllTypesProto2.MapStringForeignEnumEntry.Companion.decodeWithImp
             2 -> value = _fieldValue as pbandk.conformance.pb.ForeignEnumProto2
         }
     }
+
     return TestAllTypesProto2.MapStringForeignEnumEntry(key, value, unknownFields)
 }
 
@@ -3540,6 +3561,7 @@ private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDe
             203 -> groupUint32 = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.Data(groupInt32, groupUint32, unknownFields)
 }
 
@@ -3557,6 +3579,7 @@ private fun TestAllTypesProto2.MessageSetCorrect.protoMergeImpl(plus: pbandk.Mes
 private fun TestAllTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TestAllTypesProto2.MessageSetCorrect {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
+
     return TestAllTypesProto2.MessageSetCorrect(unknownFields)
 }
 
@@ -3580,6 +3603,7 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithI
             25 -> str = _fieldValue as String
         }
     }
+
     return TestAllTypesProto2.MessageSetCorrectExtension1(str, unknownFields)
 }
 
@@ -3603,6 +3627,7 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithI
             9 -> i = _fieldValue as Int
         }
     }
+
     return TestAllTypesProto2.MessageSetCorrectExtension2(i, unknownFields)
 }
 
@@ -3626,6 +3651,7 @@ private fun ForeignMessageProto2.Companion.decodeWithImpl(u: pbandk.MessageDecod
             1 -> c = _fieldValue as Int
         }
     }
+
     return ForeignMessageProto2(c, unknownFields)
 }
 
@@ -3661,6 +3687,7 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
             1011 -> repeatedInt32 = (repeatedInt32 ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Int> }
         }
     }
+
     return UnknownToTestAllTypes(optionalInt32, optionalString, nestedMessage, optionalBool,
         pbandk.ListWithSize.Builder.fixed(repeatedInt32), unknownFields)
 }
@@ -3685,5 +3712,6 @@ private fun UnknownToTestAllTypes.OptionalGroup.Companion.decodeWithImpl(u: pban
             1 -> a = _fieldValue as Int
         }
     }
+
     return UnknownToTestAllTypes.OptionalGroup(a, unknownFields)
 }

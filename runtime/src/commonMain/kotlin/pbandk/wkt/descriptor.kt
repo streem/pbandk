@@ -1921,15 +1921,14 @@ public data class UninterpretedOption(
     }
 
     public data class NamePart(
-        val namePart: String = "",
-        val isExtension: Boolean = false,
+        val namePart: String,
+        val isExtension: Boolean,
         override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
     ) : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.UninterpretedOption.NamePart = protoMergeImpl(other)
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> get() = Companion.descriptor
         override val protoSize: Int by lazy { super.protoSize }
         public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart> {
-            public val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy { pbandk.wkt.UninterpretedOption.NamePart() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> by lazy {
@@ -1940,7 +1939,7 @@ public data class UninterpretedOption(
                             messageDescriptor = this@Companion::descriptor,
                             name = "name_part",
                             number = 1,
-                            type = pbandk.FieldDescriptor.Type.Primitive.String(),
+                            type = pbandk.FieldDescriptor.Type.Primitive.String(hasPresence = true),
                             jsonName = "namePart",
                             value = pbandk.wkt.UninterpretedOption.NamePart::namePart
                         )
@@ -1950,7 +1949,7 @@ public data class UninterpretedOption(
                             messageDescriptor = this@Companion::descriptor,
                             name = "is_extension",
                             number = 2,
-                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(),
+                            type = pbandk.FieldDescriptor.Type.Primitive.Bool(hasPresence = true),
                             jsonName = "isExtension",
                             value = pbandk.wkt.UninterpretedOption.NamePart::isExtension
                         )
@@ -2206,6 +2205,7 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
             1 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
+
     return FileDescriptorSet(pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
@@ -2262,6 +2262,7 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
             12 -> syntax = _fieldValue as String
         }
     }
+
     return FileDescriptorProto(name, `package`, pbandk.ListWithSize.Builder.fixed(dependency), pbandk.ListWithSize.Builder.fixed(publicDependency),
         pbandk.ListWithSize.Builder.fixed(weakDependency), pbandk.ListWithSize.Builder.fixed(messageType), pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(service),
         pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax, unknownFields)
@@ -2314,6 +2315,7 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
             10 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+
     return DescriptorProto(name, pbandk.ListWithSize.Builder.fixed(field), pbandk.ListWithSize.Builder.fixed(extension), pbandk.ListWithSize.Builder.fixed(nestedType),
         pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(extensionRange), pbandk.ListWithSize.Builder.fixed(oneofDecl), options,
         pbandk.ListWithSize.Builder.fixed(reservedRange), pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
@@ -2345,6 +2347,7 @@ private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.Me
             3 -> options = _fieldValue as pbandk.wkt.ExtensionRangeOptions
         }
     }
+
     return DescriptorProto.ExtensionRange(start, end, options, unknownFields)
 }
 
@@ -2371,6 +2374,7 @@ private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.Mes
             2 -> end = _fieldValue as Int
         }
     }
+
     return DescriptorProto.ReservedRange(start, end, unknownFields)
 }
 
@@ -2394,6 +2398,7 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return ExtensionRangeOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2447,6 +2452,7 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
             17 -> proto3Optional = _fieldValue as Boolean
         }
     }
+
     return FieldDescriptorProto(name, number, label, type,
         typeName, extendee, defaultValue, oneofIndex,
         jsonName, options, proto3Optional, unknownFields)
@@ -2475,6 +2481,7 @@ private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
             2 -> options = _fieldValue as pbandk.wkt.OneofOptions
         }
     }
+
     return OneofDescriptorProto(name, options, unknownFields)
 }
 
@@ -2510,6 +2517,7 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
             5 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+
     return EnumDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(value), options, pbandk.ListWithSize.Builder.fixed(reservedRange),
         pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
@@ -2537,6 +2545,7 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pb
             2 -> end = _fieldValue as Int
         }
     }
+
     return EnumDescriptorProto.EnumReservedRange(start, end, unknownFields)
 }
 
@@ -2566,6 +2575,7 @@ private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageD
             3 -> options = _fieldValue as pbandk.wkt.EnumValueOptions
         }
     }
+
     return EnumValueDescriptorProto(name, number, options, unknownFields)
 }
 
@@ -2595,6 +2605,7 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
             3 -> options = _fieldValue as pbandk.wkt.ServiceOptions
         }
     }
+
     return ServiceDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(method), options, unknownFields)
 }
 
@@ -2633,6 +2644,7 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
             6 -> serverStreaming = _fieldValue as Boolean
         }
     }
+
     return MethodDescriptorProto(name, inputType, outputType, options,
         clientStreaming, serverStreaming, unknownFields)
 }
@@ -2718,6 +2730,7 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
         javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices,
         javaGenericServices, pyGenericServices, phpGenericServices, deprecated,
@@ -2758,6 +2771,7 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return MessageOptions(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry,
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
@@ -2800,6 +2814,7 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return FieldOptions(ctype, packed, jstype, lazy,
         deprecated, weak, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
@@ -2824,6 +2839,7 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return OneofOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2853,6 +2869,7 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return EnumOptions(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2879,6 +2896,7 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return EnumValueOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2905,6 +2923,7 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return ServiceOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2934,6 +2953,7 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Me
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
+
     return MethodOptions(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
@@ -2975,13 +2995,10 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
             8 -> aggregateValue = _fieldValue as String
         }
     }
+
     return UninterpretedOption(pbandk.ListWithSize.Builder.fixed(name), identifierValue, positiveIntValue, negativeIntValue,
         doubleValue, stringValue, aggregateValue, unknownFields)
 }
-
-@pbandk.Export
-@pbandk.JsName("orDefaultForUninterpretedOptionNamePart")
-public fun UninterpretedOption.NamePart?.orDefault(): pbandk.wkt.UninterpretedOption.NamePart = this ?: UninterpretedOption.NamePart.defaultInstance
 
 private fun UninterpretedOption.NamePart.protoMergeImpl(plus: pbandk.Message?): UninterpretedOption.NamePart = (plus as? UninterpretedOption.NamePart)?.let {
     it.copy(
@@ -2991,8 +3008,8 @@ private fun UninterpretedOption.NamePart.protoMergeImpl(plus: pbandk.Message?): 
 
 @Suppress("UNCHECKED_CAST")
 private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UninterpretedOption.NamePart {
-    var namePart = ""
-    var isExtension = false
+    var namePart: String? = null
+    var isExtension: Boolean? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
         when (_fieldNumber) {
@@ -3000,7 +3017,14 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
             2 -> isExtension = _fieldValue as Boolean
         }
     }
-    return UninterpretedOption.NamePart(namePart, isExtension, unknownFields)
+
+    if (namePart == null) {
+        throw pbandk.InvalidProtocolBufferException("Required field 'name_part' was missing in protocol message.")
+    }
+    if (isExtension == null) {
+        throw pbandk.InvalidProtocolBufferException("Required field 'is_extension' was missing in protocol message.")
+    }
+    return UninterpretedOption.NamePart(namePart!!, isExtension!!, unknownFields)
 }
 
 @pbandk.Export
@@ -3023,6 +3047,7 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
             1 -> location = (location ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.SourceCodeInfo.Location> }
         }
     }
+
     return SourceCodeInfo(pbandk.ListWithSize.Builder.fixed(location), unknownFields)
 }
 
@@ -3058,6 +3083,7 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
             6 -> leadingDetachedComments = (leadingDetachedComments ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+
     return SourceCodeInfo.Location(pbandk.ListWithSize.Builder.fixed(path), pbandk.ListWithSize.Builder.fixed(span), leadingComments, trailingComments,
         pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), unknownFields)
 }
@@ -3082,6 +3108,7 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
             1 -> annotation = (annotation ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.GeneratedCodeInfo.Annotation> }
         }
     }
+
     return GeneratedCodeInfo(pbandk.ListWithSize.Builder.fixed(annotation), unknownFields)
 }
 
@@ -3114,5 +3141,6 @@ private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.Mess
             4 -> end = _fieldValue as Int
         }
     }
+
     return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, unknownFields)
 }

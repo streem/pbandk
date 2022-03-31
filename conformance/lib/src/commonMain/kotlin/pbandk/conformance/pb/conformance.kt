@@ -418,6 +418,7 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
             1 -> failure = (failure ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
+
     return FailureSet(pbandk.ListWithSize.Builder.fixed(failure), unknownFields)
 }
 
@@ -455,6 +456,7 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             9 -> printUnknownFields = _fieldValue as Boolean
         }
     }
+
     return ConformanceRequest(requestedOutputFormat, messageType, testCategory, jspbEncodingOptions,
         printUnknownFields, payload, unknownFields)
 }
@@ -486,6 +488,7 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
             8 -> result = ConformanceResponse.Result.TextPayload(_fieldValue as String)
         }
     }
+
     return ConformanceResponse(result, unknownFields)
 }
 
@@ -508,5 +511,6 @@ private fun JspbEncodingConfig.Companion.decodeWithImpl(u: pbandk.MessageDecoder
             1 -> useJspbArrayAnyFormat = _fieldValue as Boolean
         }
     }
+
     return JspbEncodingConfig(useJspbArrayAnyFormat, unknownFields)
 }
