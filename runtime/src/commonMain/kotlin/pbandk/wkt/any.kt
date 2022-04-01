@@ -16,17 +16,6 @@ public sealed interface Any : pbandk.Message {
     ): pbandk.wkt.Any
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        @Deprecated("Use any { } instead")
-        public operator fun invoke(
-            typeUrl: String = "",
-            value: pbandk.ByteArr = pbandk.ByteArr.empty,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Any = Any_Impl(
-            typeUrl = typeUrl,
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
@@ -72,17 +61,6 @@ public sealed interface MutableAny : Any, pbandk.MutableMessage {
     public fun toAny(): Any
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        @Deprecated("Use any { } instead")
-        public operator fun invoke(
-            typeUrl: String = "",
-            value: pbandk.ByteArr = pbandk.ByteArr.empty,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableAny = MutableAny_Impl(
-            typeUrl = typeUrl,
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableAny by lazy { MutableAny() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
@@ -90,8 +68,29 @@ public sealed interface MutableAny : Any, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> get() = pbandk.wkt.Any.descriptor
     }
 }
+@Deprecated("Use Any { } instead")
+public fun Any(
+    typeUrl: String = "",
+    value: pbandk.ByteArr = pbandk.ByteArr.empty,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Any = Any_Impl(
+    typeUrl = typeUrl,
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun any(builderAction: MutableAny.() -> Unit): Any {
+@Deprecated("Use Any { } instead")
+public fun MutableAny(
+    typeUrl: String = "",
+    value: pbandk.ByteArr = pbandk.ByteArr.empty,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableAny = MutableAny_Impl(
+    typeUrl = typeUrl,
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Any(builderAction: MutableAny.() -> Unit): Any {
     @Suppress("DEPRECATION") val builder = MutableAny()
     builder.builderAction()
     return builder.toAny()

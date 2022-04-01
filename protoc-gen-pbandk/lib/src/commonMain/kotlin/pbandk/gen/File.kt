@@ -2,11 +2,15 @@ package pbandk.gen
 
 import pbandk.wkt.FieldOptions
 
-public data class Name(
+public data class Name internal constructor(
+    val packageName: String?,
+    val parent: Name?,
     val simple: String,
-    val packageName: String? = null,
-    val parent: Name? = null,
 ) {
+    public constructor(simple: String) : this(null, null, simple)
+    public constructor(packageName: String?, simple: String) : this(packageName, null, simple)
+    public constructor(parent: Name?, simple: String) : this(parent?.packageName, parent, simple)
+
     val full: String = if (parent != null) "${parent.full}.${simple}" else simple
     val fullWithPackage: String = if (packageName != null) "$packageName.$full" else full
 }
@@ -113,15 +117,15 @@ public data class File(
 
             public companion object {
                 public val TYPE_TO_WRAPPER_TYPE_NAME: Map<Type, Name> = mapOf(
-                    BOOL to Name("BoolValue", ".google.protobuf"),
-                    BYTES to Name("BytesValue", ".google.protobuf"),
-                    DOUBLE to Name("DoubleValue", ".google.protobuf"),
-                    FLOAT to Name("FloatValue", ".google.protobuf"),
-                    INT32 to Name("Int32Value", ".google.protobuf"),
-                    INT64 to Name("Int64Value", ".google.protobuf"),
-                    STRING to Name("StringValue", ".google.protobuf"),
-                    UINT32 to Name("UInt32Value", ".google.protobuf"),
-                    UINT64 to Name("UInt64Value", ".google.protobuf")
+                    BOOL to Name(".google.protobuf", "BoolValue"),
+                    BYTES to Name(".google.protobuf", "BytesValue"),
+                    DOUBLE to Name(".google.protobuf", "DoubleValue"),
+                    FLOAT to Name(".google.protobuf", "FloatValue"),
+                    INT32 to Name(".google.protobuf", "Int32Value"),
+                    INT64 to Name(".google.protobuf", "Int64Value"),
+                    STRING to Name(".google.protobuf", "StringValue"),
+                    UINT32 to Name(".google.protobuf", "UInt32Value"),
+                    UINT64 to Name(".google.protobuf", "UInt64Value")
                 )
                 public val WRAPPER_TYPE_NAME_TO_TYPE: Map<Name, Type> =
                     TYPE_TO_WRAPPER_TYPE_NAME.entries.associateBy({ it.value }, { it.key })

@@ -1,13 +1,13 @@
 package pbandk.internal
 
-import pbandk.wkt.timestamp
+import pbandk.wkt.Timestamp
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class UtilTest {
     @Test
     fun timestamp_createsString() {
-        val timestamp = timestamp {
+        val timestamp = Timestamp {
             seconds = -62135596800
             nanos = 0
         }
@@ -20,7 +20,7 @@ class UtilTest {
 
     @Test
     fun timestamp_withNanos_createsString() {
-        val timestamp = timestamp {
+        val timestamp = Timestamp {
             seconds = 1505297220
             nanos = 203090
         }
@@ -33,7 +33,7 @@ class UtilTest {
 
     @Test
     fun timestamp_withoutNanos_createsString() {
-        val timestamp = timestamp {
+        val timestamp = Timestamp {
             seconds = 1505297220
             nanos = 0
         }
@@ -47,7 +47,7 @@ class UtilTest {
     @Test
     fun dateString_withZ_createsTimestamp() {
         val dateString = "2020-08-13T03:13:30.009900000Z"
-        val correctTimestamp = timestamp {
+        val correctTimestamp = Timestamp {
             seconds = 1597288410
             nanos = 9900000
         }
@@ -61,7 +61,7 @@ class UtilTest {
     @Test
     fun dateString_withTimezone_createsTimestamp() {
         val dateString = "2019-06-13T10:11:55.003920000-07:00"
-        val correctTimestamp = timestamp {
+        val correctTimestamp = Timestamp {
             seconds = 1560445915
             nanos = 3920000
         }
@@ -75,7 +75,7 @@ class UtilTest {
     @Test
     fun dateString_withNanos_createsTimestamp() {
         val dateString = "2018-01-13T10:23:00Z"
-        val correctTimestamp = timestamp {
+        val correctTimestamp = Timestamp {
             seconds = 1515838980
             nanos = 0
         }

@@ -16,17 +16,6 @@ public sealed interface Duration : pbandk.Message {
     ): pbandk.wkt.Duration
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        @Deprecated("Use duration { } instead")
-        public operator fun invoke(
-            seconds: Long = 0L,
-            nanos: Int = 0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Duration = Duration_Impl(
-            seconds = seconds,
-            nanos = nanos,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
@@ -72,17 +61,6 @@ public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
     public fun toDuration(): Duration
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        @Deprecated("Use duration { } instead")
-        public operator fun invoke(
-            seconds: Long = 0L,
-            nanos: Int = 0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableDuration = MutableDuration_Impl(
-            seconds = seconds,
-            nanos = nanos,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableDuration by lazy { MutableDuration() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
@@ -90,8 +68,29 @@ public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> get() = pbandk.wkt.Duration.descriptor
     }
 }
+@Deprecated("Use Duration { } instead")
+public fun Duration(
+    seconds: Long = 0L,
+    nanos: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Duration = Duration_Impl(
+    seconds = seconds,
+    nanos = nanos,
+    unknownFields = unknownFields
+)
 
-public fun duration(builderAction: MutableDuration.() -> Unit): Duration {
+@Deprecated("Use Duration { } instead")
+public fun MutableDuration(
+    seconds: Long = 0L,
+    nanos: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableDuration = MutableDuration_Impl(
+    seconds = seconds,
+    nanos = nanos,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Duration(builderAction: MutableDuration.() -> Unit): Duration {
     @Suppress("DEPRECATION") val builder = MutableDuration()
     builder.builderAction()
     return builder.toDuration()

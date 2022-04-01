@@ -80,17 +80,6 @@ public sealed interface FieldRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
-        @Deprecated("Use fieldRules { } instead")
-        public operator fun invoke(
-            message: pbandk.testpb.MessageRules? = null,
-            type: Type<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.FieldRules = FieldRules_Impl(
-            message = message,
-            type = type,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FieldRules by lazy { pbandk.testpb.FieldRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
@@ -379,17 +368,6 @@ public sealed interface MutableFieldRules : FieldRules, pbandk.MutableMessage {
     public fun toFieldRules(): FieldRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
-        @Deprecated("Use fieldRules { } instead")
-        public operator fun invoke(
-            message: pbandk.testpb.MessageRules? = null,
-            type: pbandk.testpb.FieldRules.Type<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableFieldRules = MutableFieldRules_Impl(
-            message = message,
-            type = type,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableFieldRules by lazy { MutableFieldRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
@@ -422,27 +400,6 @@ public sealed interface FloatRules : pbandk.Message {
     ): pbandk.testpb.FloatRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
-        @Deprecated("Use floatRules { } instead")
-        public operator fun invoke(
-            const: Float? = null,
-            lt: Float? = null,
-            lte: Float? = null,
-            gt: Float? = null,
-            gte: Float? = null,
-            `in`: List<Float> = emptyList(),
-            notIn: List<Float> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.FloatRules = FloatRules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FloatRules by lazy { pbandk.testpb.FloatRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
@@ -543,27 +500,6 @@ public sealed interface MutableFloatRules : FloatRules, pbandk.MutableMessage {
     public fun toFloatRules(): FloatRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
-        @Deprecated("Use floatRules { } instead")
-        public operator fun invoke(
-            const: Float? = null,
-            lt: Float? = null,
-            lte: Float? = null,
-            gt: Float? = null,
-            gte: Float? = null,
-            `in`: List<Float> = emptyList(),
-            notIn: List<Float> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableFloatRules = MutableFloatRules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableFloatRules by lazy { MutableFloatRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
@@ -596,27 +532,6 @@ public sealed interface DoubleRules : pbandk.Message {
     ): pbandk.testpb.DoubleRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
-        @Deprecated("Use doubleRules { } instead")
-        public operator fun invoke(
-            const: Double? = null,
-            lt: Double? = null,
-            lte: Double? = null,
-            gt: Double? = null,
-            gte: Double? = null,
-            `in`: List<Double> = emptyList(),
-            notIn: List<Double> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.DoubleRules = DoubleRules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.DoubleRules by lazy { pbandk.testpb.DoubleRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
@@ -717,27 +632,6 @@ public sealed interface MutableDoubleRules : DoubleRules, pbandk.MutableMessage 
     public fun toDoubleRules(): DoubleRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
-        @Deprecated("Use doubleRules { } instead")
-        public operator fun invoke(
-            const: Double? = null,
-            lt: Double? = null,
-            lte: Double? = null,
-            gt: Double? = null,
-            gte: Double? = null,
-            `in`: List<Double> = emptyList(),
-            notIn: List<Double> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableDoubleRules = MutableDoubleRules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableDoubleRules by lazy { MutableDoubleRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
@@ -770,27 +664,6 @@ public sealed interface Int32Rules : pbandk.Message {
     ): pbandk.testpb.Int32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
-        @Deprecated("Use int32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.Int32Rules = Int32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Int32Rules by lazy { pbandk.testpb.Int32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
@@ -891,27 +764,6 @@ public sealed interface MutableInt32Rules : Int32Rules, pbandk.MutableMessage {
     public fun toInt32Rules(): Int32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
-        @Deprecated("Use int32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableInt32Rules = MutableInt32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt32Rules by lazy { MutableInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
@@ -944,27 +796,6 @@ public sealed interface Int64Rules : pbandk.Message {
     ): pbandk.testpb.Int64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
-        @Deprecated("Use int64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.Int64Rules = Int64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Int64Rules by lazy { pbandk.testpb.Int64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
@@ -1065,27 +896,6 @@ public sealed interface MutableInt64Rules : Int64Rules, pbandk.MutableMessage {
     public fun toInt64Rules(): Int64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
-        @Deprecated("Use int64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableInt64Rules = MutableInt64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt64Rules by lazy { MutableInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
@@ -1118,27 +928,6 @@ public sealed interface UInt32Rules : pbandk.Message {
     ): pbandk.testpb.UInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
-        @Deprecated("Use uInt32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.UInt32Rules = UInt32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.UInt32Rules by lazy { pbandk.testpb.UInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
@@ -1239,27 +1028,6 @@ public sealed interface MutableUInt32Rules : UInt32Rules, pbandk.MutableMessage 
     public fun toUInt32Rules(): UInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
-        @Deprecated("Use uInt32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableUInt32Rules = MutableUInt32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt32Rules by lazy { MutableUInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
@@ -1292,27 +1060,6 @@ public sealed interface UInt64Rules : pbandk.Message {
     ): pbandk.testpb.UInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
-        @Deprecated("Use uInt64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.UInt64Rules = UInt64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.UInt64Rules by lazy { pbandk.testpb.UInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
@@ -1413,27 +1160,6 @@ public sealed interface MutableUInt64Rules : UInt64Rules, pbandk.MutableMessage 
     public fun toUInt64Rules(): UInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
-        @Deprecated("Use uInt64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableUInt64Rules = MutableUInt64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt64Rules by lazy { MutableUInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
@@ -1466,27 +1192,6 @@ public sealed interface SInt32Rules : pbandk.Message {
     ): pbandk.testpb.SInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
-        @Deprecated("Use sInt32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.SInt32Rules = SInt32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SInt32Rules by lazy { pbandk.testpb.SInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
@@ -1587,27 +1292,6 @@ public sealed interface MutableSInt32Rules : SInt32Rules, pbandk.MutableMessage 
     public fun toSInt32Rules(): SInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
-        @Deprecated("Use sInt32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableSInt32Rules = MutableSInt32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableSInt32Rules by lazy { MutableSInt32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
@@ -1640,27 +1324,6 @@ public sealed interface SInt64Rules : pbandk.Message {
     ): pbandk.testpb.SInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
-        @Deprecated("Use sInt64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.SInt64Rules = SInt64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SInt64Rules by lazy { pbandk.testpb.SInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
@@ -1761,27 +1424,6 @@ public sealed interface MutableSInt64Rules : SInt64Rules, pbandk.MutableMessage 
     public fun toSInt64Rules(): SInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
-        @Deprecated("Use sInt64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableSInt64Rules = MutableSInt64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableSInt64Rules by lazy { MutableSInt64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
@@ -1814,27 +1456,6 @@ public sealed interface Fixed32Rules : pbandk.Message {
     ): pbandk.testpb.Fixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
-        @Deprecated("Use fixed32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.Fixed32Rules = Fixed32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Fixed32Rules by lazy { pbandk.testpb.Fixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
@@ -1935,27 +1556,6 @@ public sealed interface MutableFixed32Rules : Fixed32Rules, pbandk.MutableMessag
     public fun toFixed32Rules(): Fixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
-        @Deprecated("Use fixed32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableFixed32Rules = MutableFixed32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableFixed32Rules by lazy { MutableFixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
@@ -1988,27 +1588,6 @@ public sealed interface Fixed64Rules : pbandk.Message {
     ): pbandk.testpb.Fixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
-        @Deprecated("Use fixed64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.Fixed64Rules = Fixed64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Fixed64Rules by lazy { pbandk.testpb.Fixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
@@ -2109,27 +1688,6 @@ public sealed interface MutableFixed64Rules : Fixed64Rules, pbandk.MutableMessag
     public fun toFixed64Rules(): Fixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
-        @Deprecated("Use fixed64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableFixed64Rules = MutableFixed64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableFixed64Rules by lazy { MutableFixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
@@ -2162,27 +1720,6 @@ public sealed interface SFixed32Rules : pbandk.Message {
     ): pbandk.testpb.SFixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
-        @Deprecated("Use sFixed32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.SFixed32Rules = SFixed32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SFixed32Rules by lazy { pbandk.testpb.SFixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
@@ -2283,27 +1820,6 @@ public sealed interface MutableSFixed32Rules : SFixed32Rules, pbandk.MutableMess
     public fun toSFixed32Rules(): SFixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
-        @Deprecated("Use sFixed32Rules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            lt: Int? = null,
-            lte: Int? = null,
-            gt: Int? = null,
-            gte: Int? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableSFixed32Rules = MutableSFixed32Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableSFixed32Rules by lazy { MutableSFixed32Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
@@ -2336,27 +1852,6 @@ public sealed interface SFixed64Rules : pbandk.Message {
     ): pbandk.testpb.SFixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
-        @Deprecated("Use sFixed64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.SFixed64Rules = SFixed64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SFixed64Rules by lazy { pbandk.testpb.SFixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
@@ -2457,27 +1952,6 @@ public sealed interface MutableSFixed64Rules : SFixed64Rules, pbandk.MutableMess
     public fun toSFixed64Rules(): SFixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
-        @Deprecated("Use sFixed64Rules { } instead")
-        public operator fun invoke(
-            const: Long? = null,
-            lt: Long? = null,
-            lte: Long? = null,
-            gt: Long? = null,
-            gte: Long? = null,
-            `in`: List<Long> = emptyList(),
-            notIn: List<Long> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableSFixed64Rules = MutableSFixed64Rules_Impl(
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableSFixed64Rules by lazy { MutableSFixed64Rules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
@@ -2498,15 +1972,6 @@ public sealed interface BoolRules : pbandk.Message {
     ): pbandk.testpb.BoolRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
-        @Deprecated("Use boolRules { } instead")
-        public operator fun invoke(
-            const: Boolean? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.BoolRules = BoolRules_Impl(
-            const = const,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.BoolRules by lazy { pbandk.testpb.BoolRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
@@ -2541,15 +2006,6 @@ public sealed interface MutableBoolRules : BoolRules, pbandk.MutableMessage {
     public fun toBoolRules(): BoolRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
-        @Deprecated("Use boolRules { } instead")
-        public operator fun invoke(
-            const: Boolean? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableBoolRules = MutableBoolRules_Impl(
-            const = const,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableBoolRules by lazy { MutableBoolRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
@@ -2624,45 +2080,6 @@ public sealed interface StringRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
-        @Deprecated("Use stringRules { } instead")
-        public operator fun invoke(
-            const: String? = null,
-            len: Long? = null,
-            minLen: Long? = null,
-            maxLen: Long? = null,
-            lenBytes: Long? = null,
-            minBytes: Long? = null,
-            maxBytes: Long? = null,
-            pattern: String? = null,
-            prefix: String? = null,
-            suffix: String? = null,
-            contains: String? = null,
-            notContains: String? = null,
-            `in`: List<String> = emptyList(),
-            notIn: List<String> = emptyList(),
-            strict: Boolean? = null,
-            wellKnown: WellKnown<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.StringRules = StringRules_Impl(
-            const = const,
-            len = len,
-            minLen = minLen,
-            maxLen = maxLen,
-            lenBytes = lenBytes,
-            minBytes = minBytes,
-            maxBytes = maxBytes,
-            pattern = pattern,
-            prefix = prefix,
-            suffix = suffix,
-            contains = contains,
-            notContains = notContains,
-            `in` = `in`,
-            notIn = notIn,
-            strict = strict,
-            wellKnown = wellKnown,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.StringRules by lazy { pbandk.testpb.StringRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
@@ -2973,45 +2390,6 @@ public sealed interface MutableStringRules : StringRules, pbandk.MutableMessage 
     public fun toStringRules(): StringRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
-        @Deprecated("Use stringRules { } instead")
-        public operator fun invoke(
-            const: String? = null,
-            len: Long? = null,
-            minLen: Long? = null,
-            maxLen: Long? = null,
-            lenBytes: Long? = null,
-            minBytes: Long? = null,
-            maxBytes: Long? = null,
-            pattern: String? = null,
-            prefix: String? = null,
-            suffix: String? = null,
-            contains: String? = null,
-            notContains: String? = null,
-            `in`: List<String> = emptyList(),
-            notIn: List<String> = emptyList(),
-            strict: Boolean? = null,
-            wellKnown: pbandk.testpb.StringRules.WellKnown<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableStringRules = MutableStringRules_Impl(
-            const = const,
-            len = len,
-            minLen = minLen,
-            maxLen = maxLen,
-            lenBytes = lenBytes,
-            minBytes = minBytes,
-            maxBytes = maxBytes,
-            pattern = pattern,
-            prefix = prefix,
-            suffix = suffix,
-            contains = contains,
-            notContains = notContains,
-            `in` = `in`,
-            notIn = notIn,
-            strict = strict,
-            wellKnown = wellKnown,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableStringRules by lazy { MutableStringRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
@@ -3062,35 +2440,6 @@ public sealed interface BytesRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
-        @Deprecated("Use bytesRules { } instead")
-        public operator fun invoke(
-            const: pbandk.ByteArr? = null,
-            len: Long? = null,
-            minLen: Long? = null,
-            maxLen: Long? = null,
-            pattern: String? = null,
-            prefix: pbandk.ByteArr? = null,
-            suffix: pbandk.ByteArr? = null,
-            contains: pbandk.ByteArr? = null,
-            `in`: List<pbandk.ByteArr> = emptyList(),
-            notIn: List<pbandk.ByteArr> = emptyList(),
-            wellKnown: WellKnown<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.BytesRules = BytesRules_Impl(
-            const = const,
-            len = len,
-            minLen = minLen,
-            maxLen = maxLen,
-            pattern = pattern,
-            prefix = prefix,
-            suffix = suffix,
-            contains = contains,
-            `in` = `in`,
-            notIn = notIn,
-            wellKnown = wellKnown,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.BytesRules by lazy { pbandk.testpb.BytesRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
@@ -3262,35 +2611,6 @@ public sealed interface MutableBytesRules : BytesRules, pbandk.MutableMessage {
     public fun toBytesRules(): BytesRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
-        @Deprecated("Use bytesRules { } instead")
-        public operator fun invoke(
-            const: pbandk.ByteArr? = null,
-            len: Long? = null,
-            minLen: Long? = null,
-            maxLen: Long? = null,
-            pattern: String? = null,
-            prefix: pbandk.ByteArr? = null,
-            suffix: pbandk.ByteArr? = null,
-            contains: pbandk.ByteArr? = null,
-            `in`: List<pbandk.ByteArr> = emptyList(),
-            notIn: List<pbandk.ByteArr> = emptyList(),
-            wellKnown: pbandk.testpb.BytesRules.WellKnown<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableBytesRules = MutableBytesRules_Impl(
-            const = const,
-            len = len,
-            minLen = minLen,
-            maxLen = maxLen,
-            pattern = pattern,
-            prefix = prefix,
-            suffix = suffix,
-            contains = contains,
-            `in` = `in`,
-            notIn = notIn,
-            wellKnown = wellKnown,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableBytesRules by lazy { MutableBytesRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
@@ -3317,21 +2637,6 @@ public sealed interface EnumRules : pbandk.Message {
     ): pbandk.testpb.EnumRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
-        @Deprecated("Use enumRules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            definedOnly: Boolean? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.EnumRules = EnumRules_Impl(
-            const = const,
-            definedOnly = definedOnly,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.EnumRules by lazy { pbandk.testpb.EnumRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
@@ -3399,21 +2704,6 @@ public sealed interface MutableEnumRules : EnumRules, pbandk.MutableMessage {
     public fun toEnumRules(): EnumRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
-        @Deprecated("Use enumRules { } instead")
-        public operator fun invoke(
-            const: Int? = null,
-            definedOnly: Boolean? = null,
-            `in`: List<Int> = emptyList(),
-            notIn: List<Int> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableEnumRules = MutableEnumRules_Impl(
-            const = const,
-            definedOnly = definedOnly,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableEnumRules by lazy { MutableEnumRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
@@ -3436,17 +2726,6 @@ public sealed interface MessageRules : pbandk.Message {
     ): pbandk.testpb.MessageRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
-        @Deprecated("Use messageRules { } instead")
-        public operator fun invoke(
-            skip: Boolean? = null,
-            required: Boolean? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.MessageRules = MessageRules_Impl(
-            skip = skip,
-            required = required,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MessageRules by lazy { pbandk.testpb.MessageRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
@@ -3492,17 +2771,6 @@ public sealed interface MutableMessageRules : MessageRules, pbandk.MutableMessag
     public fun toMessageRules(): MessageRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
-        @Deprecated("Use messageRules { } instead")
-        public operator fun invoke(
-            skip: Boolean? = null,
-            required: Boolean? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableMessageRules = MutableMessageRules_Impl(
-            skip = skip,
-            required = required,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableMessageRules by lazy { MutableMessageRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
@@ -3529,21 +2797,6 @@ public sealed interface RepeatedRules : pbandk.Message {
     ): pbandk.testpb.RepeatedRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
-        @Deprecated("Use repeatedRules { } instead")
-        public operator fun invoke(
-            minItems: Long? = null,
-            maxItems: Long? = null,
-            unique: Boolean? = null,
-            items: pbandk.testpb.FieldRules? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.RepeatedRules = RepeatedRules_Impl(
-            minItems = minItems,
-            maxItems = maxItems,
-            unique = unique,
-            items = items,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.RepeatedRules by lazy { pbandk.testpb.RepeatedRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
@@ -3611,21 +2864,6 @@ public sealed interface MutableRepeatedRules : RepeatedRules, pbandk.MutableMess
     public fun toRepeatedRules(): RepeatedRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
-        @Deprecated("Use repeatedRules { } instead")
-        public operator fun invoke(
-            minItems: Long? = null,
-            maxItems: Long? = null,
-            unique: Boolean? = null,
-            items: pbandk.testpb.FieldRules? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableRepeatedRules = MutableRepeatedRules_Impl(
-            minItems = minItems,
-            maxItems = maxItems,
-            unique = unique,
-            items = items,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableRepeatedRules by lazy { MutableRepeatedRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
@@ -3654,23 +2892,6 @@ public sealed interface MapRules : pbandk.Message {
     ): pbandk.testpb.MapRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
-        @Deprecated("Use mapRules { } instead")
-        public operator fun invoke(
-            minPairs: Long? = null,
-            maxPairs: Long? = null,
-            noSparse: Boolean? = null,
-            keys: pbandk.testpb.FieldRules? = null,
-            values: pbandk.testpb.FieldRules? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.MapRules = MapRules_Impl(
-            minPairs = minPairs,
-            maxPairs = maxPairs,
-            noSparse = noSparse,
-            keys = keys,
-            values = values,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MapRules by lazy { pbandk.testpb.MapRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
@@ -3749,23 +2970,6 @@ public sealed interface MutableMapRules : MapRules, pbandk.MutableMessage {
     public fun toMapRules(): MapRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
-        @Deprecated("Use mapRules { } instead")
-        public operator fun invoke(
-            minPairs: Long? = null,
-            maxPairs: Long? = null,
-            noSparse: Boolean? = null,
-            keys: pbandk.testpb.FieldRules? = null,
-            values: pbandk.testpb.FieldRules? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableMapRules = MutableMapRules_Impl(
-            minPairs = minPairs,
-            maxPairs = maxPairs,
-            noSparse = noSparse,
-            keys = keys,
-            values = values,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableMapRules by lazy { MutableMapRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
@@ -3790,19 +2994,6 @@ public sealed interface AnyRules : pbandk.Message {
     ): pbandk.testpb.AnyRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
-        @Deprecated("Use anyRules { } instead")
-        public operator fun invoke(
-            required: Boolean? = null,
-            `in`: List<String> = emptyList(),
-            notIn: List<String> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.AnyRules = AnyRules_Impl(
-            required = required,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.AnyRules by lazy { pbandk.testpb.AnyRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
@@ -3859,19 +3050,6 @@ public sealed interface MutableAnyRules : AnyRules, pbandk.MutableMessage {
     public fun toAnyRules(): AnyRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
-        @Deprecated("Use anyRules { } instead")
-        public operator fun invoke(
-            required: Boolean? = null,
-            `in`: List<String> = emptyList(),
-            notIn: List<String> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableAnyRules = MutableAnyRules_Impl(
-            required = required,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableAnyRules by lazy { MutableAnyRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
@@ -3906,29 +3084,6 @@ public sealed interface DurationRules : pbandk.Message {
     ): pbandk.testpb.DurationRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
-        @Deprecated("Use durationRules { } instead")
-        public operator fun invoke(
-            required: Boolean? = null,
-            const: pbandk.wkt.Duration? = null,
-            lt: pbandk.wkt.Duration? = null,
-            lte: pbandk.wkt.Duration? = null,
-            gt: pbandk.wkt.Duration? = null,
-            gte: pbandk.wkt.Duration? = null,
-            `in`: List<pbandk.wkt.Duration> = emptyList(),
-            notIn: List<pbandk.wkt.Duration> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.DurationRules = DurationRules_Impl(
-            required = required,
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.DurationRules by lazy { pbandk.testpb.DurationRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
@@ -4040,29 +3195,6 @@ public sealed interface MutableDurationRules : DurationRules, pbandk.MutableMess
     public fun toDurationRules(): DurationRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
-        @Deprecated("Use durationRules { } instead")
-        public operator fun invoke(
-            required: Boolean? = null,
-            const: pbandk.wkt.Duration? = null,
-            lt: pbandk.wkt.Duration? = null,
-            lte: pbandk.wkt.Duration? = null,
-            gt: pbandk.wkt.Duration? = null,
-            gte: pbandk.wkt.Duration? = null,
-            `in`: List<pbandk.wkt.Duration> = emptyList(),
-            notIn: List<pbandk.wkt.Duration> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableDurationRules = MutableDurationRules_Impl(
-            required = required,
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            `in` = `in`,
-            notIn = notIn,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableDurationRules by lazy { MutableDurationRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
@@ -4099,31 +3231,6 @@ public sealed interface TimestampRules : pbandk.Message {
     ): pbandk.testpb.TimestampRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
-        @Deprecated("Use timestampRules { } instead")
-        public operator fun invoke(
-            required: Boolean? = null,
-            const: pbandk.wkt.Timestamp? = null,
-            lt: pbandk.wkt.Timestamp? = null,
-            lte: pbandk.wkt.Timestamp? = null,
-            gt: pbandk.wkt.Timestamp? = null,
-            gte: pbandk.wkt.Timestamp? = null,
-            ltNow: Boolean? = null,
-            gtNow: Boolean? = null,
-            within: pbandk.wkt.Duration? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.TimestampRules = TimestampRules_Impl(
-            required = required,
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            ltNow = ltNow,
-            gtNow = gtNow,
-            within = within,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.TimestampRules by lazy { pbandk.testpb.TimestampRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
@@ -4246,31 +3353,6 @@ public sealed interface MutableTimestampRules : TimestampRules, pbandk.MutableMe
     public fun toTimestampRules(): TimestampRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
-        @Deprecated("Use timestampRules { } instead")
-        public operator fun invoke(
-            required: Boolean? = null,
-            const: pbandk.wkt.Timestamp? = null,
-            lt: pbandk.wkt.Timestamp? = null,
-            lte: pbandk.wkt.Timestamp? = null,
-            gt: pbandk.wkt.Timestamp? = null,
-            gte: pbandk.wkt.Timestamp? = null,
-            ltNow: Boolean? = null,
-            gtNow: Boolean? = null,
-            within: pbandk.wkt.Duration? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableTimestampRules = MutableTimestampRules_Impl(
-            required = required,
-            const = const,
-            lt = lt,
-            lte = lte,
-            gt = gt,
-            gte = gte,
-            ltNow = ltNow,
-            gtNow = gtNow,
-            within = within,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableTimestampRules by lazy { MutableTimestampRules() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
@@ -4317,8 +3399,29 @@ val rules = pbandk.FieldDescriptor(
     jsonName = "rules",
     value = pbandk.wkt.FieldOptions::rules
 )
+@Deprecated("Use FieldRules { } instead")
+public fun FieldRules(
+    message: pbandk.testpb.MessageRules? = null,
+    type: pbandk.testpb.FieldRules.Type<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.FieldRules = FieldRules_Impl(
+    message = message,
+    type = type,
+    unknownFields = unknownFields
+)
 
-public fun fieldRules(builderAction: MutableFieldRules.() -> Unit): FieldRules {
+@Deprecated("Use FieldRules { } instead")
+public fun MutableFieldRules(
+    message: pbandk.testpb.MessageRules? = null,
+    type: pbandk.testpb.FieldRules.Type<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableFieldRules = MutableFieldRules_Impl(
+    message = message,
+    type = type,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun FieldRules(builderAction: MutableFieldRules.() -> Unit): FieldRules {
     @Suppress("DEPRECATION") val builder = MutableFieldRules()
     builder.builderAction()
     return builder.toFieldRules()
@@ -4617,8 +3720,49 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field
     @Suppress("DEPRECATION")
     return FieldRules(message, type, unknownFields)
 }
+@Deprecated("Use FloatRules { } instead")
+public fun FloatRules(
+    const: Float? = null,
+    lt: Float? = null,
+    lte: Float? = null,
+    gt: Float? = null,
+    gte: Float? = null,
+    `in`: List<Float> = emptyList(),
+    notIn: List<Float> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.FloatRules = FloatRules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun floatRules(builderAction: MutableFloatRules.() -> Unit): FloatRules {
+@Deprecated("Use FloatRules { } instead")
+public fun MutableFloatRules(
+    const: Float? = null,
+    lt: Float? = null,
+    lte: Float? = null,
+    gt: Float? = null,
+    gte: Float? = null,
+    `in`: List<Float> = emptyList(),
+    notIn: List<Float> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableFloatRules = MutableFloatRules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun FloatRules(builderAction: MutableFloatRules.() -> Unit): FloatRules {
     @Suppress("DEPRECATION") val builder = MutableFloatRules()
     builder.builderAction()
     return builder.toFloatRules()
@@ -4756,8 +3900,49 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
     return FloatRules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use DoubleRules { } instead")
+public fun DoubleRules(
+    const: Double? = null,
+    lt: Double? = null,
+    lte: Double? = null,
+    gt: Double? = null,
+    gte: Double? = null,
+    `in`: List<Double> = emptyList(),
+    notIn: List<Double> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.DoubleRules = DoubleRules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun doubleRules(builderAction: MutableDoubleRules.() -> Unit): DoubleRules {
+@Deprecated("Use DoubleRules { } instead")
+public fun MutableDoubleRules(
+    const: Double? = null,
+    lt: Double? = null,
+    lte: Double? = null,
+    gt: Double? = null,
+    gte: Double? = null,
+    `in`: List<Double> = emptyList(),
+    notIn: List<Double> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableDoubleRules = MutableDoubleRules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun DoubleRules(builderAction: MutableDoubleRules.() -> Unit): DoubleRules {
     @Suppress("DEPRECATION") val builder = MutableDoubleRules()
     builder.builderAction()
     return builder.toDoubleRules()
@@ -4895,8 +4080,49 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
     return DoubleRules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use Int32Rules { } instead")
+public fun Int32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.Int32Rules = Int32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun int32Rules(builderAction: MutableInt32Rules.() -> Unit): Int32Rules {
+@Deprecated("Use Int32Rules { } instead")
+public fun MutableInt32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableInt32Rules = MutableInt32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Int32Rules(builderAction: MutableInt32Rules.() -> Unit): Int32Rules {
     @Suppress("DEPRECATION") val builder = MutableInt32Rules()
     builder.builderAction()
     return builder.toInt32Rules()
@@ -5034,8 +4260,49 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
     return Int32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use Int64Rules { } instead")
+public fun Int64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.Int64Rules = Int64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun int64Rules(builderAction: MutableInt64Rules.() -> Unit): Int64Rules {
+@Deprecated("Use Int64Rules { } instead")
+public fun MutableInt64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableInt64Rules = MutableInt64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Int64Rules(builderAction: MutableInt64Rules.() -> Unit): Int64Rules {
     @Suppress("DEPRECATION") val builder = MutableInt64Rules()
     builder.builderAction()
     return builder.toInt64Rules()
@@ -5173,8 +4440,49 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
     return Int64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use UInt32Rules { } instead")
+public fun UInt32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.UInt32Rules = UInt32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun uInt32Rules(builderAction: MutableUInt32Rules.() -> Unit): UInt32Rules {
+@Deprecated("Use UInt32Rules { } instead")
+public fun MutableUInt32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableUInt32Rules = MutableUInt32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun UInt32Rules(builderAction: MutableUInt32Rules.() -> Unit): UInt32Rules {
     @Suppress("DEPRECATION") val builder = MutableUInt32Rules()
     builder.builderAction()
     return builder.toUInt32Rules()
@@ -5312,8 +4620,49 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
     return UInt32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use UInt64Rules { } instead")
+public fun UInt64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.UInt64Rules = UInt64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun uInt64Rules(builderAction: MutableUInt64Rules.() -> Unit): UInt64Rules {
+@Deprecated("Use UInt64Rules { } instead")
+public fun MutableUInt64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableUInt64Rules = MutableUInt64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun UInt64Rules(builderAction: MutableUInt64Rules.() -> Unit): UInt64Rules {
     @Suppress("DEPRECATION") val builder = MutableUInt64Rules()
     builder.builderAction()
     return builder.toUInt64Rules()
@@ -5451,8 +4800,49 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
     return UInt64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use SInt32Rules { } instead")
+public fun SInt32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.SInt32Rules = SInt32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun sInt32Rules(builderAction: MutableSInt32Rules.() -> Unit): SInt32Rules {
+@Deprecated("Use SInt32Rules { } instead")
+public fun MutableSInt32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableSInt32Rules = MutableSInt32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun SInt32Rules(builderAction: MutableSInt32Rules.() -> Unit): SInt32Rules {
     @Suppress("DEPRECATION") val builder = MutableSInt32Rules()
     builder.builderAction()
     return builder.toSInt32Rules()
@@ -5590,8 +4980,49 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
     return SInt32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use SInt64Rules { } instead")
+public fun SInt64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.SInt64Rules = SInt64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun sInt64Rules(builderAction: MutableSInt64Rules.() -> Unit): SInt64Rules {
+@Deprecated("Use SInt64Rules { } instead")
+public fun MutableSInt64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableSInt64Rules = MutableSInt64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun SInt64Rules(builderAction: MutableSInt64Rules.() -> Unit): SInt64Rules {
     @Suppress("DEPRECATION") val builder = MutableSInt64Rules()
     builder.builderAction()
     return builder.toSInt64Rules()
@@ -5729,8 +5160,49 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
     return SInt64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use Fixed32Rules { } instead")
+public fun Fixed32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.Fixed32Rules = Fixed32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun fixed32Rules(builderAction: MutableFixed32Rules.() -> Unit): Fixed32Rules {
+@Deprecated("Use Fixed32Rules { } instead")
+public fun MutableFixed32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableFixed32Rules = MutableFixed32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Fixed32Rules(builderAction: MutableFixed32Rules.() -> Unit): Fixed32Rules {
     @Suppress("DEPRECATION") val builder = MutableFixed32Rules()
     builder.builderAction()
     return builder.toFixed32Rules()
@@ -5868,8 +5340,49 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
     return Fixed32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use Fixed64Rules { } instead")
+public fun Fixed64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.Fixed64Rules = Fixed64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun fixed64Rules(builderAction: MutableFixed64Rules.() -> Unit): Fixed64Rules {
+@Deprecated("Use Fixed64Rules { } instead")
+public fun MutableFixed64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableFixed64Rules = MutableFixed64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Fixed64Rules(builderAction: MutableFixed64Rules.() -> Unit): Fixed64Rules {
     @Suppress("DEPRECATION") val builder = MutableFixed64Rules()
     builder.builderAction()
     return builder.toFixed64Rules()
@@ -6007,8 +5520,49 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
     return Fixed64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use SFixed32Rules { } instead")
+public fun SFixed32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.SFixed32Rules = SFixed32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun sFixed32Rules(builderAction: MutableSFixed32Rules.() -> Unit): SFixed32Rules {
+@Deprecated("Use SFixed32Rules { } instead")
+public fun MutableSFixed32Rules(
+    const: Int? = null,
+    lt: Int? = null,
+    lte: Int? = null,
+    gt: Int? = null,
+    gte: Int? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableSFixed32Rules = MutableSFixed32Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun SFixed32Rules(builderAction: MutableSFixed32Rules.() -> Unit): SFixed32Rules {
     @Suppress("DEPRECATION") val builder = MutableSFixed32Rules()
     builder.builderAction()
     return builder.toSFixed32Rules()
@@ -6146,8 +5700,49 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
     return SFixed32Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use SFixed64Rules { } instead")
+public fun SFixed64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.SFixed64Rules = SFixed64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun sFixed64Rules(builderAction: MutableSFixed64Rules.() -> Unit): SFixed64Rules {
+@Deprecated("Use SFixed64Rules { } instead")
+public fun MutableSFixed64Rules(
+    const: Long? = null,
+    lt: Long? = null,
+    lte: Long? = null,
+    gt: Long? = null,
+    gte: Long? = null,
+    `in`: List<Long> = emptyList(),
+    notIn: List<Long> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableSFixed64Rules = MutableSFixed64Rules_Impl(
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun SFixed64Rules(builderAction: MutableSFixed64Rules.() -> Unit): SFixed64Rules {
     @Suppress("DEPRECATION") val builder = MutableSFixed64Rules()
     builder.builderAction()
     return builder.toSFixed64Rules()
@@ -6285,8 +5880,25 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
     return SFixed64Rules(const, lt, lte, gt,
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use BoolRules { } instead")
+public fun BoolRules(
+    const: Boolean? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.BoolRules = BoolRules_Impl(
+    const = const,
+    unknownFields = unknownFields
+)
 
-public fun boolRules(builderAction: MutableBoolRules.() -> Unit): BoolRules {
+@Deprecated("Use BoolRules { } instead")
+public fun MutableBoolRules(
+    const: Boolean? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableBoolRules = MutableBoolRules_Impl(
+    const = const,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun BoolRules(builderAction: MutableBoolRules.() -> Unit): BoolRules {
     @Suppress("DEPRECATION") val builder = MutableBoolRules()
     builder.builderAction()
     return builder.toBoolRules()
@@ -6357,8 +5969,85 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRu
     @Suppress("DEPRECATION")
     return BoolRules(const, unknownFields)
 }
+@Deprecated("Use StringRules { } instead")
+public fun StringRules(
+    const: String? = null,
+    len: Long? = null,
+    minLen: Long? = null,
+    maxLen: Long? = null,
+    lenBytes: Long? = null,
+    minBytes: Long? = null,
+    maxBytes: Long? = null,
+    pattern: String? = null,
+    prefix: String? = null,
+    suffix: String? = null,
+    contains: String? = null,
+    notContains: String? = null,
+    `in`: List<String> = emptyList(),
+    notIn: List<String> = emptyList(),
+    strict: Boolean? = null,
+    wellKnown: pbandk.testpb.StringRules.WellKnown<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.StringRules = StringRules_Impl(
+    const = const,
+    len = len,
+    minLen = minLen,
+    maxLen = maxLen,
+    lenBytes = lenBytes,
+    minBytes = minBytes,
+    maxBytes = maxBytes,
+    pattern = pattern,
+    prefix = prefix,
+    suffix = suffix,
+    contains = contains,
+    notContains = notContains,
+    `in` = `in`,
+    notIn = notIn,
+    strict = strict,
+    wellKnown = wellKnown,
+    unknownFields = unknownFields
+)
 
-public fun stringRules(builderAction: MutableStringRules.() -> Unit): StringRules {
+@Deprecated("Use StringRules { } instead")
+public fun MutableStringRules(
+    const: String? = null,
+    len: Long? = null,
+    minLen: Long? = null,
+    maxLen: Long? = null,
+    lenBytes: Long? = null,
+    minBytes: Long? = null,
+    maxBytes: Long? = null,
+    pattern: String? = null,
+    prefix: String? = null,
+    suffix: String? = null,
+    contains: String? = null,
+    notContains: String? = null,
+    `in`: List<String> = emptyList(),
+    notIn: List<String> = emptyList(),
+    strict: Boolean? = null,
+    wellKnown: pbandk.testpb.StringRules.WellKnown<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableStringRules = MutableStringRules_Impl(
+    const = const,
+    len = len,
+    minLen = minLen,
+    maxLen = maxLen,
+    lenBytes = lenBytes,
+    minBytes = minBytes,
+    maxBytes = maxBytes,
+    pattern = pattern,
+    prefix = prefix,
+    suffix = suffix,
+    contains = contains,
+    notContains = notContains,
+    `in` = `in`,
+    notIn = notIn,
+    strict = strict,
+    wellKnown = wellKnown,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun StringRules(builderAction: MutableStringRules.() -> Unit): StringRules {
     @Suppress("DEPRECATION") val builder = MutableStringRules()
     builder.builderAction()
     return builder.toStringRules()
@@ -6658,8 +6347,65 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
         prefix, suffix, contains, notContains,
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), strict, wellKnown, unknownFields)
 }
+@Deprecated("Use BytesRules { } instead")
+public fun BytesRules(
+    const: pbandk.ByteArr? = null,
+    len: Long? = null,
+    minLen: Long? = null,
+    maxLen: Long? = null,
+    pattern: String? = null,
+    prefix: pbandk.ByteArr? = null,
+    suffix: pbandk.ByteArr? = null,
+    contains: pbandk.ByteArr? = null,
+    `in`: List<pbandk.ByteArr> = emptyList(),
+    notIn: List<pbandk.ByteArr> = emptyList(),
+    wellKnown: pbandk.testpb.BytesRules.WellKnown<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.BytesRules = BytesRules_Impl(
+    const = const,
+    len = len,
+    minLen = minLen,
+    maxLen = maxLen,
+    pattern = pattern,
+    prefix = prefix,
+    suffix = suffix,
+    contains = contains,
+    `in` = `in`,
+    notIn = notIn,
+    wellKnown = wellKnown,
+    unknownFields = unknownFields
+)
 
-public fun bytesRules(builderAction: MutableBytesRules.() -> Unit): BytesRules {
+@Deprecated("Use BytesRules { } instead")
+public fun MutableBytesRules(
+    const: pbandk.ByteArr? = null,
+    len: Long? = null,
+    minLen: Long? = null,
+    maxLen: Long? = null,
+    pattern: String? = null,
+    prefix: pbandk.ByteArr? = null,
+    suffix: pbandk.ByteArr? = null,
+    contains: pbandk.ByteArr? = null,
+    `in`: List<pbandk.ByteArr> = emptyList(),
+    notIn: List<pbandk.ByteArr> = emptyList(),
+    wellKnown: pbandk.testpb.BytesRules.WellKnown<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableBytesRules = MutableBytesRules_Impl(
+    const = const,
+    len = len,
+    minLen = minLen,
+    maxLen = maxLen,
+    pattern = pattern,
+    prefix = prefix,
+    suffix = suffix,
+    contains = contains,
+    `in` = `in`,
+    notIn = notIn,
+    wellKnown = wellKnown,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun BytesRules(builderAction: MutableBytesRules.() -> Unit): BytesRules {
     @Suppress("DEPRECATION") val builder = MutableBytesRules()
     builder.builderAction()
     return builder.toBytesRules()
@@ -6861,8 +6607,37 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
         pattern, prefix, suffix, contains,
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), wellKnown, unknownFields)
 }
+@Deprecated("Use EnumRules { } instead")
+public fun EnumRules(
+    const: Int? = null,
+    definedOnly: Boolean? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.EnumRules = EnumRules_Impl(
+    const = const,
+    definedOnly = definedOnly,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun enumRules(builderAction: MutableEnumRules.() -> Unit): EnumRules {
+@Deprecated("Use EnumRules { } instead")
+public fun MutableEnumRules(
+    const: Int? = null,
+    definedOnly: Boolean? = null,
+    `in`: List<Int> = emptyList(),
+    notIn: List<Int> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableEnumRules = MutableEnumRules_Impl(
+    const = const,
+    definedOnly = definedOnly,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun EnumRules(builderAction: MutableEnumRules.() -> Unit): EnumRules {
     @Suppress("DEPRECATION") val builder = MutableEnumRules()
     builder.builderAction()
     return builder.toEnumRules()
@@ -6966,8 +6741,29 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
     @Suppress("DEPRECATION")
     return EnumRules(const, definedOnly, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use MessageRules { } instead")
+public fun MessageRules(
+    skip: Boolean? = null,
+    required: Boolean? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.MessageRules = MessageRules_Impl(
+    skip = skip,
+    required = required,
+    unknownFields = unknownFields
+)
 
-public fun messageRules(builderAction: MutableMessageRules.() -> Unit): MessageRules {
+@Deprecated("Use MessageRules { } instead")
+public fun MutableMessageRules(
+    skip: Boolean? = null,
+    required: Boolean? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableMessageRules = MutableMessageRules_Impl(
+    skip = skip,
+    required = required,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun MessageRules(builderAction: MutableMessageRules.() -> Unit): MessageRules {
     @Suppress("DEPRECATION") val builder = MutableMessageRules()
     builder.builderAction()
     return builder.toMessageRules()
@@ -7049,8 +6845,37 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mes
     @Suppress("DEPRECATION")
     return MessageRules(skip, required, unknownFields)
 }
+@Deprecated("Use RepeatedRules { } instead")
+public fun RepeatedRules(
+    minItems: Long? = null,
+    maxItems: Long? = null,
+    unique: Boolean? = null,
+    items: pbandk.testpb.FieldRules? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.RepeatedRules = RepeatedRules_Impl(
+    minItems = minItems,
+    maxItems = maxItems,
+    unique = unique,
+    items = items,
+    unknownFields = unknownFields
+)
 
-public fun repeatedRules(builderAction: MutableRepeatedRules.() -> Unit): RepeatedRules {
+@Deprecated("Use RepeatedRules { } instead")
+public fun MutableRepeatedRules(
+    minItems: Long? = null,
+    maxItems: Long? = null,
+    unique: Boolean? = null,
+    items: pbandk.testpb.FieldRules? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableRepeatedRules = MutableRepeatedRules_Impl(
+    minItems = minItems,
+    maxItems = maxItems,
+    unique = unique,
+    items = items,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun RepeatedRules(builderAction: MutableRepeatedRules.() -> Unit): RepeatedRules {
     @Suppress("DEPRECATION") val builder = MutableRepeatedRules()
     builder.builderAction()
     return builder.toRepeatedRules()
@@ -7154,8 +6979,41 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Re
     @Suppress("DEPRECATION")
     return RepeatedRules(minItems, maxItems, unique, items, unknownFields)
 }
+@Deprecated("Use MapRules { } instead")
+public fun MapRules(
+    minPairs: Long? = null,
+    maxPairs: Long? = null,
+    noSparse: Boolean? = null,
+    keys: pbandk.testpb.FieldRules? = null,
+    values: pbandk.testpb.FieldRules? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.MapRules = MapRules_Impl(
+    minPairs = minPairs,
+    maxPairs = maxPairs,
+    noSparse = noSparse,
+    keys = keys,
+    values = values,
+    unknownFields = unknownFields
+)
 
-public fun mapRules(builderAction: MutableMapRules.() -> Unit): MapRules {
+@Deprecated("Use MapRules { } instead")
+public fun MutableMapRules(
+    minPairs: Long? = null,
+    maxPairs: Long? = null,
+    noSparse: Boolean? = null,
+    keys: pbandk.testpb.FieldRules? = null,
+    values: pbandk.testpb.FieldRules? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableMapRules = MutableMapRules_Impl(
+    minPairs = minPairs,
+    maxPairs = maxPairs,
+    noSparse = noSparse,
+    keys = keys,
+    values = values,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun MapRules(builderAction: MutableMapRules.() -> Unit): MapRules {
     @Suppress("DEPRECATION") val builder = MutableMapRules()
     builder.builderAction()
     return builder.toMapRules()
@@ -7271,8 +7129,33 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRule
     return MapRules(minPairs, maxPairs, noSparse, keys,
         values, unknownFields)
 }
+@Deprecated("Use AnyRules { } instead")
+public fun AnyRules(
+    required: Boolean? = null,
+    `in`: List<String> = emptyList(),
+    notIn: List<String> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.AnyRules = AnyRules_Impl(
+    required = required,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun anyRules(builderAction: MutableAnyRules.() -> Unit): AnyRules {
+@Deprecated("Use AnyRules { } instead")
+public fun MutableAnyRules(
+    required: Boolean? = null,
+    `in`: List<String> = emptyList(),
+    notIn: List<String> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableAnyRules = MutableAnyRules_Impl(
+    required = required,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun AnyRules(builderAction: MutableAnyRules.() -> Unit): AnyRules {
     @Suppress("DEPRECATION") val builder = MutableAnyRules()
     builder.builderAction()
     return builder.toAnyRules()
@@ -7365,8 +7248,53 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
     @Suppress("DEPRECATION")
     return AnyRules(required, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use DurationRules { } instead")
+public fun DurationRules(
+    required: Boolean? = null,
+    const: pbandk.wkt.Duration? = null,
+    lt: pbandk.wkt.Duration? = null,
+    lte: pbandk.wkt.Duration? = null,
+    gt: pbandk.wkt.Duration? = null,
+    gte: pbandk.wkt.Duration? = null,
+    `in`: List<pbandk.wkt.Duration> = emptyList(),
+    notIn: List<pbandk.wkt.Duration> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.DurationRules = DurationRules_Impl(
+    required = required,
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
+)
 
-public fun durationRules(builderAction: MutableDurationRules.() -> Unit): DurationRules {
+@Deprecated("Use DurationRules { } instead")
+public fun MutableDurationRules(
+    required: Boolean? = null,
+    const: pbandk.wkt.Duration? = null,
+    lt: pbandk.wkt.Duration? = null,
+    lte: pbandk.wkt.Duration? = null,
+    gt: pbandk.wkt.Duration? = null,
+    gte: pbandk.wkt.Duration? = null,
+    `in`: List<pbandk.wkt.Duration> = emptyList(),
+    notIn: List<pbandk.wkt.Duration> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableDurationRules = MutableDurationRules_Impl(
+    required = required,
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun DurationRules(builderAction: MutableDurationRules.() -> Unit): DurationRules {
     @Suppress("DEPRECATION") val builder = MutableDurationRules()
     builder.builderAction()
     return builder.toDurationRules()
@@ -7515,8 +7443,57 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
     return DurationRules(required, const, lt, lte,
         gt, gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
+@Deprecated("Use TimestampRules { } instead")
+public fun TimestampRules(
+    required: Boolean? = null,
+    const: pbandk.wkt.Timestamp? = null,
+    lt: pbandk.wkt.Timestamp? = null,
+    lte: pbandk.wkt.Timestamp? = null,
+    gt: pbandk.wkt.Timestamp? = null,
+    gte: pbandk.wkt.Timestamp? = null,
+    ltNow: Boolean? = null,
+    gtNow: Boolean? = null,
+    within: pbandk.wkt.Duration? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.TimestampRules = TimestampRules_Impl(
+    required = required,
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    ltNow = ltNow,
+    gtNow = gtNow,
+    within = within,
+    unknownFields = unknownFields
+)
 
-public fun timestampRules(builderAction: MutableTimestampRules.() -> Unit): TimestampRules {
+@Deprecated("Use TimestampRules { } instead")
+public fun MutableTimestampRules(
+    required: Boolean? = null,
+    const: pbandk.wkt.Timestamp? = null,
+    lt: pbandk.wkt.Timestamp? = null,
+    lte: pbandk.wkt.Timestamp? = null,
+    gt: pbandk.wkt.Timestamp? = null,
+    gte: pbandk.wkt.Timestamp? = null,
+    ltNow: Boolean? = null,
+    gtNow: Boolean? = null,
+    within: pbandk.wkt.Duration? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableTimestampRules = MutableTimestampRules_Impl(
+    required = required,
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    ltNow = ltNow,
+    gtNow = gtNow,
+    within = within,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun TimestampRules(builderAction: MutableTimestampRules.() -> Unit): TimestampRules {
     @Suppress("DEPRECATION") val builder = MutableTimestampRules()
     builder.builderAction()
     return builder.toTimestampRules()

@@ -14,15 +14,6 @@ public sealed interface DoubleValue : pbandk.Message {
     ): pbandk.wkt.DoubleValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
-        @Deprecated("Use doubleValue { } instead")
-        public operator fun invoke(
-            value: Double = 0.0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.DoubleValue = DoubleValue_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
@@ -57,15 +48,6 @@ public sealed interface MutableDoubleValue : DoubleValue, pbandk.MutableMessage 
     public fun toDoubleValue(): DoubleValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
-        @Deprecated("Use doubleValue { } instead")
-        public operator fun invoke(
-            value: Double = 0.0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableDoubleValue = MutableDoubleValue_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableDoubleValue by lazy { MutableDoubleValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
@@ -86,15 +68,6 @@ public sealed interface FloatValue : pbandk.Message {
     ): pbandk.wkt.FloatValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
-        @Deprecated("Use floatValue { } instead")
-        public operator fun invoke(
-            value: Float = 0.0F,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.FloatValue = FloatValue_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
@@ -129,15 +102,6 @@ public sealed interface MutableFloatValue : FloatValue, pbandk.MutableMessage {
     public fun toFloatValue(): FloatValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
-        @Deprecated("Use floatValue { } instead")
-        public operator fun invoke(
-            value: Float = 0.0F,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableFloatValue = MutableFloatValue_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableFloatValue by lazy { MutableFloatValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
@@ -158,15 +122,6 @@ public sealed interface Int64Value : pbandk.Message {
     ): pbandk.wkt.Int64Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
-        @Deprecated("Use int64Value { } instead")
-        public operator fun invoke(
-            value: Long = 0L,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Int64Value = Int64Value_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
@@ -201,15 +156,6 @@ public sealed interface MutableInt64Value : Int64Value, pbandk.MutableMessage {
     public fun toInt64Value(): Int64Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
-        @Deprecated("Use int64Value { } instead")
-        public operator fun invoke(
-            value: Long = 0L,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableInt64Value = MutableInt64Value_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt64Value by lazy { MutableInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
@@ -230,15 +176,6 @@ public sealed interface UInt64Value : pbandk.Message {
     ): pbandk.wkt.UInt64Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
-        @Deprecated("Use uInt64Value { } instead")
-        public operator fun invoke(
-            value: Long = 0L,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.UInt64Value = UInt64Value_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
@@ -273,15 +210,6 @@ public sealed interface MutableUInt64Value : UInt64Value, pbandk.MutableMessage 
     public fun toUInt64Value(): UInt64Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
-        @Deprecated("Use uInt64Value { } instead")
-        public operator fun invoke(
-            value: Long = 0L,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableUInt64Value = MutableUInt64Value_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt64Value by lazy { MutableUInt64Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
@@ -302,15 +230,6 @@ public sealed interface Int32Value : pbandk.Message {
     ): pbandk.wkt.Int32Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
-        @Deprecated("Use int32Value { } instead")
-        public operator fun invoke(
-            value: Int = 0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Int32Value = Int32Value_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
@@ -345,15 +264,6 @@ public sealed interface MutableInt32Value : Int32Value, pbandk.MutableMessage {
     public fun toInt32Value(): Int32Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
-        @Deprecated("Use int32Value { } instead")
-        public operator fun invoke(
-            value: Int = 0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableInt32Value = MutableInt32Value_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableInt32Value by lazy { MutableInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
@@ -374,15 +284,6 @@ public sealed interface UInt32Value : pbandk.Message {
     ): pbandk.wkt.UInt32Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
-        @Deprecated("Use uInt32Value { } instead")
-        public operator fun invoke(
-            value: Int = 0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.UInt32Value = UInt32Value_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
@@ -417,15 +318,6 @@ public sealed interface MutableUInt32Value : UInt32Value, pbandk.MutableMessage 
     public fun toUInt32Value(): UInt32Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
-        @Deprecated("Use uInt32Value { } instead")
-        public operator fun invoke(
-            value: Int = 0,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableUInt32Value = MutableUInt32Value_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableUInt32Value by lazy { MutableUInt32Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
@@ -446,15 +338,6 @@ public sealed interface BoolValue : pbandk.Message {
     ): pbandk.wkt.BoolValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
-        @Deprecated("Use boolValue { } instead")
-        public operator fun invoke(
-            value: Boolean = false,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.BoolValue = BoolValue_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
@@ -489,15 +372,6 @@ public sealed interface MutableBoolValue : BoolValue, pbandk.MutableMessage {
     public fun toBoolValue(): BoolValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
-        @Deprecated("Use boolValue { } instead")
-        public operator fun invoke(
-            value: Boolean = false,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableBoolValue = MutableBoolValue_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableBoolValue by lazy { MutableBoolValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
@@ -518,15 +392,6 @@ public sealed interface StringValue : pbandk.Message {
     ): pbandk.wkt.StringValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
-        @Deprecated("Use stringValue { } instead")
-        public operator fun invoke(
-            value: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.StringValue = StringValue_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
@@ -561,15 +426,6 @@ public sealed interface MutableStringValue : StringValue, pbandk.MutableMessage 
     public fun toStringValue(): StringValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
-        @Deprecated("Use stringValue { } instead")
-        public operator fun invoke(
-            value: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableStringValue = MutableStringValue_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableStringValue by lazy { MutableStringValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
@@ -590,15 +446,6 @@ public sealed interface BytesValue : pbandk.Message {
     ): pbandk.wkt.BytesValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
-        @Deprecated("Use bytesValue { } instead")
-        public operator fun invoke(
-            value: pbandk.ByteArr = pbandk.ByteArr.empty,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.BytesValue = BytesValue_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
@@ -633,15 +480,6 @@ public sealed interface MutableBytesValue : BytesValue, pbandk.MutableMessage {
     public fun toBytesValue(): BytesValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
-        @Deprecated("Use bytesValue { } instead")
-        public operator fun invoke(
-            value: pbandk.ByteArr = pbandk.ByteArr.empty,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableBytesValue = MutableBytesValue_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableBytesValue by lazy { MutableBytesValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
@@ -649,8 +487,25 @@ public sealed interface MutableBytesValue : BytesValue, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> get() = pbandk.wkt.BytesValue.descriptor
     }
 }
+@Deprecated("Use DoubleValue { } instead")
+public fun DoubleValue(
+    value: Double = 0.0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.DoubleValue = DoubleValue_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun doubleValue(builderAction: MutableDoubleValue.() -> Unit): DoubleValue {
+@Deprecated("Use DoubleValue { } instead")
+public fun MutableDoubleValue(
+    value: Double = 0.0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableDoubleValue = MutableDoubleValue_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun DoubleValue(builderAction: MutableDoubleValue.() -> Unit): DoubleValue {
     @Suppress("DEPRECATION") val builder = MutableDoubleValue()
     builder.builderAction()
     return builder.toDoubleValue()
@@ -719,8 +574,25 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
     @Suppress("DEPRECATION")
     return DoubleValue(value, unknownFields)
 }
+@Deprecated("Use FloatValue { } instead")
+public fun FloatValue(
+    value: Float = 0.0F,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.FloatValue = FloatValue_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun floatValue(builderAction: MutableFloatValue.() -> Unit): FloatValue {
+@Deprecated("Use FloatValue { } instead")
+public fun MutableFloatValue(
+    value: Float = 0.0F,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableFloatValue = MutableFloatValue_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun FloatValue(builderAction: MutableFloatValue.() -> Unit): FloatValue {
     @Suppress("DEPRECATION") val builder = MutableFloatValue()
     builder.builderAction()
     return builder.toFloatValue()
@@ -789,8 +661,25 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
     @Suppress("DEPRECATION")
     return FloatValue(value, unknownFields)
 }
+@Deprecated("Use Int64Value { } instead")
+public fun Int64Value(
+    value: Long = 0L,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Int64Value = Int64Value_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun int64Value(builderAction: MutableInt64Value.() -> Unit): Int64Value {
+@Deprecated("Use Int64Value { } instead")
+public fun MutableInt64Value(
+    value: Long = 0L,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableInt64Value = MutableInt64Value_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Int64Value(builderAction: MutableInt64Value.() -> Unit): Int64Value {
     @Suppress("DEPRECATION") val builder = MutableInt64Value()
     builder.builderAction()
     return builder.toInt64Value()
@@ -859,8 +748,25 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
     @Suppress("DEPRECATION")
     return Int64Value(value, unknownFields)
 }
+@Deprecated("Use UInt64Value { } instead")
+public fun UInt64Value(
+    value: Long = 0L,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.UInt64Value = UInt64Value_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun uInt64Value(builderAction: MutableUInt64Value.() -> Unit): UInt64Value {
+@Deprecated("Use UInt64Value { } instead")
+public fun MutableUInt64Value(
+    value: Long = 0L,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableUInt64Value = MutableUInt64Value_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun UInt64Value(builderAction: MutableUInt64Value.() -> Unit): UInt64Value {
     @Suppress("DEPRECATION") val builder = MutableUInt64Value()
     builder.builderAction()
     return builder.toUInt64Value()
@@ -929,8 +835,25 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
     @Suppress("DEPRECATION")
     return UInt64Value(value, unknownFields)
 }
+@Deprecated("Use Int32Value { } instead")
+public fun Int32Value(
+    value: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Int32Value = Int32Value_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun int32Value(builderAction: MutableInt32Value.() -> Unit): Int32Value {
+@Deprecated("Use Int32Value { } instead")
+public fun MutableInt32Value(
+    value: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableInt32Value = MutableInt32Value_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Int32Value(builderAction: MutableInt32Value.() -> Unit): Int32Value {
     @Suppress("DEPRECATION") val builder = MutableInt32Value()
     builder.builderAction()
     return builder.toInt32Value()
@@ -999,8 +922,25 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
     @Suppress("DEPRECATION")
     return Int32Value(value, unknownFields)
 }
+@Deprecated("Use UInt32Value { } instead")
+public fun UInt32Value(
+    value: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.UInt32Value = UInt32Value_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun uInt32Value(builderAction: MutableUInt32Value.() -> Unit): UInt32Value {
+@Deprecated("Use UInt32Value { } instead")
+public fun MutableUInt32Value(
+    value: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableUInt32Value = MutableUInt32Value_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun UInt32Value(builderAction: MutableUInt32Value.() -> Unit): UInt32Value {
     @Suppress("DEPRECATION") val builder = MutableUInt32Value()
     builder.builderAction()
     return builder.toUInt32Value()
@@ -1069,8 +1009,25 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
     @Suppress("DEPRECATION")
     return UInt32Value(value, unknownFields)
 }
+@Deprecated("Use BoolValue { } instead")
+public fun BoolValue(
+    value: Boolean = false,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.BoolValue = BoolValue_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun boolValue(builderAction: MutableBoolValue.() -> Unit): BoolValue {
+@Deprecated("Use BoolValue { } instead")
+public fun MutableBoolValue(
+    value: Boolean = false,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableBoolValue = MutableBoolValue_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun BoolValue(builderAction: MutableBoolValue.() -> Unit): BoolValue {
     @Suppress("DEPRECATION") val builder = MutableBoolValue()
     builder.builderAction()
     return builder.toBoolValue()
@@ -1139,8 +1096,25 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
     @Suppress("DEPRECATION")
     return BoolValue(value, unknownFields)
 }
+@Deprecated("Use StringValue { } instead")
+public fun StringValue(
+    value: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.StringValue = StringValue_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun stringValue(builderAction: MutableStringValue.() -> Unit): StringValue {
+@Deprecated("Use StringValue { } instead")
+public fun MutableStringValue(
+    value: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableStringValue = MutableStringValue_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun StringValue(builderAction: MutableStringValue.() -> Unit): StringValue {
     @Suppress("DEPRECATION") val builder = MutableStringValue()
     builder.builderAction()
     return builder.toStringValue()
@@ -1209,8 +1183,25 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
     @Suppress("DEPRECATION")
     return StringValue(value, unknownFields)
 }
+@Deprecated("Use BytesValue { } instead")
+public fun BytesValue(
+    value: pbandk.ByteArr = pbandk.ByteArr.empty,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.BytesValue = BytesValue_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun bytesValue(builderAction: MutableBytesValue.() -> Unit): BytesValue {
+@Deprecated("Use BytesValue { } instead")
+public fun MutableBytesValue(
+    value: pbandk.ByteArr = pbandk.ByteArr.empty,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableBytesValue = MutableBytesValue_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun BytesValue(builderAction: MutableBytesValue.() -> Unit): BytesValue {
     @Suppress("DEPRECATION") val builder = MutableBytesValue()
     builder.builderAction()
     return builder.toBytesValue()

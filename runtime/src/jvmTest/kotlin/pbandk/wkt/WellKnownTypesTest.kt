@@ -10,7 +10,6 @@ import pbandk.decodeFromByteArray
 import pbandk.encodeToByteArray
 import pbandk.internal.binary.WireType
 import pbandk.testpb.Wrappers
-import pbandk.testpb.wrappers
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -28,7 +27,7 @@ class WellKnownTypesTest {
     @Test
     fun testAny() {
         Any.assertMessageEquals(
-            any {
+            Any {
                 typeUrl = "foo"
                 value = ByteArr("bar".toByteArray())
             },
@@ -38,7 +37,7 @@ class WellKnownTypesTest {
                 .build()
         )
         Any.assertMessageEquals(
-            any {
+            Any {
                 typeUrl = "foo"
                 value = ByteArr("bar".toByteArray())
                 unknownFields += mapOf(
@@ -64,19 +63,19 @@ class WellKnownTypesTest {
     @Test
     fun testWrappers() {
         Wrappers.assertMessageEquals(
-            wrappers { stringValue = "test string" },
+            Wrappers { stringValue = "test string" },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .setStringValue(com.google.protobuf.StringValue.newBuilder().setValue("test string"))
                 .build()
         )
 
         Wrappers.assertMessageEquals(
-            wrappers {},
+            Wrappers {},
             pbandk.testpb.java.Test.Wrappers.getDefaultInstance()
         )
 
         Wrappers.assertMessageEquals(
-            wrappers { stringValue = "" },
+            Wrappers { stringValue = "" },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .setStringValue(com.google.protobuf.StringValue.getDefaultInstance())
                 .build()
@@ -86,7 +85,7 @@ class WellKnownTypesTest {
     @Test
     fun testRepeatedWrappers() {
         Wrappers.assertMessageEquals(
-            wrappers { uint64Values = listOf(1, 2, 1234567890123456789) },
+            Wrappers { uint64Values = listOf(1, 2, 1234567890123456789) },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .addAllUint64Values(listOf(1, 2, 1234567890123456789).map {
                     com.google.protobuf.UInt64Value.newBuilder().setValue(it).build()
@@ -95,7 +94,7 @@ class WellKnownTypesTest {
         )
 
         Wrappers.assertMessageEquals(
-            wrappers { uint64Values = listOf(0) },
+            Wrappers { uint64Values = listOf(0) },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .addUint64Values(com.google.protobuf.UInt64Value.getDefaultInstance())
                 .build()

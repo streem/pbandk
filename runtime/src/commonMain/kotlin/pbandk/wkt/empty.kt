@@ -12,13 +12,6 @@ public sealed interface Empty : pbandk.Message {
     ): pbandk.wkt.Empty
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
-        @Deprecated("Use empty { } instead")
-        public operator fun invoke(
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Empty = Empty_Impl(
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
@@ -42,13 +35,6 @@ public sealed interface MutableEmpty : Empty, pbandk.MutableMessage {
     public fun toEmpty(): Empty
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
-        @Deprecated("Use empty { } instead")
-        public operator fun invoke(
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableEmpty = MutableEmpty_Impl(
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableEmpty by lazy { MutableEmpty() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
@@ -56,8 +42,21 @@ public sealed interface MutableEmpty : Empty, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> get() = pbandk.wkt.Empty.descriptor
     }
 }
+@Deprecated("Use Empty { } instead")
+public fun Empty(
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Empty = Empty_Impl(
+    unknownFields = unknownFields
+)
 
-public fun empty(builderAction: MutableEmpty.() -> Unit): Empty {
+@Deprecated("Use Empty { } instead")
+public fun MutableEmpty(
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableEmpty = MutableEmpty_Impl(
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Empty(builderAction: MutableEmpty.() -> Unit): Empty {
     @Suppress("DEPRECATION") val builder = MutableEmpty()
     builder.builderAction()
     return builder.toEmpty()

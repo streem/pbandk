@@ -33,18 +33,6 @@ import pbandk.wkt.Timestamp
 import pbandk.wkt.UInt32Value
 import pbandk.wkt.UInt64Value
 import pbandk.wkt.Value
-import pbandk.wkt.boolValue
-import pbandk.wkt.bytesValue
-import pbandk.wkt.doubleValue
-import pbandk.wkt.floatValue
-import pbandk.wkt.int32Value
-import pbandk.wkt.int64Value
-import pbandk.wkt.listValue
-import pbandk.wkt.stringValue
-import pbandk.wkt.struct
-import pbandk.wkt.uInt32Value
-import pbandk.wkt.uInt64Value
-import pbandk.wkt.value
 
 internal interface JsonMessageAdapter<T : Message> {
     fun encode(message: T, jsonValueEncoder: JsonValueEncoder): JsonElement
@@ -62,7 +50,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: DoubleValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = doubleValue {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = DoubleValue {
                 value = jsonValueDecoder.readDouble(json)
             }
         },
@@ -73,7 +61,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: FloatValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = floatValue {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = FloatValue {
                 value = jsonValueDecoder.readFloat(json)
             }
         },
@@ -84,7 +72,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: Int64Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = int64Value {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = Int64Value {
                 value = jsonValueDecoder.readInteger64(json)
             }
         },
@@ -95,7 +83,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: UInt64Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = uInt64Value {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = UInt64Value {
                 value = jsonValueDecoder.readUnsignedInteger64(json)
             }
         },
@@ -106,7 +94,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: Int32Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = int32Value {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = Int32Value {
                 value = jsonValueDecoder.readInteger32(json)
             }
         },
@@ -117,7 +105,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: UInt32Value, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = uInt32Value {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = UInt32Value {
                 jsonValueDecoder.readUnsignedInteger32(json)
             }
         },
@@ -128,7 +116,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: BoolValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = boolValue {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = BoolValue {
                 value = jsonValueDecoder.readBool(json)
             }
         },
@@ -139,7 +127,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: StringValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = stringValue {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = StringValue {
                 value = jsonValueDecoder.readString(json)
             }
         },
@@ -150,7 +138,7 @@ internal object JsonMessageAdapters {
             override fun encode(message: BytesValue, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.value, fieldType)
 
-            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = bytesValue {
+            override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = BytesValue {
                 value = jsonValueDecoder.readBytes(json)
             }
         },
@@ -218,7 +206,7 @@ internal object JsonMessageAdapters {
                     json,
                     ListValue.descriptor.fields.first().type
                 ) as Sequence<Value>
-                listValue {
+                ListValue {
                     this.values = values.toList()
                 }
             } catch (e: InvalidProtocolBufferException) {
@@ -240,7 +228,7 @@ internal object JsonMessageAdapters {
                     Struct.descriptor.fields.first().type as FieldDescriptor.Type.Map<*, *>
                 )
                 @Suppress("UNCHECKED_CAST")
-                struct {
+                Struct {
                     this.fields = MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>)
                 }
             } catch (e: InvalidProtocolBufferException) {
@@ -275,20 +263,20 @@ internal object JsonMessageAdapters {
             }
 
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = when (json) {
-                is JsonNull -> value { nullValue = NullValue.NULL_VALUE }
-                is JsonPrimitive -> runCatching { value { stringValue = jsonValueDecoder.readString(json) } }
-                    .recoverCatching { value { numberValue = jsonValueDecoder.readDouble(json) } }
-                    .recoverCatching { value { boolValue = jsonValueDecoder.readBool(json) } }
+                is JsonNull -> Value { nullValue = NullValue.NULL_VALUE }
+                is JsonPrimitive -> runCatching { Value { stringValue = jsonValueDecoder.readString(json) } }
+                    .recoverCatching { Value { numberValue = jsonValueDecoder.readDouble(json) } }
+                    .recoverCatching { Value { boolValue = jsonValueDecoder.readBool(json) } }
                     .getOrElse {
                         throw InvalidProtocolBufferException(
                             "dynamically typed value did not contain a valid primitive object"
                         )
                     }
-                is JsonArray -> value {
+                is JsonArray -> Value {
                     listValue =
                         jsonValueDecoder.readValue(json, FieldDescriptor.Type.Message(ListValue.Companion)) as ListValue
                 }
-                is JsonObject -> value {
+                is JsonObject -> Value {
                     structValue =
                         jsonValueDecoder.readValue(json, FieldDescriptor.Type.Message(Struct.Companion)) as Struct
                 }

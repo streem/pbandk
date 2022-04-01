@@ -2,8 +2,6 @@ package pbandk.internal
 
 import pbandk.wkt.Duration
 import pbandk.wkt.Timestamp
-import pbandk.wkt.duration
-import pbandk.wkt.timestamp
 
 /*
 These functions are adapted from the similarly-named functions in the protobuf C++ library:
@@ -361,7 +359,7 @@ internal fun parseTime(str: String): Timestamp {
         "Didn't parse entire string: position=${parsePosition.position}, length=${str.length}"
     }
 
-    return timestamp {
+    return Timestamp {
         this.seconds = seconds + secondsOffset
         this.nanos = nanos
     }
@@ -427,7 +425,7 @@ internal fun parseDuration(str: String): Duration {
         "Duration nanos outside of allowed range: '$nanos' !in -999999999..999999999"
     }
 
-    return duration {
+    return Duration {
         this.seconds = seconds
         this.nanos = nanos
     }

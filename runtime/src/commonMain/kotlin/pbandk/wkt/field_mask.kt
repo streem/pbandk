@@ -14,15 +14,6 @@ public sealed interface FieldMask : pbandk.Message {
     ): pbandk.wkt.FieldMask
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
-        @Deprecated("Use fieldMask { } instead")
-        public operator fun invoke(
-            paths: List<String> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.FieldMask = FieldMask_Impl(
-            paths = paths,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
@@ -57,15 +48,6 @@ public sealed interface MutableFieldMask : FieldMask, pbandk.MutableMessage {
     public fun toFieldMask(): FieldMask
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
-        @Deprecated("Use fieldMask { } instead")
-        public operator fun invoke(
-            paths: List<String> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableFieldMask = MutableFieldMask_Impl(
-            paths = paths,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableFieldMask by lazy { MutableFieldMask() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
@@ -73,8 +55,25 @@ public sealed interface MutableFieldMask : FieldMask, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldMask> get() = pbandk.wkt.FieldMask.descriptor
     }
 }
+@Deprecated("Use FieldMask { } instead")
+public fun FieldMask(
+    paths: List<String> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.FieldMask = FieldMask_Impl(
+    paths = paths,
+    unknownFields = unknownFields
+)
 
-public fun fieldMask(builderAction: MutableFieldMask.() -> Unit): FieldMask {
+@Deprecated("Use FieldMask { } instead")
+public fun MutableFieldMask(
+    paths: List<String> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableFieldMask = MutableFieldMask_Impl(
+    paths = paths,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun FieldMask(builderAction: MutableFieldMask.() -> Unit): FieldMask {
     @Suppress("DEPRECATION") val builder = MutableFieldMask()
     builder.builderAction()
     return builder.toFieldMask()

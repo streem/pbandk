@@ -5,7 +5,6 @@ import kotlinx.serialization.json.buildJsonObject
 import pbandk.encodeToByteArray
 import pbandk.testpb.Bar
 import pbandk.testpb.TestAllTypesProto3
-import pbandk.testpb.testAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -38,7 +37,7 @@ class JsonTest {
 
     @Test
     fun testCompactOutput() {
-        val testAllTypesProto3 = testAllTypesProto3 {
+        val testAllTypesProto3 = TestAllTypesProto3 {
             optionalInt32 = 123
             optionalBool = true
         }

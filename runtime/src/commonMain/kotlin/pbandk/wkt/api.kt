@@ -26,27 +26,6 @@ public sealed interface Api : pbandk.Message {
     ): pbandk.wkt.Api
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        @Deprecated("Use api { } instead")
-        public operator fun invoke(
-            name: String = "",
-            methods: List<pbandk.wkt.Method> = emptyList(),
-            options: List<pbandk.wkt.Option> = emptyList(),
-            version: String = "",
-            sourceContext: pbandk.wkt.SourceContext? = null,
-            mixins: List<pbandk.wkt.Mixin> = emptyList(),
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Api = Api_Impl(
-            name = name,
-            methods = methods,
-            options = options,
-            version = version,
-            sourceContext = sourceContext,
-            mixins = mixins,
-            syntax = syntax,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
@@ -147,27 +126,6 @@ public sealed interface MutableApi : Api, pbandk.MutableMessage {
     public fun toApi(): Api
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        @Deprecated("Use api { } instead")
-        public operator fun invoke(
-            name: String = "",
-            methods: List<pbandk.wkt.Method> = emptyList(),
-            options: List<pbandk.wkt.Option> = emptyList(),
-            version: String = "",
-            sourceContext: pbandk.wkt.SourceContext? = null,
-            mixins: List<pbandk.wkt.Mixin> = emptyList(),
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableApi = MutableApi_Impl(
-            name = name,
-            methods = methods,
-            options = options,
-            version = version,
-            sourceContext = sourceContext,
-            mixins = mixins,
-            syntax = syntax,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableApi by lazy { MutableApi() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
@@ -200,27 +158,6 @@ public sealed interface Method : pbandk.Message {
     ): pbandk.wkt.Method
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        @Deprecated("Use method { } instead")
-        public operator fun invoke(
-            name: String = "",
-            requestTypeUrl: String = "",
-            requestStreaming: Boolean = false,
-            responseTypeUrl: String = "",
-            responseStreaming: Boolean = false,
-            options: List<pbandk.wkt.Option> = emptyList(),
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Method = Method_Impl(
-            name = name,
-            requestTypeUrl = requestTypeUrl,
-            requestStreaming = requestStreaming,
-            responseTypeUrl = responseTypeUrl,
-            responseStreaming = responseStreaming,
-            options = options,
-            syntax = syntax,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
@@ -321,27 +258,6 @@ public sealed interface MutableMethod : Method, pbandk.MutableMessage {
     public fun toMethod(): Method
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        @Deprecated("Use method { } instead")
-        public operator fun invoke(
-            name: String = "",
-            requestTypeUrl: String = "",
-            requestStreaming: Boolean = false,
-            responseTypeUrl: String = "",
-            responseStreaming: Boolean = false,
-            options: List<pbandk.wkt.Option> = emptyList(),
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableMethod = MutableMethod_Impl(
-            name = name,
-            requestTypeUrl = requestTypeUrl,
-            requestStreaming = requestStreaming,
-            responseTypeUrl = responseTypeUrl,
-            responseStreaming = responseStreaming,
-            options = options,
-            syntax = syntax,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableMethod by lazy { MutableMethod() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
@@ -364,17 +280,6 @@ public sealed interface Mixin : pbandk.Message {
     ): pbandk.wkt.Mixin
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        @Deprecated("Use mixin { } instead")
-        public operator fun invoke(
-            name: String = "",
-            root: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Mixin = Mixin_Impl(
-            name = name,
-            root = root,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
@@ -420,17 +325,6 @@ public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
     public fun toMixin(): Mixin
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        @Deprecated("Use mixin { } instead")
-        public operator fun invoke(
-            name: String = "",
-            root: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableMixin = MutableMixin_Impl(
-            name = name,
-            root = root,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableMixin by lazy { MutableMixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
@@ -438,8 +332,49 @@ public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> get() = pbandk.wkt.Mixin.descriptor
     }
 }
+@Deprecated("Use Api { } instead")
+public fun Api(
+    name: String = "",
+    methods: List<pbandk.wkt.Method> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    version: String = "",
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    mixins: List<pbandk.wkt.Mixin> = emptyList(),
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Api = Api_Impl(
+    name = name,
+    methods = methods,
+    options = options,
+    version = version,
+    sourceContext = sourceContext,
+    mixins = mixins,
+    syntax = syntax,
+    unknownFields = unknownFields
+)
 
-public fun api(builderAction: MutableApi.() -> Unit): Api {
+@Deprecated("Use Api { } instead")
+public fun MutableApi(
+    name: String = "",
+    methods: List<pbandk.wkt.Method> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    version: String = "",
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    mixins: List<pbandk.wkt.Mixin> = emptyList(),
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableApi = MutableApi_Impl(
+    name = name,
+    methods = methods,
+    options = options,
+    version = version,
+    sourceContext = sourceContext,
+    mixins = mixins,
+    syntax = syntax,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Api(builderAction: MutableApi.() -> Unit): Api {
     @Suppress("DEPRECATION") val builder = MutableApi()
     builder.builderAction()
     return builder.toApi()
@@ -571,8 +506,49 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
     return Api(name, pbandk.ListWithSize.Builder.fixed(methods), pbandk.ListWithSize.Builder.fixed(options), version,
         sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
+@Deprecated("Use Method { } instead")
+public fun Method(
+    name: String = "",
+    requestTypeUrl: String = "",
+    requestStreaming: Boolean = false,
+    responseTypeUrl: String = "",
+    responseStreaming: Boolean = false,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Method = Method_Impl(
+    name = name,
+    requestTypeUrl = requestTypeUrl,
+    requestStreaming = requestStreaming,
+    responseTypeUrl = responseTypeUrl,
+    responseStreaming = responseStreaming,
+    options = options,
+    syntax = syntax,
+    unknownFields = unknownFields
+)
 
-public fun method(builderAction: MutableMethod.() -> Unit): Method {
+@Deprecated("Use Method { } instead")
+public fun MutableMethod(
+    name: String = "",
+    requestTypeUrl: String = "",
+    requestStreaming: Boolean = false,
+    responseTypeUrl: String = "",
+    responseStreaming: Boolean = false,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableMethod = MutableMethod_Impl(
+    name = name,
+    requestTypeUrl = requestTypeUrl,
+    requestStreaming = requestStreaming,
+    responseTypeUrl = responseTypeUrl,
+    responseStreaming = responseStreaming,
+    options = options,
+    syntax = syntax,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Method(builderAction: MutableMethod.() -> Unit): Method {
     @Suppress("DEPRECATION") val builder = MutableMethod()
     builder.builderAction()
     return builder.toMethod()
@@ -698,8 +674,29 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
     return Method(name, requestTypeUrl, requestStreaming, responseTypeUrl,
         responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
 }
+@Deprecated("Use Mixin { } instead")
+public fun Mixin(
+    name: String = "",
+    root: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Mixin = Mixin_Impl(
+    name = name,
+    root = root,
+    unknownFields = unknownFields
+)
 
-public fun mixin(builderAction: MutableMixin.() -> Unit): Mixin {
+@Deprecated("Use Mixin { } instead")
+public fun MutableMixin(
+    name: String = "",
+    root: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableMixin = MutableMixin_Impl(
+    name = name,
+    root = root,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Mixin(builderAction: MutableMixin.() -> Unit): Mixin {
     @Suppress("DEPRECATION") val builder = MutableMixin()
     builder.builderAction()
     return builder.toMixin()

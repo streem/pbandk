@@ -4,7 +4,6 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 import pbandk.InvalidProtocolBufferException
 import pbandk.testpb.TestAllTypesProto3
-import pbandk.testpb.testAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -15,7 +14,7 @@ class DoubleTest {
 
     @Test
     fun testDoubleField_EncodeFinite() {
-        val input = testAllTypesProto3 { optionalDouble = 1.1 }
+        val input = TestAllTypesProto3 { optionalDouble = 1.1 }
 
         val expected = buildJsonObject { put("optionalDouble", 1.1) }.toString()
         val actual = input.encodeToJsonString(jsonConfig)
@@ -52,7 +51,7 @@ class DoubleTest {
 
     @Test
     fun testDoubleField_EncodeNaN() {
-        val input = testAllTypesProto3 { optionalDouble = Double.NaN }
+        val input = TestAllTypesProto3 { optionalDouble = Double.NaN }
 
         val expected = buildJsonObject { put("optionalDouble", "NaN") }.toString()
         val actual = input.encodeToJsonString(jsonConfig)
@@ -71,7 +70,7 @@ class DoubleTest {
 
     @Test
     fun testDoubleField_EncodePositiveInfinity() {
-        val input = testAllTypesProto3 { optionalDouble = Double.POSITIVE_INFINITY }
+        val input = TestAllTypesProto3 { optionalDouble = Double.POSITIVE_INFINITY }
 
         val expected = buildJsonObject { put("optionalDouble", "Infinity") }.toString()
         val actual = input.encodeToJsonString(jsonConfig)
@@ -90,7 +89,7 @@ class DoubleTest {
 
     @Test
     fun testDoubleField_EncodeNegativeInfinity() {
-        val input = testAllTypesProto3 { optionalDouble = Double.NEGATIVE_INFINITY }
+        val input = TestAllTypesProto3 { optionalDouble = Double.NEGATIVE_INFINITY }
 
         val expected = buildJsonObject { put("optionalDouble", "-Infinity") }.toString()
         val actual = input.encodeToJsonString(jsonConfig)
@@ -109,7 +108,7 @@ class DoubleTest {
 
     @Test
     fun testDoubleField_EncodeExponentialNotation() {
-        val input = testAllTypesProto3 { optionalDouble = 2e-12 }
+        val input = TestAllTypesProto3 { optionalDouble = 2e-12 }
 
         val expected = buildJsonObject { put("optionalDouble", 2e-12) }.toString()
         val actual = input.encodeToJsonString(jsonConfig)

@@ -1,15 +1,12 @@
 package pbandk
 
+import pbandk.testpb.Foo
 import pbandk.testpb.FooMap
 import pbandk.testpb.FooMapEntries
 import pbandk.testpb.ForeignEnum
 import pbandk.testpb.ForeignMessage
-import pbandk.testpb.foo
-import pbandk.testpb.fooMap
-import pbandk.testpb.fooMapEntries
-import pbandk.testpb.foreignMessage
-import pbandk.testpb.mapEntry
-import pbandk.testpb.testAllTypesProto3
+import pbandk.testpb.MapEntry
+import pbandk.testpb.TestAllTypesProto3
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -23,25 +20,25 @@ class MapTest {
      */
     @Test
     fun testMapEntryEquivalence() {
-        val testWithMessageMapEntries = testAllTypesProto3 {
+        val testWithMessageMapEntries = TestAllTypesProto3 {
             mapStringForeignMessage = MessageMap.of(
                 FieldDescriptor.Type.Primitive.String(),
-                FieldDescriptor.Type.Message(ForeignMessage.Companion),
-                "a" to foreignMessage {},
-                "b" to foreignMessage { c = 5 },
+                FieldDescriptor.Type.Message(ForeignMessage),
+                "a" to ForeignMessage {},
+                "b" to ForeignMessage { c = 5 },
                 "c" to null
             )
             mapStringForeignEnum = MessageMap.of(
                 FieldDescriptor.Type.Primitive.String(),
-                FieldDescriptor.Type.Enum(ForeignEnum.Companion),
+                FieldDescriptor.Type.Enum(ForeignEnum),
                 "a" to ForeignEnum.FOREIGN_FOO,
                 "b" to ForeignEnum.FOREIGN_BAR
             )
         }
-        val testWithGenericMapEntries = testAllTypesProto3 {
+        val testWithGenericMapEntries = TestAllTypesProto3 {
             mapStringForeignMessage = mapOf(
-                "a" to foreignMessage {},
-                "b" to foreignMessage { c = 5 },
+                "a" to ForeignMessage {},
+                "b" to ForeignMessage { c = 5 },
                 "c" to null
             )
             mapStringForeignEnum = mapOf(
@@ -59,26 +56,26 @@ class MapTest {
 
     @Test
     fun testMapsAreEqualToRepeatedMapEntries() {
-        val fooMap = fooMap {
+        val fooMap = FooMap {
             map = mapOf(
-                "a" to foo { `val` = "5" },
-                "b" to foo {},
+                "a" to Foo { `val` = "5" },
+                "b" to Foo {},
                 "c" to null
             )
         }
         val fooMapBytes = fooMap.encodeToByteArray()
 
-        val fooMapEntries = fooMapEntries {
+        val fooMapEntries = FooMapEntries {
             map = listOf(
-                FooMapEntries.mapEntry {
+                MapEntry {
                     key = "a"
-                    value = foo { `val` = "5" }
+                    value = Foo { `val` = "5" }
                 },
-                FooMapEntries.mapEntry {
+                MapEntry {
                     key = "b"
-                    value = foo {}
+                    value = Foo {}
                 },
-                FooMapEntries.mapEntry {
+                MapEntry {
                     key = "c"
                     value = null
                 }

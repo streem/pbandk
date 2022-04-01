@@ -41,25 +41,6 @@ public sealed interface Type : pbandk.Message {
     ): pbandk.wkt.Type
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
-        @Deprecated("Use type { } instead")
-        public operator fun invoke(
-            name: String = "",
-            fields: List<pbandk.wkt.Field> = emptyList(),
-            oneofs: List<String> = emptyList(),
-            options: List<pbandk.wkt.Option> = emptyList(),
-            sourceContext: pbandk.wkt.SourceContext? = null,
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Type = Type_Impl(
-            name = name,
-            fields = fields,
-            oneofs = oneofs,
-            options = options,
-            sourceContext = sourceContext,
-            syntax = syntax,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Type by lazy { pbandk.wkt.Type() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
@@ -149,25 +130,6 @@ public sealed interface MutableType : Type, pbandk.MutableMessage {
     public fun toType(): Type
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
-        @Deprecated("Use type { } instead")
-        public operator fun invoke(
-            name: String = "",
-            fields: List<pbandk.wkt.Field> = emptyList(),
-            oneofs: List<String> = emptyList(),
-            options: List<pbandk.wkt.Option> = emptyList(),
-            sourceContext: pbandk.wkt.SourceContext? = null,
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableType = MutableType_Impl(
-            name = name,
-            fields = fields,
-            oneofs = oneofs,
-            options = options,
-            sourceContext = sourceContext,
-            syntax = syntax,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableType by lazy { MutableType() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
@@ -206,33 +168,6 @@ public sealed interface Field : pbandk.Message {
     ): pbandk.wkt.Field
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
-        @Deprecated("Use field { } instead")
-        public operator fun invoke(
-            kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
-            cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
-            number: Int = 0,
-            name: String = "",
-            typeUrl: String = "",
-            oneofIndex: Int = 0,
-            packed: Boolean = false,
-            options: List<pbandk.wkt.Option> = emptyList(),
-            jsonName: String = "",
-            defaultValue: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Field = Field_Impl(
-            kind = kind,
-            cardinality = cardinality,
-            number = number,
-            name = name,
-            typeUrl = typeUrl,
-            oneofIndex = oneofIndex,
-            packed = packed,
-            options = options,
-            jsonName = jsonName,
-            defaultValue = defaultValue,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Field by lazy { pbandk.wkt.Field() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
@@ -417,33 +352,6 @@ public sealed interface MutableField : Field, pbandk.MutableMessage {
     public fun toField(): Field
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
-        @Deprecated("Use field { } instead")
-        public operator fun invoke(
-            kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
-            cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
-            number: Int = 0,
-            name: String = "",
-            typeUrl: String = "",
-            oneofIndex: Int = 0,
-            packed: Boolean = false,
-            options: List<pbandk.wkt.Option> = emptyList(),
-            jsonName: String = "",
-            defaultValue: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableField = MutableField_Impl(
-            kind = kind,
-            cardinality = cardinality,
-            number = number,
-            name = name,
-            typeUrl = typeUrl,
-            oneofIndex = oneofIndex,
-            packed = packed,
-            options = options,
-            jsonName = jsonName,
-            defaultValue = defaultValue,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableField by lazy { MutableField() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
@@ -472,23 +380,6 @@ public sealed interface Enum : pbandk.Message {
     ): pbandk.wkt.Enum
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
-        @Deprecated("Use enum { } instead")
-        public operator fun invoke(
-            name: String = "",
-            enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
-            options: List<pbandk.wkt.Option> = emptyList(),
-            sourceContext: pbandk.wkt.SourceContext? = null,
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Enum = Enum_Impl(
-            name = name,
-            enumvalue = enumvalue,
-            options = options,
-            sourceContext = sourceContext,
-            syntax = syntax,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Enum by lazy { pbandk.wkt.Enum() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
@@ -567,23 +458,6 @@ public sealed interface MutableEnum : Enum, pbandk.MutableMessage {
     public fun toEnum(): Enum
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
-        @Deprecated("Use enum { } instead")
-        public operator fun invoke(
-            name: String = "",
-            enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
-            options: List<pbandk.wkt.Option> = emptyList(),
-            sourceContext: pbandk.wkt.SourceContext? = null,
-            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableEnum = MutableEnum_Impl(
-            name = name,
-            enumvalue = enumvalue,
-            options = options,
-            sourceContext = sourceContext,
-            syntax = syntax,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableEnum by lazy { MutableEnum() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
@@ -608,19 +482,6 @@ public sealed interface EnumValue : pbandk.Message {
     ): pbandk.wkt.EnumValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
-        @Deprecated("Use enumValue { } instead")
-        public operator fun invoke(
-            name: String = "",
-            number: Int = 0,
-            options: List<pbandk.wkt.Option> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.EnumValue = EnumValue_Impl(
-            name = name,
-            number = number,
-            options = options,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumValue by lazy { pbandk.wkt.EnumValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
@@ -677,19 +538,6 @@ public sealed interface MutableEnumValue : EnumValue, pbandk.MutableMessage {
     public fun toEnumValue(): EnumValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
-        @Deprecated("Use enumValue { } instead")
-        public operator fun invoke(
-            name: String = "",
-            number: Int = 0,
-            options: List<pbandk.wkt.Option> = emptyList(),
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableEnumValue = MutableEnumValue_Impl(
-            name = name,
-            number = number,
-            options = options,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableEnumValue by lazy { MutableEnumValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
@@ -712,17 +560,6 @@ public sealed interface Option : pbandk.Message {
     ): pbandk.wkt.Option
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
-        @Deprecated("Use option { } instead")
-        public operator fun invoke(
-            name: String = "",
-            value: pbandk.wkt.Any? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.Option = Option_Impl(
-            name = name,
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Option by lazy { pbandk.wkt.Option() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
@@ -768,17 +605,6 @@ public sealed interface MutableOption : Option, pbandk.MutableMessage {
     public fun toOption(): Option
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
-        @Deprecated("Use option { } instead")
-        public operator fun invoke(
-            name: String = "",
-            value: pbandk.wkt.Any? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableOption = MutableOption_Impl(
-            name = name,
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableOption by lazy { MutableOption() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
@@ -786,8 +612,45 @@ public sealed interface MutableOption : Option, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> get() = pbandk.wkt.Option.descriptor
     }
 }
+@Deprecated("Use Type { } instead")
+public fun Type(
+    name: String = "",
+    fields: List<pbandk.wkt.Field> = emptyList(),
+    oneofs: List<String> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Type = Type_Impl(
+    name = name,
+    fields = fields,
+    oneofs = oneofs,
+    options = options,
+    sourceContext = sourceContext,
+    syntax = syntax,
+    unknownFields = unknownFields
+)
 
-public fun type(builderAction: MutableType.() -> Unit): Type {
+@Deprecated("Use Type { } instead")
+public fun MutableType(
+    name: String = "",
+    fields: List<pbandk.wkt.Field> = emptyList(),
+    oneofs: List<String> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableType = MutableType_Impl(
+    name = name,
+    fields = fields,
+    oneofs = oneofs,
+    options = options,
+    sourceContext = sourceContext,
+    syntax = syntax,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Type(builderAction: MutableType.() -> Unit): Type {
     @Suppress("DEPRECATION") val builder = MutableType()
     builder.builderAction()
     return builder.toType()
@@ -910,8 +773,61 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
     return Type(name, pbandk.ListWithSize.Builder.fixed(fields), pbandk.ListWithSize.Builder.fixed(oneofs), pbandk.ListWithSize.Builder.fixed(options),
         sourceContext, syntax, unknownFields)
 }
+@Deprecated("Use Field { } instead")
+public fun Field(
+    kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
+    cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
+    number: Int = 0,
+    name: String = "",
+    typeUrl: String = "",
+    oneofIndex: Int = 0,
+    packed: Boolean = false,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    jsonName: String = "",
+    defaultValue: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Field = Field_Impl(
+    kind = kind,
+    cardinality = cardinality,
+    number = number,
+    name = name,
+    typeUrl = typeUrl,
+    oneofIndex = oneofIndex,
+    packed = packed,
+    options = options,
+    jsonName = jsonName,
+    defaultValue = defaultValue,
+    unknownFields = unknownFields
+)
 
-public fun field(builderAction: MutableField.() -> Unit): Field {
+@Deprecated("Use Field { } instead")
+public fun MutableField(
+    kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
+    cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
+    number: Int = 0,
+    name: String = "",
+    typeUrl: String = "",
+    oneofIndex: Int = 0,
+    packed: Boolean = false,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    jsonName: String = "",
+    defaultValue: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableField = MutableField_Impl(
+    kind = kind,
+    cardinality = cardinality,
+    number = number,
+    name = name,
+    typeUrl = typeUrl,
+    oneofIndex = oneofIndex,
+    packed = packed,
+    options = options,
+    jsonName = jsonName,
+    defaultValue = defaultValue,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Field(builderAction: MutableField.() -> Unit): Field {
     @Suppress("DEPRECATION") val builder = MutableField()
     builder.builderAction()
     return builder.toField()
@@ -1065,8 +981,41 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
         typeUrl, oneofIndex, packed, pbandk.ListWithSize.Builder.fixed(options),
         jsonName, defaultValue, unknownFields)
 }
+@Deprecated("Use Enum { } instead")
+public fun Enum(
+    name: String = "",
+    enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Enum = Enum_Impl(
+    name = name,
+    enumvalue = enumvalue,
+    options = options,
+    sourceContext = sourceContext,
+    syntax = syntax,
+    unknownFields = unknownFields
+)
 
-public fun enum(builderAction: MutableEnum.() -> Unit): Enum {
+@Deprecated("Use Enum { } instead")
+public fun MutableEnum(
+    name: String = "",
+    enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableEnum = MutableEnum_Impl(
+    name = name,
+    enumvalue = enumvalue,
+    options = options,
+    sourceContext = sourceContext,
+    syntax = syntax,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Enum(builderAction: MutableEnum.() -> Unit): Enum {
     @Suppress("DEPRECATION") val builder = MutableEnum()
     builder.builderAction()
     return builder.toEnum()
@@ -1178,8 +1127,33 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
     return Enum(name, pbandk.ListWithSize.Builder.fixed(enumvalue), pbandk.ListWithSize.Builder.fixed(options), sourceContext,
         syntax, unknownFields)
 }
+@Deprecated("Use EnumValue { } instead")
+public fun EnumValue(
+    name: String = "",
+    number: Int = 0,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.EnumValue = EnumValue_Impl(
+    name = name,
+    number = number,
+    options = options,
+    unknownFields = unknownFields
+)
 
-public fun enumValue(builderAction: MutableEnumValue.() -> Unit): EnumValue {
+@Deprecated("Use EnumValue { } instead")
+public fun MutableEnumValue(
+    name: String = "",
+    number: Int = 0,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableEnumValue = MutableEnumValue_Impl(
+    name = name,
+    number = number,
+    options = options,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun EnumValue(builderAction: MutableEnumValue.() -> Unit): EnumValue {
     @Suppress("DEPRECATION") val builder = MutableEnumValue()
     builder.builderAction()
     return builder.toEnumValue()
@@ -1268,8 +1242,29 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
     @Suppress("DEPRECATION")
     return EnumValue(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
 }
+@Deprecated("Use Option { } instead")
+public fun Option(
+    name: String = "",
+    value: pbandk.wkt.Any? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.Option = Option_Impl(
+    name = name,
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun option(builderAction: MutableOption.() -> Unit): Option {
+@Deprecated("Use Option { } instead")
+public fun MutableOption(
+    name: String = "",
+    value: pbandk.wkt.Any? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableOption = MutableOption_Impl(
+    name = name,
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Option(builderAction: MutableOption.() -> Unit): Option {
     @Suppress("DEPRECATION") val builder = MutableOption()
     builder.builderAction()
     return builder.toOption()

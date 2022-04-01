@@ -73,7 +73,7 @@ internal class JsonMessageDecoder internal constructor(
                 // https://developers.google.com/protocol-buffers/docs/proto3#default
                 if (fd.type is FieldDescriptor.Type.Message<*>) {
                     val defaultValue = when (fd.type.messageCompanion) {
-                        Value -> Value(kind = Value.Kind.NullValue())
+                        Value -> Value { kind = Value.Kind.NullValue() }
                         else -> fd.type.defaultValue
                     } ?: continue
 

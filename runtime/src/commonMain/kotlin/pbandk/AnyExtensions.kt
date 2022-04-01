@@ -1,7 +1,6 @@
 package pbandk
 
 import pbandk.wkt.Any
-import pbandk.wkt.any
 
 private const val DEFAULT_TYPE_URL_PREFIX = "type.googleapis.com"
 
@@ -10,7 +9,7 @@ private const val DEFAULT_TYPE_URL_PREFIX = "type.googleapis.com"
  * not provided). The type URL will be constructed by concatenating the message type's full name to the prefix with an
  * optional "/" separator if the prefix doesn't end with "/" already.
  */
-public fun <T : Message> Any.Companion.pack(message: T, typeUrlPrefix: String = DEFAULT_TYPE_URL_PREFIX): Any = any {
+public fun <T : Message> Any.Companion.pack(message: T, typeUrlPrefix: String = DEFAULT_TYPE_URL_PREFIX): Any = Any {
     typeUrl = "$typeUrlPrefix${if (typeUrlPrefix.endsWith('/')) "" else "/"}${message.descriptor.fullName}"
     value = ByteArr(message.encodeToByteArray())
 }

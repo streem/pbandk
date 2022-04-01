@@ -5,8 +5,7 @@ import kotlinx.serialization.json.buildJsonArray
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 import pbandk.testpb.TestAllTypesProto3
-import pbandk.testpb.testAllTypesProto3
-import pbandk.wkt.duration
+import pbandk.wkt.Duration
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
@@ -15,7 +14,7 @@ class DurationTest {
     @Test
     fun testDurationField() {
         val json = buildJsonObject { put("optionalDuration", "1s") }.toString()
-        val expectedDuration = duration {
+        val expectedDuration = Duration {
             seconds = 1
             nanos = 0
         }
@@ -27,7 +26,7 @@ class DurationTest {
     @Test
     fun testDurationField_withNanos() {
         val json = buildJsonObject { put("optionalDuration", "1.001s") }.toString()
-        val expectedDuration = duration {
+        val expectedDuration = Duration {
             seconds = 1
             nanos = 1000000
         }
@@ -45,10 +44,10 @@ class DurationTest {
             })
         }.toString()
         val expectedDurations =
-            listOf(duration {
+            listOf(Duration {
                 seconds = 1
                 nanos = 500000000
-            }, duration {
+            }, Duration {
                 seconds = -1
                 nanos = -500000000
             })
@@ -68,10 +67,10 @@ class DurationTest {
 
     @Test
     fun testDurationField_maxMinEncode() {
-        val maxDuration = testAllTypesProto3 { optionalDuration = duration { seconds = 315576000001 } }
+        val maxDuration = TestAllTypesProto3 { optionalDuration = Duration { seconds = 315576000001 } }
         assertFails { maxDuration.encodeToJsonString() }
 
-        val minDuration = testAllTypesProto3 { optionalDuration = duration { seconds = -315576000001 } }
+        val minDuration = TestAllTypesProto3 { optionalDuration = Duration { seconds = -315576000001 } }
         assertFails { minDuration.encodeToJsonString() }
     }
 }

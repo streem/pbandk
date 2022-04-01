@@ -2,8 +2,7 @@ package pbandk.gen
 
 import pbandk.gen.pb.CodeGeneratorRequest
 import pbandk.gen.pb.CodeGeneratorResponse
-import pbandk.gen.pb.codeGeneratorResponse
-import pbandk.gen.pb.file
+import pbandk.gen.pb.File
 
 private var logDebug = false
 private inline fun debug(fn: () -> String) {
@@ -29,7 +28,6 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
     val kotlinTypeMappings = mutableMapOf<String, Name>()
 
     // Convert to file model and generate the code only for ones requested
-    return codeGeneratorResponse {
         supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong()
         file = request.protoFile.flatMap { protoFile ->
             val packageName = protoFile.`package`
@@ -76,7 +74,7 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
                         if (result.otherFilePath == null) {
                             extraServiceCode += "\n" + result.code
                             null
-                        } else CodeGeneratorResponse.file {
+                        } else CodeGeneratorResponse.File {
                             name = result.otherFilePath
                             insertionPoint = result.otherFileInsertionPoint
                             content = result.code
@@ -86,7 +84,7 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
 
                 val primaryFiles =
                     if (file.types.isEmpty() && extraServiceCode.isEmpty()) emptyList()
-                    else listOf(CodeGeneratorResponse.file {
+                    else listOf(CodeGeneratorResponse.File {
                         name = filePath
                         content = code + extraServiceCode
                     })

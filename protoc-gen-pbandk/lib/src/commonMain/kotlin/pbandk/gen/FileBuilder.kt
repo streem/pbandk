@@ -40,7 +40,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         }
 
         return File.Type.Enum(
-            name = Name(enumDesc.name!!, ctx.packageName, parentName),
+            name = Name(simple = enumDesc.name!!, packageName = ctx.packageName, parent = parentName),
             values = enumDesc.value.fold(listOf()) { values, value ->
                 values + File.Type.Enum.Value(
                     number = value.number!!,
@@ -51,7 +51,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                         values.map { it.kotlinName })
                 )
             },
-            kotlinName = Name(kotlinTypeName, ctx.kotlinPackageName, parentKotlinName),
+            kotlinName = Name(simple = kotlinTypeName, packageName = ctx.kotlinPackageName, parent = parentKotlinName),
         )
     }
 
@@ -65,8 +65,8 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         val kotlinTypeName = namer.newTypeName(msgDesc.name!!, usedTypeNames).also {
             usedTypeNames += it
         }
-        val name = Name(msgDesc.name!!, ctx.packageName, parentName)
-        val kotlinName = Name(kotlinTypeName, ctx.kotlinPackageName, parentKotlinName)
+        val name = Name(simple = msgDesc.name!!, packageName = ctx.packageName, parent = parentName)
+        val kotlinName = Name(simple = kotlinTypeName, packageName = ctx.kotlinPackageName, parent = parentKotlinName)
 
         val usedNestedTypeNames = mutableSetOf<String>()
         return File.Type.Message(
@@ -152,7 +152,7 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
         val type = fromProto(fieldDesc.type ?: error("Missing field type"))
         val wrappedType = fieldDesc.typeName
             ?.takeIf { type == File.Field.Type.MESSAGE && it.startsWith(".google.protobuf")}
-            ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[Name(it.removePrefix(".google.protobuf."), ".google.protobuf")] }
+            ?.let { File.Field.Type.WRAPPER_TYPE_NAME_TO_TYPE[Name(".google.protobuf", it.removePrefix(".google.protobuf."))] }
 
         return if (wrappedType != null) {
             File.Field.Numbered.Wrapper(
@@ -240,9 +240,9 @@ internal open class FileBuilder(val namer: Namer = Namer.Standard, val supportMa
                 if (parent == null) fileDesc.messageType to name.removePrefix(".${fileDesc.`package`}.")
                 else parent.nestedType to name
             // Go deeper if there's a dot
-            typeName.indexOf('.').let {
-                if (it == -1) return lookIn.find { it.name == typeName }
-                return findLocalMessage(typeName.substring(it + 1), typeName.substring(0, it).let { parentTypeName ->
+            typeName.indexOf('.').let { index ->
+                if (index == -1) return lookIn.find { it.name == typeName }
+                return findLocalMessage(typeName.substring(index + 1), typeName.substring(0, index).let { parentTypeName ->
                     lookIn.find { it.name == parentTypeName }
                 } ?: return null)
             }

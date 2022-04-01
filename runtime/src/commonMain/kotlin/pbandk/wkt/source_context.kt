@@ -14,15 +14,6 @@ public sealed interface SourceContext : pbandk.Message {
     ): pbandk.wkt.SourceContext
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        @Deprecated("Use sourceContext { } instead")
-        public operator fun invoke(
-            fileName: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.wkt.SourceContext = SourceContext_Impl(
-            fileName = fileName,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
@@ -57,15 +48,6 @@ public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMess
     public fun toSourceContext(): SourceContext
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        @Deprecated("Use sourceContext { } instead")
-        public operator fun invoke(
-            fileName: String = "",
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableSourceContext = MutableSourceContext_Impl(
-            fileName = fileName,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableSourceContext by lazy { MutableSourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
@@ -73,8 +55,25 @@ public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMess
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> get() = pbandk.wkt.SourceContext.descriptor
     }
 }
+@Deprecated("Use SourceContext { } instead")
+public fun SourceContext(
+    fileName: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.wkt.SourceContext = SourceContext_Impl(
+    fileName = fileName,
+    unknownFields = unknownFields
+)
 
-public fun sourceContext(builderAction: MutableSourceContext.() -> Unit): SourceContext {
+@Deprecated("Use SourceContext { } instead")
+public fun MutableSourceContext(
+    fileName: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableSourceContext = MutableSourceContext_Impl(
+    fileName = fileName,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun SourceContext(builderAction: MutableSourceContext.() -> Unit): SourceContext {
     @Suppress("DEPRECATION") val builder = MutableSourceContext()
     builder.builderAction()
     return builder.toSourceContext()

@@ -24,15 +24,6 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        @Deprecated("Use value { } instead")
-        public operator fun invoke(
-            value: Value<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): pbandk.testpb.Value = Value_Impl(
-            value = value,
-            unknownFields = unknownFields
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
@@ -94,15 +85,6 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
     public fun toValue(): Value
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        @Deprecated("Use value { } instead")
-        public operator fun invoke(
-            value: pbandk.testpb.Value.Value<*>? = null,
-            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-        ): MutableValue = MutableValue_Impl(
-            value = value,
-            unknownFields = unknownFields.toMutableMap()
-        )
-
         @Suppress("DEPRECATION")
         public val defaultInstance: MutableValue by lazy { MutableValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
@@ -110,8 +92,25 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> get() = pbandk.testpb.Value.descriptor
     }
 }
+@Deprecated("Use Value { } instead")
+public fun Value(
+    value: pbandk.testpb.Value.Value<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): pbandk.testpb.Value = Value_Impl(
+    value = value,
+    unknownFields = unknownFields
+)
 
-public fun value(builderAction: MutableValue.() -> Unit): Value {
+@Deprecated("Use Value { } instead")
+public fun MutableValue(
+    value: pbandk.testpb.Value.Value<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MutableValue = MutableValue_Impl(
+    value = value,
+    unknownFields = unknownFields.toMutableMap()
+)
+
+public fun Value(builderAction: MutableValue.() -> Unit): Value {
     @Suppress("DEPRECATION") val builder = MutableValue()
     builder.builderAction()
     return builder.toValue()
