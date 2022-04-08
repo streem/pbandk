@@ -9,6 +9,15 @@ public sealed interface Timestamp : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Timestamp
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp>
 
+    public fun toMutableTimestamp(): MutableTimestamp
+
+    /**
+     * The [MutableTimestamp] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableTimestamp.() -> Unit): Timestamp
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         seconds: Long = this.seconds,
         nanos: Int = this.nanos,
@@ -60,9 +69,9 @@ public sealed interface MutableTimestamp : Timestamp, pbandk.MutableMessage {
 
     public fun toTimestamp(): Timestamp
 
+    public override fun copy(builderAction: MutableTimestamp.() -> Unit): MutableTimestamp
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableTimestamp by lazy { MutableTimestamp() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> get() = pbandk.wkt.Timestamp.descriptor
@@ -73,11 +82,11 @@ public fun Timestamp(
     seconds: Long = 0L,
     nanos: Int = 0,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Timestamp = Timestamp_Impl(
-    seconds = seconds,
-    nanos = nanos,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Timestamp = Timestamp {
+    this.seconds = seconds
+    this.nanos = nanos
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Timestamp { } instead")
 public fun MutableTimestamp(
@@ -90,6 +99,10 @@ public fun MutableTimestamp(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableTimestamp] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Timestamp(builderAction: MutableTimestamp.() -> Unit): Timestamp {
     @Suppress("DEPRECATION") val builder = MutableTimestamp()
     builder.builderAction()
@@ -107,6 +120,10 @@ private class Timestamp_Impl(
 ) : Timestamp, pbandk.GeneratedMessage<Timestamp>() {
     override val descriptor get() = Timestamp.descriptor
 
+    override fun copy(builderAction: MutableTimestamp.() -> Unit) =
+        toMutableTimestamp().apply(builderAction).toTimestamp()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         seconds: Long,
         nanos: Int,
@@ -122,6 +139,12 @@ private class Timestamp_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableTimestamp() = MutableTimestamp_Impl(
+        seconds = seconds,
+        nanos = nanos,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableTimestamp_Impl(
@@ -131,6 +154,10 @@ private class MutableTimestamp_Impl(
 ) : MutableTimestamp, pbandk.MutableGeneratedMessage<MutableTimestamp>() {
     override val descriptor get() = Timestamp.descriptor
 
+    override fun copy(builderAction: MutableTimestamp.() -> Unit) =
+        toMutableTimestamp().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         seconds: Long,
         nanos: Int,
@@ -150,8 +177,10 @@ private class MutableTimestamp_Impl(
     override fun toTimestamp() = Timestamp_Impl(
         seconds = seconds,
         nanos = nanos,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableTimestamp() = this
 }
 
 @Suppress("UNCHECKED_CAST")

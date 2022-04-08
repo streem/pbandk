@@ -11,6 +11,15 @@ public sealed interface Version : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.Version
     override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version>
 
+    public fun toMutableVersion(): MutableVersion
+
+    /**
+     * The [MutableVersion] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableVersion.() -> Unit): Version
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         major: Int? = this.major,
         minor: Int? = this.minor,
@@ -86,9 +95,9 @@ public sealed interface MutableVersion : Version, pbandk.MutableMessage {
 
     public fun toVersion(): Version
 
+    public override fun copy(builderAction: MutableVersion.() -> Unit): MutableVersion
+
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.Version> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableVersion by lazy { MutableVersion() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.Version = pbandk.gen.pb.Version.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version> get() = pbandk.gen.pb.Version.descriptor
@@ -104,6 +113,15 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorRequest
     override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest>
 
+    public fun toMutableCodeGeneratorRequest(): MutableCodeGeneratorRequest
+
+    /**
+     * The [MutableCodeGeneratorRequest] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableCodeGeneratorRequest.() -> Unit): CodeGeneratorRequest
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         fileToGenerate: List<String> = this.fileToGenerate,
         parameter: String? = this.parameter,
@@ -179,9 +197,9 @@ public sealed interface MutableCodeGeneratorRequest : CodeGeneratorRequest, pban
 
     public fun toCodeGeneratorRequest(): CodeGeneratorRequest
 
+    public override fun copy(builderAction: MutableCodeGeneratorRequest.() -> Unit): MutableCodeGeneratorRequest
+
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableCodeGeneratorRequest by lazy { MutableCodeGeneratorRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest> get() = pbandk.gen.pb.CodeGeneratorRequest.descriptor
@@ -196,6 +214,15 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse
     override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse>
 
+    public fun toMutableCodeGeneratorResponse(): MutableCodeGeneratorResponse
+
+    /**
+     * The [MutableCodeGeneratorResponse] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableCodeGeneratorResponse.() -> Unit): CodeGeneratorResponse
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         error: String? = this.error,
         supportedFeatures: Long? = this.supportedFeatures,
@@ -276,6 +303,15 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse.File
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File>
 
+        public fun toMutableFile(): CodeGeneratorResponse.MutableFile
+
+        /**
+         * The [MutableFile] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit): CodeGeneratorResponse.File
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             name: String? = this.name,
             insertionPoint: String? = this.insertionPoint,
@@ -351,9 +387,9 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
 
         public fun toFile(): CodeGeneratorResponse.File
 
+        public override fun copy(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit): CodeGeneratorResponse.MutableFile
+
         public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableFile by lazy { MutableFile() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File> get() = pbandk.gen.pb.CodeGeneratorResponse.File.descriptor
@@ -368,9 +404,9 @@ public sealed interface MutableCodeGeneratorResponse : CodeGeneratorResponse, pb
 
     public fun toCodeGeneratorResponse(): CodeGeneratorResponse
 
+    public override fun copy(builderAction: MutableCodeGeneratorResponse.() -> Unit): MutableCodeGeneratorResponse
+
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableCodeGeneratorResponse by lazy { MutableCodeGeneratorResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse> get() = pbandk.gen.pb.CodeGeneratorResponse.descriptor
@@ -383,13 +419,13 @@ public fun Version(
     patch: Int? = null,
     suffix: String? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.gen.pb.Version = Version_Impl(
-    major = major,
-    minor = minor,
-    patch = patch,
-    suffix = suffix,
-    unknownFields = unknownFields
-)
+): pbandk.gen.pb.Version = Version {
+    this.major = major
+    this.minor = minor
+    this.patch = patch
+    this.suffix = suffix
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Version { } instead")
 public fun MutableVersion(
@@ -406,6 +442,10 @@ public fun MutableVersion(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableVersion] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Version(builderAction: MutableVersion.() -> Unit): Version {
     @Suppress("DEPRECATION") val builder = MutableVersion()
     builder.builderAction()
@@ -425,6 +465,10 @@ private class Version_Impl(
 ) : Version, pbandk.GeneratedMessage<Version>() {
     override val descriptor get() = Version.descriptor
 
+    override fun copy(builderAction: MutableVersion.() -> Unit) =
+        toMutableVersion().apply(builderAction).toVersion()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         major: Int?,
         minor: Int?,
@@ -448,6 +492,14 @@ private class Version_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableVersion() = MutableVersion_Impl(
+        major = major,
+        minor = minor,
+        patch = patch,
+        suffix = suffix,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableVersion_Impl(
@@ -459,6 +511,10 @@ private class MutableVersion_Impl(
 ) : MutableVersion, pbandk.MutableGeneratedMessage<MutableVersion>() {
     override val descriptor get() = Version.descriptor
 
+    override fun copy(builderAction: MutableVersion.() -> Unit) =
+        toMutableVersion().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         major: Int?,
         minor: Int?,
@@ -488,8 +544,10 @@ private class MutableVersion_Impl(
         minor = minor,
         patch = patch,
         suffix = suffix,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableVersion() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -517,13 +575,13 @@ public fun CodeGeneratorRequest(
     protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     compilerVersion: pbandk.gen.pb.Version? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.gen.pb.CodeGeneratorRequest = CodeGeneratorRequest_Impl(
-    fileToGenerate = fileToGenerate,
-    parameter = parameter,
-    protoFile = protoFile,
-    compilerVersion = compilerVersion,
-    unknownFields = unknownFields
-)
+): pbandk.gen.pb.CodeGeneratorRequest = CodeGeneratorRequest {
+    this.fileToGenerate = fileToGenerate
+    this.parameter = parameter
+    this.protoFile = protoFile
+    this.compilerVersion = compilerVersion
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use CodeGeneratorRequest { } instead")
 public fun MutableCodeGeneratorRequest(
@@ -540,6 +598,10 @@ public fun MutableCodeGeneratorRequest(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableCodeGeneratorRequest] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun CodeGeneratorRequest(builderAction: MutableCodeGeneratorRequest.() -> Unit): CodeGeneratorRequest {
     @Suppress("DEPRECATION") val builder = MutableCodeGeneratorRequest()
     builder.builderAction()
@@ -559,6 +621,10 @@ private class CodeGeneratorRequest_Impl(
 ) : CodeGeneratorRequest, pbandk.GeneratedMessage<CodeGeneratorRequest>() {
     override val descriptor get() = CodeGeneratorRequest.descriptor
 
+    override fun copy(builderAction: MutableCodeGeneratorRequest.() -> Unit) =
+        toMutableCodeGeneratorRequest().apply(builderAction).toCodeGeneratorRequest()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         fileToGenerate: List<String>,
         parameter: String?,
@@ -582,6 +648,14 @@ private class CodeGeneratorRequest_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableCodeGeneratorRequest() = MutableCodeGeneratorRequest_Impl(
+        fileToGenerate = fileToGenerate,
+        parameter = parameter,
+        protoFile = protoFile,
+        compilerVersion = compilerVersion,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableCodeGeneratorRequest_Impl(
@@ -593,6 +667,10 @@ private class MutableCodeGeneratorRequest_Impl(
 ) : MutableCodeGeneratorRequest, pbandk.MutableGeneratedMessage<MutableCodeGeneratorRequest>() {
     override val descriptor get() = CodeGeneratorRequest.descriptor
 
+    override fun copy(builderAction: MutableCodeGeneratorRequest.() -> Unit) =
+        toMutableCodeGeneratorRequest().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         fileToGenerate: List<String>,
         parameter: String?,
@@ -622,8 +700,10 @@ private class MutableCodeGeneratorRequest_Impl(
         parameter = parameter,
         protoFile = protoFile,
         compilerVersion = compilerVersion,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableCodeGeneratorRequest() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -650,12 +730,12 @@ public fun CodeGeneratorResponse(
     supportedFeatures: Long? = null,
     file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.gen.pb.CodeGeneratorResponse = CodeGeneratorResponse_Impl(
-    error = error,
-    supportedFeatures = supportedFeatures,
-    file = file,
-    unknownFields = unknownFields
-)
+): pbandk.gen.pb.CodeGeneratorResponse = CodeGeneratorResponse {
+    this.error = error
+    this.supportedFeatures = supportedFeatures
+    this.file = file
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use CodeGeneratorResponse { } instead")
 public fun MutableCodeGeneratorResponse(
@@ -670,6 +750,10 @@ public fun MutableCodeGeneratorResponse(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableCodeGeneratorResponse] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun CodeGeneratorResponse(builderAction: MutableCodeGeneratorResponse.() -> Unit): CodeGeneratorResponse {
     @Suppress("DEPRECATION") val builder = MutableCodeGeneratorResponse()
     builder.builderAction()
@@ -688,6 +772,10 @@ private class CodeGeneratorResponse_Impl(
 ) : CodeGeneratorResponse, pbandk.GeneratedMessage<CodeGeneratorResponse>() {
     override val descriptor get() = CodeGeneratorResponse.descriptor
 
+    override fun copy(builderAction: MutableCodeGeneratorResponse.() -> Unit) =
+        toMutableCodeGeneratorResponse().apply(builderAction).toCodeGeneratorResponse()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         error: String?,
         supportedFeatures: Long?,
@@ -708,6 +796,13 @@ private class CodeGeneratorResponse_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableCodeGeneratorResponse() = MutableCodeGeneratorResponse_Impl(
+        error = error,
+        supportedFeatures = supportedFeatures,
+        file = file,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableCodeGeneratorResponse_Impl(
@@ -718,6 +813,10 @@ private class MutableCodeGeneratorResponse_Impl(
 ) : MutableCodeGeneratorResponse, pbandk.MutableGeneratedMessage<MutableCodeGeneratorResponse>() {
     override val descriptor get() = CodeGeneratorResponse.descriptor
 
+    override fun copy(builderAction: MutableCodeGeneratorResponse.() -> Unit) =
+        toMutableCodeGeneratorResponse().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         error: String?,
         supportedFeatures: Long?,
@@ -743,8 +842,10 @@ private class MutableCodeGeneratorResponse_Impl(
         error = error,
         supportedFeatures = supportedFeatures,
         file = file,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableCodeGeneratorResponse() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -770,13 +871,13 @@ public fun CodeGeneratorResponse.Companion.File(
     content: String? = null,
     generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.gen.pb.CodeGeneratorResponse.File = CodeGeneratorResponse_File_Impl(
-    name = name,
-    insertionPoint = insertionPoint,
-    content = content,
-    generatedCodeInfo = generatedCodeInfo,
-    unknownFields = unknownFields
-)
+): pbandk.gen.pb.CodeGeneratorResponse.File = CodeGeneratorResponse.Companion.File {
+    this.name = name
+    this.insertionPoint = insertionPoint
+    this.content = content
+    this.generatedCodeInfo = generatedCodeInfo
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use CodeGeneratorResponse.File { } instead")
 public fun CodeGeneratorResponse.Companion.MutableFile(
@@ -793,12 +894,20 @@ public fun CodeGeneratorResponse.Companion.MutableFile(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableFile] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun CodeGeneratorResponse.Companion.File(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit): CodeGeneratorResponse.File {
     @Suppress("DEPRECATION") val builder = CodeGeneratorResponse.MutableFile()
     builder.builderAction()
     return builder.toFile()
 }
 
+/**
+ * The [MutableFile] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableCodeGeneratorResponse.File(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit): CodeGeneratorResponse.File =
     CodeGeneratorResponse.File(builderAction)
 
@@ -815,6 +924,10 @@ private class CodeGeneratorResponse_File_Impl(
 ) : CodeGeneratorResponse.File, pbandk.GeneratedMessage<CodeGeneratorResponse.File>() {
     override val descriptor get() = CodeGeneratorResponse.File.descriptor
 
+    override fun copy(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit) =
+        toMutableFile().apply(builderAction).toFile()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String?,
         insertionPoint: String?,
@@ -838,6 +951,14 @@ private class CodeGeneratorResponse_File_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableFile() = CodeGeneratorResponse_MutableFile_Impl(
+        name = name,
+        insertionPoint = insertionPoint,
+        content = content,
+        generatedCodeInfo = generatedCodeInfo,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class CodeGeneratorResponse_MutableFile_Impl(
@@ -849,6 +970,10 @@ private class CodeGeneratorResponse_MutableFile_Impl(
 ) : CodeGeneratorResponse.MutableFile, pbandk.MutableGeneratedMessage<CodeGeneratorResponse.MutableFile>() {
     override val descriptor get() = CodeGeneratorResponse.File.descriptor
 
+    override fun copy(builderAction: CodeGeneratorResponse.MutableFile.() -> Unit) =
+        toMutableFile().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String?,
         insertionPoint: String?,
@@ -878,8 +1003,10 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         insertionPoint = insertionPoint,
         content = content,
         generatedCodeInfo = generatedCodeInfo,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableFile() = this
 }
 
 @Suppress("UNCHECKED_CAST")

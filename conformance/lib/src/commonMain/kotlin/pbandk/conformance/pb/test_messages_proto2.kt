@@ -134,6 +134,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2>
 
+    public fun toMutableTestAllTypesProto2(): MutableTestAllTypesProto2
+
+    /**
+     * The [MutableTestAllTypesProto2] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableTestAllTypesProto2.() -> Unit): TestAllTypesProto2
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         optionalInt32: Int? = this.optionalInt32,
         optionalInt64: Long? = this.optionalInt64,
@@ -1491,6 +1500,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage>
 
+        public fun toMutableNestedMessage(): TestAllTypesProto2.MutableNestedMessage
+
+        /**
+         * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit): TestAllTypesProto2.NestedMessage
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             a: Int? = this.a,
             corecursive: pbandk.conformance.pb.TestAllTypesProto2? = this.corecursive,
@@ -1542,9 +1560,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toNestedMessage(): TestAllTypesProto2.NestedMessage
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit): TestAllTypesProto2.MutableNestedMessage
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableNestedMessage by lazy { MutableNestedMessage() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.NestedMessage> get() = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage.descriptor
@@ -1558,6 +1576,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry>
 
+        public fun toMutableMapInt32Int32Entry(): TestAllTypesProto2.MutableMapInt32Int32Entry
+
+        /**
+         * The [MutableMapInt32Int32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit): TestAllTypesProto2.MapInt32Int32Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Int? = this.value,
@@ -1609,9 +1636,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapInt32Int32Entry(): TestAllTypesProto2.MapInt32Int32Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit): TestAllTypesProto2.MutableMapInt32Int32Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapInt32Int32Entry by lazy { MutableMapInt32Int32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry.descriptor
@@ -1625,6 +1652,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry>
 
+        public fun toMutableMapInt64Int64Entry(): TestAllTypesProto2.MutableMapInt64Int64Entry
+
+        /**
+         * The [MutableMapInt64Int64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit): TestAllTypesProto2.MapInt64Int64Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Long? = this.key,
             value: Long? = this.value,
@@ -1676,9 +1712,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapInt64Int64Entry(): TestAllTypesProto2.MapInt64Int64Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit): TestAllTypesProto2.MutableMapInt64Int64Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapInt64Int64Entry by lazy { MutableMapInt64Int64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry.descriptor
@@ -1692,6 +1728,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry>
 
+        public fun toMutableMapUint32Uint32Entry(): TestAllTypesProto2.MutableMapUint32Uint32Entry
+
+        /**
+         * The [MutableMapUint32Uint32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit): TestAllTypesProto2.MapUint32Uint32Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Int? = this.value,
@@ -1743,9 +1788,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapUint32Uint32Entry(): TestAllTypesProto2.MapUint32Uint32Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit): TestAllTypesProto2.MutableMapUint32Uint32Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapUint32Uint32Entry by lazy { MutableMapUint32Uint32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry.descriptor
@@ -1759,6 +1804,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry>
 
+        public fun toMutableMapUint64Uint64Entry(): TestAllTypesProto2.MutableMapUint64Uint64Entry
+
+        /**
+         * The [MutableMapUint64Uint64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit): TestAllTypesProto2.MapUint64Uint64Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Long? = this.key,
             value: Long? = this.value,
@@ -1810,9 +1864,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapUint64Uint64Entry(): TestAllTypesProto2.MapUint64Uint64Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit): TestAllTypesProto2.MutableMapUint64Uint64Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapUint64Uint64Entry by lazy { MutableMapUint64Uint64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry.descriptor
@@ -1826,6 +1880,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry>
 
+        public fun toMutableMapSint32Sint32Entry(): TestAllTypesProto2.MutableMapSint32Sint32Entry
+
+        /**
+         * The [MutableMapSint32Sint32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit): TestAllTypesProto2.MapSint32Sint32Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Int? = this.value,
@@ -1877,9 +1940,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapSint32Sint32Entry(): TestAllTypesProto2.MapSint32Sint32Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit): TestAllTypesProto2.MutableMapSint32Sint32Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapSint32Sint32Entry by lazy { MutableMapSint32Sint32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry.descriptor
@@ -1893,6 +1956,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry>
 
+        public fun toMutableMapSint64Sint64Entry(): TestAllTypesProto2.MutableMapSint64Sint64Entry
+
+        /**
+         * The [MutableMapSint64Sint64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit): TestAllTypesProto2.MapSint64Sint64Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Long? = this.key,
             value: Long? = this.value,
@@ -1944,9 +2016,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapSint64Sint64Entry(): TestAllTypesProto2.MapSint64Sint64Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit): TestAllTypesProto2.MutableMapSint64Sint64Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapSint64Sint64Entry by lazy { MutableMapSint64Sint64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry.descriptor
@@ -1960,6 +2032,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry>
 
+        public fun toMutableMapFixed32Fixed32Entry(): TestAllTypesProto2.MutableMapFixed32Fixed32Entry
+
+        /**
+         * The [MutableMapFixed32Fixed32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit): TestAllTypesProto2.MapFixed32Fixed32Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Int? = this.value,
@@ -2011,9 +2092,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapFixed32Fixed32Entry(): TestAllTypesProto2.MapFixed32Fixed32Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit): TestAllTypesProto2.MutableMapFixed32Fixed32Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapFixed32Fixed32Entry by lazy { MutableMapFixed32Fixed32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry.descriptor
@@ -2027,6 +2108,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry>
 
+        public fun toMutableMapFixed64Fixed64Entry(): TestAllTypesProto2.MutableMapFixed64Fixed64Entry
+
+        /**
+         * The [MutableMapFixed64Fixed64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit): TestAllTypesProto2.MapFixed64Fixed64Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Long? = this.key,
             value: Long? = this.value,
@@ -2078,9 +2168,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapFixed64Fixed64Entry(): TestAllTypesProto2.MapFixed64Fixed64Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit): TestAllTypesProto2.MutableMapFixed64Fixed64Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapFixed64Fixed64Entry by lazy { MutableMapFixed64Fixed64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry.descriptor
@@ -2094,6 +2184,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry>
 
+        public fun toMutableMapSfixed32Sfixed32Entry(): TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry
+
+        /**
+         * The [MutableMapSfixed32Sfixed32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit): TestAllTypesProto2.MapSfixed32Sfixed32Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Int? = this.value,
@@ -2145,9 +2244,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapSfixed32Sfixed32Entry(): TestAllTypesProto2.MapSfixed32Sfixed32Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit): TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapSfixed32Sfixed32Entry by lazy { MutableMapSfixed32Sfixed32Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry.descriptor
@@ -2161,6 +2260,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry>
 
+        public fun toMutableMapSfixed64Sfixed64Entry(): TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry
+
+        /**
+         * The [MutableMapSfixed64Sfixed64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit): TestAllTypesProto2.MapSfixed64Sfixed64Entry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Long? = this.key,
             value: Long? = this.value,
@@ -2212,9 +2320,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapSfixed64Sfixed64Entry(): TestAllTypesProto2.MapSfixed64Sfixed64Entry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit): TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapSfixed64Sfixed64Entry by lazy { MutableMapSfixed64Sfixed64Entry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry.descriptor
@@ -2228,6 +2336,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry>
 
+        public fun toMutableMapInt32FloatEntry(): TestAllTypesProto2.MutableMapInt32FloatEntry
+
+        /**
+         * The [MutableMapInt32FloatEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit): TestAllTypesProto2.MapInt32FloatEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Float? = this.value,
@@ -2279,9 +2396,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapInt32FloatEntry(): TestAllTypesProto2.MapInt32FloatEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit): TestAllTypesProto2.MutableMapInt32FloatEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapInt32FloatEntry by lazy { MutableMapInt32FloatEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry.descriptor
@@ -2295,6 +2412,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry>
 
+        public fun toMutableMapInt32DoubleEntry(): TestAllTypesProto2.MutableMapInt32DoubleEntry
+
+        /**
+         * The [MutableMapInt32DoubleEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit): TestAllTypesProto2.MapInt32DoubleEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Int? = this.key,
             value: Double? = this.value,
@@ -2346,9 +2472,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapInt32DoubleEntry(): TestAllTypesProto2.MapInt32DoubleEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit): TestAllTypesProto2.MutableMapInt32DoubleEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapInt32DoubleEntry by lazy { MutableMapInt32DoubleEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry.descriptor
@@ -2362,6 +2488,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry>
 
+        public fun toMutableMapBoolBoolEntry(): TestAllTypesProto2.MutableMapBoolBoolEntry
+
+        /**
+         * The [MutableMapBoolBoolEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit): TestAllTypesProto2.MapBoolBoolEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: Boolean? = this.key,
             value: Boolean? = this.value,
@@ -2413,9 +2548,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapBoolBoolEntry(): TestAllTypesProto2.MapBoolBoolEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit): TestAllTypesProto2.MutableMapBoolBoolEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapBoolBoolEntry by lazy { MutableMapBoolBoolEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry.descriptor
@@ -2429,6 +2564,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry>
 
+        public fun toMutableMapStringStringEntry(): TestAllTypesProto2.MutableMapStringStringEntry
+
+        /**
+         * The [MutableMapStringStringEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit): TestAllTypesProto2.MapStringStringEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String? = this.key,
             value: String? = this.value,
@@ -2480,9 +2624,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapStringStringEntry(): TestAllTypesProto2.MapStringStringEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit): TestAllTypesProto2.MutableMapStringStringEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapStringStringEntry by lazy { MutableMapStringStringEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry.descriptor
@@ -2496,6 +2640,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry>
 
+        public fun toMutableMapStringBytesEntry(): TestAllTypesProto2.MutableMapStringBytesEntry
+
+        /**
+         * The [MutableMapStringBytesEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit): TestAllTypesProto2.MapStringBytesEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String? = this.key,
             value: pbandk.ByteArr? = this.value,
@@ -2547,9 +2700,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapStringBytesEntry(): TestAllTypesProto2.MapStringBytesEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit): TestAllTypesProto2.MutableMapStringBytesEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapStringBytesEntry by lazy { MutableMapStringBytesEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry.descriptor
@@ -2563,6 +2716,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry>
 
+        public fun toMutableMapStringNestedMessageEntry(): TestAllTypesProto2.MutableMapStringNestedMessageEntry
+
+        /**
+         * The [MutableMapStringNestedMessageEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit): TestAllTypesProto2.MapStringNestedMessageEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String? = this.key,
             value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage? = this.value,
@@ -2614,9 +2776,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapStringNestedMessageEntry(): TestAllTypesProto2.MapStringNestedMessageEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit): TestAllTypesProto2.MutableMapStringNestedMessageEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapStringNestedMessageEntry by lazy { MutableMapStringNestedMessageEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry.descriptor
@@ -2630,6 +2792,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry>
 
+        public fun toMutableMapStringForeignMessageEntry(): TestAllTypesProto2.MutableMapStringForeignMessageEntry
+
+        /**
+         * The [MutableMapStringForeignMessageEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit): TestAllTypesProto2.MapStringForeignMessageEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String? = this.key,
             value: pbandk.conformance.pb.ForeignMessageProto2? = this.value,
@@ -2681,9 +2852,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapStringForeignMessageEntry(): TestAllTypesProto2.MapStringForeignMessageEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit): TestAllTypesProto2.MutableMapStringForeignMessageEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapStringForeignMessageEntry by lazy { MutableMapStringForeignMessageEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry.descriptor
@@ -2697,6 +2868,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry>
 
+        public fun toMutableMapStringNestedEnumEntry(): TestAllTypesProto2.MutableMapStringNestedEnumEntry
+
+        /**
+         * The [MutableMapStringNestedEnumEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit): TestAllTypesProto2.MapStringNestedEnumEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String? = this.key,
             value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum? = this.value,
@@ -2748,9 +2928,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapStringNestedEnumEntry(): TestAllTypesProto2.MapStringNestedEnumEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit): TestAllTypesProto2.MutableMapStringNestedEnumEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapStringNestedEnumEntry by lazy { MutableMapStringNestedEnumEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry.descriptor
@@ -2764,6 +2944,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry>
 
+        public fun toMutableMapStringForeignEnumEntry(): TestAllTypesProto2.MutableMapStringForeignEnumEntry
+
+        /**
+         * The [MutableMapStringForeignEnumEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit): TestAllTypesProto2.MapStringForeignEnumEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String? = this.key,
             value: pbandk.conformance.pb.ForeignEnumProto2? = this.value,
@@ -2815,9 +3004,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMapStringForeignEnumEntry(): TestAllTypesProto2.MapStringForeignEnumEntry
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit): TestAllTypesProto2.MutableMapStringForeignEnumEntry
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMapStringForeignEnumEntry by lazy { MutableMapStringForeignEnumEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry> get() = pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry.descriptor
@@ -2831,6 +3020,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.Data
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data>
 
+        public fun toMutableData(): TestAllTypesProto2.MutableData
+
+        /**
+         * The [MutableData] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableData.() -> Unit): TestAllTypesProto2.Data
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             groupInt32: Int? = this.groupInt32,
             groupUint32: Int? = this.groupUint32,
@@ -2882,9 +3080,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toData(): TestAllTypesProto2.Data
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableData.() -> Unit): TestAllTypesProto2.MutableData
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.Data> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableData by lazy { MutableData() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2.Data.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.Data> get() = pbandk.conformance.pb.TestAllTypesProto2.Data.descriptor
@@ -2896,6 +3094,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>
 
+        public fun toMutableMessageSetCorrect(): TestAllTypesProto2.MutableMessageSetCorrect
+
+        /**
+         * The [MutableMessageSetCorrect] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): TestAllTypesProto2.MessageSetCorrect
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
@@ -2923,9 +3130,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMessageSetCorrect(): TestAllTypesProto2.MessageSetCorrect
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): TestAllTypesProto2.MutableMessageSetCorrect
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMessageSetCorrect by lazy { MutableMessageSetCorrect() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect> get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect.descriptor
@@ -2938,6 +3145,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1>
 
+        public fun toMutableMessageSetCorrectExtension1(): TestAllTypesProto2.MutableMessageSetCorrectExtension1
+
+        /**
+         * The [MutableMessageSetCorrectExtension1] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension1
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             str: String? = this.str,
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2977,9 +3193,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMessageSetCorrectExtension1(): TestAllTypesProto2.MessageSetCorrectExtension1
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): TestAllTypesProto2.MutableMessageSetCorrectExtension1
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMessageSetCorrectExtension1 by lazy { MutableMessageSetCorrectExtension1() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1> get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1.descriptor
@@ -2992,6 +3208,15 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2>
 
+        public fun toMutableMessageSetCorrectExtension2(): TestAllTypesProto2.MutableMessageSetCorrectExtension2
+
+        /**
+         * The [MutableMessageSetCorrectExtension2] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension2
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             i: Int? = this.i,
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -3031,9 +3256,9 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
 
         public fun toMessageSetCorrectExtension2(): TestAllTypesProto2.MessageSetCorrectExtension2
 
+        public override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): TestAllTypesProto2.MutableMessageSetCorrectExtension2
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableMessageSetCorrectExtension2 by lazy { MutableMessageSetCorrectExtension2() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2> get() = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2.descriptor
@@ -3164,9 +3389,9 @@ public sealed interface MutableTestAllTypesProto2 : TestAllTypesProto2, pbandk.M
 
     public fun toTestAllTypesProto2(): TestAllTypesProto2
 
+    public override fun copy(builderAction: MutableTestAllTypesProto2.() -> Unit): MutableTestAllTypesProto2
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.TestAllTypesProto2> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableTestAllTypesProto2 by lazy { MutableTestAllTypesProto2() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.TestAllTypesProto2.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2> get() = pbandk.conformance.pb.TestAllTypesProto2.descriptor
@@ -3179,6 +3404,15 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ForeignMessageProto2
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessageProto2>
 
+    public fun toMutableForeignMessageProto2(): MutableForeignMessageProto2
+
+    /**
+     * The [MutableForeignMessageProto2] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableForeignMessageProto2.() -> Unit): ForeignMessageProto2
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         c: Int? = this.c,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -3218,9 +3452,9 @@ public sealed interface MutableForeignMessageProto2 : ForeignMessageProto2, pban
 
     public fun toForeignMessageProto2(): ForeignMessageProto2
 
+    public override fun copy(builderAction: MutableForeignMessageProto2.() -> Unit): MutableForeignMessageProto2
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ForeignMessageProto2> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableForeignMessageProto2 by lazy { MutableForeignMessageProto2() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.ForeignMessageProto2.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ForeignMessageProto2> get() = pbandk.conformance.pb.ForeignMessageProto2.descriptor
@@ -3237,6 +3471,15 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.UnknownToTestAllTypes
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes>
 
+    public fun toMutableUnknownToTestAllTypes(): MutableUnknownToTestAllTypes
+
+    /**
+     * The [MutableUnknownToTestAllTypes] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableUnknownToTestAllTypes.() -> Unit): UnknownToTestAllTypes
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         optionalInt32: Int? = this.optionalInt32,
         optionalString: String? = this.optionalString,
@@ -3320,6 +3563,15 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup>
 
+        public fun toMutableOptionalGroup(): UnknownToTestAllTypes.MutableOptionalGroup
+
+        /**
+         * The [MutableOptionalGroup] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): UnknownToTestAllTypes.OptionalGroup
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             a: Int? = this.a,
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -3359,9 +3611,9 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
 
         public fun toOptionalGroup(): UnknownToTestAllTypes.OptionalGroup
 
+        public override fun copy(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): UnknownToTestAllTypes.MutableOptionalGroup
+
         public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableOptionalGroup by lazy { MutableOptionalGroup() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup> get() = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup.descriptor
@@ -3378,9 +3630,9 @@ public sealed interface MutableUnknownToTestAllTypes : UnknownToTestAllTypes, pb
 
     public fun toUnknownToTestAllTypes(): UnknownToTestAllTypes
 
+    public override fun copy(builderAction: MutableUnknownToTestAllTypes.() -> Unit): MutableUnknownToTestAllTypes
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.UnknownToTestAllTypes> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableUnknownToTestAllTypes by lazy { MutableUnknownToTestAllTypes() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.UnknownToTestAllTypes.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.UnknownToTestAllTypes> get() = pbandk.conformance.pb.UnknownToTestAllTypes.descriptor
@@ -3511,118 +3763,118 @@ public fun TestAllTypesProto2(
     fieldName18_: Int? = null,
     oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2 = TestAllTypesProto2_Impl(
-    optionalInt32 = optionalInt32,
-    optionalInt64 = optionalInt64,
-    optionalUint32 = optionalUint32,
-    optionalUint64 = optionalUint64,
-    optionalSint32 = optionalSint32,
-    optionalSint64 = optionalSint64,
-    optionalFixed32 = optionalFixed32,
-    optionalFixed64 = optionalFixed64,
-    optionalSfixed32 = optionalSfixed32,
-    optionalSfixed64 = optionalSfixed64,
-    optionalFloat = optionalFloat,
-    optionalDouble = optionalDouble,
-    optionalBool = optionalBool,
-    optionalString = optionalString,
-    optionalBytes = optionalBytes,
-    optionalNestedMessage = optionalNestedMessage,
-    optionalForeignMessage = optionalForeignMessage,
-    optionalNestedEnum = optionalNestedEnum,
-    optionalForeignEnum = optionalForeignEnum,
-    optionalStringPiece = optionalStringPiece,
-    optionalCord = optionalCord,
-    recursiveMessage = recursiveMessage,
-    repeatedInt32 = repeatedInt32,
-    repeatedInt64 = repeatedInt64,
-    repeatedUint32 = repeatedUint32,
-    repeatedUint64 = repeatedUint64,
-    repeatedSint32 = repeatedSint32,
-    repeatedSint64 = repeatedSint64,
-    repeatedFixed32 = repeatedFixed32,
-    repeatedFixed64 = repeatedFixed64,
-    repeatedSfixed32 = repeatedSfixed32,
-    repeatedSfixed64 = repeatedSfixed64,
-    repeatedFloat = repeatedFloat,
-    repeatedDouble = repeatedDouble,
-    repeatedBool = repeatedBool,
-    repeatedString = repeatedString,
-    repeatedBytes = repeatedBytes,
-    repeatedNestedMessage = repeatedNestedMessage,
-    repeatedForeignMessage = repeatedForeignMessage,
-    repeatedNestedEnum = repeatedNestedEnum,
-    repeatedForeignEnum = repeatedForeignEnum,
-    repeatedStringPiece = repeatedStringPiece,
-    repeatedCord = repeatedCord,
-    packedInt32 = packedInt32,
-    packedInt64 = packedInt64,
-    packedUint32 = packedUint32,
-    packedUint64 = packedUint64,
-    packedSint32 = packedSint32,
-    packedSint64 = packedSint64,
-    packedFixed32 = packedFixed32,
-    packedFixed64 = packedFixed64,
-    packedSfixed32 = packedSfixed32,
-    packedSfixed64 = packedSfixed64,
-    packedFloat = packedFloat,
-    packedDouble = packedDouble,
-    packedBool = packedBool,
-    packedNestedEnum = packedNestedEnum,
-    unpackedInt32 = unpackedInt32,
-    unpackedInt64 = unpackedInt64,
-    unpackedUint32 = unpackedUint32,
-    unpackedUint64 = unpackedUint64,
-    unpackedSint32 = unpackedSint32,
-    unpackedSint64 = unpackedSint64,
-    unpackedFixed32 = unpackedFixed32,
-    unpackedFixed64 = unpackedFixed64,
-    unpackedSfixed32 = unpackedSfixed32,
-    unpackedSfixed64 = unpackedSfixed64,
-    unpackedFloat = unpackedFloat,
-    unpackedDouble = unpackedDouble,
-    unpackedBool = unpackedBool,
-    unpackedNestedEnum = unpackedNestedEnum,
-    mapInt32Int32 = mapInt32Int32,
-    mapInt64Int64 = mapInt64Int64,
-    mapUint32Uint32 = mapUint32Uint32,
-    mapUint64Uint64 = mapUint64Uint64,
-    mapSint32Sint32 = mapSint32Sint32,
-    mapSint64Sint64 = mapSint64Sint64,
-    mapFixed32Fixed32 = mapFixed32Fixed32,
-    mapFixed64Fixed64 = mapFixed64Fixed64,
-    mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
-    mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
-    mapInt32Float = mapInt32Float,
-    mapInt32Double = mapInt32Double,
-    mapBoolBool = mapBoolBool,
-    mapStringString = mapStringString,
-    mapStringBytes = mapStringBytes,
-    mapStringNestedMessage = mapStringNestedMessage,
-    mapStringForeignMessage = mapStringForeignMessage,
-    mapStringNestedEnum = mapStringNestedEnum,
-    mapStringForeignEnum = mapStringForeignEnum,
-    fieldname1 = fieldname1,
-    fieldName2 = fieldName2,
-    fieldName3 = fieldName3,
-    field_name4 = field_name4,
-    field0name5 = field0name5,
-    field0Name6 = field0Name6,
-    fieldName7 = fieldName7,
-    fieldName8 = fieldName8,
-    fieldName9 = fieldName9,
-    fieldName10 = fieldName10,
-    fIELDNAME11 = fIELDNAME11,
-    fIELDName12 = fIELDName12,
-    _fieldName13 = _fieldName13,
-    _FieldName14 = _FieldName14,
-    field_name15 = field_name15,
-    field_Name16 = field_Name16,
-    fieldName17_ = fieldName17_,
-    fieldName18_ = fieldName18_,
-    oneofField = oneofField,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2 = TestAllTypesProto2 {
+    this.optionalInt32 = optionalInt32
+    this.optionalInt64 = optionalInt64
+    this.optionalUint32 = optionalUint32
+    this.optionalUint64 = optionalUint64
+    this.optionalSint32 = optionalSint32
+    this.optionalSint64 = optionalSint64
+    this.optionalFixed32 = optionalFixed32
+    this.optionalFixed64 = optionalFixed64
+    this.optionalSfixed32 = optionalSfixed32
+    this.optionalSfixed64 = optionalSfixed64
+    this.optionalFloat = optionalFloat
+    this.optionalDouble = optionalDouble
+    this.optionalBool = optionalBool
+    this.optionalString = optionalString
+    this.optionalBytes = optionalBytes
+    this.optionalNestedMessage = optionalNestedMessage
+    this.optionalForeignMessage = optionalForeignMessage
+    this.optionalNestedEnum = optionalNestedEnum
+    this.optionalForeignEnum = optionalForeignEnum
+    this.optionalStringPiece = optionalStringPiece
+    this.optionalCord = optionalCord
+    this.recursiveMessage = recursiveMessage
+    this.repeatedInt32 = repeatedInt32
+    this.repeatedInt64 = repeatedInt64
+    this.repeatedUint32 = repeatedUint32
+    this.repeatedUint64 = repeatedUint64
+    this.repeatedSint32 = repeatedSint32
+    this.repeatedSint64 = repeatedSint64
+    this.repeatedFixed32 = repeatedFixed32
+    this.repeatedFixed64 = repeatedFixed64
+    this.repeatedSfixed32 = repeatedSfixed32
+    this.repeatedSfixed64 = repeatedSfixed64
+    this.repeatedFloat = repeatedFloat
+    this.repeatedDouble = repeatedDouble
+    this.repeatedBool = repeatedBool
+    this.repeatedString = repeatedString
+    this.repeatedBytes = repeatedBytes
+    this.repeatedNestedMessage = repeatedNestedMessage
+    this.repeatedForeignMessage = repeatedForeignMessage
+    this.repeatedNestedEnum = repeatedNestedEnum
+    this.repeatedForeignEnum = repeatedForeignEnum
+    this.repeatedStringPiece = repeatedStringPiece
+    this.repeatedCord = repeatedCord
+    this.packedInt32 = packedInt32
+    this.packedInt64 = packedInt64
+    this.packedUint32 = packedUint32
+    this.packedUint64 = packedUint64
+    this.packedSint32 = packedSint32
+    this.packedSint64 = packedSint64
+    this.packedFixed32 = packedFixed32
+    this.packedFixed64 = packedFixed64
+    this.packedSfixed32 = packedSfixed32
+    this.packedSfixed64 = packedSfixed64
+    this.packedFloat = packedFloat
+    this.packedDouble = packedDouble
+    this.packedBool = packedBool
+    this.packedNestedEnum = packedNestedEnum
+    this.unpackedInt32 = unpackedInt32
+    this.unpackedInt64 = unpackedInt64
+    this.unpackedUint32 = unpackedUint32
+    this.unpackedUint64 = unpackedUint64
+    this.unpackedSint32 = unpackedSint32
+    this.unpackedSint64 = unpackedSint64
+    this.unpackedFixed32 = unpackedFixed32
+    this.unpackedFixed64 = unpackedFixed64
+    this.unpackedSfixed32 = unpackedSfixed32
+    this.unpackedSfixed64 = unpackedSfixed64
+    this.unpackedFloat = unpackedFloat
+    this.unpackedDouble = unpackedDouble
+    this.unpackedBool = unpackedBool
+    this.unpackedNestedEnum = unpackedNestedEnum
+    this.mapInt32Int32 = mapInt32Int32
+    this.mapInt64Int64 = mapInt64Int64
+    this.mapUint32Uint32 = mapUint32Uint32
+    this.mapUint64Uint64 = mapUint64Uint64
+    this.mapSint32Sint32 = mapSint32Sint32
+    this.mapSint64Sint64 = mapSint64Sint64
+    this.mapFixed32Fixed32 = mapFixed32Fixed32
+    this.mapFixed64Fixed64 = mapFixed64Fixed64
+    this.mapSfixed32Sfixed32 = mapSfixed32Sfixed32
+    this.mapSfixed64Sfixed64 = mapSfixed64Sfixed64
+    this.mapInt32Float = mapInt32Float
+    this.mapInt32Double = mapInt32Double
+    this.mapBoolBool = mapBoolBool
+    this.mapStringString = mapStringString
+    this.mapStringBytes = mapStringBytes
+    this.mapStringNestedMessage = mapStringNestedMessage
+    this.mapStringForeignMessage = mapStringForeignMessage
+    this.mapStringNestedEnum = mapStringNestedEnum
+    this.mapStringForeignEnum = mapStringForeignEnum
+    this.fieldname1 = fieldname1
+    this.fieldName2 = fieldName2
+    this.fieldName3 = fieldName3
+    this.field_name4 = field_name4
+    this.field0name5 = field0name5
+    this.field0Name6 = field0Name6
+    this.fieldName7 = fieldName7
+    this.fieldName8 = fieldName8
+    this.fieldName9 = fieldName9
+    this.fieldName10 = fieldName10
+    this.fIELDNAME11 = fIELDNAME11
+    this.fIELDName12 = fIELDName12
+    this._fieldName13 = _fieldName13
+    this._FieldName14 = _FieldName14
+    this.field_name15 = field_name15
+    this.field_Name16 = field_Name16
+    this.fieldName17_ = fieldName17_
+    this.fieldName18_ = fieldName18_
+    this.oneofField = oneofField
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2 { } instead")
 public fun MutableTestAllTypesProto2(
@@ -3849,6 +4101,10 @@ public fun MutableTestAllTypesProto2(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableTestAllTypesProto2] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2(builderAction: MutableTestAllTypesProto2.() -> Unit): TestAllTypesProto2 {
     @Suppress("DEPRECATION") val builder = MutableTestAllTypesProto2()
     builder.builderAction()
@@ -3993,6 +4249,10 @@ private class TestAllTypesProto2_Impl(
     override val oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
         get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum)?.value
 
+    override fun copy(builderAction: MutableTestAllTypesProto2.() -> Unit) =
+        toMutableTestAllTypesProto2().apply(builderAction).toTestAllTypesProto2()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         optionalInt32: Int?,
         optionalInt64: Long?,
@@ -4336,6 +4596,119 @@ private class TestAllTypesProto2_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableTestAllTypesProto2() = MutableTestAllTypesProto2_Impl(
+        optionalInt32 = optionalInt32,
+        optionalInt64 = optionalInt64,
+        optionalUint32 = optionalUint32,
+        optionalUint64 = optionalUint64,
+        optionalSint32 = optionalSint32,
+        optionalSint64 = optionalSint64,
+        optionalFixed32 = optionalFixed32,
+        optionalFixed64 = optionalFixed64,
+        optionalSfixed32 = optionalSfixed32,
+        optionalSfixed64 = optionalSfixed64,
+        optionalFloat = optionalFloat,
+        optionalDouble = optionalDouble,
+        optionalBool = optionalBool,
+        optionalString = optionalString,
+        optionalBytes = optionalBytes,
+        optionalNestedMessage = optionalNestedMessage,
+        optionalForeignMessage = optionalForeignMessage,
+        optionalNestedEnum = optionalNestedEnum,
+        optionalForeignEnum = optionalForeignEnum,
+        optionalStringPiece = optionalStringPiece,
+        optionalCord = optionalCord,
+        recursiveMessage = recursiveMessage,
+        repeatedInt32 = repeatedInt32,
+        repeatedInt64 = repeatedInt64,
+        repeatedUint32 = repeatedUint32,
+        repeatedUint64 = repeatedUint64,
+        repeatedSint32 = repeatedSint32,
+        repeatedSint64 = repeatedSint64,
+        repeatedFixed32 = repeatedFixed32,
+        repeatedFixed64 = repeatedFixed64,
+        repeatedSfixed32 = repeatedSfixed32,
+        repeatedSfixed64 = repeatedSfixed64,
+        repeatedFloat = repeatedFloat,
+        repeatedDouble = repeatedDouble,
+        repeatedBool = repeatedBool,
+        repeatedString = repeatedString,
+        repeatedBytes = repeatedBytes,
+        repeatedNestedMessage = repeatedNestedMessage,
+        repeatedForeignMessage = repeatedForeignMessage,
+        repeatedNestedEnum = repeatedNestedEnum,
+        repeatedForeignEnum = repeatedForeignEnum,
+        repeatedStringPiece = repeatedStringPiece,
+        repeatedCord = repeatedCord,
+        packedInt32 = packedInt32,
+        packedInt64 = packedInt64,
+        packedUint32 = packedUint32,
+        packedUint64 = packedUint64,
+        packedSint32 = packedSint32,
+        packedSint64 = packedSint64,
+        packedFixed32 = packedFixed32,
+        packedFixed64 = packedFixed64,
+        packedSfixed32 = packedSfixed32,
+        packedSfixed64 = packedSfixed64,
+        packedFloat = packedFloat,
+        packedDouble = packedDouble,
+        packedBool = packedBool,
+        packedNestedEnum = packedNestedEnum,
+        unpackedInt32 = unpackedInt32,
+        unpackedInt64 = unpackedInt64,
+        unpackedUint32 = unpackedUint32,
+        unpackedUint64 = unpackedUint64,
+        unpackedSint32 = unpackedSint32,
+        unpackedSint64 = unpackedSint64,
+        unpackedFixed32 = unpackedFixed32,
+        unpackedFixed64 = unpackedFixed64,
+        unpackedSfixed32 = unpackedSfixed32,
+        unpackedSfixed64 = unpackedSfixed64,
+        unpackedFloat = unpackedFloat,
+        unpackedDouble = unpackedDouble,
+        unpackedBool = unpackedBool,
+        unpackedNestedEnum = unpackedNestedEnum,
+        mapInt32Int32 = mapInt32Int32,
+        mapInt64Int64 = mapInt64Int64,
+        mapUint32Uint32 = mapUint32Uint32,
+        mapUint64Uint64 = mapUint64Uint64,
+        mapSint32Sint32 = mapSint32Sint32,
+        mapSint64Sint64 = mapSint64Sint64,
+        mapFixed32Fixed32 = mapFixed32Fixed32,
+        mapFixed64Fixed64 = mapFixed64Fixed64,
+        mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
+        mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
+        mapInt32Float = mapInt32Float,
+        mapInt32Double = mapInt32Double,
+        mapBoolBool = mapBoolBool,
+        mapStringString = mapStringString,
+        mapStringBytes = mapStringBytes,
+        mapStringNestedMessage = mapStringNestedMessage,
+        mapStringForeignMessage = mapStringForeignMessage,
+        mapStringNestedEnum = mapStringNestedEnum,
+        mapStringForeignEnum = mapStringForeignEnum,
+        fieldname1 = fieldname1,
+        fieldName2 = fieldName2,
+        fieldName3 = fieldName3,
+        field_name4 = field_name4,
+        field0name5 = field0name5,
+        field0Name6 = field0Name6,
+        fieldName7 = fieldName7,
+        fieldName8 = fieldName8,
+        fieldName9 = fieldName9,
+        fieldName10 = fieldName10,
+        fIELDNAME11 = fIELDNAME11,
+        fIELDName12 = fIELDName12,
+        _fieldName13 = _fieldName13,
+        _FieldName14 = _FieldName14,
+        field_name15 = field_name15,
+        field_Name16 = field_Name16,
+        fieldName17_ = fieldName17_,
+        fieldName18_ = fieldName18_,
+        oneofField = oneofField,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableTestAllTypesProto2_Impl(
@@ -4481,6 +4854,10 @@ private class MutableTestAllTypesProto2_Impl(
         get() = (oneofField as? pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum)?.value
         set(value) { oneofField = value?.let { pbandk.conformance.pb.TestAllTypesProto2.OneofField.OneofEnum(it) } }
 
+    override fun copy(builderAction: MutableTestAllTypesProto2.() -> Unit) =
+        toMutableTestAllTypesProto2().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         optionalInt32: Int?,
         optionalInt64: Long?,
@@ -4935,8 +5312,10 @@ private class MutableTestAllTypesProto2_Impl(
         fieldName17_ = fieldName17_,
         fieldName18_ = fieldName18_,
         oneofField = oneofField,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableTestAllTypesProto2() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5207,11 +5586,11 @@ public fun TestAllTypesProto2.Companion.NestedMessage(
     a: Int? = null,
     corecursive: pbandk.conformance.pb.TestAllTypesProto2? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = TestAllTypesProto2_NestedMessage_Impl(
-    a = a,
-    corecursive = corecursive,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = TestAllTypesProto2.Companion.NestedMessage {
+    this.a = a
+    this.corecursive = corecursive
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.NestedMessage { } instead")
 public fun TestAllTypesProto2.Companion.MutableNestedMessage(
@@ -5224,12 +5603,20 @@ public fun TestAllTypesProto2.Companion.MutableNestedMessage(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.NestedMessage(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit): TestAllTypesProto2.NestedMessage {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableNestedMessage()
     builder.builderAction()
     return builder.toNestedMessage()
 }
 
+/**
+ * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.NestedMessage(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit): TestAllTypesProto2.NestedMessage =
     TestAllTypesProto2.NestedMessage(builderAction)
 
@@ -5244,6 +5631,10 @@ private class TestAllTypesProto2_NestedMessage_Impl(
 ) : TestAllTypesProto2.NestedMessage, pbandk.GeneratedMessage<TestAllTypesProto2.NestedMessage>() {
     override val descriptor get() = TestAllTypesProto2.NestedMessage.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit) =
+        toMutableNestedMessage().apply(builderAction).toNestedMessage()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         a: Int?,
         corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
@@ -5261,6 +5652,12 @@ private class TestAllTypesProto2_NestedMessage_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableNestedMessage() = TestAllTypesProto2_MutableNestedMessage_Impl(
+        a = a,
+        corecursive = corecursive,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableNestedMessage_Impl(
@@ -5270,6 +5667,10 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
 ) : TestAllTypesProto2.MutableNestedMessage, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableNestedMessage>() {
     override val descriptor get() = TestAllTypesProto2.NestedMessage.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableNestedMessage.() -> Unit) =
+        toMutableNestedMessage().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         a: Int?,
         corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
@@ -5291,8 +5692,10 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
     override fun toNestedMessage() = TestAllTypesProto2_NestedMessage_Impl(
         a = a,
         corecursive = corecursive,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableNestedMessage() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5314,11 +5717,11 @@ public fun TestAllTypesProto2.Companion.MapInt32Int32Entry(
     key: Int? = null,
     value: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry = TestAllTypesProto2_MapInt32Int32Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapInt32Int32Entry = TestAllTypesProto2.Companion.MapInt32Int32Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapInt32Int32Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapInt32Int32Entry(
@@ -5331,12 +5734,20 @@ public fun TestAllTypesProto2.Companion.MutableMapInt32Int32Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapInt32Int32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapInt32Int32Entry(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit): TestAllTypesProto2.MapInt32Int32Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt32Int32Entry()
     builder.builderAction()
     return builder.toMapInt32Int32Entry()
 }
 
+/**
+ * The [MutableMapInt32Int32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapInt32Int32Entry(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit): TestAllTypesProto2.MapInt32Int32Entry =
     TestAllTypesProto2.MapInt32Int32Entry(builderAction)
 
@@ -5351,6 +5762,10 @@ private class TestAllTypesProto2_MapInt32Int32Entry_Impl(
 ) : TestAllTypesProto2.MapInt32Int32Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapInt32Int32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt32Int32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit) =
+        toMutableMapInt32Int32Entry().apply(builderAction).toMapInt32Int32Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -5368,6 +5783,12 @@ private class TestAllTypesProto2_MapInt32Int32Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapInt32Int32Entry() = TestAllTypesProto2_MutableMapInt32Int32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapInt32Int32Entry_Impl(
@@ -5377,6 +5798,10 @@ private class TestAllTypesProto2_MutableMapInt32Int32Entry_Impl(
 ) : TestAllTypesProto2.MutableMapInt32Int32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt32Int32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt32Int32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32Int32Entry.() -> Unit) =
+        toMutableMapInt32Int32Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -5398,8 +5823,10 @@ private class TestAllTypesProto2_MutableMapInt32Int32Entry_Impl(
     override fun toMapInt32Int32Entry() = TestAllTypesProto2_MapInt32Int32Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapInt32Int32Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5421,11 +5848,11 @@ public fun TestAllTypesProto2.Companion.MapInt64Int64Entry(
     key: Long? = null,
     value: Long? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry = TestAllTypesProto2_MapInt64Int64Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapInt64Int64Entry = TestAllTypesProto2.Companion.MapInt64Int64Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapInt64Int64Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapInt64Int64Entry(
@@ -5438,12 +5865,20 @@ public fun TestAllTypesProto2.Companion.MutableMapInt64Int64Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapInt64Int64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapInt64Int64Entry(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit): TestAllTypesProto2.MapInt64Int64Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt64Int64Entry()
     builder.builderAction()
     return builder.toMapInt64Int64Entry()
 }
 
+/**
+ * The [MutableMapInt64Int64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapInt64Int64Entry(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit): TestAllTypesProto2.MapInt64Int64Entry =
     TestAllTypesProto2.MapInt64Int64Entry(builderAction)
 
@@ -5458,6 +5893,10 @@ private class TestAllTypesProto2_MapInt64Int64Entry_Impl(
 ) : TestAllTypesProto2.MapInt64Int64Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapInt64Int64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt64Int64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit) =
+        toMutableMapInt64Int64Entry().apply(builderAction).toMapInt64Int64Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -5475,6 +5914,12 @@ private class TestAllTypesProto2_MapInt64Int64Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapInt64Int64Entry() = TestAllTypesProto2_MutableMapInt64Int64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapInt64Int64Entry_Impl(
@@ -5484,6 +5929,10 @@ private class TestAllTypesProto2_MutableMapInt64Int64Entry_Impl(
 ) : TestAllTypesProto2.MutableMapInt64Int64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt64Int64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt64Int64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt64Int64Entry.() -> Unit) =
+        toMutableMapInt64Int64Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -5505,8 +5954,10 @@ private class TestAllTypesProto2_MutableMapInt64Int64Entry_Impl(
     override fun toMapInt64Int64Entry() = TestAllTypesProto2_MapInt64Int64Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapInt64Int64Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5528,11 +5979,11 @@ public fun TestAllTypesProto2.Companion.MapUint32Uint32Entry(
     key: Int? = null,
     value: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry = TestAllTypesProto2_MapUint32Uint32Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapUint32Uint32Entry = TestAllTypesProto2.Companion.MapUint32Uint32Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapUint32Uint32Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapUint32Uint32Entry(
@@ -5545,12 +5996,20 @@ public fun TestAllTypesProto2.Companion.MutableMapUint32Uint32Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapUint32Uint32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapUint32Uint32Entry(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit): TestAllTypesProto2.MapUint32Uint32Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapUint32Uint32Entry()
     builder.builderAction()
     return builder.toMapUint32Uint32Entry()
 }
 
+/**
+ * The [MutableMapUint32Uint32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapUint32Uint32Entry(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit): TestAllTypesProto2.MapUint32Uint32Entry =
     TestAllTypesProto2.MapUint32Uint32Entry(builderAction)
 
@@ -5565,6 +6024,10 @@ private class TestAllTypesProto2_MapUint32Uint32Entry_Impl(
 ) : TestAllTypesProto2.MapUint32Uint32Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapUint32Uint32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapUint32Uint32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit) =
+        toMutableMapUint32Uint32Entry().apply(builderAction).toMapUint32Uint32Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -5582,6 +6045,12 @@ private class TestAllTypesProto2_MapUint32Uint32Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapUint32Uint32Entry() = TestAllTypesProto2_MutableMapUint32Uint32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapUint32Uint32Entry_Impl(
@@ -5591,6 +6060,10 @@ private class TestAllTypesProto2_MutableMapUint32Uint32Entry_Impl(
 ) : TestAllTypesProto2.MutableMapUint32Uint32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapUint32Uint32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapUint32Uint32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapUint32Uint32Entry.() -> Unit) =
+        toMutableMapUint32Uint32Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -5612,8 +6085,10 @@ private class TestAllTypesProto2_MutableMapUint32Uint32Entry_Impl(
     override fun toMapUint32Uint32Entry() = TestAllTypesProto2_MapUint32Uint32Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapUint32Uint32Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5635,11 +6110,11 @@ public fun TestAllTypesProto2.Companion.MapUint64Uint64Entry(
     key: Long? = null,
     value: Long? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry = TestAllTypesProto2_MapUint64Uint64Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapUint64Uint64Entry = TestAllTypesProto2.Companion.MapUint64Uint64Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapUint64Uint64Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapUint64Uint64Entry(
@@ -5652,12 +6127,20 @@ public fun TestAllTypesProto2.Companion.MutableMapUint64Uint64Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapUint64Uint64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapUint64Uint64Entry(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit): TestAllTypesProto2.MapUint64Uint64Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapUint64Uint64Entry()
     builder.builderAction()
     return builder.toMapUint64Uint64Entry()
 }
 
+/**
+ * The [MutableMapUint64Uint64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapUint64Uint64Entry(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit): TestAllTypesProto2.MapUint64Uint64Entry =
     TestAllTypesProto2.MapUint64Uint64Entry(builderAction)
 
@@ -5672,6 +6155,10 @@ private class TestAllTypesProto2_MapUint64Uint64Entry_Impl(
 ) : TestAllTypesProto2.MapUint64Uint64Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapUint64Uint64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapUint64Uint64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit) =
+        toMutableMapUint64Uint64Entry().apply(builderAction).toMapUint64Uint64Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -5689,6 +6176,12 @@ private class TestAllTypesProto2_MapUint64Uint64Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapUint64Uint64Entry() = TestAllTypesProto2_MutableMapUint64Uint64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapUint64Uint64Entry_Impl(
@@ -5698,6 +6191,10 @@ private class TestAllTypesProto2_MutableMapUint64Uint64Entry_Impl(
 ) : TestAllTypesProto2.MutableMapUint64Uint64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapUint64Uint64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapUint64Uint64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapUint64Uint64Entry.() -> Unit) =
+        toMutableMapUint64Uint64Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -5719,8 +6216,10 @@ private class TestAllTypesProto2_MutableMapUint64Uint64Entry_Impl(
     override fun toMapUint64Uint64Entry() = TestAllTypesProto2_MapUint64Uint64Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapUint64Uint64Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5742,11 +6241,11 @@ public fun TestAllTypesProto2.Companion.MapSint32Sint32Entry(
     key: Int? = null,
     value: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry = TestAllTypesProto2_MapSint32Sint32Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapSint32Sint32Entry = TestAllTypesProto2.Companion.MapSint32Sint32Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapSint32Sint32Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapSint32Sint32Entry(
@@ -5759,12 +6258,20 @@ public fun TestAllTypesProto2.Companion.MutableMapSint32Sint32Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapSint32Sint32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapSint32Sint32Entry(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit): TestAllTypesProto2.MapSint32Sint32Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSint32Sint32Entry()
     builder.builderAction()
     return builder.toMapSint32Sint32Entry()
 }
 
+/**
+ * The [MutableMapSint32Sint32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapSint32Sint32Entry(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit): TestAllTypesProto2.MapSint32Sint32Entry =
     TestAllTypesProto2.MapSint32Sint32Entry(builderAction)
 
@@ -5779,6 +6286,10 @@ private class TestAllTypesProto2_MapSint32Sint32Entry_Impl(
 ) : TestAllTypesProto2.MapSint32Sint32Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapSint32Sint32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSint32Sint32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit) =
+        toMutableMapSint32Sint32Entry().apply(builderAction).toMapSint32Sint32Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -5796,6 +6307,12 @@ private class TestAllTypesProto2_MapSint32Sint32Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapSint32Sint32Entry() = TestAllTypesProto2_MutableMapSint32Sint32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapSint32Sint32Entry_Impl(
@@ -5805,6 +6322,10 @@ private class TestAllTypesProto2_MutableMapSint32Sint32Entry_Impl(
 ) : TestAllTypesProto2.MutableMapSint32Sint32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSint32Sint32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSint32Sint32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSint32Sint32Entry.() -> Unit) =
+        toMutableMapSint32Sint32Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -5826,8 +6347,10 @@ private class TestAllTypesProto2_MutableMapSint32Sint32Entry_Impl(
     override fun toMapSint32Sint32Entry() = TestAllTypesProto2_MapSint32Sint32Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapSint32Sint32Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5849,11 +6372,11 @@ public fun TestAllTypesProto2.Companion.MapSint64Sint64Entry(
     key: Long? = null,
     value: Long? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry = TestAllTypesProto2_MapSint64Sint64Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapSint64Sint64Entry = TestAllTypesProto2.Companion.MapSint64Sint64Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapSint64Sint64Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapSint64Sint64Entry(
@@ -5866,12 +6389,20 @@ public fun TestAllTypesProto2.Companion.MutableMapSint64Sint64Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapSint64Sint64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapSint64Sint64Entry(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit): TestAllTypesProto2.MapSint64Sint64Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSint64Sint64Entry()
     builder.builderAction()
     return builder.toMapSint64Sint64Entry()
 }
 
+/**
+ * The [MutableMapSint64Sint64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapSint64Sint64Entry(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit): TestAllTypesProto2.MapSint64Sint64Entry =
     TestAllTypesProto2.MapSint64Sint64Entry(builderAction)
 
@@ -5886,6 +6417,10 @@ private class TestAllTypesProto2_MapSint64Sint64Entry_Impl(
 ) : TestAllTypesProto2.MapSint64Sint64Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapSint64Sint64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSint64Sint64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit) =
+        toMutableMapSint64Sint64Entry().apply(builderAction).toMapSint64Sint64Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -5903,6 +6438,12 @@ private class TestAllTypesProto2_MapSint64Sint64Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapSint64Sint64Entry() = TestAllTypesProto2_MutableMapSint64Sint64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapSint64Sint64Entry_Impl(
@@ -5912,6 +6453,10 @@ private class TestAllTypesProto2_MutableMapSint64Sint64Entry_Impl(
 ) : TestAllTypesProto2.MutableMapSint64Sint64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSint64Sint64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSint64Sint64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSint64Sint64Entry.() -> Unit) =
+        toMutableMapSint64Sint64Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -5933,8 +6478,10 @@ private class TestAllTypesProto2_MutableMapSint64Sint64Entry_Impl(
     override fun toMapSint64Sint64Entry() = TestAllTypesProto2_MapSint64Sint64Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapSint64Sint64Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5956,11 +6503,11 @@ public fun TestAllTypesProto2.Companion.MapFixed32Fixed32Entry(
     key: Int? = null,
     value: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry = TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapFixed32Fixed32Entry = TestAllTypesProto2.Companion.MapFixed32Fixed32Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapFixed32Fixed32Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapFixed32Fixed32Entry(
@@ -5973,12 +6520,20 @@ public fun TestAllTypesProto2.Companion.MutableMapFixed32Fixed32Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapFixed32Fixed32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapFixed32Fixed32Entry(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit): TestAllTypesProto2.MapFixed32Fixed32Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapFixed32Fixed32Entry()
     builder.builderAction()
     return builder.toMapFixed32Fixed32Entry()
 }
 
+/**
+ * The [MutableMapFixed32Fixed32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapFixed32Fixed32Entry(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit): TestAllTypesProto2.MapFixed32Fixed32Entry =
     TestAllTypesProto2.MapFixed32Fixed32Entry(builderAction)
 
@@ -5993,6 +6548,10 @@ private class TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
 ) : TestAllTypesProto2.MapFixed32Fixed32Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapFixed32Fixed32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapFixed32Fixed32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit) =
+        toMutableMapFixed32Fixed32Entry().apply(builderAction).toMapFixed32Fixed32Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -6010,6 +6569,12 @@ private class TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapFixed32Fixed32Entry() = TestAllTypesProto2_MutableMapFixed32Fixed32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapFixed32Fixed32Entry_Impl(
@@ -6019,6 +6584,10 @@ private class TestAllTypesProto2_MutableMapFixed32Fixed32Entry_Impl(
 ) : TestAllTypesProto2.MutableMapFixed32Fixed32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapFixed32Fixed32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapFixed32Fixed32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapFixed32Fixed32Entry.() -> Unit) =
+        toMutableMapFixed32Fixed32Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -6040,8 +6609,10 @@ private class TestAllTypesProto2_MutableMapFixed32Fixed32Entry_Impl(
     override fun toMapFixed32Fixed32Entry() = TestAllTypesProto2_MapFixed32Fixed32Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapFixed32Fixed32Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6063,11 +6634,11 @@ public fun TestAllTypesProto2.Companion.MapFixed64Fixed64Entry(
     key: Long? = null,
     value: Long? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry = TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapFixed64Fixed64Entry = TestAllTypesProto2.Companion.MapFixed64Fixed64Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapFixed64Fixed64Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapFixed64Fixed64Entry(
@@ -6080,12 +6651,20 @@ public fun TestAllTypesProto2.Companion.MutableMapFixed64Fixed64Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapFixed64Fixed64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapFixed64Fixed64Entry(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit): TestAllTypesProto2.MapFixed64Fixed64Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapFixed64Fixed64Entry()
     builder.builderAction()
     return builder.toMapFixed64Fixed64Entry()
 }
 
+/**
+ * The [MutableMapFixed64Fixed64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapFixed64Fixed64Entry(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit): TestAllTypesProto2.MapFixed64Fixed64Entry =
     TestAllTypesProto2.MapFixed64Fixed64Entry(builderAction)
 
@@ -6100,6 +6679,10 @@ private class TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
 ) : TestAllTypesProto2.MapFixed64Fixed64Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapFixed64Fixed64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapFixed64Fixed64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit) =
+        toMutableMapFixed64Fixed64Entry().apply(builderAction).toMapFixed64Fixed64Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -6117,6 +6700,12 @@ private class TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapFixed64Fixed64Entry() = TestAllTypesProto2_MutableMapFixed64Fixed64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapFixed64Fixed64Entry_Impl(
@@ -6126,6 +6715,10 @@ private class TestAllTypesProto2_MutableMapFixed64Fixed64Entry_Impl(
 ) : TestAllTypesProto2.MutableMapFixed64Fixed64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapFixed64Fixed64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapFixed64Fixed64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapFixed64Fixed64Entry.() -> Unit) =
+        toMutableMapFixed64Fixed64Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -6147,8 +6740,10 @@ private class TestAllTypesProto2_MutableMapFixed64Fixed64Entry_Impl(
     override fun toMapFixed64Fixed64Entry() = TestAllTypesProto2_MapFixed64Fixed64Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapFixed64Fixed64Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6170,11 +6765,11 @@ public fun TestAllTypesProto2.Companion.MapSfixed32Sfixed32Entry(
     key: Int? = null,
     value: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry = TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed32Sfixed32Entry = TestAllTypesProto2.Companion.MapSfixed32Sfixed32Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapSfixed32Sfixed32Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapSfixed32Sfixed32Entry(
@@ -6187,12 +6782,20 @@ public fun TestAllTypesProto2.Companion.MutableMapSfixed32Sfixed32Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapSfixed32Sfixed32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapSfixed32Sfixed32Entry(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit): TestAllTypesProto2.MapSfixed32Sfixed32Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry()
     builder.builderAction()
     return builder.toMapSfixed32Sfixed32Entry()
 }
 
+/**
+ * The [MutableMapSfixed32Sfixed32Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapSfixed32Sfixed32Entry(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit): TestAllTypesProto2.MapSfixed32Sfixed32Entry =
     TestAllTypesProto2.MapSfixed32Sfixed32Entry(builderAction)
 
@@ -6207,6 +6810,10 @@ private class TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
 ) : TestAllTypesProto2.MapSfixed32Sfixed32Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapSfixed32Sfixed32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSfixed32Sfixed32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit) =
+        toMutableMapSfixed32Sfixed32Entry().apply(builderAction).toMapSfixed32Sfixed32Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -6224,6 +6831,12 @@ private class TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapSfixed32Sfixed32Entry() = TestAllTypesProto2_MutableMapSfixed32Sfixed32Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapSfixed32Sfixed32Entry_Impl(
@@ -6233,6 +6846,10 @@ private class TestAllTypesProto2_MutableMapSfixed32Sfixed32Entry_Impl(
 ) : TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSfixed32Sfixed32Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed32Sfixed32Entry.() -> Unit) =
+        toMutableMapSfixed32Sfixed32Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Int?,
@@ -6254,8 +6871,10 @@ private class TestAllTypesProto2_MutableMapSfixed32Sfixed32Entry_Impl(
     override fun toMapSfixed32Sfixed32Entry() = TestAllTypesProto2_MapSfixed32Sfixed32Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapSfixed32Sfixed32Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6277,11 +6896,11 @@ public fun TestAllTypesProto2.Companion.MapSfixed64Sfixed64Entry(
     key: Long? = null,
     value: Long? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry = TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapSfixed64Sfixed64Entry = TestAllTypesProto2.Companion.MapSfixed64Sfixed64Entry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapSfixed64Sfixed64Entry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapSfixed64Sfixed64Entry(
@@ -6294,12 +6913,20 @@ public fun TestAllTypesProto2.Companion.MutableMapSfixed64Sfixed64Entry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapSfixed64Sfixed64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapSfixed64Sfixed64Entry(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit): TestAllTypesProto2.MapSfixed64Sfixed64Entry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry()
     builder.builderAction()
     return builder.toMapSfixed64Sfixed64Entry()
 }
 
+/**
+ * The [MutableMapSfixed64Sfixed64Entry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapSfixed64Sfixed64Entry(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit): TestAllTypesProto2.MapSfixed64Sfixed64Entry =
     TestAllTypesProto2.MapSfixed64Sfixed64Entry(builderAction)
 
@@ -6314,6 +6941,10 @@ private class TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
 ) : TestAllTypesProto2.MapSfixed64Sfixed64Entry, pbandk.GeneratedMessage<TestAllTypesProto2.MapSfixed64Sfixed64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSfixed64Sfixed64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit) =
+        toMutableMapSfixed64Sfixed64Entry().apply(builderAction).toMapSfixed64Sfixed64Entry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -6331,6 +6962,12 @@ private class TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapSfixed64Sfixed64Entry() = TestAllTypesProto2_MutableMapSfixed64Sfixed64Entry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapSfixed64Sfixed64Entry_Impl(
@@ -6340,6 +6977,10 @@ private class TestAllTypesProto2_MutableMapSfixed64Sfixed64Entry_Impl(
 ) : TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry>() {
     override val descriptor get() = TestAllTypesProto2.MapSfixed64Sfixed64Entry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapSfixed64Sfixed64Entry.() -> Unit) =
+        toMutableMapSfixed64Sfixed64Entry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Long?,
         value: Long?,
@@ -6361,8 +7002,10 @@ private class TestAllTypesProto2_MutableMapSfixed64Sfixed64Entry_Impl(
     override fun toMapSfixed64Sfixed64Entry() = TestAllTypesProto2_MapSfixed64Sfixed64Entry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapSfixed64Sfixed64Entry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6384,11 +7027,11 @@ public fun TestAllTypesProto2.Companion.MapInt32FloatEntry(
     key: Int? = null,
     value: Float? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry = TestAllTypesProto2_MapInt32FloatEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapInt32FloatEntry = TestAllTypesProto2.Companion.MapInt32FloatEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapInt32FloatEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapInt32FloatEntry(
@@ -6401,12 +7044,20 @@ public fun TestAllTypesProto2.Companion.MutableMapInt32FloatEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapInt32FloatEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapInt32FloatEntry(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit): TestAllTypesProto2.MapInt32FloatEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt32FloatEntry()
     builder.builderAction()
     return builder.toMapInt32FloatEntry()
 }
 
+/**
+ * The [MutableMapInt32FloatEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapInt32FloatEntry(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit): TestAllTypesProto2.MapInt32FloatEntry =
     TestAllTypesProto2.MapInt32FloatEntry(builderAction)
 
@@ -6421,6 +7072,10 @@ private class TestAllTypesProto2_MapInt32FloatEntry_Impl(
 ) : TestAllTypesProto2.MapInt32FloatEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapInt32FloatEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt32FloatEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit) =
+        toMutableMapInt32FloatEntry().apply(builderAction).toMapInt32FloatEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Float?,
@@ -6438,6 +7093,12 @@ private class TestAllTypesProto2_MapInt32FloatEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapInt32FloatEntry() = TestAllTypesProto2_MutableMapInt32FloatEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapInt32FloatEntry_Impl(
@@ -6447,6 +7108,10 @@ private class TestAllTypesProto2_MutableMapInt32FloatEntry_Impl(
 ) : TestAllTypesProto2.MutableMapInt32FloatEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt32FloatEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt32FloatEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32FloatEntry.() -> Unit) =
+        toMutableMapInt32FloatEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Float?,
@@ -6468,8 +7133,10 @@ private class TestAllTypesProto2_MutableMapInt32FloatEntry_Impl(
     override fun toMapInt32FloatEntry() = TestAllTypesProto2_MapInt32FloatEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapInt32FloatEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6491,11 +7158,11 @@ public fun TestAllTypesProto2.Companion.MapInt32DoubleEntry(
     key: Int? = null,
     value: Double? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry = TestAllTypesProto2_MapInt32DoubleEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapInt32DoubleEntry = TestAllTypesProto2.Companion.MapInt32DoubleEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapInt32DoubleEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapInt32DoubleEntry(
@@ -6508,12 +7175,20 @@ public fun TestAllTypesProto2.Companion.MutableMapInt32DoubleEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapInt32DoubleEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapInt32DoubleEntry(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit): TestAllTypesProto2.MapInt32DoubleEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapInt32DoubleEntry()
     builder.builderAction()
     return builder.toMapInt32DoubleEntry()
 }
 
+/**
+ * The [MutableMapInt32DoubleEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapInt32DoubleEntry(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit): TestAllTypesProto2.MapInt32DoubleEntry =
     TestAllTypesProto2.MapInt32DoubleEntry(builderAction)
 
@@ -6528,6 +7203,10 @@ private class TestAllTypesProto2_MapInt32DoubleEntry_Impl(
 ) : TestAllTypesProto2.MapInt32DoubleEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapInt32DoubleEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt32DoubleEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit) =
+        toMutableMapInt32DoubleEntry().apply(builderAction).toMapInt32DoubleEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Double?,
@@ -6545,6 +7224,12 @@ private class TestAllTypesProto2_MapInt32DoubleEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapInt32DoubleEntry() = TestAllTypesProto2_MutableMapInt32DoubleEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapInt32DoubleEntry_Impl(
@@ -6554,6 +7239,10 @@ private class TestAllTypesProto2_MutableMapInt32DoubleEntry_Impl(
 ) : TestAllTypesProto2.MutableMapInt32DoubleEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapInt32DoubleEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapInt32DoubleEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapInt32DoubleEntry.() -> Unit) =
+        toMutableMapInt32DoubleEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Int?,
         value: Double?,
@@ -6575,8 +7264,10 @@ private class TestAllTypesProto2_MutableMapInt32DoubleEntry_Impl(
     override fun toMapInt32DoubleEntry() = TestAllTypesProto2_MapInt32DoubleEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapInt32DoubleEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6598,11 +7289,11 @@ public fun TestAllTypesProto2.Companion.MapBoolBoolEntry(
     key: Boolean? = null,
     value: Boolean? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry = TestAllTypesProto2_MapBoolBoolEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapBoolBoolEntry = TestAllTypesProto2.Companion.MapBoolBoolEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapBoolBoolEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapBoolBoolEntry(
@@ -6615,12 +7306,20 @@ public fun TestAllTypesProto2.Companion.MutableMapBoolBoolEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapBoolBoolEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapBoolBoolEntry(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit): TestAllTypesProto2.MapBoolBoolEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapBoolBoolEntry()
     builder.builderAction()
     return builder.toMapBoolBoolEntry()
 }
 
+/**
+ * The [MutableMapBoolBoolEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapBoolBoolEntry(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit): TestAllTypesProto2.MapBoolBoolEntry =
     TestAllTypesProto2.MapBoolBoolEntry(builderAction)
 
@@ -6635,6 +7334,10 @@ private class TestAllTypesProto2_MapBoolBoolEntry_Impl(
 ) : TestAllTypesProto2.MapBoolBoolEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapBoolBoolEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapBoolBoolEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit) =
+        toMutableMapBoolBoolEntry().apply(builderAction).toMapBoolBoolEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Boolean?,
         value: Boolean?,
@@ -6652,6 +7355,12 @@ private class TestAllTypesProto2_MapBoolBoolEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapBoolBoolEntry() = TestAllTypesProto2_MutableMapBoolBoolEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapBoolBoolEntry_Impl(
@@ -6661,6 +7370,10 @@ private class TestAllTypesProto2_MutableMapBoolBoolEntry_Impl(
 ) : TestAllTypesProto2.MutableMapBoolBoolEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapBoolBoolEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapBoolBoolEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapBoolBoolEntry.() -> Unit) =
+        toMutableMapBoolBoolEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: Boolean?,
         value: Boolean?,
@@ -6682,8 +7395,10 @@ private class TestAllTypesProto2_MutableMapBoolBoolEntry_Impl(
     override fun toMapBoolBoolEntry() = TestAllTypesProto2_MapBoolBoolEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapBoolBoolEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6705,11 +7420,11 @@ public fun TestAllTypesProto2.Companion.MapStringStringEntry(
     key: String? = null,
     value: String? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry = TestAllTypesProto2_MapStringStringEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapStringStringEntry = TestAllTypesProto2.Companion.MapStringStringEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapStringStringEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapStringStringEntry(
@@ -6722,12 +7437,20 @@ public fun TestAllTypesProto2.Companion.MutableMapStringStringEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapStringStringEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapStringStringEntry(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit): TestAllTypesProto2.MapStringStringEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringStringEntry()
     builder.builderAction()
     return builder.toMapStringStringEntry()
 }
 
+/**
+ * The [MutableMapStringStringEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapStringStringEntry(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit): TestAllTypesProto2.MapStringStringEntry =
     TestAllTypesProto2.MapStringStringEntry(builderAction)
 
@@ -6742,6 +7465,10 @@ private class TestAllTypesProto2_MapStringStringEntry_Impl(
 ) : TestAllTypesProto2.MapStringStringEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapStringStringEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringStringEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit) =
+        toMutableMapStringStringEntry().apply(builderAction).toMapStringStringEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: String?,
@@ -6759,6 +7486,12 @@ private class TestAllTypesProto2_MapStringStringEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapStringStringEntry() = TestAllTypesProto2_MutableMapStringStringEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapStringStringEntry_Impl(
@@ -6768,6 +7501,10 @@ private class TestAllTypesProto2_MutableMapStringStringEntry_Impl(
 ) : TestAllTypesProto2.MutableMapStringStringEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringStringEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringStringEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringStringEntry.() -> Unit) =
+        toMutableMapStringStringEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: String?,
@@ -6789,8 +7526,10 @@ private class TestAllTypesProto2_MutableMapStringStringEntry_Impl(
     override fun toMapStringStringEntry() = TestAllTypesProto2_MapStringStringEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapStringStringEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6812,11 +7551,11 @@ public fun TestAllTypesProto2.Companion.MapStringBytesEntry(
     key: String? = null,
     value: pbandk.ByteArr? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry = TestAllTypesProto2_MapStringBytesEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapStringBytesEntry = TestAllTypesProto2.Companion.MapStringBytesEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapStringBytesEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapStringBytesEntry(
@@ -6829,12 +7568,20 @@ public fun TestAllTypesProto2.Companion.MutableMapStringBytesEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapStringBytesEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapStringBytesEntry(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit): TestAllTypesProto2.MapStringBytesEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringBytesEntry()
     builder.builderAction()
     return builder.toMapStringBytesEntry()
 }
 
+/**
+ * The [MutableMapStringBytesEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapStringBytesEntry(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit): TestAllTypesProto2.MapStringBytesEntry =
     TestAllTypesProto2.MapStringBytesEntry(builderAction)
 
@@ -6849,6 +7596,10 @@ private class TestAllTypesProto2_MapStringBytesEntry_Impl(
 ) : TestAllTypesProto2.MapStringBytesEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapStringBytesEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringBytesEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit) =
+        toMutableMapStringBytesEntry().apply(builderAction).toMapStringBytesEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.ByteArr?,
@@ -6866,6 +7617,12 @@ private class TestAllTypesProto2_MapStringBytesEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapStringBytesEntry() = TestAllTypesProto2_MutableMapStringBytesEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapStringBytesEntry_Impl(
@@ -6875,6 +7632,10 @@ private class TestAllTypesProto2_MutableMapStringBytesEntry_Impl(
 ) : TestAllTypesProto2.MutableMapStringBytesEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringBytesEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringBytesEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringBytesEntry.() -> Unit) =
+        toMutableMapStringBytesEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.ByteArr?,
@@ -6896,8 +7657,10 @@ private class TestAllTypesProto2_MutableMapStringBytesEntry_Impl(
     override fun toMapStringBytesEntry() = TestAllTypesProto2_MapStringBytesEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapStringBytesEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6919,11 +7682,11 @@ public fun TestAllTypesProto2.Companion.MapStringNestedMessageEntry(
     key: String? = null,
     value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry = TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedMessageEntry = TestAllTypesProto2.Companion.MapStringNestedMessageEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapStringNestedMessageEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapStringNestedMessageEntry(
@@ -6936,12 +7699,20 @@ public fun TestAllTypesProto2.Companion.MutableMapStringNestedMessageEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapStringNestedMessageEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapStringNestedMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit): TestAllTypesProto2.MapStringNestedMessageEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringNestedMessageEntry()
     builder.builderAction()
     return builder.toMapStringNestedMessageEntry()
 }
 
+/**
+ * The [MutableMapStringNestedMessageEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapStringNestedMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit): TestAllTypesProto2.MapStringNestedMessageEntry =
     TestAllTypesProto2.MapStringNestedMessageEntry(builderAction)
 
@@ -6956,6 +7727,10 @@ private class TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
 ) : TestAllTypesProto2.MapStringNestedMessageEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapStringNestedMessageEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringNestedMessageEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit) =
+        toMutableMapStringNestedMessageEntry().apply(builderAction).toMapStringNestedMessageEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?,
@@ -6973,6 +7748,12 @@ private class TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapStringNestedMessageEntry() = TestAllTypesProto2_MutableMapStringNestedMessageEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapStringNestedMessageEntry_Impl(
@@ -6982,6 +7763,10 @@ private class TestAllTypesProto2_MutableMapStringNestedMessageEntry_Impl(
 ) : TestAllTypesProto2.MutableMapStringNestedMessageEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringNestedMessageEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringNestedMessageEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedMessageEntry.() -> Unit) =
+        toMutableMapStringNestedMessageEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?,
@@ -7003,8 +7788,10 @@ private class TestAllTypesProto2_MutableMapStringNestedMessageEntry_Impl(
     override fun toMapStringNestedMessageEntry() = TestAllTypesProto2_MapStringNestedMessageEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapStringNestedMessageEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7026,11 +7813,11 @@ public fun TestAllTypesProto2.Companion.MapStringForeignMessageEntry(
     key: String? = null,
     value: pbandk.conformance.pb.ForeignMessageProto2? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry = TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignMessageEntry = TestAllTypesProto2.Companion.MapStringForeignMessageEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapStringForeignMessageEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapStringForeignMessageEntry(
@@ -7043,12 +7830,20 @@ public fun TestAllTypesProto2.Companion.MutableMapStringForeignMessageEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapStringForeignMessageEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapStringForeignMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit): TestAllTypesProto2.MapStringForeignMessageEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringForeignMessageEntry()
     builder.builderAction()
     return builder.toMapStringForeignMessageEntry()
 }
 
+/**
+ * The [MutableMapStringForeignMessageEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapStringForeignMessageEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit): TestAllTypesProto2.MapStringForeignMessageEntry =
     TestAllTypesProto2.MapStringForeignMessageEntry(builderAction)
 
@@ -7063,6 +7858,10 @@ private class TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
 ) : TestAllTypesProto2.MapStringForeignMessageEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapStringForeignMessageEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringForeignMessageEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit) =
+        toMutableMapStringForeignMessageEntry().apply(builderAction).toMapStringForeignMessageEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.ForeignMessageProto2?,
@@ -7080,6 +7879,12 @@ private class TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapStringForeignMessageEntry() = TestAllTypesProto2_MutableMapStringForeignMessageEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapStringForeignMessageEntry_Impl(
@@ -7089,6 +7894,10 @@ private class TestAllTypesProto2_MutableMapStringForeignMessageEntry_Impl(
 ) : TestAllTypesProto2.MutableMapStringForeignMessageEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringForeignMessageEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringForeignMessageEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignMessageEntry.() -> Unit) =
+        toMutableMapStringForeignMessageEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.ForeignMessageProto2?,
@@ -7110,8 +7919,10 @@ private class TestAllTypesProto2_MutableMapStringForeignMessageEntry_Impl(
     override fun toMapStringForeignMessageEntry() = TestAllTypesProto2_MapStringForeignMessageEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapStringForeignMessageEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7133,11 +7944,11 @@ public fun TestAllTypesProto2.Companion.MapStringNestedEnumEntry(
     key: String? = null,
     value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry = TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapStringNestedEnumEntry = TestAllTypesProto2.Companion.MapStringNestedEnumEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapStringNestedEnumEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapStringNestedEnumEntry(
@@ -7150,12 +7961,20 @@ public fun TestAllTypesProto2.Companion.MutableMapStringNestedEnumEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapStringNestedEnumEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapStringNestedEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit): TestAllTypesProto2.MapStringNestedEnumEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringNestedEnumEntry()
     builder.builderAction()
     return builder.toMapStringNestedEnumEntry()
 }
 
+/**
+ * The [MutableMapStringNestedEnumEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapStringNestedEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit): TestAllTypesProto2.MapStringNestedEnumEntry =
     TestAllTypesProto2.MapStringNestedEnumEntry(builderAction)
 
@@ -7170,6 +7989,10 @@ private class TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
 ) : TestAllTypesProto2.MapStringNestedEnumEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapStringNestedEnumEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringNestedEnumEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit) =
+        toMutableMapStringNestedEnumEntry().apply(builderAction).toMapStringNestedEnumEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?,
@@ -7187,6 +8010,12 @@ private class TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapStringNestedEnumEntry() = TestAllTypesProto2_MutableMapStringNestedEnumEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapStringNestedEnumEntry_Impl(
@@ -7196,6 +8025,10 @@ private class TestAllTypesProto2_MutableMapStringNestedEnumEntry_Impl(
 ) : TestAllTypesProto2.MutableMapStringNestedEnumEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringNestedEnumEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringNestedEnumEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringNestedEnumEntry.() -> Unit) =
+        toMutableMapStringNestedEnumEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?,
@@ -7217,8 +8050,10 @@ private class TestAllTypesProto2_MutableMapStringNestedEnumEntry_Impl(
     override fun toMapStringNestedEnumEntry() = TestAllTypesProto2_MapStringNestedEnumEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapStringNestedEnumEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7240,11 +8075,11 @@ public fun TestAllTypesProto2.Companion.MapStringForeignEnumEntry(
     key: String? = null,
     value: pbandk.conformance.pb.ForeignEnumProto2? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry = TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MapStringForeignEnumEntry = TestAllTypesProto2.Companion.MapStringForeignEnumEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MapStringForeignEnumEntry { } instead")
 public fun TestAllTypesProto2.Companion.MutableMapStringForeignEnumEntry(
@@ -7257,12 +8092,20 @@ public fun TestAllTypesProto2.Companion.MutableMapStringForeignEnumEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMapStringForeignEnumEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MapStringForeignEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit): TestAllTypesProto2.MapStringForeignEnumEntry {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMapStringForeignEnumEntry()
     builder.builderAction()
     return builder.toMapStringForeignEnumEntry()
 }
 
+/**
+ * The [MutableMapStringForeignEnumEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MapStringForeignEnumEntry(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit): TestAllTypesProto2.MapStringForeignEnumEntry =
     TestAllTypesProto2.MapStringForeignEnumEntry(builderAction)
 
@@ -7277,6 +8120,10 @@ private class TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
 ) : TestAllTypesProto2.MapStringForeignEnumEntry, pbandk.GeneratedMessage<TestAllTypesProto2.MapStringForeignEnumEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringForeignEnumEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit) =
+        toMutableMapStringForeignEnumEntry().apply(builderAction).toMapStringForeignEnumEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.ForeignEnumProto2?,
@@ -7294,6 +8141,12 @@ private class TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMapStringForeignEnumEntry() = TestAllTypesProto2_MutableMapStringForeignEnumEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMapStringForeignEnumEntry_Impl(
@@ -7303,6 +8156,10 @@ private class TestAllTypesProto2_MutableMapStringForeignEnumEntry_Impl(
 ) : TestAllTypesProto2.MutableMapStringForeignEnumEntry, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMapStringForeignEnumEntry>() {
     override val descriptor get() = TestAllTypesProto2.MapStringForeignEnumEntry.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMapStringForeignEnumEntry.() -> Unit) =
+        toMutableMapStringForeignEnumEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String?,
         value: pbandk.conformance.pb.ForeignEnumProto2?,
@@ -7324,8 +8181,10 @@ private class TestAllTypesProto2_MutableMapStringForeignEnumEntry_Impl(
     override fun toMapStringForeignEnumEntry() = TestAllTypesProto2_MapStringForeignEnumEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMapStringForeignEnumEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7347,11 +8206,11 @@ public fun TestAllTypesProto2.Companion.Data(
     groupInt32: Int? = null,
     groupUint32: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.Data = TestAllTypesProto2_Data_Impl(
-    groupInt32 = groupInt32,
-    groupUint32 = groupUint32,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.Data = TestAllTypesProto2.Companion.Data {
+    this.groupInt32 = groupInt32
+    this.groupUint32 = groupUint32
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.Data { } instead")
 public fun TestAllTypesProto2.Companion.MutableData(
@@ -7364,12 +8223,20 @@ public fun TestAllTypesProto2.Companion.MutableData(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableData] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.Data(builderAction: TestAllTypesProto2.MutableData.() -> Unit): TestAllTypesProto2.Data {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableData()
     builder.builderAction()
     return builder.toData()
 }
 
+/**
+ * The [MutableData] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.Data(builderAction: TestAllTypesProto2.MutableData.() -> Unit): TestAllTypesProto2.Data =
     TestAllTypesProto2.Data(builderAction)
 
@@ -7384,6 +8251,10 @@ private class TestAllTypesProto2_Data_Impl(
 ) : TestAllTypesProto2.Data, pbandk.GeneratedMessage<TestAllTypesProto2.Data>() {
     override val descriptor get() = TestAllTypesProto2.Data.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableData.() -> Unit) =
+        toMutableData().apply(builderAction).toData()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         groupInt32: Int?,
         groupUint32: Int?,
@@ -7401,6 +8272,12 @@ private class TestAllTypesProto2_Data_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableData() = TestAllTypesProto2_MutableData_Impl(
+        groupInt32 = groupInt32,
+        groupUint32 = groupUint32,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableData_Impl(
@@ -7410,6 +8287,10 @@ private class TestAllTypesProto2_MutableData_Impl(
 ) : TestAllTypesProto2.MutableData, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableData>() {
     override val descriptor get() = TestAllTypesProto2.Data.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableData.() -> Unit) =
+        toMutableData().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         groupInt32: Int?,
         groupUint32: Int?,
@@ -7431,8 +8312,10 @@ private class TestAllTypesProto2_MutableData_Impl(
     override fun toData() = TestAllTypesProto2_Data_Impl(
         groupInt32 = groupInt32,
         groupUint32 = groupUint32,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableData() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7452,9 +8335,9 @@ private fun TestAllTypesProto2.Data.Companion.decodeWithImpl(u: pbandk.MessageDe
 @Deprecated("Use TestAllTypesProto2.MessageSetCorrect { } instead")
 public fun TestAllTypesProto2.Companion.MessageSetCorrect(
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = TestAllTypesProto2_MessageSetCorrect_Impl(
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = TestAllTypesProto2.Companion.MessageSetCorrect {
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MessageSetCorrect { } instead")
 public fun TestAllTypesProto2.Companion.MutableMessageSetCorrect(
@@ -7463,12 +8346,20 @@ public fun TestAllTypesProto2.Companion.MutableMessageSetCorrect(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMessageSetCorrect] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MessageSetCorrect(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): TestAllTypesProto2.MessageSetCorrect {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMessageSetCorrect()
     builder.builderAction()
     return builder.toMessageSetCorrect()
 }
 
+/**
+ * The [MutableMessageSetCorrect] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MessageSetCorrect(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): TestAllTypesProto2.MessageSetCorrect =
     TestAllTypesProto2.MessageSetCorrect(builderAction)
 
@@ -7482,6 +8373,10 @@ private class TestAllTypesProto2_MessageSetCorrect_Impl(
     override val descriptor get() = TestAllTypesProto2.MessageSetCorrect.descriptor
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit) =
+        toMutableMessageSetCorrect().apply(builderAction).toMessageSetCorrect()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = TestAllTypesProto2_MessageSetCorrect_Impl(
@@ -7493,6 +8388,10 @@ private class TestAllTypesProto2_MessageSetCorrect_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMessageSetCorrect() = TestAllTypesProto2_MutableMessageSetCorrect_Impl(
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
@@ -7501,6 +8400,10 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
     override val descriptor get() = TestAllTypesProto2.MessageSetCorrect.descriptor
     override val extensionFields: pbandk.ExtensionFieldSet = pbandk.ExtensionFieldSet()
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit) =
+        toMutableMessageSetCorrect().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = TestAllTypesProto2_MessageSetCorrect_Impl(
@@ -7514,8 +8417,10 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
     } ?: this
 
     override fun toMessageSetCorrect() = TestAllTypesProto2_MessageSetCorrect_Impl(
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMessageSetCorrect() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7529,10 +8434,10 @@ private fun TestAllTypesProto2.MessageSetCorrect.Companion.decodeWithImpl(u: pba
 public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(
     str: String? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
-    str = str,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = TestAllTypesProto2.Companion.MessageSetCorrectExtension1 {
+    this.str = str
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MessageSetCorrectExtension1 { } instead")
 public fun TestAllTypesProto2.Companion.MutableMessageSetCorrectExtension1(
@@ -7543,12 +8448,20 @@ public fun TestAllTypesProto2.Companion.MutableMessageSetCorrectExtension1(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMessageSetCorrectExtension1] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension1 {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension1()
     builder.builderAction()
     return builder.toMessageSetCorrectExtension1()
 }
 
+/**
+ * The [MutableMessageSetCorrectExtension1] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MessageSetCorrectExtension1(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension1 =
     TestAllTypesProto2.MessageSetCorrectExtension1(builderAction)
 
@@ -7562,6 +8475,10 @@ private class TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
 ) : TestAllTypesProto2.MessageSetCorrectExtension1, pbandk.GeneratedMessage<TestAllTypesProto2.MessageSetCorrectExtension1>() {
     override val descriptor get() = TestAllTypesProto2.MessageSetCorrectExtension1.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit) =
+        toMutableMessageSetCorrectExtension1().apply(builderAction).toMessageSetCorrectExtension1()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         str: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7576,6 +8493,11 @@ private class TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMessageSetCorrectExtension1() = TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
+        str = str,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
@@ -7584,6 +8506,10 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
 ) : TestAllTypesProto2.MutableMessageSetCorrectExtension1, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMessageSetCorrectExtension1>() {
     override val descriptor get() = TestAllTypesProto2.MessageSetCorrectExtension1.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit) =
+        toMutableMessageSetCorrectExtension1().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         str: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7601,8 +8527,10 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
 
     override fun toMessageSetCorrectExtension1() = TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
         str = str,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMessageSetCorrectExtension1() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7621,10 +8549,10 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension1.Companion.decodeWithI
 public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(
     i: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
-    i = i,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = TestAllTypesProto2.Companion.MessageSetCorrectExtension2 {
+    this.i = i
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use TestAllTypesProto2.MessageSetCorrectExtension2 { } instead")
 public fun TestAllTypesProto2.Companion.MutableMessageSetCorrectExtension2(
@@ -7635,12 +8563,20 @@ public fun TestAllTypesProto2.Companion.MutableMessageSetCorrectExtension2(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMessageSetCorrectExtension2] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension2 {
     @Suppress("DEPRECATION") val builder = TestAllTypesProto2.MutableMessageSetCorrectExtension2()
     builder.builderAction()
     return builder.toMessageSetCorrectExtension2()
 }
 
+/**
+ * The [MutableMessageSetCorrectExtension2] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableTestAllTypesProto2.MessageSetCorrectExtension2(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): TestAllTypesProto2.MessageSetCorrectExtension2 =
     TestAllTypesProto2.MessageSetCorrectExtension2(builderAction)
 
@@ -7654,6 +8590,10 @@ private class TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
 ) : TestAllTypesProto2.MessageSetCorrectExtension2, pbandk.GeneratedMessage<TestAllTypesProto2.MessageSetCorrectExtension2>() {
     override val descriptor get() = TestAllTypesProto2.MessageSetCorrectExtension2.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit) =
+        toMutableMessageSetCorrectExtension2().apply(builderAction).toMessageSetCorrectExtension2()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         i: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7668,6 +8608,11 @@ private class TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMessageSetCorrectExtension2() = TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
+        i = i,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
@@ -7676,6 +8621,10 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
 ) : TestAllTypesProto2.MutableMessageSetCorrectExtension2, pbandk.MutableGeneratedMessage<TestAllTypesProto2.MutableMessageSetCorrectExtension2>() {
     override val descriptor get() = TestAllTypesProto2.MessageSetCorrectExtension2.descriptor
 
+    override fun copy(builderAction: TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit) =
+        toMutableMessageSetCorrectExtension2().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         i: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7693,8 +8642,10 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
 
     override fun toMessageSetCorrectExtension2() = TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
         i = i,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMessageSetCorrectExtension2() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7713,10 +8664,10 @@ private fun TestAllTypesProto2.MessageSetCorrectExtension2.Companion.decodeWithI
 public fun ForeignMessageProto2(
     c: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.ForeignMessageProto2 = ForeignMessageProto2_Impl(
-    c = c,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.ForeignMessageProto2 = ForeignMessageProto2 {
+    this.c = c
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use ForeignMessageProto2 { } instead")
 public fun MutableForeignMessageProto2(
@@ -7727,6 +8678,10 @@ public fun MutableForeignMessageProto2(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableForeignMessageProto2] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun ForeignMessageProto2(builderAction: MutableForeignMessageProto2.() -> Unit): ForeignMessageProto2 {
     @Suppress("DEPRECATION") val builder = MutableForeignMessageProto2()
     builder.builderAction()
@@ -7743,6 +8698,10 @@ private class ForeignMessageProto2_Impl(
 ) : ForeignMessageProto2, pbandk.GeneratedMessage<ForeignMessageProto2>() {
     override val descriptor get() = ForeignMessageProto2.descriptor
 
+    override fun copy(builderAction: MutableForeignMessageProto2.() -> Unit) =
+        toMutableForeignMessageProto2().apply(builderAction).toForeignMessageProto2()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         c: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7757,6 +8716,11 @@ private class ForeignMessageProto2_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableForeignMessageProto2() = MutableForeignMessageProto2_Impl(
+        c = c,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableForeignMessageProto2_Impl(
@@ -7765,6 +8729,10 @@ private class MutableForeignMessageProto2_Impl(
 ) : MutableForeignMessageProto2, pbandk.MutableGeneratedMessage<MutableForeignMessageProto2>() {
     override val descriptor get() = ForeignMessageProto2.descriptor
 
+    override fun copy(builderAction: MutableForeignMessageProto2.() -> Unit) =
+        toMutableForeignMessageProto2().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         c: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7782,8 +8750,10 @@ private class MutableForeignMessageProto2_Impl(
 
     override fun toForeignMessageProto2() = ForeignMessageProto2_Impl(
         c = c,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableForeignMessageProto2() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7806,14 +8776,14 @@ public fun UnknownToTestAllTypes(
     optionalBool: Boolean? = null,
     repeatedInt32: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.UnknownToTestAllTypes = UnknownToTestAllTypes_Impl(
-    optionalInt32 = optionalInt32,
-    optionalString = optionalString,
-    nestedMessage = nestedMessage,
-    optionalBool = optionalBool,
-    repeatedInt32 = repeatedInt32,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.UnknownToTestAllTypes = UnknownToTestAllTypes {
+    this.optionalInt32 = optionalInt32
+    this.optionalString = optionalString
+    this.nestedMessage = nestedMessage
+    this.optionalBool = optionalBool
+    this.repeatedInt32 = repeatedInt32
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use UnknownToTestAllTypes { } instead")
 public fun MutableUnknownToTestAllTypes(
@@ -7832,6 +8802,10 @@ public fun MutableUnknownToTestAllTypes(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableUnknownToTestAllTypes] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun UnknownToTestAllTypes(builderAction: MutableUnknownToTestAllTypes.() -> Unit): UnknownToTestAllTypes {
     @Suppress("DEPRECATION") val builder = MutableUnknownToTestAllTypes()
     builder.builderAction()
@@ -7852,6 +8826,10 @@ private class UnknownToTestAllTypes_Impl(
 ) : UnknownToTestAllTypes, pbandk.GeneratedMessage<UnknownToTestAllTypes>() {
     override val descriptor get() = UnknownToTestAllTypes.descriptor
 
+    override fun copy(builderAction: MutableUnknownToTestAllTypes.() -> Unit) =
+        toMutableUnknownToTestAllTypes().apply(builderAction).toUnknownToTestAllTypes()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         optionalInt32: Int?,
         optionalString: String?,
@@ -7878,6 +8856,15 @@ private class UnknownToTestAllTypes_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableUnknownToTestAllTypes() = MutableUnknownToTestAllTypes_Impl(
+        optionalInt32 = optionalInt32,
+        optionalString = optionalString,
+        nestedMessage = nestedMessage,
+        optionalBool = optionalBool,
+        repeatedInt32 = repeatedInt32,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableUnknownToTestAllTypes_Impl(
@@ -7890,6 +8877,10 @@ private class MutableUnknownToTestAllTypes_Impl(
 ) : MutableUnknownToTestAllTypes, pbandk.MutableGeneratedMessage<MutableUnknownToTestAllTypes>() {
     override val descriptor get() = UnknownToTestAllTypes.descriptor
 
+    override fun copy(builderAction: MutableUnknownToTestAllTypes.() -> Unit) =
+        toMutableUnknownToTestAllTypes().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         optionalInt32: Int?,
         optionalString: String?,
@@ -7923,8 +8914,10 @@ private class MutableUnknownToTestAllTypes_Impl(
         nestedMessage = nestedMessage,
         optionalBool = optionalBool,
         repeatedInt32 = repeatedInt32,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableUnknownToTestAllTypes() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7952,10 +8945,10 @@ private fun UnknownToTestAllTypes.Companion.decodeWithImpl(u: pbandk.MessageDeco
 public fun UnknownToTestAllTypes.Companion.OptionalGroup(
     a: Int? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = UnknownToTestAllTypes_OptionalGroup_Impl(
-    a = a,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = UnknownToTestAllTypes.Companion.OptionalGroup {
+    this.a = a
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use UnknownToTestAllTypes.OptionalGroup { } instead")
 public fun UnknownToTestAllTypes.Companion.MutableOptionalGroup(
@@ -7966,12 +8959,20 @@ public fun UnknownToTestAllTypes.Companion.MutableOptionalGroup(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableOptionalGroup] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun UnknownToTestAllTypes.Companion.OptionalGroup(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): UnknownToTestAllTypes.OptionalGroup {
     @Suppress("DEPRECATION") val builder = UnknownToTestAllTypes.MutableOptionalGroup()
     builder.builderAction()
     return builder.toOptionalGroup()
 }
 
+/**
+ * The [MutableOptionalGroup] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableUnknownToTestAllTypes.OptionalGroup(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): UnknownToTestAllTypes.OptionalGroup =
     UnknownToTestAllTypes.OptionalGroup(builderAction)
 
@@ -7985,6 +8986,10 @@ private class UnknownToTestAllTypes_OptionalGroup_Impl(
 ) : UnknownToTestAllTypes.OptionalGroup, pbandk.GeneratedMessage<UnknownToTestAllTypes.OptionalGroup>() {
     override val descriptor get() = UnknownToTestAllTypes.OptionalGroup.descriptor
 
+    override fun copy(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit) =
+        toMutableOptionalGroup().apply(builderAction).toOptionalGroup()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         a: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -7999,6 +9004,11 @@ private class UnknownToTestAllTypes_OptionalGroup_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableOptionalGroup() = UnknownToTestAllTypes_MutableOptionalGroup_Impl(
+        a = a,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
@@ -8007,6 +9017,10 @@ private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
 ) : UnknownToTestAllTypes.MutableOptionalGroup, pbandk.MutableGeneratedMessage<UnknownToTestAllTypes.MutableOptionalGroup>() {
     override val descriptor get() = UnknownToTestAllTypes.OptionalGroup.descriptor
 
+    override fun copy(builderAction: UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit) =
+        toMutableOptionalGroup().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         a: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -8024,8 +9038,10 @@ private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
 
     override fun toOptionalGroup() = UnknownToTestAllTypes_OptionalGroup_Impl(
         a = a,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableOptionalGroup() = this
 }
 
 @Suppress("UNCHECKED_CAST")

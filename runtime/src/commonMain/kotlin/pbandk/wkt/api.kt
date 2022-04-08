@@ -14,6 +14,15 @@ public sealed interface Api : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Api
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api>
 
+    public fun toMutableApi(): MutableApi
+
+    /**
+     * The [MutableApi] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableApi.() -> Unit): Api
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         name: String = this.name,
         methods: List<pbandk.wkt.Method> = this.methods,
@@ -125,9 +134,9 @@ public sealed interface MutableApi : Api, pbandk.MutableMessage {
 
     public fun toApi(): Api
 
+    public override fun copy(builderAction: MutableApi.() -> Unit): MutableApi
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableApi by lazy { MutableApi() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Api> get() = pbandk.wkt.Api.descriptor
@@ -146,6 +155,15 @@ public sealed interface Method : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Method
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method>
 
+    public fun toMutableMethod(): MutableMethod
+
+    /**
+     * The [MutableMethod] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableMethod.() -> Unit): Method
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         name: String = this.name,
         requestTypeUrl: String = this.requestTypeUrl,
@@ -257,9 +275,9 @@ public sealed interface MutableMethod : Method, pbandk.MutableMessage {
 
     public fun toMethod(): Method
 
+    public override fun copy(builderAction: MutableMethod.() -> Unit): MutableMethod
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableMethod by lazy { MutableMethod() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Method> get() = pbandk.wkt.Method.descriptor
@@ -273,6 +291,15 @@ public sealed interface Mixin : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Mixin
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin>
 
+    public fun toMutableMixin(): MutableMixin
+
+    /**
+     * The [MutableMixin] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableMixin.() -> Unit): Mixin
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         name: String = this.name,
         root: String = this.root,
@@ -324,9 +351,9 @@ public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
 
     public fun toMixin(): Mixin
 
+    public override fun copy(builderAction: MutableMixin.() -> Unit): MutableMixin
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableMixin by lazy { MutableMixin() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Mixin> get() = pbandk.wkt.Mixin.descriptor
@@ -342,16 +369,16 @@ public fun Api(
     mixins: List<pbandk.wkt.Mixin> = emptyList(),
     syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Api = Api_Impl(
-    name = name,
-    methods = methods,
-    options = options,
-    version = version,
-    sourceContext = sourceContext,
-    mixins = mixins,
-    syntax = syntax,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Api = Api {
+    this.name = name
+    this.methods = methods
+    this.options = options
+    this.version = version
+    this.sourceContext = sourceContext
+    this.mixins = mixins
+    this.syntax = syntax
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Api { } instead")
 public fun MutableApi(
@@ -374,6 +401,10 @@ public fun MutableApi(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableApi] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Api(builderAction: MutableApi.() -> Unit): Api {
     @Suppress("DEPRECATION") val builder = MutableApi()
     builder.builderAction()
@@ -396,6 +427,10 @@ private class Api_Impl(
 ) : Api, pbandk.GeneratedMessage<Api>() {
     override val descriptor get() = Api.descriptor
 
+    override fun copy(builderAction: MutableApi.() -> Unit) =
+        toMutableApi().apply(builderAction).toApi()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String,
         methods: List<pbandk.wkt.Method>,
@@ -425,6 +460,17 @@ private class Api_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableApi() = MutableApi_Impl(
+        name = name,
+        methods = methods,
+        options = options,
+        version = version,
+        sourceContext = sourceContext,
+        mixins = mixins,
+        syntax = syntax,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableApi_Impl(
@@ -439,6 +485,10 @@ private class MutableApi_Impl(
 ) : MutableApi, pbandk.MutableGeneratedMessage<MutableApi>() {
     override val descriptor get() = Api.descriptor
 
+    override fun copy(builderAction: MutableApi.() -> Unit) =
+        toMutableApi().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String,
         methods: List<pbandk.wkt.Method>,
@@ -477,8 +527,10 @@ private class MutableApi_Impl(
         sourceContext = sourceContext,
         mixins = mixins,
         syntax = syntax,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableApi() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -516,16 +568,16 @@ public fun Method(
     options: List<pbandk.wkt.Option> = emptyList(),
     syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Method = Method_Impl(
-    name = name,
-    requestTypeUrl = requestTypeUrl,
-    requestStreaming = requestStreaming,
-    responseTypeUrl = responseTypeUrl,
-    responseStreaming = responseStreaming,
-    options = options,
-    syntax = syntax,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Method = Method {
+    this.name = name
+    this.requestTypeUrl = requestTypeUrl
+    this.requestStreaming = requestStreaming
+    this.responseTypeUrl = responseTypeUrl
+    this.responseStreaming = responseStreaming
+    this.options = options
+    this.syntax = syntax
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Method { } instead")
 public fun MutableMethod(
@@ -548,6 +600,10 @@ public fun MutableMethod(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMethod] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Method(builderAction: MutableMethod.() -> Unit): Method {
     @Suppress("DEPRECATION") val builder = MutableMethod()
     builder.builderAction()
@@ -570,6 +626,10 @@ private class Method_Impl(
 ) : Method, pbandk.GeneratedMessage<Method>() {
     override val descriptor get() = Method.descriptor
 
+    override fun copy(builderAction: MutableMethod.() -> Unit) =
+        toMutableMethod().apply(builderAction).toMethod()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String,
         requestTypeUrl: String,
@@ -596,6 +656,17 @@ private class Method_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMethod() = MutableMethod_Impl(
+        name = name,
+        requestTypeUrl = requestTypeUrl,
+        requestStreaming = requestStreaming,
+        responseTypeUrl = responseTypeUrl,
+        responseStreaming = responseStreaming,
+        options = options,
+        syntax = syntax,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableMethod_Impl(
@@ -610,6 +681,10 @@ private class MutableMethod_Impl(
 ) : MutableMethod, pbandk.MutableGeneratedMessage<MutableMethod>() {
     override val descriptor get() = Method.descriptor
 
+    override fun copy(builderAction: MutableMethod.() -> Unit) =
+        toMutableMethod().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String,
         requestTypeUrl: String,
@@ -645,8 +720,10 @@ private class MutableMethod_Impl(
         responseStreaming = responseStreaming,
         options = options,
         syntax = syntax,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMethod() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -679,11 +756,11 @@ public fun Mixin(
     name: String = "",
     root: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Mixin = Mixin_Impl(
-    name = name,
-    root = root,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Mixin = Mixin {
+    this.name = name
+    this.root = root
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Mixin { } instead")
 public fun MutableMixin(
@@ -696,6 +773,10 @@ public fun MutableMixin(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableMixin] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Mixin(builderAction: MutableMixin.() -> Unit): Mixin {
     @Suppress("DEPRECATION") val builder = MutableMixin()
     builder.builderAction()
@@ -713,6 +794,10 @@ private class Mixin_Impl(
 ) : Mixin, pbandk.GeneratedMessage<Mixin>() {
     override val descriptor get() = Mixin.descriptor
 
+    override fun copy(builderAction: MutableMixin.() -> Unit) =
+        toMutableMixin().apply(builderAction).toMixin()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String,
         root: String,
@@ -728,6 +813,12 @@ private class Mixin_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableMixin() = MutableMixin_Impl(
+        name = name,
+        root = root,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableMixin_Impl(
@@ -737,6 +828,10 @@ private class MutableMixin_Impl(
 ) : MutableMixin, pbandk.MutableGeneratedMessage<MutableMixin>() {
     override val descriptor get() = Mixin.descriptor
 
+    override fun copy(builderAction: MutableMixin.() -> Unit) =
+        toMutableMixin().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         name: String,
         root: String,
@@ -756,8 +851,10 @@ private class MutableMixin_Impl(
     override fun toMixin() = Mixin_Impl(
         name = name,
         root = root,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableMixin() = this
 }
 
 @Suppress("UNCHECKED_CAST")

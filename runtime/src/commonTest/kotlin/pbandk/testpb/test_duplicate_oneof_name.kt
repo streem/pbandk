@@ -8,6 +8,15 @@ public sealed interface Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value>
 
+    public fun toMutableValue(): MutableValue
+
+    /**
+     * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableValue.() -> Unit): Value
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         value: pbandk.testpb.Value.Value<*>? = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -84,9 +93,9 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
 
     public fun toValue(): Value
 
+    public override fun copy(builderAction: MutableValue.() -> Unit): MutableValue
+
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableValue by lazy { MutableValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> get() = pbandk.testpb.Value.descriptor
@@ -96,10 +105,10 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
 public fun Value(
     value: pbandk.testpb.Value.Value<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.Value = Value_Impl(
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.testpb.Value = Value {
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Value { } instead")
 public fun MutableValue(
@@ -110,6 +119,10 @@ public fun MutableValue(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Value(builderAction: MutableValue.() -> Unit): Value {
     @Suppress("DEPRECATION") val builder = MutableValue()
     builder.builderAction()
@@ -133,6 +146,10 @@ private class Value_Impl(
     override val integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
 
+    override fun copy(builderAction: MutableValue.() -> Unit) =
+        toMutableValue().apply(builderAction).toValue()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -147,6 +164,11 @@ private class Value_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableValue() = MutableValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableValue_Impl(
@@ -165,6 +187,10 @@ private class MutableValue_Impl(
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
         set(value) { this.value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
 
+    override fun copy(builderAction: MutableValue.() -> Unit) =
+        toMutableValue().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -182,8 +208,10 @@ private class MutableValue_Impl(
 
     override fun toValue() = Value_Impl(
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableValue() = this
 }
 
 @Suppress("UNCHECKED_CAST")

@@ -8,6 +8,15 @@ public sealed interface SourceContext : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext>
 
+    public fun toMutableSourceContext(): MutableSourceContext
+
+    /**
+     * The [MutableSourceContext] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableSourceContext.() -> Unit): SourceContext
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         fileName: String = this.fileName,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -47,9 +56,9 @@ public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMess
 
     public fun toSourceContext(): SourceContext
 
+    public override fun copy(builderAction: MutableSourceContext.() -> Unit): MutableSourceContext
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableSourceContext by lazy { MutableSourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext> get() = pbandk.wkt.SourceContext.descriptor
@@ -59,10 +68,10 @@ public sealed interface MutableSourceContext : SourceContext, pbandk.MutableMess
 public fun SourceContext(
     fileName: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.SourceContext = SourceContext_Impl(
-    fileName = fileName,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.SourceContext = SourceContext {
+    this.fileName = fileName
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use SourceContext { } instead")
 public fun MutableSourceContext(
@@ -73,6 +82,10 @@ public fun MutableSourceContext(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableSourceContext] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun SourceContext(builderAction: MutableSourceContext.() -> Unit): SourceContext {
     @Suppress("DEPRECATION") val builder = MutableSourceContext()
     builder.builderAction()
@@ -89,6 +102,10 @@ private class SourceContext_Impl(
 ) : SourceContext, pbandk.GeneratedMessage<SourceContext>() {
     override val descriptor get() = SourceContext.descriptor
 
+    override fun copy(builderAction: MutableSourceContext.() -> Unit) =
+        toMutableSourceContext().apply(builderAction).toSourceContext()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         fileName: String,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -102,6 +119,11 @@ private class SourceContext_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableSourceContext() = MutableSourceContext_Impl(
+        fileName = fileName,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableSourceContext_Impl(
@@ -110,6 +132,10 @@ private class MutableSourceContext_Impl(
 ) : MutableSourceContext, pbandk.MutableGeneratedMessage<MutableSourceContext>() {
     override val descriptor get() = SourceContext.descriptor
 
+    override fun copy(builderAction: MutableSourceContext.() -> Unit) =
+        toMutableSourceContext().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         fileName: String,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -126,8 +152,10 @@ private class MutableSourceContext_Impl(
 
     override fun toSourceContext() = SourceContext_Impl(
         fileName = fileName,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableSourceContext() = this
 }
 
 @Suppress("UNCHECKED_CAST")

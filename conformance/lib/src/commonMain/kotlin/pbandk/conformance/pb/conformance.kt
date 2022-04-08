@@ -49,6 +49,15 @@ public sealed interface FailureSet : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.FailureSet
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet>
 
+    public fun toMutableFailureSet(): MutableFailureSet
+
+    /**
+     * The [MutableFailureSet] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableFailureSet.() -> Unit): FailureSet
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         failure: List<String> = this.failure,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -88,9 +97,9 @@ public sealed interface MutableFailureSet : FailureSet, pbandk.MutableMessage {
 
     public fun toFailureSet(): FailureSet
 
+    public override fun copy(builderAction: MutableFailureSet.() -> Unit): MutableFailureSet
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableFailureSet by lazy { MutableFailureSet() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.FailureSet> get() = pbandk.conformance.pb.FailureSet.descriptor
@@ -108,6 +117,15 @@ public sealed interface ConformanceRequest : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ConformanceRequest
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest>
 
+    public fun toMutableConformanceRequest(): MutableConformanceRequest
+
+    /**
+     * The [MutableConformanceRequest] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableConformanceRequest.() -> Unit): ConformanceRequest
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         requestedOutputFormat: pbandk.conformance.pb.WireFormat = this.requestedOutputFormat,
         messageType: String = this.messageType,
@@ -258,9 +276,9 @@ public sealed interface MutableConformanceRequest : ConformanceRequest, pbandk.M
 
     public fun toConformanceRequest(): ConformanceRequest
 
+    public override fun copy(builderAction: MutableConformanceRequest.() -> Unit): MutableConformanceRequest
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableConformanceRequest by lazy { MutableConformanceRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceRequest> get() = pbandk.conformance.pb.ConformanceRequest.descriptor
@@ -273,6 +291,15 @@ public sealed interface ConformanceResponse : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ConformanceResponse
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse>
 
+    public fun toMutableConformanceResponse(): MutableConformanceResponse
+
+    /**
+     * The [MutableConformanceResponse] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableConformanceResponse.() -> Unit): ConformanceResponse
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = this.result,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -419,9 +446,9 @@ public sealed interface MutableConformanceResponse : ConformanceResponse, pbandk
 
     public fun toConformanceResponse(): ConformanceResponse
 
+    public override fun copy(builderAction: MutableConformanceResponse.() -> Unit): MutableConformanceResponse
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableConformanceResponse by lazy { MutableConformanceResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.ConformanceResponse> get() = pbandk.conformance.pb.ConformanceResponse.descriptor
@@ -434,6 +461,15 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.JspbEncodingConfig
     override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig>
 
+    public fun toMutableJspbEncodingConfig(): MutableJspbEncodingConfig
+
+    /**
+     * The [MutableJspbEncodingConfig] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableJspbEncodingConfig.() -> Unit): JspbEncodingConfig
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         useJspbArrayAnyFormat: Boolean = this.useJspbArrayAnyFormat,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -473,9 +509,9 @@ public sealed interface MutableJspbEncodingConfig : JspbEncodingConfig, pbandk.M
 
     public fun toJspbEncodingConfig(): JspbEncodingConfig
 
+    public override fun copy(builderAction: MutableJspbEncodingConfig.() -> Unit): MutableJspbEncodingConfig
+
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableJspbEncodingConfig by lazy { MutableJspbEncodingConfig() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.JspbEncodingConfig> get() = pbandk.conformance.pb.JspbEncodingConfig.descriptor
@@ -485,10 +521,10 @@ public sealed interface MutableJspbEncodingConfig : JspbEncodingConfig, pbandk.M
 public fun FailureSet(
     failure: List<String> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.FailureSet = FailureSet_Impl(
-    failure = failure,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.FailureSet = FailureSet {
+    this.failure = failure
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use FailureSet { } instead")
 public fun MutableFailureSet(
@@ -499,6 +535,10 @@ public fun MutableFailureSet(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableFailureSet] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun FailureSet(builderAction: MutableFailureSet.() -> Unit): FailureSet {
     @Suppress("DEPRECATION") val builder = MutableFailureSet()
     builder.builderAction()
@@ -515,6 +555,10 @@ private class FailureSet_Impl(
 ) : FailureSet, pbandk.GeneratedMessage<FailureSet>() {
     override val descriptor get() = FailureSet.descriptor
 
+    override fun copy(builderAction: MutableFailureSet.() -> Unit) =
+        toMutableFailureSet().apply(builderAction).toFailureSet()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         failure: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -529,6 +573,11 @@ private class FailureSet_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableFailureSet() = MutableFailureSet_Impl(
+        failure = failure,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableFailureSet_Impl(
@@ -537,6 +586,10 @@ private class MutableFailureSet_Impl(
 ) : MutableFailureSet, pbandk.MutableGeneratedMessage<MutableFailureSet>() {
     override val descriptor get() = FailureSet.descriptor
 
+    override fun copy(builderAction: MutableFailureSet.() -> Unit) =
+        toMutableFailureSet().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         failure: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -554,8 +607,10 @@ private class MutableFailureSet_Impl(
 
     override fun toFailureSet() = FailureSet_Impl(
         failure = failure,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableFailureSet() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -579,15 +634,15 @@ public fun ConformanceRequest(
     printUnknownFields: Boolean = false,
     payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.ConformanceRequest = ConformanceRequest_Impl(
-    requestedOutputFormat = requestedOutputFormat,
-    messageType = messageType,
-    testCategory = testCategory,
-    jspbEncodingOptions = jspbEncodingOptions,
-    printUnknownFields = printUnknownFields,
-    payload = payload,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.ConformanceRequest = ConformanceRequest {
+    this.requestedOutputFormat = requestedOutputFormat
+    this.messageType = messageType
+    this.testCategory = testCategory
+    this.jspbEncodingOptions = jspbEncodingOptions
+    this.printUnknownFields = printUnknownFields
+    this.payload = payload
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use ConformanceRequest { } instead")
 public fun MutableConformanceRequest(
@@ -608,6 +663,10 @@ public fun MutableConformanceRequest(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableConformanceRequest] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun ConformanceRequest(builderAction: MutableConformanceRequest.() -> Unit): ConformanceRequest {
     @Suppress("DEPRECATION") val builder = MutableConformanceRequest()
     builder.builderAction()
@@ -638,6 +697,10 @@ private class ConformanceRequest_Impl(
     override val textPayload: String?
         get() = (payload as? pbandk.conformance.pb.ConformanceRequest.Payload.TextPayload)?.value
 
+    override fun copy(builderAction: MutableConformanceRequest.() -> Unit) =
+        toMutableConformanceRequest().apply(builderAction).toConformanceRequest()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         requestedOutputFormat: pbandk.conformance.pb.WireFormat,
         messageType: String,
@@ -663,6 +726,16 @@ private class ConformanceRequest_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableConformanceRequest() = MutableConformanceRequest_Impl(
+        requestedOutputFormat = requestedOutputFormat,
+        messageType = messageType,
+        testCategory = testCategory,
+        jspbEncodingOptions = jspbEncodingOptions,
+        printUnknownFields = printUnknownFields,
+        payload = payload,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableConformanceRequest_Impl(
@@ -689,6 +762,10 @@ private class MutableConformanceRequest_Impl(
         get() = (payload as? pbandk.conformance.pb.ConformanceRequest.Payload.TextPayload)?.value
         set(value) { payload = value?.let { pbandk.conformance.pb.ConformanceRequest.Payload.TextPayload(it) } }
 
+    override fun copy(builderAction: MutableConformanceRequest.() -> Unit) =
+        toMutableConformanceRequest().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         requestedOutputFormat: pbandk.conformance.pb.WireFormat,
         messageType: String,
@@ -722,8 +799,10 @@ private class MutableConformanceRequest_Impl(
         jspbEncodingOptions = jspbEncodingOptions,
         printUnknownFields = printUnknownFields,
         payload = payload,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableConformanceRequest() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -756,10 +835,10 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 public fun ConformanceResponse(
     result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.ConformanceResponse = ConformanceResponse_Impl(
-    result = result,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.ConformanceResponse = ConformanceResponse {
+    this.result = result
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use ConformanceResponse { } instead")
 public fun MutableConformanceResponse(
@@ -770,6 +849,10 @@ public fun MutableConformanceResponse(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableConformanceResponse] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun ConformanceResponse(builderAction: MutableConformanceResponse.() -> Unit): ConformanceResponse {
     @Suppress("DEPRECATION") val builder = MutableConformanceResponse()
     builder.builderAction()
@@ -803,6 +886,10 @@ private class ConformanceResponse_Impl(
     override val textPayload: String?
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.TextPayload)?.value
 
+    override fun copy(builderAction: MutableConformanceResponse.() -> Unit) =
+        toMutableConformanceResponse().apply(builderAction).toConformanceResponse()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -817,6 +904,11 @@ private class ConformanceResponse_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableConformanceResponse() = MutableConformanceResponse_Impl(
+        result = result,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableConformanceResponse_Impl(
@@ -850,6 +942,10 @@ private class MutableConformanceResponse_Impl(
         get() = (result as? pbandk.conformance.pb.ConformanceResponse.Result.TextPayload)?.value
         set(value) { result = value?.let { pbandk.conformance.pb.ConformanceResponse.Result.TextPayload(it) } }
 
+    override fun copy(builderAction: MutableConformanceResponse.() -> Unit) =
+        toMutableConformanceResponse().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -867,8 +963,10 @@ private class MutableConformanceResponse_Impl(
 
     override fun toConformanceResponse() = ConformanceResponse_Impl(
         result = result,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableConformanceResponse() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -894,10 +992,10 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
 public fun JspbEncodingConfig(
     useJspbArrayAnyFormat: Boolean = false,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.conformance.pb.JspbEncodingConfig = JspbEncodingConfig_Impl(
-    useJspbArrayAnyFormat = useJspbArrayAnyFormat,
-    unknownFields = unknownFields
-)
+): pbandk.conformance.pb.JspbEncodingConfig = JspbEncodingConfig {
+    this.useJspbArrayAnyFormat = useJspbArrayAnyFormat
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use JspbEncodingConfig { } instead")
 public fun MutableJspbEncodingConfig(
@@ -908,6 +1006,10 @@ public fun MutableJspbEncodingConfig(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableJspbEncodingConfig] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun JspbEncodingConfig(builderAction: MutableJspbEncodingConfig.() -> Unit): JspbEncodingConfig {
     @Suppress("DEPRECATION") val builder = MutableJspbEncodingConfig()
     builder.builderAction()
@@ -924,6 +1026,10 @@ private class JspbEncodingConfig_Impl(
 ) : JspbEncodingConfig, pbandk.GeneratedMessage<JspbEncodingConfig>() {
     override val descriptor get() = JspbEncodingConfig.descriptor
 
+    override fun copy(builderAction: MutableJspbEncodingConfig.() -> Unit) =
+        toMutableJspbEncodingConfig().apply(builderAction).toJspbEncodingConfig()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         useJspbArrayAnyFormat: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -937,6 +1043,11 @@ private class JspbEncodingConfig_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableJspbEncodingConfig() = MutableJspbEncodingConfig_Impl(
+        useJspbArrayAnyFormat = useJspbArrayAnyFormat,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableJspbEncodingConfig_Impl(
@@ -945,6 +1056,10 @@ private class MutableJspbEncodingConfig_Impl(
 ) : MutableJspbEncodingConfig, pbandk.MutableGeneratedMessage<MutableJspbEncodingConfig>() {
     override val descriptor get() = JspbEncodingConfig.descriptor
 
+    override fun copy(builderAction: MutableJspbEncodingConfig.() -> Unit) =
+        toMutableJspbEncodingConfig().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         useJspbArrayAnyFormat: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -961,8 +1076,10 @@ private class MutableJspbEncodingConfig_Impl(
 
     override fun toJspbEncodingConfig() = JspbEncodingConfig_Impl(
         useJspbArrayAnyFormat = useJspbArrayAnyFormat,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableJspbEncodingConfig() = this
 }
 
 @Suppress("UNCHECKED_CAST")

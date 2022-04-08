@@ -24,6 +24,15 @@ public sealed interface Struct : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Struct
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct>
 
+    public fun toMutableStruct(): MutableStruct
+
+    /**
+     * The [MutableStruct] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableStruct.() -> Unit): Struct
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         fields: Map<String, pbandk.wkt.Value?> = this.fields,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -64,6 +73,15 @@ public sealed interface Struct : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.Struct.FieldsEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct.FieldsEntry>
 
+        public fun toMutableFieldsEntry(): Struct.MutableFieldsEntry
+
+        /**
+         * The [MutableFieldsEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+         * Using it outside of the function produces an unspecified behavior.
+         */
+        public fun copy(builderAction: Struct.MutableFieldsEntry.() -> Unit): Struct.FieldsEntry
+
+        @Deprecated("Use copy {} instead")
         public fun copy(
             key: String = this.key,
             value: pbandk.wkt.Value? = this.value,
@@ -115,9 +133,9 @@ public sealed interface Struct : pbandk.Message {
 
         public fun toFieldsEntry(): Struct.FieldsEntry
 
+        public override fun copy(builderAction: Struct.MutableFieldsEntry.() -> Unit): Struct.MutableFieldsEntry
+
         public companion object : pbandk.Message.Companion<pbandk.wkt.Struct.FieldsEntry> {
-            @Suppress("DEPRECATION")
-            public val defaultInstance: MutableFieldsEntry by lazy { MutableFieldsEntry() }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct.FieldsEntry = pbandk.wkt.Struct.FieldsEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct.FieldsEntry> get() = pbandk.wkt.Struct.FieldsEntry.descriptor
@@ -130,9 +148,9 @@ public sealed interface MutableStruct : Struct, pbandk.MutableMessage {
 
     public fun toStruct(): Struct
 
+    public override fun copy(builderAction: MutableStruct.() -> Unit): MutableStruct
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableStruct by lazy { MutableStruct() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct = pbandk.wkt.Struct.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct> get() = pbandk.wkt.Struct.descriptor
@@ -145,6 +163,15 @@ public sealed interface Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value>
 
+    public fun toMutableValue(): MutableValue
+
+    /**
+     * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableValue.() -> Unit): Value
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         kind: pbandk.wkt.Value.Kind<*>? = this.kind,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -263,9 +290,9 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
 
     public fun toValue(): Value
 
+    public override fun copy(builderAction: MutableValue.() -> Unit): MutableValue
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableValue by lazy { MutableValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Value = pbandk.wkt.Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value> get() = pbandk.wkt.Value.descriptor
@@ -278,6 +305,15 @@ public sealed interface ListValue : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ListValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue>
 
+    public fun toMutableListValue(): MutableListValue
+
+    /**
+     * The [MutableListValue] passed as a receiver to the [builderAction] is valid only inside that function.
+     * Using it outside of the function produces an unspecified behavior.
+     */
+    public fun copy(builderAction: MutableListValue.() -> Unit): ListValue
+
+    @Deprecated("Use copy {} instead")
     public fun copy(
         values: List<pbandk.wkt.Value> = this.values,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -317,9 +353,9 @@ public sealed interface MutableListValue : ListValue, pbandk.MutableMessage {
 
     public fun toListValue(): ListValue
 
+    public override fun copy(builderAction: MutableListValue.() -> Unit): MutableListValue
+
     public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
-        @Suppress("DEPRECATION")
-        public val defaultInstance: MutableListValue by lazy { MutableListValue() }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ListValue = pbandk.wkt.ListValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue> get() = pbandk.wkt.ListValue.descriptor
@@ -329,10 +365,10 @@ public sealed interface MutableListValue : ListValue, pbandk.MutableMessage {
 public fun Struct(
     fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Struct = Struct_Impl(
-    fields = fields,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Struct = Struct {
+    this.fields = fields
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Struct { } instead")
 public fun MutableStruct(
@@ -343,6 +379,10 @@ public fun MutableStruct(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableStruct] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Struct(builderAction: MutableStruct.() -> Unit): Struct {
     @Suppress("DEPRECATION") val builder = MutableStruct()
     builder.builderAction()
@@ -359,6 +399,10 @@ private class Struct_Impl(
 ) : Struct, pbandk.GeneratedMessage<Struct>() {
     override val descriptor get() = Struct.descriptor
 
+    override fun copy(builderAction: MutableStruct.() -> Unit) =
+        toMutableStruct().apply(builderAction).toStruct()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         fields: Map<String, pbandk.wkt.Value?>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -373,6 +417,11 @@ private class Struct_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableStruct() = MutableStruct_Impl(
+        fields = fields,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableStruct_Impl(
@@ -381,6 +430,10 @@ private class MutableStruct_Impl(
 ) : MutableStruct, pbandk.MutableGeneratedMessage<MutableStruct>() {
     override val descriptor get() = Struct.descriptor
 
+    override fun copy(builderAction: MutableStruct.() -> Unit) =
+        toMutableStruct().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         fields: Map<String, pbandk.wkt.Value?>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -398,8 +451,10 @@ private class MutableStruct_Impl(
 
     override fun toStruct() = Struct_Impl(
         fields = fields,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableStruct() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -419,11 +474,11 @@ public fun Struct.Companion.FieldsEntry(
     key: String = "",
     value: pbandk.wkt.Value? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Struct.FieldsEntry = Struct_FieldsEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Struct.FieldsEntry = Struct.Companion.FieldsEntry {
+    this.key = key
+    this.value = value
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Struct.FieldsEntry { } instead")
 public fun Struct.Companion.MutableFieldsEntry(
@@ -436,12 +491,20 @@ public fun Struct.Companion.MutableFieldsEntry(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableFieldsEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Struct.Companion.FieldsEntry(builderAction: Struct.MutableFieldsEntry.() -> Unit): Struct.FieldsEntry {
     @Suppress("DEPRECATION") val builder = Struct.MutableFieldsEntry()
     builder.builderAction()
     return builder.toFieldsEntry()
 }
 
+/**
+ * The [MutableFieldsEntry] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun MutableStruct.FieldsEntry(builderAction: Struct.MutableFieldsEntry.() -> Unit): Struct.FieldsEntry =
     Struct.FieldsEntry(builderAction)
 
@@ -456,6 +519,10 @@ private class Struct_FieldsEntry_Impl(
 ) : Struct.FieldsEntry, pbandk.GeneratedMessage<Struct.FieldsEntry>() {
     override val descriptor get() = Struct.FieldsEntry.descriptor
 
+    override fun copy(builderAction: Struct.MutableFieldsEntry.() -> Unit) =
+        toMutableFieldsEntry().apply(builderAction).toFieldsEntry()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String,
         value: pbandk.wkt.Value?,
@@ -472,6 +539,12 @@ private class Struct_FieldsEntry_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableFieldsEntry() = Struct_MutableFieldsEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class Struct_MutableFieldsEntry_Impl(
@@ -481,6 +554,10 @@ private class Struct_MutableFieldsEntry_Impl(
 ) : Struct.MutableFieldsEntry, pbandk.MutableGeneratedMessage<Struct.MutableFieldsEntry>() {
     override val descriptor get() = Struct.FieldsEntry.descriptor
 
+    override fun copy(builderAction: Struct.MutableFieldsEntry.() -> Unit) =
+        toMutableFieldsEntry().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         key: String,
         value: pbandk.wkt.Value?,
@@ -501,8 +578,10 @@ private class Struct_MutableFieldsEntry_Impl(
     override fun toFieldsEntry() = Struct_FieldsEntry_Impl(
         key = key,
         value = value,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableFieldsEntry() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -523,10 +602,10 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 public fun Value(
     kind: pbandk.wkt.Value.Kind<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Value = Value_Impl(
-    kind = kind,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.Value = Value {
+    this.kind = kind
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use Value { } instead")
 public fun MutableValue(
@@ -537,6 +616,10 @@ public fun MutableValue(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun Value(builderAction: MutableValue.() -> Unit): Value {
     @Suppress("DEPRECATION") val builder = MutableValue()
     builder.builderAction()
@@ -566,6 +649,10 @@ private class Value_Impl(
     override val listValue: pbandk.wkt.ListValue?
         get() = (kind as? pbandk.wkt.Value.Kind.ListValue)?.value
 
+    override fun copy(builderAction: MutableValue.() -> Unit) =
+        toMutableValue().apply(builderAction).toValue()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -587,6 +674,11 @@ private class Value_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableValue() = MutableValue_Impl(
+        kind = kind,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableValue_Impl(
@@ -614,6 +706,10 @@ private class MutableValue_Impl(
         get() = (kind as? pbandk.wkt.Value.Kind.ListValue)?.value
         set(value) { kind = value?.let { pbandk.wkt.Value.Kind.ListValue(it) } }
 
+    override fun copy(builderAction: MutableValue.() -> Unit) =
+        toMutableValue().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -638,8 +734,10 @@ private class MutableValue_Impl(
 
     override fun toValue() = Value_Impl(
         kind = kind,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableValue() = this
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -663,10 +761,10 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
 public fun ListValue(
     values: List<pbandk.wkt.Value> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.ListValue = ListValue_Impl(
-    values = values,
-    unknownFields = unknownFields
-)
+): pbandk.wkt.ListValue = ListValue {
+    this.values = values
+    this.unknownFields.putAll(unknownFields)
+}
 
 @Deprecated("Use ListValue { } instead")
 public fun MutableListValue(
@@ -677,6 +775,10 @@ public fun MutableListValue(
     unknownFields = unknownFields.toMutableMap()
 )
 
+/**
+ * The [MutableListValue] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
 public fun ListValue(builderAction: MutableListValue.() -> Unit): ListValue {
     @Suppress("DEPRECATION") val builder = MutableListValue()
     builder.builderAction()
@@ -693,6 +795,10 @@ private class ListValue_Impl(
 ) : ListValue, pbandk.GeneratedMessage<ListValue>() {
     override val descriptor get() = ListValue.descriptor
 
+    override fun copy(builderAction: MutableListValue.() -> Unit) =
+        toMutableListValue().apply(builderAction).toListValue()
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -707,6 +813,11 @@ private class ListValue_Impl(
             unknownFields = unknownFields + other.unknownFields
         )
     } ?: this
+
+    override fun toMutableListValue() = MutableListValue_Impl(
+        values = values,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 private class MutableListValue_Impl(
@@ -715,6 +826,10 @@ private class MutableListValue_Impl(
 ) : MutableListValue, pbandk.MutableGeneratedMessage<MutableListValue>() {
     override val descriptor get() = ListValue.descriptor
 
+    override fun copy(builderAction: MutableListValue.() -> Unit) =
+        toMutableListValue().apply(builderAction)
+
+    @Deprecated("Use copy {} instead")
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -732,8 +847,10 @@ private class MutableListValue_Impl(
 
     override fun toListValue() = ListValue_Impl(
         values = values,
-        unknownFields = unknownFields
+        unknownFields = unknownFields.toMap()
     )
+
+    override fun toMutableListValue() = this
 }
 
 @Suppress("UNCHECKED_CAST")
