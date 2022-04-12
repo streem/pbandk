@@ -8,6 +8,9 @@ public sealed interface Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableValue(): MutableValue
 
     /**
@@ -34,7 +37,7 @@ public sealed interface Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value() }
+        public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> by lazy {
@@ -91,6 +94,9 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
     public override var booleanValue: Boolean?
     public override var integerValue: Int?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toValue(): Value
 
     public override fun copy(builderAction: MutableValue.() -> Unit): MutableValue
@@ -101,6 +107,7 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> get() = pbandk.testpb.Value.descriptor
     }
 }
+
 @Deprecated("Use Value { } instead")
 public fun Value(
     value: pbandk.testpb.Value.Value<*>? = null,
@@ -110,24 +117,20 @@ public fun Value(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Value { } instead")
-public fun MutableValue(
-    value: pbandk.testpb.Value.Value<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableValue = MutableValue_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableValue(): MutableValue = MutableValue_Impl(
+    value = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Value(builderAction: MutableValue.() -> Unit): Value {
-    @Suppress("DEPRECATION") val builder = MutableValue()
-    builder.builderAction()
-    return builder.toValue()
-}
+public fun Value(builderAction: MutableValue.() -> Unit): Value =
+    MutableValue().also(builderAction).toValue()
+
+public fun MutableValue(builderAction: MutableValue.() -> Unit): MutableValue =
+    MutableValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
@@ -153,10 +156,10 @@ private class Value_Impl(
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Value)?.let {
         it.copy(
@@ -194,10 +197,10 @@ private class MutableValue_Impl(
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toValue()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Value)?.let {
         it.copy(
@@ -211,7 +214,10 @@ private class MutableValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableValue() = this
+    override fun toMutableValue() = MutableValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -225,6 +231,5 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
             3 -> value = Value.Value.IntegerValue(_fieldValue as Int)
         }
     }
-    @Suppress("DEPRECATION")
-    return Value(value, unknownFields)
+    return Value_Impl(value, unknownFields)
 }

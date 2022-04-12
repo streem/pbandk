@@ -8,6 +8,9 @@ public sealed interface FileDescriptorSet : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FileDescriptorSet
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorSet>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFileDescriptorSet(): MutableFileDescriptorSet
 
     /**
@@ -24,7 +27,7 @@ public sealed interface FileDescriptorSet : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorSet> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.FileDescriptorSet by lazy { pbandk.wkt.FileDescriptorSet() }
+        public val defaultInstance: pbandk.wkt.FileDescriptorSet by lazy { pbandk.wkt.FileDescriptorSet {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileDescriptorSet = pbandk.wkt.FileDescriptorSet.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorSet> by lazy {
@@ -54,6 +57,9 @@ public sealed interface FileDescriptorSet : pbandk.Message {
 public sealed interface MutableFileDescriptorSet : FileDescriptorSet, pbandk.MutableMessage {
     public override var file: List<pbandk.wkt.FileDescriptorProto>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFileDescriptorSet(): FileDescriptorSet
 
     public override fun copy(builderAction: MutableFileDescriptorSet.() -> Unit): MutableFileDescriptorSet
@@ -82,6 +88,9 @@ public sealed interface FileDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FileDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFileDescriptorProto(): MutableFileDescriptorProto
 
     /**
@@ -109,7 +118,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.FileDescriptorProto by lazy { pbandk.wkt.FileDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.FileDescriptorProto by lazy { pbandk.wkt.FileDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileDescriptorProto = pbandk.wkt.FileDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileDescriptorProto> by lazy {
@@ -260,6 +269,9 @@ public sealed interface MutableFileDescriptorProto : FileDescriptorProto, pbandk
     public override var sourceCodeInfo: pbandk.wkt.SourceCodeInfo?
     public override var syntax: String?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFileDescriptorProto(): FileDescriptorProto
 
     public override fun copy(builderAction: MutableFileDescriptorProto.() -> Unit): MutableFileDescriptorProto
@@ -286,6 +298,9 @@ public sealed interface DescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.DescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableDescriptorProto(): MutableDescriptorProto
 
     /**
@@ -311,7 +326,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.DescriptorProto by lazy { pbandk.wkt.DescriptorProto() }
+        public val defaultInstance: pbandk.wkt.DescriptorProto by lazy { pbandk.wkt.DescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto = pbandk.wkt.DescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto> by lazy {
@@ -435,6 +450,9 @@ public sealed interface DescriptorProto : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.DescriptorProto.ExtensionRange
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableExtensionRange(): DescriptorProto.MutableExtensionRange
 
         /**
@@ -453,7 +471,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ExtensionRange> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.wkt.DescriptorProto.ExtensionRange by lazy { pbandk.wkt.DescriptorProto.ExtensionRange() }
+            public val defaultInstance: pbandk.wkt.DescriptorProto.ExtensionRange by lazy { pbandk.wkt.DescriptorProto.ExtensionRange {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto.ExtensionRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ExtensionRange> by lazy {
@@ -505,6 +523,9 @@ public sealed interface DescriptorProto : pbandk.Message {
         public override var end: Int?
         public override var options: pbandk.wkt.ExtensionRangeOptions?
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toExtensionRange(): DescriptorProto.ExtensionRange
 
         public override fun copy(builderAction: DescriptorProto.MutableExtensionRange.() -> Unit): DescriptorProto.MutableExtensionRange
@@ -523,6 +544,9 @@ public sealed interface DescriptorProto : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.DescriptorProto.ReservedRange
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ReservedRange>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableReservedRange(): DescriptorProto.MutableReservedRange
 
         /**
@@ -540,7 +564,7 @@ public sealed interface DescriptorProto : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ReservedRange> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.wkt.DescriptorProto.ReservedRange by lazy { pbandk.wkt.DescriptorProto.ReservedRange() }
+            public val defaultInstance: pbandk.wkt.DescriptorProto.ReservedRange by lazy { pbandk.wkt.DescriptorProto.ReservedRange {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto.ReservedRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DescriptorProto.ReservedRange> by lazy {
@@ -581,6 +605,9 @@ public sealed interface DescriptorProto : pbandk.Message {
         public override var start: Int?
         public override var end: Int?
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toReservedRange(): DescriptorProto.ReservedRange
 
         public override fun copy(builderAction: DescriptorProto.MutableReservedRange.() -> Unit): DescriptorProto.MutableReservedRange
@@ -605,6 +632,9 @@ public sealed interface MutableDescriptorProto : DescriptorProto, pbandk.Mutable
     public override var reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>
     public override var reservedName: List<String>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toDescriptorProto(): DescriptorProto
 
     public override fun copy(builderAction: MutableDescriptorProto.() -> Unit): MutableDescriptorProto
@@ -622,6 +652,9 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ExtensionRangeOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableExtensionRangeOptions(): MutableExtensionRangeOptions
 
     /**
@@ -638,7 +671,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ExtensionRangeOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.ExtensionRangeOptions by lazy { pbandk.wkt.ExtensionRangeOptions() }
+        public val defaultInstance: pbandk.wkt.ExtensionRangeOptions by lazy { pbandk.wkt.ExtensionRangeOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.ExtensionRangeOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ExtensionRangeOptions> by lazy {
@@ -668,6 +701,9 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
 public sealed interface MutableExtensionRangeOptions : ExtensionRangeOptions, pbandk.MutableMessage {
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toExtensionRangeOptions(): ExtensionRangeOptions
 
     public override fun copy(builderAction: MutableExtensionRangeOptions.() -> Unit): MutableExtensionRangeOptions
@@ -695,6 +731,9 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFieldDescriptorProto(): MutableFieldDescriptorProto
 
     /**
@@ -721,7 +760,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.FieldDescriptorProto by lazy { pbandk.wkt.FieldDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.FieldDescriptorProto by lazy { pbandk.wkt.FieldDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldDescriptorProto = pbandk.wkt.FieldDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldDescriptorProto> by lazy {
@@ -910,6 +949,9 @@ public sealed interface MutableFieldDescriptorProto : FieldDescriptorProto, pban
     public override var options: pbandk.wkt.FieldOptions?
     public override var proto3Optional: Boolean?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFieldDescriptorProto(): FieldDescriptorProto
 
     public override fun copy(builderAction: MutableFieldDescriptorProto.() -> Unit): MutableFieldDescriptorProto
@@ -928,6 +970,9 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.OneofDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableOneofDescriptorProto(): MutableOneofDescriptorProto
 
     /**
@@ -945,7 +990,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.OneofDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.OneofDescriptorProto by lazy { pbandk.wkt.OneofDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.OneofDescriptorProto by lazy { pbandk.wkt.OneofDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.OneofDescriptorProto = pbandk.wkt.OneofDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofDescriptorProto> by lazy {
@@ -986,6 +1031,9 @@ public sealed interface MutableOneofDescriptorProto : OneofDescriptorProto, pban
     public override var name: String?
     public override var options: pbandk.wkt.OneofOptions?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toOneofDescriptorProto(): OneofDescriptorProto
 
     public override fun copy(builderAction: MutableOneofDescriptorProto.() -> Unit): MutableOneofDescriptorProto
@@ -1007,6 +1055,9 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableEnumDescriptorProto(): MutableEnumDescriptorProto
 
     /**
@@ -1027,7 +1078,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.EnumDescriptorProto by lazy { pbandk.wkt.EnumDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.EnumDescriptorProto by lazy { pbandk.wkt.EnumDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumDescriptorProto = pbandk.wkt.EnumDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto> by lazy {
@@ -1100,6 +1151,9 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumDescriptorProto.EnumReservedRange
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableEnumReservedRange(): EnumDescriptorProto.MutableEnumReservedRange
 
         /**
@@ -1117,7 +1171,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.wkt.EnumDescriptorProto.EnumReservedRange by lazy { pbandk.wkt.EnumDescriptorProto.EnumReservedRange() }
+            public val defaultInstance: pbandk.wkt.EnumDescriptorProto.EnumReservedRange by lazy { pbandk.wkt.EnumDescriptorProto.EnumReservedRange {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> by lazy {
@@ -1158,6 +1212,9 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
         public override var start: Int?
         public override var end: Int?
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toEnumReservedRange(): EnumDescriptorProto.EnumReservedRange
 
         public override fun copy(builderAction: EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): EnumDescriptorProto.MutableEnumReservedRange
@@ -1177,6 +1234,9 @@ public sealed interface MutableEnumDescriptorProto : EnumDescriptorProto, pbandk
     public override var reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>
     public override var reservedName: List<String>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toEnumDescriptorProto(): EnumDescriptorProto
 
     public override fun copy(builderAction: MutableEnumDescriptorProto.() -> Unit): MutableEnumDescriptorProto
@@ -1196,6 +1256,9 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumValueDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableEnumValueDescriptorProto(): MutableEnumValueDescriptorProto
 
     /**
@@ -1214,7 +1277,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.EnumValueDescriptorProto by lazy { pbandk.wkt.EnumValueDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.EnumValueDescriptorProto by lazy { pbandk.wkt.EnumValueDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValueDescriptorProto = pbandk.wkt.EnumValueDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueDescriptorProto> by lazy {
@@ -1266,6 +1329,9 @@ public sealed interface MutableEnumValueDescriptorProto : EnumValueDescriptorPro
     public override var number: Int?
     public override var options: pbandk.wkt.EnumValueOptions?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toEnumValueDescriptorProto(): EnumValueDescriptorProto
 
     public override fun copy(builderAction: MutableEnumValueDescriptorProto.() -> Unit): MutableEnumValueDescriptorProto
@@ -1285,6 +1351,9 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ServiceDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableServiceDescriptorProto(): MutableServiceDescriptorProto
 
     /**
@@ -1303,7 +1372,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.ServiceDescriptorProto by lazy { pbandk.wkt.ServiceDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.ServiceDescriptorProto by lazy { pbandk.wkt.ServiceDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ServiceDescriptorProto = pbandk.wkt.ServiceDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceDescriptorProto> by lazy {
@@ -1355,6 +1424,9 @@ public sealed interface MutableServiceDescriptorProto : ServiceDescriptorProto, 
     public override var method: List<pbandk.wkt.MethodDescriptorProto>
     public override var options: pbandk.wkt.ServiceOptions?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toServiceDescriptorProto(): ServiceDescriptorProto
 
     public override fun copy(builderAction: MutableServiceDescriptorProto.() -> Unit): MutableServiceDescriptorProto
@@ -1377,6 +1449,9 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.MethodDescriptorProto
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodDescriptorProto>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableMethodDescriptorProto(): MutableMethodDescriptorProto
 
     /**
@@ -1398,7 +1473,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.MethodDescriptorProto> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.MethodDescriptorProto by lazy { pbandk.wkt.MethodDescriptorProto() }
+        public val defaultInstance: pbandk.wkt.MethodDescriptorProto by lazy { pbandk.wkt.MethodDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MethodDescriptorProto = pbandk.wkt.MethodDescriptorProto.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodDescriptorProto> by lazy {
@@ -1483,6 +1558,9 @@ public sealed interface MutableMethodDescriptorProto : MethodDescriptorProto, pb
     public override var clientStreaming: Boolean?
     public override var serverStreaming: Boolean?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toMethodDescriptorProto(): MethodDescriptorProto
 
     public override fun copy(builderAction: MutableMethodDescriptorProto.() -> Unit): MutableMethodDescriptorProto
@@ -1521,6 +1599,9 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FileOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFileOptions(): MutableFileOptions
 
     /**
@@ -1557,7 +1638,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.FileOptions by lazy { pbandk.wkt.FileOptions() }
+        public val defaultInstance: pbandk.wkt.FileOptions by lazy { pbandk.wkt.FileOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileOptions = pbandk.wkt.FileOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FileOptions> by lazy {
@@ -1829,6 +1910,9 @@ public sealed interface MutableFileOptions : FileOptions, pbandk.MutableMessage 
     public override var rubyPackage: String?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFileOptions(): FileOptions
 
     public override fun copy(builderAction: MutableFileOptions.() -> Unit): MutableFileOptions
@@ -1850,6 +1934,9 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.MessageOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MessageOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableMessageOptions(): MutableMessageOptions
 
     /**
@@ -1870,7 +1957,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.MessageOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.MessageOptions by lazy { pbandk.wkt.MessageOptions() }
+        public val defaultInstance: pbandk.wkt.MessageOptions by lazy { pbandk.wkt.MessageOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MessageOptions = pbandk.wkt.MessageOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MessageOptions> by lazy {
@@ -1944,6 +2031,9 @@ public sealed interface MutableMessageOptions : MessageOptions, pbandk.MutableMe
     public override var mapEntry: Boolean?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toMessageOptions(): MessageOptions
 
     public override fun copy(builderAction: MutableMessageOptions.() -> Unit): MutableMessageOptions
@@ -1967,6 +2057,9 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFieldOptions(): MutableFieldOptions
 
     /**
@@ -1989,7 +2082,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.FieldOptions by lazy { pbandk.wkt.FieldOptions() }
+        public val defaultInstance: pbandk.wkt.FieldOptions by lazy { pbandk.wkt.FieldOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldOptions = pbandk.wkt.FieldOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FieldOptions> by lazy {
@@ -2119,6 +2212,9 @@ public sealed interface MutableFieldOptions : FieldOptions, pbandk.MutableMessag
     public override var weak: Boolean?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFieldOptions(): FieldOptions
 
     public override fun copy(builderAction: MutableFieldOptions.() -> Unit): MutableFieldOptions
@@ -2136,6 +2232,9 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.OneofOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableOneofOptions(): MutableOneofOptions
 
     /**
@@ -2152,7 +2251,7 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.OneofOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.OneofOptions by lazy { pbandk.wkt.OneofOptions() }
+        public val defaultInstance: pbandk.wkt.OneofOptions by lazy { pbandk.wkt.OneofOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.OneofOptions = pbandk.wkt.OneofOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.OneofOptions> by lazy {
@@ -2182,6 +2281,9 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
 public sealed interface MutableOneofOptions : OneofOptions, pbandk.MutableMessage {
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toOneofOptions(): OneofOptions
 
     public override fun copy(builderAction: MutableOneofOptions.() -> Unit): MutableOneofOptions
@@ -2201,6 +2303,9 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableEnumOptions(): MutableEnumOptions
 
     /**
@@ -2219,7 +2324,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.EnumOptions by lazy { pbandk.wkt.EnumOptions() }
+        public val defaultInstance: pbandk.wkt.EnumOptions by lazy { pbandk.wkt.EnumOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumOptions = pbandk.wkt.EnumOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumOptions> by lazy {
@@ -2271,6 +2376,9 @@ public sealed interface MutableEnumOptions : EnumOptions, pbandk.MutableMessage 
     public override var deprecated: Boolean?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toEnumOptions(): EnumOptions
 
     public override fun copy(builderAction: MutableEnumOptions.() -> Unit): MutableEnumOptions
@@ -2289,6 +2397,9 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumValueOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableEnumValueOptions(): MutableEnumValueOptions
 
     /**
@@ -2306,7 +2417,7 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.EnumValueOptions by lazy { pbandk.wkt.EnumValueOptions() }
+        public val defaultInstance: pbandk.wkt.EnumValueOptions by lazy { pbandk.wkt.EnumValueOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValueOptions = pbandk.wkt.EnumValueOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValueOptions> by lazy {
@@ -2347,6 +2458,9 @@ public sealed interface MutableEnumValueOptions : EnumValueOptions, pbandk.Mutab
     public override var deprecated: Boolean?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toEnumValueOptions(): EnumValueOptions
 
     public override fun copy(builderAction: MutableEnumValueOptions.() -> Unit): MutableEnumValueOptions
@@ -2365,6 +2479,9 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ServiceOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableServiceOptions(): MutableServiceOptions
 
     /**
@@ -2382,7 +2499,7 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.ServiceOptions by lazy { pbandk.wkt.ServiceOptions() }
+        public val defaultInstance: pbandk.wkt.ServiceOptions by lazy { pbandk.wkt.ServiceOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ServiceOptions = pbandk.wkt.ServiceOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ServiceOptions> by lazy {
@@ -2423,6 +2540,9 @@ public sealed interface MutableServiceOptions : ServiceOptions, pbandk.MutableMe
     public override var deprecated: Boolean?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toServiceOptions(): ServiceOptions
 
     public override fun copy(builderAction: MutableServiceOptions.() -> Unit): MutableServiceOptions
@@ -2442,6 +2562,9 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.MethodOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodOptions>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableMethodOptions(): MutableMethodOptions
 
     /**
@@ -2460,7 +2583,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.MethodOptions> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.MethodOptions by lazy { pbandk.wkt.MethodOptions() }
+        public val defaultInstance: pbandk.wkt.MethodOptions by lazy { pbandk.wkt.MethodOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MethodOptions = pbandk.wkt.MethodOptions.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.MethodOptions> by lazy {
@@ -2529,6 +2652,9 @@ public sealed interface MutableMethodOptions : MethodOptions, pbandk.MutableMess
     public override var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?
     public override var uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toMethodOptions(): MethodOptions
 
     public override fun copy(builderAction: MutableMethodOptions.() -> Unit): MutableMethodOptions
@@ -2552,6 +2678,9 @@ public sealed interface UninterpretedOption : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.UninterpretedOption
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableUninterpretedOption(): MutableUninterpretedOption
 
     /**
@@ -2574,7 +2703,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.UninterpretedOption by lazy { pbandk.wkt.UninterpretedOption() }
+        public val defaultInstance: pbandk.wkt.UninterpretedOption by lazy { pbandk.wkt.UninterpretedOption {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption = pbandk.wkt.UninterpretedOption.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption> by lazy {
@@ -2667,6 +2796,9 @@ public sealed interface UninterpretedOption : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.UninterpretedOption.NamePart
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableNamePart(): UninterpretedOption.MutableNamePart
 
         /**
@@ -2684,7 +2816,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy { pbandk.wkt.UninterpretedOption.NamePart() }
+            public val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy { pbandk.wkt.UninterpretedOption.NamePart {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UninterpretedOption.NamePart> by lazy {
@@ -2725,6 +2857,9 @@ public sealed interface UninterpretedOption : pbandk.Message {
         public override var namePart: String
         public override var isExtension: Boolean
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toNamePart(): UninterpretedOption.NamePart
 
         public override fun copy(builderAction: UninterpretedOption.MutableNamePart.() -> Unit): UninterpretedOption.MutableNamePart
@@ -2746,6 +2881,9 @@ public sealed interface MutableUninterpretedOption : UninterpretedOption, pbandk
     public override var stringValue: pbandk.ByteArr?
     public override var aggregateValue: String?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toUninterpretedOption(): UninterpretedOption
 
     public override fun copy(builderAction: MutableUninterpretedOption.() -> Unit): MutableUninterpretedOption
@@ -2763,6 +2901,9 @@ public sealed interface SourceCodeInfo : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableSourceCodeInfo(): MutableSourceCodeInfo
 
     /**
@@ -2779,7 +2920,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.SourceCodeInfo by lazy { pbandk.wkt.SourceCodeInfo() }
+        public val defaultInstance: pbandk.wkt.SourceCodeInfo by lazy { pbandk.wkt.SourceCodeInfo {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceCodeInfo = pbandk.wkt.SourceCodeInfo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo> by lazy {
@@ -2815,6 +2956,9 @@ public sealed interface SourceCodeInfo : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo.Location
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo.Location>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableLocation(): SourceCodeInfo.MutableLocation
 
         /**
@@ -2835,7 +2979,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo.Location> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.wkt.SourceCodeInfo.Location by lazy { pbandk.wkt.SourceCodeInfo.Location() }
+            public val defaultInstance: pbandk.wkt.SourceCodeInfo.Location by lazy { pbandk.wkt.SourceCodeInfo.Location {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo.Location.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceCodeInfo.Location> by lazy {
@@ -2909,6 +3053,9 @@ public sealed interface SourceCodeInfo : pbandk.Message {
         public override var trailingComments: String?
         public override var leadingDetachedComments: List<String>
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toLocation(): SourceCodeInfo.Location
 
         public override fun copy(builderAction: SourceCodeInfo.MutableLocation.() -> Unit): SourceCodeInfo.MutableLocation
@@ -2924,6 +3071,9 @@ public sealed interface SourceCodeInfo : pbandk.Message {
 public sealed interface MutableSourceCodeInfo : SourceCodeInfo, pbandk.MutableMessage {
     public override var location: List<pbandk.wkt.SourceCodeInfo.Location>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toSourceCodeInfo(): SourceCodeInfo
 
     public override fun copy(builderAction: MutableSourceCodeInfo.() -> Unit): MutableSourceCodeInfo
@@ -2941,6 +3091,9 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableGeneratedCodeInfo(): MutableGeneratedCodeInfo
 
     /**
@@ -2957,7 +3110,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.GeneratedCodeInfo by lazy { pbandk.wkt.GeneratedCodeInfo() }
+        public val defaultInstance: pbandk.wkt.GeneratedCodeInfo by lazy { pbandk.wkt.GeneratedCodeInfo {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.GeneratedCodeInfo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo> by lazy {
@@ -2992,6 +3145,9 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo.Annotation
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableAnnotation(): GeneratedCodeInfo.MutableAnnotation
 
         /**
@@ -3011,7 +3167,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo.Annotation> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.wkt.GeneratedCodeInfo.Annotation by lazy { pbandk.wkt.GeneratedCodeInfo.Annotation() }
+            public val defaultInstance: pbandk.wkt.GeneratedCodeInfo.Annotation by lazy { pbandk.wkt.GeneratedCodeInfo.Annotation {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo.Annotation.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo.Annotation> by lazy {
@@ -3074,6 +3230,9 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
         public override var begin: Int?
         public override var end: Int?
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toAnnotation(): GeneratedCodeInfo.Annotation
 
         public override fun copy(builderAction: GeneratedCodeInfo.MutableAnnotation.() -> Unit): GeneratedCodeInfo.MutableAnnotation
@@ -3089,6 +3248,9 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
 public sealed interface MutableGeneratedCodeInfo : GeneratedCodeInfo, pbandk.MutableMessage {
     public override var annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toGeneratedCodeInfo(): GeneratedCodeInfo
 
     public override fun copy(builderAction: MutableGeneratedCodeInfo.() -> Unit): MutableGeneratedCodeInfo
@@ -3099,6 +3261,7 @@ public sealed interface MutableGeneratedCodeInfo : GeneratedCodeInfo, pbandk.Mut
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.GeneratedCodeInfo> get() = pbandk.wkt.GeneratedCodeInfo.descriptor
     }
 }
+
 @Deprecated("Use FileDescriptorSet { } instead")
 public fun FileDescriptorSet(
     file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
@@ -3108,24 +3271,20 @@ public fun FileDescriptorSet(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FileDescriptorSet { } instead")
-public fun MutableFileDescriptorSet(
-    file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFileDescriptorSet = MutableFileDescriptorSet_Impl(
-    file = file,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFileDescriptorSet(): MutableFileDescriptorSet = MutableFileDescriptorSet_Impl(
+    file = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFileDescriptorSet] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FileDescriptorSet(builderAction: MutableFileDescriptorSet.() -> Unit): FileDescriptorSet {
-    @Suppress("DEPRECATION") val builder = MutableFileDescriptorSet()
-    builder.builderAction()
-    return builder.toFileDescriptorSet()
-}
+public fun FileDescriptorSet(builderAction: MutableFileDescriptorSet.() -> Unit): FileDescriptorSet =
+    MutableFileDescriptorSet().also(builderAction).toFileDescriptorSet()
+
+public fun MutableFileDescriptorSet(builderAction: MutableFileDescriptorSet.() -> Unit): MutableFileDescriptorSet =
+    MutableFileDescriptorSet().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFileDescriptorSet")
@@ -3144,10 +3303,10 @@ private class FileDescriptorSet_Impl(
     override fun copy(
         file: List<pbandk.wkt.FileDescriptorProto>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FileDescriptorSet_Impl(
-        file = file,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.file = file
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FileDescriptorSet)?.let {
         it.copy(
@@ -3175,10 +3334,10 @@ private class MutableFileDescriptorSet_Impl(
     override fun copy(
         file: List<pbandk.wkt.FileDescriptorProto>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FileDescriptorSet_Impl(
-        file = file,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.file = file
+        this.unknownFields.putAll(unknownFields)
+    }.toFileDescriptorSet()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FileDescriptorSet)?.let {
         it.copy(
@@ -3192,7 +3351,10 @@ private class MutableFileDescriptorSet_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFileDescriptorSet() = this
+    override fun toMutableFileDescriptorSet() = MutableFileDescriptorSet_Impl(
+        file = file,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3204,9 +3366,9 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
             1 -> file = (file ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.FileDescriptorProto> }
         }
     }
-    @Suppress("DEPRECATION")
-    return FileDescriptorSet(pbandk.ListWithSize.Builder.fixed(file), unknownFields)
+    return FileDescriptorSet_Impl(pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
+
 @Deprecated("Use FileDescriptorProto { } instead")
 public fun FileDescriptorProto(
     name: String? = null,
@@ -3238,46 +3400,31 @@ public fun FileDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FileDescriptorProto { } instead")
-public fun MutableFileDescriptorProto(
-    name: String? = null,
-    `package`: String? = null,
-    dependency: List<String> = emptyList(),
-    publicDependency: List<Int> = emptyList(),
-    weakDependency: List<Int> = emptyList(),
-    messageType: List<pbandk.wkt.DescriptorProto> = emptyList(),
-    enumType: List<pbandk.wkt.EnumDescriptorProto> = emptyList(),
-    service: List<pbandk.wkt.ServiceDescriptorProto> = emptyList(),
-    extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
-    options: pbandk.wkt.FileOptions? = null,
-    sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null,
-    syntax: String? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFileDescriptorProto = MutableFileDescriptorProto_Impl(
-    name = name,
-    `package` = `package`,
-    dependency = dependency,
-    publicDependency = publicDependency,
-    weakDependency = weakDependency,
-    messageType = messageType,
-    enumType = enumType,
-    service = service,
-    extension = extension,
-    options = options,
-    sourceCodeInfo = sourceCodeInfo,
-    syntax = syntax,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFileDescriptorProto(): MutableFileDescriptorProto = MutableFileDescriptorProto_Impl(
+    name = null,
+    `package` = null,
+    dependency = emptyList(),
+    publicDependency = emptyList(),
+    weakDependency = emptyList(),
+    messageType = emptyList(),
+    enumType = emptyList(),
+    service = emptyList(),
+    extension = emptyList(),
+    options = null,
+    sourceCodeInfo = null,
+    syntax = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFileDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FileDescriptorProto(builderAction: MutableFileDescriptorProto.() -> Unit): FileDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableFileDescriptorProto()
-    builder.builderAction()
-    return builder.toFileDescriptorProto()
-}
+public fun FileDescriptorProto(builderAction: MutableFileDescriptorProto.() -> Unit): FileDescriptorProto =
+    MutableFileDescriptorProto().also(builderAction).toFileDescriptorProto()
+
+public fun MutableFileDescriptorProto(builderAction: MutableFileDescriptorProto.() -> Unit): MutableFileDescriptorProto =
+    MutableFileDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFileDescriptorProto")
@@ -3318,21 +3465,21 @@ private class FileDescriptorProto_Impl(
         sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
         syntax: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FileDescriptorProto_Impl(
-        name = name,
-        `package` = `package`,
-        dependency = dependency,
-        publicDependency = publicDependency,
-        weakDependency = weakDependency,
-        messageType = messageType,
-        enumType = enumType,
-        service = service,
-        extension = extension,
-        options = options,
-        sourceCodeInfo = sourceCodeInfo,
-        syntax = syntax,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.`package` = `package`
+        this.dependency = dependency
+        this.publicDependency = publicDependency
+        this.weakDependency = weakDependency
+        this.messageType = messageType
+        this.enumType = enumType
+        this.service = service
+        this.extension = extension
+        this.options = options
+        this.sourceCodeInfo = sourceCodeInfo
+        this.syntax = syntax
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FileDescriptorProto)?.let {
         it.copy(
@@ -3404,21 +3551,21 @@ private class MutableFileDescriptorProto_Impl(
         sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
         syntax: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FileDescriptorProto_Impl(
-        name = name,
-        `package` = `package`,
-        dependency = dependency,
-        publicDependency = publicDependency,
-        weakDependency = weakDependency,
-        messageType = messageType,
-        enumType = enumType,
-        service = service,
-        extension = extension,
-        options = options,
-        sourceCodeInfo = sourceCodeInfo,
-        syntax = syntax,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.`package` = `package`
+        this.dependency = dependency
+        this.publicDependency = publicDependency
+        this.weakDependency = weakDependency
+        this.messageType = messageType
+        this.enumType = enumType
+        this.service = service
+        this.extension = extension
+        this.options = options
+        this.sourceCodeInfo = sourceCodeInfo
+        this.syntax = syntax
+        this.unknownFields.putAll(unknownFields)
+    }.toFileDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FileDescriptorProto)?.let {
         it.copy(
@@ -3454,7 +3601,21 @@ private class MutableFileDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFileDescriptorProto() = this
+    override fun toMutableFileDescriptorProto() = MutableFileDescriptorProto_Impl(
+        name = name,
+        `package` = `package`,
+        dependency = dependency,
+        publicDependency = publicDependency,
+        weakDependency = weakDependency,
+        messageType = messageType,
+        enumType = enumType,
+        service = service,
+        extension = extension,
+        options = options,
+        sourceCodeInfo = sourceCodeInfo,
+        syntax = syntax,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3488,11 +3649,11 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
             12 -> syntax = _fieldValue as String
         }
     }
-    @Suppress("DEPRECATION")
-    return FileDescriptorProto(name, `package`, pbandk.ListWithSize.Builder.fixed(dependency), pbandk.ListWithSize.Builder.fixed(publicDependency),
+    return FileDescriptorProto_Impl(name, `package`, pbandk.ListWithSize.Builder.fixed(dependency), pbandk.ListWithSize.Builder.fixed(publicDependency),
         pbandk.ListWithSize.Builder.fixed(weakDependency), pbandk.ListWithSize.Builder.fixed(messageType), pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(service),
         pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax, unknownFields)
 }
+
 @Deprecated("Use DescriptorProto { } instead")
 public fun DescriptorProto(
     name: String? = null,
@@ -3520,42 +3681,29 @@ public fun DescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use DescriptorProto { } instead")
-public fun MutableDescriptorProto(
-    name: String? = null,
-    field: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
-    extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
-    nestedType: List<pbandk.wkt.DescriptorProto> = emptyList(),
-    enumType: List<pbandk.wkt.EnumDescriptorProto> = emptyList(),
-    extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList(),
-    oneofDecl: List<pbandk.wkt.OneofDescriptorProto> = emptyList(),
-    options: pbandk.wkt.MessageOptions? = null,
-    reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange> = emptyList(),
-    reservedName: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableDescriptorProto = MutableDescriptorProto_Impl(
-    name = name,
-    field = field,
-    extension = extension,
-    nestedType = nestedType,
-    enumType = enumType,
-    extensionRange = extensionRange,
-    oneofDecl = oneofDecl,
-    options = options,
-    reservedRange = reservedRange,
-    reservedName = reservedName,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableDescriptorProto(): MutableDescriptorProto = MutableDescriptorProto_Impl(
+    name = null,
+    field = emptyList(),
+    extension = emptyList(),
+    nestedType = emptyList(),
+    enumType = emptyList(),
+    extensionRange = emptyList(),
+    oneofDecl = emptyList(),
+    options = null,
+    reservedRange = emptyList(),
+    reservedName = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun DescriptorProto(builderAction: MutableDescriptorProto.() -> Unit): DescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableDescriptorProto()
-    builder.builderAction()
-    return builder.toDescriptorProto()
-}
+public fun DescriptorProto(builderAction: MutableDescriptorProto.() -> Unit): DescriptorProto =
+    MutableDescriptorProto().also(builderAction).toDescriptorProto()
+
+public fun MutableDescriptorProto(builderAction: MutableDescriptorProto.() -> Unit): MutableDescriptorProto =
+    MutableDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDescriptorProto")
@@ -3592,19 +3740,19 @@ private class DescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DescriptorProto_Impl(
-        name = name,
-        field = field,
-        extension = extension,
-        nestedType = nestedType,
-        enumType = enumType,
-        extensionRange = extensionRange,
-        oneofDecl = oneofDecl,
-        options = options,
-        reservedRange = reservedRange,
-        reservedName = reservedName,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.field = field
+        this.extension = extension
+        this.nestedType = nestedType
+        this.enumType = enumType
+        this.extensionRange = extensionRange
+        this.oneofDecl = oneofDecl
+        this.options = options
+        this.reservedRange = reservedRange
+        this.reservedName = reservedName
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? DescriptorProto)?.let {
         it.copy(
@@ -3668,19 +3816,19 @@ private class MutableDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DescriptorProto_Impl(
-        name = name,
-        field = field,
-        extension = extension,
-        nestedType = nestedType,
-        enumType = enumType,
-        extensionRange = extensionRange,
-        oneofDecl = oneofDecl,
-        options = options,
-        reservedRange = reservedRange,
-        reservedName = reservedName,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.field = field
+        this.extension = extension
+        this.nestedType = nestedType
+        this.enumType = enumType
+        this.extensionRange = extensionRange
+        this.oneofDecl = oneofDecl
+        this.options = options
+        this.reservedRange = reservedRange
+        this.reservedName = reservedName
+        this.unknownFields.putAll(unknownFields)
+    }.toDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? DescriptorProto)?.let {
         it.copy(
@@ -3712,7 +3860,19 @@ private class MutableDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDescriptorProto() = this
+    override fun toMutableDescriptorProto() = MutableDescriptorProto_Impl(
+        name = name,
+        field = field,
+        extension = extension,
+        nestedType = nestedType,
+        enumType = enumType,
+        extensionRange = extensionRange,
+        oneofDecl = oneofDecl,
+        options = options,
+        reservedRange = reservedRange,
+        reservedName = reservedName,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3742,11 +3902,11 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
             10 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
-    @Suppress("DEPRECATION")
-    return DescriptorProto(name, pbandk.ListWithSize.Builder.fixed(field), pbandk.ListWithSize.Builder.fixed(extension), pbandk.ListWithSize.Builder.fixed(nestedType),
+    return DescriptorProto_Impl(name, pbandk.ListWithSize.Builder.fixed(field), pbandk.ListWithSize.Builder.fixed(extension), pbandk.ListWithSize.Builder.fixed(nestedType),
         pbandk.ListWithSize.Builder.fixed(enumType), pbandk.ListWithSize.Builder.fixed(extensionRange), pbandk.ListWithSize.Builder.fixed(oneofDecl), options,
         pbandk.ListWithSize.Builder.fixed(reservedRange), pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
+
 @Deprecated("Use DescriptorProto.ExtensionRange { } instead")
 public fun DescriptorProto.Companion.ExtensionRange(
     start: Int? = null,
@@ -3760,28 +3920,22 @@ public fun DescriptorProto.Companion.ExtensionRange(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use DescriptorProto.ExtensionRange { } instead")
-public fun DescriptorProto.Companion.MutableExtensionRange(
-    start: Int? = null,
-    end: Int? = null,
-    options: pbandk.wkt.ExtensionRangeOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): DescriptorProto.MutableExtensionRange = DescriptorProto_MutableExtensionRange_Impl(
-    start = start,
-    end = end,
-    options = options,
-    unknownFields = unknownFields.toMutableMap()
+public fun DescriptorProto.Companion.MutableExtensionRange(): DescriptorProto.MutableExtensionRange = DescriptorProto_MutableExtensionRange_Impl(
+    start = null,
+    end = null,
+    options = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableExtensionRange] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun DescriptorProto.Companion.ExtensionRange(builderAction: DescriptorProto.MutableExtensionRange.() -> Unit): DescriptorProto.ExtensionRange {
-    @Suppress("DEPRECATION") val builder = DescriptorProto.MutableExtensionRange()
-    builder.builderAction()
-    return builder.toExtensionRange()
-}
+public fun DescriptorProto.Companion.ExtensionRange(builderAction: DescriptorProto.MutableExtensionRange.() -> Unit): DescriptorProto.ExtensionRange =
+    DescriptorProto.Companion.MutableExtensionRange().also(builderAction).toExtensionRange()
+
+public fun DescriptorProto.Companion.MutableExtensionRange(builderAction: DescriptorProto.MutableExtensionRange.() -> Unit): DescriptorProto.MutableExtensionRange =
+    DescriptorProto.Companion.MutableExtensionRange().also(builderAction)
 
 /**
  * The [MutableExtensionRange] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3811,12 +3965,12 @@ private class DescriptorProto_ExtensionRange_Impl(
         end: Int?,
         options: pbandk.wkt.ExtensionRangeOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DescriptorProto_ExtensionRange_Impl(
-        start = start,
-        end = end,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.start = start
+        this.end = end
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? DescriptorProto.ExtensionRange)?.let {
         it.copy(
@@ -3852,12 +4006,12 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         end: Int?,
         options: pbandk.wkt.ExtensionRangeOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DescriptorProto_ExtensionRange_Impl(
-        start = start,
-        end = end,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.start = start
+        this.end = end
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }.toExtensionRange()
 
     override operator fun plus(other: pbandk.Message?) = (other as? DescriptorProto.ExtensionRange)?.let {
         it.copy(
@@ -3875,7 +4029,12 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableExtensionRange() = this
+    override fun toMutableExtensionRange() = DescriptorProto_MutableExtensionRange_Impl(
+        start = start,
+        end = end,
+        options = options,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3891,9 +4050,9 @@ private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.Me
             3 -> options = _fieldValue as pbandk.wkt.ExtensionRangeOptions
         }
     }
-    @Suppress("DEPRECATION")
-    return DescriptorProto.ExtensionRange(start, end, options, unknownFields)
+    return DescriptorProto_ExtensionRange_Impl(start, end, options, unknownFields)
 }
+
 @Deprecated("Use DescriptorProto.ReservedRange { } instead")
 public fun DescriptorProto.Companion.ReservedRange(
     start: Int? = null,
@@ -3905,26 +4064,21 @@ public fun DescriptorProto.Companion.ReservedRange(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use DescriptorProto.ReservedRange { } instead")
-public fun DescriptorProto.Companion.MutableReservedRange(
-    start: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): DescriptorProto.MutableReservedRange = DescriptorProto_MutableReservedRange_Impl(
-    start = start,
-    end = end,
-    unknownFields = unknownFields.toMutableMap()
+public fun DescriptorProto.Companion.MutableReservedRange(): DescriptorProto.MutableReservedRange = DescriptorProto_MutableReservedRange_Impl(
+    start = null,
+    end = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableReservedRange] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun DescriptorProto.Companion.ReservedRange(builderAction: DescriptorProto.MutableReservedRange.() -> Unit): DescriptorProto.ReservedRange {
-    @Suppress("DEPRECATION") val builder = DescriptorProto.MutableReservedRange()
-    builder.builderAction()
-    return builder.toReservedRange()
-}
+public fun DescriptorProto.Companion.ReservedRange(builderAction: DescriptorProto.MutableReservedRange.() -> Unit): DescriptorProto.ReservedRange =
+    DescriptorProto.Companion.MutableReservedRange().also(builderAction).toReservedRange()
+
+public fun DescriptorProto.Companion.MutableReservedRange(builderAction: DescriptorProto.MutableReservedRange.() -> Unit): DescriptorProto.MutableReservedRange =
+    DescriptorProto.Companion.MutableReservedRange().also(builderAction)
 
 /**
  * The [MutableReservedRange] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -3952,11 +4106,11 @@ private class DescriptorProto_ReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DescriptorProto_ReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.start = start
+        this.end = end
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? DescriptorProto.ReservedRange)?.let {
         it.copy(
@@ -3988,11 +4142,11 @@ private class DescriptorProto_MutableReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DescriptorProto_ReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.start = start
+        this.end = end
+        this.unknownFields.putAll(unknownFields)
+    }.toReservedRange()
 
     override operator fun plus(other: pbandk.Message?) = (other as? DescriptorProto.ReservedRange)?.let {
         it.copy(
@@ -4008,7 +4162,11 @@ private class DescriptorProto_MutableReservedRange_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableReservedRange() = this
+    override fun toMutableReservedRange() = DescriptorProto_MutableReservedRange_Impl(
+        start = start,
+        end = end,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4022,9 +4180,9 @@ private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.Mes
             2 -> end = _fieldValue as Int
         }
     }
-    @Suppress("DEPRECATION")
-    return DescriptorProto.ReservedRange(start, end, unknownFields)
+    return DescriptorProto_ReservedRange_Impl(start, end, unknownFields)
 }
+
 @Deprecated("Use ExtensionRangeOptions { } instead")
 public fun ExtensionRangeOptions(
     uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
@@ -4034,24 +4192,20 @@ public fun ExtensionRangeOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use ExtensionRangeOptions { } instead")
-public fun MutableExtensionRangeOptions(
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableExtensionRangeOptions = MutableExtensionRangeOptions_Impl(
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableExtensionRangeOptions(): MutableExtensionRangeOptions = MutableExtensionRangeOptions_Impl(
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableExtensionRangeOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun ExtensionRangeOptions(builderAction: MutableExtensionRangeOptions.() -> Unit): ExtensionRangeOptions {
-    @Suppress("DEPRECATION") val builder = MutableExtensionRangeOptions()
-    builder.builderAction()
-    return builder.toExtensionRangeOptions()
-}
+public fun ExtensionRangeOptions(builderAction: MutableExtensionRangeOptions.() -> Unit): ExtensionRangeOptions =
+    MutableExtensionRangeOptions().also(builderAction).toExtensionRangeOptions()
+
+public fun MutableExtensionRangeOptions(builderAction: MutableExtensionRangeOptions.() -> Unit): MutableExtensionRangeOptions =
+    MutableExtensionRangeOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForExtensionRangeOptions")
@@ -4071,10 +4225,10 @@ private class ExtensionRangeOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = ExtensionRangeOptions_Impl(
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? ExtensionRangeOptions)?.let {
         it.copy(
@@ -4103,10 +4257,10 @@ private class MutableExtensionRangeOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = ExtensionRangeOptions_Impl(
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toExtensionRangeOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? ExtensionRangeOptions)?.let {
         it.copy(
@@ -4120,7 +4274,10 @@ private class MutableExtensionRangeOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableExtensionRangeOptions() = this
+    override fun toMutableExtensionRangeOptions() = MutableExtensionRangeOptions_Impl(
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4132,9 +4289,9 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return ExtensionRangeOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return ExtensionRangeOptions_Impl(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use FieldDescriptorProto { } instead")
 public fun FieldDescriptorProto(
     name: String? = null,
@@ -4164,44 +4321,30 @@ public fun FieldDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FieldDescriptorProto { } instead")
-public fun MutableFieldDescriptorProto(
-    name: String? = null,
-    number: Int? = null,
-    label: pbandk.wkt.FieldDescriptorProto.Label? = null,
-    type: pbandk.wkt.FieldDescriptorProto.Type? = null,
-    typeName: String? = null,
-    extendee: String? = null,
-    defaultValue: String? = null,
-    oneofIndex: Int? = null,
-    jsonName: String? = null,
-    options: pbandk.wkt.FieldOptions? = null,
-    proto3Optional: Boolean? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFieldDescriptorProto = MutableFieldDescriptorProto_Impl(
-    name = name,
-    number = number,
-    label = label,
-    type = type,
-    typeName = typeName,
-    extendee = extendee,
-    defaultValue = defaultValue,
-    oneofIndex = oneofIndex,
-    jsonName = jsonName,
-    options = options,
-    proto3Optional = proto3Optional,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFieldDescriptorProto(): MutableFieldDescriptorProto = MutableFieldDescriptorProto_Impl(
+    name = null,
+    number = null,
+    label = null,
+    type = null,
+    typeName = null,
+    extendee = null,
+    defaultValue = null,
+    oneofIndex = null,
+    jsonName = null,
+    options = null,
+    proto3Optional = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFieldDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FieldDescriptorProto(builderAction: MutableFieldDescriptorProto.() -> Unit): FieldDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableFieldDescriptorProto()
-    builder.builderAction()
-    return builder.toFieldDescriptorProto()
-}
+public fun FieldDescriptorProto(builderAction: MutableFieldDescriptorProto.() -> Unit): FieldDescriptorProto =
+    MutableFieldDescriptorProto().also(builderAction).toFieldDescriptorProto()
+
+public fun MutableFieldDescriptorProto(builderAction: MutableFieldDescriptorProto.() -> Unit): MutableFieldDescriptorProto =
+    MutableFieldDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldDescriptorProto")
@@ -4240,20 +4383,20 @@ private class FieldDescriptorProto_Impl(
         options: pbandk.wkt.FieldOptions?,
         proto3Optional: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FieldDescriptorProto_Impl(
-        name = name,
-        number = number,
-        label = label,
-        type = type,
-        typeName = typeName,
-        extendee = extendee,
-        defaultValue = defaultValue,
-        oneofIndex = oneofIndex,
-        jsonName = jsonName,
-        options = options,
-        proto3Optional = proto3Optional,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.number = number
+        this.label = label
+        this.type = type
+        this.typeName = typeName
+        this.extendee = extendee
+        this.defaultValue = defaultValue
+        this.oneofIndex = oneofIndex
+        this.jsonName = jsonName
+        this.options = options
+        this.proto3Optional = proto3Optional
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FieldDescriptorProto)?.let {
         it.copy(
@@ -4321,20 +4464,20 @@ private class MutableFieldDescriptorProto_Impl(
         options: pbandk.wkt.FieldOptions?,
         proto3Optional: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FieldDescriptorProto_Impl(
-        name = name,
-        number = number,
-        label = label,
-        type = type,
-        typeName = typeName,
-        extendee = extendee,
-        defaultValue = defaultValue,
-        oneofIndex = oneofIndex,
-        jsonName = jsonName,
-        options = options,
-        proto3Optional = proto3Optional,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.number = number
+        this.label = label
+        this.type = type
+        this.typeName = typeName
+        this.extendee = extendee
+        this.defaultValue = defaultValue
+        this.oneofIndex = oneofIndex
+        this.jsonName = jsonName
+        this.options = options
+        this.proto3Optional = proto3Optional
+        this.unknownFields.putAll(unknownFields)
+    }.toFieldDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FieldDescriptorProto)?.let {
         it.copy(
@@ -4368,7 +4511,20 @@ private class MutableFieldDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFieldDescriptorProto() = this
+    override fun toMutableFieldDescriptorProto() = MutableFieldDescriptorProto_Impl(
+        name = name,
+        number = number,
+        label = label,
+        type = type,
+        typeName = typeName,
+        extendee = extendee,
+        defaultValue = defaultValue,
+        oneofIndex = oneofIndex,
+        jsonName = jsonName,
+        options = options,
+        proto3Optional = proto3Optional,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4400,11 +4556,11 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
             17 -> proto3Optional = _fieldValue as Boolean
         }
     }
-    @Suppress("DEPRECATION")
-    return FieldDescriptorProto(name, number, label, type,
+    return FieldDescriptorProto_Impl(name, number, label, type,
         typeName, extendee, defaultValue, oneofIndex,
         jsonName, options, proto3Optional, unknownFields)
 }
+
 @Deprecated("Use OneofDescriptorProto { } instead")
 public fun OneofDescriptorProto(
     name: String? = null,
@@ -4416,26 +4572,21 @@ public fun OneofDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use OneofDescriptorProto { } instead")
-public fun MutableOneofDescriptorProto(
-    name: String? = null,
-    options: pbandk.wkt.OneofOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableOneofDescriptorProto = MutableOneofDescriptorProto_Impl(
-    name = name,
-    options = options,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableOneofDescriptorProto(): MutableOneofDescriptorProto = MutableOneofDescriptorProto_Impl(
+    name = null,
+    options = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableOneofDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun OneofDescriptorProto(builderAction: MutableOneofDescriptorProto.() -> Unit): OneofDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableOneofDescriptorProto()
-    builder.builderAction()
-    return builder.toOneofDescriptorProto()
-}
+public fun OneofDescriptorProto(builderAction: MutableOneofDescriptorProto.() -> Unit): OneofDescriptorProto =
+    MutableOneofDescriptorProto().also(builderAction).toOneofDescriptorProto()
+
+public fun MutableOneofDescriptorProto(builderAction: MutableOneofDescriptorProto.() -> Unit): MutableOneofDescriptorProto =
+    MutableOneofDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForOneofDescriptorProto")
@@ -4456,11 +4607,11 @@ private class OneofDescriptorProto_Impl(
         name: String?,
         options: pbandk.wkt.OneofOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = OneofDescriptorProto_Impl(
-        name = name,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? OneofDescriptorProto)?.let {
         it.copy(
@@ -4492,11 +4643,11 @@ private class MutableOneofDescriptorProto_Impl(
         name: String?,
         options: pbandk.wkt.OneofOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = OneofDescriptorProto_Impl(
-        name = name,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }.toOneofDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? OneofDescriptorProto)?.let {
         it.copy(
@@ -4512,7 +4663,11 @@ private class MutableOneofDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableOneofDescriptorProto() = this
+    override fun toMutableOneofDescriptorProto() = MutableOneofDescriptorProto_Impl(
+        name = name,
+        options = options,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4526,9 +4681,9 @@ private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
             2 -> options = _fieldValue as pbandk.wkt.OneofOptions
         }
     }
-    @Suppress("DEPRECATION")
-    return OneofDescriptorProto(name, options, unknownFields)
+    return OneofDescriptorProto_Impl(name, options, unknownFields)
 }
+
 @Deprecated("Use EnumDescriptorProto { } instead")
 public fun EnumDescriptorProto(
     name: String? = null,
@@ -4546,32 +4701,24 @@ public fun EnumDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use EnumDescriptorProto { } instead")
-public fun MutableEnumDescriptorProto(
-    name: String? = null,
-    value: List<pbandk.wkt.EnumValueDescriptorProto> = emptyList(),
-    options: pbandk.wkt.EnumOptions? = null,
-    reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> = emptyList(),
-    reservedName: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableEnumDescriptorProto = MutableEnumDescriptorProto_Impl(
-    name = name,
-    value = value,
-    options = options,
-    reservedRange = reservedRange,
-    reservedName = reservedName,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableEnumDescriptorProto(): MutableEnumDescriptorProto = MutableEnumDescriptorProto_Impl(
+    name = null,
+    value = emptyList(),
+    options = null,
+    reservedRange = emptyList(),
+    reservedName = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableEnumDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumDescriptorProto(builderAction: MutableEnumDescriptorProto.() -> Unit): EnumDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableEnumDescriptorProto()
-    builder.builderAction()
-    return builder.toEnumDescriptorProto()
-}
+public fun EnumDescriptorProto(builderAction: MutableEnumDescriptorProto.() -> Unit): EnumDescriptorProto =
+    MutableEnumDescriptorProto().also(builderAction).toEnumDescriptorProto()
+
+public fun MutableEnumDescriptorProto(builderAction: MutableEnumDescriptorProto.() -> Unit): MutableEnumDescriptorProto =
+    MutableEnumDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumDescriptorProto")
@@ -4598,14 +4745,14 @@ private class EnumDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumDescriptorProto_Impl(
-        name = name,
-        value = value,
-        options = options,
-        reservedRange = reservedRange,
-        reservedName = reservedName,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.value = value
+        this.options = options
+        this.reservedRange = reservedRange
+        this.reservedName = reservedName
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumDescriptorProto)?.let {
         it.copy(
@@ -4649,14 +4796,14 @@ private class MutableEnumDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumDescriptorProto_Impl(
-        name = name,
-        value = value,
-        options = options,
-        reservedRange = reservedRange,
-        reservedName = reservedName,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.value = value
+        this.options = options
+        this.reservedRange = reservedRange
+        this.reservedName = reservedName
+        this.unknownFields.putAll(unknownFields)
+    }.toEnumDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumDescriptorProto)?.let {
         it.copy(
@@ -4678,7 +4825,14 @@ private class MutableEnumDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumDescriptorProto() = this
+    override fun toMutableEnumDescriptorProto() = MutableEnumDescriptorProto_Impl(
+        name = name,
+        value = value,
+        options = options,
+        reservedRange = reservedRange,
+        reservedName = reservedName,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4698,10 +4852,10 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
             5 -> reservedName = (reservedName ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
-    @Suppress("DEPRECATION")
-    return EnumDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(value), options, pbandk.ListWithSize.Builder.fixed(reservedRange),
+    return EnumDescriptorProto_Impl(name, pbandk.ListWithSize.Builder.fixed(value), options, pbandk.ListWithSize.Builder.fixed(reservedRange),
         pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
+
 @Deprecated("Use EnumDescriptorProto.EnumReservedRange { } instead")
 public fun EnumDescriptorProto.Companion.EnumReservedRange(
     start: Int? = null,
@@ -4713,26 +4867,21 @@ public fun EnumDescriptorProto.Companion.EnumReservedRange(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use EnumDescriptorProto.EnumReservedRange { } instead")
-public fun EnumDescriptorProto.Companion.MutableEnumReservedRange(
-    start: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): EnumDescriptorProto.MutableEnumReservedRange = EnumDescriptorProto_MutableEnumReservedRange_Impl(
-    start = start,
-    end = end,
-    unknownFields = unknownFields.toMutableMap()
+public fun EnumDescriptorProto.Companion.MutableEnumReservedRange(): EnumDescriptorProto.MutableEnumReservedRange = EnumDescriptorProto_MutableEnumReservedRange_Impl(
+    start = null,
+    end = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableEnumReservedRange] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumDescriptorProto.Companion.EnumReservedRange(builderAction: EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): EnumDescriptorProto.EnumReservedRange {
-    @Suppress("DEPRECATION") val builder = EnumDescriptorProto.MutableEnumReservedRange()
-    builder.builderAction()
-    return builder.toEnumReservedRange()
-}
+public fun EnumDescriptorProto.Companion.EnumReservedRange(builderAction: EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): EnumDescriptorProto.EnumReservedRange =
+    EnumDescriptorProto.Companion.MutableEnumReservedRange().also(builderAction).toEnumReservedRange()
+
+public fun EnumDescriptorProto.Companion.MutableEnumReservedRange(builderAction: EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): EnumDescriptorProto.MutableEnumReservedRange =
+    EnumDescriptorProto.Companion.MutableEnumReservedRange().also(builderAction)
 
 /**
  * The [MutableEnumReservedRange] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -4760,11 +4909,11 @@ private class EnumDescriptorProto_EnumReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumDescriptorProto_EnumReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.start = start
+        this.end = end
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumDescriptorProto.EnumReservedRange)?.let {
         it.copy(
@@ -4796,11 +4945,11 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumDescriptorProto_EnumReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.start = start
+        this.end = end
+        this.unknownFields.putAll(unknownFields)
+    }.toEnumReservedRange()
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumDescriptorProto.EnumReservedRange)?.let {
         it.copy(
@@ -4816,7 +4965,11 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumReservedRange() = this
+    override fun toMutableEnumReservedRange() = EnumDescriptorProto_MutableEnumReservedRange_Impl(
+        start = start,
+        end = end,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4830,9 +4983,9 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pb
             2 -> end = _fieldValue as Int
         }
     }
-    @Suppress("DEPRECATION")
-    return EnumDescriptorProto.EnumReservedRange(start, end, unknownFields)
+    return EnumDescriptorProto_EnumReservedRange_Impl(start, end, unknownFields)
 }
+
 @Deprecated("Use EnumValueDescriptorProto { } instead")
 public fun EnumValueDescriptorProto(
     name: String? = null,
@@ -4846,28 +4999,22 @@ public fun EnumValueDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use EnumValueDescriptorProto { } instead")
-public fun MutableEnumValueDescriptorProto(
-    name: String? = null,
-    number: Int? = null,
-    options: pbandk.wkt.EnumValueOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableEnumValueDescriptorProto = MutableEnumValueDescriptorProto_Impl(
-    name = name,
-    number = number,
-    options = options,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableEnumValueDescriptorProto(): MutableEnumValueDescriptorProto = MutableEnumValueDescriptorProto_Impl(
+    name = null,
+    number = null,
+    options = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableEnumValueDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumValueDescriptorProto(builderAction: MutableEnumValueDescriptorProto.() -> Unit): EnumValueDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableEnumValueDescriptorProto()
-    builder.builderAction()
-    return builder.toEnumValueDescriptorProto()
-}
+public fun EnumValueDescriptorProto(builderAction: MutableEnumValueDescriptorProto.() -> Unit): EnumValueDescriptorProto =
+    MutableEnumValueDescriptorProto().also(builderAction).toEnumValueDescriptorProto()
+
+public fun MutableEnumValueDescriptorProto(builderAction: MutableEnumValueDescriptorProto.() -> Unit): MutableEnumValueDescriptorProto =
+    MutableEnumValueDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumValueDescriptorProto")
@@ -4890,12 +5037,12 @@ private class EnumValueDescriptorProto_Impl(
         number: Int?,
         options: pbandk.wkt.EnumValueOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumValueDescriptorProto_Impl(
-        name = name,
-        number = number,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.number = number
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumValueDescriptorProto)?.let {
         it.copy(
@@ -4931,12 +5078,12 @@ private class MutableEnumValueDescriptorProto_Impl(
         number: Int?,
         options: pbandk.wkt.EnumValueOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumValueDescriptorProto_Impl(
-        name = name,
-        number = number,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.number = number
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }.toEnumValueDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumValueDescriptorProto)?.let {
         it.copy(
@@ -4954,7 +5101,12 @@ private class MutableEnumValueDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumValueDescriptorProto() = this
+    override fun toMutableEnumValueDescriptorProto() = MutableEnumValueDescriptorProto_Impl(
+        name = name,
+        number = number,
+        options = options,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4970,9 +5122,9 @@ private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageD
             3 -> options = _fieldValue as pbandk.wkt.EnumValueOptions
         }
     }
-    @Suppress("DEPRECATION")
-    return EnumValueDescriptorProto(name, number, options, unknownFields)
+    return EnumValueDescriptorProto_Impl(name, number, options, unknownFields)
 }
+
 @Deprecated("Use ServiceDescriptorProto { } instead")
 public fun ServiceDescriptorProto(
     name: String? = null,
@@ -4986,28 +5138,22 @@ public fun ServiceDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use ServiceDescriptorProto { } instead")
-public fun MutableServiceDescriptorProto(
-    name: String? = null,
-    method: List<pbandk.wkt.MethodDescriptorProto> = emptyList(),
-    options: pbandk.wkt.ServiceOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableServiceDescriptorProto = MutableServiceDescriptorProto_Impl(
-    name = name,
-    method = method,
-    options = options,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableServiceDescriptorProto(): MutableServiceDescriptorProto = MutableServiceDescriptorProto_Impl(
+    name = null,
+    method = emptyList(),
+    options = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableServiceDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun ServiceDescriptorProto(builderAction: MutableServiceDescriptorProto.() -> Unit): ServiceDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableServiceDescriptorProto()
-    builder.builderAction()
-    return builder.toServiceDescriptorProto()
-}
+public fun ServiceDescriptorProto(builderAction: MutableServiceDescriptorProto.() -> Unit): ServiceDescriptorProto =
+    MutableServiceDescriptorProto().also(builderAction).toServiceDescriptorProto()
+
+public fun MutableServiceDescriptorProto(builderAction: MutableServiceDescriptorProto.() -> Unit): MutableServiceDescriptorProto =
+    MutableServiceDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForServiceDescriptorProto")
@@ -5030,12 +5176,12 @@ private class ServiceDescriptorProto_Impl(
         method: List<pbandk.wkt.MethodDescriptorProto>,
         options: pbandk.wkt.ServiceOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = ServiceDescriptorProto_Impl(
-        name = name,
-        method = method,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.method = method
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? ServiceDescriptorProto)?.let {
         it.copy(
@@ -5071,12 +5217,12 @@ private class MutableServiceDescriptorProto_Impl(
         method: List<pbandk.wkt.MethodDescriptorProto>,
         options: pbandk.wkt.ServiceOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = ServiceDescriptorProto_Impl(
-        name = name,
-        method = method,
-        options = options,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.method = method
+        this.options = options
+        this.unknownFields.putAll(unknownFields)
+    }.toServiceDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? ServiceDescriptorProto)?.let {
         it.copy(
@@ -5094,7 +5240,12 @@ private class MutableServiceDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableServiceDescriptorProto() = this
+    override fun toMutableServiceDescriptorProto() = MutableServiceDescriptorProto_Impl(
+        name = name,
+        method = method,
+        options = options,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5110,9 +5261,9 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
             3 -> options = _fieldValue as pbandk.wkt.ServiceOptions
         }
     }
-    @Suppress("DEPRECATION")
-    return ServiceDescriptorProto(name, pbandk.ListWithSize.Builder.fixed(method), options, unknownFields)
+    return ServiceDescriptorProto_Impl(name, pbandk.ListWithSize.Builder.fixed(method), options, unknownFields)
 }
+
 @Deprecated("Use MethodDescriptorProto { } instead")
 public fun MethodDescriptorProto(
     name: String? = null,
@@ -5132,34 +5283,25 @@ public fun MethodDescriptorProto(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use MethodDescriptorProto { } instead")
-public fun MutableMethodDescriptorProto(
-    name: String? = null,
-    inputType: String? = null,
-    outputType: String? = null,
-    options: pbandk.wkt.MethodOptions? = null,
-    clientStreaming: Boolean? = null,
-    serverStreaming: Boolean? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableMethodDescriptorProto = MutableMethodDescriptorProto_Impl(
-    name = name,
-    inputType = inputType,
-    outputType = outputType,
-    options = options,
-    clientStreaming = clientStreaming,
-    serverStreaming = serverStreaming,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableMethodDescriptorProto(): MutableMethodDescriptorProto = MutableMethodDescriptorProto_Impl(
+    name = null,
+    inputType = null,
+    outputType = null,
+    options = null,
+    clientStreaming = null,
+    serverStreaming = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMethodDescriptorProto] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MethodDescriptorProto(builderAction: MutableMethodDescriptorProto.() -> Unit): MethodDescriptorProto {
-    @Suppress("DEPRECATION") val builder = MutableMethodDescriptorProto()
-    builder.builderAction()
-    return builder.toMethodDescriptorProto()
-}
+public fun MethodDescriptorProto(builderAction: MutableMethodDescriptorProto.() -> Unit): MethodDescriptorProto =
+    MutableMethodDescriptorProto().also(builderAction).toMethodDescriptorProto()
+
+public fun MutableMethodDescriptorProto(builderAction: MutableMethodDescriptorProto.() -> Unit): MutableMethodDescriptorProto =
+    MutableMethodDescriptorProto().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMethodDescriptorProto")
@@ -5188,15 +5330,15 @@ private class MethodDescriptorProto_Impl(
         clientStreaming: Boolean?,
         serverStreaming: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MethodDescriptorProto_Impl(
-        name = name,
-        inputType = inputType,
-        outputType = outputType,
-        options = options,
-        clientStreaming = clientStreaming,
-        serverStreaming = serverStreaming,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.inputType = inputType
+        this.outputType = outputType
+        this.options = options
+        this.clientStreaming = clientStreaming
+        this.serverStreaming = serverStreaming
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? MethodDescriptorProto)?.let {
         it.copy(
@@ -5244,15 +5386,15 @@ private class MutableMethodDescriptorProto_Impl(
         clientStreaming: Boolean?,
         serverStreaming: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MethodDescriptorProto_Impl(
-        name = name,
-        inputType = inputType,
-        outputType = outputType,
-        options = options,
-        clientStreaming = clientStreaming,
-        serverStreaming = serverStreaming,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.inputType = inputType
+        this.outputType = outputType
+        this.options = options
+        this.clientStreaming = clientStreaming
+        this.serverStreaming = serverStreaming
+        this.unknownFields.putAll(unknownFields)
+    }.toMethodDescriptorProto()
 
     override operator fun plus(other: pbandk.Message?) = (other as? MethodDescriptorProto)?.let {
         it.copy(
@@ -5276,7 +5418,15 @@ private class MutableMethodDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMethodDescriptorProto() = this
+    override fun toMutableMethodDescriptorProto() = MutableMethodDescriptorProto_Impl(
+        name = name,
+        inputType = inputType,
+        outputType = outputType,
+        options = options,
+        clientStreaming = clientStreaming,
+        serverStreaming = serverStreaming,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5298,10 +5448,10 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
             6 -> serverStreaming = _fieldValue as Boolean
         }
     }
-    @Suppress("DEPRECATION")
-    return MethodDescriptorProto(name, inputType, outputType, options,
+    return MethodDescriptorProto_Impl(name, inputType, outputType, options,
         clientStreaming, serverStreaming, unknownFields)
 }
+
 @Deprecated("Use FileOptions { } instead")
 public fun FileOptions(
     javaPackage: String? = null,
@@ -5351,64 +5501,40 @@ public fun FileOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FileOptions { } instead")
-public fun MutableFileOptions(
-    javaPackage: String? = null,
-    javaOuterClassname: String? = null,
-    javaMultipleFiles: Boolean? = null,
-    javaGenerateEqualsAndHash: Boolean? = null,
-    javaStringCheckUtf8: Boolean? = null,
-    optimizeFor: pbandk.wkt.FileOptions.OptimizeMode? = null,
-    goPackage: String? = null,
-    ccGenericServices: Boolean? = null,
-    javaGenericServices: Boolean? = null,
-    pyGenericServices: Boolean? = null,
-    phpGenericServices: Boolean? = null,
-    deprecated: Boolean? = null,
-    ccEnableArenas: Boolean? = null,
-    objcClassPrefix: String? = null,
-    csharpNamespace: String? = null,
-    swiftPrefix: String? = null,
-    phpClassPrefix: String? = null,
-    phpNamespace: String? = null,
-    phpMetadataNamespace: String? = null,
-    rubyPackage: String? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFileOptions = MutableFileOptions_Impl(
-    javaPackage = javaPackage,
-    javaOuterClassname = javaOuterClassname,
-    javaMultipleFiles = javaMultipleFiles,
-    javaGenerateEqualsAndHash = javaGenerateEqualsAndHash,
-    javaStringCheckUtf8 = javaStringCheckUtf8,
-    optimizeFor = optimizeFor,
-    goPackage = goPackage,
-    ccGenericServices = ccGenericServices,
-    javaGenericServices = javaGenericServices,
-    pyGenericServices = pyGenericServices,
-    phpGenericServices = phpGenericServices,
-    deprecated = deprecated,
-    ccEnableArenas = ccEnableArenas,
-    objcClassPrefix = objcClassPrefix,
-    csharpNamespace = csharpNamespace,
-    swiftPrefix = swiftPrefix,
-    phpClassPrefix = phpClassPrefix,
-    phpNamespace = phpNamespace,
-    phpMetadataNamespace = phpMetadataNamespace,
-    rubyPackage = rubyPackage,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFileOptions(): MutableFileOptions = MutableFileOptions_Impl(
+    javaPackage = null,
+    javaOuterClassname = null,
+    javaMultipleFiles = null,
+    javaGenerateEqualsAndHash = null,
+    javaStringCheckUtf8 = null,
+    optimizeFor = null,
+    goPackage = null,
+    ccGenericServices = null,
+    javaGenericServices = null,
+    pyGenericServices = null,
+    phpGenericServices = null,
+    deprecated = null,
+    ccEnableArenas = null,
+    objcClassPrefix = null,
+    csharpNamespace = null,
+    swiftPrefix = null,
+    phpClassPrefix = null,
+    phpNamespace = null,
+    phpMetadataNamespace = null,
+    rubyPackage = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFileOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FileOptions(builderAction: MutableFileOptions.() -> Unit): FileOptions {
-    @Suppress("DEPRECATION") val builder = MutableFileOptions()
-    builder.builderAction()
-    return builder.toFileOptions()
-}
+public fun FileOptions(builderAction: MutableFileOptions.() -> Unit): FileOptions =
+    MutableFileOptions().also(builderAction).toFileOptions()
+
+public fun MutableFileOptions(builderAction: MutableFileOptions.() -> Unit): MutableFileOptions =
+    MutableFileOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFileOptions")
@@ -5469,30 +5595,30 @@ private class FileOptions_Impl(
         rubyPackage: String?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FileOptions_Impl(
-        javaPackage = javaPackage,
-        javaOuterClassname = javaOuterClassname,
-        javaMultipleFiles = javaMultipleFiles,
-        javaGenerateEqualsAndHash = javaGenerateEqualsAndHash,
-        javaStringCheckUtf8 = javaStringCheckUtf8,
-        optimizeFor = optimizeFor,
-        goPackage = goPackage,
-        ccGenericServices = ccGenericServices,
-        javaGenericServices = javaGenericServices,
-        pyGenericServices = pyGenericServices,
-        phpGenericServices = phpGenericServices,
-        deprecated = deprecated,
-        ccEnableArenas = ccEnableArenas,
-        objcClassPrefix = objcClassPrefix,
-        csharpNamespace = csharpNamespace,
-        swiftPrefix = swiftPrefix,
-        phpClassPrefix = phpClassPrefix,
-        phpNamespace = phpNamespace,
-        phpMetadataNamespace = phpMetadataNamespace,
-        rubyPackage = rubyPackage,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.javaPackage = javaPackage
+        this.javaOuterClassname = javaOuterClassname
+        this.javaMultipleFiles = javaMultipleFiles
+        this.javaGenerateEqualsAndHash = javaGenerateEqualsAndHash
+        this.javaStringCheckUtf8 = javaStringCheckUtf8
+        this.optimizeFor = optimizeFor
+        this.goPackage = goPackage
+        this.ccGenericServices = ccGenericServices
+        this.javaGenericServices = javaGenericServices
+        this.pyGenericServices = pyGenericServices
+        this.phpGenericServices = phpGenericServices
+        this.deprecated = deprecated
+        this.ccEnableArenas = ccEnableArenas
+        this.objcClassPrefix = objcClassPrefix
+        this.csharpNamespace = csharpNamespace
+        this.swiftPrefix = swiftPrefix
+        this.phpClassPrefix = phpClassPrefix
+        this.phpNamespace = phpNamespace
+        this.phpMetadataNamespace = phpMetadataNamespace
+        this.rubyPackage = rubyPackage
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FileOptions)?.let {
         @Suppress("DEPRECATION")
@@ -5603,30 +5729,30 @@ private class MutableFileOptions_Impl(
         rubyPackage: String?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FileOptions_Impl(
-        javaPackage = javaPackage,
-        javaOuterClassname = javaOuterClassname,
-        javaMultipleFiles = javaMultipleFiles,
-        javaGenerateEqualsAndHash = javaGenerateEqualsAndHash,
-        javaStringCheckUtf8 = javaStringCheckUtf8,
-        optimizeFor = optimizeFor,
-        goPackage = goPackage,
-        ccGenericServices = ccGenericServices,
-        javaGenericServices = javaGenericServices,
-        pyGenericServices = pyGenericServices,
-        phpGenericServices = phpGenericServices,
-        deprecated = deprecated,
-        ccEnableArenas = ccEnableArenas,
-        objcClassPrefix = objcClassPrefix,
-        csharpNamespace = csharpNamespace,
-        swiftPrefix = swiftPrefix,
-        phpClassPrefix = phpClassPrefix,
-        phpNamespace = phpNamespace,
-        phpMetadataNamespace = phpMetadataNamespace,
-        rubyPackage = rubyPackage,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.javaPackage = javaPackage
+        this.javaOuterClassname = javaOuterClassname
+        this.javaMultipleFiles = javaMultipleFiles
+        this.javaGenerateEqualsAndHash = javaGenerateEqualsAndHash
+        this.javaStringCheckUtf8 = javaStringCheckUtf8
+        this.optimizeFor = optimizeFor
+        this.goPackage = goPackage
+        this.ccGenericServices = ccGenericServices
+        this.javaGenericServices = javaGenericServices
+        this.pyGenericServices = pyGenericServices
+        this.phpGenericServices = phpGenericServices
+        this.deprecated = deprecated
+        this.ccEnableArenas = ccEnableArenas
+        this.objcClassPrefix = objcClassPrefix
+        this.csharpNamespace = csharpNamespace
+        this.swiftPrefix = swiftPrefix
+        this.phpClassPrefix = phpClassPrefix
+        this.phpNamespace = phpNamespace
+        this.phpMetadataNamespace = phpMetadataNamespace
+        this.rubyPackage = rubyPackage
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toFileOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FileOptions)?.let {
         @Suppress("DEPRECATION")
@@ -5681,7 +5807,30 @@ private class MutableFileOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFileOptions() = this
+    override fun toMutableFileOptions() = MutableFileOptions_Impl(
+        javaPackage = javaPackage,
+        javaOuterClassname = javaOuterClassname,
+        javaMultipleFiles = javaMultipleFiles,
+        javaGenerateEqualsAndHash = @Suppress("DEPRECATION") javaGenerateEqualsAndHash,
+        javaStringCheckUtf8 = javaStringCheckUtf8,
+        optimizeFor = optimizeFor,
+        goPackage = goPackage,
+        ccGenericServices = ccGenericServices,
+        javaGenericServices = javaGenericServices,
+        pyGenericServices = pyGenericServices,
+        phpGenericServices = phpGenericServices,
+        deprecated = deprecated,
+        ccEnableArenas = ccEnableArenas,
+        objcClassPrefix = objcClassPrefix,
+        csharpNamespace = csharpNamespace,
+        swiftPrefix = swiftPrefix,
+        phpClassPrefix = phpClassPrefix,
+        phpNamespace = phpNamespace,
+        phpMetadataNamespace = phpMetadataNamespace,
+        rubyPackage = rubyPackage,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5733,14 +5882,14 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return FileOptions(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
+    return FileOptions_Impl(javaPackage, javaOuterClassname, javaMultipleFiles, javaGenerateEqualsAndHash,
         javaStringCheckUtf8, optimizeFor, goPackage, ccGenericServices,
         javaGenericServices, pyGenericServices, phpGenericServices, deprecated,
         ccEnableArenas, objcClassPrefix, csharpNamespace, swiftPrefix,
         phpClassPrefix, phpNamespace, phpMetadataNamespace, rubyPackage,
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use MessageOptions { } instead")
 public fun MessageOptions(
     messageSetWireFormat: Boolean? = null,
@@ -5758,32 +5907,24 @@ public fun MessageOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use MessageOptions { } instead")
-public fun MutableMessageOptions(
-    messageSetWireFormat: Boolean? = null,
-    noStandardDescriptorAccessor: Boolean? = null,
-    deprecated: Boolean? = null,
-    mapEntry: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableMessageOptions = MutableMessageOptions_Impl(
-    messageSetWireFormat = messageSetWireFormat,
-    noStandardDescriptorAccessor = noStandardDescriptorAccessor,
-    deprecated = deprecated,
-    mapEntry = mapEntry,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableMessageOptions(): MutableMessageOptions = MutableMessageOptions_Impl(
+    messageSetWireFormat = null,
+    noStandardDescriptorAccessor = null,
+    deprecated = null,
+    mapEntry = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMessageOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageOptions(builderAction: MutableMessageOptions.() -> Unit): MessageOptions {
-    @Suppress("DEPRECATION") val builder = MutableMessageOptions()
-    builder.builderAction()
-    return builder.toMessageOptions()
-}
+public fun MessageOptions(builderAction: MutableMessageOptions.() -> Unit): MessageOptions =
+    MutableMessageOptions().also(builderAction).toMessageOptions()
+
+public fun MutableMessageOptions(builderAction: MutableMessageOptions.() -> Unit): MutableMessageOptions =
+    MutableMessageOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageOptions")
@@ -5811,14 +5952,14 @@ private class MessageOptions_Impl(
         mapEntry: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MessageOptions_Impl(
-        messageSetWireFormat = messageSetWireFormat,
-        noStandardDescriptorAccessor = noStandardDescriptorAccessor,
-        deprecated = deprecated,
-        mapEntry = mapEntry,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.messageSetWireFormat = messageSetWireFormat
+        this.noStandardDescriptorAccessor = noStandardDescriptorAccessor
+        this.deprecated = deprecated
+        this.mapEntry = mapEntry
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? MessageOptions)?.let {
         it.copy(
@@ -5863,14 +6004,14 @@ private class MutableMessageOptions_Impl(
         mapEntry: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MessageOptions_Impl(
-        messageSetWireFormat = messageSetWireFormat,
-        noStandardDescriptorAccessor = noStandardDescriptorAccessor,
-        deprecated = deprecated,
-        mapEntry = mapEntry,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.messageSetWireFormat = messageSetWireFormat
+        this.noStandardDescriptorAccessor = noStandardDescriptorAccessor
+        this.deprecated = deprecated
+        this.mapEntry = mapEntry
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toMessageOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? MessageOptions)?.let {
         it.copy(
@@ -5892,7 +6033,14 @@ private class MutableMessageOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMessageOptions() = this
+    override fun toMutableMessageOptions() = MutableMessageOptions_Impl(
+        messageSetWireFormat = messageSetWireFormat,
+        noStandardDescriptorAccessor = noStandardDescriptorAccessor,
+        deprecated = deprecated,
+        mapEntry = mapEntry,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5912,10 +6060,10 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return MessageOptions(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry,
+    return MessageOptions_Impl(messageSetWireFormat, noStandardDescriptorAccessor, deprecated, mapEntry,
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use FieldOptions { } instead")
 public fun FieldOptions(
     ctype: pbandk.wkt.FieldOptions.CType? = null,
@@ -5937,36 +6085,26 @@ public fun FieldOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FieldOptions { } instead")
-public fun MutableFieldOptions(
-    ctype: pbandk.wkt.FieldOptions.CType? = null,
-    packed: Boolean? = null,
-    jstype: pbandk.wkt.FieldOptions.JSType? = null,
-    lazy: Boolean? = null,
-    deprecated: Boolean? = null,
-    weak: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFieldOptions = MutableFieldOptions_Impl(
-    ctype = ctype,
-    packed = packed,
-    jstype = jstype,
-    lazy = lazy,
-    deprecated = deprecated,
-    weak = weak,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFieldOptions(): MutableFieldOptions = MutableFieldOptions_Impl(
+    ctype = null,
+    packed = null,
+    jstype = null,
+    lazy = null,
+    deprecated = null,
+    weak = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFieldOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FieldOptions(builderAction: MutableFieldOptions.() -> Unit): FieldOptions {
-    @Suppress("DEPRECATION") val builder = MutableFieldOptions()
-    builder.builderAction()
-    return builder.toFieldOptions()
-}
+public fun FieldOptions(builderAction: MutableFieldOptions.() -> Unit): FieldOptions =
+    MutableFieldOptions().also(builderAction).toFieldOptions()
+
+public fun MutableFieldOptions(builderAction: MutableFieldOptions.() -> Unit): MutableFieldOptions =
+    MutableFieldOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldOptions")
@@ -5998,16 +6136,16 @@ private class FieldOptions_Impl(
         weak: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FieldOptions_Impl(
-        ctype = ctype,
-        packed = packed,
-        jstype = jstype,
-        lazy = lazy,
-        deprecated = deprecated,
-        weak = weak,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.ctype = ctype
+        this.packed = packed
+        this.jstype = jstype
+        this.lazy = lazy
+        this.deprecated = deprecated
+        this.weak = weak
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FieldOptions)?.let {
         it.copy(
@@ -6060,16 +6198,16 @@ private class MutableFieldOptions_Impl(
         weak: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FieldOptions_Impl(
-        ctype = ctype,
-        packed = packed,
-        jstype = jstype,
-        lazy = lazy,
-        deprecated = deprecated,
-        weak = weak,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.ctype = ctype
+        this.packed = packed
+        this.jstype = jstype
+        this.lazy = lazy
+        this.deprecated = deprecated
+        this.weak = weak
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toFieldOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FieldOptions)?.let {
         it.copy(
@@ -6095,7 +6233,16 @@ private class MutableFieldOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFieldOptions() = this
+    override fun toMutableFieldOptions() = MutableFieldOptions_Impl(
+        ctype = ctype,
+        packed = packed,
+        jstype = jstype,
+        lazy = lazy,
+        deprecated = deprecated,
+        weak = weak,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6119,10 +6266,10 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return FieldOptions(ctype, packed, jstype, lazy,
+    return FieldOptions_Impl(ctype, packed, jstype, lazy,
         deprecated, weak, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use OneofOptions { } instead")
 public fun OneofOptions(
     uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
@@ -6132,24 +6279,20 @@ public fun OneofOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use OneofOptions { } instead")
-public fun MutableOneofOptions(
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableOneofOptions = MutableOneofOptions_Impl(
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableOneofOptions(): MutableOneofOptions = MutableOneofOptions_Impl(
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableOneofOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun OneofOptions(builderAction: MutableOneofOptions.() -> Unit): OneofOptions {
-    @Suppress("DEPRECATION") val builder = MutableOneofOptions()
-    builder.builderAction()
-    return builder.toOneofOptions()
-}
+public fun OneofOptions(builderAction: MutableOneofOptions.() -> Unit): OneofOptions =
+    MutableOneofOptions().also(builderAction).toOneofOptions()
+
+public fun MutableOneofOptions(builderAction: MutableOneofOptions.() -> Unit): MutableOneofOptions =
+    MutableOneofOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForOneofOptions")
@@ -6169,10 +6312,10 @@ private class OneofOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = OneofOptions_Impl(
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? OneofOptions)?.let {
         it.copy(
@@ -6201,10 +6344,10 @@ private class MutableOneofOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = OneofOptions_Impl(
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toOneofOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? OneofOptions)?.let {
         it.copy(
@@ -6218,7 +6361,10 @@ private class MutableOneofOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableOneofOptions() = this
+    override fun toMutableOneofOptions() = MutableOneofOptions_Impl(
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6230,9 +6376,9 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return OneofOptions(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return OneofOptions_Impl(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use EnumOptions { } instead")
 public fun EnumOptions(
     allowAlias: Boolean? = null,
@@ -6246,28 +6392,22 @@ public fun EnumOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use EnumOptions { } instead")
-public fun MutableEnumOptions(
-    allowAlias: Boolean? = null,
-    deprecated: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableEnumOptions = MutableEnumOptions_Impl(
-    allowAlias = allowAlias,
-    deprecated = deprecated,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableEnumOptions(): MutableEnumOptions = MutableEnumOptions_Impl(
+    allowAlias = null,
+    deprecated = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableEnumOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumOptions(builderAction: MutableEnumOptions.() -> Unit): EnumOptions {
-    @Suppress("DEPRECATION") val builder = MutableEnumOptions()
-    builder.builderAction()
-    return builder.toEnumOptions()
-}
+public fun EnumOptions(builderAction: MutableEnumOptions.() -> Unit): EnumOptions =
+    MutableEnumOptions().also(builderAction).toEnumOptions()
+
+public fun MutableEnumOptions(builderAction: MutableEnumOptions.() -> Unit): MutableEnumOptions =
+    MutableEnumOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumOptions")
@@ -6291,12 +6431,12 @@ private class EnumOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumOptions_Impl(
-        allowAlias = allowAlias,
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.allowAlias = allowAlias
+        this.deprecated = deprecated
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumOptions)?.let {
         it.copy(
@@ -6333,12 +6473,12 @@ private class MutableEnumOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumOptions_Impl(
-        allowAlias = allowAlias,
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.allowAlias = allowAlias
+        this.deprecated = deprecated
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toEnumOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumOptions)?.let {
         it.copy(
@@ -6356,7 +6496,12 @@ private class MutableEnumOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumOptions() = this
+    override fun toMutableEnumOptions() = MutableEnumOptions_Impl(
+        allowAlias = allowAlias,
+        deprecated = deprecated,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6372,9 +6517,9 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return EnumOptions(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return EnumOptions_Impl(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use EnumValueOptions { } instead")
 public fun EnumValueOptions(
     deprecated: Boolean? = null,
@@ -6386,26 +6531,21 @@ public fun EnumValueOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use EnumValueOptions { } instead")
-public fun MutableEnumValueOptions(
-    deprecated: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableEnumValueOptions = MutableEnumValueOptions_Impl(
-    deprecated = deprecated,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableEnumValueOptions(): MutableEnumValueOptions = MutableEnumValueOptions_Impl(
+    deprecated = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableEnumValueOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumValueOptions(builderAction: MutableEnumValueOptions.() -> Unit): EnumValueOptions {
-    @Suppress("DEPRECATION") val builder = MutableEnumValueOptions()
-    builder.builderAction()
-    return builder.toEnumValueOptions()
-}
+public fun EnumValueOptions(builderAction: MutableEnumValueOptions.() -> Unit): EnumValueOptions =
+    MutableEnumValueOptions().also(builderAction).toEnumValueOptions()
+
+public fun MutableEnumValueOptions(builderAction: MutableEnumValueOptions.() -> Unit): MutableEnumValueOptions =
+    MutableEnumValueOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumValueOptions")
@@ -6427,11 +6567,11 @@ private class EnumValueOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumValueOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.deprecated = deprecated
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumValueOptions)?.let {
         it.copy(
@@ -6464,11 +6604,11 @@ private class MutableEnumValueOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = EnumValueOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.deprecated = deprecated
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toEnumValueOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? EnumValueOptions)?.let {
         it.copy(
@@ -6484,7 +6624,11 @@ private class MutableEnumValueOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumValueOptions() = this
+    override fun toMutableEnumValueOptions() = MutableEnumValueOptions_Impl(
+        deprecated = deprecated,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6498,9 +6642,9 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return EnumValueOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return EnumValueOptions_Impl(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use ServiceOptions { } instead")
 public fun ServiceOptions(
     deprecated: Boolean? = null,
@@ -6512,26 +6656,21 @@ public fun ServiceOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use ServiceOptions { } instead")
-public fun MutableServiceOptions(
-    deprecated: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableServiceOptions = MutableServiceOptions_Impl(
-    deprecated = deprecated,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableServiceOptions(): MutableServiceOptions = MutableServiceOptions_Impl(
+    deprecated = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableServiceOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun ServiceOptions(builderAction: MutableServiceOptions.() -> Unit): ServiceOptions {
-    @Suppress("DEPRECATION") val builder = MutableServiceOptions()
-    builder.builderAction()
-    return builder.toServiceOptions()
-}
+public fun ServiceOptions(builderAction: MutableServiceOptions.() -> Unit): ServiceOptions =
+    MutableServiceOptions().also(builderAction).toServiceOptions()
+
+public fun MutableServiceOptions(builderAction: MutableServiceOptions.() -> Unit): MutableServiceOptions =
+    MutableServiceOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForServiceOptions")
@@ -6553,11 +6692,11 @@ private class ServiceOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = ServiceOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.deprecated = deprecated
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? ServiceOptions)?.let {
         it.copy(
@@ -6590,11 +6729,11 @@ private class MutableServiceOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = ServiceOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.deprecated = deprecated
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toServiceOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? ServiceOptions)?.let {
         it.copy(
@@ -6610,7 +6749,11 @@ private class MutableServiceOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableServiceOptions() = this
+    override fun toMutableServiceOptions() = MutableServiceOptions_Impl(
+        deprecated = deprecated,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6624,9 +6767,9 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return ServiceOptions(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return ServiceOptions_Impl(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use MethodOptions { } instead")
 public fun MethodOptions(
     deprecated: Boolean? = null,
@@ -6640,28 +6783,22 @@ public fun MethodOptions(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use MethodOptions { } instead")
-public fun MutableMethodOptions(
-    deprecated: Boolean? = null,
-    idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableMethodOptions = MutableMethodOptions_Impl(
-    deprecated = deprecated,
-    idempotencyLevel = idempotencyLevel,
-    uninterpretedOption = uninterpretedOption,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableMethodOptions(): MutableMethodOptions = MutableMethodOptions_Impl(
+    deprecated = null,
+    idempotencyLevel = null,
+    uninterpretedOption = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMethodOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MethodOptions(builderAction: MutableMethodOptions.() -> Unit): MethodOptions {
-    @Suppress("DEPRECATION") val builder = MutableMethodOptions()
-    builder.builderAction()
-    return builder.toMethodOptions()
-}
+public fun MethodOptions(builderAction: MutableMethodOptions.() -> Unit): MethodOptions =
+    MutableMethodOptions().also(builderAction).toMethodOptions()
+
+public fun MutableMethodOptions(builderAction: MutableMethodOptions.() -> Unit): MutableMethodOptions =
+    MutableMethodOptions().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMethodOptions")
@@ -6685,12 +6822,12 @@ private class MethodOptions_Impl(
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MethodOptions_Impl(
-        deprecated = deprecated,
-        idempotencyLevel = idempotencyLevel,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.deprecated = deprecated
+        this.idempotencyLevel = idempotencyLevel
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? MethodOptions)?.let {
         it.copy(
@@ -6727,12 +6864,12 @@ private class MutableMethodOptions_Impl(
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MethodOptions_Impl(
-        deprecated = deprecated,
-        idempotencyLevel = idempotencyLevel,
-        uninterpretedOption = uninterpretedOption,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.deprecated = deprecated
+        this.idempotencyLevel = idempotencyLevel
+        this.uninterpretedOption = uninterpretedOption
+        this.unknownFields.putAll(unknownFields)
+    }.toMethodOptions()
 
     override operator fun plus(other: pbandk.Message?) = (other as? MethodOptions)?.let {
         it.copy(
@@ -6750,7 +6887,12 @@ private class MutableMethodOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMethodOptions() = this
+    override fun toMutableMethodOptions() = MutableMethodOptions_Impl(
+        deprecated = deprecated,
+        idempotencyLevel = idempotencyLevel,
+        uninterpretedOption = uninterpretedOption,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6766,9 +6908,9 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Me
             999 -> uninterpretedOption = (uninterpretedOption ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.UninterpretedOption> }
         }
     }
-    @Suppress("DEPRECATION")
-    return MethodOptions(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
+    return MethodOptions_Impl(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
+
 @Deprecated("Use UninterpretedOption { } instead")
 public fun UninterpretedOption(
     name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList(),
@@ -6790,36 +6932,26 @@ public fun UninterpretedOption(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use UninterpretedOption { } instead")
-public fun MutableUninterpretedOption(
-    name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList(),
-    identifierValue: String? = null,
-    positiveIntValue: Long? = null,
-    negativeIntValue: Long? = null,
-    doubleValue: Double? = null,
-    stringValue: pbandk.ByteArr? = null,
-    aggregateValue: String? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableUninterpretedOption = MutableUninterpretedOption_Impl(
-    name = name,
-    identifierValue = identifierValue,
-    positiveIntValue = positiveIntValue,
-    negativeIntValue = negativeIntValue,
-    doubleValue = doubleValue,
-    stringValue = stringValue,
-    aggregateValue = aggregateValue,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableUninterpretedOption(): MutableUninterpretedOption = MutableUninterpretedOption_Impl(
+    name = emptyList(),
+    identifierValue = null,
+    positiveIntValue = null,
+    negativeIntValue = null,
+    doubleValue = null,
+    stringValue = null,
+    aggregateValue = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableUninterpretedOption] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun UninterpretedOption(builderAction: MutableUninterpretedOption.() -> Unit): UninterpretedOption {
-    @Suppress("DEPRECATION") val builder = MutableUninterpretedOption()
-    builder.builderAction()
-    return builder.toUninterpretedOption()
-}
+public fun UninterpretedOption(builderAction: MutableUninterpretedOption.() -> Unit): UninterpretedOption =
+    MutableUninterpretedOption().also(builderAction).toUninterpretedOption()
+
+public fun MutableUninterpretedOption(builderAction: MutableUninterpretedOption.() -> Unit): MutableUninterpretedOption =
+    MutableUninterpretedOption().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUninterpretedOption")
@@ -6850,16 +6982,16 @@ private class UninterpretedOption_Impl(
         stringValue: pbandk.ByteArr?,
         aggregateValue: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UninterpretedOption_Impl(
-        name = name,
-        identifierValue = identifierValue,
-        positiveIntValue = positiveIntValue,
-        negativeIntValue = negativeIntValue,
-        doubleValue = doubleValue,
-        stringValue = stringValue,
-        aggregateValue = aggregateValue,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.identifierValue = identifierValue
+        this.positiveIntValue = positiveIntValue
+        this.negativeIntValue = negativeIntValue
+        this.doubleValue = doubleValue
+        this.stringValue = stringValue
+        this.aggregateValue = aggregateValue
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? UninterpretedOption)?.let {
         it.copy(
@@ -6911,16 +7043,16 @@ private class MutableUninterpretedOption_Impl(
         stringValue: pbandk.ByteArr?,
         aggregateValue: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UninterpretedOption_Impl(
-        name = name,
-        identifierValue = identifierValue,
-        positiveIntValue = positiveIntValue,
-        negativeIntValue = negativeIntValue,
-        doubleValue = doubleValue,
-        stringValue = stringValue,
-        aggregateValue = aggregateValue,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.name = name
+        this.identifierValue = identifierValue
+        this.positiveIntValue = positiveIntValue
+        this.negativeIntValue = negativeIntValue
+        this.doubleValue = doubleValue
+        this.stringValue = stringValue
+        this.aggregateValue = aggregateValue
+        this.unknownFields.putAll(unknownFields)
+    }.toUninterpretedOption()
 
     override operator fun plus(other: pbandk.Message?) = (other as? UninterpretedOption)?.let {
         it.copy(
@@ -6946,7 +7078,16 @@ private class MutableUninterpretedOption_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUninterpretedOption() = this
+    override fun toMutableUninterpretedOption() = MutableUninterpretedOption_Impl(
+        name = name,
+        identifierValue = identifierValue,
+        positiveIntValue = positiveIntValue,
+        negativeIntValue = negativeIntValue,
+        doubleValue = doubleValue,
+        stringValue = stringValue,
+        aggregateValue = aggregateValue,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6970,10 +7111,10 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
             8 -> aggregateValue = _fieldValue as String
         }
     }
-    @Suppress("DEPRECATION")
-    return UninterpretedOption(pbandk.ListWithSize.Builder.fixed(name), identifierValue, positiveIntValue, negativeIntValue,
+    return UninterpretedOption_Impl(pbandk.ListWithSize.Builder.fixed(name), identifierValue, positiveIntValue, negativeIntValue,
         doubleValue, stringValue, aggregateValue, unknownFields)
 }
+
 @Deprecated("Use UninterpretedOption.NamePart { } instead")
 public fun UninterpretedOption.Companion.NamePart(
     namePart: String = "",
@@ -6985,26 +7126,21 @@ public fun UninterpretedOption.Companion.NamePart(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use UninterpretedOption.NamePart { } instead")
-public fun UninterpretedOption.Companion.MutableNamePart(
-    namePart: String = "",
-    isExtension: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): UninterpretedOption.MutableNamePart = UninterpretedOption_MutableNamePart_Impl(
-    namePart = namePart,
-    isExtension = isExtension,
-    unknownFields = unknownFields.toMutableMap()
+public fun UninterpretedOption.Companion.MutableNamePart(): UninterpretedOption.MutableNamePart = UninterpretedOption_MutableNamePart_Impl(
+    namePart = "",
+    isExtension = false,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableNamePart] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun UninterpretedOption.Companion.NamePart(builderAction: UninterpretedOption.MutableNamePart.() -> Unit): UninterpretedOption.NamePart {
-    @Suppress("DEPRECATION") val builder = UninterpretedOption.MutableNamePart()
-    builder.builderAction()
-    return builder.toNamePart()
-}
+public fun UninterpretedOption.Companion.NamePart(builderAction: UninterpretedOption.MutableNamePart.() -> Unit): UninterpretedOption.NamePart =
+    UninterpretedOption.Companion.MutableNamePart().also(builderAction).toNamePart()
+
+public fun UninterpretedOption.Companion.MutableNamePart(builderAction: UninterpretedOption.MutableNamePart.() -> Unit): UninterpretedOption.MutableNamePart =
+    UninterpretedOption.Companion.MutableNamePart().also(builderAction)
 
 /**
  * The [MutableNamePart] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -7032,11 +7168,11 @@ private class UninterpretedOption_NamePart_Impl(
         namePart: String,
         isExtension: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UninterpretedOption_NamePart_Impl(
-        namePart = namePart,
-        isExtension = isExtension,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.namePart = namePart
+        this.isExtension = isExtension
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? UninterpretedOption.NamePart)?.let {
         it.copy(
@@ -7066,11 +7202,11 @@ private class UninterpretedOption_MutableNamePart_Impl(
         namePart: String,
         isExtension: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UninterpretedOption_NamePart_Impl(
-        namePart = namePart,
-        isExtension = isExtension,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.namePart = namePart
+        this.isExtension = isExtension
+        this.unknownFields.putAll(unknownFields)
+    }.toNamePart()
 
     override operator fun plus(other: pbandk.Message?) = (other as? UninterpretedOption.NamePart)?.let {
         it.copy(
@@ -7084,7 +7220,11 @@ private class UninterpretedOption_MutableNamePart_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableNamePart() = this
+    override fun toMutableNamePart() = UninterpretedOption_MutableNamePart_Impl(
+        namePart = namePart,
+        isExtension = isExtension,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7098,9 +7238,9 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
             2 -> isExtension = _fieldValue as Boolean
         }
     }
-    @Suppress("DEPRECATION")
-    return UninterpretedOption.NamePart(namePart, isExtension, unknownFields)
+    return UninterpretedOption_NamePart_Impl(namePart, isExtension, unknownFields)
 }
+
 @Deprecated("Use SourceCodeInfo { } instead")
 public fun SourceCodeInfo(
     location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
@@ -7110,24 +7250,20 @@ public fun SourceCodeInfo(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use SourceCodeInfo { } instead")
-public fun MutableSourceCodeInfo(
-    location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableSourceCodeInfo = MutableSourceCodeInfo_Impl(
-    location = location,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableSourceCodeInfo(): MutableSourceCodeInfo = MutableSourceCodeInfo_Impl(
+    location = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableSourceCodeInfo] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SourceCodeInfo(builderAction: MutableSourceCodeInfo.() -> Unit): SourceCodeInfo {
-    @Suppress("DEPRECATION") val builder = MutableSourceCodeInfo()
-    builder.builderAction()
-    return builder.toSourceCodeInfo()
-}
+public fun SourceCodeInfo(builderAction: MutableSourceCodeInfo.() -> Unit): SourceCodeInfo =
+    MutableSourceCodeInfo().also(builderAction).toSourceCodeInfo()
+
+public fun MutableSourceCodeInfo(builderAction: MutableSourceCodeInfo.() -> Unit): MutableSourceCodeInfo =
+    MutableSourceCodeInfo().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSourceCodeInfo")
@@ -7146,10 +7282,10 @@ private class SourceCodeInfo_Impl(
     override fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = SourceCodeInfo_Impl(
-        location = location,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.location = location
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? SourceCodeInfo)?.let {
         it.copy(
@@ -7177,10 +7313,10 @@ private class MutableSourceCodeInfo_Impl(
     override fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = SourceCodeInfo_Impl(
-        location = location,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.location = location
+        this.unknownFields.putAll(unknownFields)
+    }.toSourceCodeInfo()
 
     override operator fun plus(other: pbandk.Message?) = (other as? SourceCodeInfo)?.let {
         it.copy(
@@ -7194,7 +7330,10 @@ private class MutableSourceCodeInfo_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSourceCodeInfo() = this
+    override fun toMutableSourceCodeInfo() = MutableSourceCodeInfo_Impl(
+        location = location,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7206,9 +7345,9 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
             1 -> location = (location ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.SourceCodeInfo.Location> }
         }
     }
-    @Suppress("DEPRECATION")
-    return SourceCodeInfo(pbandk.ListWithSize.Builder.fixed(location), unknownFields)
+    return SourceCodeInfo_Impl(pbandk.ListWithSize.Builder.fixed(location), unknownFields)
 }
+
 @Deprecated("Use SourceCodeInfo.Location { } instead")
 public fun SourceCodeInfo.Companion.Location(
     path: List<Int> = emptyList(),
@@ -7226,32 +7365,24 @@ public fun SourceCodeInfo.Companion.Location(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use SourceCodeInfo.Location { } instead")
-public fun SourceCodeInfo.Companion.MutableLocation(
-    path: List<Int> = emptyList(),
-    span: List<Int> = emptyList(),
-    leadingComments: String? = null,
-    trailingComments: String? = null,
-    leadingDetachedComments: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): SourceCodeInfo.MutableLocation = SourceCodeInfo_MutableLocation_Impl(
-    path = path,
-    span = span,
-    leadingComments = leadingComments,
-    trailingComments = trailingComments,
-    leadingDetachedComments = leadingDetachedComments,
-    unknownFields = unknownFields.toMutableMap()
+public fun SourceCodeInfo.Companion.MutableLocation(): SourceCodeInfo.MutableLocation = SourceCodeInfo_MutableLocation_Impl(
+    path = emptyList(),
+    span = emptyList(),
+    leadingComments = null,
+    trailingComments = null,
+    leadingDetachedComments = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableLocation] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SourceCodeInfo.Companion.Location(builderAction: SourceCodeInfo.MutableLocation.() -> Unit): SourceCodeInfo.Location {
-    @Suppress("DEPRECATION") val builder = SourceCodeInfo.MutableLocation()
-    builder.builderAction()
-    return builder.toLocation()
-}
+public fun SourceCodeInfo.Companion.Location(builderAction: SourceCodeInfo.MutableLocation.() -> Unit): SourceCodeInfo.Location =
+    SourceCodeInfo.Companion.MutableLocation().also(builderAction).toLocation()
+
+public fun SourceCodeInfo.Companion.MutableLocation(builderAction: SourceCodeInfo.MutableLocation.() -> Unit): SourceCodeInfo.MutableLocation =
+    SourceCodeInfo.Companion.MutableLocation().also(builderAction)
 
 /**
  * The [MutableLocation] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -7285,14 +7416,14 @@ private class SourceCodeInfo_Location_Impl(
         trailingComments: String?,
         leadingDetachedComments: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = SourceCodeInfo_Location_Impl(
-        path = path,
-        span = span,
-        leadingComments = leadingComments,
-        trailingComments = trailingComments,
-        leadingDetachedComments = leadingDetachedComments,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.path = path
+        this.span = span
+        this.leadingComments = leadingComments
+        this.trailingComments = trailingComments
+        this.leadingDetachedComments = leadingDetachedComments
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? SourceCodeInfo.Location)?.let {
         it.copy(
@@ -7336,14 +7467,14 @@ private class SourceCodeInfo_MutableLocation_Impl(
         trailingComments: String?,
         leadingDetachedComments: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = SourceCodeInfo_Location_Impl(
-        path = path,
-        span = span,
-        leadingComments = leadingComments,
-        trailingComments = trailingComments,
-        leadingDetachedComments = leadingDetachedComments,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.path = path
+        this.span = span
+        this.leadingComments = leadingComments
+        this.trailingComments = trailingComments
+        this.leadingDetachedComments = leadingDetachedComments
+        this.unknownFields.putAll(unknownFields)
+    }.toLocation()
 
     override operator fun plus(other: pbandk.Message?) = (other as? SourceCodeInfo.Location)?.let {
         it.copy(
@@ -7365,7 +7496,14 @@ private class SourceCodeInfo_MutableLocation_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableLocation() = this
+    override fun toMutableLocation() = SourceCodeInfo_MutableLocation_Impl(
+        path = path,
+        span = span,
+        leadingComments = leadingComments,
+        trailingComments = trailingComments,
+        leadingDetachedComments = leadingDetachedComments,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7385,10 +7523,10 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
             6 -> leadingDetachedComments = (leadingDetachedComments ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<String> }
         }
     }
-    @Suppress("DEPRECATION")
-    return SourceCodeInfo.Location(pbandk.ListWithSize.Builder.fixed(path), pbandk.ListWithSize.Builder.fixed(span), leadingComments, trailingComments,
+    return SourceCodeInfo_Location_Impl(pbandk.ListWithSize.Builder.fixed(path), pbandk.ListWithSize.Builder.fixed(span), leadingComments, trailingComments,
         pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), unknownFields)
 }
+
 @Deprecated("Use GeneratedCodeInfo { } instead")
 public fun GeneratedCodeInfo(
     annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList(),
@@ -7398,24 +7536,20 @@ public fun GeneratedCodeInfo(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use GeneratedCodeInfo { } instead")
-public fun MutableGeneratedCodeInfo(
-    annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableGeneratedCodeInfo = MutableGeneratedCodeInfo_Impl(
-    annotation = annotation,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableGeneratedCodeInfo(): MutableGeneratedCodeInfo = MutableGeneratedCodeInfo_Impl(
+    annotation = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableGeneratedCodeInfo] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun GeneratedCodeInfo(builderAction: MutableGeneratedCodeInfo.() -> Unit): GeneratedCodeInfo {
-    @Suppress("DEPRECATION") val builder = MutableGeneratedCodeInfo()
-    builder.builderAction()
-    return builder.toGeneratedCodeInfo()
-}
+public fun GeneratedCodeInfo(builderAction: MutableGeneratedCodeInfo.() -> Unit): GeneratedCodeInfo =
+    MutableGeneratedCodeInfo().also(builderAction).toGeneratedCodeInfo()
+
+public fun MutableGeneratedCodeInfo(builderAction: MutableGeneratedCodeInfo.() -> Unit): MutableGeneratedCodeInfo =
+    MutableGeneratedCodeInfo().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForGeneratedCodeInfo")
@@ -7434,10 +7568,10 @@ private class GeneratedCodeInfo_Impl(
     override fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = GeneratedCodeInfo_Impl(
-        annotation = annotation,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.annotation = annotation
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? GeneratedCodeInfo)?.let {
         it.copy(
@@ -7465,10 +7599,10 @@ private class MutableGeneratedCodeInfo_Impl(
     override fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = GeneratedCodeInfo_Impl(
-        annotation = annotation,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.annotation = annotation
+        this.unknownFields.putAll(unknownFields)
+    }.toGeneratedCodeInfo()
 
     override operator fun plus(other: pbandk.Message?) = (other as? GeneratedCodeInfo)?.let {
         it.copy(
@@ -7482,7 +7616,10 @@ private class MutableGeneratedCodeInfo_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableGeneratedCodeInfo() = this
+    override fun toMutableGeneratedCodeInfo() = MutableGeneratedCodeInfo_Impl(
+        annotation = annotation,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7494,9 +7631,9 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
             1 -> annotation = (annotation ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.wkt.GeneratedCodeInfo.Annotation> }
         }
     }
-    @Suppress("DEPRECATION")
-    return GeneratedCodeInfo(pbandk.ListWithSize.Builder.fixed(annotation), unknownFields)
+    return GeneratedCodeInfo_Impl(pbandk.ListWithSize.Builder.fixed(annotation), unknownFields)
 }
+
 @Deprecated("Use GeneratedCodeInfo.Annotation { } instead")
 public fun GeneratedCodeInfo.Companion.Annotation(
     path: List<Int> = emptyList(),
@@ -7512,30 +7649,23 @@ public fun GeneratedCodeInfo.Companion.Annotation(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use GeneratedCodeInfo.Annotation { } instead")
-public fun GeneratedCodeInfo.Companion.MutableAnnotation(
-    path: List<Int> = emptyList(),
-    sourceFile: String? = null,
-    begin: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): GeneratedCodeInfo.MutableAnnotation = GeneratedCodeInfo_MutableAnnotation_Impl(
-    path = path,
-    sourceFile = sourceFile,
-    begin = begin,
-    end = end,
-    unknownFields = unknownFields.toMutableMap()
+public fun GeneratedCodeInfo.Companion.MutableAnnotation(): GeneratedCodeInfo.MutableAnnotation = GeneratedCodeInfo_MutableAnnotation_Impl(
+    path = emptyList(),
+    sourceFile = null,
+    begin = null,
+    end = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableAnnotation] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun GeneratedCodeInfo.Companion.Annotation(builderAction: GeneratedCodeInfo.MutableAnnotation.() -> Unit): GeneratedCodeInfo.Annotation {
-    @Suppress("DEPRECATION") val builder = GeneratedCodeInfo.MutableAnnotation()
-    builder.builderAction()
-    return builder.toAnnotation()
-}
+public fun GeneratedCodeInfo.Companion.Annotation(builderAction: GeneratedCodeInfo.MutableAnnotation.() -> Unit): GeneratedCodeInfo.Annotation =
+    GeneratedCodeInfo.Companion.MutableAnnotation().also(builderAction).toAnnotation()
+
+public fun GeneratedCodeInfo.Companion.MutableAnnotation(builderAction: GeneratedCodeInfo.MutableAnnotation.() -> Unit): GeneratedCodeInfo.MutableAnnotation =
+    GeneratedCodeInfo.Companion.MutableAnnotation().also(builderAction)
 
 /**
  * The [MutableAnnotation] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -7567,13 +7697,13 @@ private class GeneratedCodeInfo_Annotation_Impl(
         begin: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = GeneratedCodeInfo_Annotation_Impl(
-        path = path,
-        sourceFile = sourceFile,
-        begin = begin,
-        end = end,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.path = path
+        this.sourceFile = sourceFile
+        this.begin = begin
+        this.end = end
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? GeneratedCodeInfo.Annotation)?.let {
         it.copy(
@@ -7613,13 +7743,13 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         begin: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = GeneratedCodeInfo_Annotation_Impl(
-        path = path,
-        sourceFile = sourceFile,
-        begin = begin,
-        end = end,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.path = path
+        this.sourceFile = sourceFile
+        this.begin = begin
+        this.end = end
+        this.unknownFields.putAll(unknownFields)
+    }.toAnnotation()
 
     override operator fun plus(other: pbandk.Message?) = (other as? GeneratedCodeInfo.Annotation)?.let {
         it.copy(
@@ -7639,7 +7769,13 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableAnnotation() = this
+    override fun toMutableAnnotation() = GeneratedCodeInfo_MutableAnnotation_Impl(
+        path = path,
+        sourceFile = sourceFile,
+        begin = begin,
+        end = end,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7657,6 +7793,5 @@ private fun GeneratedCodeInfo.Annotation.Companion.decodeWithImpl(u: pbandk.Mess
             4 -> end = _fieldValue as Int
         }
     }
-    @Suppress("DEPRECATION")
-    return GeneratedCodeInfo.Annotation(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, unknownFields)
+    return GeneratedCodeInfo_Annotation_Impl(pbandk.ListWithSize.Builder.fixed(path), sourceFile, begin, end, unknownFields)
 }

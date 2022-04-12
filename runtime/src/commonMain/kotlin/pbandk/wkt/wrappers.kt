@@ -8,6 +8,9 @@ public sealed interface DoubleValue : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.DoubleValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableDoubleValue(): MutableDoubleValue
 
     /**
@@ -24,7 +27,7 @@ public sealed interface DoubleValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue() }
+        public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.DoubleValue> by lazy {
@@ -54,6 +57,9 @@ public sealed interface DoubleValue : pbandk.Message {
 public sealed interface MutableDoubleValue : DoubleValue, pbandk.MutableMessage {
     public override var value: Double
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toDoubleValue(): DoubleValue
 
     public override fun copy(builderAction: MutableDoubleValue.() -> Unit): MutableDoubleValue
@@ -71,6 +77,9 @@ public sealed interface FloatValue : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FloatValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFloatValue(): MutableFloatValue
 
     /**
@@ -87,7 +96,7 @@ public sealed interface FloatValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue() }
+        public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.FloatValue> by lazy {
@@ -117,6 +126,9 @@ public sealed interface FloatValue : pbandk.Message {
 public sealed interface MutableFloatValue : FloatValue, pbandk.MutableMessage {
     public override var value: Float
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFloatValue(): FloatValue
 
     public override fun copy(builderAction: MutableFloatValue.() -> Unit): MutableFloatValue
@@ -134,6 +146,9 @@ public sealed interface Int64Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Int64Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableInt64Value(): MutableInt64Value
 
     /**
@@ -150,7 +165,7 @@ public sealed interface Int64Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value() }
+        public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int64Value> by lazy {
@@ -180,6 +195,9 @@ public sealed interface Int64Value : pbandk.Message {
 public sealed interface MutableInt64Value : Int64Value, pbandk.MutableMessage {
     public override var value: Long
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toInt64Value(): Int64Value
 
     public override fun copy(builderAction: MutableInt64Value.() -> Unit): MutableInt64Value
@@ -197,6 +215,9 @@ public sealed interface UInt64Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.UInt64Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableUInt64Value(): MutableUInt64Value
 
     /**
@@ -213,7 +234,7 @@ public sealed interface UInt64Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value() }
+        public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt64Value> by lazy {
@@ -243,6 +264,9 @@ public sealed interface UInt64Value : pbandk.Message {
 public sealed interface MutableUInt64Value : UInt64Value, pbandk.MutableMessage {
     public override var value: Long
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toUInt64Value(): UInt64Value
 
     public override fun copy(builderAction: MutableUInt64Value.() -> Unit): MutableUInt64Value
@@ -260,6 +284,9 @@ public sealed interface Int32Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Int32Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableInt32Value(): MutableInt32Value
 
     /**
@@ -276,7 +303,7 @@ public sealed interface Int32Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value() }
+        public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Int32Value> by lazy {
@@ -306,6 +333,9 @@ public sealed interface Int32Value : pbandk.Message {
 public sealed interface MutableInt32Value : Int32Value, pbandk.MutableMessage {
     public override var value: Int
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toInt32Value(): Int32Value
 
     public override fun copy(builderAction: MutableInt32Value.() -> Unit): MutableInt32Value
@@ -323,6 +353,9 @@ public sealed interface UInt32Value : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.UInt32Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableUInt32Value(): MutableUInt32Value
 
     /**
@@ -339,7 +372,7 @@ public sealed interface UInt32Value : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value() }
+        public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.UInt32Value> by lazy {
@@ -369,6 +402,9 @@ public sealed interface UInt32Value : pbandk.Message {
 public sealed interface MutableUInt32Value : UInt32Value, pbandk.MutableMessage {
     public override var value: Int
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toUInt32Value(): UInt32Value
 
     public override fun copy(builderAction: MutableUInt32Value.() -> Unit): MutableUInt32Value
@@ -386,6 +422,9 @@ public sealed interface BoolValue : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.BoolValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableBoolValue(): MutableBoolValue
 
     /**
@@ -402,7 +441,7 @@ public sealed interface BoolValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue() }
+        public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BoolValue> by lazy {
@@ -432,6 +471,9 @@ public sealed interface BoolValue : pbandk.Message {
 public sealed interface MutableBoolValue : BoolValue, pbandk.MutableMessage {
     public override var value: Boolean
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toBoolValue(): BoolValue
 
     public override fun copy(builderAction: MutableBoolValue.() -> Unit): MutableBoolValue
@@ -449,6 +491,9 @@ public sealed interface StringValue : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.StringValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableStringValue(): MutableStringValue
 
     /**
@@ -465,7 +510,7 @@ public sealed interface StringValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue() }
+        public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.StringValue> by lazy {
@@ -495,6 +540,9 @@ public sealed interface StringValue : pbandk.Message {
 public sealed interface MutableStringValue : StringValue, pbandk.MutableMessage {
     public override var value: String
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toStringValue(): StringValue
 
     public override fun copy(builderAction: MutableStringValue.() -> Unit): MutableStringValue
@@ -512,6 +560,9 @@ public sealed interface BytesValue : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.BytesValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableBytesValue(): MutableBytesValue
 
     /**
@@ -528,7 +579,7 @@ public sealed interface BytesValue : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue() }
+        public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> by lazy {
@@ -558,6 +609,9 @@ public sealed interface BytesValue : pbandk.Message {
 public sealed interface MutableBytesValue : BytesValue, pbandk.MutableMessage {
     public override var value: pbandk.ByteArr
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toBytesValue(): BytesValue
 
     public override fun copy(builderAction: MutableBytesValue.() -> Unit): MutableBytesValue
@@ -568,6 +622,7 @@ public sealed interface MutableBytesValue : BytesValue, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.BytesValue> get() = pbandk.wkt.BytesValue.descriptor
     }
 }
+
 @Deprecated("Use DoubleValue { } instead")
 public fun DoubleValue(
     value: Double = 0.0,
@@ -577,24 +632,20 @@ public fun DoubleValue(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use DoubleValue { } instead")
-public fun MutableDoubleValue(
-    value: Double = 0.0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableDoubleValue = MutableDoubleValue_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableDoubleValue(): MutableDoubleValue = MutableDoubleValue_Impl(
+    value = 0.0,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableDoubleValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun DoubleValue(builderAction: MutableDoubleValue.() -> Unit): DoubleValue {
-    @Suppress("DEPRECATION") val builder = MutableDoubleValue()
-    builder.builderAction()
-    return builder.toDoubleValue()
-}
+public fun DoubleValue(builderAction: MutableDoubleValue.() -> Unit): DoubleValue =
+    MutableDoubleValue().also(builderAction).toDoubleValue()
+
+public fun MutableDoubleValue(builderAction: MutableDoubleValue.() -> Unit): MutableDoubleValue =
+    MutableDoubleValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDoubleValue")
@@ -613,10 +664,10 @@ private class DoubleValue_Impl(
     override fun copy(
         value: Double,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DoubleValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? DoubleValue)?.let {
         it.copy(
@@ -643,10 +694,10 @@ private class MutableDoubleValue_Impl(
     override fun copy(
         value: Double,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = DoubleValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toDoubleValue()
 
     override operator fun plus(other: pbandk.Message?) = (other as? DoubleValue)?.let {
         it.copy(
@@ -659,7 +710,10 @@ private class MutableDoubleValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDoubleValue() = this
+    override fun toMutableDoubleValue() = MutableDoubleValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -671,9 +725,9 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
             1 -> value = _fieldValue as Double
         }
     }
-    @Suppress("DEPRECATION")
-    return DoubleValue(value, unknownFields)
+    return DoubleValue_Impl(value, unknownFields)
 }
+
 @Deprecated("Use FloatValue { } instead")
 public fun FloatValue(
     value: Float = 0.0F,
@@ -683,24 +737,20 @@ public fun FloatValue(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FloatValue { } instead")
-public fun MutableFloatValue(
-    value: Float = 0.0F,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFloatValue = MutableFloatValue_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFloatValue(): MutableFloatValue = MutableFloatValue_Impl(
+    value = 0.0F,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFloatValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FloatValue(builderAction: MutableFloatValue.() -> Unit): FloatValue {
-    @Suppress("DEPRECATION") val builder = MutableFloatValue()
-    builder.builderAction()
-    return builder.toFloatValue()
-}
+public fun FloatValue(builderAction: MutableFloatValue.() -> Unit): FloatValue =
+    MutableFloatValue().also(builderAction).toFloatValue()
+
+public fun MutableFloatValue(builderAction: MutableFloatValue.() -> Unit): MutableFloatValue =
+    MutableFloatValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFloatValue")
@@ -719,10 +769,10 @@ private class FloatValue_Impl(
     override fun copy(
         value: Float,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FloatValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FloatValue)?.let {
         it.copy(
@@ -749,10 +799,10 @@ private class MutableFloatValue_Impl(
     override fun copy(
         value: Float,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FloatValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toFloatValue()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FloatValue)?.let {
         it.copy(
@@ -765,7 +815,10 @@ private class MutableFloatValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFloatValue() = this
+    override fun toMutableFloatValue() = MutableFloatValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -777,9 +830,9 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
             1 -> value = _fieldValue as Float
         }
     }
-    @Suppress("DEPRECATION")
-    return FloatValue(value, unknownFields)
+    return FloatValue_Impl(value, unknownFields)
 }
+
 @Deprecated("Use Int64Value { } instead")
 public fun Int64Value(
     value: Long = 0L,
@@ -789,24 +842,20 @@ public fun Int64Value(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Int64Value { } instead")
-public fun MutableInt64Value(
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableInt64Value = MutableInt64Value_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableInt64Value(): MutableInt64Value = MutableInt64Value_Impl(
+    value = 0L,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableInt64Value] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Int64Value(builderAction: MutableInt64Value.() -> Unit): Int64Value {
-    @Suppress("DEPRECATION") val builder = MutableInt64Value()
-    builder.builderAction()
-    return builder.toInt64Value()
-}
+public fun Int64Value(builderAction: MutableInt64Value.() -> Unit): Int64Value =
+    MutableInt64Value().also(builderAction).toInt64Value()
+
+public fun MutableInt64Value(builderAction: MutableInt64Value.() -> Unit): MutableInt64Value =
+    MutableInt64Value().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt64Value")
@@ -825,10 +874,10 @@ private class Int64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Int64Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Int64Value)?.let {
         it.copy(
@@ -855,10 +904,10 @@ private class MutableInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Int64Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toInt64Value()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Int64Value)?.let {
         it.copy(
@@ -871,7 +920,10 @@ private class MutableInt64Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableInt64Value() = this
+    override fun toMutableInt64Value() = MutableInt64Value_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -883,9 +935,9 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
             1 -> value = _fieldValue as Long
         }
     }
-    @Suppress("DEPRECATION")
-    return Int64Value(value, unknownFields)
+    return Int64Value_Impl(value, unknownFields)
 }
+
 @Deprecated("Use UInt64Value { } instead")
 public fun UInt64Value(
     value: Long = 0L,
@@ -895,24 +947,20 @@ public fun UInt64Value(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use UInt64Value { } instead")
-public fun MutableUInt64Value(
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableUInt64Value = MutableUInt64Value_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableUInt64Value(): MutableUInt64Value = MutableUInt64Value_Impl(
+    value = 0L,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableUInt64Value] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun UInt64Value(builderAction: MutableUInt64Value.() -> Unit): UInt64Value {
-    @Suppress("DEPRECATION") val builder = MutableUInt64Value()
-    builder.builderAction()
-    return builder.toUInt64Value()
-}
+public fun UInt64Value(builderAction: MutableUInt64Value.() -> Unit): UInt64Value =
+    MutableUInt64Value().also(builderAction).toUInt64Value()
+
+public fun MutableUInt64Value(builderAction: MutableUInt64Value.() -> Unit): MutableUInt64Value =
+    MutableUInt64Value().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt64Value")
@@ -931,10 +979,10 @@ private class UInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UInt64Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? UInt64Value)?.let {
         it.copy(
@@ -961,10 +1009,10 @@ private class MutableUInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UInt64Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toUInt64Value()
 
     override operator fun plus(other: pbandk.Message?) = (other as? UInt64Value)?.let {
         it.copy(
@@ -977,7 +1025,10 @@ private class MutableUInt64Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUInt64Value() = this
+    override fun toMutableUInt64Value() = MutableUInt64Value_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -989,9 +1040,9 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             1 -> value = _fieldValue as Long
         }
     }
-    @Suppress("DEPRECATION")
-    return UInt64Value(value, unknownFields)
+    return UInt64Value_Impl(value, unknownFields)
 }
+
 @Deprecated("Use Int32Value { } instead")
 public fun Int32Value(
     value: Int = 0,
@@ -1001,24 +1052,20 @@ public fun Int32Value(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Int32Value { } instead")
-public fun MutableInt32Value(
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableInt32Value = MutableInt32Value_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableInt32Value(): MutableInt32Value = MutableInt32Value_Impl(
+    value = 0,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableInt32Value] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Int32Value(builderAction: MutableInt32Value.() -> Unit): Int32Value {
-    @Suppress("DEPRECATION") val builder = MutableInt32Value()
-    builder.builderAction()
-    return builder.toInt32Value()
-}
+public fun Int32Value(builderAction: MutableInt32Value.() -> Unit): Int32Value =
+    MutableInt32Value().also(builderAction).toInt32Value()
+
+public fun MutableInt32Value(builderAction: MutableInt32Value.() -> Unit): MutableInt32Value =
+    MutableInt32Value().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt32Value")
@@ -1037,10 +1084,10 @@ private class Int32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Int32Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Int32Value)?.let {
         it.copy(
@@ -1067,10 +1114,10 @@ private class MutableInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Int32Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toInt32Value()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Int32Value)?.let {
         it.copy(
@@ -1083,7 +1130,10 @@ private class MutableInt32Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableInt32Value() = this
+    override fun toMutableInt32Value() = MutableInt32Value_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1095,9 +1145,9 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
             1 -> value = _fieldValue as Int
         }
     }
-    @Suppress("DEPRECATION")
-    return Int32Value(value, unknownFields)
+    return Int32Value_Impl(value, unknownFields)
 }
+
 @Deprecated("Use UInt32Value { } instead")
 public fun UInt32Value(
     value: Int = 0,
@@ -1107,24 +1157,20 @@ public fun UInt32Value(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use UInt32Value { } instead")
-public fun MutableUInt32Value(
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableUInt32Value = MutableUInt32Value_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableUInt32Value(): MutableUInt32Value = MutableUInt32Value_Impl(
+    value = 0,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableUInt32Value] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun UInt32Value(builderAction: MutableUInt32Value.() -> Unit): UInt32Value {
-    @Suppress("DEPRECATION") val builder = MutableUInt32Value()
-    builder.builderAction()
-    return builder.toUInt32Value()
-}
+public fun UInt32Value(builderAction: MutableUInt32Value.() -> Unit): UInt32Value =
+    MutableUInt32Value().also(builderAction).toUInt32Value()
+
+public fun MutableUInt32Value(builderAction: MutableUInt32Value.() -> Unit): MutableUInt32Value =
+    MutableUInt32Value().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt32Value")
@@ -1143,10 +1189,10 @@ private class UInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UInt32Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? UInt32Value)?.let {
         it.copy(
@@ -1173,10 +1219,10 @@ private class MutableUInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = UInt32Value_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toUInt32Value()
 
     override operator fun plus(other: pbandk.Message?) = (other as? UInt32Value)?.let {
         it.copy(
@@ -1189,7 +1235,10 @@ private class MutableUInt32Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUInt32Value() = this
+    override fun toMutableUInt32Value() = MutableUInt32Value_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1201,9 +1250,9 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
             1 -> value = _fieldValue as Int
         }
     }
-    @Suppress("DEPRECATION")
-    return UInt32Value(value, unknownFields)
+    return UInt32Value_Impl(value, unknownFields)
 }
+
 @Deprecated("Use BoolValue { } instead")
 public fun BoolValue(
     value: Boolean = false,
@@ -1213,24 +1262,20 @@ public fun BoolValue(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use BoolValue { } instead")
-public fun MutableBoolValue(
-    value: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableBoolValue = MutableBoolValue_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableBoolValue(): MutableBoolValue = MutableBoolValue_Impl(
+    value = false,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableBoolValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun BoolValue(builderAction: MutableBoolValue.() -> Unit): BoolValue {
-    @Suppress("DEPRECATION") val builder = MutableBoolValue()
-    builder.builderAction()
-    return builder.toBoolValue()
-}
+public fun BoolValue(builderAction: MutableBoolValue.() -> Unit): BoolValue =
+    MutableBoolValue().also(builderAction).toBoolValue()
+
+public fun MutableBoolValue(builderAction: MutableBoolValue.() -> Unit): MutableBoolValue =
+    MutableBoolValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBoolValue")
@@ -1249,10 +1294,10 @@ private class BoolValue_Impl(
     override fun copy(
         value: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = BoolValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? BoolValue)?.let {
         it.copy(
@@ -1279,10 +1324,10 @@ private class MutableBoolValue_Impl(
     override fun copy(
         value: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = BoolValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toBoolValue()
 
     override operator fun plus(other: pbandk.Message?) = (other as? BoolValue)?.let {
         it.copy(
@@ -1295,7 +1340,10 @@ private class MutableBoolValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBoolValue() = this
+    override fun toMutableBoolValue() = MutableBoolValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1307,9 +1355,9 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
             1 -> value = _fieldValue as Boolean
         }
     }
-    @Suppress("DEPRECATION")
-    return BoolValue(value, unknownFields)
+    return BoolValue_Impl(value, unknownFields)
 }
+
 @Deprecated("Use StringValue { } instead")
 public fun StringValue(
     value: String = "",
@@ -1319,24 +1367,20 @@ public fun StringValue(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use StringValue { } instead")
-public fun MutableStringValue(
-    value: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableStringValue = MutableStringValue_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableStringValue(): MutableStringValue = MutableStringValue_Impl(
+    value = "",
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableStringValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun StringValue(builderAction: MutableStringValue.() -> Unit): StringValue {
-    @Suppress("DEPRECATION") val builder = MutableStringValue()
-    builder.builderAction()
-    return builder.toStringValue()
-}
+public fun StringValue(builderAction: MutableStringValue.() -> Unit): StringValue =
+    MutableStringValue().also(builderAction).toStringValue()
+
+public fun MutableStringValue(builderAction: MutableStringValue.() -> Unit): MutableStringValue =
+    MutableStringValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStringValue")
@@ -1355,10 +1399,10 @@ private class StringValue_Impl(
     override fun copy(
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = StringValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? StringValue)?.let {
         it.copy(
@@ -1385,10 +1429,10 @@ private class MutableStringValue_Impl(
     override fun copy(
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = StringValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toStringValue()
 
     override operator fun plus(other: pbandk.Message?) = (other as? StringValue)?.let {
         it.copy(
@@ -1401,7 +1445,10 @@ private class MutableStringValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableStringValue() = this
+    override fun toMutableStringValue() = MutableStringValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1413,9 +1460,9 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
             1 -> value = _fieldValue as String
         }
     }
-    @Suppress("DEPRECATION")
-    return StringValue(value, unknownFields)
+    return StringValue_Impl(value, unknownFields)
 }
+
 @Deprecated("Use BytesValue { } instead")
 public fun BytesValue(
     value: pbandk.ByteArr = pbandk.ByteArr.empty,
@@ -1425,24 +1472,20 @@ public fun BytesValue(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use BytesValue { } instead")
-public fun MutableBytesValue(
-    value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableBytesValue = MutableBytesValue_Impl(
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableBytesValue(): MutableBytesValue = MutableBytesValue_Impl(
+    value = pbandk.ByteArr.empty,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableBytesValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun BytesValue(builderAction: MutableBytesValue.() -> Unit): BytesValue {
-    @Suppress("DEPRECATION") val builder = MutableBytesValue()
-    builder.builderAction()
-    return builder.toBytesValue()
-}
+public fun BytesValue(builderAction: MutableBytesValue.() -> Unit): BytesValue =
+    MutableBytesValue().also(builderAction).toBytesValue()
+
+public fun MutableBytesValue(builderAction: MutableBytesValue.() -> Unit): MutableBytesValue =
+    MutableBytesValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBytesValue")
@@ -1461,10 +1504,10 @@ private class BytesValue_Impl(
     override fun copy(
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = BytesValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? BytesValue)?.let {
         it.copy(
@@ -1491,10 +1534,10 @@ private class MutableBytesValue_Impl(
     override fun copy(
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = BytesValue_Impl(
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toBytesValue()
 
     override operator fun plus(other: pbandk.Message?) = (other as? BytesValue)?.let {
         it.copy(
@@ -1507,7 +1550,10 @@ private class MutableBytesValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBytesValue() = this
+    override fun toMutableBytesValue() = MutableBytesValue_Impl(
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1519,6 +1565,5 @@ private fun BytesValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
             1 -> value = _fieldValue as pbandk.ByteArr
         }
     }
-    @Suppress("DEPRECATION")
-    return BytesValue(value, unknownFields)
+    return BytesValue_Impl(value, unknownFields)
 }

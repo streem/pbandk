@@ -8,6 +8,9 @@ public sealed interface Foo : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Foo
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFoo(): MutableFoo
 
     /**
@@ -24,7 +27,7 @@ public sealed interface Foo : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.Foo by lazy { pbandk.testpb.Foo() }
+        public val defaultInstance: pbandk.testpb.Foo by lazy { pbandk.testpb.Foo {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> by lazy {
@@ -54,6 +57,9 @@ public sealed interface Foo : pbandk.Message {
 public sealed interface MutableFoo : Foo, pbandk.MutableMessage {
     public override var `val`: String
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFoo(): Foo
 
     public override fun copy(builderAction: MutableFoo.() -> Unit): MutableFoo
@@ -72,6 +78,9 @@ public sealed interface Bar : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Bar
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableBar(): MutableBar
 
     /**
@@ -89,7 +98,7 @@ public sealed interface Bar : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.Bar by lazy { pbandk.testpb.Bar() }
+        public val defaultInstance: pbandk.testpb.Bar by lazy { pbandk.testpb.Bar {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> by lazy {
@@ -130,6 +139,9 @@ public sealed interface MutableBar : Bar, pbandk.MutableMessage {
     public override var foos: List<pbandk.testpb.Foo>
     public override var singleFoo: pbandk.testpb.Foo?
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toBar(): Bar
 
     public override fun copy(builderAction: MutableBar.() -> Unit): MutableBar
@@ -147,6 +159,9 @@ public sealed interface MessageWithMap : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithMap
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableMessageWithMap(): MutableMessageWithMap
 
     /**
@@ -163,7 +178,7 @@ public sealed interface MessageWithMap : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.MessageWithMap by lazy { pbandk.testpb.MessageWithMap() }
+        public val defaultInstance: pbandk.testpb.MessageWithMap by lazy { pbandk.testpb.MessageWithMap {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> by lazy {
@@ -196,6 +211,9 @@ public sealed interface MessageWithMap : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithMap.MapEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableMapEntry(): MessageWithMap.MutableMapEntry
 
         /**
@@ -213,7 +231,7 @@ public sealed interface MessageWithMap : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap.MapEntry> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.testpb.MessageWithMap.MapEntry by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
+            public val defaultInstance: pbandk.testpb.MessageWithMap.MapEntry by lazy { pbandk.testpb.MessageWithMap.MapEntry {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap.MapEntry = pbandk.testpb.MessageWithMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap.MapEntry> by lazy {
@@ -254,6 +272,9 @@ public sealed interface MessageWithMap : pbandk.Message {
         public override var key: String
         public override var value: String
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toMapEntry(): MessageWithMap.MapEntry
 
         public override fun copy(builderAction: MessageWithMap.MutableMapEntry.() -> Unit): MessageWithMap.MutableMapEntry
@@ -269,6 +290,9 @@ public sealed interface MessageWithMap : pbandk.Message {
 public sealed interface MutableMessageWithMap : MessageWithMap, pbandk.MutableMessage {
     public override var map: Map<String, String>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toMessageWithMap(): MessageWithMap
 
     public override fun copy(builderAction: MutableMessageWithMap.() -> Unit): MutableMessageWithMap
@@ -286,6 +310,9 @@ public sealed interface FooMap : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFooMap(): MutableFooMap
 
     /**
@@ -302,7 +329,7 @@ public sealed interface FooMap : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.FooMap by lazy { pbandk.testpb.FooMap() }
+        public val defaultInstance: pbandk.testpb.FooMap by lazy { pbandk.testpb.FooMap {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> by lazy {
@@ -335,6 +362,9 @@ public sealed interface FooMap : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap.MapEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableMapEntry(): FooMap.MutableMapEntry
 
         /**
@@ -352,7 +382,7 @@ public sealed interface FooMap : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap.MapEntry> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.testpb.FooMap.MapEntry by lazy { pbandk.testpb.FooMap.MapEntry() }
+            public val defaultInstance: pbandk.testpb.FooMap.MapEntry by lazy { pbandk.testpb.FooMap.MapEntry {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap.MapEntry = pbandk.testpb.FooMap.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap.MapEntry> by lazy {
@@ -393,6 +423,9 @@ public sealed interface FooMap : pbandk.Message {
         public override var key: String
         public override var value: pbandk.testpb.Foo?
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toMapEntry(): FooMap.MapEntry
 
         public override fun copy(builderAction: FooMap.MutableMapEntry.() -> Unit): FooMap.MutableMapEntry
@@ -408,6 +441,9 @@ public sealed interface FooMap : pbandk.Message {
 public sealed interface MutableFooMap : FooMap, pbandk.MutableMessage {
     public override var map: Map<String, pbandk.testpb.Foo?>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFooMap(): FooMap
 
     public override fun copy(builderAction: MutableFooMap.() -> Unit): MutableFooMap
@@ -425,6 +461,9 @@ public sealed interface FooMapEntries : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableFooMapEntries(): MutableFooMapEntries
 
     /**
@@ -441,7 +480,7 @@ public sealed interface FooMapEntries : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.FooMapEntries by lazy { pbandk.testpb.FooMapEntries() }
+        public val defaultInstance: pbandk.testpb.FooMapEntries by lazy { pbandk.testpb.FooMapEntries {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> by lazy {
@@ -474,6 +513,9 @@ public sealed interface FooMapEntries : pbandk.Message {
         override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries.MapEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry>
 
+        /**
+         * Returns a new mutable instance containing a copy of all values from this instance.
+         */
         public fun toMutableMapEntry(): FooMapEntries.MutableMapEntry
 
         /**
@@ -491,7 +533,7 @@ public sealed interface FooMapEntries : pbandk.Message {
 
         public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
             @Suppress("DEPRECATION")
-            public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
+            public val defaultInstance: pbandk.testpb.FooMapEntries.MapEntry by lazy { pbandk.testpb.FooMapEntries.MapEntry {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
 
             override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> by lazy {
@@ -532,6 +574,9 @@ public sealed interface FooMapEntries : pbandk.Message {
         public override var key: String
         public override var value: pbandk.testpb.Foo?
 
+        /**
+         * Returns a new immutable instance containing a copy of all values from this instance.
+         */
         public fun toMapEntry(): FooMapEntries.MapEntry
 
         public override fun copy(builderAction: FooMapEntries.MutableMapEntry.() -> Unit): FooMapEntries.MutableMapEntry
@@ -547,6 +592,9 @@ public sealed interface FooMapEntries : pbandk.Message {
 public sealed interface MutableFooMapEntries : FooMapEntries, pbandk.MutableMessage {
     public override var map: List<pbandk.testpb.FooMapEntries.MapEntry>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toFooMapEntries(): FooMapEntries
 
     public override fun copy(builderAction: MutableFooMapEntries.() -> Unit): MutableFooMapEntries
@@ -565,6 +613,9 @@ public sealed interface Wrappers : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Wrappers
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableWrappers(): MutableWrappers
 
     /**
@@ -582,7 +633,7 @@ public sealed interface Wrappers : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.testpb.Wrappers by lazy { pbandk.testpb.Wrappers() }
+        public val defaultInstance: pbandk.testpb.Wrappers by lazy { pbandk.testpb.Wrappers {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> by lazy {
@@ -623,6 +674,9 @@ public sealed interface MutableWrappers : Wrappers, pbandk.MutableMessage {
     public override var stringValue: String?
     public override var uint64Values: List<Long>
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toWrappers(): Wrappers
 
     public override fun copy(builderAction: MutableWrappers.() -> Unit): MutableWrappers
@@ -633,6 +687,7 @@ public sealed interface MutableWrappers : Wrappers, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> get() = pbandk.testpb.Wrappers.descriptor
     }
 }
+
 @Deprecated("Use Foo { } instead")
 public fun Foo(
     `val`: String = "",
@@ -642,24 +697,20 @@ public fun Foo(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Foo { } instead")
-public fun MutableFoo(
-    `val`: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFoo = MutableFoo_Impl(
-    `val` = `val`,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFoo(): MutableFoo = MutableFoo_Impl(
+    `val` = "",
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFoo] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Foo(builderAction: MutableFoo.() -> Unit): Foo {
-    @Suppress("DEPRECATION") val builder = MutableFoo()
-    builder.builderAction()
-    return builder.toFoo()
-}
+public fun Foo(builderAction: MutableFoo.() -> Unit): Foo =
+    MutableFoo().also(builderAction).toFoo()
+
+public fun MutableFoo(builderAction: MutableFoo.() -> Unit): MutableFoo =
+    MutableFoo().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFoo")
@@ -678,10 +729,10 @@ private class Foo_Impl(
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Foo_Impl(
-        `val` = `val`,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.`val` = `val`
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Foo)?.let {
         it.copy(
@@ -708,10 +759,10 @@ private class MutableFoo_Impl(
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Foo_Impl(
-        `val` = `val`,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.`val` = `val`
+        this.unknownFields.putAll(unknownFields)
+    }.toFoo()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Foo)?.let {
         it.copy(
@@ -724,7 +775,10 @@ private class MutableFoo_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFoo() = this
+    override fun toMutableFoo() = MutableFoo_Impl(
+        `val` = `val`,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -736,9 +790,9 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
             1 -> `val` = _fieldValue as String
         }
     }
-    @Suppress("DEPRECATION")
-    return Foo(`val`, unknownFields)
+    return Foo_Impl(`val`, unknownFields)
 }
+
 @Deprecated("Use Bar { } instead")
 public fun Bar(
     foos: List<pbandk.testpb.Foo> = emptyList(),
@@ -750,26 +804,21 @@ public fun Bar(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Bar { } instead")
-public fun MutableBar(
-    foos: List<pbandk.testpb.Foo> = emptyList(),
-    singleFoo: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableBar = MutableBar_Impl(
-    foos = foos,
-    singleFoo = singleFoo,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableBar(): MutableBar = MutableBar_Impl(
+    foos = emptyList(),
+    singleFoo = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableBar] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Bar(builderAction: MutableBar.() -> Unit): Bar {
-    @Suppress("DEPRECATION") val builder = MutableBar()
-    builder.builderAction()
-    return builder.toBar()
-}
+public fun Bar(builderAction: MutableBar.() -> Unit): Bar =
+    MutableBar().also(builderAction).toBar()
+
+public fun MutableBar(builderAction: MutableBar.() -> Unit): MutableBar =
+    MutableBar().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBar")
@@ -790,11 +839,11 @@ private class Bar_Impl(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Bar_Impl(
-        foos = foos,
-        singleFoo = singleFoo,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.foos = foos
+        this.singleFoo = singleFoo
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Bar)?.let {
         it.copy(
@@ -826,11 +875,11 @@ private class MutableBar_Impl(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Bar_Impl(
-        foos = foos,
-        singleFoo = singleFoo,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.foos = foos
+        this.singleFoo = singleFoo
+        this.unknownFields.putAll(unknownFields)
+    }.toBar()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Bar)?.let {
         it.copy(
@@ -846,7 +895,11 @@ private class MutableBar_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBar() = this
+    override fun toMutableBar() = MutableBar_Impl(
+        foos = foos,
+        singleFoo = singleFoo,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -860,9 +913,9 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
             2 -> singleFoo = _fieldValue as pbandk.testpb.Foo
         }
     }
-    @Suppress("DEPRECATION")
-    return Bar(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
+    return Bar_Impl(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
 }
+
 @Deprecated("Use MessageWithMap { } instead")
 public fun MessageWithMap(
     map: Map<String, String> = emptyMap(),
@@ -872,24 +925,20 @@ public fun MessageWithMap(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use MessageWithMap { } instead")
-public fun MutableMessageWithMap(
-    map: Map<String, String> = emptyMap(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableMessageWithMap = MutableMessageWithMap_Impl(
-    map = map,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableMessageWithMap(): MutableMessageWithMap = MutableMessageWithMap_Impl(
+    map = emptyMap(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMessageWithMap] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageWithMap(builderAction: MutableMessageWithMap.() -> Unit): MessageWithMap {
-    @Suppress("DEPRECATION") val builder = MutableMessageWithMap()
-    builder.builderAction()
-    return builder.toMessageWithMap()
-}
+public fun MessageWithMap(builderAction: MutableMessageWithMap.() -> Unit): MessageWithMap =
+    MutableMessageWithMap().also(builderAction).toMessageWithMap()
+
+public fun MutableMessageWithMap(builderAction: MutableMessageWithMap.() -> Unit): MutableMessageWithMap =
+    MutableMessageWithMap().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithMap")
@@ -908,10 +957,10 @@ private class MessageWithMap_Impl(
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MessageWithMap_Impl(
-        map = map,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.map = map
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? MessageWithMap)?.let {
         it.copy(
@@ -939,10 +988,10 @@ private class MutableMessageWithMap_Impl(
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MessageWithMap_Impl(
-        map = map,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.map = map
+        this.unknownFields.putAll(unknownFields)
+    }.toMessageWithMap()
 
     override operator fun plus(other: pbandk.Message?) = (other as? MessageWithMap)?.let {
         it.copy(
@@ -956,7 +1005,10 @@ private class MutableMessageWithMap_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMessageWithMap() = this
+    override fun toMutableMessageWithMap() = MutableMessageWithMap_Impl(
+        map = map,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -968,9 +1020,9 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
             1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, String>> }
         }
     }
-    @Suppress("DEPRECATION")
-    return MessageWithMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
+    return MessageWithMap_Impl(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
+
 @Deprecated("Use MessageWithMap.MapEntry { } instead")
 public fun MessageWithMap.Companion.MapEntry(
     key: String = "",
@@ -982,26 +1034,21 @@ public fun MessageWithMap.Companion.MapEntry(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use MessageWithMap.MapEntry { } instead")
-public fun MessageWithMap.Companion.MutableMapEntry(
-    key: String = "",
-    value: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MessageWithMap.MutableMapEntry = MessageWithMap_MutableMapEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun MessageWithMap.Companion.MutableMapEntry(): MessageWithMap.MutableMapEntry = MessageWithMap_MutableMapEntry_Impl(
+    key = "",
+    value = "",
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageWithMap.Companion.MapEntry(builderAction: MessageWithMap.MutableMapEntry.() -> Unit): MessageWithMap.MapEntry {
-    @Suppress("DEPRECATION") val builder = MessageWithMap.MutableMapEntry()
-    builder.builderAction()
-    return builder.toMapEntry()
-}
+public fun MessageWithMap.Companion.MapEntry(builderAction: MessageWithMap.MutableMapEntry.() -> Unit): MessageWithMap.MapEntry =
+    MessageWithMap.Companion.MutableMapEntry().also(builderAction).toMapEntry()
+
+public fun MessageWithMap.Companion.MutableMapEntry(builderAction: MessageWithMap.MutableMapEntry.() -> Unit): MessageWithMap.MutableMapEntry =
+    MessageWithMap.Companion.MutableMapEntry().also(builderAction)
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -1029,11 +1076,11 @@ private class MessageWithMap_MapEntry_Impl(
         key: String,
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MessageWithMap_MapEntry_Impl(
-        key = key,
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.key = key
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? MessageWithMap.MapEntry)?.let {
         it.copy(
@@ -1063,11 +1110,11 @@ private class MessageWithMap_MutableMapEntry_Impl(
         key: String,
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = MessageWithMap_MapEntry_Impl(
-        key = key,
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.key = key
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toMapEntry()
 
     override operator fun plus(other: pbandk.Message?) = (other as? MessageWithMap.MapEntry)?.let {
         it.copy(
@@ -1081,7 +1128,11 @@ private class MessageWithMap_MutableMapEntry_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMapEntry() = this
+    override fun toMutableMapEntry() = MessageWithMap_MutableMapEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1095,9 +1146,9 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
             2 -> value = _fieldValue as String
         }
     }
-    @Suppress("DEPRECATION")
-    return MessageWithMap.MapEntry(key, value, unknownFields)
+    return MessageWithMap_MapEntry_Impl(key, value, unknownFields)
 }
+
 @Deprecated("Use FooMap { } instead")
 public fun FooMap(
     map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
@@ -1107,24 +1158,20 @@ public fun FooMap(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FooMap { } instead")
-public fun MutableFooMap(
-    map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFooMap = MutableFooMap_Impl(
-    map = map,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFooMap(): MutableFooMap = MutableFooMap_Impl(
+    map = emptyMap(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFooMap] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMap(builderAction: MutableFooMap.() -> Unit): FooMap {
-    @Suppress("DEPRECATION") val builder = MutableFooMap()
-    builder.builderAction()
-    return builder.toFooMap()
-}
+public fun FooMap(builderAction: MutableFooMap.() -> Unit): FooMap =
+    MutableFooMap().also(builderAction).toFooMap()
+
+public fun MutableFooMap(builderAction: MutableFooMap.() -> Unit): MutableFooMap =
+    MutableFooMap().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMap")
@@ -1143,10 +1190,10 @@ private class FooMap_Impl(
     override fun copy(
         map: Map<String, pbandk.testpb.Foo?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMap_Impl(
-        map = map,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.map = map
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMap)?.let {
         it.copy(
@@ -1174,10 +1221,10 @@ private class MutableFooMap_Impl(
     override fun copy(
         map: Map<String, pbandk.testpb.Foo?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMap_Impl(
-        map = map,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.map = map
+        this.unknownFields.putAll(unknownFields)
+    }.toFooMap()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMap)?.let {
         it.copy(
@@ -1191,7 +1238,10 @@ private class MutableFooMap_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFooMap() = this
+    override fun toMutableFooMap() = MutableFooMap_Impl(
+        map = map,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1203,9 +1253,9 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
             1 -> map = (map ?: pbandk.MessageMap.Builder()).apply { this.entries += _fieldValue as Sequence<pbandk.MessageMap.Entry<String, pbandk.testpb.Foo?>> }
         }
     }
-    @Suppress("DEPRECATION")
-    return FooMap(pbandk.MessageMap.Builder.fixed(map), unknownFields)
+    return FooMap_Impl(pbandk.MessageMap.Builder.fixed(map), unknownFields)
 }
+
 @Deprecated("Use FooMap.MapEntry { } instead")
 public fun FooMap.Companion.MapEntry(
     key: String = "",
@@ -1217,26 +1267,21 @@ public fun FooMap.Companion.MapEntry(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FooMap.MapEntry { } instead")
-public fun FooMap.Companion.MutableMapEntry(
-    key: String = "",
-    value: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): FooMap.MutableMapEntry = FooMap_MutableMapEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun FooMap.Companion.MutableMapEntry(): FooMap.MutableMapEntry = FooMap_MutableMapEntry_Impl(
+    key = "",
+    value = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMap.Companion.MapEntry(builderAction: FooMap.MutableMapEntry.() -> Unit): FooMap.MapEntry {
-    @Suppress("DEPRECATION") val builder = FooMap.MutableMapEntry()
-    builder.builderAction()
-    return builder.toMapEntry()
-}
+public fun FooMap.Companion.MapEntry(builderAction: FooMap.MutableMapEntry.() -> Unit): FooMap.MapEntry =
+    FooMap.Companion.MutableMapEntry().also(builderAction).toMapEntry()
+
+public fun FooMap.Companion.MutableMapEntry(builderAction: FooMap.MutableMapEntry.() -> Unit): FooMap.MutableMapEntry =
+    FooMap.Companion.MutableMapEntry().also(builderAction)
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -1264,11 +1309,11 @@ private class FooMap_MapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMap_MapEntry_Impl(
-        key = key,
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.key = key
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMap.MapEntry)?.let {
         it.copy(
@@ -1299,11 +1344,11 @@ private class FooMap_MutableMapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMap_MapEntry_Impl(
-        key = key,
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.key = key
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toMapEntry()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMap.MapEntry)?.let {
         it.copy(
@@ -1318,7 +1363,11 @@ private class FooMap_MutableMapEntry_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMapEntry() = this
+    override fun toMutableMapEntry() = FooMap_MutableMapEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1332,9 +1381,9 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
             2 -> value = _fieldValue as pbandk.testpb.Foo
         }
     }
-    @Suppress("DEPRECATION")
-    return FooMap.MapEntry(key, value, unknownFields)
+    return FooMap_MapEntry_Impl(key, value, unknownFields)
 }
+
 @Deprecated("Use FooMapEntries { } instead")
 public fun FooMapEntries(
     map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
@@ -1344,24 +1393,20 @@ public fun FooMapEntries(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FooMapEntries { } instead")
-public fun MutableFooMapEntries(
-    map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableFooMapEntries = MutableFooMapEntries_Impl(
-    map = map,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableFooMapEntries(): MutableFooMapEntries = MutableFooMapEntries_Impl(
+    map = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableFooMapEntries] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMapEntries(builderAction: MutableFooMapEntries.() -> Unit): FooMapEntries {
-    @Suppress("DEPRECATION") val builder = MutableFooMapEntries()
-    builder.builderAction()
-    return builder.toFooMapEntries()
-}
+public fun FooMapEntries(builderAction: MutableFooMapEntries.() -> Unit): FooMapEntries =
+    MutableFooMapEntries().also(builderAction).toFooMapEntries()
+
+public fun MutableFooMapEntries(builderAction: MutableFooMapEntries.() -> Unit): MutableFooMapEntries =
+    MutableFooMapEntries().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMapEntries")
@@ -1380,10 +1425,10 @@ private class FooMapEntries_Impl(
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMapEntries_Impl(
-        map = map,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.map = map
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMapEntries)?.let {
         it.copy(
@@ -1411,10 +1456,10 @@ private class MutableFooMapEntries_Impl(
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMapEntries_Impl(
-        map = map,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.map = map
+        this.unknownFields.putAll(unknownFields)
+    }.toFooMapEntries()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMapEntries)?.let {
         it.copy(
@@ -1428,7 +1473,10 @@ private class MutableFooMapEntries_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFooMapEntries() = this
+    override fun toMutableFooMapEntries() = MutableFooMapEntries_Impl(
+        map = map,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1440,9 +1488,9 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
             1 -> map = (map ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<pbandk.testpb.FooMapEntries.MapEntry> }
         }
     }
-    @Suppress("DEPRECATION")
-    return FooMapEntries(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
+    return FooMapEntries_Impl(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
 }
+
 @Deprecated("Use FooMapEntries.MapEntry { } instead")
 public fun FooMapEntries.Companion.MapEntry(
     key: String = "",
@@ -1454,26 +1502,21 @@ public fun FooMapEntries.Companion.MapEntry(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use FooMapEntries.MapEntry { } instead")
-public fun FooMapEntries.Companion.MutableMapEntry(
-    key: String = "",
-    value: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): FooMapEntries.MutableMapEntry = FooMapEntries_MutableMapEntry_Impl(
-    key = key,
-    value = value,
-    unknownFields = unknownFields.toMutableMap()
+public fun FooMapEntries.Companion.MutableMapEntry(): FooMapEntries.MutableMapEntry = FooMapEntries_MutableMapEntry_Impl(
+    key = "",
+    value = null,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMapEntries.Companion.MapEntry(builderAction: FooMapEntries.MutableMapEntry.() -> Unit): FooMapEntries.MapEntry {
-    @Suppress("DEPRECATION") val builder = FooMapEntries.MutableMapEntry()
-    builder.builderAction()
-    return builder.toMapEntry()
-}
+public fun FooMapEntries.Companion.MapEntry(builderAction: FooMapEntries.MutableMapEntry.() -> Unit): FooMapEntries.MapEntry =
+    FooMapEntries.Companion.MutableMapEntry().also(builderAction).toMapEntry()
+
+public fun FooMapEntries.Companion.MutableMapEntry(builderAction: FooMapEntries.MutableMapEntry.() -> Unit): FooMapEntries.MutableMapEntry =
+    FooMapEntries.Companion.MutableMapEntry().also(builderAction)
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -1501,11 +1544,11 @@ private class FooMapEntries_MapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMapEntries_MapEntry_Impl(
-        key = key,
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.key = key
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMapEntries.MapEntry)?.let {
         it.copy(
@@ -1536,11 +1579,11 @@ private class FooMapEntries_MutableMapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = FooMapEntries_MapEntry_Impl(
-        key = key,
-        value = value,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.key = key
+        this.value = value
+        this.unknownFields.putAll(unknownFields)
+    }.toMapEntry()
 
     override operator fun plus(other: pbandk.Message?) = (other as? FooMapEntries.MapEntry)?.let {
         it.copy(
@@ -1555,7 +1598,11 @@ private class FooMapEntries_MutableMapEntry_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMapEntry() = this
+    override fun toMutableMapEntry() = FooMapEntries_MutableMapEntry_Impl(
+        key = key,
+        value = value,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1569,9 +1616,9 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
             2 -> value = _fieldValue as pbandk.testpb.Foo
         }
     }
-    @Suppress("DEPRECATION")
-    return FooMapEntries.MapEntry(key, value, unknownFields)
+    return FooMapEntries_MapEntry_Impl(key, value, unknownFields)
 }
+
 @Deprecated("Use Wrappers { } instead")
 public fun Wrappers(
     stringValue: String? = null,
@@ -1583,26 +1630,21 @@ public fun Wrappers(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Wrappers { } instead")
-public fun MutableWrappers(
-    stringValue: String? = null,
-    uint64Values: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableWrappers = MutableWrappers_Impl(
-    stringValue = stringValue,
-    uint64Values = uint64Values,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableWrappers(): MutableWrappers = MutableWrappers_Impl(
+    stringValue = null,
+    uint64Values = emptyList(),
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableWrappers] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Wrappers(builderAction: MutableWrappers.() -> Unit): Wrappers {
-    @Suppress("DEPRECATION") val builder = MutableWrappers()
-    builder.builderAction()
-    return builder.toWrappers()
-}
+public fun Wrappers(builderAction: MutableWrappers.() -> Unit): Wrappers =
+    MutableWrappers().also(builderAction).toWrappers()
+
+public fun MutableWrappers(builderAction: MutableWrappers.() -> Unit): MutableWrappers =
+    MutableWrappers().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForWrappers")
@@ -1623,11 +1665,11 @@ private class Wrappers_Impl(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Wrappers_Impl(
-        stringValue = stringValue,
-        uint64Values = uint64Values,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.stringValue = stringValue
+        this.uint64Values = uint64Values
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Wrappers)?.let {
         it.copy(
@@ -1659,11 +1701,11 @@ private class MutableWrappers_Impl(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Wrappers_Impl(
-        stringValue = stringValue,
-        uint64Values = uint64Values,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.stringValue = stringValue
+        this.uint64Values = uint64Values
+        this.unknownFields.putAll(unknownFields)
+    }.toWrappers()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Wrappers)?.let {
         it.copy(
@@ -1679,7 +1721,11 @@ private class MutableWrappers_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableWrappers() = this
+    override fun toMutableWrappers() = MutableWrappers_Impl(
+        stringValue = stringValue,
+        uint64Values = uint64Values,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1693,6 +1739,5 @@ private fun Wrappers.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Wrapper
             2 -> uint64Values = (uint64Values ?: pbandk.ListWithSize.Builder()).apply { this += _fieldValue as Sequence<Long> }
         }
     }
-    @Suppress("DEPRECATION")
-    return Wrappers(stringValue, pbandk.ListWithSize.Builder.fixed(uint64Values), unknownFields)
+    return Wrappers_Impl(stringValue, pbandk.ListWithSize.Builder.fixed(uint64Values), unknownFields)
 }

@@ -118,7 +118,11 @@ public open class CodeGenerator(
             line("override operator fun plus(other: pbandk.Message?): ${type.kotlinName.fullWithPackage}")
             line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinName.fullWithPackage}>")
 
-            line().line("$visibility fun to${mutableTypeName.simple}(): ${mutableTypeName.full}")
+            line()
+            line("/**")
+            line(" * Returns a new mutable instance containing a copy of all values from this instance.")
+            line(" */")
+            line("$visibility fun to${mutableTypeName.simple}(): ${mutableTypeName.full}")
 
             line()
             line("/**")
@@ -152,7 +156,7 @@ public open class CodeGenerator(
 
             // Companion object
             line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}> {").indented {
-                line("@Suppress(\"DEPRECATION\")").line("$visibility val defaultInstance: ${type.kotlinName.fullWithPackage} by lazy { ${type.kotlinName.fullWithPackage}() }")
+                line("@Suppress(\"DEPRECATION\")").line("$visibility val defaultInstance: ${type.kotlinName.fullWithPackage} by lazy { ${type.kotlinName.fullWithPackage} {} }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinName.fullWithPackage} = ${type.kotlinName.fullWithPackage}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type)
@@ -182,7 +186,11 @@ public open class CodeGenerator(
                 }
             }
 
-            line().line("$visibility fun to${type.kotlinName.simple}(): ${type.kotlinName.full}")
+            line()
+            line("/**")
+            line(" * Returns a new immutable instance containing a copy of all values from this instance.")
+            line(" */")
+            line("$visibility fun to${type.kotlinName.simple}(): ${type.kotlinName.full}")
 
             line().line("$visibility override fun copy(builderAction: ${mutableTypeName.full}.() -> Unit): ${mutableTypeName.full}")
 
@@ -334,21 +342,22 @@ public open class CodeGenerator(
         //        imports = ["pbandk.wkt.Any"],
         //    )
         //)
+        line()
         line("@Deprecated(\"Use ${type.kotlinName.full} { } instead\")")
         line("$visibility fun ${builderName.full}(").indented {
             type.fields.forEach { field ->
                 lineBegin("${field.kotlinName}: ")
                 when (field) {
-                    is File.Field.Numbered -> lineMid("${field.kotlinValueType(true)} = ${field.defaultValue}")
-                    is File.Field.OneOf -> lineMid("${type.kotlinName.fullWithPackage}.${field.kotlinTypeName}<*>? = null")
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineMid("${type.kotlinName.fullWithPackage}.${field.kotlinTypeName}<*>?")
                 }
-                lineEnd(",")
+                lineEnd(" = ${field.defaultValue},")
             }
             line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
         }.line("): ${type.kotlinName.fullWithPackage} = ${builderName.full} {").indented {
             type.fields.forEach { field -> line("this.${field.kotlinName} = ${field.kotlinName}") }
             line("this.unknownFields.putAll(unknownFields)")
-        }.line("}").line()
+        }.line("}")
 
         val mutableTypeName = type.kotlinName.copy(simple = "Mutable${type.kotlinName.simple}")
         val mutableBuilderName = builderName.copy(simple = "Mutable${builderName.simple}")
@@ -358,31 +367,24 @@ public open class CodeGenerator(
                 .orEmpty() + "Mutable${type.kotlinName.simple}_Impl"
         )
 
-        line("@Deprecated(\"Use ${type.kotlinName.full} { } instead\")")
-        line("$visibility fun ${mutableBuilderName.full}(").indented {
-            type.fields.forEach { field ->
-                lineBegin("${field.kotlinName}: ")
-                when (field) {
-                    is File.Field.Numbered -> lineMid("${field.kotlinValueType(true)} = ${field.defaultValue}")
-                    is File.Field.OneOf -> lineMid("${type.kotlinName.fullWithPackage}.${field.kotlinTypeName}<*>? = null")
-                }
-                lineEnd(",")
-            }
-            line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
-        }.line("): ${mutableTypeName.full} = ${mutableImplName.full}(").indented {
-            type.fields.forEach { field -> line("${field.kotlinName} = ${field.kotlinName},") }
-            line("unknownFields = unknownFields.toMutableMap()")
-        }.line(")").line()
+        line().line("$visibility fun ${mutableBuilderName.full}(): ${mutableTypeName.full} = ${mutableImplName.full}(").indented {
+            type.fields.forEach { field -> line("${field.kotlinName} = ${field.defaultValue},") }
+            line("unknownFields = mutableMapOf()")
+        }.line(")")
 
+        line()
         line("/**")
         line(" * The [${mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
         line(" * Using it outside of the function produces an unspecified behavior.")
         line(" */")
-        line("$visibility fun ${builderName.full}(builderAction: ${mutableTypeName.full}.() -> Unit): ${type.kotlinName.full} {").indented {
-            line("@Suppress(\"DEPRECATION\") val builder = ${mutableTypeName.full}()")
-            line("builder.builderAction()")
-            line("return builder.to${type.kotlinName.simple}()")
-        }.line("}")
+        line("$visibility fun ${builderName.full}(builderAction: ${mutableTypeName.full}.() -> Unit): ${type.kotlinName.full} =").indented {
+            line("${mutableBuilderName.full}().also(builderAction).to${type.kotlinName.simple}()")
+        }
+
+        line()
+        line("$visibility fun ${mutableBuilderName.full}(builderAction: ${mutableTypeName.full}.() -> Unit): ${mutableTypeName.full} =").indented {
+            line("${mutableBuilderName.full}().also(builderAction)")
+        }
 
         type.kotlinName.parent?.let { parent ->
             val mutableParentName = parent.copy(simple = "Mutable${parent.simple}")
@@ -413,7 +415,7 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageImpl(type: File.Type.Message, nested: Boolean) {
-        fun writeCopyMethod(implName: String) {
+        fun writeCopyMethod(isMutable: Boolean) {
             if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
             }
@@ -430,11 +432,15 @@ public open class CodeGenerator(
                 }
 //                line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
                 line("unknownFields: Map<Int, pbandk.UnknownField>")
-            }.line(") = $implName(").indented {
-                type.fields.forEach { field -> line("${field.kotlinName} = ${field.kotlinName},") }
-                line("unknownFields = unknownFields")
-            }.line(")")
-
+            }.line(") = copy {").indented {
+                type.fields.forEach { field -> line("this.${field.kotlinName} = ${field.kotlinName}") }
+                line("this.unknownFields.putAll(unknownFields)")
+            }
+            if (isMutable) {
+                line("}.to${type.kotlinName.simple}()")
+            } else {
+                line("}")
+            }
         }
 
         fun mergeStandard(field: File.Field.Numbered.Standard) {
@@ -588,7 +594,7 @@ public open class CodeGenerator(
             }
 
             line()
-            writeCopyMethod(implName)
+            writeCopyMethod(false)
 
             line()
             writeMergeMethod(implName)
@@ -643,7 +649,7 @@ public open class CodeGenerator(
             }
 
             line()
-            writeCopyMethod(implName )
+            writeCopyMethod(true)
 
             line()
             writeMergeMethod(mutableImplName)
@@ -659,7 +665,16 @@ public open class CodeGenerator(
                 line("unknownFields = unknownFields.toMap()")
             }.line(")")
 
-            line().line("override fun to${mutableTypeName.simple}() = this")
+            line().line("override fun to${mutableTypeName.simple}() = $mutableImplName(").indented {
+                type.fields.forEach { field ->
+                    lineBegin("${field.kotlinName} = ")
+                    if (field is File.Field.Numbered && field.options.deprecated == true) {
+                        lineMid("@Suppress(\"DEPRECATION\") ")
+                    }
+                    lineEnd("${field.kotlinName},")
+                }
+                line("unknownFields = unknownFields.toMutableMap()")
+            }.line(")")
         }.line("}")
     }
 
@@ -734,7 +749,8 @@ public open class CodeGenerator(
             } ?: lineEnd("_, _ -> }")
 
             // Wrap the params to the class and return it
-            line("@Suppress(\"DEPRECATION\")").lineBegin("return ${type.kotlinName.full}(")
+            val implName = "${type.kotlinName.full.replace('.', '_')}_Impl"
+            lineBegin("return ${implName}(")
             val chunkedDoneFields = doneKotlinFields.chunked(4)
             chunkedDoneFields.forEachIndexed { index, doneFieldSet ->
                 val doneFieldStr = doneFieldSet.joinToString(", ", postfix = ",")
@@ -780,6 +796,13 @@ public open class CodeGenerator(
     protected val File.Type.Message.mapEntryValueKotlinType: String?
         get() = if (!mapEntry) null else (fields[1] as File.Field.Numbered.Standard).kotlinValueType(true)
 
+    protected val File.Field.defaultValue: String
+        get() = when (this) {
+            is File.Field.Numbered.Standard -> defaultValue
+            is File.Field.Numbered.Wrapper -> defaultValue
+            is File.Field.OneOf -> "null"
+        }
+
     protected fun File.Field.Numbered.kotlinValueType(nullableIfMessage: Boolean): String = when (this) {
         is File.Field.Numbered.Standard -> kotlinValueType(nullableIfMessage)
         is File.Field.Numbered.Wrapper -> kotlinValueType(nullableIfMessage)
@@ -787,12 +810,6 @@ public open class CodeGenerator(
 
     protected val File.Field.Numbered.extendeeKotlinType: Name?
         get() = extendee?.let { kotlinTypeMappings[it] }
-
-    protected val File.Field.Numbered.defaultValue: String
-        get() = when (this) {
-            is File.Field.Numbered.Standard -> defaultValue
-            is File.Field.Numbered.Wrapper -> defaultValue
-        }
 
     protected fun File.Field.Numbered.fieldDescriptorType(isOneOfMember: Boolean = false): String {
         return "pbandk.FieldDescriptor.Type." + when (this) {

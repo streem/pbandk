@@ -9,6 +9,9 @@ public sealed interface Duration : pbandk.Message {
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Duration
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration>
 
+    /**
+     * Returns a new mutable instance containing a copy of all values from this instance.
+     */
     public fun toMutableDuration(): MutableDuration
 
     /**
@@ -26,7 +29,7 @@ public sealed interface Duration : pbandk.Message {
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
         @Suppress("DEPRECATION")
-        public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration() }
+        public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> by lazy {
@@ -67,6 +70,9 @@ public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
     public override var seconds: Long
     public override var nanos: Int
 
+    /**
+     * Returns a new immutable instance containing a copy of all values from this instance.
+     */
     public fun toDuration(): Duration
 
     public override fun copy(builderAction: MutableDuration.() -> Unit): MutableDuration
@@ -77,6 +83,7 @@ public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
         override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> get() = pbandk.wkt.Duration.descriptor
     }
 }
+
 @Deprecated("Use Duration { } instead")
 public fun Duration(
     seconds: Long = 0L,
@@ -88,26 +95,21 @@ public fun Duration(
     this.unknownFields.putAll(unknownFields)
 }
 
-@Deprecated("Use Duration { } instead")
-public fun MutableDuration(
-    seconds: Long = 0L,
-    nanos: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): MutableDuration = MutableDuration_Impl(
-    seconds = seconds,
-    nanos = nanos,
-    unknownFields = unknownFields.toMutableMap()
+public fun MutableDuration(): MutableDuration = MutableDuration_Impl(
+    seconds = 0L,
+    nanos = 0,
+    unknownFields = mutableMapOf()
 )
 
 /**
  * The [MutableDuration] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Duration(builderAction: MutableDuration.() -> Unit): Duration {
-    @Suppress("DEPRECATION") val builder = MutableDuration()
-    builder.builderAction()
-    return builder.toDuration()
-}
+public fun Duration(builderAction: MutableDuration.() -> Unit): Duration =
+    MutableDuration().also(builderAction).toDuration()
+
+public fun MutableDuration(builderAction: MutableDuration.() -> Unit): MutableDuration =
+    MutableDuration().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDuration")
@@ -128,11 +130,11 @@ private class Duration_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Duration_Impl(
-        seconds = seconds,
-        nanos = nanos,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.seconds = seconds
+        this.nanos = nanos
+        this.unknownFields.putAll(unknownFields)
+    }
 
     override operator fun plus(other: pbandk.Message?) = (other as? Duration)?.let {
         it.copy(
@@ -162,11 +164,11 @@ private class MutableDuration_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = Duration_Impl(
-        seconds = seconds,
-        nanos = nanos,
-        unknownFields = unknownFields
-    )
+    ) = copy {
+        this.seconds = seconds
+        this.nanos = nanos
+        this.unknownFields.putAll(unknownFields)
+    }.toDuration()
 
     override operator fun plus(other: pbandk.Message?) = (other as? Duration)?.let {
         it.copy(
@@ -180,7 +182,11 @@ private class MutableDuration_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDuration() = this
+    override fun toMutableDuration() = MutableDuration_Impl(
+        seconds = seconds,
+        nanos = nanos,
+        unknownFields = unknownFields.toMutableMap()
+    )
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -194,6 +200,5 @@ private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duratio
             2 -> nanos = _fieldValue as Int
         }
     }
-    @Suppress("DEPRECATION")
-    return Duration(seconds, nanos, unknownFields)
+    return Duration_Impl(seconds, nanos, unknownFields)
 }
