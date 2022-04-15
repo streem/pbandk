@@ -15,7 +15,9 @@ public sealed interface DoubleValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit): pbandk.wkt.DoubleValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Double = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -67,7 +69,9 @@ public sealed interface FloatValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit): pbandk.wkt.FloatValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Float = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -119,7 +123,9 @@ public sealed interface Int64Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit): pbandk.wkt.Int64Value
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Long = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -171,7 +177,9 @@ public sealed interface UInt64Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit): pbandk.wkt.UInt64Value
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Long = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -223,7 +231,9 @@ public sealed interface Int32Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit): pbandk.wkt.Int32Value
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Int = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -275,7 +285,9 @@ public sealed interface UInt32Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit): pbandk.wkt.UInt32Value
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Int = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -327,7 +339,9 @@ public sealed interface BoolValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit): pbandk.wkt.BoolValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: Boolean = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -379,7 +393,9 @@ public sealed interface StringValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableStringValue.() -> Unit): pbandk.wkt.StringValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: String = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -431,7 +447,9 @@ public sealed interface BytesValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit): pbandk.wkt.BytesValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: pbandk.ByteArr = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -470,7 +488,13 @@ public sealed interface MutableBytesValue : pbandk.wkt.BytesValue, pbandk.Mutabl
     public override var value: pbandk.ByteArr
 }
 
-@Deprecated("Use DoubleValue { } instead")
+@Deprecated(
+    message = "Use DoubleValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.DoubleValue"],
+        expression = "DoubleValue {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun DoubleValue(
     value: Double = 0.0,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -561,7 +585,13 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
     return DoubleValue_Impl(value, unknownFields)
 }
 
-@Deprecated("Use FloatValue { } instead")
+@Deprecated(
+    message = "Use FloatValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FloatValue"],
+        expression = "FloatValue {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FloatValue(
     value: Float = 0.0F,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -652,7 +682,13 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
     return FloatValue_Impl(value, unknownFields)
 }
 
-@Deprecated("Use Int64Value { } instead")
+@Deprecated(
+    message = "Use Int64Value { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Int64Value"],
+        expression = "Int64Value {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Int64Value(
     value: Long = 0L,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -743,7 +779,13 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
     return Int64Value_Impl(value, unknownFields)
 }
 
-@Deprecated("Use UInt64Value { } instead")
+@Deprecated(
+    message = "Use UInt64Value { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.UInt64Value"],
+        expression = "UInt64Value {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun UInt64Value(
     value: Long = 0L,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -834,7 +876,13 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
     return UInt64Value_Impl(value, unknownFields)
 }
 
-@Deprecated("Use Int32Value { } instead")
+@Deprecated(
+    message = "Use Int32Value { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Int32Value"],
+        expression = "Int32Value {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Int32Value(
     value: Int = 0,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -925,7 +973,13 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
     return Int32Value_Impl(value, unknownFields)
 }
 
-@Deprecated("Use UInt32Value { } instead")
+@Deprecated(
+    message = "Use UInt32Value { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.UInt32Value"],
+        expression = "UInt32Value {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun UInt32Value(
     value: Int = 0,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -1016,7 +1070,13 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
     return UInt32Value_Impl(value, unknownFields)
 }
 
-@Deprecated("Use BoolValue { } instead")
+@Deprecated(
+    message = "Use BoolValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.BoolValue"],
+        expression = "BoolValue {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun BoolValue(
     value: Boolean = false,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -1107,7 +1167,13 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk
     return BoolValue_Impl(value, unknownFields)
 }
 
-@Deprecated("Use StringValue { } instead")
+@Deprecated(
+    message = "Use StringValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.StringValue"],
+        expression = "StringValue {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun StringValue(
     value: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -1198,7 +1264,13 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
     return StringValue_Impl(value, unknownFields)
 }
 
-@Deprecated("Use BytesValue { } instead")
+@Deprecated(
+    message = "Use BytesValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.BytesValue"],
+        expression = "BytesValue {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun BytesValue(
     value: pbandk.ByteArr = pbandk.ByteArr.empty,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

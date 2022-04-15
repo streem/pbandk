@@ -16,7 +16,9 @@ public sealed interface Timestamp : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         seconds: Long = this.seconds,
         nanos: Int = this.nanos,
@@ -67,7 +69,13 @@ public sealed interface MutableTimestamp : pbandk.wkt.Timestamp, pbandk.MutableM
     public override var nanos: Int
 }
 
-@Deprecated("Use Timestamp { } instead")
+@Deprecated(
+    message = "Use Timestamp { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Timestamp"],
+        expression = "Timestamp {\nthis.seconds = seconds\nthis.nanos = nanos\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Timestamp(
     seconds: Long = 0L,
     nanos: Int = 0,

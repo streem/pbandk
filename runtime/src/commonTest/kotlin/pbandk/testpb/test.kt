@@ -15,7 +15,9 @@ public sealed interface Foo : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.Foo
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         `val`: String = this.`val`,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -68,7 +70,9 @@ public sealed interface Bar : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         foos: List<pbandk.testpb.Foo> = this.foos,
         singleFoo: pbandk.testpb.Foo? = this.singleFoo,
@@ -132,7 +136,9 @@ public sealed interface MessageWithMap : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         map: Map<String, String> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -184,7 +190,9 @@ public sealed interface FooMap : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         map: Map<String, pbandk.testpb.Foo?> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -236,7 +244,9 @@ public sealed interface FooMapEntries : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -282,7 +292,9 @@ public sealed interface FooMapEntries : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             key: String = this.key,
             value: pbandk.testpb.Foo? = this.value,
@@ -353,7 +365,9 @@ public sealed interface Wrappers : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         stringValue: String? = this.stringValue,
         uint64Values: List<Long> = this.uint64Values,
@@ -404,7 +418,13 @@ public sealed interface MutableWrappers : pbandk.testpb.Wrappers, pbandk.Mutable
     public override val uint64Values: MutableList<Long>
 }
 
-@Deprecated("Use Foo { } instead")
+@Deprecated(
+    message = "Use Foo { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Foo"],
+        expression = "Foo {\nthis.`val` = `val`\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Foo(
     `val`: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -495,7 +515,13 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testp
     return Foo_Impl(`val`, unknownFields)
 }
 
-@Deprecated("Use Bar { } instead")
+@Deprecated(
+    message = "Use Bar { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Bar"],
+        expression = "Bar {\nthis.foos += foos\nthis.singleFoo = singleFoo\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Bar(
     foos: List<pbandk.testpb.Foo> = emptyList(),
     singleFoo: pbandk.testpb.Foo? = null,
@@ -599,7 +625,13 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testp
     return Bar_Impl(pbandk.ListWithSize.Builder.fixed(foos), singleFoo, unknownFields)
 }
 
-@Deprecated("Use MessageWithMap { } instead")
+@Deprecated(
+    message = "Use MessageWithMap { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.MessageWithMap"],
+        expression = "MessageWithMap {\nthis.map += map\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MessageWithMap(
     map: Map<String, String> = emptyMap(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -690,7 +722,13 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): p
     return MessageWithMap_Impl(pbandk.MessageMap.from(map), unknownFields)
 }
 
-@Deprecated("Use FooMap { } instead")
+@Deprecated(
+    message = "Use FooMap { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.FooMap"],
+        expression = "FooMap {\nthis.map += map\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FooMap(
     map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -781,7 +819,13 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.te
     return FooMap_Impl(pbandk.MessageMap.from(map), unknownFields)
 }
 
-@Deprecated("Use FooMapEntries { } instead")
+@Deprecated(
+    message = "Use FooMapEntries { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.FooMapEntries"],
+        expression = "FooMapEntries {\nthis.map += map\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FooMapEntries(
     map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -872,7 +916,13 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pb
     return FooMapEntries_Impl(pbandk.ListWithSize.Builder.fixed(map), unknownFields)
 }
 
-@Deprecated("Use FooMapEntries.MapEntry { } instead")
+@Deprecated(
+    message = "Use FooMapEntries.MapEntry { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.FooMapEntries.MapEntry"],
+        expression = "FooMapEntries.MapEntry {\nthis.key = key\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FooMapEntries.Companion.MapEntry(
     key: String = "",
     value: pbandk.testpb.Foo? = null,
@@ -983,7 +1033,13 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
     return FooMapEntries_MapEntry_Impl(key, value, unknownFields)
 }
 
-@Deprecated("Use Wrappers { } instead")
+@Deprecated(
+    message = "Use Wrappers { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Wrappers"],
+        expression = "Wrappers {\nthis.stringValue = stringValue\nthis.uint64Values += uint64Values\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Wrappers(
     stringValue: String? = null,
     uint64Values: List<Long> = emptyList(),

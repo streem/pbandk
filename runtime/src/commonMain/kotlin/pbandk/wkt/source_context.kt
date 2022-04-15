@@ -15,7 +15,9 @@ public sealed interface SourceContext : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         fileName: String = this.fileName,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -54,7 +56,13 @@ public sealed interface MutableSourceContext : pbandk.wkt.SourceContext, pbandk.
     public override var fileName: String
 }
 
-@Deprecated("Use SourceContext { } instead")
+@Deprecated(
+    message = "Use SourceContext { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.SourceContext"],
+        expression = "SourceContext {\nthis.fileName = fileName\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SourceContext(
     fileName: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

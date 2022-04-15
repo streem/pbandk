@@ -31,7 +31,9 @@ public sealed interface Struct : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         fields: Map<String, pbandk.wkt.Value?> = this.fields,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -83,7 +85,9 @@ public sealed interface Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         kind: pbandk.wkt.Value.Kind<*>? = this.kind,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -214,7 +218,9 @@ public sealed interface ListValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         values: List<pbandk.wkt.Value> = this.values,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -253,7 +259,13 @@ public sealed interface MutableListValue : pbandk.wkt.ListValue, pbandk.MutableM
     public override val values: MutableList<pbandk.wkt.Value>
 }
 
-@Deprecated("Use Struct { } instead")
+@Deprecated(
+    message = "Use Struct { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Struct"],
+        expression = "Struct {\nthis.fields += fields\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Struct(
     fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -344,7 +356,13 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wk
     return Struct_Impl(pbandk.MessageMap.from(fields), unknownFields)
 }
 
-@Deprecated("Use Value { } instead")
+@Deprecated(
+    message = "Use Value { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Value"],
+        expression = "Value {\nthis.kind = kind\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Value(
     kind: pbandk.wkt.Value.Kind<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -480,7 +498,13 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt
     return Value_Impl(kind, unknownFields)
 }
 
-@Deprecated("Use ListValue { } instead")
+@Deprecated(
+    message = "Use ListValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.ListValue"],
+        expression = "ListValue {\nthis.values += values\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ListValue(
     values: List<pbandk.wkt.Value> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

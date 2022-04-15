@@ -34,7 +34,9 @@ public sealed interface FieldRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.FieldRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         message: pbandk.testpb.MessageRules? = this.message,
         type: pbandk.testpb.FieldRules.Type<*>? = this.type,
@@ -393,7 +395,9 @@ public sealed interface FloatRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.FloatRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Float? = this.const,
         lt: Float? = this.lt,
@@ -523,7 +527,9 @@ public sealed interface DoubleRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.DoubleRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Double? = this.const,
         lt: Double? = this.lt,
@@ -653,7 +659,9 @@ public sealed interface Int32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.Int32Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -783,7 +791,9 @@ public sealed interface Int64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.Int64Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -913,7 +923,9 @@ public sealed interface UInt32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.UInt32Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1043,7 +1055,9 @@ public sealed interface UInt64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.UInt64Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1173,7 +1187,9 @@ public sealed interface SInt32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.SInt32Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1303,7 +1319,9 @@ public sealed interface SInt64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.SInt64Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1433,7 +1451,9 @@ public sealed interface Fixed32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.Fixed32Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1563,7 +1583,9 @@ public sealed interface Fixed64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.Fixed64Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1693,7 +1715,9 @@ public sealed interface SFixed32Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.SFixed32Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1823,7 +1847,9 @@ public sealed interface SFixed64Rules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.SFixed64Rules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1947,7 +1973,9 @@ public sealed interface BoolRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.BoolRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Boolean? = this.const,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2014,7 +2042,9 @@ public sealed interface StringRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.StringRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: String? = this.const,
         len: Long? = this.len,
@@ -2391,7 +2421,9 @@ public sealed interface BytesRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.BytesRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: pbandk.ByteArr? = this.const,
         len: Long? = this.len,
@@ -2603,7 +2635,9 @@ public sealed interface EnumRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.EnumRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         const: Int? = this.const,
         definedOnly: Boolean? = this.definedOnly,
@@ -2692,7 +2726,9 @@ public sealed interface MessageRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MessageRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         skip: Boolean? = this.skip,
         required: Boolean? = this.required,
@@ -2759,7 +2795,9 @@ public sealed interface RepeatedRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.RepeatedRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         minItems: Long? = this.minItems,
         maxItems: Long? = this.maxItems,
@@ -2851,7 +2889,9 @@ public sealed interface MapRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MapRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         minPairs: Long? = this.minPairs,
         maxPairs: Long? = this.maxPairs,
@@ -2953,7 +2993,9 @@ public sealed interface AnyRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.AnyRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         required: Boolean? = this.required,
         `in`: List<String> = this.`in`,
@@ -3036,7 +3078,9 @@ public sealed interface DurationRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.DurationRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         required: Boolean? = this.required,
         const: pbandk.wkt.Duration? = this.const,
@@ -3180,7 +3224,9 @@ public sealed interface TimestampRules : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.TimestampRules
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         required: Boolean? = this.required,
         const: pbandk.wkt.Timestamp? = this.const,
@@ -3354,7 +3400,13 @@ val rules = pbandk.FieldDescriptor(
     value = pbandk.wkt.FieldOptions::rules
 )
 
-@Deprecated("Use FieldRules { } instead")
+@Deprecated(
+    message = "Use FieldRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.FieldRules"],
+        expression = "FieldRules {\nthis.message = message\nthis.type = type\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FieldRules(
     message: pbandk.testpb.MessageRules? = null,
     type: pbandk.testpb.FieldRules.Type<*>? = null,
@@ -3608,7 +3660,13 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
     return FieldRules_Impl(message, type, unknownFields)
 }
 
-@Deprecated("Use FloatRules { } instead")
+@Deprecated(
+    message = "Use FloatRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.FloatRules"],
+        expression = "FloatRules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FloatRules(
     const: Float? = null,
     lt: Float? = null,
@@ -3778,7 +3836,13 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use DoubleRules { } instead")
+@Deprecated(
+    message = "Use DoubleRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.DoubleRules"],
+        expression = "DoubleRules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun DoubleRules(
     const: Double? = null,
     lt: Double? = null,
@@ -3948,7 +4012,13 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use Int32Rules { } instead")
+@Deprecated(
+    message = "Use Int32Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Int32Rules"],
+        expression = "Int32Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Int32Rules(
     const: Int? = null,
     lt: Int? = null,
@@ -4118,7 +4188,13 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use Int64Rules { } instead")
+@Deprecated(
+    message = "Use Int64Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Int64Rules"],
+        expression = "Int64Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Int64Rules(
     const: Long? = null,
     lt: Long? = null,
@@ -4288,7 +4364,13 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use UInt32Rules { } instead")
+@Deprecated(
+    message = "Use UInt32Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.UInt32Rules"],
+        expression = "UInt32Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun UInt32Rules(
     const: Int? = null,
     lt: Int? = null,
@@ -4458,7 +4540,13 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use UInt64Rules { } instead")
+@Deprecated(
+    message = "Use UInt64Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.UInt64Rules"],
+        expression = "UInt64Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun UInt64Rules(
     const: Long? = null,
     lt: Long? = null,
@@ -4628,7 +4716,13 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use SInt32Rules { } instead")
+@Deprecated(
+    message = "Use SInt32Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.SInt32Rules"],
+        expression = "SInt32Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SInt32Rules(
     const: Int? = null,
     lt: Int? = null,
@@ -4798,7 +4892,13 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use SInt64Rules { } instead")
+@Deprecated(
+    message = "Use SInt64Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.SInt64Rules"],
+        expression = "SInt64Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SInt64Rules(
     const: Long? = null,
     lt: Long? = null,
@@ -4968,7 +5068,13 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use Fixed32Rules { } instead")
+@Deprecated(
+    message = "Use Fixed32Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Fixed32Rules"],
+        expression = "Fixed32Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Fixed32Rules(
     const: Int? = null,
     lt: Int? = null,
@@ -5138,7 +5244,13 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pba
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use Fixed64Rules { } instead")
+@Deprecated(
+    message = "Use Fixed64Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Fixed64Rules"],
+        expression = "Fixed64Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Fixed64Rules(
     const: Long? = null,
     lt: Long? = null,
@@ -5308,7 +5420,13 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pba
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use SFixed32Rules { } instead")
+@Deprecated(
+    message = "Use SFixed32Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.SFixed32Rules"],
+        expression = "SFixed32Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SFixed32Rules(
     const: Int? = null,
     lt: Int? = null,
@@ -5478,7 +5596,13 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pb
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use SFixed64Rules { } instead")
+@Deprecated(
+    message = "Use SFixed64Rules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.SFixed64Rules"],
+        expression = "SFixed64Rules {\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SFixed64Rules(
     const: Long? = null,
     lt: Long? = null,
@@ -5648,7 +5772,13 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pb
         gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use BoolRules { } instead")
+@Deprecated(
+    message = "Use BoolRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.BoolRules"],
+        expression = "BoolRules {\nthis.const = const\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun BoolRules(
     const: Boolean? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -5739,7 +5869,13 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk
     return BoolRules_Impl(const, unknownFields)
 }
 
-@Deprecated("Use StringRules { } instead")
+@Deprecated(
+    message = "Use StringRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.StringRules"],
+        expression = "StringRules {\nthis.const = const\nthis.len = len\nthis.minLen = minLen\nthis.maxLen = maxLen\nthis.lenBytes = lenBytes\nthis.minBytes = minBytes\nthis.maxBytes = maxBytes\nthis.pattern = pattern\nthis.prefix = prefix\nthis.suffix = suffix\nthis.contains = contains\nthis.notContains = notContains\nthis.`in` += `in`\nthis.notIn += notIn\nthis.strict = strict\nthis.wellKnown = wellKnown\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun StringRules(
     const: String? = null,
     len: Long? = null,
@@ -6101,7 +6237,13 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), strict, wellKnown, unknownFields)
 }
 
-@Deprecated("Use BytesRules { } instead")
+@Deprecated(
+    message = "Use BytesRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.BytesRules"],
+        expression = "BytesRules {\nthis.const = const\nthis.len = len\nthis.minLen = minLen\nthis.maxLen = maxLen\nthis.pattern = pattern\nthis.prefix = prefix\nthis.suffix = suffix\nthis.contains = contains\nthis.`in` += `in`\nthis.notIn += notIn\nthis.wellKnown = wellKnown\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun BytesRules(
     const: pbandk.ByteArr? = null,
     len: Long? = null,
@@ -6348,7 +6490,13 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
         pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), wellKnown, unknownFields)
 }
 
-@Deprecated("Use EnumRules { } instead")
+@Deprecated(
+    message = "Use EnumRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.EnumRules"],
+        expression = "EnumRules {\nthis.const = const\nthis.definedOnly = definedOnly\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumRules(
     const: Int? = null,
     definedOnly: Boolean? = null,
@@ -6478,7 +6626,13 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk
     return EnumRules_Impl(const, definedOnly, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use MessageRules { } instead")
+@Deprecated(
+    message = "Use MessageRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.MessageRules"],
+        expression = "MessageRules {\nthis.skip = skip\nthis.required = required\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MessageRules(
     skip: Boolean? = null,
     required: Boolean? = null,
@@ -6582,7 +6736,13 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pba
     return MessageRules_Impl(skip, required, unknownFields)
 }
 
-@Deprecated("Use RepeatedRules { } instead")
+@Deprecated(
+    message = "Use RepeatedRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.RepeatedRules"],
+        expression = "RepeatedRules {\nthis.minItems = minItems\nthis.maxItems = maxItems\nthis.unique = unique\nthis.items = items\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun RepeatedRules(
     minItems: Long? = null,
     maxItems: Long? = null,
@@ -6712,7 +6872,13 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pb
     return RepeatedRules_Impl(minItems, maxItems, unique, items, unknownFields)
 }
 
-@Deprecated("Use MapRules { } instead")
+@Deprecated(
+    message = "Use MapRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.MapRules"],
+        expression = "MapRules {\nthis.minPairs = minPairs\nthis.maxPairs = maxPairs\nthis.noSparse = noSparse\nthis.keys = keys\nthis.values = values\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MapRules(
     minPairs: Long? = null,
     maxPairs: Long? = null,
@@ -6856,7 +7022,13 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.
         values, unknownFields)
 }
 
-@Deprecated("Use AnyRules { } instead")
+@Deprecated(
+    message = "Use AnyRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.AnyRules"],
+        expression = "AnyRules {\nthis.required = required\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun AnyRules(
     required: Boolean? = null,
     `in`: List<String> = emptyList(),
@@ -6973,7 +7145,13 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.
     return AnyRules_Impl(required, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use DurationRules { } instead")
+@Deprecated(
+    message = "Use DurationRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.DurationRules"],
+        expression = "DurationRules {\nthis.required = required\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.`in` += `in`\nthis.notIn += notIn\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun DurationRules(
     required: Boolean? = null,
     const: pbandk.wkt.Duration? = null,
@@ -7156,7 +7334,13 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pb
         gt, gte, pbandk.ListWithSize.Builder.fixed(`in`), pbandk.ListWithSize.Builder.fixed(notIn), unknownFields)
 }
 
-@Deprecated("Use TimestampRules { } instead")
+@Deprecated(
+    message = "Use TimestampRules { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.TimestampRules"],
+        expression = "TimestampRules {\nthis.required = required\nthis.const = const\nthis.lt = lt\nthis.lte = lte\nthis.gt = gt\nthis.gte = gte\nthis.ltNow = ltNow\nthis.gtNow = gtNow\nthis.within = within\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun TimestampRules(
     required: Boolean? = null,
     const: pbandk.wkt.Timestamp? = null,

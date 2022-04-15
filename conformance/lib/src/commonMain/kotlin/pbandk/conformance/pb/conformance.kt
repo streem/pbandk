@@ -56,7 +56,9 @@ public sealed interface FailureSet : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableFailureSet.() -> Unit): pbandk.conformance.pb.FailureSet
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         failure: List<String> = this.failure,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -113,7 +115,9 @@ public sealed interface ConformanceRequest : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableConformanceRequest.() -> Unit): pbandk.conformance.pb.ConformanceRequest
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         requestedOutputFormat: pbandk.conformance.pb.WireFormat = this.requestedOutputFormat,
         messageType: String = this.messageType,
@@ -276,7 +280,9 @@ public sealed interface ConformanceResponse : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableConformanceResponse.() -> Unit): pbandk.conformance.pb.ConformanceResponse
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = this.result,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -435,7 +441,9 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.conformance.pb.MutableJspbEncodingConfig.() -> Unit): pbandk.conformance.pb.JspbEncodingConfig
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         useJspbArrayAnyFormat: Boolean = this.useJspbArrayAnyFormat,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -474,7 +482,13 @@ public sealed interface MutableJspbEncodingConfig : pbandk.conformance.pb.JspbEn
     public override var useJspbArrayAnyFormat: Boolean
 }
 
-@Deprecated("Use FailureSet { } instead")
+@Deprecated(
+    message = "Use FailureSet { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.conformance.pb.FailureSet"],
+        expression = "FailureSet {\nthis.failure += failure\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FailureSet(
     failure: List<String> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -565,7 +579,13 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pband
     return FailureSet_Impl(pbandk.ListWithSize.Builder.fixed(failure), unknownFields)
 }
 
-@Deprecated("Use ConformanceRequest { } instead")
+@Deprecated(
+    message = "Use ConformanceRequest { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.conformance.pb.ConformanceRequest"],
+        expression = "ConformanceRequest {\nthis.requestedOutputFormat = requestedOutputFormat\nthis.messageType = messageType\nthis.testCategory = testCategory\nthis.jspbEncodingOptions = jspbEncodingOptions\nthis.printUnknownFields = printUnknownFields\nthis.payload = payload\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ConformanceRequest(
     requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
     messageType: String = "",
@@ -753,7 +773,13 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         printUnknownFields, payload, unknownFields)
 }
 
-@Deprecated("Use ConformanceResponse { } instead")
+@Deprecated(
+    message = "Use ConformanceResponse { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.conformance.pb.ConformanceResponse"],
+        expression = "ConformanceResponse {\nthis.result = result\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ConformanceResponse(
     result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -903,7 +929,13 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
     return ConformanceResponse_Impl(result, unknownFields)
 }
 
-@Deprecated("Use JspbEncodingConfig { } instead")
+@Deprecated(
+    message = "Use JspbEncodingConfig { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.conformance.pb.JspbEncodingConfig"],
+        expression = "JspbEncodingConfig {\nthis.useJspbArrayAnyFormat = useJspbArrayAnyFormat\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun JspbEncodingConfig(
     useJspbArrayAnyFormat: Boolean = false,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

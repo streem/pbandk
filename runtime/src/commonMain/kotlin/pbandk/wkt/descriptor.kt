@@ -15,7 +15,9 @@ public sealed interface FileDescriptorSet : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit): pbandk.wkt.FileDescriptorSet
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         file: List<pbandk.wkt.FileDescriptorProto> = this.file,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -78,7 +80,9 @@ public sealed interface FileDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit): pbandk.wkt.FileDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         `package`: String? = this.`package`,
@@ -271,7 +275,9 @@ public sealed interface DescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit): pbandk.wkt.DescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         field: List<pbandk.wkt.FieldDescriptorProto> = this.field,
@@ -417,7 +423,9 @@ public sealed interface DescriptorProto : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit): pbandk.wkt.DescriptorProto.ExtensionRange
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             start: Int? = this.start,
             end: Int? = this.end,
@@ -493,7 +501,9 @@ public sealed interface DescriptorProto : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit): pbandk.wkt.DescriptorProto.ReservedRange
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             start: Int? = this.start,
             end: Int? = this.end,
@@ -572,7 +582,9 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit): pbandk.wkt.ExtensionRangeOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -634,7 +646,9 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit): pbandk.wkt.FieldDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         number: Int? = this.number,
@@ -856,7 +870,9 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit): pbandk.wkt.OneofDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         options: pbandk.wkt.OneofOptions? = this.options,
@@ -924,7 +940,9 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit): pbandk.wkt.EnumDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         value: List<pbandk.wkt.EnumValueDescriptorProto> = this.value,
@@ -1014,7 +1032,9 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): pbandk.wkt.EnumDescriptorProto.EnumReservedRange
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             start: Int? = this.start,
             end: Int? = this.end,
@@ -1090,7 +1110,9 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit): pbandk.wkt.EnumValueDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         number: Int? = this.number,
@@ -1168,7 +1190,9 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit): pbandk.wkt.ServiceDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         method: List<pbandk.wkt.MethodDescriptorProto> = this.method,
@@ -1249,7 +1273,9 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit): pbandk.wkt.MethodDescriptorProto
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String? = this.name,
         inputType: String? = this.inputType,
@@ -1382,7 +1408,9 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit): pbandk.wkt.FileOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         javaPackage: String? = this.javaPackage,
         javaOuterClassname: String? = this.javaOuterClassname,
@@ -1700,7 +1728,9 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit): pbandk.wkt.MessageOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         messageSetWireFormat: Boolean? = this.messageSetWireFormat,
         noStandardDescriptorAccessor: Boolean? = this.noStandardDescriptorAccessor,
@@ -1806,7 +1836,9 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit): pbandk.wkt.FieldOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         ctype: pbandk.wkt.FieldOptions.CType? = this.ctype,
         packed: Boolean? = this.packed,
@@ -1964,7 +1996,9 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit): pbandk.wkt.OneofOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2018,7 +2052,9 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit): pbandk.wkt.EnumOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         allowAlias: Boolean? = this.allowAlias,
         deprecated: Boolean? = this.deprecated,
@@ -2095,7 +2131,9 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit): pbandk.wkt.EnumValueOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         deprecated: Boolean? = this.deprecated,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
@@ -2160,7 +2198,9 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit): pbandk.wkt.ServiceOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         deprecated: Boolean? = this.deprecated,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
@@ -2226,7 +2266,9 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit): pbandk.wkt.MethodOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         deprecated: Boolean? = this.deprecated,
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = this.idempotencyLevel,
@@ -2325,7 +2367,9 @@ public sealed interface UninterpretedOption : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit): pbandk.wkt.UninterpretedOption
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: List<pbandk.wkt.UninterpretedOption.NamePart> = this.name,
         identifierValue: String? = this.identifierValue,
@@ -2437,7 +2481,9 @@ public sealed interface UninterpretedOption : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit): pbandk.wkt.UninterpretedOption.NamePart
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             namePart: String = this.namePart,
             isExtension: Boolean = this.isExtension,
@@ -2513,7 +2559,9 @@ public sealed interface SourceCodeInfo : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit): pbandk.wkt.SourceCodeInfo
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location> = this.location,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2562,7 +2610,9 @@ public sealed interface SourceCodeInfo : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit): pbandk.wkt.SourceCodeInfo.Location
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             path: List<Int> = this.path,
             span: List<Int> = this.span,
@@ -2668,7 +2718,9 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit): pbandk.wkt.GeneratedCodeInfo
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = this.annotation,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2716,7 +2768,9 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit): pbandk.wkt.GeneratedCodeInfo.Annotation
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             path: List<Int> = this.path,
             sourceFile: String? = this.sourceFile,
@@ -2797,7 +2851,13 @@ public sealed interface MutableGeneratedCodeInfo : pbandk.wkt.GeneratedCodeInfo,
     public override val annotation: MutableList<pbandk.wkt.GeneratedCodeInfo.Annotation>
 }
 
-@Deprecated("Use FileDescriptorSet { } instead")
+@Deprecated(
+    message = "Use FileDescriptorSet { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FileDescriptorSet"],
+        expression = "FileDescriptorSet {\nthis.file += file\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FileDescriptorSet(
     file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -2888,7 +2948,13 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
     return FileDescriptorSet_Impl(pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
-@Deprecated("Use FileDescriptorProto { } instead")
+@Deprecated(
+    message = "Use FileDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FileDescriptorProto"],
+        expression = "FileDescriptorProto {\nthis.name = name\nthis.`package` = `package`\nthis.dependency += dependency\nthis.publicDependency += publicDependency\nthis.weakDependency += weakDependency\nthis.messageType += messageType\nthis.enumType += enumType\nthis.service += service\nthis.extension += extension\nthis.options = options\nthis.sourceCodeInfo = sourceCodeInfo\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FileDescriptorProto(
     name: String? = null,
     `package`: String? = null,
@@ -3124,7 +3190,13 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
         pbandk.ListWithSize.Builder.fixed(extension), options, sourceCodeInfo, syntax, unknownFields)
 }
 
-@Deprecated("Use DescriptorProto { } instead")
+@Deprecated(
+    message = "Use DescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.DescriptorProto"],
+        expression = "DescriptorProto {\nthis.name = name\nthis.field += field\nthis.extension += extension\nthis.nestedType += nestedType\nthis.enumType += enumType\nthis.extensionRange += extensionRange\nthis.oneofDecl += oneofDecl\nthis.options = options\nthis.reservedRange += reservedRange\nthis.reservedName += reservedName\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun DescriptorProto(
     name: String? = null,
     field: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
@@ -3334,7 +3406,13 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
         pbandk.ListWithSize.Builder.fixed(reservedRange), pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
 
-@Deprecated("Use DescriptorProto.ExtensionRange { } instead")
+@Deprecated(
+    message = "Use DescriptorProto.ExtensionRange { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.DescriptorProto.ExtensionRange"],
+        expression = "DescriptorProto.ExtensionRange {\nthis.start = start\nthis.end = end\nthis.options = options\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun DescriptorProto.Companion.ExtensionRange(
     start: Int? = null,
     end: Int? = null,
@@ -3458,7 +3536,13 @@ private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.Me
     return DescriptorProto_ExtensionRange_Impl(start, end, options, unknownFields)
 }
 
-@Deprecated("Use DescriptorProto.ReservedRange { } instead")
+@Deprecated(
+    message = "Use DescriptorProto.ReservedRange { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.DescriptorProto.ReservedRange"],
+        expression = "DescriptorProto.ReservedRange {\nthis.start = start\nthis.end = end\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun DescriptorProto.Companion.ReservedRange(
     start: Int? = null,
     end: Int? = null,
@@ -3569,7 +3653,13 @@ private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.Mes
     return DescriptorProto_ReservedRange_Impl(start, end, unknownFields)
 }
 
-@Deprecated("Use ExtensionRangeOptions { } instead")
+@Deprecated(
+    message = "Use ExtensionRangeOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.ExtensionRangeOptions"],
+        expression = "ExtensionRangeOptions {\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ExtensionRangeOptions(
     uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -3662,7 +3752,13 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
     return ExtensionRangeOptions_Impl(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use FieldDescriptorProto { } instead")
+@Deprecated(
+    message = "Use FieldDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FieldDescriptorProto"],
+        expression = "FieldDescriptorProto {\nthis.name = name\nthis.number = number\nthis.label = label\nthis.type = type\nthis.typeName = typeName\nthis.extendee = extendee\nthis.defaultValue = defaultValue\nthis.oneofIndex = oneofIndex\nthis.jsonName = jsonName\nthis.options = options\nthis.proto3Optional = proto3Optional\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FieldDescriptorProto(
     name: String? = null,
     number: Int? = null,
@@ -3885,7 +3981,13 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
         jsonName, options, proto3Optional, unknownFields)
 }
 
-@Deprecated("Use OneofDescriptorProto { } instead")
+@Deprecated(
+    message = "Use OneofDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.OneofDescriptorProto"],
+        expression = "OneofDescriptorProto {\nthis.name = name\nthis.options = options\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun OneofDescriptorProto(
     name: String? = null,
     options: pbandk.wkt.OneofOptions? = null,
@@ -3989,7 +4091,13 @@ private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
     return OneofDescriptorProto_Impl(name, options, unknownFields)
 }
 
-@Deprecated("Use EnumDescriptorProto { } instead")
+@Deprecated(
+    message = "Use EnumDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.EnumDescriptorProto"],
+        expression = "EnumDescriptorProto {\nthis.name = name\nthis.value += value\nthis.options = options\nthis.reservedRange += reservedRange\nthis.reservedName += reservedName\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumDescriptorProto(
     name: String? = null,
     value: List<pbandk.wkt.EnumValueDescriptorProto> = emptyList(),
@@ -4133,7 +4241,13 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
         pbandk.ListWithSize.Builder.fixed(reservedName), unknownFields)
 }
 
-@Deprecated("Use EnumDescriptorProto.EnumReservedRange { } instead")
+@Deprecated(
+    message = "Use EnumDescriptorProto.EnumReservedRange { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.EnumDescriptorProto.EnumReservedRange"],
+        expression = "EnumDescriptorProto.EnumReservedRange {\nthis.start = start\nthis.end = end\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumDescriptorProto.Companion.EnumReservedRange(
     start: Int? = null,
     end: Int? = null,
@@ -4244,7 +4358,13 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pb
     return EnumDescriptorProto_EnumReservedRange_Impl(start, end, unknownFields)
 }
 
-@Deprecated("Use EnumValueDescriptorProto { } instead")
+@Deprecated(
+    message = "Use EnumValueDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.EnumValueDescriptorProto"],
+        expression = "EnumValueDescriptorProto {\nthis.name = name\nthis.number = number\nthis.options = options\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumValueDescriptorProto(
     name: String? = null,
     number: Int? = null,
@@ -4361,7 +4481,13 @@ private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageD
     return EnumValueDescriptorProto_Impl(name, number, options, unknownFields)
 }
 
-@Deprecated("Use ServiceDescriptorProto { } instead")
+@Deprecated(
+    message = "Use ServiceDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.ServiceDescriptorProto"],
+        expression = "ServiceDescriptorProto {\nthis.name = name\nthis.method += method\nthis.options = options\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ServiceDescriptorProto(
     name: String? = null,
     method: List<pbandk.wkt.MethodDescriptorProto> = emptyList(),
@@ -4478,7 +4604,13 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
     return ServiceDescriptorProto_Impl(name, pbandk.ListWithSize.Builder.fixed(method), options, unknownFields)
 }
 
-@Deprecated("Use MethodDescriptorProto { } instead")
+@Deprecated(
+    message = "Use MethodDescriptorProto { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.MethodDescriptorProto"],
+        expression = "MethodDescriptorProto {\nthis.name = name\nthis.inputType = inputType\nthis.outputType = outputType\nthis.options = options\nthis.clientStreaming = clientStreaming\nthis.serverStreaming = serverStreaming\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MethodDescriptorProto(
     name: String? = null,
     inputType: String? = null,
@@ -4635,7 +4767,13 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
         clientStreaming, serverStreaming, unknownFields)
 }
 
-@Deprecated("Use FileOptions { } instead")
+@Deprecated(
+    message = "Use FileOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FileOptions"],
+        expression = "FileOptions {\nthis.javaPackage = javaPackage\nthis.javaOuterClassname = javaOuterClassname\nthis.javaMultipleFiles = javaMultipleFiles\nthis.javaGenerateEqualsAndHash = javaGenerateEqualsAndHash\nthis.javaStringCheckUtf8 = javaStringCheckUtf8\nthis.optimizeFor = optimizeFor\nthis.goPackage = goPackage\nthis.ccGenericServices = ccGenericServices\nthis.javaGenericServices = javaGenericServices\nthis.pyGenericServices = pyGenericServices\nthis.phpGenericServices = phpGenericServices\nthis.deprecated = deprecated\nthis.ccEnableArenas = ccEnableArenas\nthis.objcClassPrefix = objcClassPrefix\nthis.csharpNamespace = csharpNamespace\nthis.swiftPrefix = swiftPrefix\nthis.phpClassPrefix = phpClassPrefix\nthis.phpNamespace = phpNamespace\nthis.phpMetadataNamespace = phpMetadataNamespace\nthis.rubyPackage = rubyPackage\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FileOptions(
     javaPackage: String? = null,
     javaOuterClassname: String? = null,
@@ -4999,7 +5137,13 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use MessageOptions { } instead")
+@Deprecated(
+    message = "Use MessageOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.MessageOptions"],
+        expression = "MessageOptions {\nthis.messageSetWireFormat = messageSetWireFormat\nthis.noStandardDescriptorAccessor = noStandardDescriptorAccessor\nthis.deprecated = deprecated\nthis.mapEntry = mapEntry\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MessageOptions(
     messageSetWireFormat: Boolean? = null,
     noStandardDescriptorAccessor: Boolean? = null,
@@ -5145,7 +5289,13 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): p
         pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use FieldOptions { } instead")
+@Deprecated(
+    message = "Use FieldOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FieldOptions"],
+        expression = "FieldOptions {\nthis.ctype = ctype\nthis.packed = packed\nthis.jstype = jstype\nthis.lazy = lazy\nthis.deprecated = deprecated\nthis.weak = weak\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FieldOptions(
     ctype: pbandk.wkt.FieldOptions.CType? = null,
     packed: Boolean? = null,
@@ -5317,7 +5467,13 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pba
         deprecated, weak, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use OneofOptions { } instead")
+@Deprecated(
+    message = "Use OneofOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.OneofOptions"],
+        expression = "OneofOptions {\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun OneofOptions(
     uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -5410,7 +5566,13 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pba
     return OneofOptions_Impl(pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use EnumOptions { } instead")
+@Deprecated(
+    message = "Use EnumOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.EnumOptions"],
+        expression = "EnumOptions {\nthis.allowAlias = allowAlias\nthis.deprecated = deprecated\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumOptions(
     allowAlias: Boolean? = null,
     deprecated: Boolean? = null,
@@ -5529,7 +5691,13 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pban
     return EnumOptions_Impl(allowAlias, deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use EnumValueOptions { } instead")
+@Deprecated(
+    message = "Use EnumValueOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.EnumValueOptions"],
+        expression = "EnumValueOptions {\nthis.deprecated = deprecated\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumValueOptions(
     deprecated: Boolean? = null,
     uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
@@ -5635,7 +5803,13 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
     return EnumValueOptions_Impl(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use ServiceOptions { } instead")
+@Deprecated(
+    message = "Use ServiceOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.ServiceOptions"],
+        expression = "ServiceOptions {\nthis.deprecated = deprecated\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ServiceOptions(
     deprecated: Boolean? = null,
     uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
@@ -5741,7 +5915,13 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): p
     return ServiceOptions_Impl(deprecated, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use MethodOptions { } instead")
+@Deprecated(
+    message = "Use MethodOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.MethodOptions"],
+        expression = "MethodOptions {\nthis.deprecated = deprecated\nthis.idempotencyLevel = idempotencyLevel\nthis.uninterpretedOption += uninterpretedOption\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MethodOptions(
     deprecated: Boolean? = null,
     idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
@@ -5860,7 +6040,13 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pb
     return MethodOptions_Impl(deprecated, idempotencyLevel, pbandk.ListWithSize.Builder.fixed(uninterpretedOption), unknownFields)
 }
 
-@Deprecated("Use UninterpretedOption { } instead")
+@Deprecated(
+    message = "Use UninterpretedOption { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.UninterpretedOption"],
+        expression = "UninterpretedOption {\nthis.name += name\nthis.identifierValue = identifierValue\nthis.positiveIntValue = positiveIntValue\nthis.negativeIntValue = negativeIntValue\nthis.doubleValue = doubleValue\nthis.stringValue = stringValue\nthis.aggregateValue = aggregateValue\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun UninterpretedOption(
     name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList(),
     identifierValue: String? = null,
@@ -6030,7 +6216,13 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
         doubleValue, stringValue, aggregateValue, unknownFields)
 }
 
-@Deprecated("Use UninterpretedOption.NamePart { } instead")
+@Deprecated(
+    message = "Use UninterpretedOption.NamePart { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.UninterpretedOption.NamePart"],
+        expression = "UninterpretedOption.NamePart {\nthis.namePart = namePart\nthis.isExtension = isExtension\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun UninterpretedOption.Companion.NamePart(
     namePart: String = "",
     isExtension: Boolean = false,
@@ -6141,7 +6333,13 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
     return UninterpretedOption_NamePart_Impl(namePart, isExtension, unknownFields)
 }
 
-@Deprecated("Use SourceCodeInfo { } instead")
+@Deprecated(
+    message = "Use SourceCodeInfo { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.SourceCodeInfo"],
+        expression = "SourceCodeInfo {\nthis.location += location\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SourceCodeInfo(
     location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -6232,7 +6430,13 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): p
     return SourceCodeInfo_Impl(pbandk.ListWithSize.Builder.fixed(location), unknownFields)
 }
 
-@Deprecated("Use SourceCodeInfo.Location { } instead")
+@Deprecated(
+    message = "Use SourceCodeInfo.Location { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.SourceCodeInfo.Location"],
+        expression = "SourceCodeInfo.Location {\nthis.path += path\nthis.span += span\nthis.leadingComments = leadingComments\nthis.trailingComments = trailingComments\nthis.leadingDetachedComments += leadingDetachedComments\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SourceCodeInfo.Companion.Location(
     path: List<Int> = emptyList(),
     span: List<Int> = emptyList(),
@@ -6383,7 +6587,13 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
         pbandk.ListWithSize.Builder.fixed(leadingDetachedComments), unknownFields)
 }
 
-@Deprecated("Use GeneratedCodeInfo { } instead")
+@Deprecated(
+    message = "Use GeneratedCodeInfo { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.GeneratedCodeInfo"],
+        expression = "GeneratedCodeInfo {\nthis.annotation += annotation\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun GeneratedCodeInfo(
     annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -6474,7 +6684,13 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
     return GeneratedCodeInfo_Impl(pbandk.ListWithSize.Builder.fixed(annotation), unknownFields)
 }
 
-@Deprecated("Use GeneratedCodeInfo.Annotation { } instead")
+@Deprecated(
+    message = "Use GeneratedCodeInfo.Annotation { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.GeneratedCodeInfo.Annotation"],
+        expression = "GeneratedCodeInfo.Annotation {\nthis.path += path\nthis.sourceFile = sourceFile\nthis.begin = begin\nthis.end = end\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun GeneratedCodeInfo.Companion.Annotation(
     path: List<Int> = emptyList(),
     sourceFile: String? = null,

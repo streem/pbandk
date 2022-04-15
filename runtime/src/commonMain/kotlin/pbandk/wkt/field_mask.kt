@@ -15,7 +15,9 @@ public sealed interface FieldMask : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         paths: List<String> = this.paths,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -54,7 +56,13 @@ public sealed interface MutableFieldMask : pbandk.wkt.FieldMask, pbandk.MutableM
     public override val paths: MutableList<String>
 }
 
-@Deprecated("Use FieldMask { } instead")
+@Deprecated(
+    message = "Use FieldMask { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.FieldMask"],
+        expression = "FieldMask {\nthis.paths += paths\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun FieldMask(
     paths: List<String> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

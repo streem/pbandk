@@ -21,7 +21,9 @@ public sealed interface Api : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         methods: List<pbandk.wkt.Method> = this.methods,
@@ -151,7 +153,9 @@ public sealed interface Method : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         requestTypeUrl: String = this.requestTypeUrl,
@@ -276,7 +280,9 @@ public sealed interface Mixin : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         root: String = this.root,
@@ -327,7 +333,13 @@ public sealed interface MutableMixin : pbandk.wkt.Mixin, pbandk.MutableMessage {
     public override var root: String
 }
 
-@Deprecated("Use Api { } instead")
+@Deprecated(
+    message = "Use Api { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Api"],
+        expression = "Api {\nthis.name = name\nthis.methods += methods\nthis.options += options\nthis.version = version\nthis.sourceContext = sourceContext\nthis.mixins += mixins\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Api(
     name: String = "",
     methods: List<pbandk.wkt.Method> = emptyList(),
@@ -497,7 +509,13 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.A
         sourceContext, pbandk.ListWithSize.Builder.fixed(mixins), syntax, unknownFields)
 }
 
-@Deprecated("Use Method { } instead")
+@Deprecated(
+    message = "Use Method { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Method"],
+        expression = "Method {\nthis.name = name\nthis.requestTypeUrl = requestTypeUrl\nthis.requestStreaming = requestStreaming\nthis.responseTypeUrl = responseTypeUrl\nthis.responseStreaming = responseStreaming\nthis.options += options\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Method(
     name: String = "",
     requestTypeUrl: String = "",
@@ -667,7 +685,13 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wk
         responseStreaming, pbandk.ListWithSize.Builder.fixed(options), syntax, unknownFields)
 }
 
-@Deprecated("Use Mixin { } instead")
+@Deprecated(
+    message = "Use Mixin { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Mixin"],
+        expression = "Mixin {\nthis.name = name\nthis.root = root\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Mixin(
     name: String = "",
     root: String = "",

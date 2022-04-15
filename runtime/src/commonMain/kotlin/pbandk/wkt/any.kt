@@ -16,7 +16,9 @@ public sealed interface Any : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         typeUrl: String = this.typeUrl,
         value: pbandk.ByteArr = this.value,
@@ -67,7 +69,13 @@ public sealed interface MutableAny : pbandk.wkt.Any, pbandk.MutableMessage {
     public override var value: pbandk.ByteArr
 }
 
-@Deprecated("Use Any { } instead")
+@Deprecated(
+    message = "Use Any { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Any"],
+        expression = "Any {\nthis.typeUrl = typeUrl\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Any(
     typeUrl: String = "",
     value: pbandk.ByteArr = pbandk.ByteArr.empty,

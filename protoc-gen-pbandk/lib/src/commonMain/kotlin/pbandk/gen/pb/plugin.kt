@@ -18,7 +18,9 @@ public sealed interface Version : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit): pbandk.gen.pb.Version
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         major: Int? = this.major,
         minor: Int? = this.minor,
@@ -109,7 +111,9 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit): pbandk.gen.pb.CodeGeneratorRequest
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         fileToGenerate: List<String> = this.fileToGenerate,
         parameter: String? = this.parameter,
@@ -199,7 +203,9 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         error: String? = this.error,
         supportedFeatures: Long? = this.supportedFeatures,
@@ -285,7 +291,9 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse.File
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             name: String? = this.name,
             insertionPoint: String? = this.insertionPoint,
@@ -368,7 +376,13 @@ public sealed interface MutableCodeGeneratorResponse : pbandk.gen.pb.CodeGenerat
     public override val file: MutableList<pbandk.gen.pb.CodeGeneratorResponse.File>
 }
 
-@Deprecated("Use Version { } instead")
+@Deprecated(
+    message = "Use Version { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.gen.pb.Version"],
+        expression = "Version {\nthis.major = major\nthis.minor = minor\nthis.patch = patch\nthis.suffix = suffix\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Version(
     major: Int? = null,
     minor: Int? = null,
@@ -498,7 +512,13 @@ private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.g
     return Version_Impl(major, minor, patch, suffix, unknownFields)
 }
 
-@Deprecated("Use CodeGeneratorRequest { } instead")
+@Deprecated(
+    message = "Use CodeGeneratorRequest { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.gen.pb.CodeGeneratorRequest"],
+        expression = "CodeGeneratorRequest {\nthis.fileToGenerate += fileToGenerate\nthis.parameter = parameter\nthis.protoFile += protoFile\nthis.compilerVersion = compilerVersion\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun CodeGeneratorRequest(
     fileToGenerate: List<String> = emptyList(),
     parameter: String? = null,
@@ -628,7 +648,13 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
     return CodeGeneratorRequest_Impl(pbandk.ListWithSize.Builder.fixed(fileToGenerate), parameter, pbandk.ListWithSize.Builder.fixed(protoFile), compilerVersion, unknownFields)
 }
 
-@Deprecated("Use CodeGeneratorResponse { } instead")
+@Deprecated(
+    message = "Use CodeGeneratorResponse { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.gen.pb.CodeGeneratorResponse"],
+        expression = "CodeGeneratorResponse {\nthis.error = error\nthis.supportedFeatures = supportedFeatures\nthis.file += file\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun CodeGeneratorResponse(
     error: String? = null,
     supportedFeatures: Long? = null,
@@ -745,7 +771,13 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
     return CodeGeneratorResponse_Impl(error, supportedFeatures, pbandk.ListWithSize.Builder.fixed(file), unknownFields)
 }
 
-@Deprecated("Use CodeGeneratorResponse.File { } instead")
+@Deprecated(
+    message = "Use CodeGeneratorResponse.File { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.gen.pb.CodeGeneratorResponse.File"],
+        expression = "CodeGeneratorResponse.File {\nthis.name = name\nthis.insertionPoint = insertionPoint\nthis.content = content\nthis.generatedCodeInfo = generatedCodeInfo\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun CodeGeneratorResponse.Companion.File(
     name: String? = null,
     insertionPoint: String? = null,

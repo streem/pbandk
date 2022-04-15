@@ -15,7 +15,9 @@ public sealed interface Value : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         value: pbandk.testpb.Value.Value<*>? = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -91,7 +93,13 @@ public sealed interface MutableValue : pbandk.testpb.Value, pbandk.MutableMessag
     public override var integerValue: Int?
 }
 
-@Deprecated("Use Value { } instead")
+@Deprecated(
+    message = "Use Value { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.Value"],
+        expression = "Value {\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Value(
     value: pbandk.testpb.Value.Value<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

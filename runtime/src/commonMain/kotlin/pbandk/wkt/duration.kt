@@ -16,7 +16,9 @@ public sealed interface Duration : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         seconds: Long = this.seconds,
         nanos: Int = this.nanos,
@@ -67,7 +69,13 @@ public sealed interface MutableDuration : pbandk.wkt.Duration, pbandk.MutableMes
     public override var nanos: Int
 }
 
-@Deprecated("Use Duration { } instead")
+@Deprecated(
+    message = "Use Duration { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Duration"],
+        expression = "Duration {\nthis.seconds = seconds\nthis.nanos = nanos\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Duration(
     seconds: Long = 0L,
     nanos: Int = 0,

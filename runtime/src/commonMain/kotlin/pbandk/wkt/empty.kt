@@ -14,7 +14,9 @@ public sealed interface Empty : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Empty
@@ -41,7 +43,13 @@ public sealed interface Empty : pbandk.Message {
 public sealed interface MutableEmpty : pbandk.wkt.Empty, pbandk.MutableMessage {
 }
 
-@Deprecated("Use Empty { } instead")
+@Deprecated(
+    message = "Use Empty { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Empty"],
+        expression = "Empty {\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Empty(
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.wkt.Empty = pbandk.wkt.Empty {

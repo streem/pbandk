@@ -15,7 +15,9 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.SingleRequiredCustomOption
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         single: String = this.single,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -77,7 +79,9 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MultipleCustomOptions
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         multiple: String = this.multiple,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -141,7 +145,9 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MultipleCustomOptionsPlusDeprecated
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         multipleDeprecated: String = @Suppress("DEPRECATION") this.multipleDeprecated,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -194,7 +200,13 @@ public sealed interface MutableMultipleCustomOptionsPlusDeprecated : pbandk.test
     public override var multipleDeprecated: String
 }
 
-@Deprecated("Use SingleRequiredCustomOption { } instead")
+@Deprecated(
+    message = "Use SingleRequiredCustomOption { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.SingleRequiredCustomOption"],
+        expression = "SingleRequiredCustomOption {\nthis.single = single\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun SingleRequiredCustomOption(
     single: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -285,7 +297,13 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
     return SingleRequiredCustomOption_Impl(single, unknownFields)
 }
 
-@Deprecated("Use MultipleCustomOptions { } instead")
+@Deprecated(
+    message = "Use MultipleCustomOptions { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.MultipleCustomOptions"],
+        expression = "MultipleCustomOptions {\nthis.multiple = multiple\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MultipleCustomOptions(
     multiple: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
@@ -376,7 +394,13 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
     return MultipleCustomOptions_Impl(multiple, unknownFields)
 }
 
-@Deprecated("Use MultipleCustomOptionsPlusDeprecated { } instead")
+@Deprecated(
+    message = "Use MultipleCustomOptionsPlusDeprecated { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.MultipleCustomOptionsPlusDeprecated"],
+        expression = "MultipleCustomOptionsPlusDeprecated {\nthis.multipleDeprecated = multipleDeprecated\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun MultipleCustomOptionsPlusDeprecated(
     multipleDeprecated: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()

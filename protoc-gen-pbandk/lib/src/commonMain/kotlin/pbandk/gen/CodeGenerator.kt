@@ -124,8 +124,22 @@ public open class CodeGenerator(
             line("$visibility fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage}")
 
             line()
-            // TODO: add ReplaceWith
-            line("@Deprecated(\"Use copy {} instead\")")
+            line("@Deprecated(").indented {
+                line("message = \"Use copy { } instead\",")
+                /* This doesn't work that well in practice
+                line("replaceWith = ReplaceWith(").indented {
+                    lineBegin("expression = \"copy {\\n")
+                    type.fields.forEach { field ->
+                        if (field is File.Field.Numbered && field.repeated) {
+                            lineMid("this.${field.kotlinName}.clear()\\n")
+                        }
+                        lineMid("${field.builderSetter()}\\n")
+                    }
+                    lineMid("this.unknownFields.clear()\\n")
+                    lineEnd("this.unknownFields += unknownFields\\n}\",")
+                }.line(")")
+                 */
+            }.line(")")
             line("$visibility fun copy(").indented {
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName}: ")
@@ -313,18 +327,17 @@ public open class CodeGenerator(
 
     protected fun writeMessageBuilder(type: File.Type.Message) {
         val builderName = type.kotlinName.parent?.let { Name(Name(it, "Companion"), type.kotlinName.simple) } ?: type.kotlinName
-        val mutableBuilderName = builderName.copy(simple = "Mutable${builderName.simple}")
 
-        // TODO: add ReplaceWith, e.g.:
-        // @Deprecated(
-        //    message = "Use Any { } instead",
-        //    replaceWith = ReplaceWith(
-        //        expression = "Any {\nthis.typeUrl = typeUrl\nthis.value = value\nthis.unknownFields.putAll(unknownFields)\n}",
-        //        imports = ["pbandk.wkt.Any"],
-        //    )
-        //)
         line()
-        line("@Deprecated(\"Use ${type.kotlinName.full} { } instead\")")
+        line("@Deprecated(").indented {
+            line("message = \"Use ${type.kotlinName.full} { } instead\",")
+            line("replaceWith = ReplaceWith(").indented {
+                line("imports = [\"${type.kotlinName.fullWithPackage}\"],")
+                lineBegin("expression = \"${type.kotlinName.full} {\\n")
+                type.fields.forEach { field -> lineMid("${field.builderSetter()}\\n") }
+                lineEnd("this.unknownFields += unknownFields\\n}\",")
+            }.line(")")
+        }.line(")")
         line("$visibility fun ${builderName.full}(").indented {
             type.fields.forEach { field ->
                 lineBegin("${field.kotlinName}: ")

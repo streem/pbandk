@@ -37,7 +37,9 @@ public sealed interface Type : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         fields: List<pbandk.wkt.Field> = this.fields,
@@ -158,7 +160,9 @@ public sealed interface Field : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.Field
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         kind: pbandk.wkt.Field.Kind = this.kind,
         cardinality: pbandk.wkt.Field.Cardinality = this.cardinality,
@@ -373,7 +377,9 @@ public sealed interface Enum : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         enumvalue: List<pbandk.wkt.EnumValue> = this.enumvalue,
@@ -475,7 +481,9 @@ public sealed interface EnumValue : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.EnumValue
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         number: Int = this.number,
@@ -552,7 +560,9 @@ public sealed interface Option : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.Option
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         name: String = this.name,
         value: pbandk.wkt.Any? = this.value,
@@ -603,7 +613,13 @@ public sealed interface MutableOption : pbandk.wkt.Option, pbandk.MutableMessage
     public override var value: pbandk.wkt.Any?
 }
 
-@Deprecated("Use Type { } instead")
+@Deprecated(
+    message = "Use Type { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Type"],
+        expression = "Type {\nthis.name = name\nthis.fields += fields\nthis.oneofs += oneofs\nthis.options += options\nthis.sourceContext = sourceContext\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Type(
     name: String = "",
     fields: List<pbandk.wkt.Field> = emptyList(),
@@ -760,7 +776,13 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.
         sourceContext, syntax, unknownFields)
 }
 
-@Deprecated("Use Field { } instead")
+@Deprecated(
+    message = "Use Field { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Field"],
+        expression = "Field {\nthis.kind = kind\nthis.cardinality = cardinality\nthis.number = number\nthis.name = name\nthis.typeUrl = typeUrl\nthis.oneofIndex = oneofIndex\nthis.packed = packed\nthis.options += options\nthis.jsonName = jsonName\nthis.defaultValue = defaultValue\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Field(
     kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
     cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
@@ -970,7 +992,13 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt
         jsonName, defaultValue, unknownFields)
 }
 
-@Deprecated("Use Enum { } instead")
+@Deprecated(
+    message = "Use Enum { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Enum"],
+        expression = "Enum {\nthis.name = name\nthis.enumvalue += enumvalue\nthis.options += options\nthis.sourceContext = sourceContext\nthis.syntax = syntax\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Enum(
     name: String = "",
     enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
@@ -1114,7 +1142,13 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.
         syntax, unknownFields)
 }
 
-@Deprecated("Use EnumValue { } instead")
+@Deprecated(
+    message = "Use EnumValue { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.EnumValue"],
+        expression = "EnumValue {\nthis.name = name\nthis.number = number\nthis.options += options\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun EnumValue(
     name: String = "",
     number: Int = 0,
@@ -1231,7 +1265,13 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk
     return EnumValue_Impl(name, number, pbandk.ListWithSize.Builder.fixed(options), unknownFields)
 }
 
-@Deprecated("Use Option { } instead")
+@Deprecated(
+    message = "Use Option { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.wkt.Option"],
+        expression = "Option {\nthis.name = name\nthis.value = value\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun Option(
     name: String = "",
     value: pbandk.wkt.Any? = null,

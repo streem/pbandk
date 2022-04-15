@@ -173,7 +173,9 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.TestAllTypesProto3
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         optionalInt32: Int = this.optionalInt32,
         optionalInt64: Long = this.optionalInt64,
@@ -1908,7 +1910,9 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
          */
         public fun copy(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.NestedMessage
 
-        @Deprecated("Use copy {} instead")
+        @Deprecated(
+            message = "Use copy { } instead",
+        )
         public fun copy(
             a: Int = this.a,
             corecursive: pbandk.testpb.TestAllTypesProto3? = this.corecursive,
@@ -2128,7 +2132,9 @@ public sealed interface ForeignMessage : pbandk.Message {
      */
     public fun copy(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.ForeignMessage
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated(
+        message = "Use copy { } instead",
+    )
     public fun copy(
         c: Int = this.c,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2167,7 +2173,13 @@ public sealed interface MutableForeignMessage : pbandk.testpb.ForeignMessage, pb
     public override var c: Int
 }
 
-@Deprecated("Use TestAllTypesProto3 { } instead")
+@Deprecated(
+    message = "Use TestAllTypesProto3 { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.TestAllTypesProto3"],
+        expression = "TestAllTypesProto3 {\nthis.optionalInt32 = optionalInt32\nthis.optionalInt64 = optionalInt64\nthis.optionalUint32 = optionalUint32\nthis.optionalUint64 = optionalUint64\nthis.optionalSint32 = optionalSint32\nthis.optionalSint64 = optionalSint64\nthis.optionalFixed32 = optionalFixed32\nthis.optionalFixed64 = optionalFixed64\nthis.optionalSfixed32 = optionalSfixed32\nthis.optionalSfixed64 = optionalSfixed64\nthis.optionalFloat = optionalFloat\nthis.optionalDouble = optionalDouble\nthis.optionalBool = optionalBool\nthis.optionalString = optionalString\nthis.optionalBytes = optionalBytes\nthis.optionalNestedMessage = optionalNestedMessage\nthis.optionalForeignMessage = optionalForeignMessage\nthis.optionalNestedEnum = optionalNestedEnum\nthis.optionalForeignEnum = optionalForeignEnum\nthis.optionalAliasedEnum = optionalAliasedEnum\nthis.optionalStringPiece = optionalStringPiece\nthis.optionalCord = optionalCord\nthis.recursiveMessage = recursiveMessage\nthis.repeatedInt32 += repeatedInt32\nthis.repeatedInt64 += repeatedInt64\nthis.repeatedUint32 += repeatedUint32\nthis.repeatedUint64 += repeatedUint64\nthis.repeatedSint32 += repeatedSint32\nthis.repeatedSint64 += repeatedSint64\nthis.repeatedFixed32 += repeatedFixed32\nthis.repeatedFixed64 += repeatedFixed64\nthis.repeatedSfixed32 += repeatedSfixed32\nthis.repeatedSfixed64 += repeatedSfixed64\nthis.repeatedFloat += repeatedFloat\nthis.repeatedDouble += repeatedDouble\nthis.repeatedBool += repeatedBool\nthis.repeatedString += repeatedString\nthis.repeatedBytes += repeatedBytes\nthis.repeatedNestedMessage += repeatedNestedMessage\nthis.repeatedForeignMessage += repeatedForeignMessage\nthis.repeatedNestedEnum += repeatedNestedEnum\nthis.repeatedForeignEnum += repeatedForeignEnum\nthis.repeatedStringPiece += repeatedStringPiece\nthis.repeatedCord += repeatedCord\nthis.packedInt32 += packedInt32\nthis.packedInt64 += packedInt64\nthis.packedUint32 += packedUint32\nthis.packedUint64 += packedUint64\nthis.packedSint32 += packedSint32\nthis.packedSint64 += packedSint64\nthis.packedFixed32 += packedFixed32\nthis.packedFixed64 += packedFixed64\nthis.packedSfixed32 += packedSfixed32\nthis.packedSfixed64 += packedSfixed64\nthis.packedFloat += packedFloat\nthis.packedDouble += packedDouble\nthis.packedBool += packedBool\nthis.packedNestedEnum += packedNestedEnum\nthis.unpackedInt32 += unpackedInt32\nthis.unpackedInt64 += unpackedInt64\nthis.unpackedUint32 += unpackedUint32\nthis.unpackedUint64 += unpackedUint64\nthis.unpackedSint32 += unpackedSint32\nthis.unpackedSint64 += unpackedSint64\nthis.unpackedFixed32 += unpackedFixed32\nthis.unpackedFixed64 += unpackedFixed64\nthis.unpackedSfixed32 += unpackedSfixed32\nthis.unpackedSfixed64 += unpackedSfixed64\nthis.unpackedFloat += unpackedFloat\nthis.unpackedDouble += unpackedDouble\nthis.unpackedBool += unpackedBool\nthis.unpackedNestedEnum += unpackedNestedEnum\nthis.mapInt32Int32 += mapInt32Int32\nthis.mapInt64Int64 += mapInt64Int64\nthis.mapUint32Uint32 += mapUint32Uint32\nthis.mapUint64Uint64 += mapUint64Uint64\nthis.mapSint32Sint32 += mapSint32Sint32\nthis.mapSint64Sint64 += mapSint64Sint64\nthis.mapFixed32Fixed32 += mapFixed32Fixed32\nthis.mapFixed64Fixed64 += mapFixed64Fixed64\nthis.mapSfixed32Sfixed32 += mapSfixed32Sfixed32\nthis.mapSfixed64Sfixed64 += mapSfixed64Sfixed64\nthis.mapInt32Float += mapInt32Float\nthis.mapInt32Double += mapInt32Double\nthis.mapBoolBool += mapBoolBool\nthis.mapStringString += mapStringString\nthis.mapStringBytes += mapStringBytes\nthis.mapStringNestedMessage += mapStringNestedMessage\nthis.mapStringForeignMessage += mapStringForeignMessage\nthis.mapStringNestedEnum += mapStringNestedEnum\nthis.mapStringForeignEnum += mapStringForeignEnum\nthis.optionalBoolWrapper = optionalBoolWrapper\nthis.optionalInt32Wrapper = optionalInt32Wrapper\nthis.optionalInt64Wrapper = optionalInt64Wrapper\nthis.optionalUint32Wrapper = optionalUint32Wrapper\nthis.optionalUint64Wrapper = optionalUint64Wrapper\nthis.optionalFloatWrapper = optionalFloatWrapper\nthis.optionalDoubleWrapper = optionalDoubleWrapper\nthis.optionalStringWrapper = optionalStringWrapper\nthis.optionalBytesWrapper = optionalBytesWrapper\nthis.repeatedBoolWrapper += repeatedBoolWrapper\nthis.repeatedInt32Wrapper += repeatedInt32Wrapper\nthis.repeatedInt64Wrapper += repeatedInt64Wrapper\nthis.repeatedUint32Wrapper += repeatedUint32Wrapper\nthis.repeatedUint64Wrapper += repeatedUint64Wrapper\nthis.repeatedFloatWrapper += repeatedFloatWrapper\nthis.repeatedDoubleWrapper += repeatedDoubleWrapper\nthis.repeatedStringWrapper += repeatedStringWrapper\nthis.repeatedBytesWrapper += repeatedBytesWrapper\nthis.optionalDuration = optionalDuration\nthis.optionalTimestamp = optionalTimestamp\nthis.optionalFieldMask = optionalFieldMask\nthis.optionalStruct = optionalStruct\nthis.optionalAny = optionalAny\nthis.optionalValue = optionalValue\nthis.repeatedDuration += repeatedDuration\nthis.repeatedTimestamp += repeatedTimestamp\nthis.repeatedFieldmask += repeatedFieldmask\nthis.repeatedStruct += repeatedStruct\nthis.repeatedAny += repeatedAny\nthis.repeatedValue += repeatedValue\nthis.repeatedListValue += repeatedListValue\nthis.fieldname1 = fieldname1\nthis.fieldName2 = fieldName2\nthis.fieldName3 = fieldName3\nthis.field_name4 = field_name4\nthis.field0name5 = field0name5\nthis.field0Name6 = field0Name6\nthis.fieldName7 = fieldName7\nthis.fieldName8 = fieldName8\nthis.fieldName9 = fieldName9\nthis.fieldName10 = fieldName10\nthis.fIELDNAME11 = fIELDNAME11\nthis.fIELDName12 = fIELDName12\nthis._fieldName13 = _fieldName13\nthis._FieldName14 = _FieldName14\nthis.field_name15 = field_name15\nthis.field_Name16 = field_Name16\nthis.fieldName17_ = fieldName17_\nthis.fieldName18_ = fieldName18_\nthis.oneofField = oneofField\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun TestAllTypesProto3(
     optionalInt32: Int = 0,
     optionalInt64: Long = 0L,
@@ -4179,7 +4191,13 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
         oneofField, unknownFields)
 }
 
-@Deprecated("Use TestAllTypesProto3.NestedMessage { } instead")
+@Deprecated(
+    message = "Use TestAllTypesProto3.NestedMessage { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.TestAllTypesProto3.NestedMessage"],
+        expression = "TestAllTypesProto3.NestedMessage {\nthis.a = a\nthis.corecursive = corecursive\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun TestAllTypesProto3.Companion.NestedMessage(
     a: Int = 0,
     corecursive: pbandk.testpb.TestAllTypesProto3? = null,
@@ -4290,7 +4308,13 @@ private fun TestAllTypesProto3.NestedMessage.Companion.decodeWithImpl(u: pbandk.
     return TestAllTypesProto3_NestedMessage_Impl(a, corecursive, unknownFields)
 }
 
-@Deprecated("Use ForeignMessage { } instead")
+@Deprecated(
+    message = "Use ForeignMessage { } instead",
+    replaceWith = ReplaceWith(
+        imports = ["pbandk.testpb.ForeignMessage"],
+        expression = "ForeignMessage {\nthis.c = c\nthis.unknownFields += unknownFields\n}",
+    )
+)
 public fun ForeignMessage(
     c: Int = 0,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
