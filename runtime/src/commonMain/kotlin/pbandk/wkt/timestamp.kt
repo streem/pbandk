@@ -28,7 +28,6 @@ public sealed interface Timestamp : pbandk.Message {
     ): pbandk.wkt.Timestamp
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Timestamp by lazy { pbandk.wkt.Timestamp {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
 
@@ -142,11 +141,11 @@ private class Timestamp_Impl(
         )
     } ?: this
 
-    override fun toMutableTimestamp() = MutableTimestamp_Impl(
-        seconds = seconds,
-        nanos = nanos,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableTimestamp() = pbandk.wkt.MutableTimestamp {
+        this.seconds = this@Timestamp_Impl.seconds
+        this.nanos = this@Timestamp_Impl.nanos
+        this.unknownFields += this@Timestamp_Impl.unknownFields
+    }
 }
 
 private class MutableTimestamp_Impl(
@@ -182,11 +181,11 @@ private class MutableTimestamp_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableTimestamp() = MutableTimestamp_Impl(
-        seconds = seconds,
-        nanos = nanos,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableTimestamp() = pbandk.wkt.MutableTimestamp {
+        this.seconds = this@MutableTimestamp_Impl.seconds
+        this.nanos = this@MutableTimestamp_Impl.nanos
+        this.unknownFields += this@MutableTimestamp_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

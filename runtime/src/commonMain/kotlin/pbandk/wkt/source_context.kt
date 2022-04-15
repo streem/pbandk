@@ -26,7 +26,6 @@ public sealed interface SourceContext : pbandk.Message {
     ): pbandk.wkt.SourceContext
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.SourceContext by lazy { pbandk.wkt.SourceContext {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceContext = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
@@ -123,10 +122,10 @@ private class SourceContext_Impl(
         )
     } ?: this
 
-    override fun toMutableSourceContext() = MutableSourceContext_Impl(
-        fileName = fileName,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSourceContext() = pbandk.wkt.MutableSourceContext {
+        this.fileName = this@SourceContext_Impl.fileName
+        this.unknownFields += this@SourceContext_Impl.unknownFields
+    }
 }
 
 private class MutableSourceContext_Impl(
@@ -158,10 +157,10 @@ private class MutableSourceContext_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSourceContext() = MutableSourceContext_Impl(
-        fileName = fileName,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSourceContext() = pbandk.wkt.MutableSourceContext {
+        this.fileName = this@MutableSourceContext_Impl.fileName
+        this.unknownFields += this@MutableSourceContext_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

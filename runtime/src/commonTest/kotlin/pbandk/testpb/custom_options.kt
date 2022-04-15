@@ -26,7 +26,6 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
     ): pbandk.testpb.SingleRequiredCustomOption
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SingleRequiredCustomOption by lazy { pbandk.testpb.SingleRequiredCustomOption {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
@@ -105,7 +104,6 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
     ): pbandk.testpb.MultipleCustomOptions
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MultipleCustomOptions by lazy { pbandk.testpb.MultipleCustomOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
@@ -186,7 +184,6 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     ): pbandk.testpb.MultipleCustomOptionsPlusDeprecated
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MultipleCustomOptionsPlusDeprecated by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
@@ -297,10 +294,10 @@ private class SingleRequiredCustomOption_Impl(
         )
     } ?: this
 
-    override fun toMutableSingleRequiredCustomOption() = MutableSingleRequiredCustomOption_Impl(
-        single = single,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSingleRequiredCustomOption() = pbandk.testpb.MutableSingleRequiredCustomOption {
+        this.single = this@SingleRequiredCustomOption_Impl.single
+        this.unknownFields += this@SingleRequiredCustomOption_Impl.unknownFields
+    }
 }
 
 private class MutableSingleRequiredCustomOption_Impl(
@@ -332,10 +329,10 @@ private class MutableSingleRequiredCustomOption_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSingleRequiredCustomOption() = MutableSingleRequiredCustomOption_Impl(
-        single = single,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSingleRequiredCustomOption() = pbandk.testpb.MutableSingleRequiredCustomOption {
+        this.single = this@MutableSingleRequiredCustomOption_Impl.single
+        this.unknownFields += this@MutableSingleRequiredCustomOption_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -402,10 +399,10 @@ private class MultipleCustomOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableMultipleCustomOptions() = MutableMultipleCustomOptions_Impl(
-        multiple = multiple,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMultipleCustomOptions() = pbandk.testpb.MutableMultipleCustomOptions {
+        this.multiple = this@MultipleCustomOptions_Impl.multiple
+        this.unknownFields += this@MultipleCustomOptions_Impl.unknownFields
+    }
 }
 
 private class MutableMultipleCustomOptions_Impl(
@@ -437,10 +434,10 @@ private class MutableMultipleCustomOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMultipleCustomOptions() = MutableMultipleCustomOptions_Impl(
-        multiple = multiple,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMultipleCustomOptions() = pbandk.testpb.MutableMultipleCustomOptions {
+        this.multiple = this@MutableMultipleCustomOptions_Impl.multiple
+        this.unknownFields += this@MutableMultipleCustomOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -460,6 +457,7 @@ public fun MultipleCustomOptionsPlusDeprecated(
     multipleDeprecated: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
 ): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
+    @Suppress("DEPRECATION")
     this.multipleDeprecated = multipleDeprecated
     this.unknownFields += unknownFields
 }
@@ -498,6 +496,7 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
+        @Suppress("DEPRECATION")
         this.multipleDeprecated = multipleDeprecated
         this.unknownFields += unknownFields
     }
@@ -509,10 +508,11 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
         )
     } ?: this
 
-    override fun toMutableMultipleCustomOptionsPlusDeprecated() = MutableMultipleCustomOptionsPlusDeprecated_Impl(
-        multipleDeprecated = @Suppress("DEPRECATION") multipleDeprecated,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMultipleCustomOptionsPlusDeprecated() = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated {
+        @Suppress("DEPRECATION")
+        this.multipleDeprecated = this@MultipleCustomOptionsPlusDeprecated_Impl.multipleDeprecated
+        this.unknownFields += this@MultipleCustomOptionsPlusDeprecated_Impl.unknownFields
+    }
 }
 
 private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
@@ -530,6 +530,7 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
+        @Suppress("DEPRECATION")
         this.multipleDeprecated = multipleDeprecated
         this.unknownFields += unknownFields
     }.toMultipleCustomOptionsPlusDeprecated()
@@ -546,10 +547,11 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMultipleCustomOptionsPlusDeprecated() = MutableMultipleCustomOptionsPlusDeprecated_Impl(
-        multipleDeprecated = @Suppress("DEPRECATION") multipleDeprecated,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMultipleCustomOptionsPlusDeprecated() = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated {
+        @Suppress("DEPRECATION")
+        this.multipleDeprecated = this@MutableMultipleCustomOptionsPlusDeprecated_Impl.multipleDeprecated
+        this.unknownFields += this@MutableMultipleCustomOptionsPlusDeprecated_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

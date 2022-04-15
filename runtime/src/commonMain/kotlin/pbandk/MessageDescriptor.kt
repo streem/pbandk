@@ -24,9 +24,11 @@ public class MessageDescriptor<T : Message> @PublicForGeneratedCode constructor(
     @ExperimentalProtoReflection
     public val messageCompanion: Message.Companion<T>,
 
-    @ExperimentalProtoReflection
-    public val fields: Collection<FieldDescriptor<T, *>>
+    fields: Collection<FieldDescriptor<T, *>>
 ) {
     /** The message type's unqualified name. */
     public val name: String = fullName.substringAfterLast('.')
+
+    @ExperimentalProtoReflection
+    public val fields: FieldDescriptorSet<T> = FieldDescriptorSet(fields)
 }

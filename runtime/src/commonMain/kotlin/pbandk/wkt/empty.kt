@@ -24,7 +24,6 @@ public sealed interface Empty : pbandk.Message {
     ): pbandk.wkt.Empty
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Empty by lazy { pbandk.wkt.Empty {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
 
@@ -104,9 +103,9 @@ private class Empty_Impl(
         )
     } ?: this
 
-    override fun toMutableEmpty() = MutableEmpty_Impl(
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEmpty() = pbandk.wkt.MutableEmpty {
+        this.unknownFields += this@Empty_Impl.unknownFields
+    }
 }
 
 private class MutableEmpty_Impl(
@@ -134,9 +133,9 @@ private class MutableEmpty_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEmpty() = MutableEmpty_Impl(
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEmpty() = pbandk.wkt.MutableEmpty {
+        this.unknownFields += this@MutableEmpty_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

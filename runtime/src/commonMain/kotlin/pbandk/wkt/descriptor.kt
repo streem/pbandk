@@ -26,7 +26,6 @@ public sealed interface FileDescriptorSet : pbandk.Message {
     ): pbandk.wkt.FileDescriptorSet
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorSet> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FileDescriptorSet by lazy { pbandk.wkt.FileDescriptorSet {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileDescriptorSet = pbandk.wkt.FileDescriptorSet.decodeWithImpl(u)
 
@@ -117,7 +116,6 @@ public sealed interface FileDescriptorProto : pbandk.Message {
     ): pbandk.wkt.FileDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FileDescriptorProto by lazy { pbandk.wkt.FileDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileDescriptorProto = pbandk.wkt.FileDescriptorProto.decodeWithImpl(u)
 
@@ -325,7 +323,6 @@ public sealed interface DescriptorProto : pbandk.Message {
     ): pbandk.wkt.DescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.DescriptorProto by lazy { pbandk.wkt.DescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto = pbandk.wkt.DescriptorProto.decodeWithImpl(u)
 
@@ -470,7 +467,6 @@ public sealed interface DescriptorProto : pbandk.Message {
         ): pbandk.wkt.DescriptorProto.ExtensionRange
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ExtensionRange> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.DescriptorProto.ExtensionRange by lazy { pbandk.wkt.DescriptorProto.ExtensionRange {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto.ExtensionRange.decodeWithImpl(u)
 
@@ -563,7 +559,6 @@ public sealed interface DescriptorProto : pbandk.Message {
         ): pbandk.wkt.DescriptorProto.ReservedRange
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.DescriptorProto.ReservedRange> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.DescriptorProto.ReservedRange by lazy { pbandk.wkt.DescriptorProto.ReservedRange {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto.ReservedRange.decodeWithImpl(u)
 
@@ -670,7 +665,6 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.ExtensionRangeOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ExtensionRangeOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.ExtensionRangeOptions by lazy { pbandk.wkt.ExtensionRangeOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.ExtensionRangeOptions.decodeWithImpl(u)
 
@@ -759,7 +753,6 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
     ): pbandk.wkt.FieldDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FieldDescriptorProto by lazy { pbandk.wkt.FieldDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldDescriptorProto = pbandk.wkt.FieldDescriptorProto.decodeWithImpl(u)
 
@@ -989,7 +982,6 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
     ): pbandk.wkt.OneofDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.OneofDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.OneofDescriptorProto by lazy { pbandk.wkt.OneofDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.OneofDescriptorProto = pbandk.wkt.OneofDescriptorProto.decodeWithImpl(u)
 
@@ -1077,7 +1069,6 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
     ): pbandk.wkt.EnumDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumDescriptorProto by lazy { pbandk.wkt.EnumDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumDescriptorProto = pbandk.wkt.EnumDescriptorProto.decodeWithImpl(u)
 
@@ -1170,7 +1161,6 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
         ): pbandk.wkt.EnumDescriptorProto.EnumReservedRange
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.EnumDescriptorProto.EnumReservedRange by lazy { pbandk.wkt.EnumDescriptorProto.EnumReservedRange {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto.EnumReservedRange.decodeWithImpl(u)
 
@@ -1276,7 +1266,6 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
     ): pbandk.wkt.EnumValueDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumValueDescriptorProto by lazy { pbandk.wkt.EnumValueDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValueDescriptorProto = pbandk.wkt.EnumValueDescriptorProto.decodeWithImpl(u)
 
@@ -1371,7 +1360,6 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
     ): pbandk.wkt.ServiceDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.ServiceDescriptorProto by lazy { pbandk.wkt.ServiceDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ServiceDescriptorProto = pbandk.wkt.ServiceDescriptorProto.decodeWithImpl(u)
 
@@ -1472,7 +1460,6 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
     ): pbandk.wkt.MethodDescriptorProto
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.MethodDescriptorProto> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.MethodDescriptorProto by lazy { pbandk.wkt.MethodDescriptorProto {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MethodDescriptorProto = pbandk.wkt.MethodDescriptorProto.decodeWithImpl(u)
 
@@ -1637,7 +1624,6 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.FileOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FileOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FileOptions by lazy { pbandk.wkt.FileOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FileOptions = pbandk.wkt.FileOptions.decodeWithImpl(u)
 
@@ -1956,7 +1942,6 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.MessageOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.MessageOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.MessageOptions by lazy { pbandk.wkt.MessageOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MessageOptions = pbandk.wkt.MessageOptions.decodeWithImpl(u)
 
@@ -2081,7 +2066,6 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.FieldOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FieldOptions by lazy { pbandk.wkt.FieldOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldOptions = pbandk.wkt.FieldOptions.decodeWithImpl(u)
 
@@ -2250,7 +2234,6 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.OneofOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.OneofOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.OneofOptions by lazy { pbandk.wkt.OneofOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.OneofOptions = pbandk.wkt.OneofOptions.decodeWithImpl(u)
 
@@ -2323,7 +2306,6 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.EnumOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumOptions by lazy { pbandk.wkt.EnumOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumOptions = pbandk.wkt.EnumOptions.decodeWithImpl(u)
 
@@ -2416,7 +2398,6 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.EnumValueOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValueOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumValueOptions by lazy { pbandk.wkt.EnumValueOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValueOptions = pbandk.wkt.EnumValueOptions.decodeWithImpl(u)
 
@@ -2498,7 +2479,6 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.ServiceOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.ServiceOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.ServiceOptions by lazy { pbandk.wkt.ServiceOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ServiceOptions = pbandk.wkt.ServiceOptions.decodeWithImpl(u)
 
@@ -2582,7 +2562,6 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage {
     ): pbandk.wkt.MethodOptions
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.MethodOptions> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.MethodOptions by lazy { pbandk.wkt.MethodOptions {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.MethodOptions = pbandk.wkt.MethodOptions.decodeWithImpl(u)
 
@@ -2702,7 +2681,6 @@ public sealed interface UninterpretedOption : pbandk.Message {
     ): pbandk.wkt.UninterpretedOption
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UninterpretedOption by lazy { pbandk.wkt.UninterpretedOption {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption = pbandk.wkt.UninterpretedOption.decodeWithImpl(u)
 
@@ -2815,7 +2793,6 @@ public sealed interface UninterpretedOption : pbandk.Message {
         ): pbandk.wkt.UninterpretedOption.NamePart
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.UninterpretedOption.NamePart> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.UninterpretedOption.NamePart by lazy { pbandk.wkt.UninterpretedOption.NamePart {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption.NamePart.decodeWithImpl(u)
 
@@ -2919,7 +2896,6 @@ public sealed interface SourceCodeInfo : pbandk.Message {
     ): pbandk.wkt.SourceCodeInfo
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.SourceCodeInfo by lazy { pbandk.wkt.SourceCodeInfo {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceCodeInfo = pbandk.wkt.SourceCodeInfo.decodeWithImpl(u)
 
@@ -2978,7 +2954,6 @@ public sealed interface SourceCodeInfo : pbandk.Message {
         ): pbandk.wkt.SourceCodeInfo.Location
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.SourceCodeInfo.Location> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.SourceCodeInfo.Location by lazy { pbandk.wkt.SourceCodeInfo.Location {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo.Location.decodeWithImpl(u)
 
@@ -3109,7 +3084,6 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
     ): pbandk.wkt.GeneratedCodeInfo
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.GeneratedCodeInfo by lazy { pbandk.wkt.GeneratedCodeInfo {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.GeneratedCodeInfo.decodeWithImpl(u)
 
@@ -3166,7 +3140,6 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
         ): pbandk.wkt.GeneratedCodeInfo.Annotation
 
         public companion object : pbandk.Message.Companion<pbandk.wkt.GeneratedCodeInfo.Annotation> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.wkt.GeneratedCodeInfo.Annotation by lazy { pbandk.wkt.GeneratedCodeInfo.Annotation {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo.Annotation.decodeWithImpl(u)
 
@@ -3315,10 +3288,10 @@ private class FileDescriptorSet_Impl(
         )
     } ?: this
 
-    override fun toMutableFileDescriptorSet() = MutableFileDescriptorSet_Impl(
-        file = file.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFileDescriptorSet() = pbandk.wkt.MutableFileDescriptorSet {
+        this.file += this@FileDescriptorSet_Impl.file
+        this.unknownFields += this@FileDescriptorSet_Impl.unknownFields
+    }
 }
 
 private class MutableFileDescriptorSet_Impl(
@@ -3351,10 +3324,10 @@ private class MutableFileDescriptorSet_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFileDescriptorSet() = MutableFileDescriptorSet_Impl(
-        file = file.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFileDescriptorSet() = pbandk.wkt.MutableFileDescriptorSet {
+        this.file += this@MutableFileDescriptorSet_Impl.file
+        this.unknownFields += this@MutableFileDescriptorSet_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3499,21 +3472,21 @@ private class FileDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableFileDescriptorProto() = MutableFileDescriptorProto_Impl(
-        name = name,
-        `package` = `package`,
-        dependency = dependency.toMutableList(),
-        publicDependency = publicDependency.toMutableList(),
-        weakDependency = weakDependency.toMutableList(),
-        messageType = messageType.toMutableList(),
-        enumType = enumType.toMutableList(),
-        service = service.toMutableList(),
-        extension = extension.toMutableList(),
-        options = options,
-        sourceCodeInfo = sourceCodeInfo,
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFileDescriptorProto() = pbandk.wkt.MutableFileDescriptorProto {
+        this.name = this@FileDescriptorProto_Impl.name
+        this.`package` = this@FileDescriptorProto_Impl.`package`
+        this.dependency += this@FileDescriptorProto_Impl.dependency
+        this.publicDependency += this@FileDescriptorProto_Impl.publicDependency
+        this.weakDependency += this@FileDescriptorProto_Impl.weakDependency
+        this.messageType += this@FileDescriptorProto_Impl.messageType
+        this.enumType += this@FileDescriptorProto_Impl.enumType
+        this.service += this@FileDescriptorProto_Impl.service
+        this.extension += this@FileDescriptorProto_Impl.extension
+        this.options = this@FileDescriptorProto_Impl.options
+        this.sourceCodeInfo = this@FileDescriptorProto_Impl.sourceCodeInfo
+        this.syntax = this@FileDescriptorProto_Impl.syntax
+        this.unknownFields += this@FileDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableFileDescriptorProto_Impl(
@@ -3601,21 +3574,21 @@ private class MutableFileDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFileDescriptorProto() = MutableFileDescriptorProto_Impl(
-        name = name,
-        `package` = `package`,
-        dependency = dependency.toMutableList(),
-        publicDependency = publicDependency.toMutableList(),
-        weakDependency = weakDependency.toMutableList(),
-        messageType = messageType.toMutableList(),
-        enumType = enumType.toMutableList(),
-        service = service.toMutableList(),
-        extension = extension.toMutableList(),
-        options = options,
-        sourceCodeInfo = sourceCodeInfo,
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFileDescriptorProto() = pbandk.wkt.MutableFileDescriptorProto {
+        this.name = this@MutableFileDescriptorProto_Impl.name
+        this.`package` = this@MutableFileDescriptorProto_Impl.`package`
+        this.dependency += this@MutableFileDescriptorProto_Impl.dependency
+        this.publicDependency += this@MutableFileDescriptorProto_Impl.publicDependency
+        this.weakDependency += this@MutableFileDescriptorProto_Impl.weakDependency
+        this.messageType += this@MutableFileDescriptorProto_Impl.messageType
+        this.enumType += this@MutableFileDescriptorProto_Impl.enumType
+        this.service += this@MutableFileDescriptorProto_Impl.service
+        this.extension += this@MutableFileDescriptorProto_Impl.extension
+        this.options = this@MutableFileDescriptorProto_Impl.options
+        this.sourceCodeInfo = this@MutableFileDescriptorProto_Impl.sourceCodeInfo
+        this.syntax = this@MutableFileDescriptorProto_Impl.syntax
+        this.unknownFields += this@MutableFileDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3770,19 +3743,19 @@ private class DescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableDescriptorProto() = MutableDescriptorProto_Impl(
-        name = name,
-        field = field.toMutableList(),
-        extension = extension.toMutableList(),
-        nestedType = nestedType.toMutableList(),
-        enumType = enumType.toMutableList(),
-        extensionRange = extensionRange.toMutableList(),
-        oneofDecl = oneofDecl.toMutableList(),
-        options = options,
-        reservedRange = reservedRange.toMutableList(),
-        reservedName = reservedName.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDescriptorProto() = pbandk.wkt.MutableDescriptorProto {
+        this.name = this@DescriptorProto_Impl.name
+        this.field += this@DescriptorProto_Impl.field
+        this.extension += this@DescriptorProto_Impl.extension
+        this.nestedType += this@DescriptorProto_Impl.nestedType
+        this.enumType += this@DescriptorProto_Impl.enumType
+        this.extensionRange += this@DescriptorProto_Impl.extensionRange
+        this.oneofDecl += this@DescriptorProto_Impl.oneofDecl
+        this.options = this@DescriptorProto_Impl.options
+        this.reservedRange += this@DescriptorProto_Impl.reservedRange
+        this.reservedName += this@DescriptorProto_Impl.reservedName
+        this.unknownFields += this@DescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableDescriptorProto_Impl(
@@ -3860,19 +3833,19 @@ private class MutableDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDescriptorProto() = MutableDescriptorProto_Impl(
-        name = name,
-        field = field.toMutableList(),
-        extension = extension.toMutableList(),
-        nestedType = nestedType.toMutableList(),
-        enumType = enumType.toMutableList(),
-        extensionRange = extensionRange.toMutableList(),
-        oneofDecl = oneofDecl.toMutableList(),
-        options = options,
-        reservedRange = reservedRange.toMutableList(),
-        reservedName = reservedName.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDescriptorProto() = pbandk.wkt.MutableDescriptorProto {
+        this.name = this@MutableDescriptorProto_Impl.name
+        this.field += this@MutableDescriptorProto_Impl.field
+        this.extension += this@MutableDescriptorProto_Impl.extension
+        this.nestedType += this@MutableDescriptorProto_Impl.nestedType
+        this.enumType += this@MutableDescriptorProto_Impl.enumType
+        this.extensionRange += this@MutableDescriptorProto_Impl.extensionRange
+        this.oneofDecl += this@MutableDescriptorProto_Impl.oneofDecl
+        this.options = this@MutableDescriptorProto_Impl.options
+        this.reservedRange += this@MutableDescriptorProto_Impl.reservedRange
+        this.reservedName += this@MutableDescriptorProto_Impl.reservedName
+        this.unknownFields += this@MutableDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -3981,12 +3954,12 @@ private class DescriptorProto_ExtensionRange_Impl(
         )
     } ?: this
 
-    override fun toMutableExtensionRange() = DescriptorProto_MutableExtensionRange_Impl(
-        start = start,
-        end = end,
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableExtensionRange() = pbandk.wkt.DescriptorProto.MutableExtensionRange {
+        this.start = this@DescriptorProto_ExtensionRange_Impl.start
+        this.end = this@DescriptorProto_ExtensionRange_Impl.end
+        this.options = this@DescriptorProto_ExtensionRange_Impl.options
+        this.unknownFields += this@DescriptorProto_ExtensionRange_Impl.unknownFields
+    }
 }
 
 private class DescriptorProto_MutableExtensionRange_Impl(
@@ -4029,12 +4002,12 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableExtensionRange() = DescriptorProto_MutableExtensionRange_Impl(
-        start = start,
-        end = end,
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableExtensionRange() = pbandk.wkt.DescriptorProto.MutableExtensionRange {
+        this.start = this@DescriptorProto_MutableExtensionRange_Impl.start
+        this.end = this@DescriptorProto_MutableExtensionRange_Impl.end
+        this.options = this@DescriptorProto_MutableExtensionRange_Impl.options
+        this.unknownFields += this@DescriptorProto_MutableExtensionRange_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4120,11 +4093,11 @@ private class DescriptorProto_ReservedRange_Impl(
         )
     } ?: this
 
-    override fun toMutableReservedRange() = DescriptorProto_MutableReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableReservedRange() = pbandk.wkt.DescriptorProto.MutableReservedRange {
+        this.start = this@DescriptorProto_ReservedRange_Impl.start
+        this.end = this@DescriptorProto_ReservedRange_Impl.end
+        this.unknownFields += this@DescriptorProto_ReservedRange_Impl.unknownFields
+    }
 }
 
 private class DescriptorProto_MutableReservedRange_Impl(
@@ -4162,11 +4135,11 @@ private class DescriptorProto_MutableReservedRange_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableReservedRange() = DescriptorProto_MutableReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableReservedRange() = pbandk.wkt.DescriptorProto.MutableReservedRange {
+        this.start = this@DescriptorProto_MutableReservedRange_Impl.start
+        this.end = this@DescriptorProto_MutableReservedRange_Impl.end
+        this.unknownFields += this@DescriptorProto_MutableReservedRange_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4237,10 +4210,10 @@ private class ExtensionRangeOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableExtensionRangeOptions() = MutableExtensionRangeOptions_Impl(
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableExtensionRangeOptions() = pbandk.wkt.MutableExtensionRangeOptions {
+        this.uninterpretedOption += this@ExtensionRangeOptions_Impl.uninterpretedOption
+        this.unknownFields += this@ExtensionRangeOptions_Impl.unknownFields
+    }
 }
 
 private class MutableExtensionRangeOptions_Impl(
@@ -4274,10 +4247,10 @@ private class MutableExtensionRangeOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableExtensionRangeOptions() = MutableExtensionRangeOptions_Impl(
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableExtensionRangeOptions() = pbandk.wkt.MutableExtensionRangeOptions {
+        this.uninterpretedOption += this@MutableExtensionRangeOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableExtensionRangeOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4415,20 +4388,20 @@ private class FieldDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableFieldDescriptorProto() = MutableFieldDescriptorProto_Impl(
-        name = name,
-        number = number,
-        label = label,
-        type = type,
-        typeName = typeName,
-        extendee = extendee,
-        defaultValue = defaultValue,
-        oneofIndex = oneofIndex,
-        jsonName = jsonName,
-        options = options,
-        proto3Optional = proto3Optional,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldDescriptorProto() = pbandk.wkt.MutableFieldDescriptorProto {
+        this.name = this@FieldDescriptorProto_Impl.name
+        this.number = this@FieldDescriptorProto_Impl.number
+        this.label = this@FieldDescriptorProto_Impl.label
+        this.type = this@FieldDescriptorProto_Impl.type
+        this.typeName = this@FieldDescriptorProto_Impl.typeName
+        this.extendee = this@FieldDescriptorProto_Impl.extendee
+        this.defaultValue = this@FieldDescriptorProto_Impl.defaultValue
+        this.oneofIndex = this@FieldDescriptorProto_Impl.oneofIndex
+        this.jsonName = this@FieldDescriptorProto_Impl.jsonName
+        this.options = this@FieldDescriptorProto_Impl.options
+        this.proto3Optional = this@FieldDescriptorProto_Impl.proto3Optional
+        this.unknownFields += this@FieldDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableFieldDescriptorProto_Impl(
@@ -4511,20 +4484,20 @@ private class MutableFieldDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFieldDescriptorProto() = MutableFieldDescriptorProto_Impl(
-        name = name,
-        number = number,
-        label = label,
-        type = type,
-        typeName = typeName,
-        extendee = extendee,
-        defaultValue = defaultValue,
-        oneofIndex = oneofIndex,
-        jsonName = jsonName,
-        options = options,
-        proto3Optional = proto3Optional,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldDescriptorProto() = pbandk.wkt.MutableFieldDescriptorProto {
+        this.name = this@MutableFieldDescriptorProto_Impl.name
+        this.number = this@MutableFieldDescriptorProto_Impl.number
+        this.label = this@MutableFieldDescriptorProto_Impl.label
+        this.type = this@MutableFieldDescriptorProto_Impl.type
+        this.typeName = this@MutableFieldDescriptorProto_Impl.typeName
+        this.extendee = this@MutableFieldDescriptorProto_Impl.extendee
+        this.defaultValue = this@MutableFieldDescriptorProto_Impl.defaultValue
+        this.oneofIndex = this@MutableFieldDescriptorProto_Impl.oneofIndex
+        this.jsonName = this@MutableFieldDescriptorProto_Impl.jsonName
+        this.options = this@MutableFieldDescriptorProto_Impl.options
+        this.proto3Optional = this@MutableFieldDescriptorProto_Impl.proto3Optional
+        this.unknownFields += this@MutableFieldDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4621,11 +4594,11 @@ private class OneofDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableOneofDescriptorProto() = MutableOneofDescriptorProto_Impl(
-        name = name,
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableOneofDescriptorProto() = pbandk.wkt.MutableOneofDescriptorProto {
+        this.name = this@OneofDescriptorProto_Impl.name
+        this.options = this@OneofDescriptorProto_Impl.options
+        this.unknownFields += this@OneofDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableOneofDescriptorProto_Impl(
@@ -4663,11 +4636,11 @@ private class MutableOneofDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableOneofDescriptorProto() = MutableOneofDescriptorProto_Impl(
-        name = name,
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableOneofDescriptorProto() = pbandk.wkt.MutableOneofDescriptorProto {
+        this.name = this@MutableOneofDescriptorProto_Impl.name
+        this.options = this@MutableOneofDescriptorProto_Impl.options
+        this.unknownFields += this@MutableOneofDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4765,14 +4738,14 @@ private class EnumDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumDescriptorProto() = MutableEnumDescriptorProto_Impl(
-        name = name,
-        value = value.toMutableList(),
-        options = options,
-        reservedRange = reservedRange.toMutableList(),
-        reservedName = reservedName.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumDescriptorProto() = pbandk.wkt.MutableEnumDescriptorProto {
+        this.name = this@EnumDescriptorProto_Impl.name
+        this.value += this@EnumDescriptorProto_Impl.value
+        this.options = this@EnumDescriptorProto_Impl.options
+        this.reservedRange += this@EnumDescriptorProto_Impl.reservedRange
+        this.reservedName += this@EnumDescriptorProto_Impl.reservedName
+        this.unknownFields += this@EnumDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableEnumDescriptorProto_Impl(
@@ -4825,14 +4798,14 @@ private class MutableEnumDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumDescriptorProto() = MutableEnumDescriptorProto_Impl(
-        name = name,
-        value = value.toMutableList(),
-        options = options,
-        reservedRange = reservedRange.toMutableList(),
-        reservedName = reservedName.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumDescriptorProto() = pbandk.wkt.MutableEnumDescriptorProto {
+        this.name = this@MutableEnumDescriptorProto_Impl.name
+        this.value += this@MutableEnumDescriptorProto_Impl.value
+        this.options = this@MutableEnumDescriptorProto_Impl.options
+        this.reservedRange += this@MutableEnumDescriptorProto_Impl.reservedRange
+        this.reservedName += this@MutableEnumDescriptorProto_Impl.reservedName
+        this.unknownFields += this@MutableEnumDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4923,11 +4896,11 @@ private class EnumDescriptorProto_EnumReservedRange_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumReservedRange() = EnumDescriptorProto_MutableEnumReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumReservedRange() = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange {
+        this.start = this@EnumDescriptorProto_EnumReservedRange_Impl.start
+        this.end = this@EnumDescriptorProto_EnumReservedRange_Impl.end
+        this.unknownFields += this@EnumDescriptorProto_EnumReservedRange_Impl.unknownFields
+    }
 }
 
 private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
@@ -4965,11 +4938,11 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumReservedRange() = EnumDescriptorProto_MutableEnumReservedRange_Impl(
-        start = start,
-        end = end,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumReservedRange() = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange {
+        this.start = this@EnumDescriptorProto_MutableEnumReservedRange_Impl.start
+        this.end = this@EnumDescriptorProto_MutableEnumReservedRange_Impl.end
+        this.unknownFields += this@EnumDescriptorProto_MutableEnumReservedRange_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5053,12 +5026,12 @@ private class EnumValueDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumValueDescriptorProto() = MutableEnumValueDescriptorProto_Impl(
-        name = name,
-        number = number,
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumValueDescriptorProto() = pbandk.wkt.MutableEnumValueDescriptorProto {
+        this.name = this@EnumValueDescriptorProto_Impl.name
+        this.number = this@EnumValueDescriptorProto_Impl.number
+        this.options = this@EnumValueDescriptorProto_Impl.options
+        this.unknownFields += this@EnumValueDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableEnumValueDescriptorProto_Impl(
@@ -5101,12 +5074,12 @@ private class MutableEnumValueDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumValueDescriptorProto() = MutableEnumValueDescriptorProto_Impl(
-        name = name,
-        number = number,
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumValueDescriptorProto() = pbandk.wkt.MutableEnumValueDescriptorProto {
+        this.name = this@MutableEnumValueDescriptorProto_Impl.name
+        this.number = this@MutableEnumValueDescriptorProto_Impl.number
+        this.options = this@MutableEnumValueDescriptorProto_Impl.options
+        this.unknownFields += this@MutableEnumValueDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5192,12 +5165,12 @@ private class ServiceDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableServiceDescriptorProto() = MutableServiceDescriptorProto_Impl(
-        name = name,
-        method = method.toMutableList(),
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableServiceDescriptorProto() = pbandk.wkt.MutableServiceDescriptorProto {
+        this.name = this@ServiceDescriptorProto_Impl.name
+        this.method += this@ServiceDescriptorProto_Impl.method
+        this.options = this@ServiceDescriptorProto_Impl.options
+        this.unknownFields += this@ServiceDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableServiceDescriptorProto_Impl(
@@ -5240,12 +5213,12 @@ private class MutableServiceDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableServiceDescriptorProto() = MutableServiceDescriptorProto_Impl(
-        name = name,
-        method = method.toMutableList(),
-        options = options,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableServiceDescriptorProto() = pbandk.wkt.MutableServiceDescriptorProto {
+        this.name = this@MutableServiceDescriptorProto_Impl.name
+        this.method += this@MutableServiceDescriptorProto_Impl.method
+        this.options = this@MutableServiceDescriptorProto_Impl.options
+        this.unknownFields += this@MutableServiceDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5352,15 +5325,15 @@ private class MethodDescriptorProto_Impl(
         )
     } ?: this
 
-    override fun toMutableMethodDescriptorProto() = MutableMethodDescriptorProto_Impl(
-        name = name,
-        inputType = inputType,
-        outputType = outputType,
-        options = options,
-        clientStreaming = clientStreaming,
-        serverStreaming = serverStreaming,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMethodDescriptorProto() = pbandk.wkt.MutableMethodDescriptorProto {
+        this.name = this@MethodDescriptorProto_Impl.name
+        this.inputType = this@MethodDescriptorProto_Impl.inputType
+        this.outputType = this@MethodDescriptorProto_Impl.outputType
+        this.options = this@MethodDescriptorProto_Impl.options
+        this.clientStreaming = this@MethodDescriptorProto_Impl.clientStreaming
+        this.serverStreaming = this@MethodDescriptorProto_Impl.serverStreaming
+        this.unknownFields += this@MethodDescriptorProto_Impl.unknownFields
+    }
 }
 
 private class MutableMethodDescriptorProto_Impl(
@@ -5418,15 +5391,15 @@ private class MutableMethodDescriptorProto_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMethodDescriptorProto() = MutableMethodDescriptorProto_Impl(
-        name = name,
-        inputType = inputType,
-        outputType = outputType,
-        options = options,
-        clientStreaming = clientStreaming,
-        serverStreaming = serverStreaming,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMethodDescriptorProto() = pbandk.wkt.MutableMethodDescriptorProto {
+        this.name = this@MutableMethodDescriptorProto_Impl.name
+        this.inputType = this@MutableMethodDescriptorProto_Impl.inputType
+        this.outputType = this@MutableMethodDescriptorProto_Impl.outputType
+        this.options = this@MutableMethodDescriptorProto_Impl.options
+        this.clientStreaming = this@MutableMethodDescriptorProto_Impl.clientStreaming
+        this.serverStreaming = this@MutableMethodDescriptorProto_Impl.serverStreaming
+        this.unknownFields += this@MutableMethodDescriptorProto_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5480,6 +5453,7 @@ public fun FileOptions(
     this.javaPackage = javaPackage
     this.javaOuterClassname = javaOuterClassname
     this.javaMultipleFiles = javaMultipleFiles
+    @Suppress("DEPRECATION")
     this.javaGenerateEqualsAndHash = javaGenerateEqualsAndHash
     this.javaStringCheckUtf8 = javaStringCheckUtf8
     this.optimizeFor = optimizeFor
@@ -5599,6 +5573,7 @@ private class FileOptions_Impl(
         this.javaPackage = javaPackage
         this.javaOuterClassname = javaOuterClassname
         this.javaMultipleFiles = javaMultipleFiles
+        @Suppress("DEPRECATION")
         this.javaGenerateEqualsAndHash = javaGenerateEqualsAndHash
         this.javaStringCheckUtf8 = javaStringCheckUtf8
         this.optimizeFor = optimizeFor
@@ -5648,30 +5623,31 @@ private class FileOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableFileOptions() = MutableFileOptions_Impl(
-        javaPackage = javaPackage,
-        javaOuterClassname = javaOuterClassname,
-        javaMultipleFiles = javaMultipleFiles,
-        javaGenerateEqualsAndHash = @Suppress("DEPRECATION") javaGenerateEqualsAndHash,
-        javaStringCheckUtf8 = javaStringCheckUtf8,
-        optimizeFor = optimizeFor,
-        goPackage = goPackage,
-        ccGenericServices = ccGenericServices,
-        javaGenericServices = javaGenericServices,
-        pyGenericServices = pyGenericServices,
-        phpGenericServices = phpGenericServices,
-        deprecated = deprecated,
-        ccEnableArenas = ccEnableArenas,
-        objcClassPrefix = objcClassPrefix,
-        csharpNamespace = csharpNamespace,
-        swiftPrefix = swiftPrefix,
-        phpClassPrefix = phpClassPrefix,
-        phpNamespace = phpNamespace,
-        phpMetadataNamespace = phpMetadataNamespace,
-        rubyPackage = rubyPackage,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFileOptions() = pbandk.wkt.MutableFileOptions {
+        this.javaPackage = this@FileOptions_Impl.javaPackage
+        this.javaOuterClassname = this@FileOptions_Impl.javaOuterClassname
+        this.javaMultipleFiles = this@FileOptions_Impl.javaMultipleFiles
+        @Suppress("DEPRECATION")
+        this.javaGenerateEqualsAndHash = this@FileOptions_Impl.javaGenerateEqualsAndHash
+        this.javaStringCheckUtf8 = this@FileOptions_Impl.javaStringCheckUtf8
+        this.optimizeFor = this@FileOptions_Impl.optimizeFor
+        this.goPackage = this@FileOptions_Impl.goPackage
+        this.ccGenericServices = this@FileOptions_Impl.ccGenericServices
+        this.javaGenericServices = this@FileOptions_Impl.javaGenericServices
+        this.pyGenericServices = this@FileOptions_Impl.pyGenericServices
+        this.phpGenericServices = this@FileOptions_Impl.phpGenericServices
+        this.deprecated = this@FileOptions_Impl.deprecated
+        this.ccEnableArenas = this@FileOptions_Impl.ccEnableArenas
+        this.objcClassPrefix = this@FileOptions_Impl.objcClassPrefix
+        this.csharpNamespace = this@FileOptions_Impl.csharpNamespace
+        this.swiftPrefix = this@FileOptions_Impl.swiftPrefix
+        this.phpClassPrefix = this@FileOptions_Impl.phpClassPrefix
+        this.phpNamespace = this@FileOptions_Impl.phpNamespace
+        this.phpMetadataNamespace = this@FileOptions_Impl.phpMetadataNamespace
+        this.rubyPackage = this@FileOptions_Impl.rubyPackage
+        this.uninterpretedOption += this@FileOptions_Impl.uninterpretedOption
+        this.unknownFields += this@FileOptions_Impl.unknownFields
+    }
 }
 
 private class MutableFileOptions_Impl(
@@ -5733,6 +5709,7 @@ private class MutableFileOptions_Impl(
         this.javaPackage = javaPackage
         this.javaOuterClassname = javaOuterClassname
         this.javaMultipleFiles = javaMultipleFiles
+        @Suppress("DEPRECATION")
         this.javaGenerateEqualsAndHash = javaGenerateEqualsAndHash
         this.javaStringCheckUtf8 = javaStringCheckUtf8
         this.optimizeFor = optimizeFor
@@ -5807,30 +5784,31 @@ private class MutableFileOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFileOptions() = MutableFileOptions_Impl(
-        javaPackage = javaPackage,
-        javaOuterClassname = javaOuterClassname,
-        javaMultipleFiles = javaMultipleFiles,
-        javaGenerateEqualsAndHash = @Suppress("DEPRECATION") javaGenerateEqualsAndHash,
-        javaStringCheckUtf8 = javaStringCheckUtf8,
-        optimizeFor = optimizeFor,
-        goPackage = goPackage,
-        ccGenericServices = ccGenericServices,
-        javaGenericServices = javaGenericServices,
-        pyGenericServices = pyGenericServices,
-        phpGenericServices = phpGenericServices,
-        deprecated = deprecated,
-        ccEnableArenas = ccEnableArenas,
-        objcClassPrefix = objcClassPrefix,
-        csharpNamespace = csharpNamespace,
-        swiftPrefix = swiftPrefix,
-        phpClassPrefix = phpClassPrefix,
-        phpNamespace = phpNamespace,
-        phpMetadataNamespace = phpMetadataNamespace,
-        rubyPackage = rubyPackage,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFileOptions() = pbandk.wkt.MutableFileOptions {
+        this.javaPackage = this@MutableFileOptions_Impl.javaPackage
+        this.javaOuterClassname = this@MutableFileOptions_Impl.javaOuterClassname
+        this.javaMultipleFiles = this@MutableFileOptions_Impl.javaMultipleFiles
+        @Suppress("DEPRECATION")
+        this.javaGenerateEqualsAndHash = this@MutableFileOptions_Impl.javaGenerateEqualsAndHash
+        this.javaStringCheckUtf8 = this@MutableFileOptions_Impl.javaStringCheckUtf8
+        this.optimizeFor = this@MutableFileOptions_Impl.optimizeFor
+        this.goPackage = this@MutableFileOptions_Impl.goPackage
+        this.ccGenericServices = this@MutableFileOptions_Impl.ccGenericServices
+        this.javaGenericServices = this@MutableFileOptions_Impl.javaGenericServices
+        this.pyGenericServices = this@MutableFileOptions_Impl.pyGenericServices
+        this.phpGenericServices = this@MutableFileOptions_Impl.phpGenericServices
+        this.deprecated = this@MutableFileOptions_Impl.deprecated
+        this.ccEnableArenas = this@MutableFileOptions_Impl.ccEnableArenas
+        this.objcClassPrefix = this@MutableFileOptions_Impl.objcClassPrefix
+        this.csharpNamespace = this@MutableFileOptions_Impl.csharpNamespace
+        this.swiftPrefix = this@MutableFileOptions_Impl.swiftPrefix
+        this.phpClassPrefix = this@MutableFileOptions_Impl.phpClassPrefix
+        this.phpNamespace = this@MutableFileOptions_Impl.phpNamespace
+        this.phpMetadataNamespace = this@MutableFileOptions_Impl.phpMetadataNamespace
+        this.rubyPackage = this@MutableFileOptions_Impl.rubyPackage
+        this.uninterpretedOption += this@MutableFileOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableFileOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5972,14 +5950,14 @@ private class MessageOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableMessageOptions() = MutableMessageOptions_Impl(
-        messageSetWireFormat = messageSetWireFormat,
-        noStandardDescriptorAccessor = noStandardDescriptorAccessor,
-        deprecated = deprecated,
-        mapEntry = mapEntry,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMessageOptions() = pbandk.wkt.MutableMessageOptions {
+        this.messageSetWireFormat = this@MessageOptions_Impl.messageSetWireFormat
+        this.noStandardDescriptorAccessor = this@MessageOptions_Impl.noStandardDescriptorAccessor
+        this.deprecated = this@MessageOptions_Impl.deprecated
+        this.mapEntry = this@MessageOptions_Impl.mapEntry
+        this.uninterpretedOption += this@MessageOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MessageOptions_Impl.unknownFields
+    }
 }
 
 private class MutableMessageOptions_Impl(
@@ -6033,14 +6011,14 @@ private class MutableMessageOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMessageOptions() = MutableMessageOptions_Impl(
-        messageSetWireFormat = messageSetWireFormat,
-        noStandardDescriptorAccessor = noStandardDescriptorAccessor,
-        deprecated = deprecated,
-        mapEntry = mapEntry,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMessageOptions() = pbandk.wkt.MutableMessageOptions {
+        this.messageSetWireFormat = this@MutableMessageOptions_Impl.messageSetWireFormat
+        this.noStandardDescriptorAccessor = this@MutableMessageOptions_Impl.noStandardDescriptorAccessor
+        this.deprecated = this@MutableMessageOptions_Impl.deprecated
+        this.mapEntry = this@MutableMessageOptions_Impl.mapEntry
+        this.uninterpretedOption += this@MutableMessageOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableMessageOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6160,16 +6138,16 @@ private class FieldOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableFieldOptions() = MutableFieldOptions_Impl(
-        ctype = ctype,
-        packed = packed,
-        jstype = jstype,
-        lazy = lazy,
-        deprecated = deprecated,
-        weak = weak,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldOptions() = pbandk.wkt.MutableFieldOptions {
+        this.ctype = this@FieldOptions_Impl.ctype
+        this.packed = this@FieldOptions_Impl.packed
+        this.jstype = this@FieldOptions_Impl.jstype
+        this.lazy = this@FieldOptions_Impl.lazy
+        this.deprecated = this@FieldOptions_Impl.deprecated
+        this.weak = this@FieldOptions_Impl.weak
+        this.uninterpretedOption += this@FieldOptions_Impl.uninterpretedOption
+        this.unknownFields += this@FieldOptions_Impl.unknownFields
+    }
 }
 
 private class MutableFieldOptions_Impl(
@@ -6233,16 +6211,16 @@ private class MutableFieldOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFieldOptions() = MutableFieldOptions_Impl(
-        ctype = ctype,
-        packed = packed,
-        jstype = jstype,
-        lazy = lazy,
-        deprecated = deprecated,
-        weak = weak,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldOptions() = pbandk.wkt.MutableFieldOptions {
+        this.ctype = this@MutableFieldOptions_Impl.ctype
+        this.packed = this@MutableFieldOptions_Impl.packed
+        this.jstype = this@MutableFieldOptions_Impl.jstype
+        this.lazy = this@MutableFieldOptions_Impl.lazy
+        this.deprecated = this@MutableFieldOptions_Impl.deprecated
+        this.weak = this@MutableFieldOptions_Impl.weak
+        this.uninterpretedOption += this@MutableFieldOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableFieldOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6324,10 +6302,10 @@ private class OneofOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableOneofOptions() = MutableOneofOptions_Impl(
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableOneofOptions() = pbandk.wkt.MutableOneofOptions {
+        this.uninterpretedOption += this@OneofOptions_Impl.uninterpretedOption
+        this.unknownFields += this@OneofOptions_Impl.unknownFields
+    }
 }
 
 private class MutableOneofOptions_Impl(
@@ -6361,10 +6339,10 @@ private class MutableOneofOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableOneofOptions() = MutableOneofOptions_Impl(
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableOneofOptions() = pbandk.wkt.MutableOneofOptions {
+        this.uninterpretedOption += this@MutableOneofOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableOneofOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6447,12 +6425,12 @@ private class EnumOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumOptions() = MutableEnumOptions_Impl(
-        allowAlias = allowAlias,
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumOptions() = pbandk.wkt.MutableEnumOptions {
+        this.allowAlias = this@EnumOptions_Impl.allowAlias
+        this.deprecated = this@EnumOptions_Impl.deprecated
+        this.uninterpretedOption += this@EnumOptions_Impl.uninterpretedOption
+        this.unknownFields += this@EnumOptions_Impl.unknownFields
+    }
 }
 
 private class MutableEnumOptions_Impl(
@@ -6496,12 +6474,12 @@ private class MutableEnumOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumOptions() = MutableEnumOptions_Impl(
-        allowAlias = allowAlias,
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumOptions() = pbandk.wkt.MutableEnumOptions {
+        this.allowAlias = this@MutableEnumOptions_Impl.allowAlias
+        this.deprecated = this@MutableEnumOptions_Impl.deprecated
+        this.uninterpretedOption += this@MutableEnumOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableEnumOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6581,11 +6559,11 @@ private class EnumValueOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumValueOptions() = MutableEnumValueOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumValueOptions() = pbandk.wkt.MutableEnumValueOptions {
+        this.deprecated = this@EnumValueOptions_Impl.deprecated
+        this.uninterpretedOption += this@EnumValueOptions_Impl.uninterpretedOption
+        this.unknownFields += this@EnumValueOptions_Impl.unknownFields
+    }
 }
 
 private class MutableEnumValueOptions_Impl(
@@ -6624,11 +6602,11 @@ private class MutableEnumValueOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumValueOptions() = MutableEnumValueOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumValueOptions() = pbandk.wkt.MutableEnumValueOptions {
+        this.deprecated = this@MutableEnumValueOptions_Impl.deprecated
+        this.uninterpretedOption += this@MutableEnumValueOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableEnumValueOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6706,11 +6684,11 @@ private class ServiceOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableServiceOptions() = MutableServiceOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableServiceOptions() = pbandk.wkt.MutableServiceOptions {
+        this.deprecated = this@ServiceOptions_Impl.deprecated
+        this.uninterpretedOption += this@ServiceOptions_Impl.uninterpretedOption
+        this.unknownFields += this@ServiceOptions_Impl.unknownFields
+    }
 }
 
 private class MutableServiceOptions_Impl(
@@ -6749,11 +6727,11 @@ private class MutableServiceOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableServiceOptions() = MutableServiceOptions_Impl(
-        deprecated = deprecated,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableServiceOptions() = pbandk.wkt.MutableServiceOptions {
+        this.deprecated = this@MutableServiceOptions_Impl.deprecated
+        this.uninterpretedOption += this@MutableServiceOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableServiceOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6838,12 +6816,12 @@ private class MethodOptions_Impl(
         )
     } ?: this
 
-    override fun toMutableMethodOptions() = MutableMethodOptions_Impl(
-        deprecated = deprecated,
-        idempotencyLevel = idempotencyLevel,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMethodOptions() = pbandk.wkt.MutableMethodOptions {
+        this.deprecated = this@MethodOptions_Impl.deprecated
+        this.idempotencyLevel = this@MethodOptions_Impl.idempotencyLevel
+        this.uninterpretedOption += this@MethodOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MethodOptions_Impl.unknownFields
+    }
 }
 
 private class MutableMethodOptions_Impl(
@@ -6887,12 +6865,12 @@ private class MutableMethodOptions_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMethodOptions() = MutableMethodOptions_Impl(
-        deprecated = deprecated,
-        idempotencyLevel = idempotencyLevel,
-        uninterpretedOption = uninterpretedOption.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMethodOptions() = pbandk.wkt.MutableMethodOptions {
+        this.deprecated = this@MutableMethodOptions_Impl.deprecated
+        this.idempotencyLevel = this@MutableMethodOptions_Impl.idempotencyLevel
+        this.uninterpretedOption += this@MutableMethodOptions_Impl.uninterpretedOption
+        this.unknownFields += this@MutableMethodOptions_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7006,16 +6984,16 @@ private class UninterpretedOption_Impl(
         )
     } ?: this
 
-    override fun toMutableUninterpretedOption() = MutableUninterpretedOption_Impl(
-        name = name.toMutableList(),
-        identifierValue = identifierValue,
-        positiveIntValue = positiveIntValue,
-        negativeIntValue = negativeIntValue,
-        doubleValue = doubleValue,
-        stringValue = stringValue,
-        aggregateValue = aggregateValue,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUninterpretedOption() = pbandk.wkt.MutableUninterpretedOption {
+        this.name += this@UninterpretedOption_Impl.name
+        this.identifierValue = this@UninterpretedOption_Impl.identifierValue
+        this.positiveIntValue = this@UninterpretedOption_Impl.positiveIntValue
+        this.negativeIntValue = this@UninterpretedOption_Impl.negativeIntValue
+        this.doubleValue = this@UninterpretedOption_Impl.doubleValue
+        this.stringValue = this@UninterpretedOption_Impl.stringValue
+        this.aggregateValue = this@UninterpretedOption_Impl.aggregateValue
+        this.unknownFields += this@UninterpretedOption_Impl.unknownFields
+    }
 }
 
 private class MutableUninterpretedOption_Impl(
@@ -7078,16 +7056,16 @@ private class MutableUninterpretedOption_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUninterpretedOption() = MutableUninterpretedOption_Impl(
-        name = name.toMutableList(),
-        identifierValue = identifierValue,
-        positiveIntValue = positiveIntValue,
-        negativeIntValue = negativeIntValue,
-        doubleValue = doubleValue,
-        stringValue = stringValue,
-        aggregateValue = aggregateValue,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUninterpretedOption() = pbandk.wkt.MutableUninterpretedOption {
+        this.name += this@MutableUninterpretedOption_Impl.name
+        this.identifierValue = this@MutableUninterpretedOption_Impl.identifierValue
+        this.positiveIntValue = this@MutableUninterpretedOption_Impl.positiveIntValue
+        this.negativeIntValue = this@MutableUninterpretedOption_Impl.negativeIntValue
+        this.doubleValue = this@MutableUninterpretedOption_Impl.doubleValue
+        this.stringValue = this@MutableUninterpretedOption_Impl.stringValue
+        this.aggregateValue = this@MutableUninterpretedOption_Impl.aggregateValue
+        this.unknownFields += this@MutableUninterpretedOption_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7180,11 +7158,11 @@ private class UninterpretedOption_NamePart_Impl(
         )
     } ?: this
 
-    override fun toMutableNamePart() = UninterpretedOption_MutableNamePart_Impl(
-        namePart = namePart,
-        isExtension = isExtension,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableNamePart() = pbandk.wkt.UninterpretedOption.MutableNamePart {
+        this.namePart = this@UninterpretedOption_NamePart_Impl.namePart
+        this.isExtension = this@UninterpretedOption_NamePart_Impl.isExtension
+        this.unknownFields += this@UninterpretedOption_NamePart_Impl.unknownFields
+    }
 }
 
 private class UninterpretedOption_MutableNamePart_Impl(
@@ -7220,11 +7198,11 @@ private class UninterpretedOption_MutableNamePart_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableNamePart() = UninterpretedOption_MutableNamePart_Impl(
-        namePart = namePart,
-        isExtension = isExtension,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableNamePart() = pbandk.wkt.UninterpretedOption.MutableNamePart {
+        this.namePart = this@UninterpretedOption_MutableNamePart_Impl.namePart
+        this.isExtension = this@UninterpretedOption_MutableNamePart_Impl.isExtension
+        this.unknownFields += this@UninterpretedOption_MutableNamePart_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7294,10 +7272,10 @@ private class SourceCodeInfo_Impl(
         )
     } ?: this
 
-    override fun toMutableSourceCodeInfo() = MutableSourceCodeInfo_Impl(
-        location = location.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSourceCodeInfo() = pbandk.wkt.MutableSourceCodeInfo {
+        this.location += this@SourceCodeInfo_Impl.location
+        this.unknownFields += this@SourceCodeInfo_Impl.unknownFields
+    }
 }
 
 private class MutableSourceCodeInfo_Impl(
@@ -7330,10 +7308,10 @@ private class MutableSourceCodeInfo_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSourceCodeInfo() = MutableSourceCodeInfo_Impl(
-        location = location.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSourceCodeInfo() = pbandk.wkt.MutableSourceCodeInfo {
+        this.location += this@MutableSourceCodeInfo_Impl.location
+        this.unknownFields += this@MutableSourceCodeInfo_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7436,14 +7414,14 @@ private class SourceCodeInfo_Location_Impl(
         )
     } ?: this
 
-    override fun toMutableLocation() = SourceCodeInfo_MutableLocation_Impl(
-        path = path.toMutableList(),
-        span = span.toMutableList(),
-        leadingComments = leadingComments,
-        trailingComments = trailingComments,
-        leadingDetachedComments = leadingDetachedComments.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableLocation() = pbandk.wkt.SourceCodeInfo.MutableLocation {
+        this.path += this@SourceCodeInfo_Location_Impl.path
+        this.span += this@SourceCodeInfo_Location_Impl.span
+        this.leadingComments = this@SourceCodeInfo_Location_Impl.leadingComments
+        this.trailingComments = this@SourceCodeInfo_Location_Impl.trailingComments
+        this.leadingDetachedComments += this@SourceCodeInfo_Location_Impl.leadingDetachedComments
+        this.unknownFields += this@SourceCodeInfo_Location_Impl.unknownFields
+    }
 }
 
 private class SourceCodeInfo_MutableLocation_Impl(
@@ -7496,14 +7474,14 @@ private class SourceCodeInfo_MutableLocation_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableLocation() = SourceCodeInfo_MutableLocation_Impl(
-        path = path.toMutableList(),
-        span = span.toMutableList(),
-        leadingComments = leadingComments,
-        trailingComments = trailingComments,
-        leadingDetachedComments = leadingDetachedComments.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableLocation() = pbandk.wkt.SourceCodeInfo.MutableLocation {
+        this.path += this@SourceCodeInfo_MutableLocation_Impl.path
+        this.span += this@SourceCodeInfo_MutableLocation_Impl.span
+        this.leadingComments = this@SourceCodeInfo_MutableLocation_Impl.leadingComments
+        this.trailingComments = this@SourceCodeInfo_MutableLocation_Impl.trailingComments
+        this.leadingDetachedComments += this@SourceCodeInfo_MutableLocation_Impl.leadingDetachedComments
+        this.unknownFields += this@SourceCodeInfo_MutableLocation_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7580,10 +7558,10 @@ private class GeneratedCodeInfo_Impl(
         )
     } ?: this
 
-    override fun toMutableGeneratedCodeInfo() = MutableGeneratedCodeInfo_Impl(
-        annotation = annotation.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableGeneratedCodeInfo() = pbandk.wkt.MutableGeneratedCodeInfo {
+        this.annotation += this@GeneratedCodeInfo_Impl.annotation
+        this.unknownFields += this@GeneratedCodeInfo_Impl.unknownFields
+    }
 }
 
 private class MutableGeneratedCodeInfo_Impl(
@@ -7616,10 +7594,10 @@ private class MutableGeneratedCodeInfo_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableGeneratedCodeInfo() = MutableGeneratedCodeInfo_Impl(
-        annotation = annotation.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableGeneratedCodeInfo() = pbandk.wkt.MutableGeneratedCodeInfo {
+        this.annotation += this@MutableGeneratedCodeInfo_Impl.annotation
+        this.unknownFields += this@MutableGeneratedCodeInfo_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7715,13 +7693,13 @@ private class GeneratedCodeInfo_Annotation_Impl(
         )
     } ?: this
 
-    override fun toMutableAnnotation() = GeneratedCodeInfo_MutableAnnotation_Impl(
-        path = path.toMutableList(),
-        sourceFile = sourceFile,
-        begin = begin,
-        end = end,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableAnnotation() = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation {
+        this.path += this@GeneratedCodeInfo_Annotation_Impl.path
+        this.sourceFile = this@GeneratedCodeInfo_Annotation_Impl.sourceFile
+        this.begin = this@GeneratedCodeInfo_Annotation_Impl.begin
+        this.end = this@GeneratedCodeInfo_Annotation_Impl.end
+        this.unknownFields += this@GeneratedCodeInfo_Annotation_Impl.unknownFields
+    }
 }
 
 private class GeneratedCodeInfo_MutableAnnotation_Impl(
@@ -7769,13 +7747,13 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableAnnotation() = GeneratedCodeInfo_MutableAnnotation_Impl(
-        path = path.toMutableList(),
-        sourceFile = sourceFile,
-        begin = begin,
-        end = end,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableAnnotation() = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation {
+        this.path += this@GeneratedCodeInfo_MutableAnnotation_Impl.path
+        this.sourceFile = this@GeneratedCodeInfo_MutableAnnotation_Impl.sourceFile
+        this.begin = this@GeneratedCodeInfo_MutableAnnotation_Impl.begin
+        this.end = this@GeneratedCodeInfo_MutableAnnotation_Impl.end
+        this.unknownFields += this@GeneratedCodeInfo_MutableAnnotation_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

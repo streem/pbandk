@@ -18,18 +18,17 @@ class MapTest {
      * encoding code implements some optimizations when the map field is an instance of `MessageMap`. We need to make
      * sure the optimized and non-optimized code paths both produce the same output.
      */
-    /*
     @Test
     fun testMapEntryEquivalence() {
         val testWithMessageMapEntries = TestAllTypesProto3 {
-            mapStringForeignMessage = MessageMap.of(
+            mapStringForeignMessage += MessageMap.of(
                 FieldDescriptor.Type.Primitive.String(),
                 FieldDescriptor.Type.Message(ForeignMessage),
                 "a" to ForeignMessage {},
                 "b" to ForeignMessage { c = 5 },
                 "c" to null
             )
-            mapStringForeignEnum = MessageMap.of(
+            mapStringForeignEnum += MessageMap.of(
                 FieldDescriptor.Type.Primitive.String(),
                 FieldDescriptor.Type.Enum(ForeignEnum),
                 "a" to ForeignEnum.FOREIGN_FOO,
@@ -37,12 +36,12 @@ class MapTest {
             )
         }
         val testWithGenericMapEntries = TestAllTypesProto3 {
-            mapStringForeignMessage = mapOf(
+            mapStringForeignMessage += mapOf(
                 "a" to ForeignMessage {},
                 "b" to ForeignMessage { c = 5 },
                 "c" to null
             )
-            mapStringForeignEnum = mapOf(
+            mapStringForeignEnum += mapOf(
                 "a" to ForeignEnum.FOREIGN_FOO,
                 "b" to ForeignEnum.FOREIGN_BAR
             )
@@ -54,7 +53,6 @@ class MapTest {
             testWithGenericMapEntries.encodeToByteArray()
         )
     }
-     */
 
     @Test
     fun testMapsAreEqualToRepeatedMapEntries() {

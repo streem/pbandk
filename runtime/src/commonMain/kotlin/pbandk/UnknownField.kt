@@ -76,8 +76,8 @@ private fun <T : Message.Enum> UnknownField.decodeAsEnum(type: FieldDescriptor.T
 }
 
 private fun <K, V> UnknownField.decodeAsMap(type: FieldDescriptor.Type.Map<K, V>): Map<K, V> {
-    val builder = MessageMap.Builder<K, V>()
     val messageType = FieldDescriptor.Type.Message(type.entryCompanion)
-    values.mapTo(builder.entries) { it.decodeAs(messageType) }
-    return builder.fixed()
+    return MutableMessageMap(type.entryCompanion).apply {
+        putAll(this@decodeAsMap.values.asSequence().map { it.decodeAs(messageType) })
+    }.toMessageMap()
 }

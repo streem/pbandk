@@ -38,7 +38,6 @@ public sealed interface Api : pbandk.Message {
     ): pbandk.wkt.Api
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Api by lazy { pbandk.wkt.Api {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
 
@@ -185,7 +184,6 @@ public sealed interface Method : pbandk.Message {
     ): pbandk.wkt.Method
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Method by lazy { pbandk.wkt.Method {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
 
@@ -322,7 +320,6 @@ public sealed interface Mixin : pbandk.Message {
     ): pbandk.wkt.Mixin
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Mixin by lazy { pbandk.wkt.Mixin {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
 
@@ -470,16 +467,16 @@ private class Api_Impl(
         )
     } ?: this
 
-    override fun toMutableApi() = MutableApi_Impl(
-        name = name,
-        methods = methods.toMutableList(),
-        options = options.toMutableList(),
-        version = version,
-        sourceContext = sourceContext,
-        mixins = mixins.toMutableList(),
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableApi() = pbandk.wkt.MutableApi {
+        this.name = this@Api_Impl.name
+        this.methods += this@Api_Impl.methods
+        this.options += this@Api_Impl.options
+        this.version = this@Api_Impl.version
+        this.sourceContext = this@Api_Impl.sourceContext
+        this.mixins += this@Api_Impl.mixins
+        this.syntax = this@Api_Impl.syntax
+        this.unknownFields += this@Api_Impl.unknownFields
+    }
 }
 
 private class MutableApi_Impl(
@@ -539,16 +536,16 @@ private class MutableApi_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableApi() = MutableApi_Impl(
-        name = name,
-        methods = methods.toMutableList(),
-        options = options.toMutableList(),
-        version = version,
-        sourceContext = sourceContext,
-        mixins = mixins.toMutableList(),
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableApi() = pbandk.wkt.MutableApi {
+        this.name = this@MutableApi_Impl.name
+        this.methods += this@MutableApi_Impl.methods
+        this.options += this@MutableApi_Impl.options
+        this.version = this@MutableApi_Impl.version
+        this.sourceContext = this@MutableApi_Impl.sourceContext
+        this.mixins += this@MutableApi_Impl.mixins
+        this.syntax = this@MutableApi_Impl.syntax
+        this.unknownFields += this@MutableApi_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -665,16 +662,16 @@ private class Method_Impl(
         )
     } ?: this
 
-    override fun toMutableMethod() = MutableMethod_Impl(
-        name = name,
-        requestTypeUrl = requestTypeUrl,
-        requestStreaming = requestStreaming,
-        responseTypeUrl = responseTypeUrl,
-        responseStreaming = responseStreaming,
-        options = options.toMutableList(),
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMethod() = pbandk.wkt.MutableMethod {
+        this.name = this@Method_Impl.name
+        this.requestTypeUrl = this@Method_Impl.requestTypeUrl
+        this.requestStreaming = this@Method_Impl.requestStreaming
+        this.responseTypeUrl = this@Method_Impl.responseTypeUrl
+        this.responseStreaming = this@Method_Impl.responseStreaming
+        this.options += this@Method_Impl.options
+        this.syntax = this@Method_Impl.syntax
+        this.unknownFields += this@Method_Impl.unknownFields
+    }
 }
 
 private class MutableMethod_Impl(
@@ -731,16 +728,16 @@ private class MutableMethod_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMethod() = MutableMethod_Impl(
-        name = name,
-        requestTypeUrl = requestTypeUrl,
-        requestStreaming = requestStreaming,
-        responseTypeUrl = responseTypeUrl,
-        responseStreaming = responseStreaming,
-        options = options.toMutableList(),
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMethod() = pbandk.wkt.MutableMethod {
+        this.name = this@MutableMethod_Impl.name
+        this.requestTypeUrl = this@MutableMethod_Impl.requestTypeUrl
+        this.requestStreaming = this@MutableMethod_Impl.requestStreaming
+        this.responseTypeUrl = this@MutableMethod_Impl.responseTypeUrl
+        this.responseStreaming = this@MutableMethod_Impl.responseStreaming
+        this.options += this@MutableMethod_Impl.options
+        this.syntax = this@MutableMethod_Impl.syntax
+        this.unknownFields += this@MutableMethod_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -826,11 +823,11 @@ private class Mixin_Impl(
         )
     } ?: this
 
-    override fun toMutableMixin() = MutableMixin_Impl(
-        name = name,
-        root = root,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMixin() = pbandk.wkt.MutableMixin {
+        this.name = this@Mixin_Impl.name
+        this.root = this@Mixin_Impl.root
+        this.unknownFields += this@Mixin_Impl.unknownFields
+    }
 }
 
 private class MutableMixin_Impl(
@@ -866,11 +863,11 @@ private class MutableMixin_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMixin() = MutableMixin_Impl(
-        name = name,
-        root = root,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMixin() = pbandk.wkt.MutableMixin {
+        this.name = this@MutableMixin_Impl.name
+        this.root = this@MutableMixin_Impl.root
+        this.unknownFields += this@MutableMixin_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

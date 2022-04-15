@@ -92,7 +92,6 @@ public sealed interface FieldRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FieldRules by lazy { pbandk.testpb.FieldRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
 
@@ -427,7 +426,6 @@ public sealed interface FloatRules : pbandk.Message {
     ): pbandk.testpb.FloatRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.FloatRules by lazy { pbandk.testpb.FloatRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
 
@@ -574,7 +572,6 @@ public sealed interface DoubleRules : pbandk.Message {
     ): pbandk.testpb.DoubleRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.DoubleRules by lazy { pbandk.testpb.DoubleRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
 
@@ -721,7 +718,6 @@ public sealed interface Int32Rules : pbandk.Message {
     ): pbandk.testpb.Int32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Int32Rules by lazy { pbandk.testpb.Int32Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
 
@@ -868,7 +864,6 @@ public sealed interface Int64Rules : pbandk.Message {
     ): pbandk.testpb.Int64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Int64Rules by lazy { pbandk.testpb.Int64Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
 
@@ -1015,7 +1010,6 @@ public sealed interface UInt32Rules : pbandk.Message {
     ): pbandk.testpb.UInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.UInt32Rules by lazy { pbandk.testpb.UInt32Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
 
@@ -1162,7 +1156,6 @@ public sealed interface UInt64Rules : pbandk.Message {
     ): pbandk.testpb.UInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.UInt64Rules by lazy { pbandk.testpb.UInt64Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
 
@@ -1309,7 +1302,6 @@ public sealed interface SInt32Rules : pbandk.Message {
     ): pbandk.testpb.SInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SInt32Rules by lazy { pbandk.testpb.SInt32Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
 
@@ -1456,7 +1448,6 @@ public sealed interface SInt64Rules : pbandk.Message {
     ): pbandk.testpb.SInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SInt64Rules by lazy { pbandk.testpb.SInt64Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
 
@@ -1603,7 +1594,6 @@ public sealed interface Fixed32Rules : pbandk.Message {
     ): pbandk.testpb.Fixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Fixed32Rules by lazy { pbandk.testpb.Fixed32Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
 
@@ -1750,7 +1740,6 @@ public sealed interface Fixed64Rules : pbandk.Message {
     ): pbandk.testpb.Fixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Fixed64Rules by lazy { pbandk.testpb.Fixed64Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
 
@@ -1897,7 +1886,6 @@ public sealed interface SFixed32Rules : pbandk.Message {
     ): pbandk.testpb.SFixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SFixed32Rules by lazy { pbandk.testpb.SFixed32Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
 
@@ -2044,7 +2032,6 @@ public sealed interface SFixed64Rules : pbandk.Message {
     ): pbandk.testpb.SFixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.SFixed64Rules by lazy { pbandk.testpb.SFixed64Rules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
 
@@ -2179,7 +2166,6 @@ public sealed interface BoolRules : pbandk.Message {
     ): pbandk.testpb.BoolRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.BoolRules by lazy { pbandk.testpb.BoolRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
 
@@ -2302,7 +2288,6 @@ public sealed interface StringRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.StringRules by lazy { pbandk.testpb.StringRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
 
@@ -2677,7 +2662,6 @@ public sealed interface BytesRules : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.BytesRules by lazy { pbandk.testpb.BytesRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
 
@@ -2889,7 +2873,6 @@ public sealed interface EnumRules : pbandk.Message {
     ): pbandk.testpb.EnumRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.EnumRules by lazy { pbandk.testpb.EnumRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
 
@@ -2993,7 +2976,6 @@ public sealed interface MessageRules : pbandk.Message {
     ): pbandk.testpb.MessageRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MessageRules by lazy { pbandk.testpb.MessageRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
 
@@ -3079,7 +3061,6 @@ public sealed interface RepeatedRules : pbandk.Message {
     ): pbandk.testpb.RepeatedRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.RepeatedRules by lazy { pbandk.testpb.RepeatedRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
 
@@ -3189,7 +3170,6 @@ public sealed interface MapRules : pbandk.Message {
     ): pbandk.testpb.MapRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.MapRules by lazy { pbandk.testpb.MapRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
 
@@ -3306,7 +3286,6 @@ public sealed interface AnyRules : pbandk.Message {
     ): pbandk.testpb.AnyRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.AnyRules by lazy { pbandk.testpb.AnyRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
 
@@ -3411,7 +3390,6 @@ public sealed interface DurationRules : pbandk.Message {
     ): pbandk.testpb.DurationRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.DurationRules by lazy { pbandk.testpb.DurationRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
 
@@ -3573,7 +3551,6 @@ public sealed interface TimestampRules : pbandk.Message {
     ): pbandk.testpb.TimestampRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.TimestampRules by lazy { pbandk.testpb.TimestampRules {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
 
@@ -3893,11 +3870,11 @@ private class FieldRules_Impl(
         )
     } ?: this
 
-    override fun toMutableFieldRules() = MutableFieldRules_Impl(
-        message = message,
-        type = type,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldRules() = pbandk.testpb.MutableFieldRules {
+        this.message = this@FieldRules_Impl.message
+        this.type = this@FieldRules_Impl.type
+        this.unknownFields += this@FieldRules_Impl.unknownFields
+    }
 }
 
 private class MutableFieldRules_Impl(
@@ -4044,11 +4021,11 @@ private class MutableFieldRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFieldRules() = MutableFieldRules_Impl(
-        message = message,
-        type = type,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldRules() = pbandk.testpb.MutableFieldRules {
+        this.message = this@MutableFieldRules_Impl.message
+        this.type = this@MutableFieldRules_Impl.type
+        this.unknownFields += this@MutableFieldRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4180,16 +4157,16 @@ private class FloatRules_Impl(
         )
     } ?: this
 
-    override fun toMutableFloatRules() = MutableFloatRules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFloatRules() = pbandk.testpb.MutableFloatRules {
+        this.const = this@FloatRules_Impl.const
+        this.lt = this@FloatRules_Impl.lt
+        this.lte = this@FloatRules_Impl.lte
+        this.gt = this@FloatRules_Impl.gt
+        this.gte = this@FloatRules_Impl.gte
+        this.`in` += this@FloatRules_Impl.`in`
+        this.notIn += this@FloatRules_Impl.notIn
+        this.unknownFields += this@FloatRules_Impl.unknownFields
+    }
 }
 
 private class MutableFloatRules_Impl(
@@ -4252,16 +4229,16 @@ private class MutableFloatRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFloatRules() = MutableFloatRules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFloatRules() = pbandk.testpb.MutableFloatRules {
+        this.const = this@MutableFloatRules_Impl.const
+        this.lt = this@MutableFloatRules_Impl.lt
+        this.lte = this@MutableFloatRules_Impl.lte
+        this.gt = this@MutableFloatRules_Impl.gt
+        this.gte = this@MutableFloatRules_Impl.gte
+        this.`in` += this@MutableFloatRules_Impl.`in`
+        this.notIn += this@MutableFloatRules_Impl.notIn
+        this.unknownFields += this@MutableFloatRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4384,16 +4361,16 @@ private class DoubleRules_Impl(
         )
     } ?: this
 
-    override fun toMutableDoubleRules() = MutableDoubleRules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDoubleRules() = pbandk.testpb.MutableDoubleRules {
+        this.const = this@DoubleRules_Impl.const
+        this.lt = this@DoubleRules_Impl.lt
+        this.lte = this@DoubleRules_Impl.lte
+        this.gt = this@DoubleRules_Impl.gt
+        this.gte = this@DoubleRules_Impl.gte
+        this.`in` += this@DoubleRules_Impl.`in`
+        this.notIn += this@DoubleRules_Impl.notIn
+        this.unknownFields += this@DoubleRules_Impl.unknownFields
+    }
 }
 
 private class MutableDoubleRules_Impl(
@@ -4456,16 +4433,16 @@ private class MutableDoubleRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDoubleRules() = MutableDoubleRules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDoubleRules() = pbandk.testpb.MutableDoubleRules {
+        this.const = this@MutableDoubleRules_Impl.const
+        this.lt = this@MutableDoubleRules_Impl.lt
+        this.lte = this@MutableDoubleRules_Impl.lte
+        this.gt = this@MutableDoubleRules_Impl.gt
+        this.gte = this@MutableDoubleRules_Impl.gte
+        this.`in` += this@MutableDoubleRules_Impl.`in`
+        this.notIn += this@MutableDoubleRules_Impl.notIn
+        this.unknownFields += this@MutableDoubleRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4588,16 +4565,16 @@ private class Int32Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableInt32Rules() = MutableInt32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt32Rules() = pbandk.testpb.MutableInt32Rules {
+        this.const = this@Int32Rules_Impl.const
+        this.lt = this@Int32Rules_Impl.lt
+        this.lte = this@Int32Rules_Impl.lte
+        this.gt = this@Int32Rules_Impl.gt
+        this.gte = this@Int32Rules_Impl.gte
+        this.`in` += this@Int32Rules_Impl.`in`
+        this.notIn += this@Int32Rules_Impl.notIn
+        this.unknownFields += this@Int32Rules_Impl.unknownFields
+    }
 }
 
 private class MutableInt32Rules_Impl(
@@ -4660,16 +4637,16 @@ private class MutableInt32Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableInt32Rules() = MutableInt32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt32Rules() = pbandk.testpb.MutableInt32Rules {
+        this.const = this@MutableInt32Rules_Impl.const
+        this.lt = this@MutableInt32Rules_Impl.lt
+        this.lte = this@MutableInt32Rules_Impl.lte
+        this.gt = this@MutableInt32Rules_Impl.gt
+        this.gte = this@MutableInt32Rules_Impl.gte
+        this.`in` += this@MutableInt32Rules_Impl.`in`
+        this.notIn += this@MutableInt32Rules_Impl.notIn
+        this.unknownFields += this@MutableInt32Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4792,16 +4769,16 @@ private class Int64Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableInt64Rules() = MutableInt64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt64Rules() = pbandk.testpb.MutableInt64Rules {
+        this.const = this@Int64Rules_Impl.const
+        this.lt = this@Int64Rules_Impl.lt
+        this.lte = this@Int64Rules_Impl.lte
+        this.gt = this@Int64Rules_Impl.gt
+        this.gte = this@Int64Rules_Impl.gte
+        this.`in` += this@Int64Rules_Impl.`in`
+        this.notIn += this@Int64Rules_Impl.notIn
+        this.unknownFields += this@Int64Rules_Impl.unknownFields
+    }
 }
 
 private class MutableInt64Rules_Impl(
@@ -4864,16 +4841,16 @@ private class MutableInt64Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableInt64Rules() = MutableInt64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt64Rules() = pbandk.testpb.MutableInt64Rules {
+        this.const = this@MutableInt64Rules_Impl.const
+        this.lt = this@MutableInt64Rules_Impl.lt
+        this.lte = this@MutableInt64Rules_Impl.lte
+        this.gt = this@MutableInt64Rules_Impl.gt
+        this.gte = this@MutableInt64Rules_Impl.gte
+        this.`in` += this@MutableInt64Rules_Impl.`in`
+        this.notIn += this@MutableInt64Rules_Impl.notIn
+        this.unknownFields += this@MutableInt64Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -4996,16 +4973,16 @@ private class UInt32Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableUInt32Rules() = MutableUInt32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt32Rules() = pbandk.testpb.MutableUInt32Rules {
+        this.const = this@UInt32Rules_Impl.const
+        this.lt = this@UInt32Rules_Impl.lt
+        this.lte = this@UInt32Rules_Impl.lte
+        this.gt = this@UInt32Rules_Impl.gt
+        this.gte = this@UInt32Rules_Impl.gte
+        this.`in` += this@UInt32Rules_Impl.`in`
+        this.notIn += this@UInt32Rules_Impl.notIn
+        this.unknownFields += this@UInt32Rules_Impl.unknownFields
+    }
 }
 
 private class MutableUInt32Rules_Impl(
@@ -5068,16 +5045,16 @@ private class MutableUInt32Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUInt32Rules() = MutableUInt32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt32Rules() = pbandk.testpb.MutableUInt32Rules {
+        this.const = this@MutableUInt32Rules_Impl.const
+        this.lt = this@MutableUInt32Rules_Impl.lt
+        this.lte = this@MutableUInt32Rules_Impl.lte
+        this.gt = this@MutableUInt32Rules_Impl.gt
+        this.gte = this@MutableUInt32Rules_Impl.gte
+        this.`in` += this@MutableUInt32Rules_Impl.`in`
+        this.notIn += this@MutableUInt32Rules_Impl.notIn
+        this.unknownFields += this@MutableUInt32Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5200,16 +5177,16 @@ private class UInt64Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableUInt64Rules() = MutableUInt64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt64Rules() = pbandk.testpb.MutableUInt64Rules {
+        this.const = this@UInt64Rules_Impl.const
+        this.lt = this@UInt64Rules_Impl.lt
+        this.lte = this@UInt64Rules_Impl.lte
+        this.gt = this@UInt64Rules_Impl.gt
+        this.gte = this@UInt64Rules_Impl.gte
+        this.`in` += this@UInt64Rules_Impl.`in`
+        this.notIn += this@UInt64Rules_Impl.notIn
+        this.unknownFields += this@UInt64Rules_Impl.unknownFields
+    }
 }
 
 private class MutableUInt64Rules_Impl(
@@ -5272,16 +5249,16 @@ private class MutableUInt64Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUInt64Rules() = MutableUInt64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt64Rules() = pbandk.testpb.MutableUInt64Rules {
+        this.const = this@MutableUInt64Rules_Impl.const
+        this.lt = this@MutableUInt64Rules_Impl.lt
+        this.lte = this@MutableUInt64Rules_Impl.lte
+        this.gt = this@MutableUInt64Rules_Impl.gt
+        this.gte = this@MutableUInt64Rules_Impl.gte
+        this.`in` += this@MutableUInt64Rules_Impl.`in`
+        this.notIn += this@MutableUInt64Rules_Impl.notIn
+        this.unknownFields += this@MutableUInt64Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5404,16 +5381,16 @@ private class SInt32Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableSInt32Rules() = MutableSInt32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSInt32Rules() = pbandk.testpb.MutableSInt32Rules {
+        this.const = this@SInt32Rules_Impl.const
+        this.lt = this@SInt32Rules_Impl.lt
+        this.lte = this@SInt32Rules_Impl.lte
+        this.gt = this@SInt32Rules_Impl.gt
+        this.gte = this@SInt32Rules_Impl.gte
+        this.`in` += this@SInt32Rules_Impl.`in`
+        this.notIn += this@SInt32Rules_Impl.notIn
+        this.unknownFields += this@SInt32Rules_Impl.unknownFields
+    }
 }
 
 private class MutableSInt32Rules_Impl(
@@ -5476,16 +5453,16 @@ private class MutableSInt32Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSInt32Rules() = MutableSInt32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSInt32Rules() = pbandk.testpb.MutableSInt32Rules {
+        this.const = this@MutableSInt32Rules_Impl.const
+        this.lt = this@MutableSInt32Rules_Impl.lt
+        this.lte = this@MutableSInt32Rules_Impl.lte
+        this.gt = this@MutableSInt32Rules_Impl.gt
+        this.gte = this@MutableSInt32Rules_Impl.gte
+        this.`in` += this@MutableSInt32Rules_Impl.`in`
+        this.notIn += this@MutableSInt32Rules_Impl.notIn
+        this.unknownFields += this@MutableSInt32Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5608,16 +5585,16 @@ private class SInt64Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableSInt64Rules() = MutableSInt64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSInt64Rules() = pbandk.testpb.MutableSInt64Rules {
+        this.const = this@SInt64Rules_Impl.const
+        this.lt = this@SInt64Rules_Impl.lt
+        this.lte = this@SInt64Rules_Impl.lte
+        this.gt = this@SInt64Rules_Impl.gt
+        this.gte = this@SInt64Rules_Impl.gte
+        this.`in` += this@SInt64Rules_Impl.`in`
+        this.notIn += this@SInt64Rules_Impl.notIn
+        this.unknownFields += this@SInt64Rules_Impl.unknownFields
+    }
 }
 
 private class MutableSInt64Rules_Impl(
@@ -5680,16 +5657,16 @@ private class MutableSInt64Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSInt64Rules() = MutableSInt64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSInt64Rules() = pbandk.testpb.MutableSInt64Rules {
+        this.const = this@MutableSInt64Rules_Impl.const
+        this.lt = this@MutableSInt64Rules_Impl.lt
+        this.lte = this@MutableSInt64Rules_Impl.lte
+        this.gt = this@MutableSInt64Rules_Impl.gt
+        this.gte = this@MutableSInt64Rules_Impl.gte
+        this.`in` += this@MutableSInt64Rules_Impl.`in`
+        this.notIn += this@MutableSInt64Rules_Impl.notIn
+        this.unknownFields += this@MutableSInt64Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -5812,16 +5789,16 @@ private class Fixed32Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableFixed32Rules() = MutableFixed32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFixed32Rules() = pbandk.testpb.MutableFixed32Rules {
+        this.const = this@Fixed32Rules_Impl.const
+        this.lt = this@Fixed32Rules_Impl.lt
+        this.lte = this@Fixed32Rules_Impl.lte
+        this.gt = this@Fixed32Rules_Impl.gt
+        this.gte = this@Fixed32Rules_Impl.gte
+        this.`in` += this@Fixed32Rules_Impl.`in`
+        this.notIn += this@Fixed32Rules_Impl.notIn
+        this.unknownFields += this@Fixed32Rules_Impl.unknownFields
+    }
 }
 
 private class MutableFixed32Rules_Impl(
@@ -5884,16 +5861,16 @@ private class MutableFixed32Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFixed32Rules() = MutableFixed32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFixed32Rules() = pbandk.testpb.MutableFixed32Rules {
+        this.const = this@MutableFixed32Rules_Impl.const
+        this.lt = this@MutableFixed32Rules_Impl.lt
+        this.lte = this@MutableFixed32Rules_Impl.lte
+        this.gt = this@MutableFixed32Rules_Impl.gt
+        this.gte = this@MutableFixed32Rules_Impl.gte
+        this.`in` += this@MutableFixed32Rules_Impl.`in`
+        this.notIn += this@MutableFixed32Rules_Impl.notIn
+        this.unknownFields += this@MutableFixed32Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6016,16 +5993,16 @@ private class Fixed64Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableFixed64Rules() = MutableFixed64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFixed64Rules() = pbandk.testpb.MutableFixed64Rules {
+        this.const = this@Fixed64Rules_Impl.const
+        this.lt = this@Fixed64Rules_Impl.lt
+        this.lte = this@Fixed64Rules_Impl.lte
+        this.gt = this@Fixed64Rules_Impl.gt
+        this.gte = this@Fixed64Rules_Impl.gte
+        this.`in` += this@Fixed64Rules_Impl.`in`
+        this.notIn += this@Fixed64Rules_Impl.notIn
+        this.unknownFields += this@Fixed64Rules_Impl.unknownFields
+    }
 }
 
 private class MutableFixed64Rules_Impl(
@@ -6088,16 +6065,16 @@ private class MutableFixed64Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFixed64Rules() = MutableFixed64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFixed64Rules() = pbandk.testpb.MutableFixed64Rules {
+        this.const = this@MutableFixed64Rules_Impl.const
+        this.lt = this@MutableFixed64Rules_Impl.lt
+        this.lte = this@MutableFixed64Rules_Impl.lte
+        this.gt = this@MutableFixed64Rules_Impl.gt
+        this.gte = this@MutableFixed64Rules_Impl.gte
+        this.`in` += this@MutableFixed64Rules_Impl.`in`
+        this.notIn += this@MutableFixed64Rules_Impl.notIn
+        this.unknownFields += this@MutableFixed64Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6220,16 +6197,16 @@ private class SFixed32Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableSFixed32Rules() = MutableSFixed32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSFixed32Rules() = pbandk.testpb.MutableSFixed32Rules {
+        this.const = this@SFixed32Rules_Impl.const
+        this.lt = this@SFixed32Rules_Impl.lt
+        this.lte = this@SFixed32Rules_Impl.lte
+        this.gt = this@SFixed32Rules_Impl.gt
+        this.gte = this@SFixed32Rules_Impl.gte
+        this.`in` += this@SFixed32Rules_Impl.`in`
+        this.notIn += this@SFixed32Rules_Impl.notIn
+        this.unknownFields += this@SFixed32Rules_Impl.unknownFields
+    }
 }
 
 private class MutableSFixed32Rules_Impl(
@@ -6292,16 +6269,16 @@ private class MutableSFixed32Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSFixed32Rules() = MutableSFixed32Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSFixed32Rules() = pbandk.testpb.MutableSFixed32Rules {
+        this.const = this@MutableSFixed32Rules_Impl.const
+        this.lt = this@MutableSFixed32Rules_Impl.lt
+        this.lte = this@MutableSFixed32Rules_Impl.lte
+        this.gt = this@MutableSFixed32Rules_Impl.gt
+        this.gte = this@MutableSFixed32Rules_Impl.gte
+        this.`in` += this@MutableSFixed32Rules_Impl.`in`
+        this.notIn += this@MutableSFixed32Rules_Impl.notIn
+        this.unknownFields += this@MutableSFixed32Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6424,16 +6401,16 @@ private class SFixed64Rules_Impl(
         )
     } ?: this
 
-    override fun toMutableSFixed64Rules() = MutableSFixed64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSFixed64Rules() = pbandk.testpb.MutableSFixed64Rules {
+        this.const = this@SFixed64Rules_Impl.const
+        this.lt = this@SFixed64Rules_Impl.lt
+        this.lte = this@SFixed64Rules_Impl.lte
+        this.gt = this@SFixed64Rules_Impl.gt
+        this.gte = this@SFixed64Rules_Impl.gte
+        this.`in` += this@SFixed64Rules_Impl.`in`
+        this.notIn += this@SFixed64Rules_Impl.notIn
+        this.unknownFields += this@SFixed64Rules_Impl.unknownFields
+    }
 }
 
 private class MutableSFixed64Rules_Impl(
@@ -6496,16 +6473,16 @@ private class MutableSFixed64Rules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableSFixed64Rules() = MutableSFixed64Rules_Impl(
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableSFixed64Rules() = pbandk.testpb.MutableSFixed64Rules {
+        this.const = this@MutableSFixed64Rules_Impl.const
+        this.lt = this@MutableSFixed64Rules_Impl.lt
+        this.lte = this@MutableSFixed64Rules_Impl.lte
+        this.gt = this@MutableSFixed64Rules_Impl.gt
+        this.gte = this@MutableSFixed64Rules_Impl.gte
+        this.`in` += this@MutableSFixed64Rules_Impl.`in`
+        this.notIn += this@MutableSFixed64Rules_Impl.notIn
+        this.unknownFields += this@MutableSFixed64Rules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6586,10 +6563,10 @@ private class BoolRules_Impl(
         )
     } ?: this
 
-    override fun toMutableBoolRules() = MutableBoolRules_Impl(
-        const = const,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBoolRules() = pbandk.testpb.MutableBoolRules {
+        this.const = this@BoolRules_Impl.const
+        this.unknownFields += this@BoolRules_Impl.unknownFields
+    }
 }
 
 private class MutableBoolRules_Impl(
@@ -6622,10 +6599,10 @@ private class MutableBoolRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBoolRules() = MutableBoolRules_Impl(
-        const = const,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBoolRules() = pbandk.testpb.MutableBoolRules {
+        this.const = this@MutableBoolRules_Impl.const
+        this.unknownFields += this@MutableBoolRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -6819,25 +6796,25 @@ private class StringRules_Impl(
         )
     } ?: this
 
-    override fun toMutableStringRules() = MutableStringRules_Impl(
-        const = const,
-        len = len,
-        minLen = minLen,
-        maxLen = maxLen,
-        lenBytes = lenBytes,
-        minBytes = minBytes,
-        maxBytes = maxBytes,
-        pattern = pattern,
-        prefix = prefix,
-        suffix = suffix,
-        contains = contains,
-        notContains = notContains,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        strict = strict,
-        wellKnown = wellKnown,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableStringRules() = pbandk.testpb.MutableStringRules {
+        this.const = this@StringRules_Impl.const
+        this.len = this@StringRules_Impl.len
+        this.minLen = this@StringRules_Impl.minLen
+        this.maxLen = this@StringRules_Impl.maxLen
+        this.lenBytes = this@StringRules_Impl.lenBytes
+        this.minBytes = this@StringRules_Impl.minBytes
+        this.maxBytes = this@StringRules_Impl.maxBytes
+        this.pattern = this@StringRules_Impl.pattern
+        this.prefix = this@StringRules_Impl.prefix
+        this.suffix = this@StringRules_Impl.suffix
+        this.contains = this@StringRules_Impl.contains
+        this.notContains = this@StringRules_Impl.notContains
+        this.`in` += this@StringRules_Impl.`in`
+        this.notIn += this@StringRules_Impl.notIn
+        this.strict = this@StringRules_Impl.strict
+        this.wellKnown = this@StringRules_Impl.wellKnown
+        this.unknownFields += this@StringRules_Impl.unknownFields
+    }
 }
 
 private class MutableStringRules_Impl(
@@ -6976,25 +6953,25 @@ private class MutableStringRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableStringRules() = MutableStringRules_Impl(
-        const = const,
-        len = len,
-        minLen = minLen,
-        maxLen = maxLen,
-        lenBytes = lenBytes,
-        minBytes = minBytes,
-        maxBytes = maxBytes,
-        pattern = pattern,
-        prefix = prefix,
-        suffix = suffix,
-        contains = contains,
-        notContains = notContains,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        strict = strict,
-        wellKnown = wellKnown,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableStringRules() = pbandk.testpb.MutableStringRules {
+        this.const = this@MutableStringRules_Impl.const
+        this.len = this@MutableStringRules_Impl.len
+        this.minLen = this@MutableStringRules_Impl.minLen
+        this.maxLen = this@MutableStringRules_Impl.maxLen
+        this.lenBytes = this@MutableStringRules_Impl.lenBytes
+        this.minBytes = this@MutableStringRules_Impl.minBytes
+        this.maxBytes = this@MutableStringRules_Impl.maxBytes
+        this.pattern = this@MutableStringRules_Impl.pattern
+        this.prefix = this@MutableStringRules_Impl.prefix
+        this.suffix = this@MutableStringRules_Impl.suffix
+        this.contains = this@MutableStringRules_Impl.contains
+        this.notContains = this@MutableStringRules_Impl.notContains
+        this.`in` += this@MutableStringRules_Impl.`in`
+        this.notIn += this@MutableStringRules_Impl.notIn
+        this.strict = this@MutableStringRules_Impl.strict
+        this.wellKnown = this@MutableStringRules_Impl.wellKnown
+        this.unknownFields += this@MutableStringRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7181,20 +7158,20 @@ private class BytesRules_Impl(
         )
     } ?: this
 
-    override fun toMutableBytesRules() = MutableBytesRules_Impl(
-        const = const,
-        len = len,
-        minLen = minLen,
-        maxLen = maxLen,
-        pattern = pattern,
-        prefix = prefix,
-        suffix = suffix,
-        contains = contains,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        wellKnown = wellKnown,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBytesRules() = pbandk.testpb.MutableBytesRules {
+        this.const = this@BytesRules_Impl.const
+        this.len = this@BytesRules_Impl.len
+        this.minLen = this@BytesRules_Impl.minLen
+        this.maxLen = this@BytesRules_Impl.maxLen
+        this.pattern = this@BytesRules_Impl.pattern
+        this.prefix = this@BytesRules_Impl.prefix
+        this.suffix = this@BytesRules_Impl.suffix
+        this.contains = this@BytesRules_Impl.contains
+        this.`in` += this@BytesRules_Impl.`in`
+        this.notIn += this@BytesRules_Impl.notIn
+        this.wellKnown = this@BytesRules_Impl.wellKnown
+        this.unknownFields += this@BytesRules_Impl.unknownFields
+    }
 }
 
 private class MutableBytesRules_Impl(
@@ -7287,20 +7264,20 @@ private class MutableBytesRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBytesRules() = MutableBytesRules_Impl(
-        const = const,
-        len = len,
-        minLen = minLen,
-        maxLen = maxLen,
-        pattern = pattern,
-        prefix = prefix,
-        suffix = suffix,
-        contains = contains,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        wellKnown = wellKnown,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBytesRules() = pbandk.testpb.MutableBytesRules {
+        this.const = this@MutableBytesRules_Impl.const
+        this.len = this@MutableBytesRules_Impl.len
+        this.minLen = this@MutableBytesRules_Impl.minLen
+        this.maxLen = this@MutableBytesRules_Impl.maxLen
+        this.pattern = this@MutableBytesRules_Impl.pattern
+        this.prefix = this@MutableBytesRules_Impl.prefix
+        this.suffix = this@MutableBytesRules_Impl.suffix
+        this.contains = this@MutableBytesRules_Impl.contains
+        this.`in` += this@MutableBytesRules_Impl.`in`
+        this.notIn += this@MutableBytesRules_Impl.notIn
+        this.wellKnown = this@MutableBytesRules_Impl.wellKnown
+        this.unknownFields += this@MutableBytesRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7413,13 +7390,13 @@ private class EnumRules_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumRules() = MutableEnumRules_Impl(
-        const = const,
-        definedOnly = definedOnly,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumRules() = pbandk.testpb.MutableEnumRules {
+        this.const = this@EnumRules_Impl.const
+        this.definedOnly = this@EnumRules_Impl.definedOnly
+        this.`in` += this@EnumRules_Impl.`in`
+        this.notIn += this@EnumRules_Impl.notIn
+        this.unknownFields += this@EnumRules_Impl.unknownFields
+    }
 }
 
 private class MutableEnumRules_Impl(
@@ -7467,13 +7444,13 @@ private class MutableEnumRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumRules() = MutableEnumRules_Impl(
-        const = const,
-        definedOnly = definedOnly,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumRules() = pbandk.testpb.MutableEnumRules {
+        this.const = this@MutableEnumRules_Impl.const
+        this.definedOnly = this@MutableEnumRules_Impl.definedOnly
+        this.`in` += this@MutableEnumRules_Impl.`in`
+        this.notIn += this@MutableEnumRules_Impl.notIn
+        this.unknownFields += this@MutableEnumRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7554,11 +7531,11 @@ private class MessageRules_Impl(
         )
     } ?: this
 
-    override fun toMutableMessageRules() = MutableMessageRules_Impl(
-        skip = skip,
-        required = required,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMessageRules() = pbandk.testpb.MutableMessageRules {
+        this.skip = this@MessageRules_Impl.skip
+        this.required = this@MessageRules_Impl.required
+        this.unknownFields += this@MessageRules_Impl.unknownFields
+    }
 }
 
 private class MutableMessageRules_Impl(
@@ -7596,11 +7573,11 @@ private class MutableMessageRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMessageRules() = MutableMessageRules_Impl(
-        skip = skip,
-        required = required,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMessageRules() = pbandk.testpb.MutableMessageRules {
+        this.skip = this@MutableMessageRules_Impl.skip
+        this.required = this@MutableMessageRules_Impl.required
+        this.unknownFields += this@MutableMessageRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7691,13 +7668,13 @@ private class RepeatedRules_Impl(
         )
     } ?: this
 
-    override fun toMutableRepeatedRules() = MutableRepeatedRules_Impl(
-        minItems = minItems,
-        maxItems = maxItems,
-        unique = unique,
-        items = items,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableRepeatedRules() = pbandk.testpb.MutableRepeatedRules {
+        this.minItems = this@RepeatedRules_Impl.minItems
+        this.maxItems = this@RepeatedRules_Impl.maxItems
+        this.unique = this@RepeatedRules_Impl.unique
+        this.items = this@RepeatedRules_Impl.items
+        this.unknownFields += this@RepeatedRules_Impl.unknownFields
+    }
 }
 
 private class MutableRepeatedRules_Impl(
@@ -7745,13 +7722,13 @@ private class MutableRepeatedRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableRepeatedRules() = MutableRepeatedRules_Impl(
-        minItems = minItems,
-        maxItems = maxItems,
-        unique = unique,
-        items = items,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableRepeatedRules() = pbandk.testpb.MutableRepeatedRules {
+        this.minItems = this@MutableRepeatedRules_Impl.minItems
+        this.maxItems = this@MutableRepeatedRules_Impl.maxItems
+        this.unique = this@MutableRepeatedRules_Impl.unique
+        this.items = this@MutableRepeatedRules_Impl.items
+        this.unknownFields += this@MutableRepeatedRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -7853,14 +7830,14 @@ private class MapRules_Impl(
         )
     } ?: this
 
-    override fun toMutableMapRules() = MutableMapRules_Impl(
-        minPairs = minPairs,
-        maxPairs = maxPairs,
-        noSparse = noSparse,
-        keys = keys,
-        values = values,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMapRules() = pbandk.testpb.MutableMapRules {
+        this.minPairs = this@MapRules_Impl.minPairs
+        this.maxPairs = this@MapRules_Impl.maxPairs
+        this.noSparse = this@MapRules_Impl.noSparse
+        this.keys = this@MapRules_Impl.keys
+        this.values = this@MapRules_Impl.values
+        this.unknownFields += this@MapRules_Impl.unknownFields
+    }
 }
 
 private class MutableMapRules_Impl(
@@ -7913,14 +7890,14 @@ private class MutableMapRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableMapRules() = MutableMapRules_Impl(
-        minPairs = minPairs,
-        maxPairs = maxPairs,
-        noSparse = noSparse,
-        keys = keys,
-        values = values,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableMapRules() = pbandk.testpb.MutableMapRules {
+        this.minPairs = this@MutableMapRules_Impl.minPairs
+        this.maxPairs = this@MutableMapRules_Impl.maxPairs
+        this.noSparse = this@MutableMapRules_Impl.noSparse
+        this.keys = this@MutableMapRules_Impl.keys
+        this.values = this@MutableMapRules_Impl.values
+        this.unknownFields += this@MutableMapRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -8011,12 +7988,12 @@ private class AnyRules_Impl(
         )
     } ?: this
 
-    override fun toMutableAnyRules() = MutableAnyRules_Impl(
-        required = required,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableAnyRules() = pbandk.testpb.MutableAnyRules {
+        this.required = this@AnyRules_Impl.required
+        this.`in` += this@AnyRules_Impl.`in`
+        this.notIn += this@AnyRules_Impl.notIn
+        this.unknownFields += this@AnyRules_Impl.unknownFields
+    }
 }
 
 private class MutableAnyRules_Impl(
@@ -8059,12 +8036,12 @@ private class MutableAnyRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableAnyRules() = MutableAnyRules_Impl(
-        required = required,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableAnyRules() = pbandk.testpb.MutableAnyRules {
+        this.required = this@MutableAnyRules_Impl.required
+        this.`in` += this@MutableAnyRules_Impl.`in`
+        this.notIn += this@MutableAnyRules_Impl.notIn
+        this.unknownFields += this@MutableAnyRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -8185,17 +8162,17 @@ private class DurationRules_Impl(
         )
     } ?: this
 
-    override fun toMutableDurationRules() = MutableDurationRules_Impl(
-        required = required,
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDurationRules() = pbandk.testpb.MutableDurationRules {
+        this.required = this@DurationRules_Impl.required
+        this.const = this@DurationRules_Impl.const
+        this.lt = this@DurationRules_Impl.lt
+        this.lte = this@DurationRules_Impl.lte
+        this.gt = this@DurationRules_Impl.gt
+        this.gte = this@DurationRules_Impl.gte
+        this.`in` += this@DurationRules_Impl.`in`
+        this.notIn += this@DurationRules_Impl.notIn
+        this.unknownFields += this@DurationRules_Impl.unknownFields
+    }
 }
 
 private class MutableDurationRules_Impl(
@@ -8263,17 +8240,17 @@ private class MutableDurationRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDurationRules() = MutableDurationRules_Impl(
-        required = required,
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        `in` = `in`.toMutableList(),
-        notIn = notIn.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDurationRules() = pbandk.testpb.MutableDurationRules {
+        this.required = this@MutableDurationRules_Impl.required
+        this.const = this@MutableDurationRules_Impl.const
+        this.lt = this@MutableDurationRules_Impl.lt
+        this.lte = this@MutableDurationRules_Impl.lte
+        this.gt = this@MutableDurationRules_Impl.gt
+        this.gte = this@MutableDurationRules_Impl.gte
+        this.`in` += this@MutableDurationRules_Impl.`in`
+        this.notIn += this@MutableDurationRules_Impl.notIn
+        this.unknownFields += this@MutableDurationRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -8412,18 +8389,18 @@ private class TimestampRules_Impl(
         )
     } ?: this
 
-    override fun toMutableTimestampRules() = MutableTimestampRules_Impl(
-        required = required,
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        ltNow = ltNow,
-        gtNow = gtNow,
-        within = within,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableTimestampRules() = pbandk.testpb.MutableTimestampRules {
+        this.required = this@TimestampRules_Impl.required
+        this.const = this@TimestampRules_Impl.const
+        this.lt = this@TimestampRules_Impl.lt
+        this.lte = this@TimestampRules_Impl.lte
+        this.gt = this@TimestampRules_Impl.gt
+        this.gte = this@TimestampRules_Impl.gte
+        this.ltNow = this@TimestampRules_Impl.ltNow
+        this.gtNow = this@TimestampRules_Impl.gtNow
+        this.within = this@TimestampRules_Impl.within
+        this.unknownFields += this@TimestampRules_Impl.unknownFields
+    }
 }
 
 private class MutableTimestampRules_Impl(
@@ -8496,18 +8473,18 @@ private class MutableTimestampRules_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableTimestampRules() = MutableTimestampRules_Impl(
-        required = required,
-        const = const,
-        lt = lt,
-        lte = lte,
-        gt = gt,
-        gte = gte,
-        ltNow = ltNow,
-        gtNow = gtNow,
-        within = within,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableTimestampRules() = pbandk.testpb.MutableTimestampRules {
+        this.required = this@MutableTimestampRules_Impl.required
+        this.const = this@MutableTimestampRules_Impl.const
+        this.lt = this@MutableTimestampRules_Impl.lt
+        this.lte = this@MutableTimestampRules_Impl.lte
+        this.gt = this@MutableTimestampRules_Impl.gt
+        this.gte = this@MutableTimestampRules_Impl.gte
+        this.ltNow = this@MutableTimestampRules_Impl.ltNow
+        this.gtNow = this@MutableTimestampRules_Impl.gtNow
+        this.within = this@MutableTimestampRules_Impl.within
+        this.unknownFields += this@MutableTimestampRules_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

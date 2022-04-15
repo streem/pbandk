@@ -17,8 +17,9 @@ public abstract class GeneratedMessage<T : Message> : Message {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other == null || this::class != other::class) return false
+        if (other !is GeneratedMessage<*>) return false
 
+        if (descriptor != other.descriptor) return false
         @Suppress("UNCHECKED_CAST")
         other as GeneratedMessage<T>
 
@@ -35,7 +36,7 @@ public abstract class GeneratedMessage<T : Message> : Message {
         var hash = 1
 
         for (field in fieldDescriptors) {
-            hash = (31 * hash) * getValue(field).hashCode()
+            hash = (31 * hash) + getValue(field).hashCode()
         }
 
         hash = (31 * hash) + unknownFields.hashCode()
@@ -72,7 +73,7 @@ public abstract class MutableGeneratedMessage<T : MutableMessage> : GeneratedMes
         var hash = 1
 
         for (field in fieldDescriptors) {
-            hash = (31 * hash) * getValue(field).hashCode()
+            hash = (31 * hash) + getValue(field).hashCode()
         }
 
         hash = (31 * hash) + unknownFields.hashCode()

@@ -26,7 +26,6 @@ public sealed interface DoubleValue : pbandk.Message {
     ): pbandk.wkt.DoubleValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.DoubleValue> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.DoubleValue by lazy { pbandk.wkt.DoubleValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.DoubleValue = pbandk.wkt.DoubleValue.decodeWithImpl(u)
 
@@ -95,7 +94,6 @@ public sealed interface FloatValue : pbandk.Message {
     ): pbandk.wkt.FloatValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FloatValue> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FloatValue by lazy { pbandk.wkt.FloatValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FloatValue = pbandk.wkt.FloatValue.decodeWithImpl(u)
 
@@ -164,7 +162,6 @@ public sealed interface Int64Value : pbandk.Message {
     ): pbandk.wkt.Int64Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int64Value> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Int64Value by lazy { pbandk.wkt.Int64Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int64Value = pbandk.wkt.Int64Value.decodeWithImpl(u)
 
@@ -233,7 +230,6 @@ public sealed interface UInt64Value : pbandk.Message {
     ): pbandk.wkt.UInt64Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt64Value> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UInt64Value by lazy { pbandk.wkt.UInt64Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt64Value = pbandk.wkt.UInt64Value.decodeWithImpl(u)
 
@@ -302,7 +298,6 @@ public sealed interface Int32Value : pbandk.Message {
     ): pbandk.wkt.Int32Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Int32Value> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Int32Value by lazy { pbandk.wkt.Int32Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Int32Value = pbandk.wkt.Int32Value.decodeWithImpl(u)
 
@@ -371,7 +366,6 @@ public sealed interface UInt32Value : pbandk.Message {
     ): pbandk.wkt.UInt32Value
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.UInt32Value> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.UInt32Value by lazy { pbandk.wkt.UInt32Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.UInt32Value = pbandk.wkt.UInt32Value.decodeWithImpl(u)
 
@@ -440,7 +434,6 @@ public sealed interface BoolValue : pbandk.Message {
     ): pbandk.wkt.BoolValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BoolValue> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.BoolValue by lazy { pbandk.wkt.BoolValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BoolValue = pbandk.wkt.BoolValue.decodeWithImpl(u)
 
@@ -509,7 +502,6 @@ public sealed interface StringValue : pbandk.Message {
     ): pbandk.wkt.StringValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.StringValue> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.StringValue by lazy { pbandk.wkt.StringValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.StringValue = pbandk.wkt.StringValue.decodeWithImpl(u)
 
@@ -578,7 +570,6 @@ public sealed interface BytesValue : pbandk.Message {
     ): pbandk.wkt.BytesValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.BytesValue> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.BytesValue by lazy { pbandk.wkt.BytesValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.BytesValue = pbandk.wkt.BytesValue.decodeWithImpl(u)
 
@@ -675,10 +666,10 @@ private class DoubleValue_Impl(
         )
     } ?: this
 
-    override fun toMutableDoubleValue() = MutableDoubleValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDoubleValue() = pbandk.wkt.MutableDoubleValue {
+        this.value = this@DoubleValue_Impl.value
+        this.unknownFields += this@DoubleValue_Impl.unknownFields
+    }
 }
 
 private class MutableDoubleValue_Impl(
@@ -710,10 +701,10 @@ private class MutableDoubleValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDoubleValue() = MutableDoubleValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDoubleValue() = pbandk.wkt.MutableDoubleValue {
+        this.value = this@MutableDoubleValue_Impl.value
+        this.unknownFields += this@MutableDoubleValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -780,10 +771,10 @@ private class FloatValue_Impl(
         )
     } ?: this
 
-    override fun toMutableFloatValue() = MutableFloatValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFloatValue() = pbandk.wkt.MutableFloatValue {
+        this.value = this@FloatValue_Impl.value
+        this.unknownFields += this@FloatValue_Impl.unknownFields
+    }
 }
 
 private class MutableFloatValue_Impl(
@@ -815,10 +806,10 @@ private class MutableFloatValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFloatValue() = MutableFloatValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFloatValue() = pbandk.wkt.MutableFloatValue {
+        this.value = this@MutableFloatValue_Impl.value
+        this.unknownFields += this@MutableFloatValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -885,10 +876,10 @@ private class Int64Value_Impl(
         )
     } ?: this
 
-    override fun toMutableInt64Value() = MutableInt64Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt64Value() = pbandk.wkt.MutableInt64Value {
+        this.value = this@Int64Value_Impl.value
+        this.unknownFields += this@Int64Value_Impl.unknownFields
+    }
 }
 
 private class MutableInt64Value_Impl(
@@ -920,10 +911,10 @@ private class MutableInt64Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableInt64Value() = MutableInt64Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt64Value() = pbandk.wkt.MutableInt64Value {
+        this.value = this@MutableInt64Value_Impl.value
+        this.unknownFields += this@MutableInt64Value_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -990,10 +981,10 @@ private class UInt64Value_Impl(
         )
     } ?: this
 
-    override fun toMutableUInt64Value() = MutableUInt64Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt64Value() = pbandk.wkt.MutableUInt64Value {
+        this.value = this@UInt64Value_Impl.value
+        this.unknownFields += this@UInt64Value_Impl.unknownFields
+    }
 }
 
 private class MutableUInt64Value_Impl(
@@ -1025,10 +1016,10 @@ private class MutableUInt64Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUInt64Value() = MutableUInt64Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt64Value() = pbandk.wkt.MutableUInt64Value {
+        this.value = this@MutableUInt64Value_Impl.value
+        this.unknownFields += this@MutableUInt64Value_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1095,10 +1086,10 @@ private class Int32Value_Impl(
         )
     } ?: this
 
-    override fun toMutableInt32Value() = MutableInt32Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt32Value() = pbandk.wkt.MutableInt32Value {
+        this.value = this@Int32Value_Impl.value
+        this.unknownFields += this@Int32Value_Impl.unknownFields
+    }
 }
 
 private class MutableInt32Value_Impl(
@@ -1130,10 +1121,10 @@ private class MutableInt32Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableInt32Value() = MutableInt32Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableInt32Value() = pbandk.wkt.MutableInt32Value {
+        this.value = this@MutableInt32Value_Impl.value
+        this.unknownFields += this@MutableInt32Value_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1200,10 +1191,10 @@ private class UInt32Value_Impl(
         )
     } ?: this
 
-    override fun toMutableUInt32Value() = MutableUInt32Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt32Value() = pbandk.wkt.MutableUInt32Value {
+        this.value = this@UInt32Value_Impl.value
+        this.unknownFields += this@UInt32Value_Impl.unknownFields
+    }
 }
 
 private class MutableUInt32Value_Impl(
@@ -1235,10 +1226,10 @@ private class MutableUInt32Value_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableUInt32Value() = MutableUInt32Value_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableUInt32Value() = pbandk.wkt.MutableUInt32Value {
+        this.value = this@MutableUInt32Value_Impl.value
+        this.unknownFields += this@MutableUInt32Value_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1305,10 +1296,10 @@ private class BoolValue_Impl(
         )
     } ?: this
 
-    override fun toMutableBoolValue() = MutableBoolValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBoolValue() = pbandk.wkt.MutableBoolValue {
+        this.value = this@BoolValue_Impl.value
+        this.unknownFields += this@BoolValue_Impl.unknownFields
+    }
 }
 
 private class MutableBoolValue_Impl(
@@ -1340,10 +1331,10 @@ private class MutableBoolValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBoolValue() = MutableBoolValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBoolValue() = pbandk.wkt.MutableBoolValue {
+        this.value = this@MutableBoolValue_Impl.value
+        this.unknownFields += this@MutableBoolValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1410,10 +1401,10 @@ private class StringValue_Impl(
         )
     } ?: this
 
-    override fun toMutableStringValue() = MutableStringValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableStringValue() = pbandk.wkt.MutableStringValue {
+        this.value = this@StringValue_Impl.value
+        this.unknownFields += this@StringValue_Impl.unknownFields
+    }
 }
 
 private class MutableStringValue_Impl(
@@ -1445,10 +1436,10 @@ private class MutableStringValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableStringValue() = MutableStringValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableStringValue() = pbandk.wkt.MutableStringValue {
+        this.value = this@MutableStringValue_Impl.value
+        this.unknownFields += this@MutableStringValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1515,10 +1506,10 @@ private class BytesValue_Impl(
         )
     } ?: this
 
-    override fun toMutableBytesValue() = MutableBytesValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBytesValue() = pbandk.wkt.MutableBytesValue {
+        this.value = this@BytesValue_Impl.value
+        this.unknownFields += this@BytesValue_Impl.unknownFields
+    }
 }
 
 private class MutableBytesValue_Impl(
@@ -1550,10 +1541,10 @@ private class MutableBytesValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableBytesValue() = MutableBytesValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableBytesValue() = pbandk.wkt.MutableBytesValue {
+        this.value = this@MutableBytesValue_Impl.value
+        this.unknownFields += this@MutableBytesValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

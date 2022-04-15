@@ -36,7 +36,6 @@ public sealed interface Value : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.testpb.Value by lazy { pbandk.testpb.Value {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
 
@@ -168,10 +167,10 @@ private class Value_Impl(
         )
     } ?: this
 
-    override fun toMutableValue() = MutableValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableValue() = pbandk.testpb.MutableValue {
+        this.value = this@Value_Impl.value
+        this.unknownFields += this@Value_Impl.unknownFields
+    }
 }
 
 private class MutableValue_Impl(
@@ -214,10 +213,10 @@ private class MutableValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableValue() = MutableValue_Impl(
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableValue() = pbandk.testpb.MutableValue {
+        this.value = this@MutableValue_Impl.value
+        this.unknownFields += this@MutableValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

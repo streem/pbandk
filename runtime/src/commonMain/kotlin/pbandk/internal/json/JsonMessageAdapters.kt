@@ -11,6 +11,7 @@ import pbandk.FieldDescriptor
 import pbandk.InvalidProtocolBufferException
 import pbandk.Message
 import pbandk.MessageMap
+import pbandk.MutableMessageMap
 import pbandk.getTypeNameFromTypeUrl
 import pbandk.getTypePrefixFromTypeUrl
 import pbandk.getTypeUrl
@@ -217,20 +218,16 @@ internal object JsonMessageAdapters {
         },
 
         Struct.descriptor to object : JsonMessageAdapter<Struct> {
-            private val fieldType = Struct.descriptor.fields.first().type
+            @Suppress("UNCHECKED_CAST")
+            private val fieldType = Struct.descriptor.fields[1]!!.type as FieldDescriptor.Type.Map<String, Value?>
 
             override fun encode(message: Struct, jsonValueEncoder: JsonValueEncoder) =
                 jsonValueEncoder.writeValue(message.fields, fieldType)
 
             override fun decode(json: JsonElement, jsonValueDecoder: JsonValueDecoder) = try {
-                val fields = jsonValueDecoder.readMap(
-                    json,
-                    Struct.descriptor.fields.first().type as FieldDescriptor.Type.Map<*, *>
-                )
-                @Suppress("UNCHECKED_CAST")
+                val fields = jsonValueDecoder.readMap(json, fieldType)
                 Struct {
-                    // TODO: change the default mutable map in the generated code to be a MutableMessageMap
-                    this.fields.putAll(MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>))
+                    (this.fields as MutableMessageMap<String, Value?>).putAll(fields)
                 }
             } catch (e: InvalidProtocolBufferException) {
                 throw e

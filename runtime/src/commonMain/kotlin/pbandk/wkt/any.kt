@@ -28,7 +28,6 @@ public sealed interface Any : pbandk.Message {
     ): pbandk.wkt.Any
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Any by lazy { pbandk.wkt.Any {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
 
@@ -142,11 +141,11 @@ private class Any_Impl(
         )
     } ?: this
 
-    override fun toMutableAny() = MutableAny_Impl(
-        typeUrl = typeUrl,
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableAny() = pbandk.wkt.MutableAny {
+        this.typeUrl = this@Any_Impl.typeUrl
+        this.value = this@Any_Impl.value
+        this.unknownFields += this@Any_Impl.unknownFields
+    }
 }
 
 private class MutableAny_Impl(
@@ -182,11 +181,11 @@ private class MutableAny_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableAny() = MutableAny_Impl(
-        typeUrl = typeUrl,
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableAny() = pbandk.wkt.MutableAny {
+        this.typeUrl = this@MutableAny_Impl.typeUrl
+        this.value = this@MutableAny_Impl.value
+        this.unknownFields += this@MutableAny_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

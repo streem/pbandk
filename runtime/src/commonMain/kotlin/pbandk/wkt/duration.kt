@@ -28,7 +28,6 @@ public sealed interface Duration : pbandk.Message {
     ): pbandk.wkt.Duration
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Duration by lazy { pbandk.wkt.Duration {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
 
@@ -142,11 +141,11 @@ private class Duration_Impl(
         )
     } ?: this
 
-    override fun toMutableDuration() = MutableDuration_Impl(
-        seconds = seconds,
-        nanos = nanos,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDuration() = pbandk.wkt.MutableDuration {
+        this.seconds = this@Duration_Impl.seconds
+        this.nanos = this@Duration_Impl.nanos
+        this.unknownFields += this@Duration_Impl.unknownFields
+    }
 }
 
 private class MutableDuration_Impl(
@@ -182,11 +181,11 @@ private class MutableDuration_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableDuration() = MutableDuration_Impl(
-        seconds = seconds,
-        nanos = nanos,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableDuration() = pbandk.wkt.MutableDuration {
+        this.seconds = this@MutableDuration_Impl.seconds
+        this.nanos = this@MutableDuration_Impl.nanos
+        this.unknownFields += this@MutableDuration_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

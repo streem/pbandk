@@ -53,7 +53,6 @@ public sealed interface Type : pbandk.Message {
     ): pbandk.wkt.Type
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Type by lazy { pbandk.wkt.Type {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
 
@@ -195,7 +194,6 @@ public sealed interface Field : pbandk.Message {
     ): pbandk.wkt.Field
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Field by lazy { pbandk.wkt.Field {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
 
@@ -422,7 +420,6 @@ public sealed interface Enum : pbandk.Message {
     ): pbandk.wkt.Enum
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Enum by lazy { pbandk.wkt.Enum {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
 
@@ -539,7 +536,6 @@ public sealed interface EnumValue : pbandk.Message {
     ): pbandk.wkt.EnumValue
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.EnumValue by lazy { pbandk.wkt.EnumValue {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
 
@@ -632,7 +628,6 @@ public sealed interface Option : pbandk.Message {
     ): pbandk.wkt.Option
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.Option by lazy { pbandk.wkt.Option {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
 
@@ -774,15 +769,15 @@ private class Type_Impl(
         )
     } ?: this
 
-    override fun toMutableType() = MutableType_Impl(
-        name = name,
-        fields = fields.toMutableList(),
-        oneofs = oneofs.toMutableList(),
-        options = options.toMutableList(),
-        sourceContext = sourceContext,
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableType() = pbandk.wkt.MutableType {
+        this.name = this@Type_Impl.name
+        this.fields += this@Type_Impl.fields
+        this.oneofs += this@Type_Impl.oneofs
+        this.options += this@Type_Impl.options
+        this.sourceContext = this@Type_Impl.sourceContext
+        this.syntax = this@Type_Impl.syntax
+        this.unknownFields += this@Type_Impl.unknownFields
+    }
 }
 
 private class MutableType_Impl(
@@ -838,15 +833,15 @@ private class MutableType_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableType() = MutableType_Impl(
-        name = name,
-        fields = fields.toMutableList(),
-        oneofs = oneofs.toMutableList(),
-        options = options.toMutableList(),
-        sourceContext = sourceContext,
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableType() = pbandk.wkt.MutableType {
+        this.name = this@MutableType_Impl.name
+        this.fields += this@MutableType_Impl.fields
+        this.oneofs += this@MutableType_Impl.oneofs
+        this.options += this@MutableType_Impl.options
+        this.sourceContext = this@MutableType_Impl.sourceContext
+        this.syntax = this@MutableType_Impl.syntax
+        this.unknownFields += this@MutableType_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -979,19 +974,19 @@ private class Field_Impl(
         )
     } ?: this
 
-    override fun toMutableField() = MutableField_Impl(
-        kind = kind,
-        cardinality = cardinality,
-        number = number,
-        name = name,
-        typeUrl = typeUrl,
-        oneofIndex = oneofIndex,
-        packed = packed,
-        options = options.toMutableList(),
-        jsonName = jsonName,
-        defaultValue = defaultValue,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableField() = pbandk.wkt.MutableField {
+        this.kind = this@Field_Impl.kind
+        this.cardinality = this@Field_Impl.cardinality
+        this.number = this@Field_Impl.number
+        this.name = this@Field_Impl.name
+        this.typeUrl = this@Field_Impl.typeUrl
+        this.oneofIndex = this@Field_Impl.oneofIndex
+        this.packed = this@Field_Impl.packed
+        this.options += this@Field_Impl.options
+        this.jsonName = this@Field_Impl.jsonName
+        this.defaultValue = this@Field_Impl.defaultValue
+        this.unknownFields += this@Field_Impl.unknownFields
+    }
 }
 
 private class MutableField_Impl(
@@ -1060,19 +1055,19 @@ private class MutableField_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableField() = MutableField_Impl(
-        kind = kind,
-        cardinality = cardinality,
-        number = number,
-        name = name,
-        typeUrl = typeUrl,
-        oneofIndex = oneofIndex,
-        packed = packed,
-        options = options.toMutableList(),
-        jsonName = jsonName,
-        defaultValue = defaultValue,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableField() = pbandk.wkt.MutableField {
+        this.kind = this@MutableField_Impl.kind
+        this.cardinality = this@MutableField_Impl.cardinality
+        this.number = this@MutableField_Impl.number
+        this.name = this@MutableField_Impl.name
+        this.typeUrl = this@MutableField_Impl.typeUrl
+        this.oneofIndex = this@MutableField_Impl.oneofIndex
+        this.packed = this@MutableField_Impl.packed
+        this.options += this@MutableField_Impl.options
+        this.jsonName = this@MutableField_Impl.jsonName
+        this.defaultValue = this@MutableField_Impl.defaultValue
+        this.unknownFields += this@MutableField_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1186,14 +1181,14 @@ private class Enum_Impl(
         )
     } ?: this
 
-    override fun toMutableEnum() = MutableEnum_Impl(
-        name = name,
-        enumvalue = enumvalue.toMutableList(),
-        options = options.toMutableList(),
-        sourceContext = sourceContext,
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnum() = pbandk.wkt.MutableEnum {
+        this.name = this@Enum_Impl.name
+        this.enumvalue += this@Enum_Impl.enumvalue
+        this.options += this@Enum_Impl.options
+        this.sourceContext = this@Enum_Impl.sourceContext
+        this.syntax = this@Enum_Impl.syntax
+        this.unknownFields += this@Enum_Impl.unknownFields
+    }
 }
 
 private class MutableEnum_Impl(
@@ -1244,14 +1239,14 @@ private class MutableEnum_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnum() = MutableEnum_Impl(
-        name = name,
-        enumvalue = enumvalue.toMutableList(),
-        options = options.toMutableList(),
-        sourceContext = sourceContext,
-        syntax = syntax,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnum() = pbandk.wkt.MutableEnum {
+        this.name = this@MutableEnum_Impl.name
+        this.enumvalue += this@MutableEnum_Impl.enumvalue
+        this.options += this@MutableEnum_Impl.options
+        this.sourceContext = this@MutableEnum_Impl.sourceContext
+        this.syntax = this@MutableEnum_Impl.syntax
+        this.unknownFields += this@MutableEnum_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1340,12 +1335,12 @@ private class EnumValue_Impl(
         )
     } ?: this
 
-    override fun toMutableEnumValue() = MutableEnumValue_Impl(
-        name = name,
-        number = number,
-        options = options.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumValue() = pbandk.wkt.MutableEnumValue {
+        this.name = this@EnumValue_Impl.name
+        this.number = this@EnumValue_Impl.number
+        this.options += this@EnumValue_Impl.options
+        this.unknownFields += this@EnumValue_Impl.unknownFields
+    }
 }
 
 private class MutableEnumValue_Impl(
@@ -1386,12 +1381,12 @@ private class MutableEnumValue_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableEnumValue() = MutableEnumValue_Impl(
-        name = name,
-        number = number,
-        options = options.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableEnumValue() = pbandk.wkt.MutableEnumValue {
+        this.name = this@MutableEnumValue_Impl.name
+        this.number = this@MutableEnumValue_Impl.number
+        this.options += this@MutableEnumValue_Impl.options
+        this.unknownFields += this@MutableEnumValue_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1469,11 +1464,11 @@ private class Option_Impl(
         )
     } ?: this
 
-    override fun toMutableOption() = MutableOption_Impl(
-        name = name,
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableOption() = pbandk.wkt.MutableOption {
+        this.name = this@Option_Impl.name
+        this.value = this@Option_Impl.value
+        this.unknownFields += this@Option_Impl.unknownFields
+    }
 }
 
 private class MutableOption_Impl(
@@ -1510,11 +1505,11 @@ private class MutableOption_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableOption() = MutableOption_Impl(
-        name = name,
-        value = value,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableOption() = pbandk.wkt.MutableOption {
+        this.name = this@MutableOption_Impl.name
+        this.value = this@MutableOption_Impl.value
+        this.unknownFields += this@MutableOption_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

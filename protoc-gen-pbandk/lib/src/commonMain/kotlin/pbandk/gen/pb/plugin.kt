@@ -32,7 +32,6 @@ public sealed interface Version : pbandk.Message {
     ): pbandk.gen.pb.Version
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.Version> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.gen.pb.Version by lazy { pbandk.gen.pb.Version {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.Version = pbandk.gen.pb.Version.decodeWithImpl(u)
 
@@ -140,7 +139,6 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
     ): pbandk.gen.pb.CodeGeneratorRequest
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorRequest by lazy { pbandk.gen.pb.CodeGeneratorRequest {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.CodeGeneratorRequest.decodeWithImpl(u)
 
@@ -246,7 +244,6 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
     ): pbandk.gen.pb.CodeGeneratorResponse
 
     public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse by lazy { pbandk.gen.pb.CodeGeneratorResponse {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
@@ -339,7 +336,6 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         ): pbandk.gen.pb.CodeGeneratorResponse.File
 
         public companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
-            @Suppress("DEPRECATION")
             public val defaultInstance: pbandk.gen.pb.CodeGeneratorResponse.File by lazy { pbandk.gen.pb.CodeGeneratorResponse.File {} }
             override fun decodeWith(u: pbandk.MessageDecoder): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
@@ -511,13 +507,13 @@ private class Version_Impl(
         )
     } ?: this
 
-    override fun toMutableVersion() = MutableVersion_Impl(
-        major = major,
-        minor = minor,
-        patch = patch,
-        suffix = suffix,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableVersion() = pbandk.gen.pb.MutableVersion {
+        this.major = this@Version_Impl.major
+        this.minor = this@Version_Impl.minor
+        this.patch = this@Version_Impl.patch
+        this.suffix = this@Version_Impl.suffix
+        this.unknownFields += this@Version_Impl.unknownFields
+    }
 }
 
 private class MutableVersion_Impl(
@@ -565,13 +561,13 @@ private class MutableVersion_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableVersion() = MutableVersion_Impl(
-        major = major,
-        minor = minor,
-        patch = patch,
-        suffix = suffix,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableVersion() = pbandk.gen.pb.MutableVersion {
+        this.major = this@MutableVersion_Impl.major
+        this.minor = this@MutableVersion_Impl.minor
+        this.patch = this@MutableVersion_Impl.patch
+        this.suffix = this@MutableVersion_Impl.suffix
+        this.unknownFields += this@MutableVersion_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -666,13 +662,13 @@ private class CodeGeneratorRequest_Impl(
         )
     } ?: this
 
-    override fun toMutableCodeGeneratorRequest() = MutableCodeGeneratorRequest_Impl(
-        fileToGenerate = fileToGenerate.toMutableList(),
-        parameter = parameter,
-        protoFile = protoFile.toMutableList(),
-        compilerVersion = compilerVersion,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableCodeGeneratorRequest() = pbandk.gen.pb.MutableCodeGeneratorRequest {
+        this.fileToGenerate += this@CodeGeneratorRequest_Impl.fileToGenerate
+        this.parameter = this@CodeGeneratorRequest_Impl.parameter
+        this.protoFile += this@CodeGeneratorRequest_Impl.protoFile
+        this.compilerVersion = this@CodeGeneratorRequest_Impl.compilerVersion
+        this.unknownFields += this@CodeGeneratorRequest_Impl.unknownFields
+    }
 }
 
 private class MutableCodeGeneratorRequest_Impl(
@@ -720,13 +716,13 @@ private class MutableCodeGeneratorRequest_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableCodeGeneratorRequest() = MutableCodeGeneratorRequest_Impl(
-        fileToGenerate = fileToGenerate.toMutableList(),
-        parameter = parameter,
-        protoFile = protoFile.toMutableList(),
-        compilerVersion = compilerVersion,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableCodeGeneratorRequest() = pbandk.gen.pb.MutableCodeGeneratorRequest {
+        this.fileToGenerate += this@MutableCodeGeneratorRequest_Impl.fileToGenerate
+        this.parameter = this@MutableCodeGeneratorRequest_Impl.parameter
+        this.protoFile += this@MutableCodeGeneratorRequest_Impl.protoFile
+        this.compilerVersion = this@MutableCodeGeneratorRequest_Impl.compilerVersion
+        this.unknownFields += this@MutableCodeGeneratorRequest_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -814,12 +810,12 @@ private class CodeGeneratorResponse_Impl(
         )
     } ?: this
 
-    override fun toMutableCodeGeneratorResponse() = MutableCodeGeneratorResponse_Impl(
-        error = error,
-        supportedFeatures = supportedFeatures,
-        file = file.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableCodeGeneratorResponse() = pbandk.gen.pb.MutableCodeGeneratorResponse {
+        this.error = this@CodeGeneratorResponse_Impl.error
+        this.supportedFeatures = this@CodeGeneratorResponse_Impl.supportedFeatures
+        this.file += this@CodeGeneratorResponse_Impl.file
+        this.unknownFields += this@CodeGeneratorResponse_Impl.unknownFields
+    }
 }
 
 private class MutableCodeGeneratorResponse_Impl(
@@ -862,12 +858,12 @@ private class MutableCodeGeneratorResponse_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableCodeGeneratorResponse() = MutableCodeGeneratorResponse_Impl(
-        error = error,
-        supportedFeatures = supportedFeatures,
-        file = file.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableCodeGeneratorResponse() = pbandk.gen.pb.MutableCodeGeneratorResponse {
+        this.error = this@MutableCodeGeneratorResponse_Impl.error
+        this.supportedFeatures = this@MutableCodeGeneratorResponse_Impl.supportedFeatures
+        this.file += this@MutableCodeGeneratorResponse_Impl.file
+        this.unknownFields += this@MutableCodeGeneratorResponse_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -967,13 +963,13 @@ private class CodeGeneratorResponse_File_Impl(
         )
     } ?: this
 
-    override fun toMutableFile() = CodeGeneratorResponse_MutableFile_Impl(
-        name = name,
-        insertionPoint = insertionPoint,
-        content = content,
-        generatedCodeInfo = generatedCodeInfo,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFile() = pbandk.gen.pb.CodeGeneratorResponse.MutableFile {
+        this.name = this@CodeGeneratorResponse_File_Impl.name
+        this.insertionPoint = this@CodeGeneratorResponse_File_Impl.insertionPoint
+        this.content = this@CodeGeneratorResponse_File_Impl.content
+        this.generatedCodeInfo = this@CodeGeneratorResponse_File_Impl.generatedCodeInfo
+        this.unknownFields += this@CodeGeneratorResponse_File_Impl.unknownFields
+    }
 }
 
 private class CodeGeneratorResponse_MutableFile_Impl(
@@ -1021,13 +1017,13 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFile() = CodeGeneratorResponse_MutableFile_Impl(
-        name = name,
-        insertionPoint = insertionPoint,
-        content = content,
-        generatedCodeInfo = generatedCodeInfo,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFile() = pbandk.gen.pb.CodeGeneratorResponse.MutableFile {
+        this.name = this@CodeGeneratorResponse_MutableFile_Impl.name
+        this.insertionPoint = this@CodeGeneratorResponse_MutableFile_Impl.insertionPoint
+        this.content = this@CodeGeneratorResponse_MutableFile_Impl.content
+        this.generatedCodeInfo = this@CodeGeneratorResponse_MutableFile_Impl.generatedCodeInfo
+        this.unknownFields += this@CodeGeneratorResponse_MutableFile_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

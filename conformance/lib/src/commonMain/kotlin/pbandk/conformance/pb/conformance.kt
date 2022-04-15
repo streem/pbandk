@@ -67,7 +67,6 @@ public sealed interface FailureSet : pbandk.Message {
     ): pbandk.conformance.pb.FailureSet
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.FailureSet> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.FailureSet by lazy { pbandk.conformance.pb.FailureSet {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.FailureSet.decodeWithImpl(u)
 
@@ -158,7 +157,6 @@ public sealed interface ConformanceRequest : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceRequest> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.ConformanceRequest by lazy { pbandk.conformance.pb.ConformanceRequest {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.ConformanceRequest.decodeWithImpl(u)
 
@@ -341,7 +339,6 @@ public sealed interface ConformanceResponse : pbandk.Message {
     }
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.ConformanceResponse> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.ConformanceResponse by lazy { pbandk.conformance.pb.ConformanceResponse {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.ConformanceResponse.decodeWithImpl(u)
 
@@ -497,7 +494,6 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
     ): pbandk.conformance.pb.JspbEncodingConfig
 
     public companion object : pbandk.Message.Companion<pbandk.conformance.pb.JspbEncodingConfig> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.conformance.pb.JspbEncodingConfig by lazy { pbandk.conformance.pb.JspbEncodingConfig {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.JspbEncodingConfig.decodeWithImpl(u)
 
@@ -595,10 +591,10 @@ private class FailureSet_Impl(
         )
     } ?: this
 
-    override fun toMutableFailureSet() = MutableFailureSet_Impl(
-        failure = failure.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFailureSet() = pbandk.conformance.pb.MutableFailureSet {
+        this.failure += this@FailureSet_Impl.failure
+        this.unknownFields += this@FailureSet_Impl.unknownFields
+    }
 }
 
 private class MutableFailureSet_Impl(
@@ -631,10 +627,10 @@ private class MutableFailureSet_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFailureSet() = MutableFailureSet_Impl(
-        failure = failure.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFailureSet() = pbandk.conformance.pb.MutableFailureSet {
+        this.failure += this@MutableFailureSet_Impl.failure
+        this.unknownFields += this@MutableFailureSet_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -742,15 +738,15 @@ private class ConformanceRequest_Impl(
         )
     } ?: this
 
-    override fun toMutableConformanceRequest() = MutableConformanceRequest_Impl(
-        requestedOutputFormat = requestedOutputFormat,
-        messageType = messageType,
-        testCategory = testCategory,
-        jspbEncodingOptions = jspbEncodingOptions,
-        printUnknownFields = printUnknownFields,
-        payload = payload,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableConformanceRequest() = pbandk.conformance.pb.MutableConformanceRequest {
+        this.requestedOutputFormat = this@ConformanceRequest_Impl.requestedOutputFormat
+        this.messageType = this@ConformanceRequest_Impl.messageType
+        this.testCategory = this@ConformanceRequest_Impl.testCategory
+        this.jspbEncodingOptions = this@ConformanceRequest_Impl.jspbEncodingOptions
+        this.printUnknownFields = this@ConformanceRequest_Impl.printUnknownFields
+        this.payload = this@ConformanceRequest_Impl.payload
+        this.unknownFields += this@ConformanceRequest_Impl.unknownFields
+    }
 }
 
 private class MutableConformanceRequest_Impl(
@@ -817,15 +813,15 @@ private class MutableConformanceRequest_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableConformanceRequest() = MutableConformanceRequest_Impl(
-        requestedOutputFormat = requestedOutputFormat,
-        messageType = messageType,
-        testCategory = testCategory,
-        jspbEncodingOptions = jspbEncodingOptions,
-        printUnknownFields = printUnknownFields,
-        payload = payload,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableConformanceRequest() = pbandk.conformance.pb.MutableConformanceRequest {
+        this.requestedOutputFormat = this@MutableConformanceRequest_Impl.requestedOutputFormat
+        this.messageType = this@MutableConformanceRequest_Impl.messageType
+        this.testCategory = this@MutableConformanceRequest_Impl.testCategory
+        this.jspbEncodingOptions = this@MutableConformanceRequest_Impl.jspbEncodingOptions
+        this.printUnknownFields = this@MutableConformanceRequest_Impl.printUnknownFields
+        this.payload = this@MutableConformanceRequest_Impl.payload
+        this.unknownFields += this@MutableConformanceRequest_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -924,10 +920,10 @@ private class ConformanceResponse_Impl(
         )
     } ?: this
 
-    override fun toMutableConformanceResponse() = MutableConformanceResponse_Impl(
-        result = result,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableConformanceResponse() = pbandk.conformance.pb.MutableConformanceResponse {
+        this.result = this@ConformanceResponse_Impl.result
+        this.unknownFields += this@ConformanceResponse_Impl.unknownFields
+    }
 }
 
 private class MutableConformanceResponse_Impl(
@@ -985,10 +981,10 @@ private class MutableConformanceResponse_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableConformanceResponse() = MutableConformanceResponse_Impl(
-        result = result,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableConformanceResponse() = pbandk.conformance.pb.MutableConformanceResponse {
+        this.result = this@MutableConformanceResponse_Impl.result
+        this.unknownFields += this@MutableConformanceResponse_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -1062,10 +1058,10 @@ private class JspbEncodingConfig_Impl(
         )
     } ?: this
 
-    override fun toMutableJspbEncodingConfig() = MutableJspbEncodingConfig_Impl(
-        useJspbArrayAnyFormat = useJspbArrayAnyFormat,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableJspbEncodingConfig() = pbandk.conformance.pb.MutableJspbEncodingConfig {
+        this.useJspbArrayAnyFormat = this@JspbEncodingConfig_Impl.useJspbArrayAnyFormat
+        this.unknownFields += this@JspbEncodingConfig_Impl.unknownFields
+    }
 }
 
 private class MutableJspbEncodingConfig_Impl(
@@ -1097,10 +1093,10 @@ private class MutableJspbEncodingConfig_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableJspbEncodingConfig() = MutableJspbEncodingConfig_Impl(
-        useJspbArrayAnyFormat = useJspbArrayAnyFormat,
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableJspbEncodingConfig() = pbandk.conformance.pb.MutableJspbEncodingConfig {
+        this.useJspbArrayAnyFormat = this@MutableJspbEncodingConfig_Impl.useJspbArrayAnyFormat
+        this.unknownFields += this@MutableJspbEncodingConfig_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

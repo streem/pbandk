@@ -26,7 +26,6 @@ public sealed interface FieldMask : pbandk.Message {
     ): pbandk.wkt.FieldMask
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
-        @Suppress("DEPRECATION")
         public val defaultInstance: pbandk.wkt.FieldMask by lazy { pbandk.wkt.FieldMask {} }
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
 
@@ -124,10 +123,10 @@ private class FieldMask_Impl(
         )
     } ?: this
 
-    override fun toMutableFieldMask() = MutableFieldMask_Impl(
-        paths = paths.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldMask() = pbandk.wkt.MutableFieldMask {
+        this.paths += this@FieldMask_Impl.paths
+        this.unknownFields += this@FieldMask_Impl.unknownFields
+    }
 }
 
 private class MutableFieldMask_Impl(
@@ -160,10 +159,10 @@ private class MutableFieldMask_Impl(
         unknownFields = unknownFields.toMap()
     )
 
-    override fun toMutableFieldMask() = MutableFieldMask_Impl(
-        paths = paths.toMutableList(),
-        unknownFields = unknownFields.toMutableMap()
-    )
+    override fun toMutableFieldMask() = pbandk.wkt.MutableFieldMask {
+        this.paths += this@MutableFieldMask_Impl.paths
+        this.unknownFields += this@MutableFieldMask_Impl.unknownFields
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
