@@ -146,7 +146,7 @@ public class MessageMap<K, V> internal constructor(entries: Collection<Entry<K, 
 //@JsExport
 //public fun <K, V> MutableMessageMap<K, V>?.toMessageMap(): MessageMap<K, V> = this?.toMessageMap() ?: MessageMap.empty()
 
-@PublicForGeneratedCode
+//@PublicForGeneratedCode
 @JsExport
 public class MutableMessageMap<K, V>(private val entryCompanion: MessageMap.Entry.Companion<K, V>) : MutableMap<K, V> {
     // Convenience constructor to keep generated code more succinct
