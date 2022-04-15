@@ -43,10 +43,12 @@ public interface Message {
 
 }
 
+@DslMarker
+public annotation class MessageBuilderMarker
+
+@MessageBuilderMarker
 public interface MutableMessage : Message {
     public override val unknownFields: MutableMap<Int, UnknownField>
-
-    // TODO: public override operator fun plus(other: Message?): MutableMessage
 }
 
 @JsExport
