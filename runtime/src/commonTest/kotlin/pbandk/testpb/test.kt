@@ -10,11 +10,6 @@ public sealed interface Foo : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableFoo(): pbandk.testpb.MutableFoo
-
-    /**
      * The [MutableFoo] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -54,21 +49,9 @@ public sealed interface Foo : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableFoo : pbandk.testpb.Foo, pbandk.MutableMessage {
     public override var `val`: String
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toFoo(): pbandk.testpb.Foo
-
-    public override fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.MutableFoo
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Foo> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Foo = pbandk.testpb.Foo.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Foo> get() = pbandk.testpb.Foo.descriptor
-    }
 }
 
 @pbandk.Export
@@ -78,11 +61,6 @@ public sealed interface Bar : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Bar
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableBar(): pbandk.testpb.MutableBar
 
     /**
      * The [MutableBar] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -135,22 +113,10 @@ public sealed interface Bar : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableBar : pbandk.testpb.Bar, pbandk.MutableMessage {
     public override val foos: MutableList<pbandk.testpb.Foo>
     public override var singleFoo: pbandk.testpb.Foo?
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toBar(): pbandk.testpb.Bar
-
-    public override fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.MutableBar
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Bar> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Bar = pbandk.testpb.Bar.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Bar> get() = pbandk.testpb.Bar.descriptor
-    }
 }
 
 @pbandk.Export
@@ -159,11 +125,6 @@ public sealed interface MessageWithMap : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithMap
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableMessageWithMap(): pbandk.testpb.MutableMessageWithMap
 
     /**
      * The [MutableMessageWithMap] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -205,21 +166,9 @@ public sealed interface MessageWithMap : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableMessageWithMap : pbandk.testpb.MessageWithMap, pbandk.MutableMessage {
     public override val map: MutableMap<String, String>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toMessageWithMap(): pbandk.testpb.MessageWithMap
-
-    public override fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MutableMessageWithMap
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithMap> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithMap = pbandk.testpb.MessageWithMap.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MessageWithMap> get() = pbandk.testpb.MessageWithMap.descriptor
-    }
 }
 
 @pbandk.Export
@@ -228,11 +177,6 @@ public sealed interface FooMap : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableFooMap(): pbandk.testpb.MutableFooMap
 
     /**
      * The [MutableFooMap] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -274,21 +218,9 @@ public sealed interface FooMap : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableFooMap : pbandk.testpb.FooMap, pbandk.MutableMessage {
     public override val map: MutableMap<String, pbandk.testpb.Foo?>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toFooMap(): pbandk.testpb.FooMap
-
-    public override fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.MutableFooMap
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMap> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMap = pbandk.testpb.FooMap.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMap> get() = pbandk.testpb.FooMap.descriptor
-    }
 }
 
 @pbandk.Export
@@ -297,11 +229,6 @@ public sealed interface FooMapEntries : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableFooMapEntries(): pbandk.testpb.MutableFooMapEntries
 
     /**
      * The [MutableFooMapEntries] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -348,11 +275,6 @@ public sealed interface FooMapEntries : pbandk.Message {
 
         override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries.MapEntry
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry>
-
-        /**
-         * Returns a new mutable instance containing a copy of all values from this instance.
-         */
-        public fun toMutableMapEntry(): pbandk.testpb.FooMapEntries.MutableMapEntry
 
         /**
          * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -405,40 +327,16 @@ public sealed interface FooMapEntries : pbandk.Message {
         }
     }
 
+    @pbandk.Export
     public sealed interface MutableMapEntry : pbandk.testpb.FooMapEntries.MapEntry, pbandk.MutableMessage {
         public override var key: String
         public override var value: pbandk.testpb.Foo?
-
-        /**
-         * Returns a new immutable instance containing a copy of all values from this instance.
-         */
-        public fun toMapEntry(): pbandk.testpb.FooMapEntries.MapEntry
-
-        public override fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MutableMapEntry
-
-        public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries.MapEntry> {
-            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries.MapEntry.decodeWithImpl(u)
-
-            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries.MapEntry> get() = pbandk.testpb.FooMapEntries.MapEntry.descriptor
-        }
     }
 }
 
+@pbandk.Export
 public sealed interface MutableFooMapEntries : pbandk.testpb.FooMapEntries, pbandk.MutableMessage {
     public override val map: MutableList<pbandk.testpb.FooMapEntries.MapEntry>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toFooMapEntries(): pbandk.testpb.FooMapEntries
-
-    public override fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.MutableFooMapEntries
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.FooMapEntries> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FooMapEntries = pbandk.testpb.FooMapEntries.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.FooMapEntries> get() = pbandk.testpb.FooMapEntries.descriptor
-    }
 }
 
 @pbandk.Export
@@ -448,11 +346,6 @@ public sealed interface Wrappers : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Wrappers
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableWrappers(): pbandk.testpb.MutableWrappers
 
     /**
      * The [MutableWrappers] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -505,22 +398,10 @@ public sealed interface Wrappers : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableWrappers : pbandk.testpb.Wrappers, pbandk.MutableMessage {
     public override var stringValue: String?
     public override val uint64Values: MutableList<Long>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toWrappers(): pbandk.testpb.Wrappers
-
-    public override fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.MutableWrappers
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Wrappers> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Wrappers = pbandk.testpb.Wrappers.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Wrappers> get() = pbandk.testpb.Wrappers.descriptor
-    }
 }
 
 @Deprecated("Use Foo { } instead")
@@ -532,20 +413,15 @@ public fun Foo(
     this.unknownFields += unknownFields
 }
 
-public fun MutableFoo(): pbandk.testpb.MutableFoo = pbandk.testpb.MutableFoo_Impl(
-    `val` = "",
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableFoo] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Foo(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.Foo =
-    pbandk.testpb.MutableFoo().also(builderAction).toFoo()
-
-public fun MutableFoo(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.MutableFoo =
-    pbandk.testpb.MutableFoo().also(builderAction)
+@pbandk.Export
+public fun Foo(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.Foo = pbandk.testpb.MutableFoo_Impl(
+    `val` = "",
+    unknownFields = mutableMapOf()
+).also(builderAction).toFoo()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFoo")
@@ -557,10 +433,13 @@ private class Foo_Impl(
 ) : pbandk.testpb.Foo, pbandk.GeneratedMessage<pbandk.testpb.Foo>() {
     override val descriptor get() = pbandk.testpb.Foo.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit) =
-        toMutableFoo().apply(builderAction).toFoo()
+    override fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit) = pbandk.testpb.Foo {
+        this.`val` = this@Foo_Impl.`val`
+        this.unknownFields += this@Foo_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -570,11 +449,6 @@ private class Foo_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableFoo() = pbandk.testpb.MutableFoo {
-        this.`val` = this@Foo_Impl.`val`
-        this.unknownFields += this@Foo_Impl.unknownFields
-    }
 }
 
 private class MutableFoo_Impl(
@@ -584,28 +458,20 @@ private class MutableFoo_Impl(
     override val descriptor get() = pbandk.testpb.Foo.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFoo.() -> Unit) =
-        toMutableFoo().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Foo {
-        this.`val` = `val`
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toFoo() = Foo_Impl(
+    fun toFoo() = Foo_Impl(
         `val` = `val`,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableFoo() = pbandk.testpb.MutableFoo {
-        this.`val` = this@MutableFoo_Impl.`val`
-        this.unknownFields += this@MutableFoo_Impl.unknownFields
-    }
 }
 
 private fun Foo.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Foo {
@@ -640,21 +506,16 @@ public fun Bar(
     this.unknownFields += unknownFields
 }
 
-public fun MutableBar(): pbandk.testpb.MutableBar = pbandk.testpb.MutableBar_Impl(
-    foos = mutableListOf(),
-    singleFoo = null,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableBar] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Bar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar =
-    pbandk.testpb.MutableBar().also(builderAction).toBar()
-
-public fun MutableBar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.MutableBar =
-    pbandk.testpb.MutableBar().also(builderAction)
+@pbandk.Export
+public fun Bar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar = pbandk.testpb.MutableBar_Impl(
+    foos = mutableListOf(),
+    singleFoo = null,
+    unknownFields = mutableMapOf()
+).also(builderAction).toBar()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBar")
@@ -667,10 +528,14 @@ private class Bar_Impl(
 ) : pbandk.testpb.Bar, pbandk.GeneratedMessage<pbandk.testpb.Bar>() {
     override val descriptor get() = pbandk.testpb.Bar.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit) =
-        toMutableBar().apply(builderAction).toBar()
+    override fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit) = pbandk.testpb.Bar {
+        this.foos += this@Bar_Impl.foos
+        this.singleFoo = this@Bar_Impl.singleFoo
+        this.unknownFields += this@Bar_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
@@ -682,12 +547,6 @@ private class Bar_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableBar() = pbandk.testpb.MutableBar {
-        this.foos += this@Bar_Impl.foos
-        this.singleFoo = this@Bar_Impl.singleFoo
-        this.unknownFields += this@Bar_Impl.unknownFields
-    }
 }
 
 private class MutableBar_Impl(
@@ -698,32 +557,22 @@ private class MutableBar_Impl(
     override val descriptor get() = pbandk.testpb.Bar.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableBar.() -> Unit) =
-        toMutableBar().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Bar {
-        this.foos += foos
-        this.singleFoo = singleFoo
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toBar() = Bar_Impl(
+    fun toBar() = Bar_Impl(
         foos = foos.toList(),
         singleFoo = singleFoo,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableBar() = pbandk.testpb.MutableBar {
-        this.foos += this@MutableBar_Impl.foos
-        this.singleFoo = this@MutableBar_Impl.singleFoo
-        this.unknownFields += this@MutableBar_Impl.unknownFields
-    }
 }
 
 private fun Bar.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Bar {
@@ -759,20 +608,15 @@ public fun MessageWithMap(
     this.unknownFields += unknownFields
 }
 
-public fun MutableMessageWithMap(): pbandk.testpb.MutableMessageWithMap = pbandk.testpb.MutableMessageWithMap_Impl(
-    map = pbandk.MutableMessageMap(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableMessageWithMap] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap =
-    pbandk.testpb.MutableMessageWithMap().also(builderAction).toMessageWithMap()
-
-public fun MutableMessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MutableMessageWithMap =
-    pbandk.testpb.MutableMessageWithMap().also(builderAction)
+@pbandk.Export
+public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap = pbandk.testpb.MutableMessageWithMap_Impl(
+    map = pbandk.MutableMessageMap(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
+    unknownFields = mutableMapOf()
+).also(builderAction).toMessageWithMap()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithMap")
@@ -784,10 +628,13 @@ private class MessageWithMap_Impl(
 ) : pbandk.testpb.MessageWithMap, pbandk.GeneratedMessage<pbandk.testpb.MessageWithMap>() {
     override val descriptor get() = pbandk.testpb.MessageWithMap.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit) =
-        toMutableMessageWithMap().apply(builderAction).toMessageWithMap()
+    override fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit) = pbandk.testpb.MessageWithMap {
+        this.map += this@MessageWithMap_Impl.map
+        this.unknownFields += this@MessageWithMap_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -797,11 +644,6 @@ private class MessageWithMap_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableMessageWithMap() = pbandk.testpb.MutableMessageWithMap {
-        this.map += this@MessageWithMap_Impl.map
-        this.unknownFields += this@MessageWithMap_Impl.unknownFields
-    }
 }
 
 private class MutableMessageWithMap_Impl(
@@ -811,28 +653,20 @@ private class MutableMessageWithMap_Impl(
     override val descriptor get() = pbandk.testpb.MessageWithMap.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit) =
-        toMutableMessageWithMap().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MessageWithMap {
-        this.map += map
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toMessageWithMap() = MessageWithMap_Impl(
+    fun toMessageWithMap() = MessageWithMap_Impl(
         map = map.toMessageMap(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableMessageWithMap() = pbandk.testpb.MutableMessageWithMap {
-        this.map += this@MutableMessageWithMap_Impl.map
-        this.unknownFields += this@MutableMessageWithMap_Impl.unknownFields
-    }
 }
 
 private fun MessageWithMap.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MessageWithMap {
@@ -865,20 +699,15 @@ public fun FooMap(
     this.unknownFields += unknownFields
 }
 
-public fun MutableFooMap(): pbandk.testpb.MutableFooMap = pbandk.testpb.MutableFooMap_Impl(
-    map = pbandk.MutableMessageMap(pbandk.testpb.FooMap.descriptor.fields[1]),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableFooMap] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap =
-    pbandk.testpb.MutableFooMap().also(builderAction).toFooMap()
-
-public fun MutableFooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.MutableFooMap =
-    pbandk.testpb.MutableFooMap().also(builderAction)
+@pbandk.Export
+public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap = pbandk.testpb.MutableFooMap_Impl(
+    map = pbandk.MutableMessageMap(pbandk.testpb.FooMap.descriptor.fields[1]),
+    unknownFields = mutableMapOf()
+).also(builderAction).toFooMap()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMap")
@@ -890,10 +719,13 @@ private class FooMap_Impl(
 ) : pbandk.testpb.FooMap, pbandk.GeneratedMessage<pbandk.testpb.FooMap>() {
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit) =
-        toMutableFooMap().apply(builderAction).toFooMap()
+    override fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit) = pbandk.testpb.FooMap {
+        this.map += this@FooMap_Impl.map
+        this.unknownFields += this@FooMap_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         map: Map<String, pbandk.testpb.Foo?>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -903,11 +735,6 @@ private class FooMap_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableFooMap() = pbandk.testpb.MutableFooMap {
-        this.map += this@FooMap_Impl.map
-        this.unknownFields += this@FooMap_Impl.unknownFields
-    }
 }
 
 private class MutableFooMap_Impl(
@@ -917,28 +744,20 @@ private class MutableFooMap_Impl(
     override val descriptor get() = pbandk.testpb.FooMap.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFooMap.() -> Unit) =
-        toMutableFooMap().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         map: Map<String, pbandk.testpb.Foo?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FooMap {
-        this.map += map
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toFooMap() = FooMap_Impl(
+    fun toFooMap() = FooMap_Impl(
         map = map.toMessageMap(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableFooMap() = pbandk.testpb.MutableFooMap {
-        this.map += this@MutableFooMap_Impl.map
-        this.unknownFields += this@MutableFooMap_Impl.unknownFields
-    }
 }
 
 private fun FooMap.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMap {
@@ -971,20 +790,15 @@ public fun FooMapEntries(
     this.unknownFields += unknownFields
 }
 
-public fun MutableFooMapEntries(): pbandk.testpb.MutableFooMapEntries = pbandk.testpb.MutableFooMapEntries_Impl(
-    map = mutableListOf(),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableFooMapEntries] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries =
-    pbandk.testpb.MutableFooMapEntries().also(builderAction).toFooMapEntries()
-
-public fun MutableFooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.MutableFooMapEntries =
-    pbandk.testpb.MutableFooMapEntries().also(builderAction)
+@pbandk.Export
+public fun FooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries = pbandk.testpb.MutableFooMapEntries_Impl(
+    map = mutableListOf(),
+    unknownFields = mutableMapOf()
+).also(builderAction).toFooMapEntries()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFooMapEntries")
@@ -996,10 +810,13 @@ private class FooMapEntries_Impl(
 ) : pbandk.testpb.FooMapEntries, pbandk.GeneratedMessage<pbandk.testpb.FooMapEntries>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit) =
-        toMutableFooMapEntries().apply(builderAction).toFooMapEntries()
+    override fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit) = pbandk.testpb.FooMapEntries {
+        this.map += this@FooMapEntries_Impl.map
+        this.unknownFields += this@FooMapEntries_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -1009,11 +826,6 @@ private class FooMapEntries_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableFooMapEntries() = pbandk.testpb.MutableFooMapEntries {
-        this.map += this@FooMapEntries_Impl.map
-        this.unknownFields += this@FooMapEntries_Impl.unknownFields
-    }
 }
 
 private class MutableFooMapEntries_Impl(
@@ -1023,28 +835,20 @@ private class MutableFooMapEntries_Impl(
     override val descriptor get() = pbandk.testpb.FooMapEntries.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit) =
-        toMutableFooMapEntries().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FooMapEntries {
-        this.map += map
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toFooMapEntries() = FooMapEntries_Impl(
+    fun toFooMapEntries() = FooMapEntries_Impl(
         map = map.toList(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableFooMapEntries() = pbandk.testpb.MutableFooMapEntries {
-        this.map += this@MutableFooMapEntries_Impl.map
-        this.unknownFields += this@MutableFooMapEntries_Impl.unknownFields
-    }
 }
 
 private fun FooMapEntries.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMapEntries {
@@ -1079,21 +883,16 @@ public fun FooMapEntries.Companion.MapEntry(
     this.unknownFields += unknownFields
 }
 
-public fun FooMapEntries.Companion.MutableMapEntry(): pbandk.testpb.FooMapEntries.MutableMapEntry = pbandk.testpb.FooMapEntries_MutableMapEntry_Impl(
-    key = "",
-    value = null,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FooMapEntries.Companion.MapEntry(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry =
-    pbandk.testpb.FooMapEntries.Companion.MutableMapEntry().also(builderAction).toMapEntry()
-
-public fun FooMapEntries.Companion.MutableMapEntry(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MutableMapEntry =
-    pbandk.testpb.FooMapEntries.Companion.MutableMapEntry().also(builderAction)
+@pbandk.Export
+public fun FooMapEntries.Companion.MapEntry(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries_MutableMapEntry_Impl(
+    key = "",
+    value = null,
+    unknownFields = mutableMapOf()
+).also(builderAction).toMapEntry()
 
 /**
  * The [MutableMapEntry] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -1113,10 +912,14 @@ private class FooMapEntries_MapEntry_Impl(
 ) : pbandk.testpb.FooMapEntries.MapEntry, pbandk.GeneratedMessage<pbandk.testpb.FooMapEntries.MapEntry>() {
     override val descriptor get() = pbandk.testpb.FooMapEntries.MapEntry.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit) =
-        toMutableMapEntry().apply(builderAction).toMapEntry()
+    override fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit) = pbandk.testpb.FooMapEntries.MapEntry {
+        this.key = this@FooMapEntries_MapEntry_Impl.key
+        this.value = this@FooMapEntries_MapEntry_Impl.value
+        this.unknownFields += this@FooMapEntries_MapEntry_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         key: String,
         value: pbandk.testpb.Foo?,
@@ -1128,12 +931,6 @@ private class FooMapEntries_MapEntry_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableMapEntry() = pbandk.testpb.FooMapEntries.MutableMapEntry {
-        this.key = this@FooMapEntries_MapEntry_Impl.key
-        this.value = this@FooMapEntries_MapEntry_Impl.value
-        this.unknownFields += this@FooMapEntries_MapEntry_Impl.unknownFields
-    }
 }
 
 private class FooMapEntries_MutableMapEntry_Impl(
@@ -1144,32 +941,22 @@ private class FooMapEntries_MutableMapEntry_Impl(
     override val descriptor get() = pbandk.testpb.FooMapEntries.MapEntry.descriptor
 
     override fun copy(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit) =
-        toMutableMapEntry().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.FooMapEntries.MapEntry {
-        this.key = key
-        this.value = value
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toMapEntry() = FooMapEntries_MapEntry_Impl(
+    fun toMapEntry() = FooMapEntries_MapEntry_Impl(
         key = key,
         value = value,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableMapEntry() = pbandk.testpb.FooMapEntries.MutableMapEntry {
-        this.key = this@FooMapEntries_MutableMapEntry_Impl.key
-        this.value = this@FooMapEntries_MutableMapEntry_Impl.value
-        this.unknownFields += this@FooMapEntries_MutableMapEntry_Impl.unknownFields
-    }
 }
 
 private fun FooMapEntries.MapEntry.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMapEntries.MapEntry {
@@ -1207,21 +994,16 @@ public fun Wrappers(
     this.unknownFields += unknownFields
 }
 
-public fun MutableWrappers(): pbandk.testpb.MutableWrappers = pbandk.testpb.MutableWrappers_Impl(
-    stringValue = null,
-    uint64Values = mutableListOf(),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableWrappers] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Wrappers(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers =
-    pbandk.testpb.MutableWrappers().also(builderAction).toWrappers()
-
-public fun MutableWrappers(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.MutableWrappers =
-    pbandk.testpb.MutableWrappers().also(builderAction)
+@pbandk.Export
+public fun Wrappers(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers = pbandk.testpb.MutableWrappers_Impl(
+    stringValue = null,
+    uint64Values = mutableListOf(),
+    unknownFields = mutableMapOf()
+).also(builderAction).toWrappers()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForWrappers")
@@ -1234,10 +1016,14 @@ private class Wrappers_Impl(
 ) : pbandk.testpb.Wrappers, pbandk.GeneratedMessage<pbandk.testpb.Wrappers>() {
     override val descriptor get() = pbandk.testpb.Wrappers.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit) =
-        toMutableWrappers().apply(builderAction).toWrappers()
+    override fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit) = pbandk.testpb.Wrappers {
+        this.stringValue = this@Wrappers_Impl.stringValue
+        this.uint64Values += this@Wrappers_Impl.uint64Values
+        this.unknownFields += this@Wrappers_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         stringValue: String?,
         uint64Values: List<Long>,
@@ -1249,12 +1035,6 @@ private class Wrappers_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableWrappers() = pbandk.testpb.MutableWrappers {
-        this.stringValue = this@Wrappers_Impl.stringValue
-        this.uint64Values += this@Wrappers_Impl.uint64Values
-        this.unknownFields += this@Wrappers_Impl.unknownFields
-    }
 }
 
 private class MutableWrappers_Impl(
@@ -1265,32 +1045,22 @@ private class MutableWrappers_Impl(
     override val descriptor get() = pbandk.testpb.Wrappers.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableWrappers.() -> Unit) =
-        toMutableWrappers().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Wrappers {
-        this.stringValue = stringValue
-        this.uint64Values += uint64Values
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toWrappers() = Wrappers_Impl(
+    fun toWrappers() = Wrappers_Impl(
         stringValue = stringValue,
         uint64Values = uint64Values.toList(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableWrappers() = pbandk.testpb.MutableWrappers {
-        this.stringValue = this@MutableWrappers_Impl.stringValue
-        this.uint64Values += this@MutableWrappers_Impl.uint64Values
-        this.unknownFields += this@MutableWrappers_Impl.unknownFields
-    }
 }
 
 private fun Wrappers.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Wrappers {

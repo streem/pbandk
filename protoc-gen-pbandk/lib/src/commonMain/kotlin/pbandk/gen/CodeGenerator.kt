@@ -90,10 +90,11 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageType(type: File.Type.Message) {
+        // There's no need to generate code for the messages that back every protobuf map field because those fields
+        // all use `MessageMap.Entry` as their message class.
         if (type.mapEntry) return
 
         var messageInterface = if (type.extensionRange.isNotEmpty()) "pbandk.ExtendableMessage" else "pbandk.Message"
-
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
         line()
@@ -114,12 +115,6 @@ public open class CodeGenerator(
             line()
             line("override operator fun plus(other: pbandk.Message?): ${type.kotlinName.fullWithPackage}")
             line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinName.fullWithPackage}>")
-
-            line()
-            line("/**")
-            line(" * Returns a new mutable instance containing a copy of all values from this instance.")
-            line(" */")
-            line("$visibility fun to${type.mutableTypeName.simple}(): ${type.mutableTypeName.fullWithPackage}")
 
             line()
             line("/**")
@@ -164,6 +159,7 @@ public open class CodeGenerator(
         }.line("}")
 
         line()
+        line("@pbandk.Export")
         line("$visibility sealed interface ${type.mutableTypeName.simple} : ${type.kotlinName.fullWithPackage}, pbandk.MutableMessage {").indented {
             type.fields.forEach { field ->
                 addDeprecatedAnnotation(field)
@@ -182,22 +178,6 @@ public open class CodeGenerator(
                     lineEnd("${field.kotlinValueType(nullableIfMessage = false, mutable = true)}?")
                 }
             }
-
-            line()
-            line("/**")
-            line(" * Returns a new immutable instance containing a copy of all values from this instance.")
-            line(" */")
-            line("$visibility fun to${type.kotlinName.simple}(): ${type.kotlinName.fullWithPackage}")
-
-            line().line("$visibility override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.mutableTypeName.fullWithPackage}")
-
-            // Companion object
-            line().line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}> {").indented {
-//                line("@Suppress(\"DEPRECATION\")").line("$visibility val defaultInstance: ${mutableTypeName.simple} by lazy { ${mutableTypeName.simple}() }")
-                line("override fun decodeWith(u: pbandk.MessageDecoder): ${type.kotlinName.fullWithPackage} = ${type.kotlinName.fullWithPackage}.decodeWithImpl(u)")
-                line()
-                line("override val descriptor: pbandk.MessageDescriptor<${type.kotlinName.fullWithPackage}> get() = ${type.kotlinName.fullWithPackage}.descriptor")
-            }.line("}")
         }.line("}")
     }
 
@@ -363,24 +343,17 @@ public open class CodeGenerator(
             line("this.unknownFields += unknownFields")
         }.line("}")
 
-        line().line("$visibility fun ${mutableBuilderName.full}(): ${type.mutableTypeName.fullWithPackage} = ${type.mutableImplName.fullWithPackage}(").indented {
-            type.fields.forEach { field -> line("${field.kotlinName} = ${field.defaultValue(mutable = true, parentMessage = type)},") }
-            line("unknownFields = mutableMapOf()")
-        }.line(")")
-
         line()
         line("/**")
         line(" * The [${type.mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
         line(" * Using it outside of the function produces an unspecified behavior.")
         line(" */")
-        line("$visibility fun ${builderName.full}(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} =").indented {
-            line("${mutableBuilderName.fullWithPackage}().also(builderAction).to${type.kotlinName.simple}()")
-        }
-
-        line()
-        line("$visibility fun ${mutableBuilderName.full}(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.mutableTypeName.fullWithPackage} =").indented {
-            line("${mutableBuilderName.fullWithPackage}().also(builderAction)")
-        }
+        line("@pbandk.Export")
+        lineBegin("$visibility fun ${builderName.full}(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} = ")
+        lineEnd("${type.mutableImplName.fullWithPackage}(").indented {
+            type.fields.forEach { field -> line("${field.kotlinName} = ${field.defaultValue(mutable = true, parentMessage = type)},") }
+            line("unknownFields = mutableMapOf()")
+        }.line(").also(builderAction).to${type.kotlinName.simple}()")
 
         type.kotlinName.parent?.let { parent ->
             val mutableParentName = parent.copy(simple = "Mutable${parent.simple}")
@@ -411,11 +384,11 @@ public open class CodeGenerator(
     }
 
     protected fun writeMessageImpl(type: File.Type.Message) {
-        fun writeCopyMethod(isMutable: Boolean) {
+        fun writeDeprecatedCopyMethod(isMutable: Boolean) {
             if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
             }
-            line("@Deprecated(\"Use copy {} instead\")")
+            line("@Deprecated(\"Use copy { } instead\")")
             line("override fun copy(").indented {
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName}: ")
@@ -423,12 +396,17 @@ public open class CodeGenerator(
                         is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
                         is File.Field.OneOf -> lineMid("${type.kotlinName.fullWithPackage}.${field.kotlinTypeName}<*>?")
                     }
-//                    lineEnd(" = this.${field.kotlinName},")
                     lineEnd(",")
                 }
-//                line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
                 line("unknownFields: Map<Int, pbandk.UnknownField>")
-            }.line(") = ${type.kotlinName.fullWithPackage} {").indented {
+            }.lineBegin(") = ")
+
+            if (isMutable) {
+                lineEnd("throw UnsupportedOperationException()")
+                return
+            }
+
+            lineEnd("${type.kotlinName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
                     if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
                     line(field.builderSetter())
@@ -437,7 +415,6 @@ public open class CodeGenerator(
             }
             line("}")
         }
-
 
         line().line("private class ${type.implName.simple}(").indented {
             type.fields.forEach { field ->
@@ -471,60 +448,19 @@ public open class CodeGenerator(
                 }
             }
 
-            /*
-            line()
-            line("override fun equals(other: kotlin.Any?): Boolean {").indented {
-                line("if (this === other) return true")
-                line("if (other == null || this::class != other::class) return false")
-                line("other as ${type.kotlinFullTypeName}")
-                line()
-                type.fields.forEach { field ->
-                    line("if (${field.kotlinName} != other.${field.kotlinName}) return false")
-                }
-                line("if (unknownFields != other.unknownFields) return false")
-                line()
-                line("return true")
-            }.line("}")
-
-            line()
-            line("private val _hashCode: Int by lazy(LazyThreadSafetyMode.PUBLICATION) {").indented {
-                line("var hash = 1")
-                type.fields.forEach { field ->
-                    line("hash = (31 * hash) + ${field.kotlinName}.hashCode()")
-                }
-                line("hash = (31 * hash) + unknownFields.hashCode()")
-                line("hash")
-            }.line("}")
-            line()
-            line("override fun hashCode() = _hashCode")
-
-            line()
-            line("override fun toString() = buildString {").indented {
-                line("append(\"${type.kotlinName.simple}(\")")
-                type.fields.forEach { field ->
-                    line("append(\"${field.kotlinName}=\$${field.kotlinName}, \")")
-                }
-                line("append(\"unknownFields=\$unknownFields\")")
-                line("appendLine(\")\")")
-            }.line("}")
-            */
-
-            line().line("override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit) =").indented {
-                line("to${type.mutableTypeName.simple}().apply(builderAction).to${type.kotlinName.simple}()")
-            }
-
-            line()
-            writeCopyMethod(false)
-
-            line().line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
-
-            line().line("override fun to${type.mutableTypeName.simple}() = ${type.mutableTypeName.fullWithPackage} {").indented {
+            line().line("override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit) = ${type.kotlinName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
                     if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
                     line(field.builderSetter(valueQualifier = "this@${type.implName.simple}."))
                 }
                 line("this.unknownFields += this@${type.implName.simple}.unknownFields")
+                line("this.builderAction()")
             }.line("}")
+
+            line()
+            writeDeprecatedCopyMethod(false)
+
+            line().line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
         }.line("}")
 
         line().line("private class ${type.mutableImplName.simple}(").indented {
@@ -564,15 +500,15 @@ public open class CodeGenerator(
             }
 
             line().line("override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit) =").indented {
-                line("to${type.mutableTypeName.simple}().apply(builderAction)")
+                line("throw UnsupportedOperationException()")
             }
 
             line()
-            writeCopyMethod(true)
+            writeDeprecatedCopyMethod(true)
 
-            line().line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
+            line().line("override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()")
 
-            line().line("override fun to${type.kotlinName.simple}() = ${type.implName.full}(").indented {
+            line().line("fun to${type.kotlinName.simple}() = ${type.implName.full}(").indented {
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName} = ")
                     if (field is File.Field.Numbered && field.options.deprecated == true) {
@@ -587,14 +523,6 @@ public open class CodeGenerator(
                 }
                 line("unknownFields = unknownFields.toMap()")
             }.line(")")
-
-            line().line("override fun to${type.mutableTypeName.simple}() = ${type.mutableTypeName.fullWithPackage} {").indented {
-                type.fields.forEach { field ->
-                    if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                    line(field.builderSetter("this@${type.mutableImplName.simple}."))
-                }
-                line("this.unknownFields += this@${type.mutableImplName.simple}.unknownFields")
-            }.line("}")
         }.line("}")
     }
 

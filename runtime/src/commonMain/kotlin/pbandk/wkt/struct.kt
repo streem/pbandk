@@ -26,11 +26,6 @@ public sealed interface Struct : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableStruct(): pbandk.wkt.MutableStruct
-
-    /**
      * The [MutableStruct] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -70,21 +65,9 @@ public sealed interface Struct : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableStruct : pbandk.wkt.Struct, pbandk.MutableMessage {
     public override val fields: MutableMap<String, pbandk.wkt.Value?>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toStruct(): pbandk.wkt.Struct
-
-    public override fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.MutableStruct
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Struct> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Struct = pbandk.wkt.Struct.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Struct> get() = pbandk.wkt.Struct.descriptor
-    }
 }
 
 @pbandk.Export
@@ -93,11 +76,6 @@ public sealed interface Value : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Value
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableValue(): pbandk.wkt.MutableValue
 
     /**
      * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -211,6 +189,7 @@ public sealed interface Value : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableValue : pbandk.wkt.Value, pbandk.MutableMessage {
     public override var kind: Value.Kind<*>?
 
@@ -220,19 +199,6 @@ public sealed interface MutableValue : pbandk.wkt.Value, pbandk.MutableMessage {
     public override var boolValue: Boolean?
     public override var structValue: pbandk.wkt.Struct?
     public override var listValue: pbandk.wkt.ListValue?
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toValue(): pbandk.wkt.Value
-
-    public override fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.MutableValue
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Value> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Value = pbandk.wkt.Value.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Value> get() = pbandk.wkt.Value.descriptor
-    }
 }
 
 @pbandk.Export
@@ -241,11 +207,6 @@ public sealed interface ListValue : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ListValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableListValue(): pbandk.wkt.MutableListValue
 
     /**
      * The [MutableListValue] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -287,21 +248,9 @@ public sealed interface ListValue : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableListValue : pbandk.wkt.ListValue, pbandk.MutableMessage {
     public override val values: MutableList<pbandk.wkt.Value>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toListValue(): pbandk.wkt.ListValue
-
-    public override fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.MutableListValue
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.ListValue> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.ListValue = pbandk.wkt.ListValue.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.ListValue> get() = pbandk.wkt.ListValue.descriptor
-    }
 }
 
 @Deprecated("Use Struct { } instead")
@@ -313,20 +262,15 @@ public fun Struct(
     this.unknownFields += unknownFields
 }
 
-public fun MutableStruct(): pbandk.wkt.MutableStruct = pbandk.wkt.MutableStruct_Impl(
-    fields = pbandk.MutableMessageMap(pbandk.wkt.Struct.descriptor.fields[1]),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableStruct] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct =
-    pbandk.wkt.MutableStruct().also(builderAction).toStruct()
-
-public fun MutableStruct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.MutableStruct =
-    pbandk.wkt.MutableStruct().also(builderAction)
+@pbandk.Export
+public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct = pbandk.wkt.MutableStruct_Impl(
+    fields = pbandk.MutableMessageMap(pbandk.wkt.Struct.descriptor.fields[1]),
+    unknownFields = mutableMapOf()
+).also(builderAction).toStruct()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStruct")
@@ -338,10 +282,13 @@ private class Struct_Impl(
 ) : pbandk.wkt.Struct, pbandk.GeneratedMessage<pbandk.wkt.Struct>() {
     override val descriptor get() = pbandk.wkt.Struct.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit) =
-        toMutableStruct().apply(builderAction).toStruct()
+    override fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit) = pbandk.wkt.Struct {
+        this.fields += this@Struct_Impl.fields
+        this.unknownFields += this@Struct_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         fields: Map<String, pbandk.wkt.Value?>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -351,11 +298,6 @@ private class Struct_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableStruct() = pbandk.wkt.MutableStruct {
-        this.fields += this@Struct_Impl.fields
-        this.unknownFields += this@Struct_Impl.unknownFields
-    }
 }
 
 private class MutableStruct_Impl(
@@ -365,28 +307,20 @@ private class MutableStruct_Impl(
     override val descriptor get() = pbandk.wkt.Struct.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableStruct.() -> Unit) =
-        toMutableStruct().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         fields: Map<String, pbandk.wkt.Value?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Struct {
-        this.fields += fields
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toStruct() = Struct_Impl(
+    fun toStruct() = Struct_Impl(
         fields = fields.toMessageMap(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableStruct() = pbandk.wkt.MutableStruct {
-        this.fields += this@MutableStruct_Impl.fields
-        this.unknownFields += this@MutableStruct_Impl.unknownFields
-    }
 }
 
 private fun Struct.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Struct {
@@ -419,20 +353,15 @@ public fun Value(
     this.unknownFields += unknownFields
 }
 
-public fun MutableValue(): pbandk.wkt.MutableValue = pbandk.wkt.MutableValue_Impl(
-    kind = null,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Value(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value =
-    pbandk.wkt.MutableValue().also(builderAction).toValue()
-
-public fun MutableValue(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.MutableValue =
-    pbandk.wkt.MutableValue().also(builderAction)
+@pbandk.Export
+public fun Value(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value = pbandk.wkt.MutableValue_Impl(
+    kind = null,
+    unknownFields = mutableMapOf()
+).also(builderAction).toValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
@@ -457,10 +386,13 @@ private class Value_Impl(
     override val listValue: pbandk.wkt.ListValue?
         get() = (kind as? pbandk.wkt.Value.Kind.ListValue)?.value
 
-    override fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit) =
-        toMutableValue().apply(builderAction).toValue()
+    override fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit) = pbandk.wkt.Value {
+        this.kind = this@Value_Impl.kind
+        this.unknownFields += this@Value_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -470,11 +402,6 @@ private class Value_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableValue() = pbandk.wkt.MutableValue {
-        this.kind = this@Value_Impl.kind
-        this.unknownFields += this@Value_Impl.unknownFields
-    }
 }
 
 private class MutableValue_Impl(
@@ -503,28 +430,20 @@ private class MutableValue_Impl(
         set(value) { kind = value?.let { pbandk.wkt.Value.Kind.ListValue(it) } }
 
     override fun copy(builderAction: pbandk.wkt.MutableValue.() -> Unit) =
-        toMutableValue().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Value {
-        this.kind = kind
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toValue() = Value_Impl(
+    fun toValue() = Value_Impl(
         kind = kind,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableValue() = pbandk.wkt.MutableValue {
-        this.kind = this@MutableValue_Impl.kind
-        this.unknownFields += this@MutableValue_Impl.unknownFields
-    }
 }
 
 private fun Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Value {
@@ -570,20 +489,15 @@ public fun ListValue(
     this.unknownFields += unknownFields
 }
 
-public fun MutableListValue(): pbandk.wkt.MutableListValue = pbandk.wkt.MutableListValue_Impl(
-    values = mutableListOf(),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableListValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue =
-    pbandk.wkt.MutableListValue().also(builderAction).toListValue()
-
-public fun MutableListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.MutableListValue =
-    pbandk.wkt.MutableListValue().also(builderAction)
+@pbandk.Export
+public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue = pbandk.wkt.MutableListValue_Impl(
+    values = mutableListOf(),
+    unknownFields = mutableMapOf()
+).also(builderAction).toListValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForListValue")
@@ -595,10 +509,13 @@ private class ListValue_Impl(
 ) : pbandk.wkt.ListValue, pbandk.GeneratedMessage<pbandk.wkt.ListValue>() {
     override val descriptor get() = pbandk.wkt.ListValue.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit) =
-        toMutableListValue().apply(builderAction).toListValue()
+    override fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit) = pbandk.wkt.ListValue {
+        this.values += this@ListValue_Impl.values
+        this.unknownFields += this@ListValue_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -608,11 +525,6 @@ private class ListValue_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableListValue() = pbandk.wkt.MutableListValue {
-        this.values += this@ListValue_Impl.values
-        this.unknownFields += this@ListValue_Impl.unknownFields
-    }
 }
 
 private class MutableListValue_Impl(
@@ -622,28 +534,20 @@ private class MutableListValue_Impl(
     override val descriptor get() = pbandk.wkt.ListValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableListValue.() -> Unit) =
-        toMutableListValue().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.ListValue {
-        this.values += values
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toListValue() = ListValue_Impl(
+    fun toListValue() = ListValue_Impl(
         values = values.toList(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableListValue() = pbandk.wkt.MutableListValue {
-        this.values += this@MutableListValue_Impl.values
-        this.unknownFields += this@MutableListValue_Impl.unknownFields
-    }
 }
 
 private fun ListValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ListValue {

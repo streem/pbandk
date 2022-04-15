@@ -168,11 +168,6 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TestAllTypesProto3>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableTestAllTypesProto3(): pbandk.testpb.MutableTestAllTypesProto3
-
-    /**
      * The [MutableTestAllTypesProto3] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -1908,11 +1903,6 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
         override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TestAllTypesProto3.NestedMessage>
 
         /**
-         * Returns a new mutable instance containing a copy of all values from this instance.
-         */
-        public fun toMutableNestedMessage(): pbandk.testpb.TestAllTypesProto3.MutableNestedMessage
-
-        /**
          * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
          * Using it outside of the function produces an unspecified behavior.
          */
@@ -1963,25 +1953,14 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
         }
     }
 
+    @pbandk.Export
     public sealed interface MutableNestedMessage : pbandk.testpb.TestAllTypesProto3.NestedMessage, pbandk.MutableMessage {
         public override var a: Int
         public override var corecursive: pbandk.testpb.TestAllTypesProto3?
-
-        /**
-         * Returns a new immutable instance containing a copy of all values from this instance.
-         */
-        public fun toNestedMessage(): pbandk.testpb.TestAllTypesProto3.NestedMessage
-
-        public override fun copy(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.MutableNestedMessage
-
-        public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3.NestedMessage> {
-            override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TestAllTypesProto3.NestedMessage = pbandk.testpb.TestAllTypesProto3.NestedMessage.decodeWithImpl(u)
-
-            override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TestAllTypesProto3.NestedMessage> get() = pbandk.testpb.TestAllTypesProto3.NestedMessage.descriptor
-        }
     }
 }
 
+@pbandk.Export
 public sealed interface MutableTestAllTypesProto3 : pbandk.testpb.TestAllTypesProto3, pbandk.MutableMessage {
     public override var optionalInt32: Int
     public override var optionalInt64: Long
@@ -2134,19 +2113,6 @@ public sealed interface MutableTestAllTypesProto3 : pbandk.testpb.TestAllTypesPr
     public override var oneofFloat: Float?
     public override var oneofDouble: Double?
     public override var oneofEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum?
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toTestAllTypesProto3(): pbandk.testpb.TestAllTypesProto3
-
-    public override fun copy(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.MutableTestAllTypesProto3
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.TestAllTypesProto3> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TestAllTypesProto3 = pbandk.testpb.TestAllTypesProto3.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.TestAllTypesProto3> get() = pbandk.testpb.TestAllTypesProto3.descriptor
-    }
 }
 
 @pbandk.Export
@@ -2155,11 +2121,6 @@ public sealed interface ForeignMessage : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.ForeignMessage
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.ForeignMessage>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableForeignMessage(): pbandk.testpb.MutableForeignMessage
 
     /**
      * The [MutableForeignMessage] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -2201,21 +2162,9 @@ public sealed interface ForeignMessage : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableForeignMessage : pbandk.testpb.ForeignMessage, pbandk.MutableMessage {
     public override var c: Int
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toForeignMessage(): pbandk.testpb.ForeignMessage
-
-    public override fun copy(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.MutableForeignMessage
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.ForeignMessage> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.ForeignMessage = pbandk.testpb.ForeignMessage.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.ForeignMessage> get() = pbandk.testpb.ForeignMessage.descriptor
-    }
 }
 
 @Deprecated("Use TestAllTypesProto3 { } instead")
@@ -2507,7 +2456,12 @@ public fun TestAllTypesProto3(
     this.unknownFields += unknownFields
 }
 
-public fun MutableTestAllTypesProto3(): pbandk.testpb.MutableTestAllTypesProto3 = pbandk.testpb.MutableTestAllTypesProto3_Impl(
+/**
+ * The [MutableTestAllTypesProto3] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+public fun TestAllTypesProto3(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.TestAllTypesProto3 = pbandk.testpb.MutableTestAllTypesProto3_Impl(
     optionalInt32 = 0,
     optionalInt64 = 0L,
     optionalUint32 = 0,
@@ -2650,17 +2604,7 @@ public fun MutableTestAllTypesProto3(): pbandk.testpb.MutableTestAllTypesProto3 
     fieldName18_ = 0,
     oneofField = null,
     unknownFields = mutableMapOf()
-)
-
-/**
- * The [MutableTestAllTypesProto3] passed as a receiver to the [builderAction] is valid only inside that function.
- * Using it outside of the function produces an unspecified behavior.
- */
-public fun TestAllTypesProto3(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.TestAllTypesProto3 =
-    pbandk.testpb.MutableTestAllTypesProto3().also(builderAction).toTestAllTypesProto3()
-
-public fun MutableTestAllTypesProto3(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.MutableTestAllTypesProto3 =
-    pbandk.testpb.MutableTestAllTypesProto3().also(builderAction)
+).also(builderAction).toTestAllTypesProto3()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTestAllTypesProto3")
@@ -2831,10 +2775,153 @@ private class TestAllTypesProto3_Impl(
     override val oneofEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum?
         get() = (oneofField as? pbandk.testpb.TestAllTypesProto3.OneofField.OneofEnum)?.value
 
-    override fun copy(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit) =
-        toMutableTestAllTypesProto3().apply(builderAction).toTestAllTypesProto3()
+    override fun copy(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit) = pbandk.testpb.TestAllTypesProto3 {
+        this.optionalInt32 = this@TestAllTypesProto3_Impl.optionalInt32
+        this.optionalInt64 = this@TestAllTypesProto3_Impl.optionalInt64
+        this.optionalUint32 = this@TestAllTypesProto3_Impl.optionalUint32
+        this.optionalUint64 = this@TestAllTypesProto3_Impl.optionalUint64
+        this.optionalSint32 = this@TestAllTypesProto3_Impl.optionalSint32
+        this.optionalSint64 = this@TestAllTypesProto3_Impl.optionalSint64
+        this.optionalFixed32 = this@TestAllTypesProto3_Impl.optionalFixed32
+        this.optionalFixed64 = this@TestAllTypesProto3_Impl.optionalFixed64
+        this.optionalSfixed32 = this@TestAllTypesProto3_Impl.optionalSfixed32
+        this.optionalSfixed64 = this@TestAllTypesProto3_Impl.optionalSfixed64
+        this.optionalFloat = this@TestAllTypesProto3_Impl.optionalFloat
+        this.optionalDouble = this@TestAllTypesProto3_Impl.optionalDouble
+        this.optionalBool = this@TestAllTypesProto3_Impl.optionalBool
+        this.optionalString = this@TestAllTypesProto3_Impl.optionalString
+        this.optionalBytes = this@TestAllTypesProto3_Impl.optionalBytes
+        this.optionalNestedMessage = this@TestAllTypesProto3_Impl.optionalNestedMessage
+        this.optionalForeignMessage = this@TestAllTypesProto3_Impl.optionalForeignMessage
+        this.optionalNestedEnum = this@TestAllTypesProto3_Impl.optionalNestedEnum
+        this.optionalForeignEnum = this@TestAllTypesProto3_Impl.optionalForeignEnum
+        this.optionalAliasedEnum = this@TestAllTypesProto3_Impl.optionalAliasedEnum
+        this.optionalStringPiece = this@TestAllTypesProto3_Impl.optionalStringPiece
+        this.optionalCord = this@TestAllTypesProto3_Impl.optionalCord
+        this.recursiveMessage = this@TestAllTypesProto3_Impl.recursiveMessage
+        this.repeatedInt32 += this@TestAllTypesProto3_Impl.repeatedInt32
+        this.repeatedInt64 += this@TestAllTypesProto3_Impl.repeatedInt64
+        this.repeatedUint32 += this@TestAllTypesProto3_Impl.repeatedUint32
+        this.repeatedUint64 += this@TestAllTypesProto3_Impl.repeatedUint64
+        this.repeatedSint32 += this@TestAllTypesProto3_Impl.repeatedSint32
+        this.repeatedSint64 += this@TestAllTypesProto3_Impl.repeatedSint64
+        this.repeatedFixed32 += this@TestAllTypesProto3_Impl.repeatedFixed32
+        this.repeatedFixed64 += this@TestAllTypesProto3_Impl.repeatedFixed64
+        this.repeatedSfixed32 += this@TestAllTypesProto3_Impl.repeatedSfixed32
+        this.repeatedSfixed64 += this@TestAllTypesProto3_Impl.repeatedSfixed64
+        this.repeatedFloat += this@TestAllTypesProto3_Impl.repeatedFloat
+        this.repeatedDouble += this@TestAllTypesProto3_Impl.repeatedDouble
+        this.repeatedBool += this@TestAllTypesProto3_Impl.repeatedBool
+        this.repeatedString += this@TestAllTypesProto3_Impl.repeatedString
+        this.repeatedBytes += this@TestAllTypesProto3_Impl.repeatedBytes
+        this.repeatedNestedMessage += this@TestAllTypesProto3_Impl.repeatedNestedMessage
+        this.repeatedForeignMessage += this@TestAllTypesProto3_Impl.repeatedForeignMessage
+        this.repeatedNestedEnum += this@TestAllTypesProto3_Impl.repeatedNestedEnum
+        this.repeatedForeignEnum += this@TestAllTypesProto3_Impl.repeatedForeignEnum
+        this.repeatedStringPiece += this@TestAllTypesProto3_Impl.repeatedStringPiece
+        this.repeatedCord += this@TestAllTypesProto3_Impl.repeatedCord
+        this.packedInt32 += this@TestAllTypesProto3_Impl.packedInt32
+        this.packedInt64 += this@TestAllTypesProto3_Impl.packedInt64
+        this.packedUint32 += this@TestAllTypesProto3_Impl.packedUint32
+        this.packedUint64 += this@TestAllTypesProto3_Impl.packedUint64
+        this.packedSint32 += this@TestAllTypesProto3_Impl.packedSint32
+        this.packedSint64 += this@TestAllTypesProto3_Impl.packedSint64
+        this.packedFixed32 += this@TestAllTypesProto3_Impl.packedFixed32
+        this.packedFixed64 += this@TestAllTypesProto3_Impl.packedFixed64
+        this.packedSfixed32 += this@TestAllTypesProto3_Impl.packedSfixed32
+        this.packedSfixed64 += this@TestAllTypesProto3_Impl.packedSfixed64
+        this.packedFloat += this@TestAllTypesProto3_Impl.packedFloat
+        this.packedDouble += this@TestAllTypesProto3_Impl.packedDouble
+        this.packedBool += this@TestAllTypesProto3_Impl.packedBool
+        this.packedNestedEnum += this@TestAllTypesProto3_Impl.packedNestedEnum
+        this.unpackedInt32 += this@TestAllTypesProto3_Impl.unpackedInt32
+        this.unpackedInt64 += this@TestAllTypesProto3_Impl.unpackedInt64
+        this.unpackedUint32 += this@TestAllTypesProto3_Impl.unpackedUint32
+        this.unpackedUint64 += this@TestAllTypesProto3_Impl.unpackedUint64
+        this.unpackedSint32 += this@TestAllTypesProto3_Impl.unpackedSint32
+        this.unpackedSint64 += this@TestAllTypesProto3_Impl.unpackedSint64
+        this.unpackedFixed32 += this@TestAllTypesProto3_Impl.unpackedFixed32
+        this.unpackedFixed64 += this@TestAllTypesProto3_Impl.unpackedFixed64
+        this.unpackedSfixed32 += this@TestAllTypesProto3_Impl.unpackedSfixed32
+        this.unpackedSfixed64 += this@TestAllTypesProto3_Impl.unpackedSfixed64
+        this.unpackedFloat += this@TestAllTypesProto3_Impl.unpackedFloat
+        this.unpackedDouble += this@TestAllTypesProto3_Impl.unpackedDouble
+        this.unpackedBool += this@TestAllTypesProto3_Impl.unpackedBool
+        this.unpackedNestedEnum += this@TestAllTypesProto3_Impl.unpackedNestedEnum
+        this.mapInt32Int32 += this@TestAllTypesProto3_Impl.mapInt32Int32
+        this.mapInt64Int64 += this@TestAllTypesProto3_Impl.mapInt64Int64
+        this.mapUint32Uint32 += this@TestAllTypesProto3_Impl.mapUint32Uint32
+        this.mapUint64Uint64 += this@TestAllTypesProto3_Impl.mapUint64Uint64
+        this.mapSint32Sint32 += this@TestAllTypesProto3_Impl.mapSint32Sint32
+        this.mapSint64Sint64 += this@TestAllTypesProto3_Impl.mapSint64Sint64
+        this.mapFixed32Fixed32 += this@TestAllTypesProto3_Impl.mapFixed32Fixed32
+        this.mapFixed64Fixed64 += this@TestAllTypesProto3_Impl.mapFixed64Fixed64
+        this.mapSfixed32Sfixed32 += this@TestAllTypesProto3_Impl.mapSfixed32Sfixed32
+        this.mapSfixed64Sfixed64 += this@TestAllTypesProto3_Impl.mapSfixed64Sfixed64
+        this.mapInt32Float += this@TestAllTypesProto3_Impl.mapInt32Float
+        this.mapInt32Double += this@TestAllTypesProto3_Impl.mapInt32Double
+        this.mapBoolBool += this@TestAllTypesProto3_Impl.mapBoolBool
+        this.mapStringString += this@TestAllTypesProto3_Impl.mapStringString
+        this.mapStringBytes += this@TestAllTypesProto3_Impl.mapStringBytes
+        this.mapStringNestedMessage += this@TestAllTypesProto3_Impl.mapStringNestedMessage
+        this.mapStringForeignMessage += this@TestAllTypesProto3_Impl.mapStringForeignMessage
+        this.mapStringNestedEnum += this@TestAllTypesProto3_Impl.mapStringNestedEnum
+        this.mapStringForeignEnum += this@TestAllTypesProto3_Impl.mapStringForeignEnum
+        this.optionalBoolWrapper = this@TestAllTypesProto3_Impl.optionalBoolWrapper
+        this.optionalInt32Wrapper = this@TestAllTypesProto3_Impl.optionalInt32Wrapper
+        this.optionalInt64Wrapper = this@TestAllTypesProto3_Impl.optionalInt64Wrapper
+        this.optionalUint32Wrapper = this@TestAllTypesProto3_Impl.optionalUint32Wrapper
+        this.optionalUint64Wrapper = this@TestAllTypesProto3_Impl.optionalUint64Wrapper
+        this.optionalFloatWrapper = this@TestAllTypesProto3_Impl.optionalFloatWrapper
+        this.optionalDoubleWrapper = this@TestAllTypesProto3_Impl.optionalDoubleWrapper
+        this.optionalStringWrapper = this@TestAllTypesProto3_Impl.optionalStringWrapper
+        this.optionalBytesWrapper = this@TestAllTypesProto3_Impl.optionalBytesWrapper
+        this.repeatedBoolWrapper += this@TestAllTypesProto3_Impl.repeatedBoolWrapper
+        this.repeatedInt32Wrapper += this@TestAllTypesProto3_Impl.repeatedInt32Wrapper
+        this.repeatedInt64Wrapper += this@TestAllTypesProto3_Impl.repeatedInt64Wrapper
+        this.repeatedUint32Wrapper += this@TestAllTypesProto3_Impl.repeatedUint32Wrapper
+        this.repeatedUint64Wrapper += this@TestAllTypesProto3_Impl.repeatedUint64Wrapper
+        this.repeatedFloatWrapper += this@TestAllTypesProto3_Impl.repeatedFloatWrapper
+        this.repeatedDoubleWrapper += this@TestAllTypesProto3_Impl.repeatedDoubleWrapper
+        this.repeatedStringWrapper += this@TestAllTypesProto3_Impl.repeatedStringWrapper
+        this.repeatedBytesWrapper += this@TestAllTypesProto3_Impl.repeatedBytesWrapper
+        this.optionalDuration = this@TestAllTypesProto3_Impl.optionalDuration
+        this.optionalTimestamp = this@TestAllTypesProto3_Impl.optionalTimestamp
+        this.optionalFieldMask = this@TestAllTypesProto3_Impl.optionalFieldMask
+        this.optionalStruct = this@TestAllTypesProto3_Impl.optionalStruct
+        this.optionalAny = this@TestAllTypesProto3_Impl.optionalAny
+        this.optionalValue = this@TestAllTypesProto3_Impl.optionalValue
+        this.repeatedDuration += this@TestAllTypesProto3_Impl.repeatedDuration
+        this.repeatedTimestamp += this@TestAllTypesProto3_Impl.repeatedTimestamp
+        this.repeatedFieldmask += this@TestAllTypesProto3_Impl.repeatedFieldmask
+        this.repeatedStruct += this@TestAllTypesProto3_Impl.repeatedStruct
+        this.repeatedAny += this@TestAllTypesProto3_Impl.repeatedAny
+        this.repeatedValue += this@TestAllTypesProto3_Impl.repeatedValue
+        this.repeatedListValue += this@TestAllTypesProto3_Impl.repeatedListValue
+        this.fieldname1 = this@TestAllTypesProto3_Impl.fieldname1
+        this.fieldName2 = this@TestAllTypesProto3_Impl.fieldName2
+        this.fieldName3 = this@TestAllTypesProto3_Impl.fieldName3
+        this.field_name4 = this@TestAllTypesProto3_Impl.field_name4
+        this.field0name5 = this@TestAllTypesProto3_Impl.field0name5
+        this.field0Name6 = this@TestAllTypesProto3_Impl.field0Name6
+        this.fieldName7 = this@TestAllTypesProto3_Impl.fieldName7
+        this.fieldName8 = this@TestAllTypesProto3_Impl.fieldName8
+        this.fieldName9 = this@TestAllTypesProto3_Impl.fieldName9
+        this.fieldName10 = this@TestAllTypesProto3_Impl.fieldName10
+        this.fIELDNAME11 = this@TestAllTypesProto3_Impl.fIELDNAME11
+        this.fIELDName12 = this@TestAllTypesProto3_Impl.fIELDName12
+        this._fieldName13 = this@TestAllTypesProto3_Impl._fieldName13
+        this._FieldName14 = this@TestAllTypesProto3_Impl._FieldName14
+        this.field_name15 = this@TestAllTypesProto3_Impl.field_name15
+        this.field_Name16 = this@TestAllTypesProto3_Impl.field_Name16
+        this.fieldName17_ = this@TestAllTypesProto3_Impl.fieldName17_
+        this.fieldName18_ = this@TestAllTypesProto3_Impl.fieldName18_
+        this.oneofField = this@TestAllTypesProto3_Impl.oneofField
+        this.unknownFields += this@TestAllTypesProto3_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         optionalInt32: Int,
         optionalInt64: Long,
@@ -3124,151 +3211,6 @@ private class TestAllTypesProto3_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableTestAllTypesProto3() = pbandk.testpb.MutableTestAllTypesProto3 {
-        this.optionalInt32 = this@TestAllTypesProto3_Impl.optionalInt32
-        this.optionalInt64 = this@TestAllTypesProto3_Impl.optionalInt64
-        this.optionalUint32 = this@TestAllTypesProto3_Impl.optionalUint32
-        this.optionalUint64 = this@TestAllTypesProto3_Impl.optionalUint64
-        this.optionalSint32 = this@TestAllTypesProto3_Impl.optionalSint32
-        this.optionalSint64 = this@TestAllTypesProto3_Impl.optionalSint64
-        this.optionalFixed32 = this@TestAllTypesProto3_Impl.optionalFixed32
-        this.optionalFixed64 = this@TestAllTypesProto3_Impl.optionalFixed64
-        this.optionalSfixed32 = this@TestAllTypesProto3_Impl.optionalSfixed32
-        this.optionalSfixed64 = this@TestAllTypesProto3_Impl.optionalSfixed64
-        this.optionalFloat = this@TestAllTypesProto3_Impl.optionalFloat
-        this.optionalDouble = this@TestAllTypesProto3_Impl.optionalDouble
-        this.optionalBool = this@TestAllTypesProto3_Impl.optionalBool
-        this.optionalString = this@TestAllTypesProto3_Impl.optionalString
-        this.optionalBytes = this@TestAllTypesProto3_Impl.optionalBytes
-        this.optionalNestedMessage = this@TestAllTypesProto3_Impl.optionalNestedMessage
-        this.optionalForeignMessage = this@TestAllTypesProto3_Impl.optionalForeignMessage
-        this.optionalNestedEnum = this@TestAllTypesProto3_Impl.optionalNestedEnum
-        this.optionalForeignEnum = this@TestAllTypesProto3_Impl.optionalForeignEnum
-        this.optionalAliasedEnum = this@TestAllTypesProto3_Impl.optionalAliasedEnum
-        this.optionalStringPiece = this@TestAllTypesProto3_Impl.optionalStringPiece
-        this.optionalCord = this@TestAllTypesProto3_Impl.optionalCord
-        this.recursiveMessage = this@TestAllTypesProto3_Impl.recursiveMessage
-        this.repeatedInt32 += this@TestAllTypesProto3_Impl.repeatedInt32
-        this.repeatedInt64 += this@TestAllTypesProto3_Impl.repeatedInt64
-        this.repeatedUint32 += this@TestAllTypesProto3_Impl.repeatedUint32
-        this.repeatedUint64 += this@TestAllTypesProto3_Impl.repeatedUint64
-        this.repeatedSint32 += this@TestAllTypesProto3_Impl.repeatedSint32
-        this.repeatedSint64 += this@TestAllTypesProto3_Impl.repeatedSint64
-        this.repeatedFixed32 += this@TestAllTypesProto3_Impl.repeatedFixed32
-        this.repeatedFixed64 += this@TestAllTypesProto3_Impl.repeatedFixed64
-        this.repeatedSfixed32 += this@TestAllTypesProto3_Impl.repeatedSfixed32
-        this.repeatedSfixed64 += this@TestAllTypesProto3_Impl.repeatedSfixed64
-        this.repeatedFloat += this@TestAllTypesProto3_Impl.repeatedFloat
-        this.repeatedDouble += this@TestAllTypesProto3_Impl.repeatedDouble
-        this.repeatedBool += this@TestAllTypesProto3_Impl.repeatedBool
-        this.repeatedString += this@TestAllTypesProto3_Impl.repeatedString
-        this.repeatedBytes += this@TestAllTypesProto3_Impl.repeatedBytes
-        this.repeatedNestedMessage += this@TestAllTypesProto3_Impl.repeatedNestedMessage
-        this.repeatedForeignMessage += this@TestAllTypesProto3_Impl.repeatedForeignMessage
-        this.repeatedNestedEnum += this@TestAllTypesProto3_Impl.repeatedNestedEnum
-        this.repeatedForeignEnum += this@TestAllTypesProto3_Impl.repeatedForeignEnum
-        this.repeatedStringPiece += this@TestAllTypesProto3_Impl.repeatedStringPiece
-        this.repeatedCord += this@TestAllTypesProto3_Impl.repeatedCord
-        this.packedInt32 += this@TestAllTypesProto3_Impl.packedInt32
-        this.packedInt64 += this@TestAllTypesProto3_Impl.packedInt64
-        this.packedUint32 += this@TestAllTypesProto3_Impl.packedUint32
-        this.packedUint64 += this@TestAllTypesProto3_Impl.packedUint64
-        this.packedSint32 += this@TestAllTypesProto3_Impl.packedSint32
-        this.packedSint64 += this@TestAllTypesProto3_Impl.packedSint64
-        this.packedFixed32 += this@TestAllTypesProto3_Impl.packedFixed32
-        this.packedFixed64 += this@TestAllTypesProto3_Impl.packedFixed64
-        this.packedSfixed32 += this@TestAllTypesProto3_Impl.packedSfixed32
-        this.packedSfixed64 += this@TestAllTypesProto3_Impl.packedSfixed64
-        this.packedFloat += this@TestAllTypesProto3_Impl.packedFloat
-        this.packedDouble += this@TestAllTypesProto3_Impl.packedDouble
-        this.packedBool += this@TestAllTypesProto3_Impl.packedBool
-        this.packedNestedEnum += this@TestAllTypesProto3_Impl.packedNestedEnum
-        this.unpackedInt32 += this@TestAllTypesProto3_Impl.unpackedInt32
-        this.unpackedInt64 += this@TestAllTypesProto3_Impl.unpackedInt64
-        this.unpackedUint32 += this@TestAllTypesProto3_Impl.unpackedUint32
-        this.unpackedUint64 += this@TestAllTypesProto3_Impl.unpackedUint64
-        this.unpackedSint32 += this@TestAllTypesProto3_Impl.unpackedSint32
-        this.unpackedSint64 += this@TestAllTypesProto3_Impl.unpackedSint64
-        this.unpackedFixed32 += this@TestAllTypesProto3_Impl.unpackedFixed32
-        this.unpackedFixed64 += this@TestAllTypesProto3_Impl.unpackedFixed64
-        this.unpackedSfixed32 += this@TestAllTypesProto3_Impl.unpackedSfixed32
-        this.unpackedSfixed64 += this@TestAllTypesProto3_Impl.unpackedSfixed64
-        this.unpackedFloat += this@TestAllTypesProto3_Impl.unpackedFloat
-        this.unpackedDouble += this@TestAllTypesProto3_Impl.unpackedDouble
-        this.unpackedBool += this@TestAllTypesProto3_Impl.unpackedBool
-        this.unpackedNestedEnum += this@TestAllTypesProto3_Impl.unpackedNestedEnum
-        this.mapInt32Int32 += this@TestAllTypesProto3_Impl.mapInt32Int32
-        this.mapInt64Int64 += this@TestAllTypesProto3_Impl.mapInt64Int64
-        this.mapUint32Uint32 += this@TestAllTypesProto3_Impl.mapUint32Uint32
-        this.mapUint64Uint64 += this@TestAllTypesProto3_Impl.mapUint64Uint64
-        this.mapSint32Sint32 += this@TestAllTypesProto3_Impl.mapSint32Sint32
-        this.mapSint64Sint64 += this@TestAllTypesProto3_Impl.mapSint64Sint64
-        this.mapFixed32Fixed32 += this@TestAllTypesProto3_Impl.mapFixed32Fixed32
-        this.mapFixed64Fixed64 += this@TestAllTypesProto3_Impl.mapFixed64Fixed64
-        this.mapSfixed32Sfixed32 += this@TestAllTypesProto3_Impl.mapSfixed32Sfixed32
-        this.mapSfixed64Sfixed64 += this@TestAllTypesProto3_Impl.mapSfixed64Sfixed64
-        this.mapInt32Float += this@TestAllTypesProto3_Impl.mapInt32Float
-        this.mapInt32Double += this@TestAllTypesProto3_Impl.mapInt32Double
-        this.mapBoolBool += this@TestAllTypesProto3_Impl.mapBoolBool
-        this.mapStringString += this@TestAllTypesProto3_Impl.mapStringString
-        this.mapStringBytes += this@TestAllTypesProto3_Impl.mapStringBytes
-        this.mapStringNestedMessage += this@TestAllTypesProto3_Impl.mapStringNestedMessage
-        this.mapStringForeignMessage += this@TestAllTypesProto3_Impl.mapStringForeignMessage
-        this.mapStringNestedEnum += this@TestAllTypesProto3_Impl.mapStringNestedEnum
-        this.mapStringForeignEnum += this@TestAllTypesProto3_Impl.mapStringForeignEnum
-        this.optionalBoolWrapper = this@TestAllTypesProto3_Impl.optionalBoolWrapper
-        this.optionalInt32Wrapper = this@TestAllTypesProto3_Impl.optionalInt32Wrapper
-        this.optionalInt64Wrapper = this@TestAllTypesProto3_Impl.optionalInt64Wrapper
-        this.optionalUint32Wrapper = this@TestAllTypesProto3_Impl.optionalUint32Wrapper
-        this.optionalUint64Wrapper = this@TestAllTypesProto3_Impl.optionalUint64Wrapper
-        this.optionalFloatWrapper = this@TestAllTypesProto3_Impl.optionalFloatWrapper
-        this.optionalDoubleWrapper = this@TestAllTypesProto3_Impl.optionalDoubleWrapper
-        this.optionalStringWrapper = this@TestAllTypesProto3_Impl.optionalStringWrapper
-        this.optionalBytesWrapper = this@TestAllTypesProto3_Impl.optionalBytesWrapper
-        this.repeatedBoolWrapper += this@TestAllTypesProto3_Impl.repeatedBoolWrapper
-        this.repeatedInt32Wrapper += this@TestAllTypesProto3_Impl.repeatedInt32Wrapper
-        this.repeatedInt64Wrapper += this@TestAllTypesProto3_Impl.repeatedInt64Wrapper
-        this.repeatedUint32Wrapper += this@TestAllTypesProto3_Impl.repeatedUint32Wrapper
-        this.repeatedUint64Wrapper += this@TestAllTypesProto3_Impl.repeatedUint64Wrapper
-        this.repeatedFloatWrapper += this@TestAllTypesProto3_Impl.repeatedFloatWrapper
-        this.repeatedDoubleWrapper += this@TestAllTypesProto3_Impl.repeatedDoubleWrapper
-        this.repeatedStringWrapper += this@TestAllTypesProto3_Impl.repeatedStringWrapper
-        this.repeatedBytesWrapper += this@TestAllTypesProto3_Impl.repeatedBytesWrapper
-        this.optionalDuration = this@TestAllTypesProto3_Impl.optionalDuration
-        this.optionalTimestamp = this@TestAllTypesProto3_Impl.optionalTimestamp
-        this.optionalFieldMask = this@TestAllTypesProto3_Impl.optionalFieldMask
-        this.optionalStruct = this@TestAllTypesProto3_Impl.optionalStruct
-        this.optionalAny = this@TestAllTypesProto3_Impl.optionalAny
-        this.optionalValue = this@TestAllTypesProto3_Impl.optionalValue
-        this.repeatedDuration += this@TestAllTypesProto3_Impl.repeatedDuration
-        this.repeatedTimestamp += this@TestAllTypesProto3_Impl.repeatedTimestamp
-        this.repeatedFieldmask += this@TestAllTypesProto3_Impl.repeatedFieldmask
-        this.repeatedStruct += this@TestAllTypesProto3_Impl.repeatedStruct
-        this.repeatedAny += this@TestAllTypesProto3_Impl.repeatedAny
-        this.repeatedValue += this@TestAllTypesProto3_Impl.repeatedValue
-        this.repeatedListValue += this@TestAllTypesProto3_Impl.repeatedListValue
-        this.fieldname1 = this@TestAllTypesProto3_Impl.fieldname1
-        this.fieldName2 = this@TestAllTypesProto3_Impl.fieldName2
-        this.fieldName3 = this@TestAllTypesProto3_Impl.fieldName3
-        this.field_name4 = this@TestAllTypesProto3_Impl.field_name4
-        this.field0name5 = this@TestAllTypesProto3_Impl.field0name5
-        this.field0Name6 = this@TestAllTypesProto3_Impl.field0Name6
-        this.fieldName7 = this@TestAllTypesProto3_Impl.fieldName7
-        this.fieldName8 = this@TestAllTypesProto3_Impl.fieldName8
-        this.fieldName9 = this@TestAllTypesProto3_Impl.fieldName9
-        this.fieldName10 = this@TestAllTypesProto3_Impl.fieldName10
-        this.fIELDNAME11 = this@TestAllTypesProto3_Impl.fIELDNAME11
-        this.fIELDName12 = this@TestAllTypesProto3_Impl.fIELDName12
-        this._fieldName13 = this@TestAllTypesProto3_Impl._fieldName13
-        this._FieldName14 = this@TestAllTypesProto3_Impl._FieldName14
-        this.field_name15 = this@TestAllTypesProto3_Impl.field_name15
-        this.field_Name16 = this@TestAllTypesProto3_Impl.field_Name16
-        this.fieldName17_ = this@TestAllTypesProto3_Impl.fieldName17_
-        this.fieldName18_ = this@TestAllTypesProto3_Impl.fieldName18_
-        this.oneofField = this@TestAllTypesProto3_Impl.oneofField
-        this.unknownFields += this@TestAllTypesProto3_Impl.unknownFields
-    }
 }
 
 private class MutableTestAllTypesProto3_Impl(
@@ -3446,9 +3388,9 @@ private class MutableTestAllTypesProto3_Impl(
         set(value) { oneofField = value?.let { pbandk.testpb.TestAllTypesProto3.OneofField.OneofEnum(it) } }
 
     override fun copy(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit) =
-        toMutableTestAllTypesProto3().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         optionalInt32: Int,
         optionalInt64: Long,
@@ -3592,154 +3534,11 @@ private class MutableTestAllTypesProto3_Impl(
         fieldName18_: Int,
         oneofField: pbandk.testpb.TestAllTypesProto3.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.TestAllTypesProto3 {
-        this.optionalInt32 = optionalInt32
-        this.optionalInt64 = optionalInt64
-        this.optionalUint32 = optionalUint32
-        this.optionalUint64 = optionalUint64
-        this.optionalSint32 = optionalSint32
-        this.optionalSint64 = optionalSint64
-        this.optionalFixed32 = optionalFixed32
-        this.optionalFixed64 = optionalFixed64
-        this.optionalSfixed32 = optionalSfixed32
-        this.optionalSfixed64 = optionalSfixed64
-        this.optionalFloat = optionalFloat
-        this.optionalDouble = optionalDouble
-        this.optionalBool = optionalBool
-        this.optionalString = optionalString
-        this.optionalBytes = optionalBytes
-        this.optionalNestedMessage = optionalNestedMessage
-        this.optionalForeignMessage = optionalForeignMessage
-        this.optionalNestedEnum = optionalNestedEnum
-        this.optionalForeignEnum = optionalForeignEnum
-        this.optionalAliasedEnum = optionalAliasedEnum
-        this.optionalStringPiece = optionalStringPiece
-        this.optionalCord = optionalCord
-        this.recursiveMessage = recursiveMessage
-        this.repeatedInt32 += repeatedInt32
-        this.repeatedInt64 += repeatedInt64
-        this.repeatedUint32 += repeatedUint32
-        this.repeatedUint64 += repeatedUint64
-        this.repeatedSint32 += repeatedSint32
-        this.repeatedSint64 += repeatedSint64
-        this.repeatedFixed32 += repeatedFixed32
-        this.repeatedFixed64 += repeatedFixed64
-        this.repeatedSfixed32 += repeatedSfixed32
-        this.repeatedSfixed64 += repeatedSfixed64
-        this.repeatedFloat += repeatedFloat
-        this.repeatedDouble += repeatedDouble
-        this.repeatedBool += repeatedBool
-        this.repeatedString += repeatedString
-        this.repeatedBytes += repeatedBytes
-        this.repeatedNestedMessage += repeatedNestedMessage
-        this.repeatedForeignMessage += repeatedForeignMessage
-        this.repeatedNestedEnum += repeatedNestedEnum
-        this.repeatedForeignEnum += repeatedForeignEnum
-        this.repeatedStringPiece += repeatedStringPiece
-        this.repeatedCord += repeatedCord
-        this.packedInt32 += packedInt32
-        this.packedInt64 += packedInt64
-        this.packedUint32 += packedUint32
-        this.packedUint64 += packedUint64
-        this.packedSint32 += packedSint32
-        this.packedSint64 += packedSint64
-        this.packedFixed32 += packedFixed32
-        this.packedFixed64 += packedFixed64
-        this.packedSfixed32 += packedSfixed32
-        this.packedSfixed64 += packedSfixed64
-        this.packedFloat += packedFloat
-        this.packedDouble += packedDouble
-        this.packedBool += packedBool
-        this.packedNestedEnum += packedNestedEnum
-        this.unpackedInt32 += unpackedInt32
-        this.unpackedInt64 += unpackedInt64
-        this.unpackedUint32 += unpackedUint32
-        this.unpackedUint64 += unpackedUint64
-        this.unpackedSint32 += unpackedSint32
-        this.unpackedSint64 += unpackedSint64
-        this.unpackedFixed32 += unpackedFixed32
-        this.unpackedFixed64 += unpackedFixed64
-        this.unpackedSfixed32 += unpackedSfixed32
-        this.unpackedSfixed64 += unpackedSfixed64
-        this.unpackedFloat += unpackedFloat
-        this.unpackedDouble += unpackedDouble
-        this.unpackedBool += unpackedBool
-        this.unpackedNestedEnum += unpackedNestedEnum
-        this.mapInt32Int32 += mapInt32Int32
-        this.mapInt64Int64 += mapInt64Int64
-        this.mapUint32Uint32 += mapUint32Uint32
-        this.mapUint64Uint64 += mapUint64Uint64
-        this.mapSint32Sint32 += mapSint32Sint32
-        this.mapSint64Sint64 += mapSint64Sint64
-        this.mapFixed32Fixed32 += mapFixed32Fixed32
-        this.mapFixed64Fixed64 += mapFixed64Fixed64
-        this.mapSfixed32Sfixed32 += mapSfixed32Sfixed32
-        this.mapSfixed64Sfixed64 += mapSfixed64Sfixed64
-        this.mapInt32Float += mapInt32Float
-        this.mapInt32Double += mapInt32Double
-        this.mapBoolBool += mapBoolBool
-        this.mapStringString += mapStringString
-        this.mapStringBytes += mapStringBytes
-        this.mapStringNestedMessage += mapStringNestedMessage
-        this.mapStringForeignMessage += mapStringForeignMessage
-        this.mapStringNestedEnum += mapStringNestedEnum
-        this.mapStringForeignEnum += mapStringForeignEnum
-        this.optionalBoolWrapper = optionalBoolWrapper
-        this.optionalInt32Wrapper = optionalInt32Wrapper
-        this.optionalInt64Wrapper = optionalInt64Wrapper
-        this.optionalUint32Wrapper = optionalUint32Wrapper
-        this.optionalUint64Wrapper = optionalUint64Wrapper
-        this.optionalFloatWrapper = optionalFloatWrapper
-        this.optionalDoubleWrapper = optionalDoubleWrapper
-        this.optionalStringWrapper = optionalStringWrapper
-        this.optionalBytesWrapper = optionalBytesWrapper
-        this.repeatedBoolWrapper += repeatedBoolWrapper
-        this.repeatedInt32Wrapper += repeatedInt32Wrapper
-        this.repeatedInt64Wrapper += repeatedInt64Wrapper
-        this.repeatedUint32Wrapper += repeatedUint32Wrapper
-        this.repeatedUint64Wrapper += repeatedUint64Wrapper
-        this.repeatedFloatWrapper += repeatedFloatWrapper
-        this.repeatedDoubleWrapper += repeatedDoubleWrapper
-        this.repeatedStringWrapper += repeatedStringWrapper
-        this.repeatedBytesWrapper += repeatedBytesWrapper
-        this.optionalDuration = optionalDuration
-        this.optionalTimestamp = optionalTimestamp
-        this.optionalFieldMask = optionalFieldMask
-        this.optionalStruct = optionalStruct
-        this.optionalAny = optionalAny
-        this.optionalValue = optionalValue
-        this.repeatedDuration += repeatedDuration
-        this.repeatedTimestamp += repeatedTimestamp
-        this.repeatedFieldmask += repeatedFieldmask
-        this.repeatedStruct += repeatedStruct
-        this.repeatedAny += repeatedAny
-        this.repeatedValue += repeatedValue
-        this.repeatedListValue += repeatedListValue
-        this.fieldname1 = fieldname1
-        this.fieldName2 = fieldName2
-        this.fieldName3 = fieldName3
-        this.field_name4 = field_name4
-        this.field0name5 = field0name5
-        this.field0Name6 = field0Name6
-        this.fieldName7 = fieldName7
-        this.fieldName8 = fieldName8
-        this.fieldName9 = fieldName9
-        this.fieldName10 = fieldName10
-        this.fIELDNAME11 = fIELDNAME11
-        this.fIELDName12 = fIELDName12
-        this._fieldName13 = _fieldName13
-        this._FieldName14 = _FieldName14
-        this.field_name15 = field_name15
-        this.field_Name16 = field_Name16
-        this.fieldName17_ = fieldName17_
-        this.fieldName18_ = fieldName18_
-        this.oneofField = oneofField
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toTestAllTypesProto3() = TestAllTypesProto3_Impl(
+    fun toTestAllTypesProto3() = TestAllTypesProto3_Impl(
         optionalInt32 = optionalInt32,
         optionalInt64 = optionalInt64,
         optionalUint32 = optionalUint32,
@@ -3883,151 +3682,6 @@ private class MutableTestAllTypesProto3_Impl(
         oneofField = oneofField,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableTestAllTypesProto3() = pbandk.testpb.MutableTestAllTypesProto3 {
-        this.optionalInt32 = this@MutableTestAllTypesProto3_Impl.optionalInt32
-        this.optionalInt64 = this@MutableTestAllTypesProto3_Impl.optionalInt64
-        this.optionalUint32 = this@MutableTestAllTypesProto3_Impl.optionalUint32
-        this.optionalUint64 = this@MutableTestAllTypesProto3_Impl.optionalUint64
-        this.optionalSint32 = this@MutableTestAllTypesProto3_Impl.optionalSint32
-        this.optionalSint64 = this@MutableTestAllTypesProto3_Impl.optionalSint64
-        this.optionalFixed32 = this@MutableTestAllTypesProto3_Impl.optionalFixed32
-        this.optionalFixed64 = this@MutableTestAllTypesProto3_Impl.optionalFixed64
-        this.optionalSfixed32 = this@MutableTestAllTypesProto3_Impl.optionalSfixed32
-        this.optionalSfixed64 = this@MutableTestAllTypesProto3_Impl.optionalSfixed64
-        this.optionalFloat = this@MutableTestAllTypesProto3_Impl.optionalFloat
-        this.optionalDouble = this@MutableTestAllTypesProto3_Impl.optionalDouble
-        this.optionalBool = this@MutableTestAllTypesProto3_Impl.optionalBool
-        this.optionalString = this@MutableTestAllTypesProto3_Impl.optionalString
-        this.optionalBytes = this@MutableTestAllTypesProto3_Impl.optionalBytes
-        this.optionalNestedMessage = this@MutableTestAllTypesProto3_Impl.optionalNestedMessage
-        this.optionalForeignMessage = this@MutableTestAllTypesProto3_Impl.optionalForeignMessage
-        this.optionalNestedEnum = this@MutableTestAllTypesProto3_Impl.optionalNestedEnum
-        this.optionalForeignEnum = this@MutableTestAllTypesProto3_Impl.optionalForeignEnum
-        this.optionalAliasedEnum = this@MutableTestAllTypesProto3_Impl.optionalAliasedEnum
-        this.optionalStringPiece = this@MutableTestAllTypesProto3_Impl.optionalStringPiece
-        this.optionalCord = this@MutableTestAllTypesProto3_Impl.optionalCord
-        this.recursiveMessage = this@MutableTestAllTypesProto3_Impl.recursiveMessage
-        this.repeatedInt32 += this@MutableTestAllTypesProto3_Impl.repeatedInt32
-        this.repeatedInt64 += this@MutableTestAllTypesProto3_Impl.repeatedInt64
-        this.repeatedUint32 += this@MutableTestAllTypesProto3_Impl.repeatedUint32
-        this.repeatedUint64 += this@MutableTestAllTypesProto3_Impl.repeatedUint64
-        this.repeatedSint32 += this@MutableTestAllTypesProto3_Impl.repeatedSint32
-        this.repeatedSint64 += this@MutableTestAllTypesProto3_Impl.repeatedSint64
-        this.repeatedFixed32 += this@MutableTestAllTypesProto3_Impl.repeatedFixed32
-        this.repeatedFixed64 += this@MutableTestAllTypesProto3_Impl.repeatedFixed64
-        this.repeatedSfixed32 += this@MutableTestAllTypesProto3_Impl.repeatedSfixed32
-        this.repeatedSfixed64 += this@MutableTestAllTypesProto3_Impl.repeatedSfixed64
-        this.repeatedFloat += this@MutableTestAllTypesProto3_Impl.repeatedFloat
-        this.repeatedDouble += this@MutableTestAllTypesProto3_Impl.repeatedDouble
-        this.repeatedBool += this@MutableTestAllTypesProto3_Impl.repeatedBool
-        this.repeatedString += this@MutableTestAllTypesProto3_Impl.repeatedString
-        this.repeatedBytes += this@MutableTestAllTypesProto3_Impl.repeatedBytes
-        this.repeatedNestedMessage += this@MutableTestAllTypesProto3_Impl.repeatedNestedMessage
-        this.repeatedForeignMessage += this@MutableTestAllTypesProto3_Impl.repeatedForeignMessage
-        this.repeatedNestedEnum += this@MutableTestAllTypesProto3_Impl.repeatedNestedEnum
-        this.repeatedForeignEnum += this@MutableTestAllTypesProto3_Impl.repeatedForeignEnum
-        this.repeatedStringPiece += this@MutableTestAllTypesProto3_Impl.repeatedStringPiece
-        this.repeatedCord += this@MutableTestAllTypesProto3_Impl.repeatedCord
-        this.packedInt32 += this@MutableTestAllTypesProto3_Impl.packedInt32
-        this.packedInt64 += this@MutableTestAllTypesProto3_Impl.packedInt64
-        this.packedUint32 += this@MutableTestAllTypesProto3_Impl.packedUint32
-        this.packedUint64 += this@MutableTestAllTypesProto3_Impl.packedUint64
-        this.packedSint32 += this@MutableTestAllTypesProto3_Impl.packedSint32
-        this.packedSint64 += this@MutableTestAllTypesProto3_Impl.packedSint64
-        this.packedFixed32 += this@MutableTestAllTypesProto3_Impl.packedFixed32
-        this.packedFixed64 += this@MutableTestAllTypesProto3_Impl.packedFixed64
-        this.packedSfixed32 += this@MutableTestAllTypesProto3_Impl.packedSfixed32
-        this.packedSfixed64 += this@MutableTestAllTypesProto3_Impl.packedSfixed64
-        this.packedFloat += this@MutableTestAllTypesProto3_Impl.packedFloat
-        this.packedDouble += this@MutableTestAllTypesProto3_Impl.packedDouble
-        this.packedBool += this@MutableTestAllTypesProto3_Impl.packedBool
-        this.packedNestedEnum += this@MutableTestAllTypesProto3_Impl.packedNestedEnum
-        this.unpackedInt32 += this@MutableTestAllTypesProto3_Impl.unpackedInt32
-        this.unpackedInt64 += this@MutableTestAllTypesProto3_Impl.unpackedInt64
-        this.unpackedUint32 += this@MutableTestAllTypesProto3_Impl.unpackedUint32
-        this.unpackedUint64 += this@MutableTestAllTypesProto3_Impl.unpackedUint64
-        this.unpackedSint32 += this@MutableTestAllTypesProto3_Impl.unpackedSint32
-        this.unpackedSint64 += this@MutableTestAllTypesProto3_Impl.unpackedSint64
-        this.unpackedFixed32 += this@MutableTestAllTypesProto3_Impl.unpackedFixed32
-        this.unpackedFixed64 += this@MutableTestAllTypesProto3_Impl.unpackedFixed64
-        this.unpackedSfixed32 += this@MutableTestAllTypesProto3_Impl.unpackedSfixed32
-        this.unpackedSfixed64 += this@MutableTestAllTypesProto3_Impl.unpackedSfixed64
-        this.unpackedFloat += this@MutableTestAllTypesProto3_Impl.unpackedFloat
-        this.unpackedDouble += this@MutableTestAllTypesProto3_Impl.unpackedDouble
-        this.unpackedBool += this@MutableTestAllTypesProto3_Impl.unpackedBool
-        this.unpackedNestedEnum += this@MutableTestAllTypesProto3_Impl.unpackedNestedEnum
-        this.mapInt32Int32 += this@MutableTestAllTypesProto3_Impl.mapInt32Int32
-        this.mapInt64Int64 += this@MutableTestAllTypesProto3_Impl.mapInt64Int64
-        this.mapUint32Uint32 += this@MutableTestAllTypesProto3_Impl.mapUint32Uint32
-        this.mapUint64Uint64 += this@MutableTestAllTypesProto3_Impl.mapUint64Uint64
-        this.mapSint32Sint32 += this@MutableTestAllTypesProto3_Impl.mapSint32Sint32
-        this.mapSint64Sint64 += this@MutableTestAllTypesProto3_Impl.mapSint64Sint64
-        this.mapFixed32Fixed32 += this@MutableTestAllTypesProto3_Impl.mapFixed32Fixed32
-        this.mapFixed64Fixed64 += this@MutableTestAllTypesProto3_Impl.mapFixed64Fixed64
-        this.mapSfixed32Sfixed32 += this@MutableTestAllTypesProto3_Impl.mapSfixed32Sfixed32
-        this.mapSfixed64Sfixed64 += this@MutableTestAllTypesProto3_Impl.mapSfixed64Sfixed64
-        this.mapInt32Float += this@MutableTestAllTypesProto3_Impl.mapInt32Float
-        this.mapInt32Double += this@MutableTestAllTypesProto3_Impl.mapInt32Double
-        this.mapBoolBool += this@MutableTestAllTypesProto3_Impl.mapBoolBool
-        this.mapStringString += this@MutableTestAllTypesProto3_Impl.mapStringString
-        this.mapStringBytes += this@MutableTestAllTypesProto3_Impl.mapStringBytes
-        this.mapStringNestedMessage += this@MutableTestAllTypesProto3_Impl.mapStringNestedMessage
-        this.mapStringForeignMessage += this@MutableTestAllTypesProto3_Impl.mapStringForeignMessage
-        this.mapStringNestedEnum += this@MutableTestAllTypesProto3_Impl.mapStringNestedEnum
-        this.mapStringForeignEnum += this@MutableTestAllTypesProto3_Impl.mapStringForeignEnum
-        this.optionalBoolWrapper = this@MutableTestAllTypesProto3_Impl.optionalBoolWrapper
-        this.optionalInt32Wrapper = this@MutableTestAllTypesProto3_Impl.optionalInt32Wrapper
-        this.optionalInt64Wrapper = this@MutableTestAllTypesProto3_Impl.optionalInt64Wrapper
-        this.optionalUint32Wrapper = this@MutableTestAllTypesProto3_Impl.optionalUint32Wrapper
-        this.optionalUint64Wrapper = this@MutableTestAllTypesProto3_Impl.optionalUint64Wrapper
-        this.optionalFloatWrapper = this@MutableTestAllTypesProto3_Impl.optionalFloatWrapper
-        this.optionalDoubleWrapper = this@MutableTestAllTypesProto3_Impl.optionalDoubleWrapper
-        this.optionalStringWrapper = this@MutableTestAllTypesProto3_Impl.optionalStringWrapper
-        this.optionalBytesWrapper = this@MutableTestAllTypesProto3_Impl.optionalBytesWrapper
-        this.repeatedBoolWrapper += this@MutableTestAllTypesProto3_Impl.repeatedBoolWrapper
-        this.repeatedInt32Wrapper += this@MutableTestAllTypesProto3_Impl.repeatedInt32Wrapper
-        this.repeatedInt64Wrapper += this@MutableTestAllTypesProto3_Impl.repeatedInt64Wrapper
-        this.repeatedUint32Wrapper += this@MutableTestAllTypesProto3_Impl.repeatedUint32Wrapper
-        this.repeatedUint64Wrapper += this@MutableTestAllTypesProto3_Impl.repeatedUint64Wrapper
-        this.repeatedFloatWrapper += this@MutableTestAllTypesProto3_Impl.repeatedFloatWrapper
-        this.repeatedDoubleWrapper += this@MutableTestAllTypesProto3_Impl.repeatedDoubleWrapper
-        this.repeatedStringWrapper += this@MutableTestAllTypesProto3_Impl.repeatedStringWrapper
-        this.repeatedBytesWrapper += this@MutableTestAllTypesProto3_Impl.repeatedBytesWrapper
-        this.optionalDuration = this@MutableTestAllTypesProto3_Impl.optionalDuration
-        this.optionalTimestamp = this@MutableTestAllTypesProto3_Impl.optionalTimestamp
-        this.optionalFieldMask = this@MutableTestAllTypesProto3_Impl.optionalFieldMask
-        this.optionalStruct = this@MutableTestAllTypesProto3_Impl.optionalStruct
-        this.optionalAny = this@MutableTestAllTypesProto3_Impl.optionalAny
-        this.optionalValue = this@MutableTestAllTypesProto3_Impl.optionalValue
-        this.repeatedDuration += this@MutableTestAllTypesProto3_Impl.repeatedDuration
-        this.repeatedTimestamp += this@MutableTestAllTypesProto3_Impl.repeatedTimestamp
-        this.repeatedFieldmask += this@MutableTestAllTypesProto3_Impl.repeatedFieldmask
-        this.repeatedStruct += this@MutableTestAllTypesProto3_Impl.repeatedStruct
-        this.repeatedAny += this@MutableTestAllTypesProto3_Impl.repeatedAny
-        this.repeatedValue += this@MutableTestAllTypesProto3_Impl.repeatedValue
-        this.repeatedListValue += this@MutableTestAllTypesProto3_Impl.repeatedListValue
-        this.fieldname1 = this@MutableTestAllTypesProto3_Impl.fieldname1
-        this.fieldName2 = this@MutableTestAllTypesProto3_Impl.fieldName2
-        this.fieldName3 = this@MutableTestAllTypesProto3_Impl.fieldName3
-        this.field_name4 = this@MutableTestAllTypesProto3_Impl.field_name4
-        this.field0name5 = this@MutableTestAllTypesProto3_Impl.field0name5
-        this.field0Name6 = this@MutableTestAllTypesProto3_Impl.field0Name6
-        this.fieldName7 = this@MutableTestAllTypesProto3_Impl.fieldName7
-        this.fieldName8 = this@MutableTestAllTypesProto3_Impl.fieldName8
-        this.fieldName9 = this@MutableTestAllTypesProto3_Impl.fieldName9
-        this.fieldName10 = this@MutableTestAllTypesProto3_Impl.fieldName10
-        this.fIELDNAME11 = this@MutableTestAllTypesProto3_Impl.fIELDNAME11
-        this.fIELDName12 = this@MutableTestAllTypesProto3_Impl.fIELDName12
-        this._fieldName13 = this@MutableTestAllTypesProto3_Impl._fieldName13
-        this._FieldName14 = this@MutableTestAllTypesProto3_Impl._FieldName14
-        this.field_name15 = this@MutableTestAllTypesProto3_Impl.field_name15
-        this.field_Name16 = this@MutableTestAllTypesProto3_Impl.field_Name16
-        this.fieldName17_ = this@MutableTestAllTypesProto3_Impl.fieldName17_
-        this.fieldName18_ = this@MutableTestAllTypesProto3_Impl.fieldName18_
-        this.oneofField = this@MutableTestAllTypesProto3_Impl.oneofField
-        this.unknownFields += this@MutableTestAllTypesProto3_Impl.unknownFields
-    }
 }
 
 private fun TestAllTypesProto3.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.TestAllTypesProto3 {
@@ -4536,21 +4190,16 @@ public fun TestAllTypesProto3.Companion.NestedMessage(
     this.unknownFields += unknownFields
 }
 
-public fun TestAllTypesProto3.Companion.MutableNestedMessage(): pbandk.testpb.TestAllTypesProto3.MutableNestedMessage = pbandk.testpb.TestAllTypesProto3_MutableNestedMessage_Impl(
-    a = 0,
-    corecursive = null,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun TestAllTypesProto3.Companion.NestedMessage(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.NestedMessage =
-    pbandk.testpb.TestAllTypesProto3.Companion.MutableNestedMessage().also(builderAction).toNestedMessage()
-
-public fun TestAllTypesProto3.Companion.MutableNestedMessage(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.MutableNestedMessage =
-    pbandk.testpb.TestAllTypesProto3.Companion.MutableNestedMessage().also(builderAction)
+@pbandk.Export
+public fun TestAllTypesProto3.Companion.NestedMessage(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.NestedMessage = pbandk.testpb.TestAllTypesProto3_MutableNestedMessage_Impl(
+    a = 0,
+    corecursive = null,
+    unknownFields = mutableMapOf()
+).also(builderAction).toNestedMessage()
 
 /**
  * The [MutableNestedMessage] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -4570,10 +4219,14 @@ private class TestAllTypesProto3_NestedMessage_Impl(
 ) : pbandk.testpb.TestAllTypesProto3.NestedMessage, pbandk.GeneratedMessage<pbandk.testpb.TestAllTypesProto3.NestedMessage>() {
     override val descriptor get() = pbandk.testpb.TestAllTypesProto3.NestedMessage.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit) =
-        toMutableNestedMessage().apply(builderAction).toNestedMessage()
+    override fun copy(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit) = pbandk.testpb.TestAllTypesProto3.NestedMessage {
+        this.a = this@TestAllTypesProto3_NestedMessage_Impl.a
+        this.corecursive = this@TestAllTypesProto3_NestedMessage_Impl.corecursive
+        this.unknownFields += this@TestAllTypesProto3_NestedMessage_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         a: Int,
         corecursive: pbandk.testpb.TestAllTypesProto3?,
@@ -4585,12 +4238,6 @@ private class TestAllTypesProto3_NestedMessage_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableNestedMessage() = pbandk.testpb.TestAllTypesProto3.MutableNestedMessage {
-        this.a = this@TestAllTypesProto3_NestedMessage_Impl.a
-        this.corecursive = this@TestAllTypesProto3_NestedMessage_Impl.corecursive
-        this.unknownFields += this@TestAllTypesProto3_NestedMessage_Impl.unknownFields
-    }
 }
 
 private class TestAllTypesProto3_MutableNestedMessage_Impl(
@@ -4601,32 +4248,22 @@ private class TestAllTypesProto3_MutableNestedMessage_Impl(
     override val descriptor get() = pbandk.testpb.TestAllTypesProto3.NestedMessage.descriptor
 
     override fun copy(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit) =
-        toMutableNestedMessage().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         a: Int,
         corecursive: pbandk.testpb.TestAllTypesProto3?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.TestAllTypesProto3.NestedMessage {
-        this.a = a
-        this.corecursive = corecursive
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toNestedMessage() = TestAllTypesProto3_NestedMessage_Impl(
+    fun toNestedMessage() = TestAllTypesProto3_NestedMessage_Impl(
         a = a,
         corecursive = corecursive,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableNestedMessage() = pbandk.testpb.TestAllTypesProto3.MutableNestedMessage {
-        this.a = this@TestAllTypesProto3_MutableNestedMessage_Impl.a
-        this.corecursive = this@TestAllTypesProto3_MutableNestedMessage_Impl.corecursive
-        this.unknownFields += this@TestAllTypesProto3_MutableNestedMessage_Impl.unknownFields
-    }
 }
 
 private fun TestAllTypesProto3.NestedMessage.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.TestAllTypesProto3.NestedMessage {
@@ -4662,20 +4299,15 @@ public fun ForeignMessage(
     this.unknownFields += unknownFields
 }
 
-public fun MutableForeignMessage(): pbandk.testpb.MutableForeignMessage = pbandk.testpb.MutableForeignMessage_Impl(
-    c = 0,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableForeignMessage] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun ForeignMessage(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.ForeignMessage =
-    pbandk.testpb.MutableForeignMessage().also(builderAction).toForeignMessage()
-
-public fun MutableForeignMessage(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.MutableForeignMessage =
-    pbandk.testpb.MutableForeignMessage().also(builderAction)
+@pbandk.Export
+public fun ForeignMessage(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.ForeignMessage = pbandk.testpb.MutableForeignMessage_Impl(
+    c = 0,
+    unknownFields = mutableMapOf()
+).also(builderAction).toForeignMessage()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForForeignMessage")
@@ -4687,10 +4319,13 @@ private class ForeignMessage_Impl(
 ) : pbandk.testpb.ForeignMessage, pbandk.GeneratedMessage<pbandk.testpb.ForeignMessage>() {
     override val descriptor get() = pbandk.testpb.ForeignMessage.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit) =
-        toMutableForeignMessage().apply(builderAction).toForeignMessage()
+    override fun copy(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit) = pbandk.testpb.ForeignMessage {
+        this.c = this@ForeignMessage_Impl.c
+        this.unknownFields += this@ForeignMessage_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         c: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -4700,11 +4335,6 @@ private class ForeignMessage_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableForeignMessage() = pbandk.testpb.MutableForeignMessage {
-        this.c = this@ForeignMessage_Impl.c
-        this.unknownFields += this@ForeignMessage_Impl.unknownFields
-    }
 }
 
 private class MutableForeignMessage_Impl(
@@ -4714,28 +4344,20 @@ private class MutableForeignMessage_Impl(
     override val descriptor get() = pbandk.testpb.ForeignMessage.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit) =
-        toMutableForeignMessage().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         c: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.ForeignMessage {
-        this.c = c
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toForeignMessage() = ForeignMessage_Impl(
+    fun toForeignMessage() = ForeignMessage_Impl(
         c = c,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableForeignMessage() = pbandk.testpb.MutableForeignMessage {
-        this.c = this@MutableForeignMessage_Impl.c
-        this.unknownFields += this@MutableForeignMessage_Impl.unknownFields
-    }
 }
 
 private fun ForeignMessage.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.ForeignMessage {

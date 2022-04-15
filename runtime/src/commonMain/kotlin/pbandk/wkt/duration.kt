@@ -11,11 +11,6 @@ public sealed interface Duration : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableDuration(): pbandk.wkt.MutableDuration
-
-    /**
      * The [MutableDuration] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -66,22 +61,10 @@ public sealed interface Duration : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableDuration : pbandk.wkt.Duration, pbandk.MutableMessage {
     public override var seconds: Long
     public override var nanos: Int
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toDuration(): pbandk.wkt.Duration
-
-    public override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.MutableDuration
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration> get() = pbandk.wkt.Duration.descriptor
-    }
 }
 
 @Deprecated("Use Duration { } instead")
@@ -95,21 +78,16 @@ public fun Duration(
     this.unknownFields += unknownFields
 }
 
-public fun MutableDuration(): pbandk.wkt.MutableDuration = pbandk.wkt.MutableDuration_Impl(
-    seconds = 0L,
-    nanos = 0,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableDuration] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration =
-    pbandk.wkt.MutableDuration().also(builderAction).toDuration()
-
-public fun MutableDuration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.MutableDuration =
-    pbandk.wkt.MutableDuration().also(builderAction)
+@pbandk.Export
+public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration = pbandk.wkt.MutableDuration_Impl(
+    seconds = 0L,
+    nanos = 0,
+    unknownFields = mutableMapOf()
+).also(builderAction).toDuration()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDuration")
@@ -122,10 +100,14 @@ private class Duration_Impl(
 ) : pbandk.wkt.Duration, pbandk.GeneratedMessage<pbandk.wkt.Duration>() {
     override val descriptor get() = pbandk.wkt.Duration.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) =
-        toMutableDuration().apply(builderAction).toDuration()
+    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) = pbandk.wkt.Duration {
+        this.seconds = this@Duration_Impl.seconds
+        this.nanos = this@Duration_Impl.nanos
+        this.unknownFields += this@Duration_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         seconds: Long,
         nanos: Int,
@@ -137,12 +119,6 @@ private class Duration_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableDuration() = pbandk.wkt.MutableDuration {
-        this.seconds = this@Duration_Impl.seconds
-        this.nanos = this@Duration_Impl.nanos
-        this.unknownFields += this@Duration_Impl.unknownFields
-    }
 }
 
 private class MutableDuration_Impl(
@@ -153,32 +129,22 @@ private class MutableDuration_Impl(
     override val descriptor get() = pbandk.wkt.Duration.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) =
-        toMutableDuration().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Duration {
-        this.seconds = seconds
-        this.nanos = nanos
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toDuration() = Duration_Impl(
+    fun toDuration() = Duration_Impl(
         seconds = seconds,
         nanos = nanos,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableDuration() = pbandk.wkt.MutableDuration {
-        this.seconds = this@MutableDuration_Impl.seconds
-        this.nanos = this@MutableDuration_Impl.nanos
-        this.unknownFields += this@MutableDuration_Impl.unknownFields
-    }
 }
 
 private fun Duration.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Duration {

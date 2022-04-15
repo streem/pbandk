@@ -9,11 +9,6 @@ public sealed interface Empty : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableEmpty(): pbandk.wkt.MutableEmpty
-
-    /**
      * The [MutableEmpty] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -42,20 +37,8 @@ public sealed interface Empty : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableEmpty : pbandk.wkt.Empty, pbandk.MutableMessage {
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toEmpty(): pbandk.wkt.Empty
-
-    public override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.MutableEmpty
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty> get() = pbandk.wkt.Empty.descriptor
-    }
 }
 
 @Deprecated("Use Empty { } instead")
@@ -65,19 +48,14 @@ public fun Empty(
     this.unknownFields += unknownFields
 }
 
-public fun MutableEmpty(): pbandk.wkt.MutableEmpty = pbandk.wkt.MutableEmpty_Impl(
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableEmpty] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty =
-    pbandk.wkt.MutableEmpty().also(builderAction).toEmpty()
-
-public fun MutableEmpty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.MutableEmpty =
-    pbandk.wkt.MutableEmpty().also(builderAction)
+@pbandk.Export
+public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty = pbandk.wkt.MutableEmpty_Impl(
+    unknownFields = mutableMapOf()
+).also(builderAction).toEmpty()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEmpty")
@@ -88,10 +66,12 @@ private class Empty_Impl(
 ) : pbandk.wkt.Empty, pbandk.GeneratedMessage<pbandk.wkt.Empty>() {
     override val descriptor get() = pbandk.wkt.Empty.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) =
-        toMutableEmpty().apply(builderAction).toEmpty()
+    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) = pbandk.wkt.Empty {
+        this.unknownFields += this@Empty_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = pbandk.wkt.Empty {
@@ -99,10 +79,6 @@ private class Empty_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableEmpty() = pbandk.wkt.MutableEmpty {
-        this.unknownFields += this@Empty_Impl.unknownFields
-    }
 }
 
 private class MutableEmpty_Impl(
@@ -111,24 +87,18 @@ private class MutableEmpty_Impl(
     override val descriptor get() = pbandk.wkt.Empty.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) =
-        toMutableEmpty().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Empty {
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toEmpty() = Empty_Impl(
+    fun toEmpty() = Empty_Impl(
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableEmpty() = pbandk.wkt.MutableEmpty {
-        this.unknownFields += this@MutableEmpty_Impl.unknownFields
-    }
 }
 
 private fun Empty.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Empty {

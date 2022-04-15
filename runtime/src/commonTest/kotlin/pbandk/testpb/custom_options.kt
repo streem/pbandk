@@ -10,11 +10,6 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableSingleRequiredCustomOption(): pbandk.testpb.MutableSingleRequiredCustomOption
-
-    /**
      * The [MutableSingleRequiredCustomOption] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -64,21 +59,9 @@ public sealed interface SingleRequiredCustomOption : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableSingleRequiredCustomOption : pbandk.testpb.SingleRequiredCustomOption, pbandk.MutableMessage {
     public override var single: String
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toSingleRequiredCustomOption(): pbandk.testpb.SingleRequiredCustomOption
-
-    public override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.MutableSingleRequiredCustomOption
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption> get() = pbandk.testpb.SingleRequiredCustomOption.descriptor
-    }
 }
 
 @pbandk.Export
@@ -87,11 +70,6 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptions
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableMultipleCustomOptions(): pbandk.testpb.MutableMultipleCustomOptions
 
     /**
      * The [MutableMultipleCustomOptions] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -144,21 +122,9 @@ public sealed interface MultipleCustomOptions : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableMultipleCustomOptions : pbandk.testpb.MultipleCustomOptions, pbandk.MutableMessage {
     public override var multiple: String
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toMultipleCustomOptions(): pbandk.testpb.MultipleCustomOptions
-
-    public override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MutableMultipleCustomOptions
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions> get() = pbandk.testpb.MultipleCustomOptions.descriptor
-    }
 }
 
 @pbandk.Export
@@ -168,11 +134,6 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptionsPlusDeprecated
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableMultipleCustomOptionsPlusDeprecated(): pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated
 
     /**
      * The [MutableMultipleCustomOptionsPlusDeprecated] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -227,22 +188,10 @@ public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableMultipleCustomOptionsPlusDeprecated : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.MutableMessage {
     @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     public override var multipleDeprecated: String
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toMultipleCustomOptionsPlusDeprecated(): pbandk.testpb.MultipleCustomOptionsPlusDeprecated
-
-    public override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor
-    }
 }
 
 @Deprecated("Use SingleRequiredCustomOption { } instead")
@@ -254,20 +203,15 @@ public fun SingleRequiredCustomOption(
     this.unknownFields += unknownFields
 }
 
-public fun MutableSingleRequiredCustomOption(): pbandk.testpb.MutableSingleRequiredCustomOption = pbandk.testpb.MutableSingleRequiredCustomOption_Impl(
-    single = "",
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableSingleRequiredCustomOption] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SingleRequiredCustomOption(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.SingleRequiredCustomOption =
-    pbandk.testpb.MutableSingleRequiredCustomOption().also(builderAction).toSingleRequiredCustomOption()
-
-public fun MutableSingleRequiredCustomOption(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.MutableSingleRequiredCustomOption =
-    pbandk.testpb.MutableSingleRequiredCustomOption().also(builderAction)
+@pbandk.Export
+public fun SingleRequiredCustomOption(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit): pbandk.testpb.SingleRequiredCustomOption = pbandk.testpb.MutableSingleRequiredCustomOption_Impl(
+    single = "",
+    unknownFields = mutableMapOf()
+).also(builderAction).toSingleRequiredCustomOption()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSingleRequiredCustomOption")
@@ -279,10 +223,13 @@ private class SingleRequiredCustomOption_Impl(
 ) : pbandk.testpb.SingleRequiredCustomOption, pbandk.GeneratedMessage<pbandk.testpb.SingleRequiredCustomOption>() {
     override val descriptor get() = pbandk.testpb.SingleRequiredCustomOption.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit) =
-        toMutableSingleRequiredCustomOption().apply(builderAction).toSingleRequiredCustomOption()
+    override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit) = pbandk.testpb.SingleRequiredCustomOption {
+        this.single = this@SingleRequiredCustomOption_Impl.single
+        this.unknownFields += this@SingleRequiredCustomOption_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         single: String,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -292,11 +239,6 @@ private class SingleRequiredCustomOption_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableSingleRequiredCustomOption() = pbandk.testpb.MutableSingleRequiredCustomOption {
-        this.single = this@SingleRequiredCustomOption_Impl.single
-        this.unknownFields += this@SingleRequiredCustomOption_Impl.unknownFields
-    }
 }
 
 private class MutableSingleRequiredCustomOption_Impl(
@@ -306,28 +248,20 @@ private class MutableSingleRequiredCustomOption_Impl(
     override val descriptor get() = pbandk.testpb.SingleRequiredCustomOption.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableSingleRequiredCustomOption.() -> Unit) =
-        toMutableSingleRequiredCustomOption().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         single: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.SingleRequiredCustomOption {
-        this.single = single
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toSingleRequiredCustomOption() = SingleRequiredCustomOption_Impl(
+    fun toSingleRequiredCustomOption() = SingleRequiredCustomOption_Impl(
         single = single,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableSingleRequiredCustomOption() = pbandk.testpb.MutableSingleRequiredCustomOption {
-        this.single = this@MutableSingleRequiredCustomOption_Impl.single
-        this.unknownFields += this@MutableSingleRequiredCustomOption_Impl.unknownFields
-    }
 }
 
 private fun SingleRequiredCustomOption.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.SingleRequiredCustomOption {
@@ -360,20 +294,15 @@ public fun MultipleCustomOptions(
     this.unknownFields += unknownFields
 }
 
-public fun MutableMultipleCustomOptions(): pbandk.testpb.MutableMultipleCustomOptions = pbandk.testpb.MutableMultipleCustomOptions_Impl(
-    multiple = "",
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableMultipleCustomOptions] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MultipleCustomOptions(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MultipleCustomOptions =
-    pbandk.testpb.MutableMultipleCustomOptions().also(builderAction).toMultipleCustomOptions()
-
-public fun MutableMultipleCustomOptions(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MutableMultipleCustomOptions =
-    pbandk.testpb.MutableMultipleCustomOptions().also(builderAction)
+@pbandk.Export
+public fun MultipleCustomOptions(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit): pbandk.testpb.MultipleCustomOptions = pbandk.testpb.MutableMultipleCustomOptions_Impl(
+    multiple = "",
+    unknownFields = mutableMapOf()
+).also(builderAction).toMultipleCustomOptions()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMultipleCustomOptions")
@@ -385,10 +314,13 @@ private class MultipleCustomOptions_Impl(
 ) : pbandk.testpb.MultipleCustomOptions, pbandk.GeneratedMessage<pbandk.testpb.MultipleCustomOptions>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptions.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit) =
-        toMutableMultipleCustomOptions().apply(builderAction).toMultipleCustomOptions()
+    override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit) = pbandk.testpb.MultipleCustomOptions {
+        this.multiple = this@MultipleCustomOptions_Impl.multiple
+        this.unknownFields += this@MultipleCustomOptions_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         multiple: String,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -398,11 +330,6 @@ private class MultipleCustomOptions_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableMultipleCustomOptions() = pbandk.testpb.MutableMultipleCustomOptions {
-        this.multiple = this@MultipleCustomOptions_Impl.multiple
-        this.unknownFields += this@MultipleCustomOptions_Impl.unknownFields
-    }
 }
 
 private class MutableMultipleCustomOptions_Impl(
@@ -412,28 +339,20 @@ private class MutableMultipleCustomOptions_Impl(
     override val descriptor get() = pbandk.testpb.MultipleCustomOptions.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptions.() -> Unit) =
-        toMutableMultipleCustomOptions().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         multiple: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MultipleCustomOptions {
-        this.multiple = multiple
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toMultipleCustomOptions() = MultipleCustomOptions_Impl(
+    fun toMultipleCustomOptions() = MultipleCustomOptions_Impl(
         multiple = multiple,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableMultipleCustomOptions() = pbandk.testpb.MutableMultipleCustomOptions {
-        this.multiple = this@MutableMultipleCustomOptions_Impl.multiple
-        this.unknownFields += this@MutableMultipleCustomOptions_Impl.unknownFields
-    }
 }
 
 private fun MultipleCustomOptions.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptions {
@@ -467,20 +386,15 @@ public fun MultipleCustomOptionsPlusDeprecated(
     this.unknownFields += unknownFields
 }
 
-public fun MutableMultipleCustomOptionsPlusDeprecated(): pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated_Impl(
-    multipleDeprecated = "",
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableMultipleCustomOptionsPlusDeprecated] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MultipleCustomOptionsPlusDeprecated(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MultipleCustomOptionsPlusDeprecated =
-    pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated().also(builderAction).toMultipleCustomOptionsPlusDeprecated()
-
-public fun MutableMultipleCustomOptionsPlusDeprecated(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated =
-    pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated().also(builderAction)
+@pbandk.Export
+public fun MultipleCustomOptionsPlusDeprecated(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated_Impl(
+    multipleDeprecated = "",
+    unknownFields = mutableMapOf()
+).also(builderAction).toMultipleCustomOptionsPlusDeprecated()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMultipleCustomOptionsPlusDeprecated")
@@ -492,11 +406,15 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
 ) : pbandk.testpb.MultipleCustomOptionsPlusDeprecated, pbandk.GeneratedMessage<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>() {
     override val descriptor get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor
 
-    override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) =
-        toMutableMultipleCustomOptionsPlusDeprecated().apply(builderAction).toMultipleCustomOptionsPlusDeprecated()
+    override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
+        @Suppress("DEPRECATION")
+        this.multipleDeprecated = this@MultipleCustomOptionsPlusDeprecated_Impl.multipleDeprecated
+        this.unknownFields += this@MultipleCustomOptionsPlusDeprecated_Impl.unknownFields
+        this.builderAction()
+    }
 
     @Suppress("DEPRECATION")
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -507,12 +425,6 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableMultipleCustomOptionsPlusDeprecated() = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated {
-        @Suppress("DEPRECATION")
-        this.multipleDeprecated = this@MultipleCustomOptionsPlusDeprecated_Impl.multipleDeprecated
-        this.unknownFields += this@MultipleCustomOptionsPlusDeprecated_Impl.unknownFields
-    }
 }
 
 private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
@@ -522,31 +434,21 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
     override val descriptor get() = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.descriptor
 
     override fun copy(builderAction: pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated.() -> Unit) =
-        toMutableMultipleCustomOptionsPlusDeprecated().apply(builderAction)
+        throw UnsupportedOperationException()
 
     @Suppress("DEPRECATION")
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
-        @Suppress("DEPRECATION")
-        this.multipleDeprecated = multipleDeprecated
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toMultipleCustomOptionsPlusDeprecated() = MultipleCustomOptionsPlusDeprecated_Impl(
+    fun toMultipleCustomOptionsPlusDeprecated() = MultipleCustomOptionsPlusDeprecated_Impl(
         multipleDeprecated = @Suppress("DEPRECATION") multipleDeprecated,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableMultipleCustomOptionsPlusDeprecated() = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated {
-        @Suppress("DEPRECATION")
-        this.multipleDeprecated = this@MutableMultipleCustomOptionsPlusDeprecated_Impl.multipleDeprecated
-        this.unknownFields += this@MutableMultipleCustomOptionsPlusDeprecated_Impl.unknownFields
-    }
 }
 
 private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptionsPlusDeprecated {

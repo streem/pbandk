@@ -11,11 +11,6 @@ public sealed interface Any : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableAny(): pbandk.wkt.MutableAny
-
-    /**
      * The [MutableAny] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -66,22 +61,10 @@ public sealed interface Any : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableAny : pbandk.wkt.Any, pbandk.MutableMessage {
     public override var typeUrl: String
     public override var value: pbandk.ByteArr
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toAny(): pbandk.wkt.Any
-
-    public override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.MutableAny
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Any> get() = pbandk.wkt.Any.descriptor
-    }
 }
 
 @Deprecated("Use Any { } instead")
@@ -95,21 +78,16 @@ public fun Any(
     this.unknownFields += unknownFields
 }
 
-public fun MutableAny(): pbandk.wkt.MutableAny = pbandk.wkt.MutableAny_Impl(
-    typeUrl = "",
-    value = pbandk.ByteArr.empty,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableAny] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any =
-    pbandk.wkt.MutableAny().also(builderAction).toAny()
-
-public fun MutableAny(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.MutableAny =
-    pbandk.wkt.MutableAny().also(builderAction)
+@pbandk.Export
+public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any = pbandk.wkt.MutableAny_Impl(
+    typeUrl = "",
+    value = pbandk.ByteArr.empty,
+    unknownFields = mutableMapOf()
+).also(builderAction).toAny()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAny")
@@ -122,10 +100,14 @@ private class Any_Impl(
 ) : pbandk.wkt.Any, pbandk.GeneratedMessage<pbandk.wkt.Any>() {
     override val descriptor get() = pbandk.wkt.Any.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) =
-        toMutableAny().apply(builderAction).toAny()
+    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) = pbandk.wkt.Any {
+        this.typeUrl = this@Any_Impl.typeUrl
+        this.value = this@Any_Impl.value
+        this.unknownFields += this@Any_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         typeUrl: String,
         value: pbandk.ByteArr,
@@ -137,12 +119,6 @@ private class Any_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableAny() = pbandk.wkt.MutableAny {
-        this.typeUrl = this@Any_Impl.typeUrl
-        this.value = this@Any_Impl.value
-        this.unknownFields += this@Any_Impl.unknownFields
-    }
 }
 
 private class MutableAny_Impl(
@@ -153,32 +129,22 @@ private class MutableAny_Impl(
     override val descriptor get() = pbandk.wkt.Any.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) =
-        toMutableAny().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         typeUrl: String,
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Any {
-        this.typeUrl = typeUrl
-        this.value = value
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toAny() = Any_Impl(
+    fun toAny() = Any_Impl(
         typeUrl = typeUrl,
         value = value,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableAny() = pbandk.wkt.MutableAny {
-        this.typeUrl = this@MutableAny_Impl.typeUrl
-        this.value = this@MutableAny_Impl.value
-        this.unknownFields += this@MutableAny_Impl.unknownFields
-    }
 }
 
 private fun Any.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Any {

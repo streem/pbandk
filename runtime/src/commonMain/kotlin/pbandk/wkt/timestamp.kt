@@ -11,11 +11,6 @@ public sealed interface Timestamp : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableTimestamp(): pbandk.wkt.MutableTimestamp
-
-    /**
      * The [MutableTimestamp] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -66,22 +61,10 @@ public sealed interface Timestamp : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableTimestamp : pbandk.wkt.Timestamp, pbandk.MutableMessage {
     public override var seconds: Long
     public override var nanos: Int
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toTimestamp(): pbandk.wkt.Timestamp
-
-    public override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.MutableTimestamp
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Timestamp> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Timestamp = pbandk.wkt.Timestamp.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Timestamp> get() = pbandk.wkt.Timestamp.descriptor
-    }
 }
 
 @Deprecated("Use Timestamp { } instead")
@@ -95,21 +78,16 @@ public fun Timestamp(
     this.unknownFields += unknownFields
 }
 
-public fun MutableTimestamp(): pbandk.wkt.MutableTimestamp = pbandk.wkt.MutableTimestamp_Impl(
-    seconds = 0L,
-    nanos = 0,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableTimestamp] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Timestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp =
-    pbandk.wkt.MutableTimestamp().also(builderAction).toTimestamp()
-
-public fun MutableTimestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.MutableTimestamp =
-    pbandk.wkt.MutableTimestamp().also(builderAction)
+@pbandk.Export
+public fun Timestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp = pbandk.wkt.MutableTimestamp_Impl(
+    seconds = 0L,
+    nanos = 0,
+    unknownFields = mutableMapOf()
+).also(builderAction).toTimestamp()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTimestamp")
@@ -122,10 +100,14 @@ private class Timestamp_Impl(
 ) : pbandk.wkt.Timestamp, pbandk.GeneratedMessage<pbandk.wkt.Timestamp>() {
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) =
-        toMutableTimestamp().apply(builderAction).toTimestamp()
+    override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) = pbandk.wkt.Timestamp {
+        this.seconds = this@Timestamp_Impl.seconds
+        this.nanos = this@Timestamp_Impl.nanos
+        this.unknownFields += this@Timestamp_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         seconds: Long,
         nanos: Int,
@@ -137,12 +119,6 @@ private class Timestamp_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableTimestamp() = pbandk.wkt.MutableTimestamp {
-        this.seconds = this@Timestamp_Impl.seconds
-        this.nanos = this@Timestamp_Impl.nanos
-        this.unknownFields += this@Timestamp_Impl.unknownFields
-    }
 }
 
 private class MutableTimestamp_Impl(
@@ -153,32 +129,22 @@ private class MutableTimestamp_Impl(
     override val descriptor get() = pbandk.wkt.Timestamp.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit) =
-        toMutableTimestamp().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Timestamp {
-        this.seconds = seconds
-        this.nanos = nanos
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toTimestamp() = Timestamp_Impl(
+    fun toTimestamp() = Timestamp_Impl(
         seconds = seconds,
         nanos = nanos,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableTimestamp() = pbandk.wkt.MutableTimestamp {
-        this.seconds = this@MutableTimestamp_Impl.seconds
-        this.nanos = this@MutableTimestamp_Impl.nanos
-        this.unknownFields += this@MutableTimestamp_Impl.unknownFields
-    }
 }
 
 private fun Timestamp.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Timestamp {

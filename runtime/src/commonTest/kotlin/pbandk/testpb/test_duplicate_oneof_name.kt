@@ -10,11 +10,6 @@ public sealed interface Value : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableValue(): pbandk.testpb.MutableValue
-
-    /**
      * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -87,25 +82,13 @@ public sealed interface Value : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableValue : pbandk.testpb.Value, pbandk.MutableMessage {
     public override var value: Value.Value<*>?
 
     public override var stringValue: String?
     public override var booleanValue: Boolean?
     public override var integerValue: Int?
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toValue(): pbandk.testpb.Value
-
-    public override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.MutableValue
-
-    public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value> get() = pbandk.testpb.Value.descriptor
-    }
 }
 
 @Deprecated("Use Value { } instead")
@@ -117,20 +100,15 @@ public fun Value(
     this.unknownFields += unknownFields
 }
 
-public fun MutableValue(): pbandk.testpb.MutableValue = pbandk.testpb.MutableValue_Impl(
-    value = null,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value =
-    pbandk.testpb.MutableValue().also(builderAction).toValue()
-
-public fun MutableValue(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.MutableValue =
-    pbandk.testpb.MutableValue().also(builderAction)
+@pbandk.Export
+public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value = pbandk.testpb.MutableValue_Impl(
+    value = null,
+    unknownFields = mutableMapOf()
+).also(builderAction).toValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
@@ -149,10 +127,13 @@ private class Value_Impl(
     override val integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
 
-    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) =
-        toMutableValue().apply(builderAction).toValue()
+    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) = pbandk.testpb.Value {
+        this.value = this@Value_Impl.value
+        this.unknownFields += this@Value_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
@@ -162,11 +143,6 @@ private class Value_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableValue() = pbandk.testpb.MutableValue {
-        this.value = this@Value_Impl.value
-        this.unknownFields += this@Value_Impl.unknownFields
-    }
 }
 
 private class MutableValue_Impl(
@@ -186,28 +162,20 @@ private class MutableValue_Impl(
         set(value) { this.value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
 
     override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) =
-        toMutableValue().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.testpb.Value {
-        this.value = value
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toValue() = Value_Impl(
+    fun toValue() = Value_Impl(
         value = value,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableValue() = pbandk.testpb.MutableValue {
-        this.value = this@MutableValue_Impl.value
-        this.unknownFields += this@MutableValue_Impl.unknownFields
-    }
 }
 
 private fun Value.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Value {

@@ -32,11 +32,6 @@ public sealed interface Type : pbandk.Message {
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type>
 
     /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableType(): pbandk.wkt.MutableType
-
-    /**
      * The [MutableType] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
@@ -131,6 +126,7 @@ public sealed interface Type : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage {
     public override var name: String
     public override val fields: MutableList<pbandk.wkt.Field>
@@ -138,19 +134,6 @@ public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage {
     public override val options: MutableList<pbandk.wkt.Option>
     public override var sourceContext: pbandk.wkt.SourceContext?
     public override var syntax: pbandk.wkt.Syntax
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toType(): pbandk.wkt.Type
-
-    public override fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.MutableType
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Type = pbandk.wkt.Type.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type> get() = pbandk.wkt.Type.descriptor
-    }
 }
 
 @pbandk.Export
@@ -168,11 +151,6 @@ public sealed interface Field : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Field
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableField(): pbandk.wkt.MutableField
 
     /**
      * The [MutableField] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -364,6 +342,7 @@ public sealed interface Field : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage {
     public override var kind: pbandk.wkt.Field.Kind
     public override var cardinality: pbandk.wkt.Field.Cardinality
@@ -375,19 +354,6 @@ public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage {
     public override val options: MutableList<pbandk.wkt.Option>
     public override var jsonName: String
     public override var defaultValue: String
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toField(): pbandk.wkt.Field
-
-    public override fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.MutableField
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Field = pbandk.wkt.Field.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field> get() = pbandk.wkt.Field.descriptor
-    }
 }
 
 @pbandk.Export
@@ -400,11 +366,6 @@ public sealed interface Enum : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Enum
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableEnum(): pbandk.wkt.MutableEnum
 
     /**
      * The [MutableEnum] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -490,25 +451,13 @@ public sealed interface Enum : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage {
     public override var name: String
     public override val enumvalue: MutableList<pbandk.wkt.EnumValue>
     public override val options: MutableList<pbandk.wkt.Option>
     public override var sourceContext: pbandk.wkt.SourceContext?
     public override var syntax: pbandk.wkt.Syntax
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toEnum(): pbandk.wkt.Enum
-
-    public override fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.MutableEnum
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Enum = pbandk.wkt.Enum.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum> get() = pbandk.wkt.Enum.descriptor
-    }
 }
 
 @pbandk.Export
@@ -519,11 +468,6 @@ public sealed interface EnumValue : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumValue
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableEnumValue(): pbandk.wkt.MutableEnumValue
 
     /**
      * The [MutableEnumValue] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -587,23 +531,11 @@ public sealed interface EnumValue : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableEnumValue : pbandk.wkt.EnumValue, pbandk.MutableMessage {
     public override var name: String
     public override var number: Int
     public override val options: MutableList<pbandk.wkt.Option>
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toEnumValue(): pbandk.wkt.EnumValue
-
-    public override fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.MutableEnumValue
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.EnumValue = pbandk.wkt.EnumValue.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue> get() = pbandk.wkt.EnumValue.descriptor
-    }
 }
 
 @pbandk.Export
@@ -613,11 +545,6 @@ public sealed interface Option : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Option
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option>
-
-    /**
-     * Returns a new mutable instance containing a copy of all values from this instance.
-     */
-    public fun toMutableOption(): pbandk.wkt.MutableOption
 
     /**
      * The [MutableOption] passed as a receiver to the [builderAction] is valid only inside that function.
@@ -670,22 +597,10 @@ public sealed interface Option : pbandk.Message {
     }
 }
 
+@pbandk.Export
 public sealed interface MutableOption : pbandk.wkt.Option, pbandk.MutableMessage {
     public override var name: String
     public override var value: pbandk.wkt.Any?
-
-    /**
-     * Returns a new immutable instance containing a copy of all values from this instance.
-     */
-    public fun toOption(): pbandk.wkt.Option
-
-    public override fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.MutableOption
-
-    public companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
-        override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Option = pbandk.wkt.Option.decodeWithImpl(u)
-
-        override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option> get() = pbandk.wkt.Option.descriptor
-    }
 }
 
 @Deprecated("Use Type { } instead")
@@ -707,7 +622,12 @@ public fun Type(
     this.unknownFields += unknownFields
 }
 
-public fun MutableType(): pbandk.wkt.MutableType = pbandk.wkt.MutableType_Impl(
+/**
+ * The [MutableType] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+public fun Type(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type = pbandk.wkt.MutableType_Impl(
     name = "",
     fields = mutableListOf(),
     oneofs = mutableListOf(),
@@ -715,17 +635,7 @@ public fun MutableType(): pbandk.wkt.MutableType = pbandk.wkt.MutableType_Impl(
     sourceContext = null,
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
-)
-
-/**
- * The [MutableType] passed as a receiver to the [builderAction] is valid only inside that function.
- * Using it outside of the function produces an unspecified behavior.
- */
-public fun Type(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type =
-    pbandk.wkt.MutableType().also(builderAction).toType()
-
-public fun MutableType(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.MutableType =
-    pbandk.wkt.MutableType().also(builderAction)
+).also(builderAction).toType()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForType")
@@ -742,10 +652,18 @@ private class Type_Impl(
 ) : pbandk.wkt.Type, pbandk.GeneratedMessage<pbandk.wkt.Type>() {
     override val descriptor get() = pbandk.wkt.Type.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit) =
-        toMutableType().apply(builderAction).toType()
+    override fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit) = pbandk.wkt.Type {
+        this.name = this@Type_Impl.name
+        this.fields += this@Type_Impl.fields
+        this.oneofs += this@Type_Impl.oneofs
+        this.options += this@Type_Impl.options
+        this.sourceContext = this@Type_Impl.sourceContext
+        this.syntax = this@Type_Impl.syntax
+        this.unknownFields += this@Type_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         fields: List<pbandk.wkt.Field>,
@@ -765,16 +683,6 @@ private class Type_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableType() = pbandk.wkt.MutableType {
-        this.name = this@Type_Impl.name
-        this.fields += this@Type_Impl.fields
-        this.oneofs += this@Type_Impl.oneofs
-        this.options += this@Type_Impl.options
-        this.sourceContext = this@Type_Impl.sourceContext
-        this.syntax = this@Type_Impl.syntax
-        this.unknownFields += this@Type_Impl.unknownFields
-    }
 }
 
 private class MutableType_Impl(
@@ -789,9 +697,9 @@ private class MutableType_Impl(
     override val descriptor get() = pbandk.wkt.Type.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableType.() -> Unit) =
-        toMutableType().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         fields: List<pbandk.wkt.Field>,
@@ -800,19 +708,11 @@ private class MutableType_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Type {
-        this.name = name
-        this.fields += fields
-        this.oneofs += oneofs
-        this.options += options
-        this.sourceContext = sourceContext
-        this.syntax = syntax
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toType() = Type_Impl(
+    fun toType() = Type_Impl(
         name = name,
         fields = fields.toList(),
         oneofs = oneofs.toList(),
@@ -821,16 +721,6 @@ private class MutableType_Impl(
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableType() = pbandk.wkt.MutableType {
-        this.name = this@MutableType_Impl.name
-        this.fields += this@MutableType_Impl.fields
-        this.oneofs += this@MutableType_Impl.oneofs
-        this.options += this@MutableType_Impl.options
-        this.sourceContext = this@MutableType_Impl.sourceContext
-        this.syntax = this@MutableType_Impl.syntax
-        this.unknownFields += this@MutableType_Impl.unknownFields
-    }
 }
 
 private fun Type.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Type {
@@ -897,7 +787,12 @@ public fun Field(
     this.unknownFields += unknownFields
 }
 
-public fun MutableField(): pbandk.wkt.MutableField = pbandk.wkt.MutableField_Impl(
+/**
+ * The [MutableField] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+public fun Field(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.Field = pbandk.wkt.MutableField_Impl(
     kind = pbandk.wkt.Field.Kind.fromValue(0),
     cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
     number = 0,
@@ -909,17 +804,7 @@ public fun MutableField(): pbandk.wkt.MutableField = pbandk.wkt.MutableField_Imp
     jsonName = "",
     defaultValue = "",
     unknownFields = mutableMapOf()
-)
-
-/**
- * The [MutableField] passed as a receiver to the [builderAction] is valid only inside that function.
- * Using it outside of the function produces an unspecified behavior.
- */
-public fun Field(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.Field =
-    pbandk.wkt.MutableField().also(builderAction).toField()
-
-public fun MutableField(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.MutableField =
-    pbandk.wkt.MutableField().also(builderAction)
+).also(builderAction).toField()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForField")
@@ -940,10 +825,22 @@ private class Field_Impl(
 ) : pbandk.wkt.Field, pbandk.GeneratedMessage<pbandk.wkt.Field>() {
     override val descriptor get() = pbandk.wkt.Field.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit) =
-        toMutableField().apply(builderAction).toField()
+    override fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit) = pbandk.wkt.Field {
+        this.kind = this@Field_Impl.kind
+        this.cardinality = this@Field_Impl.cardinality
+        this.number = this@Field_Impl.number
+        this.name = this@Field_Impl.name
+        this.typeUrl = this@Field_Impl.typeUrl
+        this.oneofIndex = this@Field_Impl.oneofIndex
+        this.packed = this@Field_Impl.packed
+        this.options += this@Field_Impl.options
+        this.jsonName = this@Field_Impl.jsonName
+        this.defaultValue = this@Field_Impl.defaultValue
+        this.unknownFields += this@Field_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         kind: pbandk.wkt.Field.Kind,
         cardinality: pbandk.wkt.Field.Cardinality,
@@ -971,20 +868,6 @@ private class Field_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableField() = pbandk.wkt.MutableField {
-        this.kind = this@Field_Impl.kind
-        this.cardinality = this@Field_Impl.cardinality
-        this.number = this@Field_Impl.number
-        this.name = this@Field_Impl.name
-        this.typeUrl = this@Field_Impl.typeUrl
-        this.oneofIndex = this@Field_Impl.oneofIndex
-        this.packed = this@Field_Impl.packed
-        this.options += this@Field_Impl.options
-        this.jsonName = this@Field_Impl.jsonName
-        this.defaultValue = this@Field_Impl.defaultValue
-        this.unknownFields += this@Field_Impl.unknownFields
-    }
 }
 
 private class MutableField_Impl(
@@ -1003,9 +886,9 @@ private class MutableField_Impl(
     override val descriptor get() = pbandk.wkt.Field.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableField.() -> Unit) =
-        toMutableField().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         kind: pbandk.wkt.Field.Kind,
         cardinality: pbandk.wkt.Field.Cardinality,
@@ -1018,23 +901,11 @@ private class MutableField_Impl(
         jsonName: String,
         defaultValue: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Field {
-        this.kind = kind
-        this.cardinality = cardinality
-        this.number = number
-        this.name = name
-        this.typeUrl = typeUrl
-        this.oneofIndex = oneofIndex
-        this.packed = packed
-        this.options += options
-        this.jsonName = jsonName
-        this.defaultValue = defaultValue
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toField() = Field_Impl(
+    fun toField() = Field_Impl(
         kind = kind,
         cardinality = cardinality,
         number = number,
@@ -1047,20 +918,6 @@ private class MutableField_Impl(
         defaultValue = defaultValue,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableField() = pbandk.wkt.MutableField {
-        this.kind = this@MutableField_Impl.kind
-        this.cardinality = this@MutableField_Impl.cardinality
-        this.number = this@MutableField_Impl.number
-        this.name = this@MutableField_Impl.name
-        this.typeUrl = this@MutableField_Impl.typeUrl
-        this.oneofIndex = this@MutableField_Impl.oneofIndex
-        this.packed = this@MutableField_Impl.packed
-        this.options += this@MutableField_Impl.options
-        this.jsonName = this@MutableField_Impl.jsonName
-        this.defaultValue = this@MutableField_Impl.defaultValue
-        this.unknownFields += this@MutableField_Impl.unknownFields
-    }
 }
 
 private fun Field.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Field {
@@ -1130,24 +987,19 @@ public fun Enum(
     this.unknownFields += unknownFields
 }
 
-public fun MutableEnum(): pbandk.wkt.MutableEnum = pbandk.wkt.MutableEnum_Impl(
+/**
+ * The [MutableEnum] passed as a receiver to the [builderAction] is valid only inside that function.
+ * Using it outside of the function produces an unspecified behavior.
+ */
+@pbandk.Export
+public fun Enum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum = pbandk.wkt.MutableEnum_Impl(
     name = "",
     enumvalue = mutableListOf(),
     options = mutableListOf(),
     sourceContext = null,
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
-)
-
-/**
- * The [MutableEnum] passed as a receiver to the [builderAction] is valid only inside that function.
- * Using it outside of the function produces an unspecified behavior.
- */
-public fun Enum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum =
-    pbandk.wkt.MutableEnum().also(builderAction).toEnum()
-
-public fun MutableEnum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.MutableEnum =
-    pbandk.wkt.MutableEnum().also(builderAction)
+).also(builderAction).toEnum()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnum")
@@ -1163,10 +1015,17 @@ private class Enum_Impl(
 ) : pbandk.wkt.Enum, pbandk.GeneratedMessage<pbandk.wkt.Enum>() {
     override val descriptor get() = pbandk.wkt.Enum.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit) =
-        toMutableEnum().apply(builderAction).toEnum()
+    override fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit) = pbandk.wkt.Enum {
+        this.name = this@Enum_Impl.name
+        this.enumvalue += this@Enum_Impl.enumvalue
+        this.options += this@Enum_Impl.options
+        this.sourceContext = this@Enum_Impl.sourceContext
+        this.syntax = this@Enum_Impl.syntax
+        this.unknownFields += this@Enum_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         enumvalue: List<pbandk.wkt.EnumValue>,
@@ -1184,15 +1043,6 @@ private class Enum_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableEnum() = pbandk.wkt.MutableEnum {
-        this.name = this@Enum_Impl.name
-        this.enumvalue += this@Enum_Impl.enumvalue
-        this.options += this@Enum_Impl.options
-        this.sourceContext = this@Enum_Impl.sourceContext
-        this.syntax = this@Enum_Impl.syntax
-        this.unknownFields += this@Enum_Impl.unknownFields
-    }
 }
 
 private class MutableEnum_Impl(
@@ -1206,9 +1056,9 @@ private class MutableEnum_Impl(
     override val descriptor get() = pbandk.wkt.Enum.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEnum.() -> Unit) =
-        toMutableEnum().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         enumvalue: List<pbandk.wkt.EnumValue>,
@@ -1216,18 +1066,11 @@ private class MutableEnum_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Enum {
-        this.name = name
-        this.enumvalue += enumvalue
-        this.options += options
-        this.sourceContext = sourceContext
-        this.syntax = syntax
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toEnum() = Enum_Impl(
+    fun toEnum() = Enum_Impl(
         name = name,
         enumvalue = enumvalue.toList(),
         options = options.toList(),
@@ -1235,15 +1078,6 @@ private class MutableEnum_Impl(
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableEnum() = pbandk.wkt.MutableEnum {
-        this.name = this@MutableEnum_Impl.name
-        this.enumvalue += this@MutableEnum_Impl.enumvalue
-        this.options += this@MutableEnum_Impl.options
-        this.sourceContext = this@MutableEnum_Impl.sourceContext
-        this.syntax = this@MutableEnum_Impl.syntax
-        this.unknownFields += this@MutableEnum_Impl.unknownFields
-    }
 }
 
 private fun Enum.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Enum {
@@ -1293,22 +1127,17 @@ public fun EnumValue(
     this.unknownFields += unknownFields
 }
 
-public fun MutableEnumValue(): pbandk.wkt.MutableEnumValue = pbandk.wkt.MutableEnumValue_Impl(
-    name = "",
-    number = 0,
-    options = mutableListOf(),
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableEnumValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumValue(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.EnumValue =
-    pbandk.wkt.MutableEnumValue().also(builderAction).toEnumValue()
-
-public fun MutableEnumValue(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.MutableEnumValue =
-    pbandk.wkt.MutableEnumValue().also(builderAction)
+@pbandk.Export
+public fun EnumValue(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.EnumValue = pbandk.wkt.MutableEnumValue_Impl(
+    name = "",
+    number = 0,
+    options = mutableListOf(),
+    unknownFields = mutableMapOf()
+).also(builderAction).toEnumValue()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumValue")
@@ -1322,10 +1151,15 @@ private class EnumValue_Impl(
 ) : pbandk.wkt.EnumValue, pbandk.GeneratedMessage<pbandk.wkt.EnumValue>() {
     override val descriptor get() = pbandk.wkt.EnumValue.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit) =
-        toMutableEnumValue().apply(builderAction).toEnumValue()
+    override fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit) = pbandk.wkt.EnumValue {
+        this.name = this@EnumValue_Impl.name
+        this.number = this@EnumValue_Impl.number
+        this.options += this@EnumValue_Impl.options
+        this.unknownFields += this@EnumValue_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         number: Int,
@@ -1339,13 +1173,6 @@ private class EnumValue_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableEnumValue() = pbandk.wkt.MutableEnumValue {
-        this.name = this@EnumValue_Impl.name
-        this.number = this@EnumValue_Impl.number
-        this.options += this@EnumValue_Impl.options
-        this.unknownFields += this@EnumValue_Impl.unknownFields
-    }
 }
 
 private class MutableEnumValue_Impl(
@@ -1357,36 +1184,24 @@ private class MutableEnumValue_Impl(
     override val descriptor get() = pbandk.wkt.EnumValue.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit) =
-        toMutableEnumValue().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         number: Int,
         options: List<pbandk.wkt.Option>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.EnumValue {
-        this.name = name
-        this.number = number
-        this.options += options
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toEnumValue() = EnumValue_Impl(
+    fun toEnumValue() = EnumValue_Impl(
         name = name,
         number = number,
         options = options.toList(),
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableEnumValue() = pbandk.wkt.MutableEnumValue {
-        this.name = this@MutableEnumValue_Impl.name
-        this.number = this@MutableEnumValue_Impl.number
-        this.options += this@MutableEnumValue_Impl.options
-        this.unknownFields += this@MutableEnumValue_Impl.unknownFields
-    }
 }
 
 private fun EnumValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumValue {
@@ -1427,21 +1242,16 @@ public fun Option(
     this.unknownFields += unknownFields
 }
 
-public fun MutableOption(): pbandk.wkt.MutableOption = pbandk.wkt.MutableOption_Impl(
-    name = "",
-    value = null,
-    unknownFields = mutableMapOf()
-)
-
 /**
  * The [MutableOption] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Option(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.Option =
-    pbandk.wkt.MutableOption().also(builderAction).toOption()
-
-public fun MutableOption(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.MutableOption =
-    pbandk.wkt.MutableOption().also(builderAction)
+@pbandk.Export
+public fun Option(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.Option = pbandk.wkt.MutableOption_Impl(
+    name = "",
+    value = null,
+    unknownFields = mutableMapOf()
+).also(builderAction).toOption()
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForOption")
@@ -1454,10 +1264,14 @@ private class Option_Impl(
 ) : pbandk.wkt.Option, pbandk.GeneratedMessage<pbandk.wkt.Option>() {
     override val descriptor get() = pbandk.wkt.Option.descriptor
 
-    override fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit) =
-        toMutableOption().apply(builderAction).toOption()
+    override fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit) = pbandk.wkt.Option {
+        this.name = this@Option_Impl.name
+        this.value = this@Option_Impl.value
+        this.unknownFields += this@Option_Impl.unknownFields
+        this.builderAction()
+    }
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         value: pbandk.wkt.Any?,
@@ -1469,12 +1283,6 @@ private class Option_Impl(
     }
 
     override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-
-    override fun toMutableOption() = pbandk.wkt.MutableOption {
-        this.name = this@Option_Impl.name
-        this.value = this@Option_Impl.value
-        this.unknownFields += this@Option_Impl.unknownFields
-    }
 }
 
 private class MutableOption_Impl(
@@ -1485,32 +1293,22 @@ private class MutableOption_Impl(
     override val descriptor get() = pbandk.wkt.Option.descriptor
 
     override fun copy(builderAction: pbandk.wkt.MutableOption.() -> Unit) =
-        toMutableOption().apply(builderAction)
+        throw UnsupportedOperationException()
 
-    @Deprecated("Use copy {} instead")
+    @Deprecated("Use copy { } instead")
     override fun copy(
         name: String,
         value: pbandk.wkt.Any?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = pbandk.wkt.Option {
-        this.name = name
-        this.value = value
-        this.unknownFields += unknownFields
-    }
+    ) = throw UnsupportedOperationException()
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override operator fun plus(other: pbandk.Message?) = throw UnsupportedOperationException()
 
-    override fun toOption() = Option_Impl(
+    fun toOption() = Option_Impl(
         name = name,
         value = value,
         unknownFields = unknownFields.toMap()
     )
-
-    override fun toMutableOption() = pbandk.wkt.MutableOption {
-        this.name = this@MutableOption_Impl.name
-        this.value = this@MutableOption_Impl.value
-        this.unknownFields += this@MutableOption_Impl.unknownFields
-    }
 }
 
 private fun Option.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Option {
