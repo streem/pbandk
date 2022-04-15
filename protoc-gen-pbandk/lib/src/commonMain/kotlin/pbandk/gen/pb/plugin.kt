@@ -2,6 +2,7 @@
 
 package pbandk.gen.pb
 
+@pbandk.Export
 public sealed interface Version : pbandk.Message {
     public val major: Int?
     public val minor: Int?
@@ -109,6 +110,7 @@ public sealed interface MutableVersion : pbandk.gen.pb.Version, pbandk.MutableMe
     }
 }
 
+@pbandk.Export
 public sealed interface CodeGeneratorRequest : pbandk.Message {
     public val fileToGenerate: List<String>
     public val parameter: String?
@@ -216,6 +218,7 @@ public sealed interface MutableCodeGeneratorRequest : pbandk.gen.pb.CodeGenerato
     }
 }
 
+@pbandk.Export
 public sealed interface CodeGeneratorResponse : pbandk.Message {
     public val error: String?
     public val supportedFeatures: Long?

@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface Api : pbandk.Message {
     public val name: String
     public val methods: List<pbandk.wkt.Method>
@@ -148,6 +149,7 @@ public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface Method : pbandk.Message {
     public val name: String
     public val requestTypeUrl: String
@@ -294,6 +296,7 @@ public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage
     }
 }
 
+@pbandk.Export
 public sealed interface Mixin : pbandk.Message {
     public val name: String
     public val root: String

@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface SourceContext : pbandk.Message {
     public val fileName: String
 

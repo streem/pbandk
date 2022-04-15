@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 public sealed interface SingleRequiredCustomOption : pbandk.Message {
     public val single: String
 
@@ -80,6 +81,7 @@ public sealed interface MutableSingleRequiredCustomOption : pbandk.testpb.Single
     }
 }
 
+@pbandk.Export
 public sealed interface MultipleCustomOptions : pbandk.Message {
     public val multiple: String
 
@@ -159,6 +161,7 @@ public sealed interface MutableMultipleCustomOptions : pbandk.testpb.MultipleCus
     }
 }
 
+@pbandk.Export
 public sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     @Deprecated(message = "Field marked deprecated in pbandk/testpb/custom_options.proto")
     public val multipleDeprecated: String

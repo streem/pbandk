@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 public sealed interface Foo : pbandk.Message {
     public val `val`: String
 
@@ -70,6 +71,7 @@ public sealed interface MutableFoo : pbandk.testpb.Foo, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface Bar : pbandk.Message {
     public val foos: List<pbandk.testpb.Foo>
     public val singleFoo: pbandk.testpb.Foo?
@@ -151,6 +153,7 @@ public sealed interface MutableBar : pbandk.testpb.Bar, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface MessageWithMap : pbandk.Message {
     public val map: Map<String, String>
 
@@ -219,6 +222,7 @@ public sealed interface MutableMessageWithMap : pbandk.testpb.MessageWithMap, pb
     }
 }
 
+@pbandk.Export
 public sealed interface FooMap : pbandk.Message {
     public val map: Map<String, pbandk.testpb.Foo?>
 
@@ -287,6 +291,7 @@ public sealed interface MutableFooMap : pbandk.testpb.FooMap, pbandk.MutableMess
     }
 }
 
+@pbandk.Export
 public sealed interface FooMapEntries : pbandk.Message {
     public val map: List<pbandk.testpb.FooMapEntries.MapEntry>
 
@@ -436,6 +441,7 @@ public sealed interface MutableFooMapEntries : pbandk.testpb.FooMapEntries, pban
     }
 }
 
+@pbandk.Export
 public sealed interface Wrappers : pbandk.Message {
     public val stringValue: String?
     public val uint64Values: List<Long>

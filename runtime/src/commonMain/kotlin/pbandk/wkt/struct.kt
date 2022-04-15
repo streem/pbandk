@@ -18,6 +18,7 @@ public sealed class NullValue(override val value: Int, override val name: String
     }
 }
 
+@pbandk.Export
 public sealed interface Struct : pbandk.Message {
     public val fields: Map<String, pbandk.wkt.Value?>
 
@@ -86,6 +87,7 @@ public sealed interface MutableStruct : pbandk.wkt.Struct, pbandk.MutableMessage
     }
 }
 
+@pbandk.Export
 public sealed interface Value : pbandk.Message {
     public val kind: Kind<*>?
 
@@ -233,6 +235,7 @@ public sealed interface MutableValue : pbandk.wkt.Value, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface ListValue : pbandk.Message {
     public val values: List<pbandk.wkt.Value>
 

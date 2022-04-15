@@ -43,6 +43,7 @@ public sealed class TestCategory(override val value: Int, override val name: Str
     }
 }
 
+@pbandk.Export
 public sealed interface FailureSet : pbandk.Message {
     public val failure: List<String>
 
@@ -111,6 +112,7 @@ public sealed interface MutableFailureSet : pbandk.conformance.pb.FailureSet, pb
     }
 }
 
+@pbandk.Export
 public sealed interface ConformanceRequest : pbandk.Message {
     public val requestedOutputFormat: pbandk.conformance.pb.WireFormat
     public val messageType: String
@@ -295,6 +297,7 @@ public sealed interface MutableConformanceRequest : pbandk.conformance.pb.Confor
     }
 }
 
+@pbandk.Export
 public sealed interface ConformanceResponse : pbandk.Message {
     public val result: Result<*>?
 
@@ -470,6 +473,7 @@ public sealed interface MutableConformanceResponse : pbandk.conformance.pb.Confo
     }
 }
 
+@pbandk.Export
 public sealed interface JspbEncodingConfig : pbandk.Message {
     public val useJspbArrayAnyFormat: Boolean
 

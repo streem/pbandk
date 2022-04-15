@@ -1018,6 +1018,7 @@ public sealed class HugeEnum(override val value: Int, override val name: String?
     }
 }
 
+@pbandk.Export
 public sealed interface MessageWithLotsOfFields : pbandk.Message {
     public val field1000: String
     public val field1001: String
@@ -14096,6 +14097,7 @@ public sealed interface MutableMessageWithLotsOfFields : pbandk.testpb.MessageWi
     }
 }
 
+@pbandk.Export
 public sealed interface MessageWithHugeOneof : pbandk.Message {
     public val hugeOneof: HugeOneof<*>?
 

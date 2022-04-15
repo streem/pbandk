@@ -20,6 +20,7 @@ public sealed class ForeignEnumProto2(override val value: Int, override val name
     }
 }
 
+@pbandk.Export
 public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     public val optionalInt32: Int?
     public val optionalInt64: Long?
@@ -1984,6 +1985,7 @@ public sealed interface MutableTestAllTypesProto2 : pbandk.conformance.pb.TestAl
     }
 }
 
+@pbandk.Export
 public sealed interface ForeignMessageProto2 : pbandk.Message {
     public val c: Int?
 
@@ -2052,6 +2054,7 @@ public sealed interface MutableForeignMessageProto2 : pbandk.conformance.pb.Fore
     }
 }
 
+@pbandk.Export
 public sealed interface UnknownToTestAllTypes : pbandk.Message {
     public val optionalInt32: Int?
     public val optionalString: String?

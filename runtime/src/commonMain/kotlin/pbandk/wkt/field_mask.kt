@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface FieldMask : pbandk.Message {
     public val paths: List<String>
 

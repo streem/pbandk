@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface Empty : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Empty

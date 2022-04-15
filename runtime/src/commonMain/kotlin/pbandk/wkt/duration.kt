@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface Duration : pbandk.Message {
     public val seconds: Long
     public val nanos: Int

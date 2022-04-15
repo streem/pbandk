@@ -2,6 +2,7 @@
 
 package pbandk.testpb
 
+@pbandk.Export
 public sealed interface Value : pbandk.Message {
     public val value: Value<*>?
 

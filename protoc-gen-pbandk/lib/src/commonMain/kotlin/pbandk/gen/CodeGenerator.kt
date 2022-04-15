@@ -60,20 +60,17 @@ public open class CodeGenerator(
         }
     }
 
-    protected fun writeType(
-        type: File.Type,
-        nested: Boolean = false
-    ) {
+    protected fun writeType(type: File.Type) {
         when (type) {
-            is File.Type.Enum -> writeEnumType(type, nested)
+            is File.Type.Enum -> writeEnumType(type)
             is File.Type.Message -> writeMessageType(type)
         }
     }
 
-    protected fun writeEnumType(type: File.Type.Enum, nested: Boolean = false) {
+    protected fun writeEnumType(type: File.Type.Enum) {
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
-        if (!nested) line("@pbandk.Export")
+        if (type.kotlinName.parent == null) line("@pbandk.Export")
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line("$visibility sealed class ${type.kotlinName.simple}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
@@ -99,11 +96,9 @@ public open class CodeGenerator(
 
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
-        val mutableTypeName = type.kotlinName.copy(simple = "Mutable${type.kotlinName.simple}")
-
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
-        // TODO: if (!nested) line("@pbandk.Export")
+        if (type.kotlinName.parent == null) line("@pbandk.Export")
         line("$visibility sealed interface ${type.kotlinName.simple} : $messageInterface {").indented {
             val fieldBegin = if (type.mapEntry) "$visibility override " else "$visibility "
 
@@ -124,14 +119,14 @@ public open class CodeGenerator(
             line("/**")
             line(" * Returns a new mutable instance containing a copy of all values from this instance.")
             line(" */")
-            line("$visibility fun to${mutableTypeName.simple}(): ${mutableTypeName.fullWithPackage}")
+            line("$visibility fun to${type.mutableTypeName.simple}(): ${type.mutableTypeName.fullWithPackage}")
 
             line()
             line("/**")
-            line(" * The [${mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
+            line(" * The [${type.mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
             line(" * Using it outside of the function produces an unspecified behavior.")
             line(" */")
-            line("$visibility fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage}")
+            line("$visibility fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage}")
 
             line()
             // TODO: add ReplaceWith
@@ -165,11 +160,11 @@ public open class CodeGenerator(
             }.line("}")
 
             // Nested enums and types
-            type.nestedTypes.forEach { writeType(it, true) }
+            type.nestedTypes.forEach { writeType(it) }
         }.line("}")
 
         line()
-        line("$visibility sealed interface ${mutableTypeName.simple} : ${type.kotlinName.fullWithPackage}, pbandk.MutableMessage {").indented {
+        line("$visibility sealed interface ${type.mutableTypeName.simple} : ${type.kotlinName.fullWithPackage}, pbandk.MutableMessage {").indented {
             type.fields.forEach { field ->
                 addDeprecatedAnnotation(field)
                 lineBegin("$visibility override ${field.mutablePropertyDeclaration} ${field.kotlinName}: ")
@@ -194,7 +189,7 @@ public open class CodeGenerator(
             line(" */")
             line("$visibility fun to${type.kotlinName.simple}(): ${type.kotlinName.fullWithPackage}")
 
-            line().line("$visibility override fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${mutableTypeName.fullWithPackage}")
+            line().line("$visibility override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.mutableTypeName.fullWithPackage}")
 
             // Companion object
             line().line("$visibility companion object : pbandk.Message.Companion<${type.kotlinName.fullWithPackage}> {").indented {
@@ -325,18 +320,19 @@ public open class CodeGenerator(
         }.line(")")
     }
 
-    protected fun writeMessageExtensions(type: File.Type.Message, nested: Boolean = false) {
+    protected fun writeMessageExtensions(type: File.Type.Message) {
         if (type.mapEntry) return
 
         writeMessageBuilder(type)
         writeMessageOrDefaultExtension(type)
-        writeMessageImpl(type, nested)
+        writeMessageImpl(type)
         writeMessageDecodeWithExtension(type)
-        type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it, true) }
+        type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
     }
 
     protected fun writeMessageBuilder(type: File.Type.Message) {
         val builderName = type.kotlinName.parent?.let { Name(Name(it, "Companion"), type.kotlinName.simple) } ?: type.kotlinName
+        val mutableBuilderName = builderName.copy(simple = "Mutable${builderName.simple}")
 
         // TODO: add ReplaceWith, e.g.:
         // @Deprecated(
@@ -366,43 +362,35 @@ public open class CodeGenerator(
             line("this.unknownFields += unknownFields")
         }.line("}")
 
-        val mutableTypeName = type.kotlinName.copy(simple = "Mutable${type.kotlinName.simple}")
-        val mutableBuilderName = builderName.copy(simple = "Mutable${builderName.simple}")
-        val mutableImplName = Name(
-            packageName = type.kotlinName.packageName,
-            simple = type.kotlinName.parent?.let { it.full.replace('.', '_') + '_' }
-                .orEmpty() + "Mutable${type.kotlinName.simple}_Impl"
-        )
-
-        line().line("$visibility fun ${mutableBuilderName.full}(): ${mutableTypeName.fullWithPackage} = ${mutableImplName.fullWithPackage}(").indented {
+        line().line("$visibility fun ${mutableBuilderName.full}(): ${type.mutableTypeName.fullWithPackage} = ${type.mutableImplName.fullWithPackage}(").indented {
             type.fields.forEach { field -> line("${field.kotlinName} = ${field.defaultValue(mutable = true, parentMessage = type)},") }
             line("unknownFields = mutableMapOf()")
         }.line(")")
 
         line()
         line("/**")
-        line(" * The [${mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
+        line(" * The [${type.mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
         line(" * Using it outside of the function produces an unspecified behavior.")
         line(" */")
-        line("$visibility fun ${builderName.full}(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} =").indented {
+        line("$visibility fun ${builderName.full}(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} =").indented {
             line("${mutableBuilderName.fullWithPackage}().also(builderAction).to${type.kotlinName.simple}()")
         }
 
         line()
-        line("$visibility fun ${mutableBuilderName.full}(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${mutableTypeName.fullWithPackage} =").indented {
+        line("$visibility fun ${mutableBuilderName.full}(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.mutableTypeName.fullWithPackage} =").indented {
             line("${mutableBuilderName.fullWithPackage}().also(builderAction)")
         }
 
         type.kotlinName.parent?.let { parent ->
             val mutableParentName = parent.copy(simple = "Mutable${parent.simple}")
-            val nestedBuilderName = Name(mutableParentName, type.kotlinName.simple)
+            val nestedBuilderName = Name(parent = mutableParentName, simple = type.kotlinName.simple)
             line()
             line("/**")
-            line(" * The [${mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
+            line(" * The [${type.mutableTypeName.simple}] passed as a receiver to the [builderAction] is valid only inside that function.")
             line(" * Using it outside of the function produces an unspecified behavior.")
             line(" */")
             lineBegin("$visibility fun ${nestedBuilderName.full}")
-            lineEnd("(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} =").indented {
+            lineEnd("(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} =").indented {
                 line("${type.kotlinName.fullWithPackage}(builderAction)")
             }
         }
@@ -421,7 +409,7 @@ public open class CodeGenerator(
         line("$visibility fun ${type.kotlinName.full}?.orDefault(): ${type.kotlinName.fullWithPackage} = this ?: ${type.kotlinName.fullWithPackage}.defaultInstance")
     }
 
-    protected fun writeMessageImpl(type: File.Type.Message, nested: Boolean) {
+    protected fun writeMessageImpl(type: File.Type.Message) {
         fun writeCopyMethod(isMutable: Boolean) {
             if (type.fields.filterIsInstance<File.Field.Numbered>().any { it.options.deprecated == true }) {
                 line("@Suppress(\"DEPRECATION\")")
@@ -500,7 +488,7 @@ public open class CodeGenerator(
             }
         }
 
-        fun writeMergeMethod(implName: String) {
+        fun writeMergeMethod() {
             lineBegin("override operator fun plus(other: pbandk.Message?) = ")
             lineEnd("(other as? ${type.kotlinName.fullWithPackage})?.let {").indented {
                 if (type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
@@ -523,15 +511,7 @@ public open class CodeGenerator(
             }.line("} ?: this")
         }
 
-        val mutableTypeName = type.kotlinName.copy(simple = "Mutable${type.kotlinName.simple}")
-        val implName = "${type.kotlinName.full.replace('.', '_')}_Impl"
-        val mutableImplName = if (nested) {
-            "${type.kotlinName.full.substringBeforeLast('.').replace('.', '_')}_Mutable${type.kotlinName.simple}_Impl"
-        } else {
-            "Mutable${type.kotlinName.simple}_Impl"
-        }
-
-        line().line("private class $implName(").indented {
+        line().line("private class ${type.implName.simple}(").indented {
             type.fields.forEach { field ->
                 lineBegin("override val ${field.kotlinName}: ")
                 when (field) {
@@ -601,26 +581,26 @@ public open class CodeGenerator(
             }.line("}")
             */
 
-            line().line("override fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit) =").indented {
-                line("to${mutableTypeName.simple}().apply(builderAction).to${type.kotlinName.simple}()")
+            line().line("override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit) =").indented {
+                line("to${type.mutableTypeName.simple}().apply(builderAction).to${type.kotlinName.simple}()")
             }
 
             line()
             writeCopyMethod(false)
 
             line()
-            writeMergeMethod(implName)
+            writeMergeMethod()
 
-            line().line("override fun to${mutableTypeName.simple}() = ${mutableTypeName.fullWithPackage} {").indented {
+            line().line("override fun to${type.mutableTypeName.simple}() = ${type.mutableTypeName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
                     if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                    line(field.builderSetter(valueQualifier = "this@$implName."))
+                    line(field.builderSetter(valueQualifier = "this@${type.implName.simple}."))
                 }
-                line("this.unknownFields += this@$implName.unknownFields")
+                line("this.unknownFields += this@${type.implName.simple}.unknownFields")
             }.line("}")
         }.line("}")
 
-        line().line("private class $mutableImplName(").indented {
+        line().line("private class ${type.mutableImplName.simple}(").indented {
             type.fields.forEach { field ->
                 lineBegin("override ${field.mutablePropertyDeclaration} ${field.kotlinName}: ")
                 when (field) {
@@ -633,7 +613,7 @@ public open class CodeGenerator(
             }
             // The unknown fields
             line("override val unknownFields: MutableMap<Int, pbandk.UnknownField>")
-        }.line(") : ${mutableTypeName.fullWithPackage}, pbandk.MutableGeneratedMessage<${mutableTypeName.fullWithPackage}>() {").indented {
+        }.line(") : ${type.mutableTypeName.fullWithPackage}, pbandk.MutableGeneratedMessage<${type.mutableTypeName.fullWithPackage}>() {").indented {
             line("override val descriptor get() = ${type.kotlinName.fullWithPackage}.descriptor")
 
             if (type.extensionRange.isNotEmpty()) {
@@ -656,17 +636,17 @@ public open class CodeGenerator(
                 }
             }
 
-            line().line("override fun copy(builderAction: ${mutableTypeName.fullWithPackage}.() -> Unit) =").indented {
-                line("to${mutableTypeName.simple}().apply(builderAction)")
+            line().line("override fun copy(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit) =").indented {
+                line("to${type.mutableTypeName.simple}().apply(builderAction)")
             }
 
             line()
             writeCopyMethod(true)
 
             line()
-            writeMergeMethod(mutableImplName)
+            writeMergeMethod()
 
-            line().line("override fun to${type.kotlinName.simple}() = $implName(").indented {
+            line().line("override fun to${type.kotlinName.simple}() = ${type.implName.full}(").indented {
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName} = ")
                     if (field is File.Field.Numbered && field.options.deprecated == true) {
@@ -682,12 +662,12 @@ public open class CodeGenerator(
                 line("unknownFields = unknownFields.toMap()")
             }.line(")")
 
-            line().line("override fun to${mutableTypeName.simple}() = ${mutableTypeName.fullWithPackage} {").indented {
+            line().line("override fun to${type.mutableTypeName.simple}() = ${type.mutableTypeName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
                     if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
-                    line(field.builderSetter("this@$mutableImplName."))
+                    line(field.builderSetter("this@${type.mutableImplName.simple}."))
                 }
-                line("this.unknownFields += this@$mutableImplName.unknownFields")
+                line("this.unknownFields += this@${type.mutableImplName.simple}.unknownFields")
             }.line("}")
         }.line("}")
     }
@@ -763,8 +743,7 @@ public open class CodeGenerator(
             } ?: lineEnd("_, _ -> }")
 
             // Wrap the params to the class and return it
-            val implName = "${type.kotlinName.full.replace('.', '_')}_Impl"
-            lineBegin("return ${implName}(")
+            lineBegin("return ${type.implName.full}(")
             val chunkedDoneFields = doneKotlinFields.chunked(4)
             chunkedDoneFields.forEachIndexed { index, doneFieldSet ->
                 val doneFieldStr = doneFieldSet.joinToString(", ", postfix = ",")
@@ -800,6 +779,22 @@ public open class CodeGenerator(
                 is File.Field.OneOf -> it.fields.map { f -> f to it }
             }
         }.sortedBy { it.first.number }
+
+    protected val File.Type.Message.mutableTypeName: Name get() = kotlinName.copy(simple = "Mutable${kotlinName.simple}")
+    protected val File.Type.Message.implName: Name get() {
+        val implParentPrefix = kotlinName.parent?.let { "${it.full.replace('.', '_')}_" }.orEmpty()
+        return Name(
+            packageName = kotlinName.packageName,
+            simple = "${implParentPrefix}${kotlinName.simple}_Impl"
+        )
+    }
+    protected val File.Type.Message.mutableImplName: Name get() {
+        val implParentPrefix = kotlinName.parent?.let { "${it.full.replace('.', '_')}_" }.orEmpty()
+        return Name(
+            packageName = kotlinName.packageName,
+            simple = "${implParentPrefix}Mutable${kotlinName.simple}_Impl"
+        )
+    }
 
     protected val File.Type.Message.mapEntryKeyField: File.Field.Numbered.Standard?
         get() = if (!mapEntry) null else (fields[0] as File.Field.Numbered.Standard)

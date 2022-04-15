@@ -20,6 +20,7 @@ public sealed class KnownRegex(override val value: Int, override val name: Strin
     }
 }
 
+@pbandk.Export
 public sealed interface FieldRules : pbandk.Message {
     public val message: pbandk.testpb.MessageRules?
     public val type: Type<*>?
@@ -390,6 +391,7 @@ public sealed interface MutableFieldRules : pbandk.testpb.FieldRules, pbandk.Mut
     }
 }
 
+@pbandk.Export
 public sealed interface FloatRules : pbandk.Message {
     public val const: Float?
     public val lt: Float?
@@ -536,6 +538,7 @@ public sealed interface MutableFloatRules : pbandk.testpb.FloatRules, pbandk.Mut
     }
 }
 
+@pbandk.Export
 public sealed interface DoubleRules : pbandk.Message {
     public val const: Double?
     public val lt: Double?
@@ -682,6 +685,7 @@ public sealed interface MutableDoubleRules : pbandk.testpb.DoubleRules, pbandk.M
     }
 }
 
+@pbandk.Export
 public sealed interface Int32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -828,6 +832,7 @@ public sealed interface MutableInt32Rules : pbandk.testpb.Int32Rules, pbandk.Mut
     }
 }
 
+@pbandk.Export
 public sealed interface Int64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -974,6 +979,7 @@ public sealed interface MutableInt64Rules : pbandk.testpb.Int64Rules, pbandk.Mut
     }
 }
 
+@pbandk.Export
 public sealed interface UInt32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1120,6 +1126,7 @@ public sealed interface MutableUInt32Rules : pbandk.testpb.UInt32Rules, pbandk.M
     }
 }
 
+@pbandk.Export
 public sealed interface UInt64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1266,6 +1273,7 @@ public sealed interface MutableUInt64Rules : pbandk.testpb.UInt64Rules, pbandk.M
     }
 }
 
+@pbandk.Export
 public sealed interface SInt32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1412,6 +1420,7 @@ public sealed interface MutableSInt32Rules : pbandk.testpb.SInt32Rules, pbandk.M
     }
 }
 
+@pbandk.Export
 public sealed interface SInt64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1558,6 +1567,7 @@ public sealed interface MutableSInt64Rules : pbandk.testpb.SInt64Rules, pbandk.M
     }
 }
 
+@pbandk.Export
 public sealed interface Fixed32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1704,6 +1714,7 @@ public sealed interface MutableFixed32Rules : pbandk.testpb.Fixed32Rules, pbandk
     }
 }
 
+@pbandk.Export
 public sealed interface Fixed64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1850,6 +1861,7 @@ public sealed interface MutableFixed64Rules : pbandk.testpb.Fixed64Rules, pbandk
     }
 }
 
+@pbandk.Export
 public sealed interface SFixed32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1996,6 +2008,7 @@ public sealed interface MutableSFixed32Rules : pbandk.testpb.SFixed32Rules, pban
     }
 }
 
+@pbandk.Export
 public sealed interface SFixed64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -2142,6 +2155,7 @@ public sealed interface MutableSFixed64Rules : pbandk.testpb.SFixed64Rules, pban
     }
 }
 
+@pbandk.Export
 public sealed interface BoolRules : pbandk.Message {
     public val const: Boolean?
 
@@ -2210,6 +2224,7 @@ public sealed interface MutableBoolRules : pbandk.testpb.BoolRules, pbandk.Mutab
     }
 }
 
+@pbandk.Export
 public sealed interface StringRules : pbandk.Message {
     public val const: String?
     public val len: Long?
@@ -2608,6 +2623,7 @@ public sealed interface MutableStringRules : pbandk.testpb.StringRules, pbandk.M
     }
 }
 
+@pbandk.Export
 public sealed interface BytesRules : pbandk.Message {
     public val const: pbandk.ByteArr?
     public val len: Long?
@@ -2843,6 +2859,7 @@ public sealed interface MutableBytesRules : pbandk.testpb.BytesRules, pbandk.Mut
     }
 }
 
+@pbandk.Export
 public sealed interface EnumRules : pbandk.Message {
     public val const: Int?
     public val definedOnly: Boolean?
@@ -2950,6 +2967,7 @@ public sealed interface MutableEnumRules : pbandk.testpb.EnumRules, pbandk.Mutab
     }
 }
 
+@pbandk.Export
 public sealed interface MessageRules : pbandk.Message {
     public val skip: Boolean?
     public val required: Boolean?
@@ -3031,6 +3049,7 @@ public sealed interface MutableMessageRules : pbandk.testpb.MessageRules, pbandk
     }
 }
 
+@pbandk.Export
 public sealed interface RepeatedRules : pbandk.Message {
     public val minItems: Long?
     public val maxItems: Long?
@@ -3138,6 +3157,7 @@ public sealed interface MutableRepeatedRules : pbandk.testpb.RepeatedRules, pban
     }
 }
 
+@pbandk.Export
 public sealed interface MapRules : pbandk.Message {
     public val minPairs: Long?
     public val maxPairs: Long?
@@ -3258,6 +3278,7 @@ public sealed interface MutableMapRules : pbandk.testpb.MapRules, pbandk.Mutable
     }
 }
 
+@pbandk.Export
 public sealed interface AnyRules : pbandk.Message {
     public val required: Boolean?
     public val `in`: List<String>
@@ -3352,6 +3373,7 @@ public sealed interface MutableAnyRules : pbandk.testpb.AnyRules, pbandk.Mutable
     }
 }
 
+@pbandk.Export
 public sealed interface DurationRules : pbandk.Message {
     public val required: Boolean?
     public val const: pbandk.wkt.Duration?
@@ -3511,6 +3533,7 @@ public sealed interface MutableDurationRules : pbandk.testpb.DurationRules, pban
     }
 }
 
+@pbandk.Export
 public sealed interface TimestampRules : pbandk.Message {
     public val required: Boolean?
     public val const: pbandk.wkt.Timestamp?

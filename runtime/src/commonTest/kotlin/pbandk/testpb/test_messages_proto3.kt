@@ -20,6 +20,7 @@ public sealed class ForeignEnum(override val value: Int, override val name: Stri
     }
 }
 
+@pbandk.Export
 public sealed interface TestAllTypesProto3 : pbandk.Message {
     public val optionalInt32: Int
     public val optionalInt64: Long
@@ -2148,6 +2149,7 @@ public sealed interface MutableTestAllTypesProto3 : pbandk.testpb.TestAllTypesPr
     }
 }
 
+@pbandk.Export
 public sealed interface ForeignMessage : pbandk.Message {
     public val c: Int
 

@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface DoubleValue : pbandk.Message {
     public val value: Double
 
@@ -70,6 +71,7 @@ public sealed interface MutableDoubleValue : pbandk.wkt.DoubleValue, pbandk.Muta
     }
 }
 
+@pbandk.Export
 public sealed interface FloatValue : pbandk.Message {
     public val value: Float
 
@@ -138,6 +140,7 @@ public sealed interface MutableFloatValue : pbandk.wkt.FloatValue, pbandk.Mutabl
     }
 }
 
+@pbandk.Export
 public sealed interface Int64Value : pbandk.Message {
     public val value: Long
 
@@ -206,6 +209,7 @@ public sealed interface MutableInt64Value : pbandk.wkt.Int64Value, pbandk.Mutabl
     }
 }
 
+@pbandk.Export
 public sealed interface UInt64Value : pbandk.Message {
     public val value: Long
 
@@ -274,6 +278,7 @@ public sealed interface MutableUInt64Value : pbandk.wkt.UInt64Value, pbandk.Muta
     }
 }
 
+@pbandk.Export
 public sealed interface Int32Value : pbandk.Message {
     public val value: Int
 
@@ -342,6 +347,7 @@ public sealed interface MutableInt32Value : pbandk.wkt.Int32Value, pbandk.Mutabl
     }
 }
 
+@pbandk.Export
 public sealed interface UInt32Value : pbandk.Message {
     public val value: Int
 
@@ -410,6 +416,7 @@ public sealed interface MutableUInt32Value : pbandk.wkt.UInt32Value, pbandk.Muta
     }
 }
 
+@pbandk.Export
 public sealed interface BoolValue : pbandk.Message {
     public val value: Boolean
 
@@ -478,6 +485,7 @@ public sealed interface MutableBoolValue : pbandk.wkt.BoolValue, pbandk.MutableM
     }
 }
 
+@pbandk.Export
 public sealed interface StringValue : pbandk.Message {
     public val value: String
 
@@ -546,6 +554,7 @@ public sealed interface MutableStringValue : pbandk.wkt.StringValue, pbandk.Muta
     }
 }
 
+@pbandk.Export
 public sealed interface BytesValue : pbandk.Message {
     public val value: pbandk.ByteArr
 

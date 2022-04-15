@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface Any : pbandk.Message {
     public val typeUrl: String
     public val value: pbandk.ByteArr

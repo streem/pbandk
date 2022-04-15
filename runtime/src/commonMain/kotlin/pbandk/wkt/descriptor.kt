@@ -2,6 +2,7 @@
 
 package pbandk.wkt
 
+@pbandk.Export
 public sealed interface FileDescriptorSet : pbandk.Message {
     public val file: List<pbandk.wkt.FileDescriptorProto>
 
@@ -70,6 +71,7 @@ public sealed interface MutableFileDescriptorSet : pbandk.wkt.FileDescriptorSet,
     }
 }
 
+@pbandk.Export
 public sealed interface FileDescriptorProto : pbandk.Message {
     public val name: String?
     public val `package`: String?
@@ -281,6 +283,7 @@ public sealed interface MutableFileDescriptorProto : pbandk.wkt.FileDescriptorPr
     }
 }
 
+@pbandk.Export
 public sealed interface DescriptorProto : pbandk.Message {
     public val name: String?
     public val field: List<pbandk.wkt.FieldDescriptorProto>
@@ -641,6 +644,7 @@ public sealed interface MutableDescriptorProto : pbandk.wkt.DescriptorProto, pba
     }
 }
 
+@pbandk.Export
 public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
@@ -709,6 +713,7 @@ public sealed interface MutableExtensionRangeOptions : pbandk.wkt.ExtensionRange
     }
 }
 
+@pbandk.Export
 public sealed interface FieldDescriptorProto : pbandk.Message {
     public val name: String?
     public val number: Int?
@@ -956,6 +961,7 @@ public sealed interface MutableFieldDescriptorProto : pbandk.wkt.FieldDescriptor
     }
 }
 
+@pbandk.Export
 public sealed interface OneofDescriptorProto : pbandk.Message {
     public val name: String?
     public val options: pbandk.wkt.OneofOptions?
@@ -1037,6 +1043,7 @@ public sealed interface MutableOneofDescriptorProto : pbandk.wkt.OneofDescriptor
     }
 }
 
+@pbandk.Export
 public sealed interface EnumDescriptorProto : pbandk.Message {
     public val name: String?
     public val value: List<pbandk.wkt.EnumValueDescriptorProto>
@@ -1238,6 +1245,7 @@ public sealed interface MutableEnumDescriptorProto : pbandk.wkt.EnumDescriptorPr
     }
 }
 
+@pbandk.Export
 public sealed interface EnumValueDescriptorProto : pbandk.Message {
     public val name: String?
     public val number: Int?
@@ -1332,6 +1340,7 @@ public sealed interface MutableEnumValueDescriptorProto : pbandk.wkt.EnumValueDe
     }
 }
 
+@pbandk.Export
 public sealed interface ServiceDescriptorProto : pbandk.Message {
     public val name: String?
     public val method: List<pbandk.wkt.MethodDescriptorProto>
@@ -1426,6 +1435,7 @@ public sealed interface MutableServiceDescriptorProto : pbandk.wkt.ServiceDescri
     }
 }
 
+@pbandk.Export
 public sealed interface MethodDescriptorProto : pbandk.Message {
     public val name: String?
     public val inputType: String?
@@ -1559,6 +1569,7 @@ public sealed interface MutableMethodDescriptorProto : pbandk.wkt.MethodDescript
     }
 }
 
+@pbandk.Export
 public sealed interface FileOptions : pbandk.ExtendableMessage {
     public val javaPackage: String?
     public val javaOuterClassname: String?
@@ -1910,6 +1921,7 @@ public sealed interface MutableFileOptions : pbandk.wkt.FileOptions, pbandk.Muta
     }
 }
 
+@pbandk.Export
 public sealed interface MessageOptions : pbandk.ExtendableMessage {
     public val messageSetWireFormat: Boolean?
     public val noStandardDescriptorAccessor: Boolean?
@@ -2030,6 +2042,7 @@ public sealed interface MutableMessageOptions : pbandk.wkt.MessageOptions, pband
     }
 }
 
+@pbandk.Export
 public sealed interface FieldOptions : pbandk.ExtendableMessage {
     public val ctype: pbandk.wkt.FieldOptions.CType?
     public val packed: Boolean?
@@ -2210,6 +2223,7 @@ public sealed interface MutableFieldOptions : pbandk.wkt.FieldOptions, pbandk.Mu
     }
 }
 
+@pbandk.Export
 public sealed interface OneofOptions : pbandk.ExtendableMessage {
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
@@ -2278,6 +2292,7 @@ public sealed interface MutableOneofOptions : pbandk.wkt.OneofOptions, pbandk.Mu
     }
 }
 
+@pbandk.Export
 public sealed interface EnumOptions : pbandk.ExtendableMessage {
     public val allowAlias: Boolean?
     public val deprecated: Boolean?
@@ -2372,6 +2387,7 @@ public sealed interface MutableEnumOptions : pbandk.wkt.EnumOptions, pbandk.Muta
     }
 }
 
+@pbandk.Export
 public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     public val deprecated: Boolean?
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
@@ -2453,6 +2469,7 @@ public sealed interface MutableEnumValueOptions : pbandk.wkt.EnumValueOptions, p
     }
 }
 
+@pbandk.Export
 public sealed interface ServiceOptions : pbandk.ExtendableMessage {
     public val deprecated: Boolean?
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
@@ -2534,6 +2551,7 @@ public sealed interface MutableServiceOptions : pbandk.wkt.ServiceOptions, pband
     }
 }
 
+@pbandk.Export
 public sealed interface MethodOptions : pbandk.ExtendableMessage {
     public val deprecated: Boolean?
     public val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?
@@ -2645,6 +2663,7 @@ public sealed interface MutableMethodOptions : pbandk.wkt.MethodOptions, pbandk.
     }
 }
 
+@pbandk.Export
 public sealed interface UninterpretedOption : pbandk.Message {
     public val name: List<pbandk.wkt.UninterpretedOption.NamePart>
     public val identifierValue: String?
@@ -2872,6 +2891,7 @@ public sealed interface MutableUninterpretedOption : pbandk.wkt.UninterpretedOpt
     }
 }
 
+@pbandk.Export
 public sealed interface SourceCodeInfo : pbandk.Message {
     public val location: List<pbandk.wkt.SourceCodeInfo.Location>
 
@@ -3060,6 +3080,7 @@ public sealed interface MutableSourceCodeInfo : pbandk.wkt.SourceCodeInfo, pband
     }
 }
 
+@pbandk.Export
 public sealed interface GeneratedCodeInfo : pbandk.Message {
     public val annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>
 

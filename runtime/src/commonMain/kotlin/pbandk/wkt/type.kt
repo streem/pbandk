@@ -19,6 +19,7 @@ public sealed class Syntax(override val value: Int, override val name: String? =
     }
 }
 
+@pbandk.Export
 public sealed interface Type : pbandk.Message {
     public val name: String
     public val fields: List<pbandk.wkt.Field>
@@ -152,6 +153,7 @@ public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface Field : pbandk.Message {
     public val kind: pbandk.wkt.Field.Kind
     public val cardinality: pbandk.wkt.Field.Cardinality
@@ -388,6 +390,7 @@ public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface Enum : pbandk.Message {
     public val name: String
     public val enumvalue: List<pbandk.wkt.EnumValue>
@@ -508,6 +511,7 @@ public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage {
     }
 }
 
+@pbandk.Export
 public sealed interface EnumValue : pbandk.Message {
     public val name: String
     public val number: Int
@@ -602,6 +606,7 @@ public sealed interface MutableEnumValue : pbandk.wkt.EnumValue, pbandk.MutableM
     }
 }
 
+@pbandk.Export
 public sealed interface Option : pbandk.Message {
     public val name: String
     public val value: pbandk.wkt.Any?
