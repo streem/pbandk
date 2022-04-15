@@ -4,7 +4,7 @@ package pbandk.testpb
 
 @pbandk.Export
 public sealed class KnownRegex(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is KnownRegex && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.KnownRegex && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "KnownRegex.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -13,10 +13,10 @@ public sealed class KnownRegex(override val value: Int, override val name: Strin
     public object HTTP_HEADER_VALUE : KnownRegex(2, "HTTP_HEADER_VALUE")
     public class UNRECOGNIZED(value: Int) : KnownRegex(value)
 
-    public companion object : pbandk.Message.Enum.Companion<KnownRegex> {
+    public companion object : pbandk.Message.Enum.Companion<pbandk.testpb.KnownRegex> {
         public val values: List<KnownRegex> by lazy { listOf(UNKNOWN, HTTP_HEADER_NAME, HTTP_HEADER_VALUE) }
-        override fun fromValue(value: Int): KnownRegex = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): KnownRegex = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
+        override fun fromValue(value: Int): pbandk.testpb.KnownRegex = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.testpb.KnownRegex = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No KnownRegex with name: $name")
     }
 }
 
@@ -30,13 +30,13 @@ public sealed interface FieldRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableFieldRules(): MutableFieldRules
+    public fun toMutableFieldRules(): pbandk.testpb.MutableFieldRules
 
     /**
      * The [MutableFieldRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableFieldRules.() -> Unit): FieldRules
+    public fun copy(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.FieldRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -351,7 +351,7 @@ public sealed interface FieldRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableFieldRules : FieldRules, pbandk.MutableMessage {
+public sealed interface MutableFieldRules : pbandk.testpb.FieldRules, pbandk.MutableMessage {
     public override var message: pbandk.testpb.MessageRules?
     public override var type: FieldRules.Type<*>?
 
@@ -380,9 +380,9 @@ public sealed interface MutableFieldRules : FieldRules, pbandk.MutableMessage {
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toFieldRules(): FieldRules
+    public fun toFieldRules(): pbandk.testpb.FieldRules
 
-    public override fun copy(builderAction: MutableFieldRules.() -> Unit): MutableFieldRules
+    public override fun copy(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.MutableFieldRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FieldRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules.decodeWithImpl(u)
@@ -406,13 +406,13 @@ public sealed interface FloatRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableFloatRules(): MutableFloatRules
+    public fun toMutableFloatRules(): pbandk.testpb.MutableFloatRules
 
     /**
      * The [MutableFloatRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableFloatRules.() -> Unit): FloatRules
+    public fun copy(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.FloatRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -515,21 +515,21 @@ public sealed interface FloatRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableFloatRules : FloatRules, pbandk.MutableMessage {
+public sealed interface MutableFloatRules : pbandk.testpb.FloatRules, pbandk.MutableMessage {
     public override var const: Float?
     public override var lt: Float?
     public override var lte: Float?
     public override var gt: Float?
     public override var gte: Float?
-    public override var `in`: List<Float>
-    public override var notIn: List<Float>
+    public override val `in`: MutableList<Float>
+    public override val notIn: MutableList<Float>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toFloatRules(): FloatRules
+    public fun toFloatRules(): pbandk.testpb.FloatRules
 
-    public override fun copy(builderAction: MutableFloatRules.() -> Unit): MutableFloatRules
+    public override fun copy(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.MutableFloatRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.FloatRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules.decodeWithImpl(u)
@@ -553,13 +553,13 @@ public sealed interface DoubleRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableDoubleRules(): MutableDoubleRules
+    public fun toMutableDoubleRules(): pbandk.testpb.MutableDoubleRules
 
     /**
      * The [MutableDoubleRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableDoubleRules.() -> Unit): DoubleRules
+    public fun copy(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.DoubleRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -662,21 +662,21 @@ public sealed interface DoubleRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableDoubleRules : DoubleRules, pbandk.MutableMessage {
+public sealed interface MutableDoubleRules : pbandk.testpb.DoubleRules, pbandk.MutableMessage {
     public override var const: Double?
     public override var lt: Double?
     public override var lte: Double?
     public override var gt: Double?
     public override var gte: Double?
-    public override var `in`: List<Double>
-    public override var notIn: List<Double>
+    public override val `in`: MutableList<Double>
+    public override val notIn: MutableList<Double>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toDoubleRules(): DoubleRules
+    public fun toDoubleRules(): pbandk.testpb.DoubleRules
 
-    public override fun copy(builderAction: MutableDoubleRules.() -> Unit): MutableDoubleRules
+    public override fun copy(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.MutableDoubleRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DoubleRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules.decodeWithImpl(u)
@@ -700,13 +700,13 @@ public sealed interface Int32Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableInt32Rules(): MutableInt32Rules
+    public fun toMutableInt32Rules(): pbandk.testpb.MutableInt32Rules
 
     /**
      * The [MutableInt32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableInt32Rules.() -> Unit): Int32Rules
+    public fun copy(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.Int32Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -809,21 +809,21 @@ public sealed interface Int32Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableInt32Rules : Int32Rules, pbandk.MutableMessage {
+public sealed interface MutableInt32Rules : pbandk.testpb.Int32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
     public override var lte: Int?
     public override var gt: Int?
     public override var gte: Int?
-    public override var `in`: List<Int>
-    public override var notIn: List<Int>
+    public override val `in`: MutableList<Int>
+    public override val notIn: MutableList<Int>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toInt32Rules(): Int32Rules
+    public fun toInt32Rules(): pbandk.testpb.Int32Rules
 
-    public override fun copy(builderAction: MutableInt32Rules.() -> Unit): MutableInt32Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.MutableInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int32Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules.decodeWithImpl(u)
@@ -847,13 +847,13 @@ public sealed interface Int64Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableInt64Rules(): MutableInt64Rules
+    public fun toMutableInt64Rules(): pbandk.testpb.MutableInt64Rules
 
     /**
      * The [MutableInt64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableInt64Rules.() -> Unit): Int64Rules
+    public fun copy(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.Int64Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -956,21 +956,21 @@ public sealed interface Int64Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableInt64Rules : Int64Rules, pbandk.MutableMessage {
+public sealed interface MutableInt64Rules : pbandk.testpb.Int64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
     public override var lte: Long?
     public override var gt: Long?
     public override var gte: Long?
-    public override var `in`: List<Long>
-    public override var notIn: List<Long>
+    public override val `in`: MutableList<Long>
+    public override val notIn: MutableList<Long>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toInt64Rules(): Int64Rules
+    public fun toInt64Rules(): pbandk.testpb.Int64Rules
 
-    public override fun copy(builderAction: MutableInt64Rules.() -> Unit): MutableInt64Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.MutableInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Int64Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules.decodeWithImpl(u)
@@ -994,13 +994,13 @@ public sealed interface UInt32Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableUInt32Rules(): MutableUInt32Rules
+    public fun toMutableUInt32Rules(): pbandk.testpb.MutableUInt32Rules
 
     /**
      * The [MutableUInt32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableUInt32Rules.() -> Unit): UInt32Rules
+    public fun copy(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.UInt32Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1103,21 +1103,21 @@ public sealed interface UInt32Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableUInt32Rules : UInt32Rules, pbandk.MutableMessage {
+public sealed interface MutableUInt32Rules : pbandk.testpb.UInt32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
     public override var lte: Int?
     public override var gt: Int?
     public override var gte: Int?
-    public override var `in`: List<Int>
-    public override var notIn: List<Int>
+    public override val `in`: MutableList<Int>
+    public override val notIn: MutableList<Int>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toUInt32Rules(): UInt32Rules
+    public fun toUInt32Rules(): pbandk.testpb.UInt32Rules
 
-    public override fun copy(builderAction: MutableUInt32Rules.() -> Unit): MutableUInt32Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.MutableUInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt32Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules.decodeWithImpl(u)
@@ -1141,13 +1141,13 @@ public sealed interface UInt64Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableUInt64Rules(): MutableUInt64Rules
+    public fun toMutableUInt64Rules(): pbandk.testpb.MutableUInt64Rules
 
     /**
      * The [MutableUInt64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableUInt64Rules.() -> Unit): UInt64Rules
+    public fun copy(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.UInt64Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1250,21 +1250,21 @@ public sealed interface UInt64Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableUInt64Rules : UInt64Rules, pbandk.MutableMessage {
+public sealed interface MutableUInt64Rules : pbandk.testpb.UInt64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
     public override var lte: Long?
     public override var gt: Long?
     public override var gte: Long?
-    public override var `in`: List<Long>
-    public override var notIn: List<Long>
+    public override val `in`: MutableList<Long>
+    public override val notIn: MutableList<Long>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toUInt64Rules(): UInt64Rules
+    public fun toUInt64Rules(): pbandk.testpb.UInt64Rules
 
-    public override fun copy(builderAction: MutableUInt64Rules.() -> Unit): MutableUInt64Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.MutableUInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.UInt64Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules.decodeWithImpl(u)
@@ -1288,13 +1288,13 @@ public sealed interface SInt32Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableSInt32Rules(): MutableSInt32Rules
+    public fun toMutableSInt32Rules(): pbandk.testpb.MutableSInt32Rules
 
     /**
      * The [MutableSInt32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableSInt32Rules.() -> Unit): SInt32Rules
+    public fun copy(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.SInt32Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1397,21 +1397,21 @@ public sealed interface SInt32Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableSInt32Rules : SInt32Rules, pbandk.MutableMessage {
+public sealed interface MutableSInt32Rules : pbandk.testpb.SInt32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
     public override var lte: Int?
     public override var gt: Int?
     public override var gte: Int?
-    public override var `in`: List<Int>
-    public override var notIn: List<Int>
+    public override val `in`: MutableList<Int>
+    public override val notIn: MutableList<Int>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toSInt32Rules(): SInt32Rules
+    public fun toSInt32Rules(): pbandk.testpb.SInt32Rules
 
-    public override fun copy(builderAction: MutableSInt32Rules.() -> Unit): MutableSInt32Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.MutableSInt32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt32Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules.decodeWithImpl(u)
@@ -1435,13 +1435,13 @@ public sealed interface SInt64Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableSInt64Rules(): MutableSInt64Rules
+    public fun toMutableSInt64Rules(): pbandk.testpb.MutableSInt64Rules
 
     /**
      * The [MutableSInt64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableSInt64Rules.() -> Unit): SInt64Rules
+    public fun copy(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.SInt64Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1544,21 +1544,21 @@ public sealed interface SInt64Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableSInt64Rules : SInt64Rules, pbandk.MutableMessage {
+public sealed interface MutableSInt64Rules : pbandk.testpb.SInt64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
     public override var lte: Long?
     public override var gt: Long?
     public override var gte: Long?
-    public override var `in`: List<Long>
-    public override var notIn: List<Long>
+    public override val `in`: MutableList<Long>
+    public override val notIn: MutableList<Long>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toSInt64Rules(): SInt64Rules
+    public fun toSInt64Rules(): pbandk.testpb.SInt64Rules
 
-    public override fun copy(builderAction: MutableSInt64Rules.() -> Unit): MutableSInt64Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.MutableSInt64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SInt64Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules.decodeWithImpl(u)
@@ -1582,13 +1582,13 @@ public sealed interface Fixed32Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableFixed32Rules(): MutableFixed32Rules
+    public fun toMutableFixed32Rules(): pbandk.testpb.MutableFixed32Rules
 
     /**
      * The [MutableFixed32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableFixed32Rules.() -> Unit): Fixed32Rules
+    public fun copy(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.Fixed32Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1691,21 +1691,21 @@ public sealed interface Fixed32Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableFixed32Rules : Fixed32Rules, pbandk.MutableMessage {
+public sealed interface MutableFixed32Rules : pbandk.testpb.Fixed32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
     public override var lte: Int?
     public override var gt: Int?
     public override var gte: Int?
-    public override var `in`: List<Int>
-    public override var notIn: List<Int>
+    public override val `in`: MutableList<Int>
+    public override val notIn: MutableList<Int>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toFixed32Rules(): Fixed32Rules
+    public fun toFixed32Rules(): pbandk.testpb.Fixed32Rules
 
-    public override fun copy(builderAction: MutableFixed32Rules.() -> Unit): MutableFixed32Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.MutableFixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed32Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules.decodeWithImpl(u)
@@ -1729,13 +1729,13 @@ public sealed interface Fixed64Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableFixed64Rules(): MutableFixed64Rules
+    public fun toMutableFixed64Rules(): pbandk.testpb.MutableFixed64Rules
 
     /**
      * The [MutableFixed64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableFixed64Rules.() -> Unit): Fixed64Rules
+    public fun copy(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.Fixed64Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1838,21 +1838,21 @@ public sealed interface Fixed64Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableFixed64Rules : Fixed64Rules, pbandk.MutableMessage {
+public sealed interface MutableFixed64Rules : pbandk.testpb.Fixed64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
     public override var lte: Long?
     public override var gt: Long?
     public override var gte: Long?
-    public override var `in`: List<Long>
-    public override var notIn: List<Long>
+    public override val `in`: MutableList<Long>
+    public override val notIn: MutableList<Long>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toFixed64Rules(): Fixed64Rules
+    public fun toFixed64Rules(): pbandk.testpb.Fixed64Rules
 
-    public override fun copy(builderAction: MutableFixed64Rules.() -> Unit): MutableFixed64Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.MutableFixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Fixed64Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules.decodeWithImpl(u)
@@ -1876,13 +1876,13 @@ public sealed interface SFixed32Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableSFixed32Rules(): MutableSFixed32Rules
+    public fun toMutableSFixed32Rules(): pbandk.testpb.MutableSFixed32Rules
 
     /**
      * The [MutableSFixed32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableSFixed32Rules.() -> Unit): SFixed32Rules
+    public fun copy(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.SFixed32Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -1985,21 +1985,21 @@ public sealed interface SFixed32Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableSFixed32Rules : SFixed32Rules, pbandk.MutableMessage {
+public sealed interface MutableSFixed32Rules : pbandk.testpb.SFixed32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
     public override var lte: Int?
     public override var gt: Int?
     public override var gte: Int?
-    public override var `in`: List<Int>
-    public override var notIn: List<Int>
+    public override val `in`: MutableList<Int>
+    public override val notIn: MutableList<Int>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toSFixed32Rules(): SFixed32Rules
+    public fun toSFixed32Rules(): pbandk.testpb.SFixed32Rules
 
-    public override fun copy(builderAction: MutableSFixed32Rules.() -> Unit): MutableSFixed32Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.MutableSFixed32Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed32Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules.decodeWithImpl(u)
@@ -2023,13 +2023,13 @@ public sealed interface SFixed64Rules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableSFixed64Rules(): MutableSFixed64Rules
+    public fun toMutableSFixed64Rules(): pbandk.testpb.MutableSFixed64Rules
 
     /**
      * The [MutableSFixed64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableSFixed64Rules.() -> Unit): SFixed64Rules
+    public fun copy(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.SFixed64Rules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -2132,21 +2132,21 @@ public sealed interface SFixed64Rules : pbandk.Message {
     }
 }
 
-public sealed interface MutableSFixed64Rules : SFixed64Rules, pbandk.MutableMessage {
+public sealed interface MutableSFixed64Rules : pbandk.testpb.SFixed64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
     public override var lte: Long?
     public override var gt: Long?
     public override var gte: Long?
-    public override var `in`: List<Long>
-    public override var notIn: List<Long>
+    public override val `in`: MutableList<Long>
+    public override val notIn: MutableList<Long>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toSFixed64Rules(): SFixed64Rules
+    public fun toSFixed64Rules(): pbandk.testpb.SFixed64Rules
 
-    public override fun copy(builderAction: MutableSFixed64Rules.() -> Unit): MutableSFixed64Rules
+    public override fun copy(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.MutableSFixed64Rules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.SFixed64Rules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules.decodeWithImpl(u)
@@ -2164,13 +2164,13 @@ public sealed interface BoolRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableBoolRules(): MutableBoolRules
+    public fun toMutableBoolRules(): pbandk.testpb.MutableBoolRules
 
     /**
      * The [MutableBoolRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableBoolRules.() -> Unit): BoolRules
+    public fun copy(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.BoolRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -2207,15 +2207,15 @@ public sealed interface BoolRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableBoolRules : BoolRules, pbandk.MutableMessage {
+public sealed interface MutableBoolRules : pbandk.testpb.BoolRules, pbandk.MutableMessage {
     public override var const: Boolean?
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toBoolRules(): BoolRules
+    public fun toBoolRules(): pbandk.testpb.BoolRules
 
-    public override fun copy(builderAction: MutableBoolRules.() -> Unit): MutableBoolRules
+    public override fun copy(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.MutableBoolRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BoolRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules.decodeWithImpl(u)
@@ -2248,13 +2248,13 @@ public sealed interface StringRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableStringRules(): MutableStringRules
+    public fun toMutableStringRules(): pbandk.testpb.MutableStringRules
 
     /**
      * The [MutableStringRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableStringRules.() -> Unit): StringRules
+    public fun copy(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.StringRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -2580,7 +2580,7 @@ public sealed interface StringRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableStringRules : StringRules, pbandk.MutableMessage {
+public sealed interface MutableStringRules : pbandk.testpb.StringRules, pbandk.MutableMessage {
     public override var const: String?
     public override var len: Long?
     public override var minLen: Long?
@@ -2593,8 +2593,8 @@ public sealed interface MutableStringRules : StringRules, pbandk.MutableMessage 
     public override var suffix: String?
     public override var contains: String?
     public override var notContains: String?
-    public override var `in`: List<String>
-    public override var notIn: List<String>
+    public override val `in`: MutableList<String>
+    public override val notIn: MutableList<String>
     public override var strict: Boolean?
     public override var wellKnown: StringRules.WellKnown<*>?
 
@@ -2612,9 +2612,9 @@ public sealed interface MutableStringRules : StringRules, pbandk.MutableMessage 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toStringRules(): StringRules
+    public fun toStringRules(): pbandk.testpb.StringRules
 
-    public override fun copy(builderAction: MutableStringRules.() -> Unit): MutableStringRules
+    public override fun copy(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.MutableStringRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.StringRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.StringRules = pbandk.testpb.StringRules.decodeWithImpl(u)
@@ -2642,13 +2642,13 @@ public sealed interface BytesRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableBytesRules(): MutableBytesRules
+    public fun toMutableBytesRules(): pbandk.testpb.MutableBytesRules
 
     /**
      * The [MutableBytesRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableBytesRules.() -> Unit): BytesRules
+    public fun copy(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.BytesRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -2828,7 +2828,7 @@ public sealed interface BytesRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableBytesRules : BytesRules, pbandk.MutableMessage {
+public sealed interface MutableBytesRules : pbandk.testpb.BytesRules, pbandk.MutableMessage {
     public override var const: pbandk.ByteArr?
     public override var len: Long?
     public override var minLen: Long?
@@ -2837,8 +2837,8 @@ public sealed interface MutableBytesRules : BytesRules, pbandk.MutableMessage {
     public override var prefix: pbandk.ByteArr?
     public override var suffix: pbandk.ByteArr?
     public override var contains: pbandk.ByteArr?
-    public override var `in`: List<pbandk.ByteArr>
-    public override var notIn: List<pbandk.ByteArr>
+    public override val `in`: MutableList<pbandk.ByteArr>
+    public override val notIn: MutableList<pbandk.ByteArr>
     public override var wellKnown: BytesRules.WellKnown<*>?
 
     public override var ip: Boolean?
@@ -2848,9 +2848,9 @@ public sealed interface MutableBytesRules : BytesRules, pbandk.MutableMessage {
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toBytesRules(): BytesRules
+    public fun toBytesRules(): pbandk.testpb.BytesRules
 
-    public override fun copy(builderAction: MutableBytesRules.() -> Unit): MutableBytesRules
+    public override fun copy(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.MutableBytesRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.BytesRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules.decodeWithImpl(u)
@@ -2871,13 +2871,13 @@ public sealed interface EnumRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableEnumRules(): MutableEnumRules
+    public fun toMutableEnumRules(): pbandk.testpb.MutableEnumRules
 
     /**
      * The [MutableEnumRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableEnumRules.() -> Unit): EnumRules
+    public fun copy(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.EnumRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -2947,18 +2947,18 @@ public sealed interface EnumRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableEnumRules : EnumRules, pbandk.MutableMessage {
+public sealed interface MutableEnumRules : pbandk.testpb.EnumRules, pbandk.MutableMessage {
     public override var const: Int?
     public override var definedOnly: Boolean?
-    public override var `in`: List<Int>
-    public override var notIn: List<Int>
+    public override val `in`: MutableList<Int>
+    public override val notIn: MutableList<Int>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toEnumRules(): EnumRules
+    public fun toEnumRules(): pbandk.testpb.EnumRules
 
-    public override fun copy(builderAction: MutableEnumRules.() -> Unit): MutableEnumRules
+    public override fun copy(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.MutableEnumRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.EnumRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules.decodeWithImpl(u)
@@ -2977,13 +2977,13 @@ public sealed interface MessageRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableMessageRules(): MutableMessageRules
+    public fun toMutableMessageRules(): pbandk.testpb.MutableMessageRules
 
     /**
      * The [MutableMessageRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableMessageRules.() -> Unit): MessageRules
+    public fun copy(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MessageRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -3031,16 +3031,16 @@ public sealed interface MessageRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableMessageRules : MessageRules, pbandk.MutableMessage {
+public sealed interface MutableMessageRules : pbandk.testpb.MessageRules, pbandk.MutableMessage {
     public override var skip: Boolean?
     public override var required: Boolean?
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toMessageRules(): MessageRules
+    public fun toMessageRules(): pbandk.testpb.MessageRules
 
-    public override fun copy(builderAction: MutableMessageRules.() -> Unit): MutableMessageRules
+    public override fun copy(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MutableMessageRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules.decodeWithImpl(u)
@@ -3061,13 +3061,13 @@ public sealed interface RepeatedRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableRepeatedRules(): MutableRepeatedRules
+    public fun toMutableRepeatedRules(): pbandk.testpb.MutableRepeatedRules
 
     /**
      * The [MutableRepeatedRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableRepeatedRules.() -> Unit): RepeatedRules
+    public fun copy(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.RepeatedRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -3137,7 +3137,7 @@ public sealed interface RepeatedRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableRepeatedRules : RepeatedRules, pbandk.MutableMessage {
+public sealed interface MutableRepeatedRules : pbandk.testpb.RepeatedRules, pbandk.MutableMessage {
     public override var minItems: Long?
     public override var maxItems: Long?
     public override var unique: Boolean?
@@ -3146,9 +3146,9 @@ public sealed interface MutableRepeatedRules : RepeatedRules, pbandk.MutableMess
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toRepeatedRules(): RepeatedRules
+    public fun toRepeatedRules(): pbandk.testpb.RepeatedRules
 
-    public override fun copy(builderAction: MutableRepeatedRules.() -> Unit): MutableRepeatedRules
+    public override fun copy(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.MutableRepeatedRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.RepeatedRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules.decodeWithImpl(u)
@@ -3170,13 +3170,13 @@ public sealed interface MapRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableMapRules(): MutableMapRules
+    public fun toMutableMapRules(): pbandk.testpb.MutableMapRules
 
     /**
      * The [MutableMapRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableMapRules.() -> Unit): MapRules
+    public fun copy(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MapRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -3257,7 +3257,7 @@ public sealed interface MapRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableMapRules : MapRules, pbandk.MutableMessage {
+public sealed interface MutableMapRules : pbandk.testpb.MapRules, pbandk.MutableMessage {
     public override var minPairs: Long?
     public override var maxPairs: Long?
     public override var noSparse: Boolean?
@@ -3267,9 +3267,9 @@ public sealed interface MutableMapRules : MapRules, pbandk.MutableMessage {
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toMapRules(): MapRules
+    public fun toMapRules(): pbandk.testpb.MapRules
 
-    public override fun copy(builderAction: MutableMapRules.() -> Unit): MutableMapRules
+    public override fun copy(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MutableMapRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MapRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MapRules = pbandk.testpb.MapRules.decodeWithImpl(u)
@@ -3289,13 +3289,13 @@ public sealed interface AnyRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableAnyRules(): MutableAnyRules
+    public fun toMutableAnyRules(): pbandk.testpb.MutableAnyRules
 
     /**
      * The [MutableAnyRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableAnyRules.() -> Unit): AnyRules
+    public fun copy(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.AnyRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -3354,17 +3354,17 @@ public sealed interface AnyRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableAnyRules : AnyRules, pbandk.MutableMessage {
+public sealed interface MutableAnyRules : pbandk.testpb.AnyRules, pbandk.MutableMessage {
     public override var required: Boolean?
-    public override var `in`: List<String>
-    public override var notIn: List<String>
+    public override val `in`: MutableList<String>
+    public override val notIn: MutableList<String>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toAnyRules(): AnyRules
+    public fun toAnyRules(): pbandk.testpb.AnyRules
 
-    public override fun copy(builderAction: MutableAnyRules.() -> Unit): MutableAnyRules
+    public override fun copy(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.MutableAnyRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.AnyRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules.decodeWithImpl(u)
@@ -3389,13 +3389,13 @@ public sealed interface DurationRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableDurationRules(): MutableDurationRules
+    public fun toMutableDurationRules(): pbandk.testpb.MutableDurationRules
 
     /**
      * The [MutableDurationRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableDurationRules.() -> Unit): DurationRules
+    public fun copy(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.DurationRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -3509,22 +3509,22 @@ public sealed interface DurationRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableDurationRules : DurationRules, pbandk.MutableMessage {
+public sealed interface MutableDurationRules : pbandk.testpb.DurationRules, pbandk.MutableMessage {
     public override var required: Boolean?
     public override var const: pbandk.wkt.Duration?
     public override var lt: pbandk.wkt.Duration?
     public override var lte: pbandk.wkt.Duration?
     public override var gt: pbandk.wkt.Duration?
     public override var gte: pbandk.wkt.Duration?
-    public override var `in`: List<pbandk.wkt.Duration>
-    public override var notIn: List<pbandk.wkt.Duration>
+    public override val `in`: MutableList<pbandk.wkt.Duration>
+    public override val notIn: MutableList<pbandk.wkt.Duration>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toDurationRules(): DurationRules
+    public fun toDurationRules(): pbandk.testpb.DurationRules
 
-    public override fun copy(builderAction: MutableDurationRules.() -> Unit): MutableDurationRules
+    public override fun copy(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.MutableDurationRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.DurationRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules.decodeWithImpl(u)
@@ -3550,13 +3550,13 @@ public sealed interface TimestampRules : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableTimestampRules(): MutableTimestampRules
+    public fun toMutableTimestampRules(): pbandk.testpb.MutableTimestampRules
 
     /**
      * The [MutableTimestampRules] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableTimestampRules.() -> Unit): TimestampRules
+    public fun copy(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.TimestampRules
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -3681,7 +3681,7 @@ public sealed interface TimestampRules : pbandk.Message {
     }
 }
 
-public sealed interface MutableTimestampRules : TimestampRules, pbandk.MutableMessage {
+public sealed interface MutableTimestampRules : pbandk.testpb.TimestampRules, pbandk.MutableMessage {
     public override var required: Boolean?
     public override var const: pbandk.wkt.Timestamp?
     public override var lt: pbandk.wkt.Timestamp?
@@ -3695,9 +3695,9 @@ public sealed interface MutableTimestampRules : TimestampRules, pbandk.MutableMe
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toTimestampRules(): TimestampRules
+    public fun toTimestampRules(): pbandk.testpb.TimestampRules
 
-    public override fun copy(builderAction: MutableTimestampRules.() -> Unit): MutableTimestampRules
+    public override fun copy(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.MutableTimestampRules
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.TimestampRules> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules.decodeWithImpl(u)
@@ -3750,13 +3750,13 @@ public fun FieldRules(
     message: pbandk.testpb.MessageRules? = null,
     type: pbandk.testpb.FieldRules.Type<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.FieldRules = FieldRules {
+): pbandk.testpb.FieldRules = pbandk.testpb.FieldRules {
     this.message = message
     this.type = type
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableFieldRules(): MutableFieldRules = MutableFieldRules_Impl(
+public fun MutableFieldRules(): pbandk.testpb.MutableFieldRules = pbandk.testpb.MutableFieldRules_Impl(
     message = null,
     type = null,
     unknownFields = mutableMapOf()
@@ -3766,22 +3766,22 @@ public fun MutableFieldRules(): MutableFieldRules = MutableFieldRules_Impl(
  * The [MutableFieldRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FieldRules(builderAction: MutableFieldRules.() -> Unit): FieldRules =
-    MutableFieldRules().also(builderAction).toFieldRules()
+public fun FieldRules(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.FieldRules =
+    pbandk.testpb.MutableFieldRules().also(builderAction).toFieldRules()
 
-public fun MutableFieldRules(builderAction: MutableFieldRules.() -> Unit): MutableFieldRules =
-    MutableFieldRules().also(builderAction)
+public fun MutableFieldRules(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.MutableFieldRules =
+    pbandk.testpb.MutableFieldRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldRules")
-public fun FieldRules?.orDefault(): pbandk.testpb.FieldRules = this ?: FieldRules.defaultInstance
+public fun FieldRules?.orDefault(): pbandk.testpb.FieldRules = this ?: pbandk.testpb.FieldRules.defaultInstance
 
 private class FieldRules_Impl(
     override val message: pbandk.testpb.MessageRules?,
     override val type: pbandk.testpb.FieldRules.Type<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : FieldRules, pbandk.GeneratedMessage<FieldRules>() {
-    override val descriptor get() = FieldRules.descriptor
+) : pbandk.testpb.FieldRules, pbandk.GeneratedMessage<pbandk.testpb.FieldRules>() {
+    override val descriptor get() = pbandk.testpb.FieldRules.descriptor
 
     override val float: pbandk.testpb.FloatRules?
         get() = (type as? pbandk.testpb.FieldRules.Type.Float_)?.value
@@ -3826,7 +3826,7 @@ private class FieldRules_Impl(
     override val timestamp: pbandk.testpb.TimestampRules?
         get() = (type as? pbandk.testpb.FieldRules.Type.Timestamp)?.value
 
-    override fun copy(builderAction: MutableFieldRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit) =
         toMutableFieldRules().apply(builderAction).toFieldRules()
 
     @Deprecated("Use copy {} instead")
@@ -3837,10 +3837,10 @@ private class FieldRules_Impl(
     ) = copy {
         this.message = message
         this.type = type
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? FieldRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FieldRules)?.let {
         it.copy(
             message = message?.plus(other.message) ?: other.message,
             type = when {
@@ -3903,9 +3903,9 @@ private class FieldRules_Impl(
 private class MutableFieldRules_Impl(
     override var message: pbandk.testpb.MessageRules?,
     override var type: pbandk.testpb.FieldRules.Type<*>?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableFieldRules, pbandk.MutableGeneratedMessage<MutableFieldRules>() {
-    override val descriptor get() = FieldRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableFieldRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFieldRules>() {
+    override val descriptor get() = pbandk.testpb.FieldRules.descriptor
 
     override var float: pbandk.testpb.FloatRules?
         get() = (type as? pbandk.testpb.FieldRules.Type.Float_)?.value
@@ -3971,7 +3971,7 @@ private class MutableFieldRules_Impl(
         get() = (type as? pbandk.testpb.FieldRules.Type.Timestamp)?.value
         set(value) { type = value?.let { pbandk.testpb.FieldRules.Type.Timestamp(it) } }
 
-    override fun copy(builderAction: MutableFieldRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit) =
         toMutableFieldRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -3982,10 +3982,10 @@ private class MutableFieldRules_Impl(
     ) = copy {
         this.message = message
         this.type = type
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toFieldRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? FieldRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FieldRules)?.let {
         it.copy(
             message = message?.plus(other.message) ?: other.message,
             type = when {
@@ -4052,7 +4052,7 @@ private class MutableFieldRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldRules {
+private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.FieldRules {
     var message: pbandk.testpb.MessageRules? = null
     var type: FieldRules.Type<*>? = null
 
@@ -4095,25 +4095,25 @@ public fun FloatRules(
     `in`: List<Float> = emptyList(),
     notIn: List<Float> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.FloatRules = FloatRules {
+): pbandk.testpb.FloatRules = pbandk.testpb.FloatRules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableFloatRules(): MutableFloatRules = MutableFloatRules_Impl(
+public fun MutableFloatRules(): pbandk.testpb.MutableFloatRules = pbandk.testpb.MutableFloatRules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -4121,15 +4121,15 @@ public fun MutableFloatRules(): MutableFloatRules = MutableFloatRules_Impl(
  * The [MutableFloatRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FloatRules(builderAction: MutableFloatRules.() -> Unit): FloatRules =
-    MutableFloatRules().also(builderAction).toFloatRules()
+public fun FloatRules(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.FloatRules =
+    pbandk.testpb.MutableFloatRules().also(builderAction).toFloatRules()
 
-public fun MutableFloatRules(builderAction: MutableFloatRules.() -> Unit): MutableFloatRules =
-    MutableFloatRules().also(builderAction)
+public fun MutableFloatRules(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.MutableFloatRules =
+    pbandk.testpb.MutableFloatRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFloatRules")
-public fun FloatRules?.orDefault(): pbandk.testpb.FloatRules = this ?: FloatRules.defaultInstance
+public fun FloatRules?.orDefault(): pbandk.testpb.FloatRules = this ?: pbandk.testpb.FloatRules.defaultInstance
 
 private class FloatRules_Impl(
     override val const: Float?,
@@ -4140,10 +4140,10 @@ private class FloatRules_Impl(
     override val `in`: List<Float>,
     override val notIn: List<Float>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : FloatRules, pbandk.GeneratedMessage<FloatRules>() {
-    override val descriptor get() = FloatRules.descriptor
+) : pbandk.testpb.FloatRules, pbandk.GeneratedMessage<pbandk.testpb.FloatRules>() {
+    override val descriptor get() = pbandk.testpb.FloatRules.descriptor
 
-    override fun copy(builderAction: MutableFloatRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit) =
         toMutableFloatRules().apply(builderAction).toFloatRules()
 
     @Deprecated("Use copy {} instead")
@@ -4162,12 +4162,12 @@ private class FloatRules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? FloatRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FloatRules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4186,8 +4186,8 @@ private class FloatRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -4198,13 +4198,13 @@ private class MutableFloatRules_Impl(
     override var lte: Float?,
     override var gt: Float?,
     override var gte: Float?,
-    override var `in`: List<Float>,
-    override var notIn: List<Float>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableFloatRules, pbandk.MutableGeneratedMessage<MutableFloatRules>() {
-    override val descriptor get() = FloatRules.descriptor
+    override val `in`: MutableList<Float>,
+    override val notIn: MutableList<Float>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableFloatRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFloatRules>() {
+    override val descriptor get() = pbandk.testpb.FloatRules.descriptor
 
-    override fun copy(builderAction: MutableFloatRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit) =
         toMutableFloatRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -4223,12 +4223,12 @@ private class MutableFloatRules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toFloatRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? FloatRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FloatRules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4247,8 +4247,8 @@ private class MutableFloatRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -4258,14 +4258,14 @@ private class MutableFloatRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FloatRules {
+private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.FloatRules {
     var const: Float? = null
     var lt: Float? = null
     var lte: Float? = null
@@ -4299,25 +4299,25 @@ public fun DoubleRules(
     `in`: List<Double> = emptyList(),
     notIn: List<Double> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.DoubleRules = DoubleRules {
+): pbandk.testpb.DoubleRules = pbandk.testpb.DoubleRules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableDoubleRules(): MutableDoubleRules = MutableDoubleRules_Impl(
+public fun MutableDoubleRules(): pbandk.testpb.MutableDoubleRules = pbandk.testpb.MutableDoubleRules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -4325,15 +4325,15 @@ public fun MutableDoubleRules(): MutableDoubleRules = MutableDoubleRules_Impl(
  * The [MutableDoubleRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun DoubleRules(builderAction: MutableDoubleRules.() -> Unit): DoubleRules =
-    MutableDoubleRules().also(builderAction).toDoubleRules()
+public fun DoubleRules(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.DoubleRules =
+    pbandk.testpb.MutableDoubleRules().also(builderAction).toDoubleRules()
 
-public fun MutableDoubleRules(builderAction: MutableDoubleRules.() -> Unit): MutableDoubleRules =
-    MutableDoubleRules().also(builderAction)
+public fun MutableDoubleRules(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.MutableDoubleRules =
+    pbandk.testpb.MutableDoubleRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDoubleRules")
-public fun DoubleRules?.orDefault(): pbandk.testpb.DoubleRules = this ?: DoubleRules.defaultInstance
+public fun DoubleRules?.orDefault(): pbandk.testpb.DoubleRules = this ?: pbandk.testpb.DoubleRules.defaultInstance
 
 private class DoubleRules_Impl(
     override val const: Double?,
@@ -4344,10 +4344,10 @@ private class DoubleRules_Impl(
     override val `in`: List<Double>,
     override val notIn: List<Double>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : DoubleRules, pbandk.GeneratedMessage<DoubleRules>() {
-    override val descriptor get() = DoubleRules.descriptor
+) : pbandk.testpb.DoubleRules, pbandk.GeneratedMessage<pbandk.testpb.DoubleRules>() {
+    override val descriptor get() = pbandk.testpb.DoubleRules.descriptor
 
-    override fun copy(builderAction: MutableDoubleRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit) =
         toMutableDoubleRules().apply(builderAction).toDoubleRules()
 
     @Deprecated("Use copy {} instead")
@@ -4366,12 +4366,12 @@ private class DoubleRules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? DoubleRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DoubleRules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4390,8 +4390,8 @@ private class DoubleRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -4402,13 +4402,13 @@ private class MutableDoubleRules_Impl(
     override var lte: Double?,
     override var gt: Double?,
     override var gte: Double?,
-    override var `in`: List<Double>,
-    override var notIn: List<Double>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableDoubleRules, pbandk.MutableGeneratedMessage<MutableDoubleRules>() {
-    override val descriptor get() = DoubleRules.descriptor
+    override val `in`: MutableList<Double>,
+    override val notIn: MutableList<Double>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableDoubleRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableDoubleRules>() {
+    override val descriptor get() = pbandk.testpb.DoubleRules.descriptor
 
-    override fun copy(builderAction: MutableDoubleRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit) =
         toMutableDoubleRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -4427,12 +4427,12 @@ private class MutableDoubleRules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toDoubleRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? DoubleRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DoubleRules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4451,8 +4451,8 @@ private class MutableDoubleRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -4462,14 +4462,14 @@ private class MutableDoubleRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DoubleRules {
+private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.DoubleRules {
     var const: Double? = null
     var lt: Double? = null
     var lte: Double? = null
@@ -4503,25 +4503,25 @@ public fun Int32Rules(
     `in`: List<Int> = emptyList(),
     notIn: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.Int32Rules = Int32Rules {
+): pbandk.testpb.Int32Rules = pbandk.testpb.Int32Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableInt32Rules(): MutableInt32Rules = MutableInt32Rules_Impl(
+public fun MutableInt32Rules(): pbandk.testpb.MutableInt32Rules = pbandk.testpb.MutableInt32Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -4529,15 +4529,15 @@ public fun MutableInt32Rules(): MutableInt32Rules = MutableInt32Rules_Impl(
  * The [MutableInt32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Int32Rules(builderAction: MutableInt32Rules.() -> Unit): Int32Rules =
-    MutableInt32Rules().also(builderAction).toInt32Rules()
+public fun Int32Rules(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.Int32Rules =
+    pbandk.testpb.MutableInt32Rules().also(builderAction).toInt32Rules()
 
-public fun MutableInt32Rules(builderAction: MutableInt32Rules.() -> Unit): MutableInt32Rules =
-    MutableInt32Rules().also(builderAction)
+public fun MutableInt32Rules(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.MutableInt32Rules =
+    pbandk.testpb.MutableInt32Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt32Rules")
-public fun Int32Rules?.orDefault(): pbandk.testpb.Int32Rules = this ?: Int32Rules.defaultInstance
+public fun Int32Rules?.orDefault(): pbandk.testpb.Int32Rules = this ?: pbandk.testpb.Int32Rules.defaultInstance
 
 private class Int32Rules_Impl(
     override val const: Int?,
@@ -4548,10 +4548,10 @@ private class Int32Rules_Impl(
     override val `in`: List<Int>,
     override val notIn: List<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Int32Rules, pbandk.GeneratedMessage<Int32Rules>() {
-    override val descriptor get() = Int32Rules.descriptor
+) : pbandk.testpb.Int32Rules, pbandk.GeneratedMessage<pbandk.testpb.Int32Rules>() {
+    override val descriptor get() = pbandk.testpb.Int32Rules.descriptor
 
-    override fun copy(builderAction: MutableInt32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit) =
         toMutableInt32Rules().apply(builderAction).toInt32Rules()
 
     @Deprecated("Use copy {} instead")
@@ -4570,12 +4570,12 @@ private class Int32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Int32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4594,8 +4594,8 @@ private class Int32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -4606,13 +4606,13 @@ private class MutableInt32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override var `in`: List<Int>,
-    override var notIn: List<Int>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableInt32Rules, pbandk.MutableGeneratedMessage<MutableInt32Rules>() {
-    override val descriptor get() = Int32Rules.descriptor
+    override val `in`: MutableList<Int>,
+    override val notIn: MutableList<Int>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableInt32Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableInt32Rules>() {
+    override val descriptor get() = pbandk.testpb.Int32Rules.descriptor
 
-    override fun copy(builderAction: MutableInt32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit) =
         toMutableInt32Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -4631,12 +4631,12 @@ private class MutableInt32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toInt32Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Int32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4655,8 +4655,8 @@ private class MutableInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -4666,14 +4666,14 @@ private class MutableInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32Rules {
+private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Int32Rules {
     var const: Int? = null
     var lt: Int? = null
     var lte: Int? = null
@@ -4707,25 +4707,25 @@ public fun Int64Rules(
     `in`: List<Long> = emptyList(),
     notIn: List<Long> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.Int64Rules = Int64Rules {
+): pbandk.testpb.Int64Rules = pbandk.testpb.Int64Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableInt64Rules(): MutableInt64Rules = MutableInt64Rules_Impl(
+public fun MutableInt64Rules(): pbandk.testpb.MutableInt64Rules = pbandk.testpb.MutableInt64Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -4733,15 +4733,15 @@ public fun MutableInt64Rules(): MutableInt64Rules = MutableInt64Rules_Impl(
  * The [MutableInt64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Int64Rules(builderAction: MutableInt64Rules.() -> Unit): Int64Rules =
-    MutableInt64Rules().also(builderAction).toInt64Rules()
+public fun Int64Rules(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.Int64Rules =
+    pbandk.testpb.MutableInt64Rules().also(builderAction).toInt64Rules()
 
-public fun MutableInt64Rules(builderAction: MutableInt64Rules.() -> Unit): MutableInt64Rules =
-    MutableInt64Rules().also(builderAction)
+public fun MutableInt64Rules(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.MutableInt64Rules =
+    pbandk.testpb.MutableInt64Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForInt64Rules")
-public fun Int64Rules?.orDefault(): pbandk.testpb.Int64Rules = this ?: Int64Rules.defaultInstance
+public fun Int64Rules?.orDefault(): pbandk.testpb.Int64Rules = this ?: pbandk.testpb.Int64Rules.defaultInstance
 
 private class Int64Rules_Impl(
     override val const: Long?,
@@ -4752,10 +4752,10 @@ private class Int64Rules_Impl(
     override val `in`: List<Long>,
     override val notIn: List<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Int64Rules, pbandk.GeneratedMessage<Int64Rules>() {
-    override val descriptor get() = Int64Rules.descriptor
+) : pbandk.testpb.Int64Rules, pbandk.GeneratedMessage<pbandk.testpb.Int64Rules>() {
+    override val descriptor get() = pbandk.testpb.Int64Rules.descriptor
 
-    override fun copy(builderAction: MutableInt64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit) =
         toMutableInt64Rules().apply(builderAction).toInt64Rules()
 
     @Deprecated("Use copy {} instead")
@@ -4774,12 +4774,12 @@ private class Int64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Int64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4798,8 +4798,8 @@ private class Int64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -4810,13 +4810,13 @@ private class MutableInt64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override var `in`: List<Long>,
-    override var notIn: List<Long>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableInt64Rules, pbandk.MutableGeneratedMessage<MutableInt64Rules>() {
-    override val descriptor get() = Int64Rules.descriptor
+    override val `in`: MutableList<Long>,
+    override val notIn: MutableList<Long>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableInt64Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableInt64Rules>() {
+    override val descriptor get() = pbandk.testpb.Int64Rules.descriptor
 
-    override fun copy(builderAction: MutableInt64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit) =
         toMutableInt64Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -4835,12 +4835,12 @@ private class MutableInt64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toInt64Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Int64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -4859,8 +4859,8 @@ private class MutableInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -4870,14 +4870,14 @@ private class MutableInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64Rules {
+private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Int64Rules {
     var const: Long? = null
     var lt: Long? = null
     var lte: Long? = null
@@ -4911,25 +4911,25 @@ public fun UInt32Rules(
     `in`: List<Int> = emptyList(),
     notIn: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.UInt32Rules = UInt32Rules {
+): pbandk.testpb.UInt32Rules = pbandk.testpb.UInt32Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableUInt32Rules(): MutableUInt32Rules = MutableUInt32Rules_Impl(
+public fun MutableUInt32Rules(): pbandk.testpb.MutableUInt32Rules = pbandk.testpb.MutableUInt32Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -4937,15 +4937,15 @@ public fun MutableUInt32Rules(): MutableUInt32Rules = MutableUInt32Rules_Impl(
  * The [MutableUInt32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun UInt32Rules(builderAction: MutableUInt32Rules.() -> Unit): UInt32Rules =
-    MutableUInt32Rules().also(builderAction).toUInt32Rules()
+public fun UInt32Rules(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.UInt32Rules =
+    pbandk.testpb.MutableUInt32Rules().also(builderAction).toUInt32Rules()
 
-public fun MutableUInt32Rules(builderAction: MutableUInt32Rules.() -> Unit): MutableUInt32Rules =
-    MutableUInt32Rules().also(builderAction)
+public fun MutableUInt32Rules(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.MutableUInt32Rules =
+    pbandk.testpb.MutableUInt32Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt32Rules")
-public fun UInt32Rules?.orDefault(): pbandk.testpb.UInt32Rules = this ?: UInt32Rules.defaultInstance
+public fun UInt32Rules?.orDefault(): pbandk.testpb.UInt32Rules = this ?: pbandk.testpb.UInt32Rules.defaultInstance
 
 private class UInt32Rules_Impl(
     override val const: Int?,
@@ -4956,10 +4956,10 @@ private class UInt32Rules_Impl(
     override val `in`: List<Int>,
     override val notIn: List<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : UInt32Rules, pbandk.GeneratedMessage<UInt32Rules>() {
-    override val descriptor get() = UInt32Rules.descriptor
+) : pbandk.testpb.UInt32Rules, pbandk.GeneratedMessage<pbandk.testpb.UInt32Rules>() {
+    override val descriptor get() = pbandk.testpb.UInt32Rules.descriptor
 
-    override fun copy(builderAction: MutableUInt32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit) =
         toMutableUInt32Rules().apply(builderAction).toUInt32Rules()
 
     @Deprecated("Use copy {} instead")
@@ -4978,12 +4978,12 @@ private class UInt32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? UInt32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5002,8 +5002,8 @@ private class UInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -5014,13 +5014,13 @@ private class MutableUInt32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override var `in`: List<Int>,
-    override var notIn: List<Int>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableUInt32Rules, pbandk.MutableGeneratedMessage<MutableUInt32Rules>() {
-    override val descriptor get() = UInt32Rules.descriptor
+    override val `in`: MutableList<Int>,
+    override val notIn: MutableList<Int>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableUInt32Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableUInt32Rules>() {
+    override val descriptor get() = pbandk.testpb.UInt32Rules.descriptor
 
-    override fun copy(builderAction: MutableUInt32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit) =
         toMutableUInt32Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -5039,12 +5039,12 @@ private class MutableUInt32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toUInt32Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? UInt32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5063,8 +5063,8 @@ private class MutableUInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -5074,14 +5074,14 @@ private class MutableUInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt32Rules {
+private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.UInt32Rules {
     var const: Int? = null
     var lt: Int? = null
     var lte: Int? = null
@@ -5115,25 +5115,25 @@ public fun UInt64Rules(
     `in`: List<Long> = emptyList(),
     notIn: List<Long> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.UInt64Rules = UInt64Rules {
+): pbandk.testpb.UInt64Rules = pbandk.testpb.UInt64Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableUInt64Rules(): MutableUInt64Rules = MutableUInt64Rules_Impl(
+public fun MutableUInt64Rules(): pbandk.testpb.MutableUInt64Rules = pbandk.testpb.MutableUInt64Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -5141,15 +5141,15 @@ public fun MutableUInt64Rules(): MutableUInt64Rules = MutableUInt64Rules_Impl(
  * The [MutableUInt64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun UInt64Rules(builderAction: MutableUInt64Rules.() -> Unit): UInt64Rules =
-    MutableUInt64Rules().also(builderAction).toUInt64Rules()
+public fun UInt64Rules(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.UInt64Rules =
+    pbandk.testpb.MutableUInt64Rules().also(builderAction).toUInt64Rules()
 
-public fun MutableUInt64Rules(builderAction: MutableUInt64Rules.() -> Unit): MutableUInt64Rules =
-    MutableUInt64Rules().also(builderAction)
+public fun MutableUInt64Rules(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.MutableUInt64Rules =
+    pbandk.testpb.MutableUInt64Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForUInt64Rules")
-public fun UInt64Rules?.orDefault(): pbandk.testpb.UInt64Rules = this ?: UInt64Rules.defaultInstance
+public fun UInt64Rules?.orDefault(): pbandk.testpb.UInt64Rules = this ?: pbandk.testpb.UInt64Rules.defaultInstance
 
 private class UInt64Rules_Impl(
     override val const: Long?,
@@ -5160,10 +5160,10 @@ private class UInt64Rules_Impl(
     override val `in`: List<Long>,
     override val notIn: List<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : UInt64Rules, pbandk.GeneratedMessage<UInt64Rules>() {
-    override val descriptor get() = UInt64Rules.descriptor
+) : pbandk.testpb.UInt64Rules, pbandk.GeneratedMessage<pbandk.testpb.UInt64Rules>() {
+    override val descriptor get() = pbandk.testpb.UInt64Rules.descriptor
 
-    override fun copy(builderAction: MutableUInt64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit) =
         toMutableUInt64Rules().apply(builderAction).toUInt64Rules()
 
     @Deprecated("Use copy {} instead")
@@ -5182,12 +5182,12 @@ private class UInt64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? UInt64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5206,8 +5206,8 @@ private class UInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -5218,13 +5218,13 @@ private class MutableUInt64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override var `in`: List<Long>,
-    override var notIn: List<Long>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableUInt64Rules, pbandk.MutableGeneratedMessage<MutableUInt64Rules>() {
-    override val descriptor get() = UInt64Rules.descriptor
+    override val `in`: MutableList<Long>,
+    override val notIn: MutableList<Long>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableUInt64Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableUInt64Rules>() {
+    override val descriptor get() = pbandk.testpb.UInt64Rules.descriptor
 
-    override fun copy(builderAction: MutableUInt64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit) =
         toMutableUInt64Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -5243,12 +5243,12 @@ private class MutableUInt64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toUInt64Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? UInt64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5267,8 +5267,8 @@ private class MutableUInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -5278,14 +5278,14 @@ private class MutableUInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt64Rules {
+private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.UInt64Rules {
     var const: Long? = null
     var lt: Long? = null
     var lte: Long? = null
@@ -5319,25 +5319,25 @@ public fun SInt32Rules(
     `in`: List<Int> = emptyList(),
     notIn: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.SInt32Rules = SInt32Rules {
+): pbandk.testpb.SInt32Rules = pbandk.testpb.SInt32Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableSInt32Rules(): MutableSInt32Rules = MutableSInt32Rules_Impl(
+public fun MutableSInt32Rules(): pbandk.testpb.MutableSInt32Rules = pbandk.testpb.MutableSInt32Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -5345,15 +5345,15 @@ public fun MutableSInt32Rules(): MutableSInt32Rules = MutableSInt32Rules_Impl(
  * The [MutableSInt32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SInt32Rules(builderAction: MutableSInt32Rules.() -> Unit): SInt32Rules =
-    MutableSInt32Rules().also(builderAction).toSInt32Rules()
+public fun SInt32Rules(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.SInt32Rules =
+    pbandk.testpb.MutableSInt32Rules().also(builderAction).toSInt32Rules()
 
-public fun MutableSInt32Rules(builderAction: MutableSInt32Rules.() -> Unit): MutableSInt32Rules =
-    MutableSInt32Rules().also(builderAction)
+public fun MutableSInt32Rules(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.MutableSInt32Rules =
+    pbandk.testpb.MutableSInt32Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSInt32Rules")
-public fun SInt32Rules?.orDefault(): pbandk.testpb.SInt32Rules = this ?: SInt32Rules.defaultInstance
+public fun SInt32Rules?.orDefault(): pbandk.testpb.SInt32Rules = this ?: pbandk.testpb.SInt32Rules.defaultInstance
 
 private class SInt32Rules_Impl(
     override val const: Int?,
@@ -5364,10 +5364,10 @@ private class SInt32Rules_Impl(
     override val `in`: List<Int>,
     override val notIn: List<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : SInt32Rules, pbandk.GeneratedMessage<SInt32Rules>() {
-    override val descriptor get() = SInt32Rules.descriptor
+) : pbandk.testpb.SInt32Rules, pbandk.GeneratedMessage<pbandk.testpb.SInt32Rules>() {
+    override val descriptor get() = pbandk.testpb.SInt32Rules.descriptor
 
-    override fun copy(builderAction: MutableSInt32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit) =
         toMutableSInt32Rules().apply(builderAction).toSInt32Rules()
 
     @Deprecated("Use copy {} instead")
@@ -5386,12 +5386,12 @@ private class SInt32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SInt32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5410,8 +5410,8 @@ private class SInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -5422,13 +5422,13 @@ private class MutableSInt32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override var `in`: List<Int>,
-    override var notIn: List<Int>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableSInt32Rules, pbandk.MutableGeneratedMessage<MutableSInt32Rules>() {
-    override val descriptor get() = SInt32Rules.descriptor
+    override val `in`: MutableList<Int>,
+    override val notIn: MutableList<Int>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableSInt32Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableSInt32Rules>() {
+    override val descriptor get() = pbandk.testpb.SInt32Rules.descriptor
 
-    override fun copy(builderAction: MutableSInt32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit) =
         toMutableSInt32Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -5447,12 +5447,12 @@ private class MutableSInt32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toSInt32Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SInt32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5471,8 +5471,8 @@ private class MutableSInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -5482,14 +5482,14 @@ private class MutableSInt32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt32Rules {
+private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.SInt32Rules {
     var const: Int? = null
     var lt: Int? = null
     var lte: Int? = null
@@ -5523,25 +5523,25 @@ public fun SInt64Rules(
     `in`: List<Long> = emptyList(),
     notIn: List<Long> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.SInt64Rules = SInt64Rules {
+): pbandk.testpb.SInt64Rules = pbandk.testpb.SInt64Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableSInt64Rules(): MutableSInt64Rules = MutableSInt64Rules_Impl(
+public fun MutableSInt64Rules(): pbandk.testpb.MutableSInt64Rules = pbandk.testpb.MutableSInt64Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -5549,15 +5549,15 @@ public fun MutableSInt64Rules(): MutableSInt64Rules = MutableSInt64Rules_Impl(
  * The [MutableSInt64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SInt64Rules(builderAction: MutableSInt64Rules.() -> Unit): SInt64Rules =
-    MutableSInt64Rules().also(builderAction).toSInt64Rules()
+public fun SInt64Rules(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.SInt64Rules =
+    pbandk.testpb.MutableSInt64Rules().also(builderAction).toSInt64Rules()
 
-public fun MutableSInt64Rules(builderAction: MutableSInt64Rules.() -> Unit): MutableSInt64Rules =
-    MutableSInt64Rules().also(builderAction)
+public fun MutableSInt64Rules(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.MutableSInt64Rules =
+    pbandk.testpb.MutableSInt64Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSInt64Rules")
-public fun SInt64Rules?.orDefault(): pbandk.testpb.SInt64Rules = this ?: SInt64Rules.defaultInstance
+public fun SInt64Rules?.orDefault(): pbandk.testpb.SInt64Rules = this ?: pbandk.testpb.SInt64Rules.defaultInstance
 
 private class SInt64Rules_Impl(
     override val const: Long?,
@@ -5568,10 +5568,10 @@ private class SInt64Rules_Impl(
     override val `in`: List<Long>,
     override val notIn: List<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : SInt64Rules, pbandk.GeneratedMessage<SInt64Rules>() {
-    override val descriptor get() = SInt64Rules.descriptor
+) : pbandk.testpb.SInt64Rules, pbandk.GeneratedMessage<pbandk.testpb.SInt64Rules>() {
+    override val descriptor get() = pbandk.testpb.SInt64Rules.descriptor
 
-    override fun copy(builderAction: MutableSInt64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit) =
         toMutableSInt64Rules().apply(builderAction).toSInt64Rules()
 
     @Deprecated("Use copy {} instead")
@@ -5590,12 +5590,12 @@ private class SInt64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SInt64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5614,8 +5614,8 @@ private class SInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -5626,13 +5626,13 @@ private class MutableSInt64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override var `in`: List<Long>,
-    override var notIn: List<Long>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableSInt64Rules, pbandk.MutableGeneratedMessage<MutableSInt64Rules>() {
-    override val descriptor get() = SInt64Rules.descriptor
+    override val `in`: MutableList<Long>,
+    override val notIn: MutableList<Long>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableSInt64Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableSInt64Rules>() {
+    override val descriptor get() = pbandk.testpb.SInt64Rules.descriptor
 
-    override fun copy(builderAction: MutableSInt64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit) =
         toMutableSInt64Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -5651,12 +5651,12 @@ private class MutableSInt64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toSInt64Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SInt64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5675,8 +5675,8 @@ private class MutableSInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -5686,14 +5686,14 @@ private class MutableSInt64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt64Rules {
+private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.SInt64Rules {
     var const: Long? = null
     var lt: Long? = null
     var lte: Long? = null
@@ -5727,25 +5727,25 @@ public fun Fixed32Rules(
     `in`: List<Int> = emptyList(),
     notIn: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.Fixed32Rules = Fixed32Rules {
+): pbandk.testpb.Fixed32Rules = pbandk.testpb.Fixed32Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableFixed32Rules(): MutableFixed32Rules = MutableFixed32Rules_Impl(
+public fun MutableFixed32Rules(): pbandk.testpb.MutableFixed32Rules = pbandk.testpb.MutableFixed32Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -5753,15 +5753,15 @@ public fun MutableFixed32Rules(): MutableFixed32Rules = MutableFixed32Rules_Impl
  * The [MutableFixed32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Fixed32Rules(builderAction: MutableFixed32Rules.() -> Unit): Fixed32Rules =
-    MutableFixed32Rules().also(builderAction).toFixed32Rules()
+public fun Fixed32Rules(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.Fixed32Rules =
+    pbandk.testpb.MutableFixed32Rules().also(builderAction).toFixed32Rules()
 
-public fun MutableFixed32Rules(builderAction: MutableFixed32Rules.() -> Unit): MutableFixed32Rules =
-    MutableFixed32Rules().also(builderAction)
+public fun MutableFixed32Rules(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.MutableFixed32Rules =
+    pbandk.testpb.MutableFixed32Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFixed32Rules")
-public fun Fixed32Rules?.orDefault(): pbandk.testpb.Fixed32Rules = this ?: Fixed32Rules.defaultInstance
+public fun Fixed32Rules?.orDefault(): pbandk.testpb.Fixed32Rules = this ?: pbandk.testpb.Fixed32Rules.defaultInstance
 
 private class Fixed32Rules_Impl(
     override val const: Int?,
@@ -5772,10 +5772,10 @@ private class Fixed32Rules_Impl(
     override val `in`: List<Int>,
     override val notIn: List<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Fixed32Rules, pbandk.GeneratedMessage<Fixed32Rules>() {
-    override val descriptor get() = Fixed32Rules.descriptor
+) : pbandk.testpb.Fixed32Rules, pbandk.GeneratedMessage<pbandk.testpb.Fixed32Rules>() {
+    override val descriptor get() = pbandk.testpb.Fixed32Rules.descriptor
 
-    override fun copy(builderAction: MutableFixed32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit) =
         toMutableFixed32Rules().apply(builderAction).toFixed32Rules()
 
     @Deprecated("Use copy {} instead")
@@ -5794,12 +5794,12 @@ private class Fixed32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Fixed32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5818,8 +5818,8 @@ private class Fixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -5830,13 +5830,13 @@ private class MutableFixed32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override var `in`: List<Int>,
-    override var notIn: List<Int>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableFixed32Rules, pbandk.MutableGeneratedMessage<MutableFixed32Rules>() {
-    override val descriptor get() = Fixed32Rules.descriptor
+    override val `in`: MutableList<Int>,
+    override val notIn: MutableList<Int>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableFixed32Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFixed32Rules>() {
+    override val descriptor get() = pbandk.testpb.Fixed32Rules.descriptor
 
-    override fun copy(builderAction: MutableFixed32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit) =
         toMutableFixed32Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -5855,12 +5855,12 @@ private class MutableFixed32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toFixed32Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Fixed32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -5879,8 +5879,8 @@ private class MutableFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -5890,14 +5890,14 @@ private class MutableFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fixed32Rules {
+private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Fixed32Rules {
     var const: Int? = null
     var lt: Int? = null
     var lte: Int? = null
@@ -5931,25 +5931,25 @@ public fun Fixed64Rules(
     `in`: List<Long> = emptyList(),
     notIn: List<Long> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.Fixed64Rules = Fixed64Rules {
+): pbandk.testpb.Fixed64Rules = pbandk.testpb.Fixed64Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableFixed64Rules(): MutableFixed64Rules = MutableFixed64Rules_Impl(
+public fun MutableFixed64Rules(): pbandk.testpb.MutableFixed64Rules = pbandk.testpb.MutableFixed64Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -5957,15 +5957,15 @@ public fun MutableFixed64Rules(): MutableFixed64Rules = MutableFixed64Rules_Impl
  * The [MutableFixed64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Fixed64Rules(builderAction: MutableFixed64Rules.() -> Unit): Fixed64Rules =
-    MutableFixed64Rules().also(builderAction).toFixed64Rules()
+public fun Fixed64Rules(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.Fixed64Rules =
+    pbandk.testpb.MutableFixed64Rules().also(builderAction).toFixed64Rules()
 
-public fun MutableFixed64Rules(builderAction: MutableFixed64Rules.() -> Unit): MutableFixed64Rules =
-    MutableFixed64Rules().also(builderAction)
+public fun MutableFixed64Rules(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.MutableFixed64Rules =
+    pbandk.testpb.MutableFixed64Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFixed64Rules")
-public fun Fixed64Rules?.orDefault(): pbandk.testpb.Fixed64Rules = this ?: Fixed64Rules.defaultInstance
+public fun Fixed64Rules?.orDefault(): pbandk.testpb.Fixed64Rules = this ?: pbandk.testpb.Fixed64Rules.defaultInstance
 
 private class Fixed64Rules_Impl(
     override val const: Long?,
@@ -5976,10 +5976,10 @@ private class Fixed64Rules_Impl(
     override val `in`: List<Long>,
     override val notIn: List<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Fixed64Rules, pbandk.GeneratedMessage<Fixed64Rules>() {
-    override val descriptor get() = Fixed64Rules.descriptor
+) : pbandk.testpb.Fixed64Rules, pbandk.GeneratedMessage<pbandk.testpb.Fixed64Rules>() {
+    override val descriptor get() = pbandk.testpb.Fixed64Rules.descriptor
 
-    override fun copy(builderAction: MutableFixed64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit) =
         toMutableFixed64Rules().apply(builderAction).toFixed64Rules()
 
     @Deprecated("Use copy {} instead")
@@ -5998,12 +5998,12 @@ private class Fixed64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Fixed64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -6022,8 +6022,8 @@ private class Fixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -6034,13 +6034,13 @@ private class MutableFixed64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override var `in`: List<Long>,
-    override var notIn: List<Long>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableFixed64Rules, pbandk.MutableGeneratedMessage<MutableFixed64Rules>() {
-    override val descriptor get() = Fixed64Rules.descriptor
+    override val `in`: MutableList<Long>,
+    override val notIn: MutableList<Long>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableFixed64Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableFixed64Rules>() {
+    override val descriptor get() = pbandk.testpb.Fixed64Rules.descriptor
 
-    override fun copy(builderAction: MutableFixed64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit) =
         toMutableFixed64Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -6059,12 +6059,12 @@ private class MutableFixed64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toFixed64Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Fixed64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -6083,8 +6083,8 @@ private class MutableFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -6094,14 +6094,14 @@ private class MutableFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fixed64Rules {
+private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Fixed64Rules {
     var const: Long? = null
     var lt: Long? = null
     var lte: Long? = null
@@ -6135,25 +6135,25 @@ public fun SFixed32Rules(
     `in`: List<Int> = emptyList(),
     notIn: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.SFixed32Rules = SFixed32Rules {
+): pbandk.testpb.SFixed32Rules = pbandk.testpb.SFixed32Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableSFixed32Rules(): MutableSFixed32Rules = MutableSFixed32Rules_Impl(
+public fun MutableSFixed32Rules(): pbandk.testpb.MutableSFixed32Rules = pbandk.testpb.MutableSFixed32Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -6161,15 +6161,15 @@ public fun MutableSFixed32Rules(): MutableSFixed32Rules = MutableSFixed32Rules_I
  * The [MutableSFixed32Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SFixed32Rules(builderAction: MutableSFixed32Rules.() -> Unit): SFixed32Rules =
-    MutableSFixed32Rules().also(builderAction).toSFixed32Rules()
+public fun SFixed32Rules(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.SFixed32Rules =
+    pbandk.testpb.MutableSFixed32Rules().also(builderAction).toSFixed32Rules()
 
-public fun MutableSFixed32Rules(builderAction: MutableSFixed32Rules.() -> Unit): MutableSFixed32Rules =
-    MutableSFixed32Rules().also(builderAction)
+public fun MutableSFixed32Rules(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.MutableSFixed32Rules =
+    pbandk.testpb.MutableSFixed32Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSFixed32Rules")
-public fun SFixed32Rules?.orDefault(): pbandk.testpb.SFixed32Rules = this ?: SFixed32Rules.defaultInstance
+public fun SFixed32Rules?.orDefault(): pbandk.testpb.SFixed32Rules = this ?: pbandk.testpb.SFixed32Rules.defaultInstance
 
 private class SFixed32Rules_Impl(
     override val const: Int?,
@@ -6180,10 +6180,10 @@ private class SFixed32Rules_Impl(
     override val `in`: List<Int>,
     override val notIn: List<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : SFixed32Rules, pbandk.GeneratedMessage<SFixed32Rules>() {
-    override val descriptor get() = SFixed32Rules.descriptor
+) : pbandk.testpb.SFixed32Rules, pbandk.GeneratedMessage<pbandk.testpb.SFixed32Rules>() {
+    override val descriptor get() = pbandk.testpb.SFixed32Rules.descriptor
 
-    override fun copy(builderAction: MutableSFixed32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit) =
         toMutableSFixed32Rules().apply(builderAction).toSFixed32Rules()
 
     @Deprecated("Use copy {} instead")
@@ -6202,12 +6202,12 @@ private class SFixed32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SFixed32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -6226,8 +6226,8 @@ private class SFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -6238,13 +6238,13 @@ private class MutableSFixed32Rules_Impl(
     override var lte: Int?,
     override var gt: Int?,
     override var gte: Int?,
-    override var `in`: List<Int>,
-    override var notIn: List<Int>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableSFixed32Rules, pbandk.MutableGeneratedMessage<MutableSFixed32Rules>() {
-    override val descriptor get() = SFixed32Rules.descriptor
+    override val `in`: MutableList<Int>,
+    override val notIn: MutableList<Int>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableSFixed32Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableSFixed32Rules>() {
+    override val descriptor get() = pbandk.testpb.SFixed32Rules.descriptor
 
-    override fun copy(builderAction: MutableSFixed32Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit) =
         toMutableSFixed32Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -6263,12 +6263,12 @@ private class MutableSFixed32Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toSFixed32Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SFixed32Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed32Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -6287,8 +6287,8 @@ private class MutableSFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -6298,14 +6298,14 @@ private class MutableSFixed32Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SFixed32Rules {
+private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.SFixed32Rules {
     var const: Int? = null
     var lt: Int? = null
     var lte: Int? = null
@@ -6339,25 +6339,25 @@ public fun SFixed64Rules(
     `in`: List<Long> = emptyList(),
     notIn: List<Long> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.SFixed64Rules = SFixed64Rules {
+): pbandk.testpb.SFixed64Rules = pbandk.testpb.SFixed64Rules {
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableSFixed64Rules(): MutableSFixed64Rules = MutableSFixed64Rules_Impl(
+public fun MutableSFixed64Rules(): pbandk.testpb.MutableSFixed64Rules = pbandk.testpb.MutableSFixed64Rules_Impl(
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -6365,15 +6365,15 @@ public fun MutableSFixed64Rules(): MutableSFixed64Rules = MutableSFixed64Rules_I
  * The [MutableSFixed64Rules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun SFixed64Rules(builderAction: MutableSFixed64Rules.() -> Unit): SFixed64Rules =
-    MutableSFixed64Rules().also(builderAction).toSFixed64Rules()
+public fun SFixed64Rules(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.SFixed64Rules =
+    pbandk.testpb.MutableSFixed64Rules().also(builderAction).toSFixed64Rules()
 
-public fun MutableSFixed64Rules(builderAction: MutableSFixed64Rules.() -> Unit): MutableSFixed64Rules =
-    MutableSFixed64Rules().also(builderAction)
+public fun MutableSFixed64Rules(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.MutableSFixed64Rules =
+    pbandk.testpb.MutableSFixed64Rules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForSFixed64Rules")
-public fun SFixed64Rules?.orDefault(): pbandk.testpb.SFixed64Rules = this ?: SFixed64Rules.defaultInstance
+public fun SFixed64Rules?.orDefault(): pbandk.testpb.SFixed64Rules = this ?: pbandk.testpb.SFixed64Rules.defaultInstance
 
 private class SFixed64Rules_Impl(
     override val const: Long?,
@@ -6384,10 +6384,10 @@ private class SFixed64Rules_Impl(
     override val `in`: List<Long>,
     override val notIn: List<Long>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : SFixed64Rules, pbandk.GeneratedMessage<SFixed64Rules>() {
-    override val descriptor get() = SFixed64Rules.descriptor
+) : pbandk.testpb.SFixed64Rules, pbandk.GeneratedMessage<pbandk.testpb.SFixed64Rules>() {
+    override val descriptor get() = pbandk.testpb.SFixed64Rules.descriptor
 
-    override fun copy(builderAction: MutableSFixed64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit) =
         toMutableSFixed64Rules().apply(builderAction).toSFixed64Rules()
 
     @Deprecated("Use copy {} instead")
@@ -6406,12 +6406,12 @@ private class SFixed64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SFixed64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -6430,8 +6430,8 @@ private class SFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -6442,13 +6442,13 @@ private class MutableSFixed64Rules_Impl(
     override var lte: Long?,
     override var gt: Long?,
     override var gte: Long?,
-    override var `in`: List<Long>,
-    override var notIn: List<Long>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableSFixed64Rules, pbandk.MutableGeneratedMessage<MutableSFixed64Rules>() {
-    override val descriptor get() = SFixed64Rules.descriptor
+    override val `in`: MutableList<Long>,
+    override val notIn: MutableList<Long>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableSFixed64Rules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableSFixed64Rules>() {
+    override val descriptor get() = pbandk.testpb.SFixed64Rules.descriptor
 
-    override fun copy(builderAction: MutableSFixed64Rules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit) =
         toMutableSFixed64Rules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -6467,12 +6467,12 @@ private class MutableSFixed64Rules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toSFixed64Rules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? SFixed64Rules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed64Rules)?.let {
         it.copy(
             const = other.const ?: const,
             lt = other.lt ?: lt,
@@ -6491,8 +6491,8 @@ private class MutableSFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -6502,14 +6502,14 @@ private class MutableSFixed64Rules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SFixed64Rules {
+private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.SFixed64Rules {
     var const: Long? = null
     var lt: Long? = null
     var lte: Long? = null
@@ -6537,12 +6537,12 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
 public fun BoolRules(
     const: Boolean? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.BoolRules = BoolRules {
+): pbandk.testpb.BoolRules = pbandk.testpb.BoolRules {
     this.const = const
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableBoolRules(): MutableBoolRules = MutableBoolRules_Impl(
+public fun MutableBoolRules(): pbandk.testpb.MutableBoolRules = pbandk.testpb.MutableBoolRules_Impl(
     const = null,
     unknownFields = mutableMapOf()
 )
@@ -6551,23 +6551,23 @@ public fun MutableBoolRules(): MutableBoolRules = MutableBoolRules_Impl(
  * The [MutableBoolRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun BoolRules(builderAction: MutableBoolRules.() -> Unit): BoolRules =
-    MutableBoolRules().also(builderAction).toBoolRules()
+public fun BoolRules(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.BoolRules =
+    pbandk.testpb.MutableBoolRules().also(builderAction).toBoolRules()
 
-public fun MutableBoolRules(builderAction: MutableBoolRules.() -> Unit): MutableBoolRules =
-    MutableBoolRules().also(builderAction)
+public fun MutableBoolRules(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.MutableBoolRules =
+    pbandk.testpb.MutableBoolRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBoolRules")
-public fun BoolRules?.orDefault(): pbandk.testpb.BoolRules = this ?: BoolRules.defaultInstance
+public fun BoolRules?.orDefault(): pbandk.testpb.BoolRules = this ?: pbandk.testpb.BoolRules.defaultInstance
 
 private class BoolRules_Impl(
     override val const: Boolean?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : BoolRules, pbandk.GeneratedMessage<BoolRules>() {
-    override val descriptor get() = BoolRules.descriptor
+) : pbandk.testpb.BoolRules, pbandk.GeneratedMessage<pbandk.testpb.BoolRules>() {
+    override val descriptor get() = pbandk.testpb.BoolRules.descriptor
 
-    override fun copy(builderAction: MutableBoolRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit) =
         toMutableBoolRules().apply(builderAction).toBoolRules()
 
     @Deprecated("Use copy {} instead")
@@ -6576,10 +6576,10 @@ private class BoolRules_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.const = const
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? BoolRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BoolRules)?.let {
         it.copy(
             const = other.const ?: const,
             unknownFields = unknownFields + other.unknownFields
@@ -6594,11 +6594,11 @@ private class BoolRules_Impl(
 
 private class MutableBoolRules_Impl(
     override var const: Boolean?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableBoolRules, pbandk.MutableGeneratedMessage<MutableBoolRules>() {
-    override val descriptor get() = BoolRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableBoolRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableBoolRules>() {
+    override val descriptor get() = pbandk.testpb.BoolRules.descriptor
 
-    override fun copy(builderAction: MutableBoolRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit) =
         toMutableBoolRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -6607,10 +6607,10 @@ private class MutableBoolRules_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.const = const
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toBoolRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? BoolRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BoolRules)?.let {
         it.copy(
             const = other.const ?: const,
             unknownFields = unknownFields + other.unknownFields
@@ -6629,7 +6629,7 @@ private class MutableBoolRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRules {
+private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.BoolRules {
     var const: Boolean? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->
@@ -6659,7 +6659,7 @@ public fun StringRules(
     strict: Boolean? = null,
     wellKnown: pbandk.testpb.StringRules.WellKnown<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.StringRules = StringRules {
+): pbandk.testpb.StringRules = pbandk.testpb.StringRules {
     this.const = const
     this.len = len
     this.minLen = minLen
@@ -6672,14 +6672,14 @@ public fun StringRules(
     this.suffix = suffix
     this.contains = contains
     this.notContains = notContains
-    this.`in` = `in`
-    this.notIn = notIn
+    this.`in` += `in`
+    this.notIn += notIn
     this.strict = strict
     this.wellKnown = wellKnown
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableStringRules(): MutableStringRules = MutableStringRules_Impl(
+public fun MutableStringRules(): pbandk.testpb.MutableStringRules = pbandk.testpb.MutableStringRules_Impl(
     const = null,
     len = null,
     minLen = null,
@@ -6692,8 +6692,8 @@ public fun MutableStringRules(): MutableStringRules = MutableStringRules_Impl(
     suffix = null,
     contains = null,
     notContains = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     strict = null,
     wellKnown = null,
     unknownFields = mutableMapOf()
@@ -6703,15 +6703,15 @@ public fun MutableStringRules(): MutableStringRules = MutableStringRules_Impl(
  * The [MutableStringRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun StringRules(builderAction: MutableStringRules.() -> Unit): StringRules =
-    MutableStringRules().also(builderAction).toStringRules()
+public fun StringRules(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.StringRules =
+    pbandk.testpb.MutableStringRules().also(builderAction).toStringRules()
 
-public fun MutableStringRules(builderAction: MutableStringRules.() -> Unit): MutableStringRules =
-    MutableStringRules().also(builderAction)
+public fun MutableStringRules(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.MutableStringRules =
+    pbandk.testpb.MutableStringRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForStringRules")
-public fun StringRules?.orDefault(): pbandk.testpb.StringRules = this ?: StringRules.defaultInstance
+public fun StringRules?.orDefault(): pbandk.testpb.StringRules = this ?: pbandk.testpb.StringRules.defaultInstance
 
 private class StringRules_Impl(
     override val const: String?,
@@ -6731,8 +6731,8 @@ private class StringRules_Impl(
     override val strict: Boolean?,
     override val wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : StringRules, pbandk.GeneratedMessage<StringRules>() {
-    override val descriptor get() = StringRules.descriptor
+) : pbandk.testpb.StringRules, pbandk.GeneratedMessage<pbandk.testpb.StringRules>() {
+    override val descriptor get() = pbandk.testpb.StringRules.descriptor
 
     override val email: Boolean?
         get() = (wellKnown as? pbandk.testpb.StringRules.WellKnown.Email)?.value
@@ -6755,7 +6755,7 @@ private class StringRules_Impl(
     override val wellKnownRegex: pbandk.testpb.KnownRegex?
         get() = (wellKnown as? pbandk.testpb.StringRules.WellKnown.WellKnownRegex)?.value
 
-    override fun copy(builderAction: MutableStringRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableStringRules.() -> Unit) =
         toMutableStringRules().apply(builderAction).toStringRules()
 
     @Deprecated("Use copy {} instead")
@@ -6790,14 +6790,14 @@ private class StringRules_Impl(
         this.suffix = suffix
         this.contains = contains
         this.notContains = notContains
-        this.`in` = `in`
-        this.notIn = notIn
+        this.`in` += `in`
+        this.notIn += notIn
         this.strict = strict
         this.wellKnown = wellKnown
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? StringRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.StringRules)?.let {
         it.copy(
             const = other.const ?: const,
             len = other.len ?: len,
@@ -6832,8 +6832,8 @@ private class StringRules_Impl(
         suffix = suffix,
         contains = contains,
         notContains = notContains,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         strict = strict,
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMutableMap()
@@ -6853,13 +6853,13 @@ private class MutableStringRules_Impl(
     override var suffix: String?,
     override var contains: String?,
     override var notContains: String?,
-    override var `in`: List<String>,
-    override var notIn: List<String>,
+    override val `in`: MutableList<String>,
+    override val notIn: MutableList<String>,
     override var strict: Boolean?,
     override var wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableStringRules, pbandk.MutableGeneratedMessage<MutableStringRules>() {
-    override val descriptor get() = StringRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableStringRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableStringRules>() {
+    override val descriptor get() = pbandk.testpb.StringRules.descriptor
 
     override var email: Boolean?
         get() = (wellKnown as? pbandk.testpb.StringRules.WellKnown.Email)?.value
@@ -6892,7 +6892,7 @@ private class MutableStringRules_Impl(
         get() = (wellKnown as? pbandk.testpb.StringRules.WellKnown.WellKnownRegex)?.value
         set(value) { wellKnown = value?.let { pbandk.testpb.StringRules.WellKnown.WellKnownRegex(it) } }
 
-    override fun copy(builderAction: MutableStringRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableStringRules.() -> Unit) =
         toMutableStringRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -6927,14 +6927,14 @@ private class MutableStringRules_Impl(
         this.suffix = suffix
         this.contains = contains
         this.notContains = notContains
-        this.`in` = `in`
-        this.notIn = notIn
+        this.`in` += `in`
+        this.notIn += notIn
         this.strict = strict
         this.wellKnown = wellKnown
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toStringRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? StringRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.StringRules)?.let {
         it.copy(
             const = other.const ?: const,
             len = other.len ?: len,
@@ -6969,8 +6969,8 @@ private class MutableStringRules_Impl(
         suffix = suffix,
         contains = contains,
         notContains = notContains,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         strict = strict,
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMap()
@@ -6989,8 +6989,8 @@ private class MutableStringRules_Impl(
         suffix = suffix,
         contains = contains,
         notContains = notContains,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         strict = strict,
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMutableMap()
@@ -6998,7 +6998,7 @@ private class MutableStringRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): StringRules {
+private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.StringRules {
     var const: String? = null
     var len: Long? = null
     var minLen: Long? = null
@@ -7065,7 +7065,7 @@ public fun BytesRules(
     notIn: List<pbandk.ByteArr> = emptyList(),
     wellKnown: pbandk.testpb.BytesRules.WellKnown<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.BytesRules = BytesRules {
+): pbandk.testpb.BytesRules = pbandk.testpb.BytesRules {
     this.const = const
     this.len = len
     this.minLen = minLen
@@ -7074,13 +7074,13 @@ public fun BytesRules(
     this.prefix = prefix
     this.suffix = suffix
     this.contains = contains
-    this.`in` = `in`
-    this.notIn = notIn
+    this.`in` += `in`
+    this.notIn += notIn
     this.wellKnown = wellKnown
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableBytesRules(): MutableBytesRules = MutableBytesRules_Impl(
+public fun MutableBytesRules(): pbandk.testpb.MutableBytesRules = pbandk.testpb.MutableBytesRules_Impl(
     const = null,
     len = null,
     minLen = null,
@@ -7089,8 +7089,8 @@ public fun MutableBytesRules(): MutableBytesRules = MutableBytesRules_Impl(
     prefix = null,
     suffix = null,
     contains = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     wellKnown = null,
     unknownFields = mutableMapOf()
 )
@@ -7099,15 +7099,15 @@ public fun MutableBytesRules(): MutableBytesRules = MutableBytesRules_Impl(
  * The [MutableBytesRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun BytesRules(builderAction: MutableBytesRules.() -> Unit): BytesRules =
-    MutableBytesRules().also(builderAction).toBytesRules()
+public fun BytesRules(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.BytesRules =
+    pbandk.testpb.MutableBytesRules().also(builderAction).toBytesRules()
 
-public fun MutableBytesRules(builderAction: MutableBytesRules.() -> Unit): MutableBytesRules =
-    MutableBytesRules().also(builderAction)
+public fun MutableBytesRules(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.MutableBytesRules =
+    pbandk.testpb.MutableBytesRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForBytesRules")
-public fun BytesRules?.orDefault(): pbandk.testpb.BytesRules = this ?: BytesRules.defaultInstance
+public fun BytesRules?.orDefault(): pbandk.testpb.BytesRules = this ?: pbandk.testpb.BytesRules.defaultInstance
 
 private class BytesRules_Impl(
     override val const: pbandk.ByteArr?,
@@ -7122,8 +7122,8 @@ private class BytesRules_Impl(
     override val notIn: List<pbandk.ByteArr>,
     override val wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : BytesRules, pbandk.GeneratedMessage<BytesRules>() {
-    override val descriptor get() = BytesRules.descriptor
+) : pbandk.testpb.BytesRules, pbandk.GeneratedMessage<pbandk.testpb.BytesRules>() {
+    override val descriptor get() = pbandk.testpb.BytesRules.descriptor
 
     override val ip: Boolean?
         get() = (wellKnown as? pbandk.testpb.BytesRules.WellKnown.Ip)?.value
@@ -7132,7 +7132,7 @@ private class BytesRules_Impl(
     override val ipv6: Boolean?
         get() = (wellKnown as? pbandk.testpb.BytesRules.WellKnown.Ipv6)?.value
 
-    override fun copy(builderAction: MutableBytesRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit) =
         toMutableBytesRules().apply(builderAction).toBytesRules()
 
     @Deprecated("Use copy {} instead")
@@ -7158,13 +7158,13 @@ private class BytesRules_Impl(
         this.prefix = prefix
         this.suffix = suffix
         this.contains = contains
-        this.`in` = `in`
-        this.notIn = notIn
+        this.`in` += `in`
+        this.notIn += notIn
         this.wellKnown = wellKnown
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? BytesRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BytesRules)?.let {
         it.copy(
             const = other.const ?: const,
             len = other.len ?: len,
@@ -7190,8 +7190,8 @@ private class BytesRules_Impl(
         prefix = prefix,
         suffix = suffix,
         contains = contains,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMutableMap()
     )
@@ -7206,12 +7206,12 @@ private class MutableBytesRules_Impl(
     override var prefix: pbandk.ByteArr?,
     override var suffix: pbandk.ByteArr?,
     override var contains: pbandk.ByteArr?,
-    override var `in`: List<pbandk.ByteArr>,
-    override var notIn: List<pbandk.ByteArr>,
+    override val `in`: MutableList<pbandk.ByteArr>,
+    override val notIn: MutableList<pbandk.ByteArr>,
     override var wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableBytesRules, pbandk.MutableGeneratedMessage<MutableBytesRules>() {
-    override val descriptor get() = BytesRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableBytesRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableBytesRules>() {
+    override val descriptor get() = pbandk.testpb.BytesRules.descriptor
 
     override var ip: Boolean?
         get() = (wellKnown as? pbandk.testpb.BytesRules.WellKnown.Ip)?.value
@@ -7223,7 +7223,7 @@ private class MutableBytesRules_Impl(
         get() = (wellKnown as? pbandk.testpb.BytesRules.WellKnown.Ipv6)?.value
         set(value) { wellKnown = value?.let { pbandk.testpb.BytesRules.WellKnown.Ipv6(it) } }
 
-    override fun copy(builderAction: MutableBytesRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit) =
         toMutableBytesRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -7249,13 +7249,13 @@ private class MutableBytesRules_Impl(
         this.prefix = prefix
         this.suffix = suffix
         this.contains = contains
-        this.`in` = `in`
-        this.notIn = notIn
+        this.`in` += `in`
+        this.notIn += notIn
         this.wellKnown = wellKnown
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toBytesRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? BytesRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BytesRules)?.let {
         it.copy(
             const = other.const ?: const,
             len = other.len ?: len,
@@ -7281,8 +7281,8 @@ private class MutableBytesRules_Impl(
         prefix = prefix,
         suffix = suffix,
         contains = contains,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMap()
     )
@@ -7296,15 +7296,15 @@ private class MutableBytesRules_Impl(
         prefix = prefix,
         suffix = suffix,
         contains = contains,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         wellKnown = wellKnown,
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BytesRules {
+private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.BytesRules {
     var const: pbandk.ByteArr? = null
     var len: Long? = null
     var minLen: Long? = null
@@ -7346,19 +7346,19 @@ public fun EnumRules(
     `in`: List<Int> = emptyList(),
     notIn: List<Int> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.EnumRules = EnumRules {
+): pbandk.testpb.EnumRules = pbandk.testpb.EnumRules {
     this.const = const
     this.definedOnly = definedOnly
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableEnumRules(): MutableEnumRules = MutableEnumRules_Impl(
+public fun MutableEnumRules(): pbandk.testpb.MutableEnumRules = pbandk.testpb.MutableEnumRules_Impl(
     const = null,
     definedOnly = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -7366,15 +7366,15 @@ public fun MutableEnumRules(): MutableEnumRules = MutableEnumRules_Impl(
  * The [MutableEnumRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun EnumRules(builderAction: MutableEnumRules.() -> Unit): EnumRules =
-    MutableEnumRules().also(builderAction).toEnumRules()
+public fun EnumRules(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.EnumRules =
+    pbandk.testpb.MutableEnumRules().also(builderAction).toEnumRules()
 
-public fun MutableEnumRules(builderAction: MutableEnumRules.() -> Unit): MutableEnumRules =
-    MutableEnumRules().also(builderAction)
+public fun MutableEnumRules(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.MutableEnumRules =
+    pbandk.testpb.MutableEnumRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEnumRules")
-public fun EnumRules?.orDefault(): pbandk.testpb.EnumRules = this ?: EnumRules.defaultInstance
+public fun EnumRules?.orDefault(): pbandk.testpb.EnumRules = this ?: pbandk.testpb.EnumRules.defaultInstance
 
 private class EnumRules_Impl(
     override val const: Int?,
@@ -7382,10 +7382,10 @@ private class EnumRules_Impl(
     override val `in`: List<Int>,
     override val notIn: List<Int>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : EnumRules, pbandk.GeneratedMessage<EnumRules>() {
-    override val descriptor get() = EnumRules.descriptor
+) : pbandk.testpb.EnumRules, pbandk.GeneratedMessage<pbandk.testpb.EnumRules>() {
+    override val descriptor get() = pbandk.testpb.EnumRules.descriptor
 
-    override fun copy(builderAction: MutableEnumRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit) =
         toMutableEnumRules().apply(builderAction).toEnumRules()
 
     @Deprecated("Use copy {} instead")
@@ -7398,12 +7398,12 @@ private class EnumRules_Impl(
     ) = copy {
         this.const = const
         this.definedOnly = definedOnly
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? EnumRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.EnumRules)?.let {
         it.copy(
             const = other.const ?: const,
             definedOnly = other.definedOnly ?: definedOnly,
@@ -7416,8 +7416,8 @@ private class EnumRules_Impl(
     override fun toMutableEnumRules() = MutableEnumRules_Impl(
         const = const,
         definedOnly = definedOnly,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -7425,13 +7425,13 @@ private class EnumRules_Impl(
 private class MutableEnumRules_Impl(
     override var const: Int?,
     override var definedOnly: Boolean?,
-    override var `in`: List<Int>,
-    override var notIn: List<Int>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableEnumRules, pbandk.MutableGeneratedMessage<MutableEnumRules>() {
-    override val descriptor get() = EnumRules.descriptor
+    override val `in`: MutableList<Int>,
+    override val notIn: MutableList<Int>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableEnumRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableEnumRules>() {
+    override val descriptor get() = pbandk.testpb.EnumRules.descriptor
 
-    override fun copy(builderAction: MutableEnumRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit) =
         toMutableEnumRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -7444,12 +7444,12 @@ private class MutableEnumRules_Impl(
     ) = copy {
         this.const = const
         this.definedOnly = definedOnly
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toEnumRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? EnumRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.EnumRules)?.let {
         it.copy(
             const = other.const ?: const,
             definedOnly = other.definedOnly ?: definedOnly,
@@ -7462,22 +7462,22 @@ private class MutableEnumRules_Impl(
     override fun toEnumRules() = EnumRules_Impl(
         const = const,
         definedOnly = definedOnly,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
     override fun toMutableEnumRules() = MutableEnumRules_Impl(
         const = const,
         definedOnly = definedOnly,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRules {
+private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.EnumRules {
     var const: Int? = null
     var definedOnly: Boolean? = null
     var `in`: pbandk.ListWithSize.Builder<Int>? = null
@@ -7499,13 +7499,13 @@ public fun MessageRules(
     skip: Boolean? = null,
     required: Boolean? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.MessageRules = MessageRules {
+): pbandk.testpb.MessageRules = pbandk.testpb.MessageRules {
     this.skip = skip
     this.required = required
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableMessageRules(): MutableMessageRules = MutableMessageRules_Impl(
+public fun MutableMessageRules(): pbandk.testpb.MutableMessageRules = pbandk.testpb.MutableMessageRules_Impl(
     skip = null,
     required = null,
     unknownFields = mutableMapOf()
@@ -7515,24 +7515,24 @@ public fun MutableMessageRules(): MutableMessageRules = MutableMessageRules_Impl
  * The [MutableMessageRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageRules(builderAction: MutableMessageRules.() -> Unit): MessageRules =
-    MutableMessageRules().also(builderAction).toMessageRules()
+public fun MessageRules(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MessageRules =
+    pbandk.testpb.MutableMessageRules().also(builderAction).toMessageRules()
 
-public fun MutableMessageRules(builderAction: MutableMessageRules.() -> Unit): MutableMessageRules =
-    MutableMessageRules().also(builderAction)
+public fun MutableMessageRules(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MutableMessageRules =
+    pbandk.testpb.MutableMessageRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageRules")
-public fun MessageRules?.orDefault(): pbandk.testpb.MessageRules = this ?: MessageRules.defaultInstance
+public fun MessageRules?.orDefault(): pbandk.testpb.MessageRules = this ?: pbandk.testpb.MessageRules.defaultInstance
 
 private class MessageRules_Impl(
     override val skip: Boolean?,
     override val required: Boolean?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : MessageRules, pbandk.GeneratedMessage<MessageRules>() {
-    override val descriptor get() = MessageRules.descriptor
+) : pbandk.testpb.MessageRules, pbandk.GeneratedMessage<pbandk.testpb.MessageRules>() {
+    override val descriptor get() = pbandk.testpb.MessageRules.descriptor
 
-    override fun copy(builderAction: MutableMessageRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit) =
         toMutableMessageRules().apply(builderAction).toMessageRules()
 
     @Deprecated("Use copy {} instead")
@@ -7543,10 +7543,10 @@ private class MessageRules_Impl(
     ) = copy {
         this.skip = skip
         this.required = required
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MessageRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageRules)?.let {
         it.copy(
             skip = other.skip ?: skip,
             required = other.required ?: required,
@@ -7564,11 +7564,11 @@ private class MessageRules_Impl(
 private class MutableMessageRules_Impl(
     override var skip: Boolean?,
     override var required: Boolean?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableMessageRules, pbandk.MutableGeneratedMessage<MutableMessageRules>() {
-    override val descriptor get() = MessageRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableMessageRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMessageRules>() {
+    override val descriptor get() = pbandk.testpb.MessageRules.descriptor
 
-    override fun copy(builderAction: MutableMessageRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit) =
         toMutableMessageRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -7579,10 +7579,10 @@ private class MutableMessageRules_Impl(
     ) = copy {
         this.skip = skip
         this.required = required
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toMessageRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MessageRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageRules)?.let {
         it.copy(
             skip = other.skip ?: skip,
             required = other.required ?: required,
@@ -7604,7 +7604,7 @@ private class MutableMessageRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageRules {
+private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MessageRules {
     var skip: Boolean? = null
     var required: Boolean? = null
 
@@ -7624,15 +7624,15 @@ public fun RepeatedRules(
     unique: Boolean? = null,
     items: pbandk.testpb.FieldRules? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.RepeatedRules = RepeatedRules {
+): pbandk.testpb.RepeatedRules = pbandk.testpb.RepeatedRules {
     this.minItems = minItems
     this.maxItems = maxItems
     this.unique = unique
     this.items = items
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableRepeatedRules(): MutableRepeatedRules = MutableRepeatedRules_Impl(
+public fun MutableRepeatedRules(): pbandk.testpb.MutableRepeatedRules = pbandk.testpb.MutableRepeatedRules_Impl(
     minItems = null,
     maxItems = null,
     unique = null,
@@ -7644,15 +7644,15 @@ public fun MutableRepeatedRules(): MutableRepeatedRules = MutableRepeatedRules_I
  * The [MutableRepeatedRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun RepeatedRules(builderAction: MutableRepeatedRules.() -> Unit): RepeatedRules =
-    MutableRepeatedRules().also(builderAction).toRepeatedRules()
+public fun RepeatedRules(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.RepeatedRules =
+    pbandk.testpb.MutableRepeatedRules().also(builderAction).toRepeatedRules()
 
-public fun MutableRepeatedRules(builderAction: MutableRepeatedRules.() -> Unit): MutableRepeatedRules =
-    MutableRepeatedRules().also(builderAction)
+public fun MutableRepeatedRules(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.MutableRepeatedRules =
+    pbandk.testpb.MutableRepeatedRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForRepeatedRules")
-public fun RepeatedRules?.orDefault(): pbandk.testpb.RepeatedRules = this ?: RepeatedRules.defaultInstance
+public fun RepeatedRules?.orDefault(): pbandk.testpb.RepeatedRules = this ?: pbandk.testpb.RepeatedRules.defaultInstance
 
 private class RepeatedRules_Impl(
     override val minItems: Long?,
@@ -7660,10 +7660,10 @@ private class RepeatedRules_Impl(
     override val unique: Boolean?,
     override val items: pbandk.testpb.FieldRules?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : RepeatedRules, pbandk.GeneratedMessage<RepeatedRules>() {
-    override val descriptor get() = RepeatedRules.descriptor
+) : pbandk.testpb.RepeatedRules, pbandk.GeneratedMessage<pbandk.testpb.RepeatedRules>() {
+    override val descriptor get() = pbandk.testpb.RepeatedRules.descriptor
 
-    override fun copy(builderAction: MutableRepeatedRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit) =
         toMutableRepeatedRules().apply(builderAction).toRepeatedRules()
 
     @Deprecated("Use copy {} instead")
@@ -7678,10 +7678,10 @@ private class RepeatedRules_Impl(
         this.maxItems = maxItems
         this.unique = unique
         this.items = items
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? RepeatedRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.RepeatedRules)?.let {
         it.copy(
             minItems = other.minItems ?: minItems,
             maxItems = other.maxItems ?: maxItems,
@@ -7705,11 +7705,11 @@ private class MutableRepeatedRules_Impl(
     override var maxItems: Long?,
     override var unique: Boolean?,
     override var items: pbandk.testpb.FieldRules?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableRepeatedRules, pbandk.MutableGeneratedMessage<MutableRepeatedRules>() {
-    override val descriptor get() = RepeatedRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableRepeatedRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableRepeatedRules>() {
+    override val descriptor get() = pbandk.testpb.RepeatedRules.descriptor
 
-    override fun copy(builderAction: MutableRepeatedRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit) =
         toMutableRepeatedRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -7724,10 +7724,10 @@ private class MutableRepeatedRules_Impl(
         this.maxItems = maxItems
         this.unique = unique
         this.items = items
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toRepeatedRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? RepeatedRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.RepeatedRules)?.let {
         it.copy(
             minItems = other.minItems ?: minItems,
             maxItems = other.maxItems ?: maxItems,
@@ -7755,7 +7755,7 @@ private class MutableRepeatedRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): RepeatedRules {
+private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.RepeatedRules {
     var minItems: Long? = null
     var maxItems: Long? = null
     var unique: Boolean? = null
@@ -7780,16 +7780,16 @@ public fun MapRules(
     keys: pbandk.testpb.FieldRules? = null,
     values: pbandk.testpb.FieldRules? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.MapRules = MapRules {
+): pbandk.testpb.MapRules = pbandk.testpb.MapRules {
     this.minPairs = minPairs
     this.maxPairs = maxPairs
     this.noSparse = noSparse
     this.keys = keys
     this.values = values
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableMapRules(): MutableMapRules = MutableMapRules_Impl(
+public fun MutableMapRules(): pbandk.testpb.MutableMapRules = pbandk.testpb.MutableMapRules_Impl(
     minPairs = null,
     maxPairs = null,
     noSparse = null,
@@ -7802,15 +7802,15 @@ public fun MutableMapRules(): MutableMapRules = MutableMapRules_Impl(
  * The [MutableMapRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MapRules(builderAction: MutableMapRules.() -> Unit): MapRules =
-    MutableMapRules().also(builderAction).toMapRules()
+public fun MapRules(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MapRules =
+    pbandk.testpb.MutableMapRules().also(builderAction).toMapRules()
 
-public fun MutableMapRules(builderAction: MutableMapRules.() -> Unit): MutableMapRules =
-    MutableMapRules().also(builderAction)
+public fun MutableMapRules(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MutableMapRules =
+    pbandk.testpb.MutableMapRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMapRules")
-public fun MapRules?.orDefault(): pbandk.testpb.MapRules = this ?: MapRules.defaultInstance
+public fun MapRules?.orDefault(): pbandk.testpb.MapRules = this ?: pbandk.testpb.MapRules.defaultInstance
 
 private class MapRules_Impl(
     override val minPairs: Long?,
@@ -7819,10 +7819,10 @@ private class MapRules_Impl(
     override val keys: pbandk.testpb.FieldRules?,
     override val values: pbandk.testpb.FieldRules?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : MapRules, pbandk.GeneratedMessage<MapRules>() {
-    override val descriptor get() = MapRules.descriptor
+) : pbandk.testpb.MapRules, pbandk.GeneratedMessage<pbandk.testpb.MapRules>() {
+    override val descriptor get() = pbandk.testpb.MapRules.descriptor
 
-    override fun copy(builderAction: MutableMapRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMapRules.() -> Unit) =
         toMutableMapRules().apply(builderAction).toMapRules()
 
     @Deprecated("Use copy {} instead")
@@ -7839,10 +7839,10 @@ private class MapRules_Impl(
         this.noSparse = noSparse
         this.keys = keys
         this.values = values
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MapRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MapRules)?.let {
         it.copy(
             minPairs = other.minPairs ?: minPairs,
             maxPairs = other.maxPairs ?: maxPairs,
@@ -7869,11 +7869,11 @@ private class MutableMapRules_Impl(
     override var noSparse: Boolean?,
     override var keys: pbandk.testpb.FieldRules?,
     override var values: pbandk.testpb.FieldRules?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableMapRules, pbandk.MutableGeneratedMessage<MutableMapRules>() {
-    override val descriptor get() = MapRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableMapRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMapRules>() {
+    override val descriptor get() = pbandk.testpb.MapRules.descriptor
 
-    override fun copy(builderAction: MutableMapRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMapRules.() -> Unit) =
         toMutableMapRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -7890,10 +7890,10 @@ private class MutableMapRules_Impl(
         this.noSparse = noSparse
         this.keys = keys
         this.values = values
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toMapRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MapRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MapRules)?.let {
         it.copy(
             minPairs = other.minPairs ?: minPairs,
             maxPairs = other.maxPairs ?: maxPairs,
@@ -7924,7 +7924,7 @@ private class MutableMapRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRules {
+private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MapRules {
     var minPairs: Long? = null
     var maxPairs: Long? = null
     var noSparse: Boolean? = null
@@ -7950,17 +7950,17 @@ public fun AnyRules(
     `in`: List<String> = emptyList(),
     notIn: List<String> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.AnyRules = AnyRules {
+): pbandk.testpb.AnyRules = pbandk.testpb.AnyRules {
     this.required = required
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableAnyRules(): MutableAnyRules = MutableAnyRules_Impl(
+public fun MutableAnyRules(): pbandk.testpb.MutableAnyRules = pbandk.testpb.MutableAnyRules_Impl(
     required = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -7968,25 +7968,25 @@ public fun MutableAnyRules(): MutableAnyRules = MutableAnyRules_Impl(
  * The [MutableAnyRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun AnyRules(builderAction: MutableAnyRules.() -> Unit): AnyRules =
-    MutableAnyRules().also(builderAction).toAnyRules()
+public fun AnyRules(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.AnyRules =
+    pbandk.testpb.MutableAnyRules().also(builderAction).toAnyRules()
 
-public fun MutableAnyRules(builderAction: MutableAnyRules.() -> Unit): MutableAnyRules =
-    MutableAnyRules().also(builderAction)
+public fun MutableAnyRules(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.MutableAnyRules =
+    pbandk.testpb.MutableAnyRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAnyRules")
-public fun AnyRules?.orDefault(): pbandk.testpb.AnyRules = this ?: AnyRules.defaultInstance
+public fun AnyRules?.orDefault(): pbandk.testpb.AnyRules = this ?: pbandk.testpb.AnyRules.defaultInstance
 
 private class AnyRules_Impl(
     override val required: Boolean?,
     override val `in`: List<String>,
     override val notIn: List<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : AnyRules, pbandk.GeneratedMessage<AnyRules>() {
-    override val descriptor get() = AnyRules.descriptor
+) : pbandk.testpb.AnyRules, pbandk.GeneratedMessage<pbandk.testpb.AnyRules>() {
+    override val descriptor get() = pbandk.testpb.AnyRules.descriptor
 
-    override fun copy(builderAction: MutableAnyRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit) =
         toMutableAnyRules().apply(builderAction).toAnyRules()
 
     @Deprecated("Use copy {} instead")
@@ -7997,12 +7997,12 @@ private class AnyRules_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.required = required
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? AnyRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.AnyRules)?.let {
         it.copy(
             required = other.required ?: required,
             `in` = `in` + other.`in`,
@@ -8013,21 +8013,21 @@ private class AnyRules_Impl(
 
     override fun toMutableAnyRules() = MutableAnyRules_Impl(
         required = required,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 private class MutableAnyRules_Impl(
     override var required: Boolean?,
-    override var `in`: List<String>,
-    override var notIn: List<String>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableAnyRules, pbandk.MutableGeneratedMessage<MutableAnyRules>() {
-    override val descriptor get() = AnyRules.descriptor
+    override val `in`: MutableList<String>,
+    override val notIn: MutableList<String>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableAnyRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableAnyRules>() {
+    override val descriptor get() = pbandk.testpb.AnyRules.descriptor
 
-    override fun copy(builderAction: MutableAnyRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit) =
         toMutableAnyRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -8038,12 +8038,12 @@ private class MutableAnyRules_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.required = required
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toAnyRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? AnyRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.AnyRules)?.let {
         it.copy(
             required = other.required ?: required,
             `in` = `in` + other.`in`,
@@ -8054,21 +8054,21 @@ private class MutableAnyRules_Impl(
 
     override fun toAnyRules() = AnyRules_Impl(
         required = required,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
     override fun toMutableAnyRules() = MutableAnyRules_Impl(
         required = required,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRules {
+private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.AnyRules {
     var required: Boolean? = null
     var `in`: pbandk.ListWithSize.Builder<String>? = null
     var notIn: pbandk.ListWithSize.Builder<String>? = null
@@ -8094,27 +8094,27 @@ public fun DurationRules(
     `in`: List<pbandk.wkt.Duration> = emptyList(),
     notIn: List<pbandk.wkt.Duration> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.DurationRules = DurationRules {
+): pbandk.testpb.DurationRules = pbandk.testpb.DurationRules {
     this.required = required
     this.const = const
     this.lt = lt
     this.lte = lte
     this.gt = gt
     this.gte = gte
-    this.`in` = `in`
-    this.notIn = notIn
-    this.unknownFields.putAll(unknownFields)
+    this.`in` += `in`
+    this.notIn += notIn
+    this.unknownFields += unknownFields
 }
 
-public fun MutableDurationRules(): MutableDurationRules = MutableDurationRules_Impl(
+public fun MutableDurationRules(): pbandk.testpb.MutableDurationRules = pbandk.testpb.MutableDurationRules_Impl(
     required = null,
     const = null,
     lt = null,
     lte = null,
     gt = null,
     gte = null,
-    `in` = emptyList(),
-    notIn = emptyList(),
+    `in` = mutableListOf(),
+    notIn = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -8122,15 +8122,15 @@ public fun MutableDurationRules(): MutableDurationRules = MutableDurationRules_I
  * The [MutableDurationRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun DurationRules(builderAction: MutableDurationRules.() -> Unit): DurationRules =
-    MutableDurationRules().also(builderAction).toDurationRules()
+public fun DurationRules(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.DurationRules =
+    pbandk.testpb.MutableDurationRules().also(builderAction).toDurationRules()
 
-public fun MutableDurationRules(builderAction: MutableDurationRules.() -> Unit): MutableDurationRules =
-    MutableDurationRules().also(builderAction)
+public fun MutableDurationRules(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.MutableDurationRules =
+    pbandk.testpb.MutableDurationRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDurationRules")
-public fun DurationRules?.orDefault(): pbandk.testpb.DurationRules = this ?: DurationRules.defaultInstance
+public fun DurationRules?.orDefault(): pbandk.testpb.DurationRules = this ?: pbandk.testpb.DurationRules.defaultInstance
 
 private class DurationRules_Impl(
     override val required: Boolean?,
@@ -8142,10 +8142,10 @@ private class DurationRules_Impl(
     override val `in`: List<pbandk.wkt.Duration>,
     override val notIn: List<pbandk.wkt.Duration>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : DurationRules, pbandk.GeneratedMessage<DurationRules>() {
-    override val descriptor get() = DurationRules.descriptor
+) : pbandk.testpb.DurationRules, pbandk.GeneratedMessage<pbandk.testpb.DurationRules>() {
+    override val descriptor get() = pbandk.testpb.DurationRules.descriptor
 
-    override fun copy(builderAction: MutableDurationRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit) =
         toMutableDurationRules().apply(builderAction).toDurationRules()
 
     @Deprecated("Use copy {} instead")
@@ -8166,12 +8166,12 @@ private class DurationRules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? DurationRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DurationRules)?.let {
         it.copy(
             required = other.required ?: required,
             const = const?.plus(other.const) ?: other.const,
@@ -8192,8 +8192,8 @@ private class DurationRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
@@ -8205,13 +8205,13 @@ private class MutableDurationRules_Impl(
     override var lte: pbandk.wkt.Duration?,
     override var gt: pbandk.wkt.Duration?,
     override var gte: pbandk.wkt.Duration?,
-    override var `in`: List<pbandk.wkt.Duration>,
-    override var notIn: List<pbandk.wkt.Duration>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableDurationRules, pbandk.MutableGeneratedMessage<MutableDurationRules>() {
-    override val descriptor get() = DurationRules.descriptor
+    override val `in`: MutableList<pbandk.wkt.Duration>,
+    override val notIn: MutableList<pbandk.wkt.Duration>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableDurationRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableDurationRules>() {
+    override val descriptor get() = pbandk.testpb.DurationRules.descriptor
 
-    override fun copy(builderAction: MutableDurationRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit) =
         toMutableDurationRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -8232,12 +8232,12 @@ private class MutableDurationRules_Impl(
         this.lte = lte
         this.gt = gt
         this.gte = gte
-        this.`in` = `in`
-        this.notIn = notIn
-        this.unknownFields.putAll(unknownFields)
+        this.`in` += `in`
+        this.notIn += notIn
+        this.unknownFields += unknownFields
     }.toDurationRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? DurationRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DurationRules)?.let {
         it.copy(
             required = other.required ?: required,
             const = const?.plus(other.const) ?: other.const,
@@ -8258,8 +8258,8 @@ private class MutableDurationRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toList(),
+        notIn = notIn.toList(),
         unknownFields = unknownFields.toMap()
     )
 
@@ -8270,14 +8270,14 @@ private class MutableDurationRules_Impl(
         lte = lte,
         gt = gt,
         gte = gte,
-        `in` = `in`,
-        notIn = notIn,
+        `in` = `in`.toMutableList(),
+        notIn = notIn.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): DurationRules {
+private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.DurationRules {
     var required: Boolean? = null
     var const: pbandk.wkt.Duration? = null
     var lt: pbandk.wkt.Duration? = null
@@ -8315,7 +8315,7 @@ public fun TimestampRules(
     gtNow: Boolean? = null,
     within: pbandk.wkt.Duration? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.TimestampRules = TimestampRules {
+): pbandk.testpb.TimestampRules = pbandk.testpb.TimestampRules {
     this.required = required
     this.const = const
     this.lt = lt
@@ -8325,10 +8325,10 @@ public fun TimestampRules(
     this.ltNow = ltNow
     this.gtNow = gtNow
     this.within = within
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableTimestampRules(): MutableTimestampRules = MutableTimestampRules_Impl(
+public fun MutableTimestampRules(): pbandk.testpb.MutableTimestampRules = pbandk.testpb.MutableTimestampRules_Impl(
     required = null,
     const = null,
     lt = null,
@@ -8345,15 +8345,15 @@ public fun MutableTimestampRules(): MutableTimestampRules = MutableTimestampRule
  * The [MutableTimestampRules] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun TimestampRules(builderAction: MutableTimestampRules.() -> Unit): TimestampRules =
-    MutableTimestampRules().also(builderAction).toTimestampRules()
+public fun TimestampRules(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.TimestampRules =
+    pbandk.testpb.MutableTimestampRules().also(builderAction).toTimestampRules()
 
-public fun MutableTimestampRules(builderAction: MutableTimestampRules.() -> Unit): MutableTimestampRules =
-    MutableTimestampRules().also(builderAction)
+public fun MutableTimestampRules(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.MutableTimestampRules =
+    pbandk.testpb.MutableTimestampRules().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForTimestampRules")
-public fun TimestampRules?.orDefault(): pbandk.testpb.TimestampRules = this ?: TimestampRules.defaultInstance
+public fun TimestampRules?.orDefault(): pbandk.testpb.TimestampRules = this ?: pbandk.testpb.TimestampRules.defaultInstance
 
 private class TimestampRules_Impl(
     override val required: Boolean?,
@@ -8366,10 +8366,10 @@ private class TimestampRules_Impl(
     override val gtNow: Boolean?,
     override val within: pbandk.wkt.Duration?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : TimestampRules, pbandk.GeneratedMessage<TimestampRules>() {
-    override val descriptor get() = TimestampRules.descriptor
+) : pbandk.testpb.TimestampRules, pbandk.GeneratedMessage<pbandk.testpb.TimestampRules>() {
+    override val descriptor get() = pbandk.testpb.TimestampRules.descriptor
 
-    override fun copy(builderAction: MutableTimestampRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit) =
         toMutableTimestampRules().apply(builderAction).toTimestampRules()
 
     @Deprecated("Use copy {} instead")
@@ -8394,10 +8394,10 @@ private class TimestampRules_Impl(
         this.ltNow = ltNow
         this.gtNow = gtNow
         this.within = within
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? TimestampRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.TimestampRules)?.let {
         it.copy(
             required = other.required ?: required,
             const = const?.plus(other.const) ?: other.const,
@@ -8436,11 +8436,11 @@ private class MutableTimestampRules_Impl(
     override var ltNow: Boolean?,
     override var gtNow: Boolean?,
     override var within: pbandk.wkt.Duration?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableTimestampRules, pbandk.MutableGeneratedMessage<MutableTimestampRules>() {
-    override val descriptor get() = TimestampRules.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableTimestampRules, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableTimestampRules>() {
+    override val descriptor get() = pbandk.testpb.TimestampRules.descriptor
 
-    override fun copy(builderAction: MutableTimestampRules.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit) =
         toMutableTimestampRules().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -8465,10 +8465,10 @@ private class MutableTimestampRules_Impl(
         this.ltNow = ltNow
         this.gtNow = gtNow
         this.within = within
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toTimestampRules()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? TimestampRules)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.TimestampRules)?.let {
         it.copy(
             required = other.required ?: required,
             const = const?.plus(other.const) ?: other.const,
@@ -8511,7 +8511,7 @@ private class MutableTimestampRules_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun TimestampRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): TimestampRules {
+private fun TimestampRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.TimestampRules {
     var required: Boolean? = null
     var const: pbandk.wkt.Timestamp? = null
     var lt: pbandk.wkt.Timestamp? = null

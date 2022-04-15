@@ -28,8 +28,9 @@ internal fun runGenerator(request: CodeGeneratorRequest): CodeGeneratorResponse 
     val kotlinTypeMappings = mutableMapOf<String, Name>()
 
     // Convert to file model and generate the code only for ones requested
+    return CodeGeneratorResponse {
         supportedFeatures = CodeGeneratorResponse.Feature.PROTO3_OPTIONAL.value.toLong()
-        file = request.protoFile.flatMap { protoFile ->
+        file += request.protoFile.flatMap { protoFile ->
             val packageName = protoFile.`package`
             debug { "Reading ${protoFile.name}, package: $packageName" }
 

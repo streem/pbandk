@@ -85,7 +85,7 @@ class WellKnownTypesTest {
     @Test
     fun testRepeatedWrappers() {
         Wrappers.assertMessageEquals(
-            Wrappers { uint64Values = listOf(1, 2, 1234567890123456789) },
+            Wrappers { uint64Values += listOf(1, 2, 1234567890123456789) },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .addAllUint64Values(listOf(1, 2, 1234567890123456789).map {
                     com.google.protobuf.UInt64Value.newBuilder().setValue(it).build()
@@ -94,7 +94,7 @@ class WellKnownTypesTest {
         )
 
         Wrappers.assertMessageEquals(
-            Wrappers { uint64Values = listOf(0) },
+            Wrappers { uint64Values += 0 },
             pbandk.testpb.java.Test.Wrappers.newBuilder()
                 .addUint64Values(com.google.protobuf.UInt64Value.getDefaultInstance())
                 .build()

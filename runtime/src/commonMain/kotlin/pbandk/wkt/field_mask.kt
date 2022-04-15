@@ -11,13 +11,13 @@ public sealed interface FieldMask : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableFieldMask(): MutableFieldMask
+    public fun toMutableFieldMask(): pbandk.wkt.MutableFieldMask
 
     /**
      * The [MutableFieldMask] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableFieldMask.() -> Unit): FieldMask
+    public fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -54,15 +54,15 @@ public sealed interface FieldMask : pbandk.Message {
     }
 }
 
-public sealed interface MutableFieldMask : FieldMask, pbandk.MutableMessage {
-    public override var paths: List<String>
+public sealed interface MutableFieldMask : pbandk.wkt.FieldMask, pbandk.MutableMessage {
+    public override val paths: MutableList<String>
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toFieldMask(): FieldMask
+    public fun toFieldMask(): pbandk.wkt.FieldMask
 
-    public override fun copy(builderAction: MutableFieldMask.() -> Unit): MutableFieldMask
+    public override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.MutableFieldMask
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.FieldMask> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask.decodeWithImpl(u)
@@ -75,13 +75,13 @@ public sealed interface MutableFieldMask : FieldMask, pbandk.MutableMessage {
 public fun FieldMask(
     paths: List<String> = emptyList(),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.FieldMask = FieldMask {
-    this.paths = paths
-    this.unknownFields.putAll(unknownFields)
+): pbandk.wkt.FieldMask = pbandk.wkt.FieldMask {
+    this.paths += paths
+    this.unknownFields += unknownFields
 }
 
-public fun MutableFieldMask(): MutableFieldMask = MutableFieldMask_Impl(
-    paths = emptyList(),
+public fun MutableFieldMask(): pbandk.wkt.MutableFieldMask = pbandk.wkt.MutableFieldMask_Impl(
+    paths = mutableListOf(),
     unknownFields = mutableMapOf()
 )
 
@@ -89,23 +89,23 @@ public fun MutableFieldMask(): MutableFieldMask = MutableFieldMask_Impl(
  * The [MutableFieldMask] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun FieldMask(builderAction: MutableFieldMask.() -> Unit): FieldMask =
-    MutableFieldMask().also(builderAction).toFieldMask()
+public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask =
+    pbandk.wkt.MutableFieldMask().also(builderAction).toFieldMask()
 
-public fun MutableFieldMask(builderAction: MutableFieldMask.() -> Unit): MutableFieldMask =
-    MutableFieldMask().also(builderAction)
+public fun MutableFieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.MutableFieldMask =
+    pbandk.wkt.MutableFieldMask().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForFieldMask")
-public fun FieldMask?.orDefault(): pbandk.wkt.FieldMask = this ?: FieldMask.defaultInstance
+public fun FieldMask?.orDefault(): pbandk.wkt.FieldMask = this ?: pbandk.wkt.FieldMask.defaultInstance
 
 private class FieldMask_Impl(
     override val paths: List<String>,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : FieldMask, pbandk.GeneratedMessage<FieldMask>() {
-    override val descriptor get() = FieldMask.descriptor
+) : pbandk.wkt.FieldMask, pbandk.GeneratedMessage<pbandk.wkt.FieldMask>() {
+    override val descriptor get() = pbandk.wkt.FieldMask.descriptor
 
-    override fun copy(builderAction: MutableFieldMask.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) =
         toMutableFieldMask().apply(builderAction).toFieldMask()
 
     @Deprecated("Use copy {} instead")
@@ -113,11 +113,11 @@ private class FieldMask_Impl(
         paths: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
-        this.paths = paths
-        this.unknownFields.putAll(unknownFields)
+        this.paths += paths
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? FieldMask)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldMask)?.let {
         it.copy(
             paths = paths + other.paths,
             unknownFields = unknownFields + other.unknownFields
@@ -125,18 +125,18 @@ private class FieldMask_Impl(
     } ?: this
 
     override fun toMutableFieldMask() = MutableFieldMask_Impl(
-        paths = paths,
+        paths = paths.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 private class MutableFieldMask_Impl(
-    override var paths: List<String>,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableFieldMask, pbandk.MutableGeneratedMessage<MutableFieldMask>() {
-    override val descriptor get() = FieldMask.descriptor
+    override val paths: MutableList<String>,
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableFieldMask, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableFieldMask>() {
+    override val descriptor get() = pbandk.wkt.FieldMask.descriptor
 
-    override fun copy(builderAction: MutableFieldMask.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit) =
         toMutableFieldMask().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -144,11 +144,11 @@ private class MutableFieldMask_Impl(
         paths: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
-        this.paths = paths
-        this.unknownFields.putAll(unknownFields)
+        this.paths += paths
+        this.unknownFields += unknownFields
     }.toFieldMask()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? FieldMask)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldMask)?.let {
         it.copy(
             paths = paths + other.paths,
             unknownFields = unknownFields + other.unknownFields
@@ -156,18 +156,18 @@ private class MutableFieldMask_Impl(
     } ?: this
 
     override fun toFieldMask() = FieldMask_Impl(
-        paths = paths,
+        paths = paths.toList(),
         unknownFields = unknownFields.toMap()
     )
 
     override fun toMutableFieldMask() = MutableFieldMask_Impl(
-        paths = paths,
+        paths = paths.toMutableList(),
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FieldMask {
+private fun FieldMask.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.FieldMask {
     var paths: pbandk.ListWithSize.Builder<String>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

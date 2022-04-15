@@ -12,13 +12,13 @@ public sealed interface Any : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableAny(): MutableAny
+    public fun toMutableAny(): pbandk.wkt.MutableAny
 
     /**
      * The [MutableAny] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableAny.() -> Unit): Any
+    public fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -66,16 +66,16 @@ public sealed interface Any : pbandk.Message {
     }
 }
 
-public sealed interface MutableAny : Any, pbandk.MutableMessage {
+public sealed interface MutableAny : pbandk.wkt.Any, pbandk.MutableMessage {
     public override var typeUrl: String
     public override var value: pbandk.ByteArr
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toAny(): Any
+    public fun toAny(): pbandk.wkt.Any
 
-    public override fun copy(builderAction: MutableAny.() -> Unit): MutableAny
+    public override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.MutableAny
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Any> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Any = pbandk.wkt.Any.decodeWithImpl(u)
@@ -89,13 +89,13 @@ public fun Any(
     typeUrl: String = "",
     value: pbandk.ByteArr = pbandk.ByteArr.empty,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Any = Any {
+): pbandk.wkt.Any = pbandk.wkt.Any {
     this.typeUrl = typeUrl
     this.value = value
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableAny(): MutableAny = MutableAny_Impl(
+public fun MutableAny(): pbandk.wkt.MutableAny = pbandk.wkt.MutableAny_Impl(
     typeUrl = "",
     value = pbandk.ByteArr.empty,
     unknownFields = mutableMapOf()
@@ -105,24 +105,24 @@ public fun MutableAny(): MutableAny = MutableAny_Impl(
  * The [MutableAny] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Any(builderAction: MutableAny.() -> Unit): Any =
-    MutableAny().also(builderAction).toAny()
+public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any =
+    pbandk.wkt.MutableAny().also(builderAction).toAny()
 
-public fun MutableAny(builderAction: MutableAny.() -> Unit): MutableAny =
-    MutableAny().also(builderAction)
+public fun MutableAny(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.MutableAny =
+    pbandk.wkt.MutableAny().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForAny")
-public fun Any?.orDefault(): pbandk.wkt.Any = this ?: Any.defaultInstance
+public fun Any?.orDefault(): pbandk.wkt.Any = this ?: pbandk.wkt.Any.defaultInstance
 
 private class Any_Impl(
     override val typeUrl: String,
     override val value: pbandk.ByteArr,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Any, pbandk.GeneratedMessage<Any>() {
-    override val descriptor get() = Any.descriptor
+) : pbandk.wkt.Any, pbandk.GeneratedMessage<pbandk.wkt.Any>() {
+    override val descriptor get() = pbandk.wkt.Any.descriptor
 
-    override fun copy(builderAction: MutableAny.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) =
         toMutableAny().apply(builderAction).toAny()
 
     @Deprecated("Use copy {} instead")
@@ -133,10 +133,10 @@ private class Any_Impl(
     ) = copy {
         this.typeUrl = typeUrl
         this.value = value
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Any)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Any)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -152,11 +152,11 @@ private class Any_Impl(
 private class MutableAny_Impl(
     override var typeUrl: String,
     override var value: pbandk.ByteArr,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableAny, pbandk.MutableGeneratedMessage<MutableAny>() {
-    override val descriptor get() = Any.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableAny, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableAny>() {
+    override val descriptor get() = pbandk.wkt.Any.descriptor
 
-    override fun copy(builderAction: MutableAny.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableAny.() -> Unit) =
         toMutableAny().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -167,10 +167,10 @@ private class MutableAny_Impl(
     ) = copy {
         this.typeUrl = typeUrl
         this.value = value
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toAny()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Any)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Any)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -190,7 +190,7 @@ private class MutableAny_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Any {
+private fun Any.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Any {
     var typeUrl = ""
     var value: pbandk.ByteArr = pbandk.ByteArr.empty
 

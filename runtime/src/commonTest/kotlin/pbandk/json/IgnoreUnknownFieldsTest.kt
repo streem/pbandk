@@ -70,7 +70,7 @@ class IgnoreUnknownFieldsTest {
         // With [ignoreUnknownFieldsInInput], the unknown values in a repeated enum should be skipped during decoding
         // but the other values should be returned successfully.
         val expected = TestAllTypesProto3 {
-            repeatedForeignEnum = listOf(ForeignEnum.FOREIGN_FOO, ForeignEnum.FOREIGN_BAR)
+            repeatedForeignEnum += listOf(ForeignEnum.FOREIGN_FOO, ForeignEnum.FOREIGN_BAR)
         }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)
@@ -96,7 +96,7 @@ class IgnoreUnknownFieldsTest {
         // With [ignoreUnknownFieldsInInput], the unknown enum values in a map field should be skipped during decoding
         // but the other values should be returned successfully.
         val expected = TestAllTypesProto3 {
-            mapStringForeignEnum = mapOf("a" to ForeignEnum.FOREIGN_FOO)
+            mapStringForeignEnum["a"] = ForeignEnum.FOREIGN_FOO
         }
         val parsed = TestAllTypesProto3.decodeFromJsonString(
             json, JsonConfig.DEFAULT.copy(ignoreUnknownFieldsInInput = true)

@@ -11,13 +11,13 @@ public sealed interface Value : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableValue(): MutableValue
+    public fun toMutableValue(): pbandk.testpb.MutableValue
 
     /**
      * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableValue.() -> Unit): Value
+    public fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -87,7 +87,7 @@ public sealed interface Value : pbandk.Message {
     }
 }
 
-public sealed interface MutableValue : Value, pbandk.MutableMessage {
+public sealed interface MutableValue : pbandk.testpb.Value, pbandk.MutableMessage {
     public override var value: Value.Value<*>?
 
     public override var stringValue: String?
@@ -97,9 +97,9 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toValue(): Value
+    public fun toValue(): pbandk.testpb.Value
 
-    public override fun copy(builderAction: MutableValue.() -> Unit): MutableValue
+    public override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.MutableValue
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.Value = pbandk.testpb.Value.decodeWithImpl(u)
@@ -112,12 +112,12 @@ public sealed interface MutableValue : Value, pbandk.MutableMessage {
 public fun Value(
     value: pbandk.testpb.Value.Value<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.Value = Value {
+): pbandk.testpb.Value = pbandk.testpb.Value {
     this.value = value
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableValue(): MutableValue = MutableValue_Impl(
+public fun MutableValue(): pbandk.testpb.MutableValue = pbandk.testpb.MutableValue_Impl(
     value = null,
     unknownFields = mutableMapOf()
 )
@@ -126,21 +126,21 @@ public fun MutableValue(): MutableValue = MutableValue_Impl(
  * The [MutableValue] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Value(builderAction: MutableValue.() -> Unit): Value =
-    MutableValue().also(builderAction).toValue()
+public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value =
+    pbandk.testpb.MutableValue().also(builderAction).toValue()
 
-public fun MutableValue(builderAction: MutableValue.() -> Unit): MutableValue =
-    MutableValue().also(builderAction)
+public fun MutableValue(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.MutableValue =
+    pbandk.testpb.MutableValue().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForValue")
-public fun Value?.orDefault(): pbandk.testpb.Value = this ?: Value.defaultInstance
+public fun Value?.orDefault(): pbandk.testpb.Value = this ?: pbandk.testpb.Value.defaultInstance
 
 private class Value_Impl(
     override val value: pbandk.testpb.Value.Value<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Value, pbandk.GeneratedMessage<Value>() {
-    override val descriptor get() = Value.descriptor
+) : pbandk.testpb.Value, pbandk.GeneratedMessage<pbandk.testpb.Value>() {
+    override val descriptor get() = pbandk.testpb.Value.descriptor
 
     override val stringValue: String?
         get() = (value as? pbandk.testpb.Value.Value.StringValue)?.value
@@ -149,7 +149,7 @@ private class Value_Impl(
     override val integerValue: Int?
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
 
-    override fun copy(builderAction: MutableValue.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) =
         toMutableValue().apply(builderAction).toValue()
 
     @Deprecated("Use copy {} instead")
@@ -158,10 +158,10 @@ private class Value_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.value = value
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Value)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Value)?.let {
         it.copy(
             value = other.value ?: value,
             unknownFields = unknownFields + other.unknownFields
@@ -176,9 +176,9 @@ private class Value_Impl(
 
 private class MutableValue_Impl(
     override var value: pbandk.testpb.Value.Value<*>?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableValue, pbandk.MutableGeneratedMessage<MutableValue>() {
-    override val descriptor get() = Value.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableValue, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableValue>() {
+    override val descriptor get() = pbandk.testpb.Value.descriptor
 
     override var stringValue: String?
         get() = (value as? pbandk.testpb.Value.Value.StringValue)?.value
@@ -190,7 +190,7 @@ private class MutableValue_Impl(
         get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
         set(value) { this.value = value?.let { pbandk.testpb.Value.Value.IntegerValue(it) } }
 
-    override fun copy(builderAction: MutableValue.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableValue.() -> Unit) =
         toMutableValue().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -199,10 +199,10 @@ private class MutableValue_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.value = value
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toValue()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Value)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Value)?.let {
         it.copy(
             value = other.value ?: value,
             unknownFields = unknownFields + other.unknownFields
@@ -221,7 +221,7 @@ private class MutableValue_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
+private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.Value {
     var value: Value.Value<*>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

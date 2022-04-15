@@ -4,7 +4,7 @@ package pbandk.testpb
 
 @pbandk.Export
 public sealed class HugeEnum(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?): Boolean = other is HugeEnum && other.value == value
+    override fun equals(other: kotlin.Any?): Boolean = other is pbandk.testpb.HugeEnum && other.value == value
     override fun hashCode(): Int = value.hashCode()
     override fun toString(): String = "HugeEnum.${name ?: "UNRECOGNIZED"}(value=$value)"
 
@@ -1011,10 +1011,10 @@ public sealed class HugeEnum(override val value: Int, override val name: String?
     public object HE1999 : HugeEnum(1999, "HUGE_ENUM_HE1999")
     public class UNRECOGNIZED(value: Int) : HugeEnum(value)
 
-    public companion object : pbandk.Message.Enum.Companion<HugeEnum> {
+    public companion object : pbandk.Message.Enum.Companion<pbandk.testpb.HugeEnum> {
         public val values: List<HugeEnum> by lazy { listOf(HE0, HE1000, HE1001, HE1002, HE1003, HE1004, HE1005, HE1006, HE1007, HE1008, HE1009, HE1010, HE1011, HE1012, HE1013, HE1014, HE1015, HE1016, HE1017, HE1018, HE1019, HE1020, HE1021, HE1022, HE1023, HE1024, HE1025, HE1026, HE1027, HE1028, HE1029, HE1030, HE1031, HE1032, HE1033, HE1034, HE1035, HE1036, HE1037, HE1038, HE1039, HE1040, HE1041, HE1042, HE1043, HE1044, HE1045, HE1046, HE1047, HE1048, HE1049, HE1050, HE1051, HE1052, HE1053, HE1054, HE1055, HE1056, HE1057, HE1058, HE1059, HE1060, HE1061, HE1062, HE1063, HE1064, HE1065, HE1066, HE1067, HE1068, HE1069, HE1070, HE1071, HE1072, HE1073, HE1074, HE1075, HE1076, HE1077, HE1078, HE1079, HE1080, HE1081, HE1082, HE1083, HE1084, HE1085, HE1086, HE1087, HE1088, HE1089, HE1090, HE1091, HE1092, HE1093, HE1094, HE1095, HE1096, HE1097, HE1098, HE1099, HE1100, HE1101, HE1102, HE1103, HE1104, HE1105, HE1106, HE1107, HE1108, HE1109, HE1110, HE1111, HE1112, HE1113, HE1114, HE1115, HE1116, HE1117, HE1118, HE1119, HE1120, HE1121, HE1122, HE1123, HE1124, HE1125, HE1126, HE1127, HE1128, HE1129, HE1130, HE1131, HE1132, HE1133, HE1134, HE1135, HE1136, HE1137, HE1138, HE1139, HE1140, HE1141, HE1142, HE1143, HE1144, HE1145, HE1146, HE1147, HE1148, HE1149, HE1150, HE1151, HE1152, HE1153, HE1154, HE1155, HE1156, HE1157, HE1158, HE1159, HE1160, HE1161, HE1162, HE1163, HE1164, HE1165, HE1166, HE1167, HE1168, HE1169, HE1170, HE1171, HE1172, HE1173, HE1174, HE1175, HE1176, HE1177, HE1178, HE1179, HE1180, HE1181, HE1182, HE1183, HE1184, HE1185, HE1186, HE1187, HE1188, HE1189, HE1190, HE1191, HE1192, HE1193, HE1194, HE1195, HE1196, HE1197, HE1198, HE1199, HE1200, HE1201, HE1202, HE1203, HE1204, HE1205, HE1206, HE1207, HE1208, HE1209, HE1210, HE1211, HE1212, HE1213, HE1214, HE1215, HE1216, HE1217, HE1218, HE1219, HE1220, HE1221, HE1222, HE1223, HE1224, HE1225, HE1226, HE1227, HE1228, HE1229, HE1230, HE1231, HE1232, HE1233, HE1234, HE1235, HE1236, HE1237, HE1238, HE1239, HE1240, HE1241, HE1242, HE1243, HE1244, HE1245, HE1246, HE1247, HE1248, HE1249, HE1250, HE1251, HE1252, HE1253, HE1254, HE1255, HE1256, HE1257, HE1258, HE1259, HE1260, HE1261, HE1262, HE1263, HE1264, HE1265, HE1266, HE1267, HE1268, HE1269, HE1270, HE1271, HE1272, HE1273, HE1274, HE1275, HE1276, HE1277, HE1278, HE1279, HE1280, HE1281, HE1282, HE1283, HE1284, HE1285, HE1286, HE1287, HE1288, HE1289, HE1290, HE1291, HE1292, HE1293, HE1294, HE1295, HE1296, HE1297, HE1298, HE1299, HE1300, HE1301, HE1302, HE1303, HE1304, HE1305, HE1306, HE1307, HE1308, HE1309, HE1310, HE1311, HE1312, HE1313, HE1314, HE1315, HE1316, HE1317, HE1318, HE1319, HE1320, HE1321, HE1322, HE1323, HE1324, HE1325, HE1326, HE1327, HE1328, HE1329, HE1330, HE1331, HE1332, HE1333, HE1334, HE1335, HE1336, HE1337, HE1338, HE1339, HE1340, HE1341, HE1342, HE1343, HE1344, HE1345, HE1346, HE1347, HE1348, HE1349, HE1350, HE1351, HE1352, HE1353, HE1354, HE1355, HE1356, HE1357, HE1358, HE1359, HE1360, HE1361, HE1362, HE1363, HE1364, HE1365, HE1366, HE1367, HE1368, HE1369, HE1370, HE1371, HE1372, HE1373, HE1374, HE1375, HE1376, HE1377, HE1378, HE1379, HE1380, HE1381, HE1382, HE1383, HE1384, HE1385, HE1386, HE1387, HE1388, HE1389, HE1390, HE1391, HE1392, HE1393, HE1394, HE1395, HE1396, HE1397, HE1398, HE1399, HE1400, HE1401, HE1402, HE1403, HE1404, HE1405, HE1406, HE1407, HE1408, HE1409, HE1410, HE1411, HE1412, HE1413, HE1414, HE1415, HE1416, HE1417, HE1418, HE1419, HE1420, HE1421, HE1422, HE1423, HE1424, HE1425, HE1426, HE1427, HE1428, HE1429, HE1430, HE1431, HE1432, HE1433, HE1434, HE1435, HE1436, HE1437, HE1438, HE1439, HE1440, HE1441, HE1442, HE1443, HE1444, HE1445, HE1446, HE1447, HE1448, HE1449, HE1450, HE1451, HE1452, HE1453, HE1454, HE1455, HE1456, HE1457, HE1458, HE1459, HE1460, HE1461, HE1462, HE1463, HE1464, HE1465, HE1466, HE1467, HE1468, HE1469, HE1470, HE1471, HE1472, HE1473, HE1474, HE1475, HE1476, HE1477, HE1478, HE1479, HE1480, HE1481, HE1482, HE1483, HE1484, HE1485, HE1486, HE1487, HE1488, HE1489, HE1490, HE1491, HE1492, HE1493, HE1494, HE1495, HE1496, HE1497, HE1498, HE1499, HE1500, HE1501, HE1502, HE1503, HE1504, HE1505, HE1506, HE1507, HE1508, HE1509, HE1510, HE1511, HE1512, HE1513, HE1514, HE1515, HE1516, HE1517, HE1518, HE1519, HE1520, HE1521, HE1522, HE1523, HE1524, HE1525, HE1526, HE1527, HE1528, HE1529, HE1530, HE1531, HE1532, HE1533, HE1534, HE1535, HE1536, HE1537, HE1538, HE1539, HE1540, HE1541, HE1542, HE1543, HE1544, HE1545, HE1546, HE1547, HE1548, HE1549, HE1550, HE1551, HE1552, HE1553, HE1554, HE1555, HE1556, HE1557, HE1558, HE1559, HE1560, HE1561, HE1562, HE1563, HE1564, HE1565, HE1566, HE1567, HE1568, HE1569, HE1570, HE1571, HE1572, HE1573, HE1574, HE1575, HE1576, HE1577, HE1578, HE1579, HE1580, HE1581, HE1582, HE1583, HE1584, HE1585, HE1586, HE1587, HE1588, HE1589, HE1590, HE1591, HE1592, HE1593, HE1594, HE1595, HE1596, HE1597, HE1598, HE1599, HE1600, HE1601, HE1602, HE1603, HE1604, HE1605, HE1606, HE1607, HE1608, HE1609, HE1610, HE1611, HE1612, HE1613, HE1614, HE1615, HE1616, HE1617, HE1618, HE1619, HE1620, HE1621, HE1622, HE1623, HE1624, HE1625, HE1626, HE1627, HE1628, HE1629, HE1630, HE1631, HE1632, HE1633, HE1634, HE1635, HE1636, HE1637, HE1638, HE1639, HE1640, HE1641, HE1642, HE1643, HE1644, HE1645, HE1646, HE1647, HE1648, HE1649, HE1650, HE1651, HE1652, HE1653, HE1654, HE1655, HE1656, HE1657, HE1658, HE1659, HE1660, HE1661, HE1662, HE1663, HE1664, HE1665, HE1666, HE1667, HE1668, HE1669, HE1670, HE1671, HE1672, HE1673, HE1674, HE1675, HE1676, HE1677, HE1678, HE1679, HE1680, HE1681, HE1682, HE1683, HE1684, HE1685, HE1686, HE1687, HE1688, HE1689, HE1690, HE1691, HE1692, HE1693, HE1694, HE1695, HE1696, HE1697, HE1698, HE1699, HE1700, HE1701, HE1702, HE1703, HE1704, HE1705, HE1706, HE1707, HE1708, HE1709, HE1710, HE1711, HE1712, HE1713, HE1714, HE1715, HE1716, HE1717, HE1718, HE1719, HE1720, HE1721, HE1722, HE1723, HE1724, HE1725, HE1726, HE1727, HE1728, HE1729, HE1730, HE1731, HE1732, HE1733, HE1734, HE1735, HE1736, HE1737, HE1738, HE1739, HE1740, HE1741, HE1742, HE1743, HE1744, HE1745, HE1746, HE1747, HE1748, HE1749, HE1750, HE1751, HE1752, HE1753, HE1754, HE1755, HE1756, HE1757, HE1758, HE1759, HE1760, HE1761, HE1762, HE1763, HE1764, HE1765, HE1766, HE1767, HE1768, HE1769, HE1770, HE1771, HE1772, HE1773, HE1774, HE1775, HE1776, HE1777, HE1778, HE1779, HE1780, HE1781, HE1782, HE1783, HE1784, HE1785, HE1786, HE1787, HE1788, HE1789, HE1790, HE1791, HE1792, HE1793, HE1794, HE1795, HE1796, HE1797, HE1798, HE1799, HE1800, HE1801, HE1802, HE1803, HE1804, HE1805, HE1806, HE1807, HE1808, HE1809, HE1810, HE1811, HE1812, HE1813, HE1814, HE1815, HE1816, HE1817, HE1818, HE1819, HE1820, HE1821, HE1822, HE1823, HE1824, HE1825, HE1826, HE1827, HE1828, HE1829, HE1830, HE1831, HE1832, HE1833, HE1834, HE1835, HE1836, HE1837, HE1838, HE1839, HE1840, HE1841, HE1842, HE1843, HE1844, HE1845, HE1846, HE1847, HE1848, HE1849, HE1850, HE1851, HE1852, HE1853, HE1854, HE1855, HE1856, HE1857, HE1858, HE1859, HE1860, HE1861, HE1862, HE1863, HE1864, HE1865, HE1866, HE1867, HE1868, HE1869, HE1870, HE1871, HE1872, HE1873, HE1874, HE1875, HE1876, HE1877, HE1878, HE1879, HE1880, HE1881, HE1882, HE1883, HE1884, HE1885, HE1886, HE1887, HE1888, HE1889, HE1890, HE1891, HE1892, HE1893, HE1894, HE1895, HE1896, HE1897, HE1898, HE1899, HE1900, HE1901, HE1902, HE1903, HE1904, HE1905, HE1906, HE1907, HE1908, HE1909, HE1910, HE1911, HE1912, HE1913, HE1914, HE1915, HE1916, HE1917, HE1918, HE1919, HE1920, HE1921, HE1922, HE1923, HE1924, HE1925, HE1926, HE1927, HE1928, HE1929, HE1930, HE1931, HE1932, HE1933, HE1934, HE1935, HE1936, HE1937, HE1938, HE1939, HE1940, HE1941, HE1942, HE1943, HE1944, HE1945, HE1946, HE1947, HE1948, HE1949, HE1950, HE1951, HE1952, HE1953, HE1954, HE1955, HE1956, HE1957, HE1958, HE1959, HE1960, HE1961, HE1962, HE1963, HE1964, HE1965, HE1966, HE1967, HE1968, HE1969, HE1970, HE1971, HE1972, HE1973, HE1974, HE1975, HE1976, HE1977, HE1978, HE1979, HE1980, HE1981, HE1982, HE1983, HE1984, HE1985, HE1986, HE1987, HE1988, HE1989, HE1990, HE1991, HE1992, HE1993, HE1994, HE1995, HE1996, HE1997, HE1998, HE1999) }
-        override fun fromValue(value: Int): HugeEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
-        override fun fromName(name: String): HugeEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No HugeEnum with name: $name")
+        override fun fromValue(value: Int): pbandk.testpb.HugeEnum = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
+        override fun fromName(name: String): pbandk.testpb.HugeEnum = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No HugeEnum with name: $name")
     }
 }
 
@@ -2026,13 +2026,13 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableMessageWithLotsOfFields(): MutableMessageWithLotsOfFields
+    public fun toMutableMessageWithLotsOfFields(): pbandk.testpb.MutableMessageWithLotsOfFields
 
     /**
      * The [MutableMessageWithLotsOfFields] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableMessageWithLotsOfFields.() -> Unit): MessageWithLotsOfFields
+    public fun copy(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit): pbandk.testpb.MessageWithLotsOfFields
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -13081,7 +13081,7 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
     }
 }
 
-public sealed interface MutableMessageWithLotsOfFields : MessageWithLotsOfFields, pbandk.MutableMessage {
+public sealed interface MutableMessageWithLotsOfFields : pbandk.testpb.MessageWithLotsOfFields, pbandk.MutableMessage {
     public override var field1000: String
     public override var field1001: String
     public override var field1002: String
@@ -14086,9 +14086,9 @@ public sealed interface MutableMessageWithLotsOfFields : MessageWithLotsOfFields
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toMessageWithLotsOfFields(): MessageWithLotsOfFields
+    public fun toMessageWithLotsOfFields(): pbandk.testpb.MessageWithLotsOfFields
 
-    public override fun copy(builderAction: MutableMessageWithLotsOfFields.() -> Unit): MutableMessageWithLotsOfFields
+    public override fun copy(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit): pbandk.testpb.MutableMessageWithLotsOfFields
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithLotsOfFields> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithLotsOfFields = pbandk.testpb.MessageWithLotsOfFields.decodeWithImpl(u)
@@ -14106,13 +14106,13 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableMessageWithHugeOneof(): MutableMessageWithHugeOneof
+    public fun toMutableMessageWithHugeOneof(): pbandk.testpb.MutableMessageWithHugeOneof
 
     /**
      * The [MutableMessageWithHugeOneof] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableMessageWithHugeOneof.() -> Unit): MessageWithHugeOneof
+    public fun copy(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit): pbandk.testpb.MessageWithHugeOneof
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -40191,7 +40191,7 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
     }
 }
 
-public sealed interface MutableMessageWithHugeOneof : MessageWithHugeOneof, pbandk.MutableMessage {
+public sealed interface MutableMessageWithHugeOneof : pbandk.testpb.MessageWithHugeOneof, pbandk.MutableMessage {
     public override var hugeOneof: MessageWithHugeOneof.HugeOneof<*>?
 
     public override var oneof1000: Int?
@@ -42198,9 +42198,9 @@ public sealed interface MutableMessageWithHugeOneof : MessageWithHugeOneof, pban
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toMessageWithHugeOneof(): MessageWithHugeOneof
+    public fun toMessageWithHugeOneof(): pbandk.testpb.MessageWithHugeOneof
 
-    public override fun copy(builderAction: MutableMessageWithHugeOneof.() -> Unit): MutableMessageWithHugeOneof
+    public override fun copy(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit): pbandk.testpb.MutableMessageWithHugeOneof
 
     public companion object : pbandk.Message.Companion<pbandk.testpb.MessageWithHugeOneof> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithHugeOneof = pbandk.testpb.MessageWithHugeOneof.decodeWithImpl(u)
@@ -43212,7 +43212,7 @@ public fun MessageWithLotsOfFields(
     field1998: String = "",
     field1999: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.MessageWithLotsOfFields = MessageWithLotsOfFields {
+): pbandk.testpb.MessageWithLotsOfFields = pbandk.testpb.MessageWithLotsOfFields {
     this.field1000 = field1000
     this.field1001 = field1001
     this.field1002 = field1002
@@ -44213,10 +44213,10 @@ public fun MessageWithLotsOfFields(
     this.field1997 = field1997
     this.field1998 = field1998
     this.field1999 = field1999
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableMessageWithLotsOfFields(): MutableMessageWithLotsOfFields = MutableMessageWithLotsOfFields_Impl(
+public fun MutableMessageWithLotsOfFields(): pbandk.testpb.MutableMessageWithLotsOfFields = pbandk.testpb.MutableMessageWithLotsOfFields_Impl(
     field1000 = "",
     field1001 = "",
     field1002 = "",
@@ -45224,15 +45224,15 @@ public fun MutableMessageWithLotsOfFields(): MutableMessageWithLotsOfFields = Mu
  * The [MutableMessageWithLotsOfFields] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageWithLotsOfFields(builderAction: MutableMessageWithLotsOfFields.() -> Unit): MessageWithLotsOfFields =
-    MutableMessageWithLotsOfFields().also(builderAction).toMessageWithLotsOfFields()
+public fun MessageWithLotsOfFields(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit): pbandk.testpb.MessageWithLotsOfFields =
+    pbandk.testpb.MutableMessageWithLotsOfFields().also(builderAction).toMessageWithLotsOfFields()
 
-public fun MutableMessageWithLotsOfFields(builderAction: MutableMessageWithLotsOfFields.() -> Unit): MutableMessageWithLotsOfFields =
-    MutableMessageWithLotsOfFields().also(builderAction)
+public fun MutableMessageWithLotsOfFields(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit): pbandk.testpb.MutableMessageWithLotsOfFields =
+    pbandk.testpb.MutableMessageWithLotsOfFields().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithLotsOfFields")
-public fun MessageWithLotsOfFields?.orDefault(): pbandk.testpb.MessageWithLotsOfFields = this ?: MessageWithLotsOfFields.defaultInstance
+public fun MessageWithLotsOfFields?.orDefault(): pbandk.testpb.MessageWithLotsOfFields = this ?: pbandk.testpb.MessageWithLotsOfFields.defaultInstance
 
 private class MessageWithLotsOfFields_Impl(
     override val field1000: String,
@@ -46236,10 +46236,10 @@ private class MessageWithLotsOfFields_Impl(
     override val field1998: String,
     override val field1999: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : MessageWithLotsOfFields, pbandk.GeneratedMessage<MessageWithLotsOfFields>() {
-    override val descriptor get() = MessageWithLotsOfFields.descriptor
+) : pbandk.testpb.MessageWithLotsOfFields, pbandk.GeneratedMessage<pbandk.testpb.MessageWithLotsOfFields>() {
+    override val descriptor get() = pbandk.testpb.MessageWithLotsOfFields.descriptor
 
-    override fun copy(builderAction: MutableMessageWithLotsOfFields.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit) =
         toMutableMessageWithLotsOfFields().apply(builderAction).toMessageWithLotsOfFields()
 
     @Deprecated("Use copy {} instead")
@@ -48246,10 +48246,10 @@ private class MessageWithLotsOfFields_Impl(
         this.field1997 = field1997
         this.field1998 = field1998
         this.field1999 = field1999
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MessageWithLotsOfFields)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageWithLotsOfFields)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -50261,11 +50261,11 @@ private class MutableMessageWithLotsOfFields_Impl(
     override var field1997: String,
     override var field1998: String,
     override var field1999: String,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableMessageWithLotsOfFields, pbandk.MutableGeneratedMessage<MutableMessageWithLotsOfFields>() {
-    override val descriptor get() = MessageWithLotsOfFields.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableMessageWithLotsOfFields, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMessageWithLotsOfFields>() {
+    override val descriptor get() = pbandk.testpb.MessageWithLotsOfFields.descriptor
 
-    override fun copy(builderAction: MutableMessageWithLotsOfFields.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit) =
         toMutableMessageWithLotsOfFields().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -52272,10 +52272,10 @@ private class MutableMessageWithLotsOfFields_Impl(
         this.field1997 = field1997
         this.field1998 = field1998
         this.field1999 = field1999
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toMessageWithLotsOfFields()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MessageWithLotsOfFields)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageWithLotsOfFields)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -54291,7 +54291,7 @@ private class MutableMessageWithLotsOfFields_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithLotsOfFields {
+private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithLotsOfFields {
     var field1000 = ""
     var field1001 = ""
     var field1002 = ""
@@ -56553,12 +56553,12 @@ private fun MessageWithLotsOfFields.Companion.decodeWithImpl(u: pbandk.MessageDe
 public fun MessageWithHugeOneof(
     hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>? = null,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.testpb.MessageWithHugeOneof = MessageWithHugeOneof {
+): pbandk.testpb.MessageWithHugeOneof = pbandk.testpb.MessageWithHugeOneof {
     this.hugeOneof = hugeOneof
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableMessageWithHugeOneof(): MutableMessageWithHugeOneof = MutableMessageWithHugeOneof_Impl(
+public fun MutableMessageWithHugeOneof(): pbandk.testpb.MutableMessageWithHugeOneof = pbandk.testpb.MutableMessageWithHugeOneof_Impl(
     hugeOneof = null,
     unknownFields = mutableMapOf()
 )
@@ -56567,21 +56567,21 @@ public fun MutableMessageWithHugeOneof(): MutableMessageWithHugeOneof = MutableM
  * The [MutableMessageWithHugeOneof] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun MessageWithHugeOneof(builderAction: MutableMessageWithHugeOneof.() -> Unit): MessageWithHugeOneof =
-    MutableMessageWithHugeOneof().also(builderAction).toMessageWithHugeOneof()
+public fun MessageWithHugeOneof(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit): pbandk.testpb.MessageWithHugeOneof =
+    pbandk.testpb.MutableMessageWithHugeOneof().also(builderAction).toMessageWithHugeOneof()
 
-public fun MutableMessageWithHugeOneof(builderAction: MutableMessageWithHugeOneof.() -> Unit): MutableMessageWithHugeOneof =
-    MutableMessageWithHugeOneof().also(builderAction)
+public fun MutableMessageWithHugeOneof(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit): pbandk.testpb.MutableMessageWithHugeOneof =
+    pbandk.testpb.MutableMessageWithHugeOneof().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMessageWithHugeOneof")
-public fun MessageWithHugeOneof?.orDefault(): pbandk.testpb.MessageWithHugeOneof = this ?: MessageWithHugeOneof.defaultInstance
+public fun MessageWithHugeOneof?.orDefault(): pbandk.testpb.MessageWithHugeOneof = this ?: pbandk.testpb.MessageWithHugeOneof.defaultInstance
 
 private class MessageWithHugeOneof_Impl(
     override val hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>?,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : MessageWithHugeOneof, pbandk.GeneratedMessage<MessageWithHugeOneof>() {
-    override val descriptor get() = MessageWithHugeOneof.descriptor
+) : pbandk.testpb.MessageWithHugeOneof, pbandk.GeneratedMessage<pbandk.testpb.MessageWithHugeOneof>() {
+    override val descriptor get() = pbandk.testpb.MessageWithHugeOneof.descriptor
 
     override val oneof1000: Int?
         get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1000)?.value
@@ -60584,7 +60584,7 @@ private class MessageWithHugeOneof_Impl(
     override val oneof2999: Int?
         get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2999)?.value
 
-    override fun copy(builderAction: MutableMessageWithHugeOneof.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit) =
         toMutableMessageWithHugeOneof().apply(builderAction).toMessageWithHugeOneof()
 
     @Deprecated("Use copy {} instead")
@@ -60593,10 +60593,10 @@ private class MessageWithHugeOneof_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.hugeOneof = hugeOneof
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MessageWithHugeOneof)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageWithHugeOneof)?.let {
         it.copy(
             hugeOneof = other.hugeOneof ?: hugeOneof,
             unknownFields = unknownFields + other.unknownFields
@@ -60611,9 +60611,9 @@ private class MessageWithHugeOneof_Impl(
 
 private class MutableMessageWithHugeOneof_Impl(
     override var hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>?,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableMessageWithHugeOneof, pbandk.MutableGeneratedMessage<MutableMessageWithHugeOneof>() {
-    override val descriptor get() = MessageWithHugeOneof.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.testpb.MutableMessageWithHugeOneof, pbandk.MutableGeneratedMessage<pbandk.testpb.MutableMessageWithHugeOneof>() {
+    override val descriptor get() = pbandk.testpb.MessageWithHugeOneof.descriptor
 
     override var oneof1000: Int?
         get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof1000)?.value
@@ -66616,7 +66616,7 @@ private class MutableMessageWithHugeOneof_Impl(
         get() = (hugeOneof as? pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2999)?.value
         set(value) { hugeOneof = value?.let { pbandk.testpb.MessageWithHugeOneof.HugeOneof.Oneof2999(it) } }
 
-    override fun copy(builderAction: MutableMessageWithHugeOneof.() -> Unit) =
+    override fun copy(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit) =
         toMutableMessageWithHugeOneof().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -66625,10 +66625,10 @@ private class MutableMessageWithHugeOneof_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.hugeOneof = hugeOneof
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toMessageWithHugeOneof()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? MessageWithHugeOneof)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageWithHugeOneof)?.let {
         it.copy(
             hugeOneof = other.hugeOneof ?: hugeOneof,
             unknownFields = unknownFields + other.unknownFields
@@ -66647,7 +66647,7 @@ private class MutableMessageWithHugeOneof_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun MessageWithHugeOneof.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MessageWithHugeOneof {
+private fun MessageWithHugeOneof.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.testpb.MessageWithHugeOneof {
     var hugeOneof: MessageWithHugeOneof.HugeOneof<*>? = null
 
     val unknownFields = u.readMessage(this) { _fieldNumber, _fieldValue ->

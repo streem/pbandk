@@ -10,13 +10,13 @@ public sealed interface Empty : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableEmpty(): MutableEmpty
+    public fun toMutableEmpty(): pbandk.wkt.MutableEmpty
 
     /**
      * The [MutableEmpty] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableEmpty.() -> Unit): Empty
+    public fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -42,14 +42,14 @@ public sealed interface Empty : pbandk.Message {
     }
 }
 
-public sealed interface MutableEmpty : Empty, pbandk.MutableMessage {
+public sealed interface MutableEmpty : pbandk.wkt.Empty, pbandk.MutableMessage {
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toEmpty(): Empty
+    public fun toEmpty(): pbandk.wkt.Empty
 
-    public override fun copy(builderAction: MutableEmpty.() -> Unit): MutableEmpty
+    public override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.MutableEmpty
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Empty = pbandk.wkt.Empty.decodeWithImpl(u)
@@ -61,11 +61,11 @@ public sealed interface MutableEmpty : Empty, pbandk.MutableMessage {
 @Deprecated("Use Empty { } instead")
 public fun Empty(
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Empty = Empty {
-    this.unknownFields.putAll(unknownFields)
+): pbandk.wkt.Empty = pbandk.wkt.Empty {
+    this.unknownFields += unknownFields
 }
 
-public fun MutableEmpty(): MutableEmpty = MutableEmpty_Impl(
+public fun MutableEmpty(): pbandk.wkt.MutableEmpty = pbandk.wkt.MutableEmpty_Impl(
     unknownFields = mutableMapOf()
 )
 
@@ -73,32 +73,32 @@ public fun MutableEmpty(): MutableEmpty = MutableEmpty_Impl(
  * The [MutableEmpty] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Empty(builderAction: MutableEmpty.() -> Unit): Empty =
-    MutableEmpty().also(builderAction).toEmpty()
+public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty =
+    pbandk.wkt.MutableEmpty().also(builderAction).toEmpty()
 
-public fun MutableEmpty(builderAction: MutableEmpty.() -> Unit): MutableEmpty =
-    MutableEmpty().also(builderAction)
+public fun MutableEmpty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.MutableEmpty =
+    pbandk.wkt.MutableEmpty().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForEmpty")
-public fun Empty?.orDefault(): pbandk.wkt.Empty = this ?: Empty.defaultInstance
+public fun Empty?.orDefault(): pbandk.wkt.Empty = this ?: pbandk.wkt.Empty.defaultInstance
 
 private class Empty_Impl(
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Empty, pbandk.GeneratedMessage<Empty>() {
-    override val descriptor get() = Empty.descriptor
+) : pbandk.wkt.Empty, pbandk.GeneratedMessage<pbandk.wkt.Empty>() {
+    override val descriptor get() = pbandk.wkt.Empty.descriptor
 
-    override fun copy(builderAction: MutableEmpty.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) =
         toMutableEmpty().apply(builderAction).toEmpty()
 
     @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Empty)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Empty)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -110,21 +110,21 @@ private class Empty_Impl(
 }
 
 private class MutableEmpty_Impl(
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableEmpty, pbandk.MutableGeneratedMessage<MutableEmpty>() {
-    override val descriptor get() = Empty.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableEmpty, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableEmpty>() {
+    override val descriptor get() = pbandk.wkt.Empty.descriptor
 
-    override fun copy(builderAction: MutableEmpty.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableEmpty.() -> Unit) =
         toMutableEmpty().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toEmpty()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Empty)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Empty)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -140,7 +140,7 @@ private class MutableEmpty_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Empty {
+private fun Empty.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Empty {
 
     val unknownFields = u.readMessage(this) { _, _ -> }
     return Empty_Impl(unknownFields)

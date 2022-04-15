@@ -14,7 +14,7 @@ class JvmMapTest {
         val testMap = mapOf("1" to "a", "2" to "b", "blahblahblah" to "5000")
         // Generate a Java version of the proto and deserialize Kotlin version and vice-versa
         val builtJavaObj = pbandk.testpb.java.Test.MessageWithMap.newBuilder().putAllMap(testMap).build()
-        val builtKotlinObj = MessageWithMap { map = testMap }
+        val builtKotlinObj = MessageWithMap { map += testMap }
         assertEquals(builtJavaObj.serializedSize, builtKotlinObj.protoSize)
 
         val builtJavaBytes = builtJavaObj.toByteArray()
@@ -57,18 +57,12 @@ class JvmMapTest {
         val builtJavaBytes = builtJavaObj.toByteArray()
 
         val builtKotlinObj = TestAllTypesProto3 {
-            mapStringForeignEnum = mapOf(
-                "11" to ForeignEnum.FOREIGN_FOO,
-                "99" to ForeignEnum.FOREIGN_BAR
-            )
-            mapInt32Int32 = mapOf(
-                11 to 0,
-                99 to 1
-            )
-            mapStringString = mapOf(
-                "11" to "",
-                "99" to "foo"
-            )
+            mapStringForeignEnum["11"] = ForeignEnum.FOREIGN_FOO
+            mapStringForeignEnum["99"] = ForeignEnum.FOREIGN_BAR
+            mapInt32Int32[11] = 0
+            mapInt32Int32[99] = 1
+            mapStringString["11"] = ""
+            mapStringString["99"] = "foo"
         }
         val builtKotlinBytes = builtKotlinObj.encodeToByteArray()
 

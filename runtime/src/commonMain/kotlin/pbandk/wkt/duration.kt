@@ -12,13 +12,13 @@ public sealed interface Duration : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableDuration(): MutableDuration
+    public fun toMutableDuration(): pbandk.wkt.MutableDuration
 
     /**
      * The [MutableDuration] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableDuration.() -> Unit): Duration
+    public fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -66,16 +66,16 @@ public sealed interface Duration : pbandk.Message {
     }
 }
 
-public sealed interface MutableDuration : Duration, pbandk.MutableMessage {
+public sealed interface MutableDuration : pbandk.wkt.Duration, pbandk.MutableMessage {
     public override var seconds: Long
     public override var nanos: Int
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toDuration(): Duration
+    public fun toDuration(): pbandk.wkt.Duration
 
-    public override fun copy(builderAction: MutableDuration.() -> Unit): MutableDuration
+    public override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.MutableDuration
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Duration = pbandk.wkt.Duration.decodeWithImpl(u)
@@ -89,13 +89,13 @@ public fun Duration(
     seconds: Long = 0L,
     nanos: Int = 0,
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Duration = Duration {
+): pbandk.wkt.Duration = pbandk.wkt.Duration {
     this.seconds = seconds
     this.nanos = nanos
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableDuration(): MutableDuration = MutableDuration_Impl(
+public fun MutableDuration(): pbandk.wkt.MutableDuration = pbandk.wkt.MutableDuration_Impl(
     seconds = 0L,
     nanos = 0,
     unknownFields = mutableMapOf()
@@ -105,24 +105,24 @@ public fun MutableDuration(): MutableDuration = MutableDuration_Impl(
  * The [MutableDuration] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Duration(builderAction: MutableDuration.() -> Unit): Duration =
-    MutableDuration().also(builderAction).toDuration()
+public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration =
+    pbandk.wkt.MutableDuration().also(builderAction).toDuration()
 
-public fun MutableDuration(builderAction: MutableDuration.() -> Unit): MutableDuration =
-    MutableDuration().also(builderAction)
+public fun MutableDuration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.MutableDuration =
+    pbandk.wkt.MutableDuration().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForDuration")
-public fun Duration?.orDefault(): pbandk.wkt.Duration = this ?: Duration.defaultInstance
+public fun Duration?.orDefault(): pbandk.wkt.Duration = this ?: pbandk.wkt.Duration.defaultInstance
 
 private class Duration_Impl(
     override val seconds: Long,
     override val nanos: Int,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Duration, pbandk.GeneratedMessage<Duration>() {
-    override val descriptor get() = Duration.descriptor
+) : pbandk.wkt.Duration, pbandk.GeneratedMessage<pbandk.wkt.Duration>() {
+    override val descriptor get() = pbandk.wkt.Duration.descriptor
 
-    override fun copy(builderAction: MutableDuration.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) =
         toMutableDuration().apply(builderAction).toDuration()
 
     @Deprecated("Use copy {} instead")
@@ -133,10 +133,10 @@ private class Duration_Impl(
     ) = copy {
         this.seconds = seconds
         this.nanos = nanos
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Duration)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Duration)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -152,11 +152,11 @@ private class Duration_Impl(
 private class MutableDuration_Impl(
     override var seconds: Long,
     override var nanos: Int,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableDuration, pbandk.MutableGeneratedMessage<MutableDuration>() {
-    override val descriptor get() = Duration.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableDuration, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableDuration>() {
+    override val descriptor get() = pbandk.wkt.Duration.descriptor
 
-    override fun copy(builderAction: MutableDuration.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableDuration.() -> Unit) =
         toMutableDuration().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -167,10 +167,10 @@ private class MutableDuration_Impl(
     ) = copy {
         this.seconds = seconds
         this.nanos = nanos
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toDuration()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Duration)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Duration)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -190,7 +190,7 @@ private class MutableDuration_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Duration {
+private fun Duration.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Duration {
     var seconds = 0L
     var nanos = 0
 

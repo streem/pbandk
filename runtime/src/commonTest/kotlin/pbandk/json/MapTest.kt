@@ -19,7 +19,7 @@ class MapTest {
         }.toString()
 
         val expected = TestAllTypesProto3 {
-            mapStringForeignMessage = mapOf("foo" to ForeignMessage {})
+            mapStringForeignMessage["foo"] = ForeignMessage {}
         }
         val parsed = TestAllTypesProto3.decodeFromJsonString(json)
         assertEquals(expected, parsed)

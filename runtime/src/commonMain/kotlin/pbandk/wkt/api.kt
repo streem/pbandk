@@ -17,13 +17,13 @@ public sealed interface Api : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableApi(): MutableApi
+    public fun toMutableApi(): pbandk.wkt.MutableApi
 
     /**
      * The [MutableApi] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableApi.() -> Unit): Api
+    public fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -126,21 +126,21 @@ public sealed interface Api : pbandk.Message {
     }
 }
 
-public sealed interface MutableApi : Api, pbandk.MutableMessage {
+public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage {
     public override var name: String
-    public override var methods: List<pbandk.wkt.Method>
-    public override var options: List<pbandk.wkt.Option>
+    public override val methods: MutableList<pbandk.wkt.Method>
+    public override val options: MutableList<pbandk.wkt.Option>
     public override var version: String
     public override var sourceContext: pbandk.wkt.SourceContext?
-    public override var mixins: List<pbandk.wkt.Mixin>
+    public override val mixins: MutableList<pbandk.wkt.Mixin>
     public override var syntax: pbandk.wkt.Syntax
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toApi(): Api
+    public fun toApi(): pbandk.wkt.Api
 
-    public override fun copy(builderAction: MutableApi.() -> Unit): MutableApi
+    public override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.MutableApi
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Api> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Api = pbandk.wkt.Api.decodeWithImpl(u)
@@ -164,13 +164,13 @@ public sealed interface Method : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableMethod(): MutableMethod
+    public fun toMutableMethod(): pbandk.wkt.MutableMethod
 
     /**
      * The [MutableMethod] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableMethod.() -> Unit): Method
+    public fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -273,21 +273,21 @@ public sealed interface Method : pbandk.Message {
     }
 }
 
-public sealed interface MutableMethod : Method, pbandk.MutableMessage {
+public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage {
     public override var name: String
     public override var requestTypeUrl: String
     public override var requestStreaming: Boolean
     public override var responseTypeUrl: String
     public override var responseStreaming: Boolean
-    public override var options: List<pbandk.wkt.Option>
+    public override val options: MutableList<pbandk.wkt.Option>
     public override var syntax: pbandk.wkt.Syntax
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toMethod(): Method
+    public fun toMethod(): pbandk.wkt.Method
 
-    public override fun copy(builderAction: MutableMethod.() -> Unit): MutableMethod
+    public override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.MutableMethod
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Method> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Method = pbandk.wkt.Method.decodeWithImpl(u)
@@ -306,13 +306,13 @@ public sealed interface Mixin : pbandk.Message {
     /**
      * Returns a new mutable instance containing a copy of all values from this instance.
      */
-    public fun toMutableMixin(): MutableMixin
+    public fun toMutableMixin(): pbandk.wkt.MutableMixin
 
     /**
      * The [MutableMixin] passed as a receiver to the [builderAction] is valid only inside that function.
      * Using it outside of the function produces an unspecified behavior.
      */
-    public fun copy(builderAction: MutableMixin.() -> Unit): Mixin
+    public fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin
 
     @Deprecated("Use copy {} instead")
     public fun copy(
@@ -360,16 +360,16 @@ public sealed interface Mixin : pbandk.Message {
     }
 }
 
-public sealed interface MutableMixin : Mixin, pbandk.MutableMessage {
+public sealed interface MutableMixin : pbandk.wkt.Mixin, pbandk.MutableMessage {
     public override var name: String
     public override var root: String
 
     /**
      * Returns a new immutable instance containing a copy of all values from this instance.
      */
-    public fun toMixin(): Mixin
+    public fun toMixin(): pbandk.wkt.Mixin
 
-    public override fun copy(builderAction: MutableMixin.() -> Unit): MutableMixin
+    public override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.MutableMixin
 
     public companion object : pbandk.Message.Companion<pbandk.wkt.Mixin> {
         override fun decodeWith(u: pbandk.MessageDecoder): pbandk.wkt.Mixin = pbandk.wkt.Mixin.decodeWithImpl(u)
@@ -388,24 +388,24 @@ public fun Api(
     mixins: List<pbandk.wkt.Mixin> = emptyList(),
     syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Api = Api {
+): pbandk.wkt.Api = pbandk.wkt.Api {
     this.name = name
-    this.methods = methods
-    this.options = options
+    this.methods += methods
+    this.options += options
     this.version = version
     this.sourceContext = sourceContext
-    this.mixins = mixins
+    this.mixins += mixins
     this.syntax = syntax
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableApi(): MutableApi = MutableApi_Impl(
+public fun MutableApi(): pbandk.wkt.MutableApi = pbandk.wkt.MutableApi_Impl(
     name = "",
-    methods = emptyList(),
-    options = emptyList(),
+    methods = mutableListOf(),
+    options = mutableListOf(),
     version = "",
     sourceContext = null,
-    mixins = emptyList(),
+    mixins = mutableListOf(),
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
 )
@@ -414,15 +414,15 @@ public fun MutableApi(): MutableApi = MutableApi_Impl(
  * The [MutableApi] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Api(builderAction: MutableApi.() -> Unit): Api =
-    MutableApi().also(builderAction).toApi()
+public fun Api(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api =
+    pbandk.wkt.MutableApi().also(builderAction).toApi()
 
-public fun MutableApi(builderAction: MutableApi.() -> Unit): MutableApi =
-    MutableApi().also(builderAction)
+public fun MutableApi(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.MutableApi =
+    pbandk.wkt.MutableApi().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForApi")
-public fun Api?.orDefault(): pbandk.wkt.Api = this ?: Api.defaultInstance
+public fun Api?.orDefault(): pbandk.wkt.Api = this ?: pbandk.wkt.Api.defaultInstance
 
 private class Api_Impl(
     override val name: String,
@@ -433,10 +433,10 @@ private class Api_Impl(
     override val mixins: List<pbandk.wkt.Mixin>,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Api, pbandk.GeneratedMessage<Api>() {
-    override val descriptor get() = Api.descriptor
+) : pbandk.wkt.Api, pbandk.GeneratedMessage<pbandk.wkt.Api>() {
+    override val descriptor get() = pbandk.wkt.Api.descriptor
 
-    override fun copy(builderAction: MutableApi.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) =
         toMutableApi().apply(builderAction).toApi()
 
     @Deprecated("Use copy {} instead")
@@ -451,16 +451,16 @@ private class Api_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.name = name
-        this.methods = methods
-        this.options = options
+        this.methods += methods
+        this.options += options
         this.version = version
         this.sourceContext = sourceContext
-        this.mixins = mixins
+        this.mixins += mixins
         this.syntax = syntax
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Api)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Api)?.let {
         it.copy(
             methods = methods + other.methods,
             options = options + other.options,
@@ -472,11 +472,11 @@ private class Api_Impl(
 
     override fun toMutableApi() = MutableApi_Impl(
         name = name,
-        methods = methods,
-        options = options,
+        methods = methods.toMutableList(),
+        options = options.toMutableList(),
         version = version,
         sourceContext = sourceContext,
-        mixins = mixins,
+        mixins = mixins.toMutableList(),
         syntax = syntax,
         unknownFields = unknownFields.toMutableMap()
     )
@@ -484,17 +484,17 @@ private class Api_Impl(
 
 private class MutableApi_Impl(
     override var name: String,
-    override var methods: List<pbandk.wkt.Method>,
-    override var options: List<pbandk.wkt.Option>,
+    override val methods: MutableList<pbandk.wkt.Method>,
+    override val options: MutableList<pbandk.wkt.Option>,
     override var version: String,
     override var sourceContext: pbandk.wkt.SourceContext?,
-    override var mixins: List<pbandk.wkt.Mixin>,
+    override val mixins: MutableList<pbandk.wkt.Mixin>,
     override var syntax: pbandk.wkt.Syntax,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableApi, pbandk.MutableGeneratedMessage<MutableApi>() {
-    override val descriptor get() = Api.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableApi, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableApi>() {
+    override val descriptor get() = pbandk.wkt.Api.descriptor
 
-    override fun copy(builderAction: MutableApi.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableApi.() -> Unit) =
         toMutableApi().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -509,16 +509,16 @@ private class MutableApi_Impl(
         unknownFields: Map<Int, pbandk.UnknownField>
     ) = copy {
         this.name = name
-        this.methods = methods
-        this.options = options
+        this.methods += methods
+        this.options += options
         this.version = version
         this.sourceContext = sourceContext
-        this.mixins = mixins
+        this.mixins += mixins
         this.syntax = syntax
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toApi()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Api)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Api)?.let {
         it.copy(
             methods = methods + other.methods,
             options = options + other.options,
@@ -530,29 +530,29 @@ private class MutableApi_Impl(
 
     override fun toApi() = Api_Impl(
         name = name,
-        methods = methods,
-        options = options,
+        methods = methods.toList(),
+        options = options.toList(),
         version = version,
         sourceContext = sourceContext,
-        mixins = mixins,
+        mixins = mixins.toList(),
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )
 
     override fun toMutableApi() = MutableApi_Impl(
         name = name,
-        methods = methods,
-        options = options,
+        methods = methods.toMutableList(),
+        options = options.toMutableList(),
         version = version,
         sourceContext = sourceContext,
-        mixins = mixins,
+        mixins = mixins.toMutableList(),
         syntax = syntax,
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
+private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Api {
     var name = ""
     var methods: pbandk.ListWithSize.Builder<pbandk.wkt.Method>? = null
     var options: pbandk.ListWithSize.Builder<pbandk.wkt.Option>? = null
@@ -586,24 +586,24 @@ public fun Method(
     options: List<pbandk.wkt.Option> = emptyList(),
     syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Method = Method {
+): pbandk.wkt.Method = pbandk.wkt.Method {
     this.name = name
     this.requestTypeUrl = requestTypeUrl
     this.requestStreaming = requestStreaming
     this.responseTypeUrl = responseTypeUrl
     this.responseStreaming = responseStreaming
-    this.options = options
+    this.options += options
     this.syntax = syntax
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableMethod(): MutableMethod = MutableMethod_Impl(
+public fun MutableMethod(): pbandk.wkt.MutableMethod = pbandk.wkt.MutableMethod_Impl(
     name = "",
     requestTypeUrl = "",
     requestStreaming = false,
     responseTypeUrl = "",
     responseStreaming = false,
-    options = emptyList(),
+    options = mutableListOf(),
     syntax = pbandk.wkt.Syntax.fromValue(0),
     unknownFields = mutableMapOf()
 )
@@ -612,15 +612,15 @@ public fun MutableMethod(): MutableMethod = MutableMethod_Impl(
  * The [MutableMethod] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Method(builderAction: MutableMethod.() -> Unit): Method =
-    MutableMethod().also(builderAction).toMethod()
+public fun Method(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method =
+    pbandk.wkt.MutableMethod().also(builderAction).toMethod()
 
-public fun MutableMethod(builderAction: MutableMethod.() -> Unit): MutableMethod =
-    MutableMethod().also(builderAction)
+public fun MutableMethod(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.MutableMethod =
+    pbandk.wkt.MutableMethod().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMethod")
-public fun Method?.orDefault(): pbandk.wkt.Method = this ?: Method.defaultInstance
+public fun Method?.orDefault(): pbandk.wkt.Method = this ?: pbandk.wkt.Method.defaultInstance
 
 private class Method_Impl(
     override val name: String,
@@ -631,10 +631,10 @@ private class Method_Impl(
     override val options: List<pbandk.wkt.Option>,
     override val syntax: pbandk.wkt.Syntax,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Method, pbandk.GeneratedMessage<Method>() {
-    override val descriptor get() = Method.descriptor
+) : pbandk.wkt.Method, pbandk.GeneratedMessage<pbandk.wkt.Method>() {
+    override val descriptor get() = pbandk.wkt.Method.descriptor
 
-    override fun copy(builderAction: MutableMethod.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) =
         toMutableMethod().apply(builderAction).toMethod()
 
     @Deprecated("Use copy {} instead")
@@ -653,12 +653,12 @@ private class Method_Impl(
         this.requestStreaming = requestStreaming
         this.responseTypeUrl = responseTypeUrl
         this.responseStreaming = responseStreaming
-        this.options = options
+        this.options += options
         this.syntax = syntax
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Method)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Method)?.let {
         it.copy(
             options = options + other.options,
             unknownFields = unknownFields + other.unknownFields
@@ -671,7 +671,7 @@ private class Method_Impl(
         requestStreaming = requestStreaming,
         responseTypeUrl = responseTypeUrl,
         responseStreaming = responseStreaming,
-        options = options,
+        options = options.toMutableList(),
         syntax = syntax,
         unknownFields = unknownFields.toMutableMap()
     )
@@ -683,13 +683,13 @@ private class MutableMethod_Impl(
     override var requestStreaming: Boolean,
     override var responseTypeUrl: String,
     override var responseStreaming: Boolean,
-    override var options: List<pbandk.wkt.Option>,
+    override val options: MutableList<pbandk.wkt.Option>,
     override var syntax: pbandk.wkt.Syntax,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableMethod, pbandk.MutableGeneratedMessage<MutableMethod>() {
-    override val descriptor get() = Method.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableMethod, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableMethod>() {
+    override val descriptor get() = pbandk.wkt.Method.descriptor
 
-    override fun copy(builderAction: MutableMethod.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableMethod.() -> Unit) =
         toMutableMethod().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -708,12 +708,12 @@ private class MutableMethod_Impl(
         this.requestStreaming = requestStreaming
         this.responseTypeUrl = responseTypeUrl
         this.responseStreaming = responseStreaming
-        this.options = options
+        this.options += options
         this.syntax = syntax
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toMethod()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Method)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Method)?.let {
         it.copy(
             options = options + other.options,
             unknownFields = unknownFields + other.unknownFields
@@ -726,7 +726,7 @@ private class MutableMethod_Impl(
         requestStreaming = requestStreaming,
         responseTypeUrl = responseTypeUrl,
         responseStreaming = responseStreaming,
-        options = options,
+        options = options.toList(),
         syntax = syntax,
         unknownFields = unknownFields.toMap()
     )
@@ -737,14 +737,14 @@ private class MutableMethod_Impl(
         requestStreaming = requestStreaming,
         responseTypeUrl = responseTypeUrl,
         responseStreaming = responseStreaming,
-        options = options,
+        options = options.toMutableList(),
         syntax = syntax,
         unknownFields = unknownFields.toMutableMap()
     )
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
+private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Method {
     var name = ""
     var requestTypeUrl = ""
     var requestStreaming = false
@@ -773,13 +773,13 @@ public fun Mixin(
     name: String = "",
     root: String = "",
     unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-): pbandk.wkt.Mixin = Mixin {
+): pbandk.wkt.Mixin = pbandk.wkt.Mixin {
     this.name = name
     this.root = root
-    this.unknownFields.putAll(unknownFields)
+    this.unknownFields += unknownFields
 }
 
-public fun MutableMixin(): MutableMixin = MutableMixin_Impl(
+public fun MutableMixin(): pbandk.wkt.MutableMixin = pbandk.wkt.MutableMixin_Impl(
     name = "",
     root = "",
     unknownFields = mutableMapOf()
@@ -789,24 +789,24 @@ public fun MutableMixin(): MutableMixin = MutableMixin_Impl(
  * The [MutableMixin] passed as a receiver to the [builderAction] is valid only inside that function.
  * Using it outside of the function produces an unspecified behavior.
  */
-public fun Mixin(builderAction: MutableMixin.() -> Unit): Mixin =
-    MutableMixin().also(builderAction).toMixin()
+public fun Mixin(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin =
+    pbandk.wkt.MutableMixin().also(builderAction).toMixin()
 
-public fun MutableMixin(builderAction: MutableMixin.() -> Unit): MutableMixin =
-    MutableMixin().also(builderAction)
+public fun MutableMixin(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.MutableMixin =
+    pbandk.wkt.MutableMixin().also(builderAction)
 
 @pbandk.Export
 @pbandk.JsName("orDefaultForMixin")
-public fun Mixin?.orDefault(): pbandk.wkt.Mixin = this ?: Mixin.defaultInstance
+public fun Mixin?.orDefault(): pbandk.wkt.Mixin = this ?: pbandk.wkt.Mixin.defaultInstance
 
 private class Mixin_Impl(
     override val name: String,
     override val root: String,
     override val unknownFields: Map<Int, pbandk.UnknownField>
-) : Mixin, pbandk.GeneratedMessage<Mixin>() {
-    override val descriptor get() = Mixin.descriptor
+) : pbandk.wkt.Mixin, pbandk.GeneratedMessage<pbandk.wkt.Mixin>() {
+    override val descriptor get() = pbandk.wkt.Mixin.descriptor
 
-    override fun copy(builderAction: MutableMixin.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) =
         toMutableMixin().apply(builderAction).toMixin()
 
     @Deprecated("Use copy {} instead")
@@ -817,10 +817,10 @@ private class Mixin_Impl(
     ) = copy {
         this.name = name
         this.root = root
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Mixin)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Mixin)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -836,11 +836,11 @@ private class Mixin_Impl(
 private class MutableMixin_Impl(
     override var name: String,
     override var root: String,
-    override var unknownFields: MutableMap<Int, pbandk.UnknownField>
-) : MutableMixin, pbandk.MutableGeneratedMessage<MutableMixin>() {
-    override val descriptor get() = Mixin.descriptor
+    override val unknownFields: MutableMap<Int, pbandk.UnknownField>
+) : pbandk.wkt.MutableMixin, pbandk.MutableGeneratedMessage<pbandk.wkt.MutableMixin>() {
+    override val descriptor get() = pbandk.wkt.Mixin.descriptor
 
-    override fun copy(builderAction: MutableMixin.() -> Unit) =
+    override fun copy(builderAction: pbandk.wkt.MutableMixin.() -> Unit) =
         toMutableMixin().apply(builderAction)
 
     @Deprecated("Use copy {} instead")
@@ -851,10 +851,10 @@ private class MutableMixin_Impl(
     ) = copy {
         this.name = name
         this.root = root
-        this.unknownFields.putAll(unknownFields)
+        this.unknownFields += unknownFields
     }.toMixin()
 
-    override operator fun plus(other: pbandk.Message?) = (other as? Mixin)?.let {
+    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Mixin)?.let {
         it.copy(
             unknownFields = unknownFields + other.unknownFields
         )
@@ -874,7 +874,7 @@ private class MutableMixin_Impl(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mixin {
+private fun Mixin.Companion.decodeWithImpl(u: pbandk.MessageDecoder): pbandk.wkt.Mixin {
     var name = ""
     var root = ""
 

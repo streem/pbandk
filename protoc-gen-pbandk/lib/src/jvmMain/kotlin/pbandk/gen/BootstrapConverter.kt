@@ -37,9 +37,9 @@ internal object BootstrapConverter {
     fun toResp(resp: CodeGeneratorResponse) = resp.convert()
 
     private fun PluginProtos.CodeGeneratorRequest.convert() = CodeGeneratorRequest {
-        fileToGenerate = this@convert.fileToGenerateList
+        fileToGenerate += this@convert.fileToGenerateList
         parameter = this@convert.parameter.orNull(hasParameter())
-        protoFile = this@convert.protoFileList.map { it.convert() }
+        protoFile += this@convert.protoFileList.map { it.convert() }
         compilerVersion = this@convert.compilerVersion?.let {
             Version {
                 major = it.major.orNull(it.hasMajor())
@@ -53,13 +53,13 @@ internal object BootstrapConverter {
     private fun DescriptorProtos.FileDescriptorProto.convert() = FileDescriptorProto {
         name = this@convert.name.orNull(hasName())
         `package` = this@convert.`package`.orNull(hasPackage())
-        dependency = this@convert.dependencyList
-        publicDependency = this@convert.publicDependencyList
-        weakDependency = this@convert.weakDependencyList
-        messageType = this@convert.messageTypeList.map { it.convert() }
-        enumType = this@convert.enumTypeList.map { it.convert() }
-        service = this@convert.serviceList.map { it.convert() }
-        extension = this@convert.extensionList.map { it.convert() }
+        dependency += this@convert.dependencyList
+        publicDependency += this@convert.publicDependencyList
+        weakDependency += this@convert.weakDependencyList
+        messageType += this@convert.messageTypeList.map { it.convert() }
+        enumType += this@convert.enumTypeList.map { it.convert() }
+        service += this@convert.serviceList.map { it.convert() }
+        extension += this@convert.extensionList.map { it.convert() }
         options = this@convert.options?.let {
             FileOptions {
                 javaPackage = it.javaPackage.orNull(it.hasJavaPackage())
@@ -79,18 +79,18 @@ internal object BootstrapConverter {
                 swiftPrefix = it.swiftPrefix.orNull(it.hasSwiftPrefix())
                 phpClassPrefix = it.phpClassPrefix.orNull(it.hasPhpClassPrefix())
                 phpNamespace = it.phpNamespace.orNull(it.hasPhpNamespace())
-                uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
         sourceCodeInfo = this@convert.sourceCodeInfo?.let {
             SourceCodeInfo {
-                location = it.locationList.map {
+                location += it.locationList.map {
                     SourceCodeInfo.Location {
-                        path = it.pathList
-                        span = it.spanList
+                        path += it.pathList
+                        span += it.spanList
                         leadingComments = it.leadingComments.orNull(it.hasLeadingComments())
                         trailingComments = it.trailingComments.orNull(it.hasTrailingComments())
-                        leadingDetachedComments = it.leadingDetachedCommentsList
+                        leadingDetachedComments += it.leadingDetachedCommentsList
                     }
                 }
             }
@@ -99,26 +99,26 @@ internal object BootstrapConverter {
     }
 
     private fun DescriptorProtos.UninterpretedOption.convert() = UninterpretedOption {
-        name = this@convert.nameList.map { UninterpretedOption.NamePart { namePart = it.namePart } }
+        name += this@convert.nameList.map { UninterpretedOption.NamePart { namePart = it.namePart } }
         stringValue = this@convert.stringValue?.let { ByteArr(it.toByteArray()) }
     }
 
     private fun DescriptorProtos.DescriptorProto.convert(): DescriptorProto = DescriptorProto {
         name = this@convert.name.orNull(hasName())
-        field = this@convert.fieldList.map { it.convert() }
-        extension = this@convert.fieldList.map { it.convert() }
-        nestedType = this@convert.nestedTypeList.map { it.convert() }
-        enumType = this@convert.enumTypeList.map { it.convert() }
-        extensionRange = this@convert.extensionRangeList.map {
+        field += this@convert.fieldList.map { it.convert() }
+        extension += this@convert.fieldList.map { it.convert() }
+        nestedType += this@convert.nestedTypeList.map { it.convert() }
+        enumType += this@convert.enumTypeList.map { it.convert() }
+        extensionRange += this@convert.extensionRangeList.map {
             DescriptorProto.ExtensionRange {
                 start = it.start.orNull(it.hasStart())
                 end = it.end.orNull(it.hasEnd())
                 options = it.options?.let {
-                    ExtensionRangeOptions { uninterpretedOption = it.uninterpretedOptionList.map { it.convert() } }
+                    ExtensionRangeOptions { uninterpretedOption += it.uninterpretedOptionList.map { it.convert() } }
                 }
             }
         }
-        oneofDecl = this@convert.oneofDeclList.map { it.convert() }
+        oneofDecl += this@convert.oneofDeclList.map { it.convert() }
         options = this@convert.options?.let {
             MessageOptions {
                 messageSetWireFormat = it.messageSetWireFormat.orNull(it.hasMessageSetWireFormat())
@@ -126,28 +126,28 @@ internal object BootstrapConverter {
                     it.noStandardDescriptorAccessor.orNull(it.hasNoStandardDescriptorAccessor())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
                 mapEntry = it.mapEntry.orNull(it.hasMapEntry())
-                uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
-        reservedRange = this@convert.reservedRangeList.map {
+        reservedRange += this@convert.reservedRangeList.map {
             DescriptorProto.ReservedRange {
                 start = it.start.orNull(it.hasStart())
                 end = it.end.orNull(it.hasEnd())
             }
         }
-        reservedName = reservedNameList
+        reservedName += reservedNameList
     }
 
     private fun DescriptorProtos.EnumDescriptorProto.convert() = EnumDescriptorProto {
         name = this@convert.name.orNull(hasName())
-        value = this@convert.valueList.map {
+        value += this@convert.valueList.map {
             EnumValueDescriptorProto {
                 name = it.name.orNull(it.hasName())
                 number = it.number.orNull(it.hasNumber())
                 options = it.options?.let {
                     EnumValueOptions {
                         deprecated = it.deprecated.orNull(it.hasDeprecated())
-                        uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                        uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
                     }
                 }
             }
@@ -156,21 +156,21 @@ internal object BootstrapConverter {
             EnumOptions {
                 allowAlias = it.allowAlias.orNull(it.hasAllowAlias())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
-                uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
-        reservedRange = this@convert.reservedRangeList.map {
+        reservedRange += this@convert.reservedRangeList.map {
             EnumDescriptorProto.EnumReservedRange {
                 start = it.start.orNull(it.hasStart())
                 end = it.end.orNull(it.hasEnd())
             }
         }
-        reservedName = this@convert.reservedNameList
+        reservedName += this@convert.reservedNameList
     }
 
     private fun DescriptorProtos.ServiceDescriptorProto.convert() = ServiceDescriptorProto {
         name = this@convert.name.orNull(hasName())
-        method = this@convert.methodList.map {
+        method += this@convert.methodList.map {
             MethodDescriptorProto {
                 name = it.name.orNull(it.hasName())
                 inputType = it.inputType.orNull(it.hasInputType())
@@ -180,7 +180,7 @@ internal object BootstrapConverter {
                         deprecated = it.deprecated.orNull(it.hasDeprecated())
                         idempotencyLevel =
                             it.idempotencyLevel?.number?.let { MethodOptions.IdempotencyLevel.fromValue(it) }
-                        uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                        uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
                     }
                 }
                 clientStreaming = it.clientStreaming.orNull(it.hasClientStreaming())
@@ -190,7 +190,7 @@ internal object BootstrapConverter {
         options = this@convert.options?.let {
             ServiceOptions {
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
-                uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
     }
@@ -199,7 +199,7 @@ internal object BootstrapConverter {
         name = this@convert.name.orNull(hasName())
         options = this@convert.options?.let {
             OneofOptions {
-                uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
     }
@@ -222,7 +222,7 @@ internal object BootstrapConverter {
                 lazy = it.lazy.orNull(it.hasLazy())
                 deprecated = it.deprecated.orNull(it.hasDeprecated())
                 weak = it.weak.orNull(it.hasWeak())
-                uninterpretedOption = it.uninterpretedOptionList.map { it.convert() }
+                uninterpretedOption += it.uninterpretedOptionList.map { it.convert() }
             }
         }
     }

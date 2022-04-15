@@ -207,7 +207,7 @@ internal object JsonMessageAdapters {
                     ListValue.descriptor.fields.first().type
                 ) as Sequence<Value>
                 ListValue {
-                    this.values = values.toList()
+                    this.values += values
                 }
             } catch (e: InvalidProtocolBufferException) {
                 throw e
@@ -229,7 +229,8 @@ internal object JsonMessageAdapters {
                 )
                 @Suppress("UNCHECKED_CAST")
                 Struct {
-                    this.fields = MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>)
+                    // TODO: change the default mutable map in the generated code to be a MutableMessageMap
+                    this.fields.putAll(MessageMap(fields.toSet() as Set<MessageMap.Entry<String, Value?>>))
                 }
             } catch (e: InvalidProtocolBufferException) {
                 throw e
