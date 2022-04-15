@@ -583,17 +583,12 @@ private class FailureSet_Impl(
     override fun copy(
         failure: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.FailureSet {
         this.failure += failure
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.FailureSet)?.let {
-        it.copy(
-            failure = failure + other.failure,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFailureSet() = pbandk.conformance.pb.MutableFailureSet {
         this.failure += this@FailureSet_Impl.failure
@@ -614,17 +609,12 @@ private class MutableFailureSet_Impl(
     override fun copy(
         failure: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.FailureSet {
         this.failure += failure
         this.unknownFields += unknownFields
-    }.toFailureSet()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.FailureSet)?.let {
-        it.copy(
-            failure = failure + other.failure,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFailureSet() = FailureSet_Impl(
         failure = failure.toList(),
@@ -634,6 +624,15 @@ private class MutableFailureSet_Impl(
     override fun toMutableFailureSet() = pbandk.conformance.pb.MutableFailureSet {
         this.failure += this@MutableFailureSet_Impl.failure
         this.unknownFields += this@MutableFailureSet_Impl.unknownFields
+    }
+}
+
+private fun FailureSet.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.FailureSet {
+    if (other !is pbandk.conformance.pb.FailureSet) return this
+
+    return copy {
+        failure += other.failure
+        unknownFields += other.unknownFields
     }
 }
 
@@ -724,7 +723,7 @@ private class ConformanceRequest_Impl(
         printUnknownFields: Boolean,
         payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ConformanceRequest {
         this.requestedOutputFormat = requestedOutputFormat
         this.messageType = messageType
         this.testCategory = testCategory
@@ -734,13 +733,7 @@ private class ConformanceRequest_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ConformanceRequest)?.let {
-        it.copy(
-            jspbEncodingOptions = jspbEncodingOptions?.plus(other.jspbEncodingOptions) ?: other.jspbEncodingOptions,
-            payload = other.payload ?: payload,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableConformanceRequest() = pbandk.conformance.pb.MutableConformanceRequest {
         this.requestedOutputFormat = this@ConformanceRequest_Impl.requestedOutputFormat
@@ -789,7 +782,7 @@ private class MutableConformanceRequest_Impl(
         printUnknownFields: Boolean,
         payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ConformanceRequest {
         this.requestedOutputFormat = requestedOutputFormat
         this.messageType = messageType
         this.testCategory = testCategory
@@ -797,15 +790,9 @@ private class MutableConformanceRequest_Impl(
         this.printUnknownFields = printUnknownFields
         this.payload = payload
         this.unknownFields += unknownFields
-    }.toConformanceRequest()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ConformanceRequest)?.let {
-        it.copy(
-            jspbEncodingOptions = jspbEncodingOptions?.plus(other.jspbEncodingOptions) ?: other.jspbEncodingOptions,
-            payload = other.payload ?: payload,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toConformanceRequest() = ConformanceRequest_Impl(
         requestedOutputFormat = requestedOutputFormat,
@@ -825,6 +812,26 @@ private class MutableConformanceRequest_Impl(
         this.printUnknownFields = this@MutableConformanceRequest_Impl.printUnknownFields
         this.payload = this@MutableConformanceRequest_Impl.payload
         this.unknownFields += this@MutableConformanceRequest_Impl.unknownFields
+    }
+}
+
+private fun ConformanceRequest.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.ConformanceRequest {
+    if (other !is pbandk.conformance.pb.ConformanceRequest) return this
+
+    return copy {
+        requestedOutputFormat = other.requestedOutputFormat
+        messageType = other.messageType
+        testCategory = other.testCategory
+        jspbEncodingOptions = jspbEncodingOptions?.plus(other.jspbEncodingOptions) ?: other.jspbEncodingOptions
+        printUnknownFields = other.printUnknownFields
+        when (other.payload) {
+            is ConformanceRequest.Payload.ProtobufPayload -> protobufPayload = other.protobufPayload
+            is ConformanceRequest.Payload.JsonPayload -> jsonPayload = other.jsonPayload
+            is ConformanceRequest.Payload.JspbPayload -> jspbPayload = other.jspbPayload
+            is ConformanceRequest.Payload.TextPayload -> textPayload = other.textPayload
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -912,17 +919,12 @@ private class ConformanceResponse_Impl(
     override fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ConformanceResponse {
         this.result = result
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ConformanceResponse)?.let {
-        it.copy(
-            result = other.result ?: result,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableConformanceResponse() = pbandk.conformance.pb.MutableConformanceResponse {
         this.result = this@ConformanceResponse_Impl.result
@@ -968,17 +970,12 @@ private class MutableConformanceResponse_Impl(
     override fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ConformanceResponse {
         this.result = result
         this.unknownFields += unknownFields
-    }.toConformanceResponse()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ConformanceResponse)?.let {
-        it.copy(
-            result = other.result ?: result,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toConformanceResponse() = ConformanceResponse_Impl(
         result = result,
@@ -988,6 +985,25 @@ private class MutableConformanceResponse_Impl(
     override fun toMutableConformanceResponse() = pbandk.conformance.pb.MutableConformanceResponse {
         this.result = this@MutableConformanceResponse_Impl.result
         this.unknownFields += this@MutableConformanceResponse_Impl.unknownFields
+    }
+}
+
+private fun ConformanceResponse.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.ConformanceResponse {
+    if (other !is pbandk.conformance.pb.ConformanceResponse) return this
+
+    return copy {
+        when (other.result) {
+            is ConformanceResponse.Result.ParseError -> parseError = other.parseError
+            is ConformanceResponse.Result.SerializeError -> serializeError = other.serializeError
+            is ConformanceResponse.Result.RuntimeError -> runtimeError = other.runtimeError
+            is ConformanceResponse.Result.ProtobufPayload -> protobufPayload = other.protobufPayload
+            is ConformanceResponse.Result.JsonPayload -> jsonPayload = other.jsonPayload
+            is ConformanceResponse.Result.Skipped -> skipped = other.skipped
+            is ConformanceResponse.Result.JspbPayload -> jspbPayload = other.jspbPayload
+            is ConformanceResponse.Result.TextPayload -> textPayload = other.textPayload
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1051,16 +1067,12 @@ private class JspbEncodingConfig_Impl(
     override fun copy(
         useJspbArrayAnyFormat: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.JspbEncodingConfig {
         this.useJspbArrayAnyFormat = useJspbArrayAnyFormat
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.JspbEncodingConfig)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableJspbEncodingConfig() = pbandk.conformance.pb.MutableJspbEncodingConfig {
         this.useJspbArrayAnyFormat = this@JspbEncodingConfig_Impl.useJspbArrayAnyFormat
@@ -1081,16 +1093,12 @@ private class MutableJspbEncodingConfig_Impl(
     override fun copy(
         useJspbArrayAnyFormat: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.JspbEncodingConfig {
         this.useJspbArrayAnyFormat = useJspbArrayAnyFormat
         this.unknownFields += unknownFields
-    }.toJspbEncodingConfig()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.JspbEncodingConfig)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toJspbEncodingConfig() = JspbEncodingConfig_Impl(
         useJspbArrayAnyFormat = useJspbArrayAnyFormat,
@@ -1100,6 +1108,15 @@ private class MutableJspbEncodingConfig_Impl(
     override fun toMutableJspbEncodingConfig() = pbandk.conformance.pb.MutableJspbEncodingConfig {
         this.useJspbArrayAnyFormat = this@MutableJspbEncodingConfig_Impl.useJspbArrayAnyFormat
         this.unknownFields += this@MutableJspbEncodingConfig_Impl.unknownFields
+    }
+}
+
+private fun JspbEncodingConfig.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.JspbEncodingConfig {
+    if (other !is pbandk.conformance.pb.JspbEncodingConfig) return this
+
+    return copy {
+        useJspbArrayAnyFormat = other.useJspbArrayAnyFormat
+        unknownFields += other.unknownFields
     }
 }
 

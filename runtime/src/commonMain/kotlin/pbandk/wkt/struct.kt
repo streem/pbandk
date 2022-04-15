@@ -345,17 +345,12 @@ private class Struct_Impl(
     override fun copy(
         fields: Map<String, pbandk.wkt.Value?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Struct {
         this.fields += fields
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Struct)?.let {
-        it.copy(
-            fields = fields + other.fields,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableStruct() = pbandk.wkt.MutableStruct {
         this.fields += this@Struct_Impl.fields
@@ -376,17 +371,12 @@ private class MutableStruct_Impl(
     override fun copy(
         fields: Map<String, pbandk.wkt.Value?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Struct {
         this.fields += fields
         this.unknownFields += unknownFields
-    }.toStruct()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Struct)?.let {
-        it.copy(
-            fields = fields + other.fields,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toStruct() = Struct_Impl(
         fields = fields.toMessageMap(),
@@ -396,6 +386,15 @@ private class MutableStruct_Impl(
     override fun toMutableStruct() = pbandk.wkt.MutableStruct {
         this.fields += this@MutableStruct_Impl.fields
         this.unknownFields += this@MutableStruct_Impl.unknownFields
+    }
+}
+
+private fun Struct.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Struct {
+    if (other !is pbandk.wkt.Struct) return this
+
+    return copy {
+        fields += other.fields
+        unknownFields += other.unknownFields
     }
 }
 
@@ -465,24 +464,12 @@ private class Value_Impl(
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Value {
         this.kind = kind
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Value)?.let {
-        it.copy(
-            kind = when {
-                kind is Value.Kind.StructValue && other.kind is Value.Kind.StructValue ->
-                    Value.Kind.StructValue((kind as Value.Kind.StructValue).value + (other.kind as Value.Kind.StructValue).value)
-                kind is Value.Kind.ListValue && other.kind is Value.Kind.ListValue ->
-                    Value.Kind.ListValue((kind as Value.Kind.ListValue).value + (other.kind as Value.Kind.ListValue).value)
-                else ->
-                    other.kind ?: kind
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableValue() = pbandk.wkt.MutableValue {
         this.kind = this@Value_Impl.kind
@@ -522,24 +509,12 @@ private class MutableValue_Impl(
     override fun copy(
         kind: pbandk.wkt.Value.Kind<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Value {
         this.kind = kind
         this.unknownFields += unknownFields
-    }.toValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Value)?.let {
-        it.copy(
-            kind = when {
-                kind is Value.Kind.StructValue && other.kind is Value.Kind.StructValue ->
-                    Value.Kind.StructValue((kind as Value.Kind.StructValue).value + (other.kind as Value.Kind.StructValue).value)
-                kind is Value.Kind.ListValue && other.kind is Value.Kind.ListValue ->
-                    Value.Kind.ListValue((kind as Value.Kind.ListValue).value + (other.kind as Value.Kind.ListValue).value)
-                else ->
-                    other.kind ?: kind
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toValue() = Value_Impl(
         kind = kind,
@@ -549,6 +524,23 @@ private class MutableValue_Impl(
     override fun toMutableValue() = pbandk.wkt.MutableValue {
         this.kind = this@MutableValue_Impl.kind
         this.unknownFields += this@MutableValue_Impl.unknownFields
+    }
+}
+
+private fun Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Value {
+    if (other !is pbandk.wkt.Value) return this
+
+    return copy {
+        when (other.kind) {
+            is Value.Kind.NullValue -> nullValue = other.nullValue
+            is Value.Kind.NumberValue -> numberValue = other.numberValue
+            is Value.Kind.StringValue -> stringValue = other.stringValue
+            is Value.Kind.BoolValue -> boolValue = other.boolValue
+            is Value.Kind.StructValue -> structValue = structValue?.plus(other.structValue) ?: other.structValue
+            is Value.Kind.ListValue -> listValue = listValue?.plus(other.listValue) ?: other.listValue
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -610,17 +602,12 @@ private class ListValue_Impl(
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ListValue {
         this.values += values
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ListValue)?.let {
-        it.copy(
-            values = values + other.values,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableListValue() = pbandk.wkt.MutableListValue {
         this.values += this@ListValue_Impl.values
@@ -641,17 +628,12 @@ private class MutableListValue_Impl(
     override fun copy(
         values: List<pbandk.wkt.Value>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ListValue {
         this.values += values
         this.unknownFields += unknownFields
-    }.toListValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ListValue)?.let {
-        it.copy(
-            values = values + other.values,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toListValue() = ListValue_Impl(
         values = values.toList(),
@@ -661,6 +643,15 @@ private class MutableListValue_Impl(
     override fun toMutableListValue() = pbandk.wkt.MutableListValue {
         this.values += this@MutableListValue_Impl.values
         this.unknownFields += this@MutableListValue_Impl.unknownFields
+    }
+}
+
+private fun ListValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ListValue {
+    if (other !is pbandk.wkt.ListValue) return this
+
+    return copy {
+        values += other.values
+        unknownFields += other.unknownFields
     }
 }
 

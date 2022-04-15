@@ -130,17 +130,13 @@ private class Any_Impl(
         typeUrl: String,
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Any {
         this.typeUrl = typeUrl
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Any)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableAny() = pbandk.wkt.MutableAny {
         this.typeUrl = this@Any_Impl.typeUrl
@@ -164,17 +160,13 @@ private class MutableAny_Impl(
         typeUrl: String,
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Any {
         this.typeUrl = typeUrl
         this.value = value
         this.unknownFields += unknownFields
-    }.toAny()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Any)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toAny() = Any_Impl(
         typeUrl = typeUrl,
@@ -186,6 +178,16 @@ private class MutableAny_Impl(
         this.typeUrl = this@MutableAny_Impl.typeUrl
         this.value = this@MutableAny_Impl.value
         this.unknownFields += this@MutableAny_Impl.unknownFields
+    }
+}
+
+private fun Any.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Any {
+    if (other !is pbandk.wkt.Any) return this
+
+    return copy {
+        typeUrl = other.typeUrl
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 

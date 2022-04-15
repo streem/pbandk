@@ -664,16 +664,12 @@ private class DoubleValue_Impl(
     override fun copy(
         value: Double,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DoubleValue {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DoubleValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableDoubleValue() = pbandk.wkt.MutableDoubleValue {
         this.value = this@DoubleValue_Impl.value
@@ -694,16 +690,12 @@ private class MutableDoubleValue_Impl(
     override fun copy(
         value: Double,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DoubleValue {
         this.value = value
         this.unknownFields += unknownFields
-    }.toDoubleValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DoubleValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toDoubleValue() = DoubleValue_Impl(
         value = value,
@@ -713,6 +705,15 @@ private class MutableDoubleValue_Impl(
     override fun toMutableDoubleValue() = pbandk.wkt.MutableDoubleValue {
         this.value = this@MutableDoubleValue_Impl.value
         this.unknownFields += this@MutableDoubleValue_Impl.unknownFields
+    }
+}
+
+private fun DoubleValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DoubleValue {
+    if (other !is pbandk.wkt.DoubleValue) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -769,16 +770,12 @@ private class FloatValue_Impl(
     override fun copy(
         value: Float,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FloatValue {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FloatValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFloatValue() = pbandk.wkt.MutableFloatValue {
         this.value = this@FloatValue_Impl.value
@@ -799,16 +796,12 @@ private class MutableFloatValue_Impl(
     override fun copy(
         value: Float,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FloatValue {
         this.value = value
         this.unknownFields += unknownFields
-    }.toFloatValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FloatValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFloatValue() = FloatValue_Impl(
         value = value,
@@ -818,6 +811,15 @@ private class MutableFloatValue_Impl(
     override fun toMutableFloatValue() = pbandk.wkt.MutableFloatValue {
         this.value = this@MutableFloatValue_Impl.value
         this.unknownFields += this@MutableFloatValue_Impl.unknownFields
+    }
+}
+
+private fun FloatValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FloatValue {
+    if (other !is pbandk.wkt.FloatValue) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -874,16 +876,12 @@ private class Int64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Int64Value {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Int64Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableInt64Value() = pbandk.wkt.MutableInt64Value {
         this.value = this@Int64Value_Impl.value
@@ -904,16 +902,12 @@ private class MutableInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Int64Value {
         this.value = value
         this.unknownFields += unknownFields
-    }.toInt64Value()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Int64Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toInt64Value() = Int64Value_Impl(
         value = value,
@@ -923,6 +917,15 @@ private class MutableInt64Value_Impl(
     override fun toMutableInt64Value() = pbandk.wkt.MutableInt64Value {
         this.value = this@MutableInt64Value_Impl.value
         this.unknownFields += this@MutableInt64Value_Impl.unknownFields
+    }
+}
+
+private fun Int64Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Int64Value {
+    if (other !is pbandk.wkt.Int64Value) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -979,16 +982,12 @@ private class UInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UInt64Value {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UInt64Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableUInt64Value() = pbandk.wkt.MutableUInt64Value {
         this.value = this@UInt64Value_Impl.value
@@ -1009,16 +1008,12 @@ private class MutableUInt64Value_Impl(
     override fun copy(
         value: Long,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UInt64Value {
         this.value = value
         this.unknownFields += unknownFields
-    }.toUInt64Value()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UInt64Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toUInt64Value() = UInt64Value_Impl(
         value = value,
@@ -1028,6 +1023,15 @@ private class MutableUInt64Value_Impl(
     override fun toMutableUInt64Value() = pbandk.wkt.MutableUInt64Value {
         this.value = this@MutableUInt64Value_Impl.value
         this.unknownFields += this@MutableUInt64Value_Impl.unknownFields
+    }
+}
+
+private fun UInt64Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UInt64Value {
+    if (other !is pbandk.wkt.UInt64Value) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1084,16 +1088,12 @@ private class Int32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Int32Value {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Int32Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableInt32Value() = pbandk.wkt.MutableInt32Value {
         this.value = this@Int32Value_Impl.value
@@ -1114,16 +1114,12 @@ private class MutableInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Int32Value {
         this.value = value
         this.unknownFields += unknownFields
-    }.toInt32Value()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Int32Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toInt32Value() = Int32Value_Impl(
         value = value,
@@ -1133,6 +1129,15 @@ private class MutableInt32Value_Impl(
     override fun toMutableInt32Value() = pbandk.wkt.MutableInt32Value {
         this.value = this@MutableInt32Value_Impl.value
         this.unknownFields += this@MutableInt32Value_Impl.unknownFields
+    }
+}
+
+private fun Int32Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Int32Value {
+    if (other !is pbandk.wkt.Int32Value) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1189,16 +1194,12 @@ private class UInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UInt32Value {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UInt32Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableUInt32Value() = pbandk.wkt.MutableUInt32Value {
         this.value = this@UInt32Value_Impl.value
@@ -1219,16 +1220,12 @@ private class MutableUInt32Value_Impl(
     override fun copy(
         value: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UInt32Value {
         this.value = value
         this.unknownFields += unknownFields
-    }.toUInt32Value()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UInt32Value)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toUInt32Value() = UInt32Value_Impl(
         value = value,
@@ -1238,6 +1235,15 @@ private class MutableUInt32Value_Impl(
     override fun toMutableUInt32Value() = pbandk.wkt.MutableUInt32Value {
         this.value = this@MutableUInt32Value_Impl.value
         this.unknownFields += this@MutableUInt32Value_Impl.unknownFields
+    }
+}
+
+private fun UInt32Value.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UInt32Value {
+    if (other !is pbandk.wkt.UInt32Value) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1294,16 +1300,12 @@ private class BoolValue_Impl(
     override fun copy(
         value: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.BoolValue {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.BoolValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableBoolValue() = pbandk.wkt.MutableBoolValue {
         this.value = this@BoolValue_Impl.value
@@ -1324,16 +1326,12 @@ private class MutableBoolValue_Impl(
     override fun copy(
         value: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.BoolValue {
         this.value = value
         this.unknownFields += unknownFields
-    }.toBoolValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.BoolValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toBoolValue() = BoolValue_Impl(
         value = value,
@@ -1343,6 +1341,15 @@ private class MutableBoolValue_Impl(
     override fun toMutableBoolValue() = pbandk.wkt.MutableBoolValue {
         this.value = this@MutableBoolValue_Impl.value
         this.unknownFields += this@MutableBoolValue_Impl.unknownFields
+    }
+}
+
+private fun BoolValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.BoolValue {
+    if (other !is pbandk.wkt.BoolValue) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1399,16 +1406,12 @@ private class StringValue_Impl(
     override fun copy(
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.StringValue {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.StringValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableStringValue() = pbandk.wkt.MutableStringValue {
         this.value = this@StringValue_Impl.value
@@ -1429,16 +1432,12 @@ private class MutableStringValue_Impl(
     override fun copy(
         value: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.StringValue {
         this.value = value
         this.unknownFields += unknownFields
-    }.toStringValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.StringValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toStringValue() = StringValue_Impl(
         value = value,
@@ -1448,6 +1447,15 @@ private class MutableStringValue_Impl(
     override fun toMutableStringValue() = pbandk.wkt.MutableStringValue {
         this.value = this@MutableStringValue_Impl.value
         this.unknownFields += this@MutableStringValue_Impl.unknownFields
+    }
+}
+
+private fun StringValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.StringValue {
+    if (other !is pbandk.wkt.StringValue) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1504,16 +1512,12 @@ private class BytesValue_Impl(
     override fun copy(
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.BytesValue {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.BytesValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableBytesValue() = pbandk.wkt.MutableBytesValue {
         this.value = this@BytesValue_Impl.value
@@ -1534,16 +1538,12 @@ private class MutableBytesValue_Impl(
     override fun copy(
         value: pbandk.ByteArr,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.BytesValue {
         this.value = value
         this.unknownFields += unknownFields
-    }.toBytesValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.BytesValue)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toBytesValue() = BytesValue_Impl(
         value = value,
@@ -1553,6 +1553,15 @@ private class MutableBytesValue_Impl(
     override fun toMutableBytesValue() = pbandk.wkt.MutableBytesValue {
         this.value = this@MutableBytesValue_Impl.value
         this.unknownFields += this@MutableBytesValue_Impl.unknownFields
+    }
+}
+
+private fun BytesValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.BytesValue {
+    if (other !is pbandk.wkt.BytesValue) return this
+
+    return copy {
+        value = other.value
+        unknownFields += other.unknownFields
     }
 }
 

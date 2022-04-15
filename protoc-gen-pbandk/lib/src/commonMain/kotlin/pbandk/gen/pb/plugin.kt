@@ -492,7 +492,7 @@ private class Version_Impl(
         patch: Int?,
         suffix: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.Version {
         this.major = major
         this.minor = minor
         this.patch = patch
@@ -500,15 +500,7 @@ private class Version_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.Version)?.let {
-        it.copy(
-            major = other.major ?: major,
-            minor = other.minor ?: minor,
-            patch = other.patch ?: patch,
-            suffix = other.suffix ?: suffix,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableVersion() = pbandk.gen.pb.MutableVersion {
         this.major = this@Version_Impl.major
@@ -538,23 +530,15 @@ private class MutableVersion_Impl(
         patch: Int?,
         suffix: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.Version {
         this.major = major
         this.minor = minor
         this.patch = patch
         this.suffix = suffix
         this.unknownFields += unknownFields
-    }.toVersion()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.Version)?.let {
-        it.copy(
-            major = other.major ?: major,
-            minor = other.minor ?: minor,
-            patch = other.patch ?: patch,
-            suffix = other.suffix ?: suffix,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toVersion() = Version_Impl(
         major = major,
@@ -570,6 +554,18 @@ private class MutableVersion_Impl(
         this.patch = this@MutableVersion_Impl.patch
         this.suffix = this@MutableVersion_Impl.suffix
         this.unknownFields += this@MutableVersion_Impl.unknownFields
+    }
+}
+
+private fun Version.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.Version {
+    if (other !is pbandk.gen.pb.Version) return this
+
+    return copy {
+        major = other.major ?: major
+        minor = other.minor ?: minor
+        patch = other.patch ?: patch
+        suffix = other.suffix ?: suffix
+        unknownFields += other.unknownFields
     }
 }
 
@@ -647,7 +643,7 @@ private class CodeGeneratorRequest_Impl(
         protoFile: List<pbandk.wkt.FileDescriptorProto>,
         compilerVersion: pbandk.gen.pb.Version?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.CodeGeneratorRequest {
         this.fileToGenerate += fileToGenerate
         this.parameter = parameter
         this.protoFile += protoFile
@@ -655,15 +651,7 @@ private class CodeGeneratorRequest_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.CodeGeneratorRequest)?.let {
-        it.copy(
-            fileToGenerate = fileToGenerate + other.fileToGenerate,
-            parameter = other.parameter ?: parameter,
-            protoFile = protoFile + other.protoFile,
-            compilerVersion = compilerVersion?.plus(other.compilerVersion) ?: other.compilerVersion,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableCodeGeneratorRequest() = pbandk.gen.pb.MutableCodeGeneratorRequest {
         this.fileToGenerate += this@CodeGeneratorRequest_Impl.fileToGenerate
@@ -693,23 +681,15 @@ private class MutableCodeGeneratorRequest_Impl(
         protoFile: List<pbandk.wkt.FileDescriptorProto>,
         compilerVersion: pbandk.gen.pb.Version?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.CodeGeneratorRequest {
         this.fileToGenerate += fileToGenerate
         this.parameter = parameter
         this.protoFile += protoFile
         this.compilerVersion = compilerVersion
         this.unknownFields += unknownFields
-    }.toCodeGeneratorRequest()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.CodeGeneratorRequest)?.let {
-        it.copy(
-            fileToGenerate = fileToGenerate + other.fileToGenerate,
-            parameter = other.parameter ?: parameter,
-            protoFile = protoFile + other.protoFile,
-            compilerVersion = compilerVersion?.plus(other.compilerVersion) ?: other.compilerVersion,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toCodeGeneratorRequest() = CodeGeneratorRequest_Impl(
         fileToGenerate = fileToGenerate.toList(),
@@ -725,6 +705,18 @@ private class MutableCodeGeneratorRequest_Impl(
         this.protoFile += this@MutableCodeGeneratorRequest_Impl.protoFile
         this.compilerVersion = this@MutableCodeGeneratorRequest_Impl.compilerVersion
         this.unknownFields += this@MutableCodeGeneratorRequest_Impl.unknownFields
+    }
+}
+
+private fun CodeGeneratorRequest.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorRequest {
+    if (other !is pbandk.gen.pb.CodeGeneratorRequest) return this
+
+    return copy {
+        fileToGenerate += other.fileToGenerate
+        parameter = other.parameter ?: parameter
+        protoFile += other.protoFile
+        compilerVersion = compilerVersion?.plus(other.compilerVersion) ?: other.compilerVersion
+        unknownFields += other.unknownFields
     }
 }
 
@@ -797,21 +789,14 @@ private class CodeGeneratorResponse_Impl(
         supportedFeatures: Long?,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.CodeGeneratorResponse {
         this.error = error
         this.supportedFeatures = supportedFeatures
         this.file += file
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.CodeGeneratorResponse)?.let {
-        it.copy(
-            error = other.error ?: error,
-            supportedFeatures = other.supportedFeatures ?: supportedFeatures,
-            file = file + other.file,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableCodeGeneratorResponse() = pbandk.gen.pb.MutableCodeGeneratorResponse {
         this.error = this@CodeGeneratorResponse_Impl.error
@@ -838,21 +823,14 @@ private class MutableCodeGeneratorResponse_Impl(
         supportedFeatures: Long?,
         file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.CodeGeneratorResponse {
         this.error = error
         this.supportedFeatures = supportedFeatures
         this.file += file
         this.unknownFields += unknownFields
-    }.toCodeGeneratorResponse()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.CodeGeneratorResponse)?.let {
-        it.copy(
-            error = other.error ?: error,
-            supportedFeatures = other.supportedFeatures ?: supportedFeatures,
-            file = file + other.file,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toCodeGeneratorResponse() = CodeGeneratorResponse_Impl(
         error = error,
@@ -866,6 +844,17 @@ private class MutableCodeGeneratorResponse_Impl(
         this.supportedFeatures = this@MutableCodeGeneratorResponse_Impl.supportedFeatures
         this.file += this@MutableCodeGeneratorResponse_Impl.file
         this.unknownFields += this@MutableCodeGeneratorResponse_Impl.unknownFields
+    }
+}
+
+private fun CodeGeneratorResponse.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse {
+    if (other !is pbandk.gen.pb.CodeGeneratorResponse) return this
+
+    return copy {
+        error = other.error ?: error
+        supportedFeatures = other.supportedFeatures ?: supportedFeatures
+        file += other.file
+        unknownFields += other.unknownFields
     }
 }
 
@@ -948,7 +937,7 @@ private class CodeGeneratorResponse_File_Impl(
         content: String?,
         generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.CodeGeneratorResponse.File {
         this.name = name
         this.insertionPoint = insertionPoint
         this.content = content
@@ -956,15 +945,7 @@ private class CodeGeneratorResponse_File_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.CodeGeneratorResponse.File)?.let {
-        it.copy(
-            name = other.name ?: name,
-            insertionPoint = other.insertionPoint ?: insertionPoint,
-            content = other.content ?: content,
-            generatedCodeInfo = generatedCodeInfo?.plus(other.generatedCodeInfo) ?: other.generatedCodeInfo,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFile() = pbandk.gen.pb.CodeGeneratorResponse.MutableFile {
         this.name = this@CodeGeneratorResponse_File_Impl.name
@@ -994,23 +975,15 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         content: String?,
         generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.gen.pb.CodeGeneratorResponse.File {
         this.name = name
         this.insertionPoint = insertionPoint
         this.content = content
         this.generatedCodeInfo = generatedCodeInfo
         this.unknownFields += unknownFields
-    }.toFile()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.gen.pb.CodeGeneratorResponse.File)?.let {
-        it.copy(
-            name = other.name ?: name,
-            insertionPoint = other.insertionPoint ?: insertionPoint,
-            content = other.content ?: content,
-            generatedCodeInfo = generatedCodeInfo?.plus(other.generatedCodeInfo) ?: other.generatedCodeInfo,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFile() = CodeGeneratorResponse_File_Impl(
         name = name,
@@ -1026,6 +999,18 @@ private class CodeGeneratorResponse_MutableFile_Impl(
         this.content = this@CodeGeneratorResponse_MutableFile_Impl.content
         this.generatedCodeInfo = this@CodeGeneratorResponse_MutableFile_Impl.generatedCodeInfo
         this.unknownFields += this@CodeGeneratorResponse_MutableFile_Impl.unknownFields
+    }
+}
+
+private fun CodeGeneratorResponse.File.protoMergeImpl(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse.File {
+    if (other !is pbandk.gen.pb.CodeGeneratorResponse.File) return this
+
+    return copy {
+        name = other.name ?: name
+        insertionPoint = other.insertionPoint ?: insertionPoint
+        content = other.content ?: content
+        generatedCodeInfo = generatedCodeInfo?.plus(other.generatedCodeInfo) ?: other.generatedCodeInfo
+        unknownFields += other.unknownFields
     }
 }
 

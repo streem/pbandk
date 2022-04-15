@@ -2978,7 +2978,7 @@ private class TestAllTypesProto3_Impl(
         fieldName18_: Int,
         oneofField: pbandk.conformance.pb.TestAllTypesProto3.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto3 {
         this.optionalInt32 = optionalInt32
         this.optionalInt64 = optionalInt64
         this.optionalUint32 = optionalUint32
@@ -3123,119 +3123,7 @@ private class TestAllTypesProto3_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto3)?.let {
-        it.copy(
-            optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage,
-            optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage,
-            recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage,
-            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
-            repeatedInt64 = repeatedInt64 + other.repeatedInt64,
-            repeatedUint32 = repeatedUint32 + other.repeatedUint32,
-            repeatedUint64 = repeatedUint64 + other.repeatedUint64,
-            repeatedSint32 = repeatedSint32 + other.repeatedSint32,
-            repeatedSint64 = repeatedSint64 + other.repeatedSint64,
-            repeatedFixed32 = repeatedFixed32 + other.repeatedFixed32,
-            repeatedFixed64 = repeatedFixed64 + other.repeatedFixed64,
-            repeatedSfixed32 = repeatedSfixed32 + other.repeatedSfixed32,
-            repeatedSfixed64 = repeatedSfixed64 + other.repeatedSfixed64,
-            repeatedFloat = repeatedFloat + other.repeatedFloat,
-            repeatedDouble = repeatedDouble + other.repeatedDouble,
-            repeatedBool = repeatedBool + other.repeatedBool,
-            repeatedString = repeatedString + other.repeatedString,
-            repeatedBytes = repeatedBytes + other.repeatedBytes,
-            repeatedNestedMessage = repeatedNestedMessage + other.repeatedNestedMessage,
-            repeatedForeignMessage = repeatedForeignMessage + other.repeatedForeignMessage,
-            repeatedNestedEnum = repeatedNestedEnum + other.repeatedNestedEnum,
-            repeatedForeignEnum = repeatedForeignEnum + other.repeatedForeignEnum,
-            repeatedStringPiece = repeatedStringPiece + other.repeatedStringPiece,
-            repeatedCord = repeatedCord + other.repeatedCord,
-            packedInt32 = packedInt32 + other.packedInt32,
-            packedInt64 = packedInt64 + other.packedInt64,
-            packedUint32 = packedUint32 + other.packedUint32,
-            packedUint64 = packedUint64 + other.packedUint64,
-            packedSint32 = packedSint32 + other.packedSint32,
-            packedSint64 = packedSint64 + other.packedSint64,
-            packedFixed32 = packedFixed32 + other.packedFixed32,
-            packedFixed64 = packedFixed64 + other.packedFixed64,
-            packedSfixed32 = packedSfixed32 + other.packedSfixed32,
-            packedSfixed64 = packedSfixed64 + other.packedSfixed64,
-            packedFloat = packedFloat + other.packedFloat,
-            packedDouble = packedDouble + other.packedDouble,
-            packedBool = packedBool + other.packedBool,
-            packedNestedEnum = packedNestedEnum + other.packedNestedEnum,
-            unpackedInt32 = unpackedInt32 + other.unpackedInt32,
-            unpackedInt64 = unpackedInt64 + other.unpackedInt64,
-            unpackedUint32 = unpackedUint32 + other.unpackedUint32,
-            unpackedUint64 = unpackedUint64 + other.unpackedUint64,
-            unpackedSint32 = unpackedSint32 + other.unpackedSint32,
-            unpackedSint64 = unpackedSint64 + other.unpackedSint64,
-            unpackedFixed32 = unpackedFixed32 + other.unpackedFixed32,
-            unpackedFixed64 = unpackedFixed64 + other.unpackedFixed64,
-            unpackedSfixed32 = unpackedSfixed32 + other.unpackedSfixed32,
-            unpackedSfixed64 = unpackedSfixed64 + other.unpackedSfixed64,
-            unpackedFloat = unpackedFloat + other.unpackedFloat,
-            unpackedDouble = unpackedDouble + other.unpackedDouble,
-            unpackedBool = unpackedBool + other.unpackedBool,
-            unpackedNestedEnum = unpackedNestedEnum + other.unpackedNestedEnum,
-            mapInt32Int32 = mapInt32Int32 + other.mapInt32Int32,
-            mapInt64Int64 = mapInt64Int64 + other.mapInt64Int64,
-            mapUint32Uint32 = mapUint32Uint32 + other.mapUint32Uint32,
-            mapUint64Uint64 = mapUint64Uint64 + other.mapUint64Uint64,
-            mapSint32Sint32 = mapSint32Sint32 + other.mapSint32Sint32,
-            mapSint64Sint64 = mapSint64Sint64 + other.mapSint64Sint64,
-            mapFixed32Fixed32 = mapFixed32Fixed32 + other.mapFixed32Fixed32,
-            mapFixed64Fixed64 = mapFixed64Fixed64 + other.mapFixed64Fixed64,
-            mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + other.mapSfixed32Sfixed32,
-            mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + other.mapSfixed64Sfixed64,
-            mapInt32Float = mapInt32Float + other.mapInt32Float,
-            mapInt32Double = mapInt32Double + other.mapInt32Double,
-            mapBoolBool = mapBoolBool + other.mapBoolBool,
-            mapStringString = mapStringString + other.mapStringString,
-            mapStringBytes = mapStringBytes + other.mapStringBytes,
-            mapStringNestedMessage = mapStringNestedMessage + other.mapStringNestedMessage,
-            mapStringForeignMessage = mapStringForeignMessage + other.mapStringForeignMessage,
-            mapStringNestedEnum = mapStringNestedEnum + other.mapStringNestedEnum,
-            mapStringForeignEnum = mapStringForeignEnum + other.mapStringForeignEnum,
-            optionalBoolWrapper = other.optionalBoolWrapper ?: optionalBoolWrapper,
-            optionalInt32Wrapper = other.optionalInt32Wrapper ?: optionalInt32Wrapper,
-            optionalInt64Wrapper = other.optionalInt64Wrapper ?: optionalInt64Wrapper,
-            optionalUint32Wrapper = other.optionalUint32Wrapper ?: optionalUint32Wrapper,
-            optionalUint64Wrapper = other.optionalUint64Wrapper ?: optionalUint64Wrapper,
-            optionalFloatWrapper = other.optionalFloatWrapper ?: optionalFloatWrapper,
-            optionalDoubleWrapper = other.optionalDoubleWrapper ?: optionalDoubleWrapper,
-            optionalStringWrapper = other.optionalStringWrapper ?: optionalStringWrapper,
-            optionalBytesWrapper = other.optionalBytesWrapper ?: optionalBytesWrapper,
-            repeatedBoolWrapper = repeatedBoolWrapper + other.repeatedBoolWrapper,
-            repeatedInt32Wrapper = repeatedInt32Wrapper + other.repeatedInt32Wrapper,
-            repeatedInt64Wrapper = repeatedInt64Wrapper + other.repeatedInt64Wrapper,
-            repeatedUint32Wrapper = repeatedUint32Wrapper + other.repeatedUint32Wrapper,
-            repeatedUint64Wrapper = repeatedUint64Wrapper + other.repeatedUint64Wrapper,
-            repeatedFloatWrapper = repeatedFloatWrapper + other.repeatedFloatWrapper,
-            repeatedDoubleWrapper = repeatedDoubleWrapper + other.repeatedDoubleWrapper,
-            repeatedStringWrapper = repeatedStringWrapper + other.repeatedStringWrapper,
-            repeatedBytesWrapper = repeatedBytesWrapper + other.repeatedBytesWrapper,
-            optionalDuration = optionalDuration?.plus(other.optionalDuration) ?: other.optionalDuration,
-            optionalTimestamp = optionalTimestamp?.plus(other.optionalTimestamp) ?: other.optionalTimestamp,
-            optionalFieldMask = optionalFieldMask?.plus(other.optionalFieldMask) ?: other.optionalFieldMask,
-            optionalStruct = optionalStruct?.plus(other.optionalStruct) ?: other.optionalStruct,
-            optionalAny = optionalAny?.plus(other.optionalAny) ?: other.optionalAny,
-            optionalValue = optionalValue?.plus(other.optionalValue) ?: other.optionalValue,
-            repeatedDuration = repeatedDuration + other.repeatedDuration,
-            repeatedTimestamp = repeatedTimestamp + other.repeatedTimestamp,
-            repeatedFieldmask = repeatedFieldmask + other.repeatedFieldmask,
-            repeatedStruct = repeatedStruct + other.repeatedStruct,
-            repeatedAny = repeatedAny + other.repeatedAny,
-            repeatedValue = repeatedValue + other.repeatedValue,
-            repeatedListValue = repeatedListValue + other.repeatedListValue,
-            oneofField = when {
-                oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage && other.oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage ->
-                    TestAllTypesProto3.OneofField.OneofNestedMessage((oneofField as TestAllTypesProto3.OneofField.OneofNestedMessage).value + (other.oneofField as TestAllTypesProto3.OneofField.OneofNestedMessage).value)
-                else ->
-                    other.oneofField ?: oneofField
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableTestAllTypesProto3() = pbandk.conformance.pb.MutableTestAllTypesProto3 {
         this.optionalInt32 = this@TestAllTypesProto3_Impl.optionalInt32
@@ -3704,7 +3592,7 @@ private class MutableTestAllTypesProto3_Impl(
         fieldName18_: Int,
         oneofField: pbandk.conformance.pb.TestAllTypesProto3.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto3 {
         this.optionalInt32 = optionalInt32
         this.optionalInt64 = optionalInt64
         this.optionalUint32 = optionalUint32
@@ -3847,121 +3735,9 @@ private class MutableTestAllTypesProto3_Impl(
         this.fieldName18_ = fieldName18_
         this.oneofField = oneofField
         this.unknownFields += unknownFields
-    }.toTestAllTypesProto3()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto3)?.let {
-        it.copy(
-            optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage,
-            optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage,
-            recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage,
-            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
-            repeatedInt64 = repeatedInt64 + other.repeatedInt64,
-            repeatedUint32 = repeatedUint32 + other.repeatedUint32,
-            repeatedUint64 = repeatedUint64 + other.repeatedUint64,
-            repeatedSint32 = repeatedSint32 + other.repeatedSint32,
-            repeatedSint64 = repeatedSint64 + other.repeatedSint64,
-            repeatedFixed32 = repeatedFixed32 + other.repeatedFixed32,
-            repeatedFixed64 = repeatedFixed64 + other.repeatedFixed64,
-            repeatedSfixed32 = repeatedSfixed32 + other.repeatedSfixed32,
-            repeatedSfixed64 = repeatedSfixed64 + other.repeatedSfixed64,
-            repeatedFloat = repeatedFloat + other.repeatedFloat,
-            repeatedDouble = repeatedDouble + other.repeatedDouble,
-            repeatedBool = repeatedBool + other.repeatedBool,
-            repeatedString = repeatedString + other.repeatedString,
-            repeatedBytes = repeatedBytes + other.repeatedBytes,
-            repeatedNestedMessage = repeatedNestedMessage + other.repeatedNestedMessage,
-            repeatedForeignMessage = repeatedForeignMessage + other.repeatedForeignMessage,
-            repeatedNestedEnum = repeatedNestedEnum + other.repeatedNestedEnum,
-            repeatedForeignEnum = repeatedForeignEnum + other.repeatedForeignEnum,
-            repeatedStringPiece = repeatedStringPiece + other.repeatedStringPiece,
-            repeatedCord = repeatedCord + other.repeatedCord,
-            packedInt32 = packedInt32 + other.packedInt32,
-            packedInt64 = packedInt64 + other.packedInt64,
-            packedUint32 = packedUint32 + other.packedUint32,
-            packedUint64 = packedUint64 + other.packedUint64,
-            packedSint32 = packedSint32 + other.packedSint32,
-            packedSint64 = packedSint64 + other.packedSint64,
-            packedFixed32 = packedFixed32 + other.packedFixed32,
-            packedFixed64 = packedFixed64 + other.packedFixed64,
-            packedSfixed32 = packedSfixed32 + other.packedSfixed32,
-            packedSfixed64 = packedSfixed64 + other.packedSfixed64,
-            packedFloat = packedFloat + other.packedFloat,
-            packedDouble = packedDouble + other.packedDouble,
-            packedBool = packedBool + other.packedBool,
-            packedNestedEnum = packedNestedEnum + other.packedNestedEnum,
-            unpackedInt32 = unpackedInt32 + other.unpackedInt32,
-            unpackedInt64 = unpackedInt64 + other.unpackedInt64,
-            unpackedUint32 = unpackedUint32 + other.unpackedUint32,
-            unpackedUint64 = unpackedUint64 + other.unpackedUint64,
-            unpackedSint32 = unpackedSint32 + other.unpackedSint32,
-            unpackedSint64 = unpackedSint64 + other.unpackedSint64,
-            unpackedFixed32 = unpackedFixed32 + other.unpackedFixed32,
-            unpackedFixed64 = unpackedFixed64 + other.unpackedFixed64,
-            unpackedSfixed32 = unpackedSfixed32 + other.unpackedSfixed32,
-            unpackedSfixed64 = unpackedSfixed64 + other.unpackedSfixed64,
-            unpackedFloat = unpackedFloat + other.unpackedFloat,
-            unpackedDouble = unpackedDouble + other.unpackedDouble,
-            unpackedBool = unpackedBool + other.unpackedBool,
-            unpackedNestedEnum = unpackedNestedEnum + other.unpackedNestedEnum,
-            mapInt32Int32 = mapInt32Int32 + other.mapInt32Int32,
-            mapInt64Int64 = mapInt64Int64 + other.mapInt64Int64,
-            mapUint32Uint32 = mapUint32Uint32 + other.mapUint32Uint32,
-            mapUint64Uint64 = mapUint64Uint64 + other.mapUint64Uint64,
-            mapSint32Sint32 = mapSint32Sint32 + other.mapSint32Sint32,
-            mapSint64Sint64 = mapSint64Sint64 + other.mapSint64Sint64,
-            mapFixed32Fixed32 = mapFixed32Fixed32 + other.mapFixed32Fixed32,
-            mapFixed64Fixed64 = mapFixed64Fixed64 + other.mapFixed64Fixed64,
-            mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + other.mapSfixed32Sfixed32,
-            mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + other.mapSfixed64Sfixed64,
-            mapInt32Float = mapInt32Float + other.mapInt32Float,
-            mapInt32Double = mapInt32Double + other.mapInt32Double,
-            mapBoolBool = mapBoolBool + other.mapBoolBool,
-            mapStringString = mapStringString + other.mapStringString,
-            mapStringBytes = mapStringBytes + other.mapStringBytes,
-            mapStringNestedMessage = mapStringNestedMessage + other.mapStringNestedMessage,
-            mapStringForeignMessage = mapStringForeignMessage + other.mapStringForeignMessage,
-            mapStringNestedEnum = mapStringNestedEnum + other.mapStringNestedEnum,
-            mapStringForeignEnum = mapStringForeignEnum + other.mapStringForeignEnum,
-            optionalBoolWrapper = other.optionalBoolWrapper ?: optionalBoolWrapper,
-            optionalInt32Wrapper = other.optionalInt32Wrapper ?: optionalInt32Wrapper,
-            optionalInt64Wrapper = other.optionalInt64Wrapper ?: optionalInt64Wrapper,
-            optionalUint32Wrapper = other.optionalUint32Wrapper ?: optionalUint32Wrapper,
-            optionalUint64Wrapper = other.optionalUint64Wrapper ?: optionalUint64Wrapper,
-            optionalFloatWrapper = other.optionalFloatWrapper ?: optionalFloatWrapper,
-            optionalDoubleWrapper = other.optionalDoubleWrapper ?: optionalDoubleWrapper,
-            optionalStringWrapper = other.optionalStringWrapper ?: optionalStringWrapper,
-            optionalBytesWrapper = other.optionalBytesWrapper ?: optionalBytesWrapper,
-            repeatedBoolWrapper = repeatedBoolWrapper + other.repeatedBoolWrapper,
-            repeatedInt32Wrapper = repeatedInt32Wrapper + other.repeatedInt32Wrapper,
-            repeatedInt64Wrapper = repeatedInt64Wrapper + other.repeatedInt64Wrapper,
-            repeatedUint32Wrapper = repeatedUint32Wrapper + other.repeatedUint32Wrapper,
-            repeatedUint64Wrapper = repeatedUint64Wrapper + other.repeatedUint64Wrapper,
-            repeatedFloatWrapper = repeatedFloatWrapper + other.repeatedFloatWrapper,
-            repeatedDoubleWrapper = repeatedDoubleWrapper + other.repeatedDoubleWrapper,
-            repeatedStringWrapper = repeatedStringWrapper + other.repeatedStringWrapper,
-            repeatedBytesWrapper = repeatedBytesWrapper + other.repeatedBytesWrapper,
-            optionalDuration = optionalDuration?.plus(other.optionalDuration) ?: other.optionalDuration,
-            optionalTimestamp = optionalTimestamp?.plus(other.optionalTimestamp) ?: other.optionalTimestamp,
-            optionalFieldMask = optionalFieldMask?.plus(other.optionalFieldMask) ?: other.optionalFieldMask,
-            optionalStruct = optionalStruct?.plus(other.optionalStruct) ?: other.optionalStruct,
-            optionalAny = optionalAny?.plus(other.optionalAny) ?: other.optionalAny,
-            optionalValue = optionalValue?.plus(other.optionalValue) ?: other.optionalValue,
-            repeatedDuration = repeatedDuration + other.repeatedDuration,
-            repeatedTimestamp = repeatedTimestamp + other.repeatedTimestamp,
-            repeatedFieldmask = repeatedFieldmask + other.repeatedFieldmask,
-            repeatedStruct = repeatedStruct + other.repeatedStruct,
-            repeatedAny = repeatedAny + other.repeatedAny,
-            repeatedValue = repeatedValue + other.repeatedValue,
-            repeatedListValue = repeatedListValue + other.repeatedListValue,
-            oneofField = when {
-                oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage && other.oneofField is TestAllTypesProto3.OneofField.OneofNestedMessage ->
-                    TestAllTypesProto3.OneofField.OneofNestedMessage((oneofField as TestAllTypesProto3.OneofField.OneofNestedMessage).value + (other.oneofField as TestAllTypesProto3.OneofField.OneofNestedMessage).value)
-                else ->
-                    other.oneofField ?: oneofField
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toTestAllTypesProto3() = TestAllTypesProto3_Impl(
         optionalInt32 = optionalInt32,
@@ -4251,6 +4027,166 @@ private class MutableTestAllTypesProto3_Impl(
         this.fieldName18_ = this@MutableTestAllTypesProto3_Impl.fieldName18_
         this.oneofField = this@MutableTestAllTypesProto3_Impl.oneofField
         this.unknownFields += this@MutableTestAllTypesProto3_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto3.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto3 {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto3) return this
+
+    return copy {
+        optionalInt32 = other.optionalInt32
+        optionalInt64 = other.optionalInt64
+        optionalUint32 = other.optionalUint32
+        optionalUint64 = other.optionalUint64
+        optionalSint32 = other.optionalSint32
+        optionalSint64 = other.optionalSint64
+        optionalFixed32 = other.optionalFixed32
+        optionalFixed64 = other.optionalFixed64
+        optionalSfixed32 = other.optionalSfixed32
+        optionalSfixed64 = other.optionalSfixed64
+        optionalFloat = other.optionalFloat
+        optionalDouble = other.optionalDouble
+        optionalBool = other.optionalBool
+        optionalString = other.optionalString
+        optionalBytes = other.optionalBytes
+        optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage
+        optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage
+        optionalNestedEnum = other.optionalNestedEnum
+        optionalForeignEnum = other.optionalForeignEnum
+        optionalAliasedEnum = other.optionalAliasedEnum
+        optionalStringPiece = other.optionalStringPiece
+        optionalCord = other.optionalCord
+        recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage
+        repeatedInt32 += other.repeatedInt32
+        repeatedInt64 += other.repeatedInt64
+        repeatedUint32 += other.repeatedUint32
+        repeatedUint64 += other.repeatedUint64
+        repeatedSint32 += other.repeatedSint32
+        repeatedSint64 += other.repeatedSint64
+        repeatedFixed32 += other.repeatedFixed32
+        repeatedFixed64 += other.repeatedFixed64
+        repeatedSfixed32 += other.repeatedSfixed32
+        repeatedSfixed64 += other.repeatedSfixed64
+        repeatedFloat += other.repeatedFloat
+        repeatedDouble += other.repeatedDouble
+        repeatedBool += other.repeatedBool
+        repeatedString += other.repeatedString
+        repeatedBytes += other.repeatedBytes
+        repeatedNestedMessage += other.repeatedNestedMessage
+        repeatedForeignMessage += other.repeatedForeignMessage
+        repeatedNestedEnum += other.repeatedNestedEnum
+        repeatedForeignEnum += other.repeatedForeignEnum
+        repeatedStringPiece += other.repeatedStringPiece
+        repeatedCord += other.repeatedCord
+        packedInt32 += other.packedInt32
+        packedInt64 += other.packedInt64
+        packedUint32 += other.packedUint32
+        packedUint64 += other.packedUint64
+        packedSint32 += other.packedSint32
+        packedSint64 += other.packedSint64
+        packedFixed32 += other.packedFixed32
+        packedFixed64 += other.packedFixed64
+        packedSfixed32 += other.packedSfixed32
+        packedSfixed64 += other.packedSfixed64
+        packedFloat += other.packedFloat
+        packedDouble += other.packedDouble
+        packedBool += other.packedBool
+        packedNestedEnum += other.packedNestedEnum
+        unpackedInt32 += other.unpackedInt32
+        unpackedInt64 += other.unpackedInt64
+        unpackedUint32 += other.unpackedUint32
+        unpackedUint64 += other.unpackedUint64
+        unpackedSint32 += other.unpackedSint32
+        unpackedSint64 += other.unpackedSint64
+        unpackedFixed32 += other.unpackedFixed32
+        unpackedFixed64 += other.unpackedFixed64
+        unpackedSfixed32 += other.unpackedSfixed32
+        unpackedSfixed64 += other.unpackedSfixed64
+        unpackedFloat += other.unpackedFloat
+        unpackedDouble += other.unpackedDouble
+        unpackedBool += other.unpackedBool
+        unpackedNestedEnum += other.unpackedNestedEnum
+        mapInt32Int32 += other.mapInt32Int32
+        mapInt64Int64 += other.mapInt64Int64
+        mapUint32Uint32 += other.mapUint32Uint32
+        mapUint64Uint64 += other.mapUint64Uint64
+        mapSint32Sint32 += other.mapSint32Sint32
+        mapSint64Sint64 += other.mapSint64Sint64
+        mapFixed32Fixed32 += other.mapFixed32Fixed32
+        mapFixed64Fixed64 += other.mapFixed64Fixed64
+        mapSfixed32Sfixed32 += other.mapSfixed32Sfixed32
+        mapSfixed64Sfixed64 += other.mapSfixed64Sfixed64
+        mapInt32Float += other.mapInt32Float
+        mapInt32Double += other.mapInt32Double
+        mapBoolBool += other.mapBoolBool
+        mapStringString += other.mapStringString
+        mapStringBytes += other.mapStringBytes
+        mapStringNestedMessage += other.mapStringNestedMessage
+        mapStringForeignMessage += other.mapStringForeignMessage
+        mapStringNestedEnum += other.mapStringNestedEnum
+        mapStringForeignEnum += other.mapStringForeignEnum
+        optionalBoolWrapper = other.optionalBoolWrapper ?: optionalBoolWrapper
+        optionalInt32Wrapper = other.optionalInt32Wrapper ?: optionalInt32Wrapper
+        optionalInt64Wrapper = other.optionalInt64Wrapper ?: optionalInt64Wrapper
+        optionalUint32Wrapper = other.optionalUint32Wrapper ?: optionalUint32Wrapper
+        optionalUint64Wrapper = other.optionalUint64Wrapper ?: optionalUint64Wrapper
+        optionalFloatWrapper = other.optionalFloatWrapper ?: optionalFloatWrapper
+        optionalDoubleWrapper = other.optionalDoubleWrapper ?: optionalDoubleWrapper
+        optionalStringWrapper = other.optionalStringWrapper ?: optionalStringWrapper
+        optionalBytesWrapper = other.optionalBytesWrapper ?: optionalBytesWrapper
+        repeatedBoolWrapper += other.repeatedBoolWrapper
+        repeatedInt32Wrapper += other.repeatedInt32Wrapper
+        repeatedInt64Wrapper += other.repeatedInt64Wrapper
+        repeatedUint32Wrapper += other.repeatedUint32Wrapper
+        repeatedUint64Wrapper += other.repeatedUint64Wrapper
+        repeatedFloatWrapper += other.repeatedFloatWrapper
+        repeatedDoubleWrapper += other.repeatedDoubleWrapper
+        repeatedStringWrapper += other.repeatedStringWrapper
+        repeatedBytesWrapper += other.repeatedBytesWrapper
+        optionalDuration = optionalDuration?.plus(other.optionalDuration) ?: other.optionalDuration
+        optionalTimestamp = optionalTimestamp?.plus(other.optionalTimestamp) ?: other.optionalTimestamp
+        optionalFieldMask = optionalFieldMask?.plus(other.optionalFieldMask) ?: other.optionalFieldMask
+        optionalStruct = optionalStruct?.plus(other.optionalStruct) ?: other.optionalStruct
+        optionalAny = optionalAny?.plus(other.optionalAny) ?: other.optionalAny
+        optionalValue = optionalValue?.plus(other.optionalValue) ?: other.optionalValue
+        repeatedDuration += other.repeatedDuration
+        repeatedTimestamp += other.repeatedTimestamp
+        repeatedFieldmask += other.repeatedFieldmask
+        repeatedStruct += other.repeatedStruct
+        repeatedAny += other.repeatedAny
+        repeatedValue += other.repeatedValue
+        repeatedListValue += other.repeatedListValue
+        fieldname1 = other.fieldname1
+        fieldName2 = other.fieldName2
+        fieldName3 = other.fieldName3
+        field_name4 = other.field_name4
+        field0name5 = other.field0name5
+        field0Name6 = other.field0Name6
+        fieldName7 = other.fieldName7
+        fieldName8 = other.fieldName8
+        fieldName9 = other.fieldName9
+        fieldName10 = other.fieldName10
+        fIELDNAME11 = other.fIELDNAME11
+        fIELDName12 = other.fIELDName12
+        _fieldName13 = other._fieldName13
+        _FieldName14 = other._FieldName14
+        field_name15 = other.field_name15
+        field_Name16 = other.field_Name16
+        fieldName17_ = other.fieldName17_
+        fieldName18_ = other.fieldName18_
+        when (other.oneofField) {
+            is TestAllTypesProto3.OneofField.OneofUint32 -> oneofUint32 = other.oneofUint32
+            is TestAllTypesProto3.OneofField.OneofNestedMessage -> oneofNestedMessage = oneofNestedMessage?.plus(other.oneofNestedMessage) ?: other.oneofNestedMessage
+            is TestAllTypesProto3.OneofField.OneofString -> oneofString = other.oneofString
+            is TestAllTypesProto3.OneofField.OneofBytes -> oneofBytes = other.oneofBytes
+            is TestAllTypesProto3.OneofField.OneofBool -> oneofBool = other.oneofBool
+            is TestAllTypesProto3.OneofField.OneofUint64 -> oneofUint64 = other.oneofUint64
+            is TestAllTypesProto3.OneofField.OneofFloat -> oneofFloat = other.oneofFloat
+            is TestAllTypesProto3.OneofField.OneofDouble -> oneofDouble = other.oneofDouble
+            is TestAllTypesProto3.OneofField.OneofEnum -> oneofEnum = other.oneofEnum
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4642,18 +4578,13 @@ private class TestAllTypesProto3_NestedMessage_Impl(
         a: Int,
         corecursive: pbandk.conformance.pb.TestAllTypesProto3?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage {
         this.a = a
         this.corecursive = corecursive
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto3.NestedMessage)?.let {
-        it.copy(
-            corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableNestedMessage() = pbandk.conformance.pb.TestAllTypesProto3.MutableNestedMessage {
         this.a = this@TestAllTypesProto3_NestedMessage_Impl.a
@@ -4677,18 +4608,13 @@ private class TestAllTypesProto3_MutableNestedMessage_Impl(
         a: Int,
         corecursive: pbandk.conformance.pb.TestAllTypesProto3?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto3.NestedMessage {
         this.a = a
         this.corecursive = corecursive
         this.unknownFields += unknownFields
-    }.toNestedMessage()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto3.NestedMessage)?.let {
-        it.copy(
-            corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toNestedMessage() = TestAllTypesProto3_NestedMessage_Impl(
         a = a,
@@ -4700,6 +4626,16 @@ private class TestAllTypesProto3_MutableNestedMessage_Impl(
         this.a = this@TestAllTypesProto3_MutableNestedMessage_Impl.a
         this.corecursive = this@TestAllTypesProto3_MutableNestedMessage_Impl.corecursive
         this.unknownFields += this@TestAllTypesProto3_MutableNestedMessage_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto3.NestedMessage.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto3.NestedMessage {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto3.NestedMessage) return this
+
+    return copy {
+        a = other.a
+        corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4758,16 +4694,12 @@ private class ForeignMessage_Impl(
     override fun copy(
         c: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ForeignMessage {
         this.c = c
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ForeignMessage)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableForeignMessage() = pbandk.conformance.pb.MutableForeignMessage {
         this.c = this@ForeignMessage_Impl.c
@@ -4788,16 +4720,12 @@ private class MutableForeignMessage_Impl(
     override fun copy(
         c: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ForeignMessage {
         this.c = c
         this.unknownFields += unknownFields
-    }.toForeignMessage()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ForeignMessage)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toForeignMessage() = ForeignMessage_Impl(
         c = c,
@@ -4807,6 +4735,15 @@ private class MutableForeignMessage_Impl(
     override fun toMutableForeignMessage() = pbandk.conformance.pb.MutableForeignMessage {
         this.c = this@MutableForeignMessage_Impl.c
         this.unknownFields += this@MutableForeignMessage_Impl.unknownFields
+    }
+}
+
+private fun ForeignMessage.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.ForeignMessage {
+    if (other !is pbandk.conformance.pb.ForeignMessage) return this
+
+    return copy {
+        c = other.c
+        unknownFields += other.unknownFields
     }
 }
 

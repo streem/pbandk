@@ -754,7 +754,7 @@ private class Type_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Type {
         this.name = name
         this.fields += fields
         this.oneofs += oneofs
@@ -764,15 +764,7 @@ private class Type_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Type)?.let {
-        it.copy(
-            fields = fields + other.fields,
-            oneofs = oneofs + other.oneofs,
-            options = options + other.options,
-            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableType() = pbandk.wkt.MutableType {
         this.name = this@Type_Impl.name
@@ -808,7 +800,7 @@ private class MutableType_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Type {
         this.name = name
         this.fields += fields
         this.oneofs += oneofs
@@ -816,17 +808,9 @@ private class MutableType_Impl(
         this.sourceContext = sourceContext
         this.syntax = syntax
         this.unknownFields += unknownFields
-    }.toType()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Type)?.let {
-        it.copy(
-            fields = fields + other.fields,
-            oneofs = oneofs + other.oneofs,
-            options = options + other.options,
-            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toType() = Type_Impl(
         name = name,
@@ -846,6 +830,20 @@ private class MutableType_Impl(
         this.sourceContext = this@MutableType_Impl.sourceContext
         this.syntax = this@MutableType_Impl.syntax
         this.unknownFields += this@MutableType_Impl.unknownFields
+    }
+}
+
+private fun Type.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Type {
+    if (other !is pbandk.wkt.Type) return this
+
+    return copy {
+        name = other.name
+        fields += other.fields
+        oneofs += other.oneofs
+        options += other.options
+        sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext
+        syntax = other.syntax
+        unknownFields += other.unknownFields
     }
 }
 
@@ -958,7 +956,7 @@ private class Field_Impl(
         jsonName: String,
         defaultValue: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Field {
         this.kind = kind
         this.cardinality = cardinality
         this.number = number
@@ -972,12 +970,7 @@ private class Field_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Field)?.let {
-        it.copy(
-            options = options + other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableField() = pbandk.wkt.MutableField {
         this.kind = this@Field_Impl.kind
@@ -1025,7 +1018,7 @@ private class MutableField_Impl(
         jsonName: String,
         defaultValue: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Field {
         this.kind = kind
         this.cardinality = cardinality
         this.number = number
@@ -1037,14 +1030,9 @@ private class MutableField_Impl(
         this.jsonName = jsonName
         this.defaultValue = defaultValue
         this.unknownFields += unknownFields
-    }.toField()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Field)?.let {
-        it.copy(
-            options = options + other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toField() = Field_Impl(
         kind = kind,
@@ -1072,6 +1060,24 @@ private class MutableField_Impl(
         this.jsonName = this@MutableField_Impl.jsonName
         this.defaultValue = this@MutableField_Impl.defaultValue
         this.unknownFields += this@MutableField_Impl.unknownFields
+    }
+}
+
+private fun Field.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Field {
+    if (other !is pbandk.wkt.Field) return this
+
+    return copy {
+        kind = other.kind
+        cardinality = other.cardinality
+        number = other.number
+        name = other.name
+        typeUrl = other.typeUrl
+        oneofIndex = other.oneofIndex
+        packed = other.packed
+        options += other.options
+        jsonName = other.jsonName
+        defaultValue = other.defaultValue
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1168,7 +1174,7 @@ private class Enum_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Enum {
         this.name = name
         this.enumvalue += enumvalue
         this.options += options
@@ -1177,14 +1183,7 @@ private class Enum_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Enum)?.let {
-        it.copy(
-            enumvalue = enumvalue + other.enumvalue,
-            options = options + other.options,
-            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnum() = pbandk.wkt.MutableEnum {
         this.name = this@Enum_Impl.name
@@ -1217,23 +1216,16 @@ private class MutableEnum_Impl(
         sourceContext: pbandk.wkt.SourceContext?,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Enum {
         this.name = name
         this.enumvalue += enumvalue
         this.options += options
         this.sourceContext = sourceContext
         this.syntax = syntax
         this.unknownFields += unknownFields
-    }.toEnum()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Enum)?.let {
-        it.copy(
-            enumvalue = enumvalue + other.enumvalue,
-            options = options + other.options,
-            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnum() = Enum_Impl(
         name = name,
@@ -1251,6 +1243,19 @@ private class MutableEnum_Impl(
         this.sourceContext = this@MutableEnum_Impl.sourceContext
         this.syntax = this@MutableEnum_Impl.syntax
         this.unknownFields += this@MutableEnum_Impl.unknownFields
+    }
+}
+
+private fun Enum.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Enum {
+    if (other !is pbandk.wkt.Enum) return this
+
+    return copy {
+        name = other.name
+        enumvalue += other.enumvalue
+        options += other.options
+        sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext
+        syntax = other.syntax
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1326,19 +1331,14 @@ private class EnumValue_Impl(
         number: Int,
         options: List<pbandk.wkt.Option>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumValue {
         this.name = name
         this.number = number
         this.options += options
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumValue)?.let {
-        it.copy(
-            options = options + other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumValue() = pbandk.wkt.MutableEnumValue {
         this.name = this@EnumValue_Impl.name
@@ -1365,19 +1365,14 @@ private class MutableEnumValue_Impl(
         number: Int,
         options: List<pbandk.wkt.Option>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumValue {
         this.name = name
         this.number = number
         this.options += options
         this.unknownFields += unknownFields
-    }.toEnumValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumValue)?.let {
-        it.copy(
-            options = options + other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumValue() = EnumValue_Impl(
         name = name,
@@ -1391,6 +1386,17 @@ private class MutableEnumValue_Impl(
         this.number = this@MutableEnumValue_Impl.number
         this.options += this@MutableEnumValue_Impl.options
         this.unknownFields += this@MutableEnumValue_Impl.unknownFields
+    }
+}
+
+private fun EnumValue.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumValue {
+    if (other !is pbandk.wkt.EnumValue) return this
+
+    return copy {
+        name = other.name
+        number = other.number
+        options += other.options
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1456,18 +1462,13 @@ private class Option_Impl(
         name: String,
         value: pbandk.wkt.Any?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Option {
         this.name = name
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Option)?.let {
-        it.copy(
-            value = value?.plus(other.value) ?: other.value,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableOption() = pbandk.wkt.MutableOption {
         this.name = this@Option_Impl.name
@@ -1491,18 +1492,13 @@ private class MutableOption_Impl(
         name: String,
         value: pbandk.wkt.Any?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Option {
         this.name = name
         this.value = value
         this.unknownFields += unknownFields
-    }.toOption()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Option)?.let {
-        it.copy(
-            value = value?.plus(other.value) ?: other.value,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toOption() = Option_Impl(
         name = name,
@@ -1514,6 +1510,16 @@ private class MutableOption_Impl(
         this.name = this@MutableOption_Impl.name
         this.value = this@MutableOption_Impl.value
         this.unknownFields += this@MutableOption_Impl.unknownFields
+    }
+}
+
+private fun Option.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Option {
+    if (other !is pbandk.wkt.Option) return this
+
+    return copy {
+        name = other.name
+        value = value?.plus(other.value) ?: other.value
+        unknownFields += other.unknownFields
     }
 }
 

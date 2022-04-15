@@ -3297,17 +3297,12 @@ private class FileDescriptorSet_Impl(
     override fun copy(
         file: List<pbandk.wkt.FileDescriptorProto>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FileDescriptorSet {
         this.file += file
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FileDescriptorSet)?.let {
-        it.copy(
-            file = file + other.file,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFileDescriptorSet() = pbandk.wkt.MutableFileDescriptorSet {
         this.file += this@FileDescriptorSet_Impl.file
@@ -3328,17 +3323,12 @@ private class MutableFileDescriptorSet_Impl(
     override fun copy(
         file: List<pbandk.wkt.FileDescriptorProto>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FileDescriptorSet {
         this.file += file
         this.unknownFields += unknownFields
-    }.toFileDescriptorSet()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FileDescriptorSet)?.let {
-        it.copy(
-            file = file + other.file,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFileDescriptorSet() = FileDescriptorSet_Impl(
         file = file.toList(),
@@ -3348,6 +3338,15 @@ private class MutableFileDescriptorSet_Impl(
     override fun toMutableFileDescriptorSet() = pbandk.wkt.MutableFileDescriptorSet {
         this.file += this@MutableFileDescriptorSet_Impl.file
         this.unknownFields += this@MutableFileDescriptorSet_Impl.unknownFields
+    }
+}
+
+private fun FileDescriptorSet.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FileDescriptorSet {
+    if (other !is pbandk.wkt.FileDescriptorSet) return this
+
+    return copy {
+        file += other.file
+        unknownFields += other.unknownFields
     }
 }
 
@@ -3459,7 +3458,7 @@ private class FileDescriptorProto_Impl(
         sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
         syntax: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FileDescriptorProto {
         this.name = name
         this.`package` = `package`
         this.dependency += dependency
@@ -3475,23 +3474,7 @@ private class FileDescriptorProto_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FileDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            `package` = other.`package` ?: `package`,
-            dependency = dependency + other.dependency,
-            publicDependency = publicDependency + other.publicDependency,
-            weakDependency = weakDependency + other.weakDependency,
-            messageType = messageType + other.messageType,
-            enumType = enumType + other.enumType,
-            service = service + other.service,
-            extension = extension + other.extension,
-            options = options?.plus(other.options) ?: other.options,
-            sourceCodeInfo = sourceCodeInfo?.plus(other.sourceCodeInfo) ?: other.sourceCodeInfo,
-            syntax = other.syntax ?: syntax,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFileDescriptorProto() = pbandk.wkt.MutableFileDescriptorProto {
         this.name = this@FileDescriptorProto_Impl.name
@@ -3545,7 +3528,7 @@ private class MutableFileDescriptorProto_Impl(
         sourceCodeInfo: pbandk.wkt.SourceCodeInfo?,
         syntax: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FileDescriptorProto {
         this.name = name
         this.`package` = `package`
         this.dependency += dependency
@@ -3559,25 +3542,9 @@ private class MutableFileDescriptorProto_Impl(
         this.sourceCodeInfo = sourceCodeInfo
         this.syntax = syntax
         this.unknownFields += unknownFields
-    }.toFileDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FileDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            `package` = other.`package` ?: `package`,
-            dependency = dependency + other.dependency,
-            publicDependency = publicDependency + other.publicDependency,
-            weakDependency = weakDependency + other.weakDependency,
-            messageType = messageType + other.messageType,
-            enumType = enumType + other.enumType,
-            service = service + other.service,
-            extension = extension + other.extension,
-            options = options?.plus(other.options) ?: other.options,
-            sourceCodeInfo = sourceCodeInfo?.plus(other.sourceCodeInfo) ?: other.sourceCodeInfo,
-            syntax = other.syntax ?: syntax,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFileDescriptorProto() = FileDescriptorProto_Impl(
         name = name,
@@ -3609,6 +3576,26 @@ private class MutableFileDescriptorProto_Impl(
         this.sourceCodeInfo = this@MutableFileDescriptorProto_Impl.sourceCodeInfo
         this.syntax = this@MutableFileDescriptorProto_Impl.syntax
         this.unknownFields += this@MutableFileDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun FileDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FileDescriptorProto {
+    if (other !is pbandk.wkt.FileDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        `package` = other.`package` ?: `package`
+        dependency += other.dependency
+        publicDependency += other.publicDependency
+        weakDependency += other.weakDependency
+        messageType += other.messageType
+        enumType += other.enumType
+        service += other.service
+        extension += other.extension
+        options = options?.plus(other.options) ?: other.options
+        sourceCodeInfo = sourceCodeInfo?.plus(other.sourceCodeInfo) ?: other.sourceCodeInfo
+        syntax = other.syntax ?: syntax
+        unknownFields += other.unknownFields
     }
 }
 
@@ -3734,7 +3721,7 @@ private class DescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DescriptorProto {
         this.name = name
         this.field += field
         this.extension += extension
@@ -3748,21 +3735,7 @@ private class DescriptorProto_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            field = field + other.field,
-            extension = extension + other.extension,
-            nestedType = nestedType + other.nestedType,
-            enumType = enumType + other.enumType,
-            extensionRange = extensionRange + other.extensionRange,
-            oneofDecl = oneofDecl + other.oneofDecl,
-            options = options?.plus(other.options) ?: other.options,
-            reservedRange = reservedRange + other.reservedRange,
-            reservedName = reservedName + other.reservedName,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableDescriptorProto() = pbandk.wkt.MutableDescriptorProto {
         this.name = this@DescriptorProto_Impl.name
@@ -3810,7 +3783,7 @@ private class MutableDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DescriptorProto {
         this.name = name
         this.field += field
         this.extension += extension
@@ -3822,23 +3795,9 @@ private class MutableDescriptorProto_Impl(
         this.reservedRange += reservedRange
         this.reservedName += reservedName
         this.unknownFields += unknownFields
-    }.toDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            field = field + other.field,
-            extension = extension + other.extension,
-            nestedType = nestedType + other.nestedType,
-            enumType = enumType + other.enumType,
-            extensionRange = extensionRange + other.extensionRange,
-            oneofDecl = oneofDecl + other.oneofDecl,
-            options = options?.plus(other.options) ?: other.options,
-            reservedRange = reservedRange + other.reservedRange,
-            reservedName = reservedName + other.reservedName,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toDescriptorProto() = DescriptorProto_Impl(
         name = name,
@@ -3866,6 +3825,24 @@ private class MutableDescriptorProto_Impl(
         this.reservedRange += this@MutableDescriptorProto_Impl.reservedRange
         this.reservedName += this@MutableDescriptorProto_Impl.reservedName
         this.unknownFields += this@MutableDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun DescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DescriptorProto {
+    if (other !is pbandk.wkt.DescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        field += other.field
+        extension += other.extension
+        nestedType += other.nestedType
+        enumType += other.enumType
+        extensionRange += other.extensionRange
+        oneofDecl += other.oneofDecl
+        options = options?.plus(other.options) ?: other.options
+        reservedRange += other.reservedRange
+        reservedName += other.reservedName
+        unknownFields += other.unknownFields
     }
 }
 
@@ -3959,21 +3936,14 @@ private class DescriptorProto_ExtensionRange_Impl(
         end: Int?,
         options: pbandk.wkt.ExtensionRangeOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DescriptorProto.ExtensionRange {
         this.start = start
         this.end = end
         this.options = options
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DescriptorProto.ExtensionRange)?.let {
-        it.copy(
-            start = other.start ?: start,
-            end = other.end ?: end,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableExtensionRange() = pbandk.wkt.DescriptorProto.MutableExtensionRange {
         this.start = this@DescriptorProto_ExtensionRange_Impl.start
@@ -4000,21 +3970,14 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         end: Int?,
         options: pbandk.wkt.ExtensionRangeOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DescriptorProto.ExtensionRange {
         this.start = start
         this.end = end
         this.options = options
         this.unknownFields += unknownFields
-    }.toExtensionRange()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DescriptorProto.ExtensionRange)?.let {
-        it.copy(
-            start = other.start ?: start,
-            end = other.end ?: end,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toExtensionRange() = DescriptorProto_ExtensionRange_Impl(
         start = start,
@@ -4028,6 +3991,17 @@ private class DescriptorProto_MutableExtensionRange_Impl(
         this.end = this@DescriptorProto_MutableExtensionRange_Impl.end
         this.options = this@DescriptorProto_MutableExtensionRange_Impl.options
         this.unknownFields += this@DescriptorProto_MutableExtensionRange_Impl.unknownFields
+    }
+}
+
+private fun DescriptorProto.ExtensionRange.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DescriptorProto.ExtensionRange {
+    if (other !is pbandk.wkt.DescriptorProto.ExtensionRange) return this
+
+    return copy {
+        start = other.start ?: start
+        end = other.end ?: end
+        options = options?.plus(other.options) ?: other.options
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4100,19 +4074,13 @@ private class DescriptorProto_ReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DescriptorProto.ReservedRange {
         this.start = start
         this.end = end
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DescriptorProto.ReservedRange)?.let {
-        it.copy(
-            start = other.start ?: start,
-            end = other.end ?: end,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableReservedRange() = pbandk.wkt.DescriptorProto.MutableReservedRange {
         this.start = this@DescriptorProto_ReservedRange_Impl.start
@@ -4136,19 +4104,13 @@ private class DescriptorProto_MutableReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.DescriptorProto.ReservedRange {
         this.start = start
         this.end = end
         this.unknownFields += unknownFields
-    }.toReservedRange()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.DescriptorProto.ReservedRange)?.let {
-        it.copy(
-            start = other.start ?: start,
-            end = other.end ?: end,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toReservedRange() = DescriptorProto_ReservedRange_Impl(
         start = start,
@@ -4160,6 +4122,16 @@ private class DescriptorProto_MutableReservedRange_Impl(
         this.start = this@DescriptorProto_MutableReservedRange_Impl.start
         this.end = this@DescriptorProto_MutableReservedRange_Impl.end
         this.unknownFields += this@DescriptorProto_MutableReservedRange_Impl.unknownFields
+    }
+}
+
+private fun DescriptorProto.ReservedRange.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.DescriptorProto.ReservedRange {
+    if (other !is pbandk.wkt.DescriptorProto.ReservedRange) return this
+
+    return copy {
+        start = other.start ?: start
+        end = other.end ?: end
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4219,17 +4191,12 @@ private class ExtensionRangeOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ExtensionRangeOptions {
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ExtensionRangeOptions)?.let {
-        it.copy(
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableExtensionRangeOptions() = pbandk.wkt.MutableExtensionRangeOptions {
         this.uninterpretedOption += this@ExtensionRangeOptions_Impl.uninterpretedOption
@@ -4251,17 +4218,12 @@ private class MutableExtensionRangeOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ExtensionRangeOptions {
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toExtensionRangeOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ExtensionRangeOptions)?.let {
-        it.copy(
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toExtensionRangeOptions() = ExtensionRangeOptions_Impl(
         uninterpretedOption = uninterpretedOption.toList(),
@@ -4271,6 +4233,15 @@ private class MutableExtensionRangeOptions_Impl(
     override fun toMutableExtensionRangeOptions() = pbandk.wkt.MutableExtensionRangeOptions {
         this.uninterpretedOption += this@MutableExtensionRangeOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableExtensionRangeOptions_Impl.unknownFields
+    }
+}
+
+private fun ExtensionRangeOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ExtensionRangeOptions {
+    if (other !is pbandk.wkt.ExtensionRangeOptions) return this
+
+    return copy {
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4377,7 +4348,7 @@ private class FieldDescriptorProto_Impl(
         options: pbandk.wkt.FieldOptions?,
         proto3Optional: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FieldDescriptorProto {
         this.name = name
         this.number = number
         this.label = label
@@ -4392,22 +4363,7 @@ private class FieldDescriptorProto_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            number = other.number ?: number,
-            label = other.label ?: label,
-            type = other.type ?: type,
-            typeName = other.typeName ?: typeName,
-            extendee = other.extendee ?: extendee,
-            defaultValue = other.defaultValue ?: defaultValue,
-            oneofIndex = other.oneofIndex ?: oneofIndex,
-            jsonName = other.jsonName ?: jsonName,
-            options = options?.plus(other.options) ?: other.options,
-            proto3Optional = other.proto3Optional ?: proto3Optional,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFieldDescriptorProto() = pbandk.wkt.MutableFieldDescriptorProto {
         this.name = this@FieldDescriptorProto_Impl.name
@@ -4458,7 +4414,7 @@ private class MutableFieldDescriptorProto_Impl(
         options: pbandk.wkt.FieldOptions?,
         proto3Optional: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FieldDescriptorProto {
         this.name = name
         this.number = number
         this.label = label
@@ -4471,24 +4427,9 @@ private class MutableFieldDescriptorProto_Impl(
         this.options = options
         this.proto3Optional = proto3Optional
         this.unknownFields += unknownFields
-    }.toFieldDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            number = other.number ?: number,
-            label = other.label ?: label,
-            type = other.type ?: type,
-            typeName = other.typeName ?: typeName,
-            extendee = other.extendee ?: extendee,
-            defaultValue = other.defaultValue ?: defaultValue,
-            oneofIndex = other.oneofIndex ?: oneofIndex,
-            jsonName = other.jsonName ?: jsonName,
-            options = options?.plus(other.options) ?: other.options,
-            proto3Optional = other.proto3Optional ?: proto3Optional,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFieldDescriptorProto() = FieldDescriptorProto_Impl(
         name = name,
@@ -4518,6 +4459,25 @@ private class MutableFieldDescriptorProto_Impl(
         this.options = this@MutableFieldDescriptorProto_Impl.options
         this.proto3Optional = this@MutableFieldDescriptorProto_Impl.proto3Optional
         this.unknownFields += this@MutableFieldDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun FieldDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FieldDescriptorProto {
+    if (other !is pbandk.wkt.FieldDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        number = other.number ?: number
+        label = other.label ?: label
+        type = other.type ?: type
+        typeName = other.typeName ?: typeName
+        extendee = other.extendee ?: extendee
+        defaultValue = other.defaultValue ?: defaultValue
+        oneofIndex = other.oneofIndex ?: oneofIndex
+        jsonName = other.jsonName ?: jsonName
+        options = options?.plus(other.options) ?: other.options
+        proto3Optional = other.proto3Optional ?: proto3Optional
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4601,19 +4561,13 @@ private class OneofDescriptorProto_Impl(
         name: String?,
         options: pbandk.wkt.OneofOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.OneofDescriptorProto {
         this.name = name
         this.options = options
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.OneofDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableOneofDescriptorProto() = pbandk.wkt.MutableOneofDescriptorProto {
         this.name = this@OneofDescriptorProto_Impl.name
@@ -4637,19 +4591,13 @@ private class MutableOneofDescriptorProto_Impl(
         name: String?,
         options: pbandk.wkt.OneofOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.OneofDescriptorProto {
         this.name = name
         this.options = options
         this.unknownFields += unknownFields
-    }.toOneofDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.OneofDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toOneofDescriptorProto() = OneofDescriptorProto_Impl(
         name = name,
@@ -4661,6 +4609,16 @@ private class MutableOneofDescriptorProto_Impl(
         this.name = this@MutableOneofDescriptorProto_Impl.name
         this.options = this@MutableOneofDescriptorProto_Impl.options
         this.unknownFields += this@MutableOneofDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun OneofDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.OneofDescriptorProto {
+    if (other !is pbandk.wkt.OneofDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        options = options?.plus(other.options) ?: other.options
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4739,7 +4697,7 @@ private class EnumDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumDescriptorProto {
         this.name = name
         this.value += value
         this.options = options
@@ -4748,16 +4706,7 @@ private class EnumDescriptorProto_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            value = value + other.value,
-            options = options?.plus(other.options) ?: other.options,
-            reservedRange = reservedRange + other.reservedRange,
-            reservedName = reservedName + other.reservedName,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumDescriptorProto() = pbandk.wkt.MutableEnumDescriptorProto {
         this.name = this@EnumDescriptorProto_Impl.name
@@ -4790,25 +4739,16 @@ private class MutableEnumDescriptorProto_Impl(
         reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange>,
         reservedName: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumDescriptorProto {
         this.name = name
         this.value += value
         this.options = options
         this.reservedRange += reservedRange
         this.reservedName += reservedName
         this.unknownFields += unknownFields
-    }.toEnumDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            value = value + other.value,
-            options = options?.plus(other.options) ?: other.options,
-            reservedRange = reservedRange + other.reservedRange,
-            reservedName = reservedName + other.reservedName,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumDescriptorProto() = EnumDescriptorProto_Impl(
         name = name,
@@ -4826,6 +4766,19 @@ private class MutableEnumDescriptorProto_Impl(
         this.reservedRange += this@MutableEnumDescriptorProto_Impl.reservedRange
         this.reservedName += this@MutableEnumDescriptorProto_Impl.reservedName
         this.unknownFields += this@MutableEnumDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun EnumDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumDescriptorProto {
+    if (other !is pbandk.wkt.EnumDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        value += other.value
+        options = options?.plus(other.options) ?: other.options
+        reservedRange += other.reservedRange
+        reservedName += other.reservedName
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4903,19 +4856,13 @@ private class EnumDescriptorProto_EnumReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
         this.start = start
         this.end = end
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumDescriptorProto.EnumReservedRange)?.let {
-        it.copy(
-            start = other.start ?: start,
-            end = other.end ?: end,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumReservedRange() = pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange {
         this.start = this@EnumDescriptorProto_EnumReservedRange_Impl.start
@@ -4939,19 +4886,13 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         start: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
         this.start = start
         this.end = end
         this.unknownFields += unknownFields
-    }.toEnumReservedRange()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumDescriptorProto.EnumReservedRange)?.let {
-        it.copy(
-            start = other.start ?: start,
-            end = other.end ?: end,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumReservedRange() = EnumDescriptorProto_EnumReservedRange_Impl(
         start = start,
@@ -4963,6 +4904,16 @@ private class EnumDescriptorProto_MutableEnumReservedRange_Impl(
         this.start = this@EnumDescriptorProto_MutableEnumReservedRange_Impl.start
         this.end = this@EnumDescriptorProto_MutableEnumReservedRange_Impl.end
         this.unknownFields += this@EnumDescriptorProto_MutableEnumReservedRange_Impl.unknownFields
+    }
+}
+
+private fun EnumDescriptorProto.EnumReservedRange.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumDescriptorProto.EnumReservedRange {
+    if (other !is pbandk.wkt.EnumDescriptorProto.EnumReservedRange) return this
+
+    return copy {
+        start = other.start ?: start
+        end = other.end ?: end
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5031,21 +4982,14 @@ private class EnumValueDescriptorProto_Impl(
         number: Int?,
         options: pbandk.wkt.EnumValueOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumValueDescriptorProto {
         this.name = name
         this.number = number
         this.options = options
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumValueDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            number = other.number ?: number,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumValueDescriptorProto() = pbandk.wkt.MutableEnumValueDescriptorProto {
         this.name = this@EnumValueDescriptorProto_Impl.name
@@ -5072,21 +5016,14 @@ private class MutableEnumValueDescriptorProto_Impl(
         number: Int?,
         options: pbandk.wkt.EnumValueOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumValueDescriptorProto {
         this.name = name
         this.number = number
         this.options = options
         this.unknownFields += unknownFields
-    }.toEnumValueDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumValueDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            number = other.number ?: number,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumValueDescriptorProto() = EnumValueDescriptorProto_Impl(
         name = name,
@@ -5100,6 +5037,17 @@ private class MutableEnumValueDescriptorProto_Impl(
         this.number = this@MutableEnumValueDescriptorProto_Impl.number
         this.options = this@MutableEnumValueDescriptorProto_Impl.options
         this.unknownFields += this@MutableEnumValueDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun EnumValueDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumValueDescriptorProto {
+    if (other !is pbandk.wkt.EnumValueDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        number = other.number ?: number
+        options = options?.plus(other.options) ?: other.options
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5170,21 +5118,14 @@ private class ServiceDescriptorProto_Impl(
         method: List<pbandk.wkt.MethodDescriptorProto>,
         options: pbandk.wkt.ServiceOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ServiceDescriptorProto {
         this.name = name
         this.method += method
         this.options = options
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ServiceDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            method = method + other.method,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableServiceDescriptorProto() = pbandk.wkt.MutableServiceDescriptorProto {
         this.name = this@ServiceDescriptorProto_Impl.name
@@ -5211,21 +5152,14 @@ private class MutableServiceDescriptorProto_Impl(
         method: List<pbandk.wkt.MethodDescriptorProto>,
         options: pbandk.wkt.ServiceOptions?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ServiceDescriptorProto {
         this.name = name
         this.method += method
         this.options = options
         this.unknownFields += unknownFields
-    }.toServiceDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ServiceDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            method = method + other.method,
-            options = options?.plus(other.options) ?: other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toServiceDescriptorProto() = ServiceDescriptorProto_Impl(
         name = name,
@@ -5239,6 +5173,17 @@ private class MutableServiceDescriptorProto_Impl(
         this.method += this@MutableServiceDescriptorProto_Impl.method
         this.options = this@MutableServiceDescriptorProto_Impl.options
         this.unknownFields += this@MutableServiceDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun ServiceDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ServiceDescriptorProto {
+    if (other !is pbandk.wkt.ServiceDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        method += other.method
+        options = options?.plus(other.options) ?: other.options
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5324,7 +5269,7 @@ private class MethodDescriptorProto_Impl(
         clientStreaming: Boolean?,
         serverStreaming: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.MethodDescriptorProto {
         this.name = name
         this.inputType = inputType
         this.outputType = outputType
@@ -5334,17 +5279,7 @@ private class MethodDescriptorProto_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.MethodDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            inputType = other.inputType ?: inputType,
-            outputType = other.outputType ?: outputType,
-            options = options?.plus(other.options) ?: other.options,
-            clientStreaming = other.clientStreaming ?: clientStreaming,
-            serverStreaming = other.serverStreaming ?: serverStreaming,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMethodDescriptorProto() = pbandk.wkt.MutableMethodDescriptorProto {
         this.name = this@MethodDescriptorProto_Impl.name
@@ -5380,7 +5315,7 @@ private class MutableMethodDescriptorProto_Impl(
         clientStreaming: Boolean?,
         serverStreaming: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.MethodDescriptorProto {
         this.name = name
         this.inputType = inputType
         this.outputType = outputType
@@ -5388,19 +5323,9 @@ private class MutableMethodDescriptorProto_Impl(
         this.clientStreaming = clientStreaming
         this.serverStreaming = serverStreaming
         this.unknownFields += unknownFields
-    }.toMethodDescriptorProto()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.MethodDescriptorProto)?.let {
-        it.copy(
-            name = other.name ?: name,
-            inputType = other.inputType ?: inputType,
-            outputType = other.outputType ?: outputType,
-            options = options?.plus(other.options) ?: other.options,
-            clientStreaming = other.clientStreaming ?: clientStreaming,
-            serverStreaming = other.serverStreaming ?: serverStreaming,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMethodDescriptorProto() = MethodDescriptorProto_Impl(
         name = name,
@@ -5420,6 +5345,20 @@ private class MutableMethodDescriptorProto_Impl(
         this.clientStreaming = this@MutableMethodDescriptorProto_Impl.clientStreaming
         this.serverStreaming = this@MutableMethodDescriptorProto_Impl.serverStreaming
         this.unknownFields += this@MutableMethodDescriptorProto_Impl.unknownFields
+    }
+}
+
+private fun MethodDescriptorProto.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.MethodDescriptorProto {
+    if (other !is pbandk.wkt.MethodDescriptorProto) return this
+
+    return copy {
+        name = other.name ?: name
+        inputType = other.inputType ?: inputType
+        outputType = other.outputType ?: outputType
+        options = options?.plus(other.options) ?: other.options
+        clientStreaming = other.clientStreaming ?: clientStreaming
+        serverStreaming = other.serverStreaming ?: serverStreaming
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5590,7 +5529,7 @@ private class FileOptions_Impl(
         rubyPackage: String?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FileOptions {
         this.javaPackage = javaPackage
         this.javaOuterClassname = javaOuterClassname
         this.javaMultipleFiles = javaMultipleFiles
@@ -5616,33 +5555,7 @@ private class FileOptions_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FileOptions)?.let {
-        @Suppress("DEPRECATION")
-        it.copy(
-            javaPackage = other.javaPackage ?: javaPackage,
-            javaOuterClassname = other.javaOuterClassname ?: javaOuterClassname,
-            javaMultipleFiles = other.javaMultipleFiles ?: javaMultipleFiles,
-            javaGenerateEqualsAndHash = other.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash,
-            javaStringCheckUtf8 = other.javaStringCheckUtf8 ?: javaStringCheckUtf8,
-            optimizeFor = other.optimizeFor ?: optimizeFor,
-            goPackage = other.goPackage ?: goPackage,
-            ccGenericServices = other.ccGenericServices ?: ccGenericServices,
-            javaGenericServices = other.javaGenericServices ?: javaGenericServices,
-            pyGenericServices = other.pyGenericServices ?: pyGenericServices,
-            phpGenericServices = other.phpGenericServices ?: phpGenericServices,
-            deprecated = other.deprecated ?: deprecated,
-            ccEnableArenas = other.ccEnableArenas ?: ccEnableArenas,
-            objcClassPrefix = other.objcClassPrefix ?: objcClassPrefix,
-            csharpNamespace = other.csharpNamespace ?: csharpNamespace,
-            swiftPrefix = other.swiftPrefix ?: swiftPrefix,
-            phpClassPrefix = other.phpClassPrefix ?: phpClassPrefix,
-            phpNamespace = other.phpNamespace ?: phpNamespace,
-            phpMetadataNamespace = other.phpMetadataNamespace ?: phpMetadataNamespace,
-            rubyPackage = other.rubyPackage ?: rubyPackage,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFileOptions() = pbandk.wkt.MutableFileOptions {
         this.javaPackage = this@FileOptions_Impl.javaPackage
@@ -5726,7 +5639,7 @@ private class MutableFileOptions_Impl(
         rubyPackage: String?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FileOptions {
         this.javaPackage = javaPackage
         this.javaOuterClassname = javaOuterClassname
         this.javaMultipleFiles = javaMultipleFiles
@@ -5750,35 +5663,9 @@ private class MutableFileOptions_Impl(
         this.rubyPackage = rubyPackage
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toFileOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FileOptions)?.let {
-        @Suppress("DEPRECATION")
-        it.copy(
-            javaPackage = other.javaPackage ?: javaPackage,
-            javaOuterClassname = other.javaOuterClassname ?: javaOuterClassname,
-            javaMultipleFiles = other.javaMultipleFiles ?: javaMultipleFiles,
-            javaGenerateEqualsAndHash = other.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash,
-            javaStringCheckUtf8 = other.javaStringCheckUtf8 ?: javaStringCheckUtf8,
-            optimizeFor = other.optimizeFor ?: optimizeFor,
-            goPackage = other.goPackage ?: goPackage,
-            ccGenericServices = other.ccGenericServices ?: ccGenericServices,
-            javaGenericServices = other.javaGenericServices ?: javaGenericServices,
-            pyGenericServices = other.pyGenericServices ?: pyGenericServices,
-            phpGenericServices = other.phpGenericServices ?: phpGenericServices,
-            deprecated = other.deprecated ?: deprecated,
-            ccEnableArenas = other.ccEnableArenas ?: ccEnableArenas,
-            objcClassPrefix = other.objcClassPrefix ?: objcClassPrefix,
-            csharpNamespace = other.csharpNamespace ?: csharpNamespace,
-            swiftPrefix = other.swiftPrefix ?: swiftPrefix,
-            phpClassPrefix = other.phpClassPrefix ?: phpClassPrefix,
-            phpNamespace = other.phpNamespace ?: phpNamespace,
-            phpMetadataNamespace = other.phpMetadataNamespace ?: phpMetadataNamespace,
-            rubyPackage = other.rubyPackage ?: rubyPackage,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFileOptions() = FileOptions_Impl(
         javaPackage = javaPackage,
@@ -5829,6 +5716,36 @@ private class MutableFileOptions_Impl(
         this.rubyPackage = this@MutableFileOptions_Impl.rubyPackage
         this.uninterpretedOption += this@MutableFileOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableFileOptions_Impl.unknownFields
+    }
+}
+
+private fun FileOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FileOptions {
+    if (other !is pbandk.wkt.FileOptions) return this
+
+    return copy {
+        javaPackage = other.javaPackage ?: javaPackage
+        javaOuterClassname = other.javaOuterClassname ?: javaOuterClassname
+        javaMultipleFiles = other.javaMultipleFiles ?: javaMultipleFiles
+        @Suppress("DEPRECATION")
+        javaGenerateEqualsAndHash = other.javaGenerateEqualsAndHash ?: javaGenerateEqualsAndHash
+        javaStringCheckUtf8 = other.javaStringCheckUtf8 ?: javaStringCheckUtf8
+        optimizeFor = other.optimizeFor ?: optimizeFor
+        goPackage = other.goPackage ?: goPackage
+        ccGenericServices = other.ccGenericServices ?: ccGenericServices
+        javaGenericServices = other.javaGenericServices ?: javaGenericServices
+        pyGenericServices = other.pyGenericServices ?: pyGenericServices
+        phpGenericServices = other.phpGenericServices ?: phpGenericServices
+        deprecated = other.deprecated ?: deprecated
+        ccEnableArenas = other.ccEnableArenas ?: ccEnableArenas
+        objcClassPrefix = other.objcClassPrefix ?: objcClassPrefix
+        csharpNamespace = other.csharpNamespace ?: csharpNamespace
+        swiftPrefix = other.swiftPrefix ?: swiftPrefix
+        phpClassPrefix = other.phpClassPrefix ?: phpClassPrefix
+        phpNamespace = other.phpNamespace ?: phpNamespace
+        phpMetadataNamespace = other.phpMetadataNamespace ?: phpMetadataNamespace
+        rubyPackage = other.rubyPackage ?: rubyPackage
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5951,7 +5868,7 @@ private class MessageOptions_Impl(
         mapEntry: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.MessageOptions {
         this.messageSetWireFormat = messageSetWireFormat
         this.noStandardDescriptorAccessor = noStandardDescriptorAccessor
         this.deprecated = deprecated
@@ -5960,16 +5877,7 @@ private class MessageOptions_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.MessageOptions)?.let {
-        it.copy(
-            messageSetWireFormat = other.messageSetWireFormat ?: messageSetWireFormat,
-            noStandardDescriptorAccessor = other.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
-            deprecated = other.deprecated ?: deprecated,
-            mapEntry = other.mapEntry ?: mapEntry,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMessageOptions() = pbandk.wkt.MutableMessageOptions {
         this.messageSetWireFormat = this@MessageOptions_Impl.messageSetWireFormat
@@ -6003,25 +5911,16 @@ private class MutableMessageOptions_Impl(
         mapEntry: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.MessageOptions {
         this.messageSetWireFormat = messageSetWireFormat
         this.noStandardDescriptorAccessor = noStandardDescriptorAccessor
         this.deprecated = deprecated
         this.mapEntry = mapEntry
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toMessageOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.MessageOptions)?.let {
-        it.copy(
-            messageSetWireFormat = other.messageSetWireFormat ?: messageSetWireFormat,
-            noStandardDescriptorAccessor = other.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor,
-            deprecated = other.deprecated ?: deprecated,
-            mapEntry = other.mapEntry ?: mapEntry,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMessageOptions() = MessageOptions_Impl(
         messageSetWireFormat = messageSetWireFormat,
@@ -6039,6 +5938,19 @@ private class MutableMessageOptions_Impl(
         this.mapEntry = this@MutableMessageOptions_Impl.mapEntry
         this.uninterpretedOption += this@MutableMessageOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableMessageOptions_Impl.unknownFields
+    }
+}
+
+private fun MessageOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.MessageOptions {
+    if (other !is pbandk.wkt.MessageOptions) return this
+
+    return copy {
+        messageSetWireFormat = other.messageSetWireFormat ?: messageSetWireFormat
+        noStandardDescriptorAccessor = other.noStandardDescriptorAccessor ?: noStandardDescriptorAccessor
+        deprecated = other.deprecated ?: deprecated
+        mapEntry = other.mapEntry ?: mapEntry
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6135,7 +6047,7 @@ private class FieldOptions_Impl(
         weak: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FieldOptions {
         this.ctype = ctype
         this.packed = packed
         this.jstype = jstype
@@ -6146,18 +6058,7 @@ private class FieldOptions_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldOptions)?.let {
-        it.copy(
-            ctype = other.ctype ?: ctype,
-            packed = other.packed ?: packed,
-            jstype = other.jstype ?: jstype,
-            lazy = other.lazy ?: lazy,
-            deprecated = other.deprecated ?: deprecated,
-            weak = other.weak ?: weak,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFieldOptions() = pbandk.wkt.MutableFieldOptions {
         this.ctype = this@FieldOptions_Impl.ctype
@@ -6197,7 +6098,7 @@ private class MutableFieldOptions_Impl(
         weak: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FieldOptions {
         this.ctype = ctype
         this.packed = packed
         this.jstype = jstype
@@ -6206,20 +6107,9 @@ private class MutableFieldOptions_Impl(
         this.weak = weak
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toFieldOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldOptions)?.let {
-        it.copy(
-            ctype = other.ctype ?: ctype,
-            packed = other.packed ?: packed,
-            jstype = other.jstype ?: jstype,
-            lazy = other.lazy ?: lazy,
-            deprecated = other.deprecated ?: deprecated,
-            weak = other.weak ?: weak,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFieldOptions() = FieldOptions_Impl(
         ctype = ctype,
@@ -6241,6 +6131,21 @@ private class MutableFieldOptions_Impl(
         this.weak = this@MutableFieldOptions_Impl.weak
         this.uninterpretedOption += this@MutableFieldOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableFieldOptions_Impl.unknownFields
+    }
+}
+
+private fun FieldOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FieldOptions {
+    if (other !is pbandk.wkt.FieldOptions) return this
+
+    return copy {
+        ctype = other.ctype ?: ctype
+        packed = other.packed ?: packed
+        jstype = other.jstype ?: jstype
+        lazy = other.lazy ?: lazy
+        deprecated = other.deprecated ?: deprecated
+        weak = other.weak ?: weak
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6311,17 +6216,12 @@ private class OneofOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.OneofOptions {
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.OneofOptions)?.let {
-        it.copy(
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableOneofOptions() = pbandk.wkt.MutableOneofOptions {
         this.uninterpretedOption += this@OneofOptions_Impl.uninterpretedOption
@@ -6343,17 +6243,12 @@ private class MutableOneofOptions_Impl(
     override fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.OneofOptions {
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toOneofOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.OneofOptions)?.let {
-        it.copy(
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toOneofOptions() = OneofOptions_Impl(
         uninterpretedOption = uninterpretedOption.toList(),
@@ -6363,6 +6258,15 @@ private class MutableOneofOptions_Impl(
     override fun toMutableOneofOptions() = pbandk.wkt.MutableOneofOptions {
         this.uninterpretedOption += this@MutableOneofOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableOneofOptions_Impl.unknownFields
+    }
+}
+
+private fun OneofOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.OneofOptions {
+    if (other !is pbandk.wkt.OneofOptions) return this
+
+    return copy {
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6430,21 +6334,14 @@ private class EnumOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumOptions {
         this.allowAlias = allowAlias
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumOptions)?.let {
-        it.copy(
-            allowAlias = other.allowAlias ?: allowAlias,
-            deprecated = other.deprecated ?: deprecated,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumOptions() = pbandk.wkt.MutableEnumOptions {
         this.allowAlias = this@EnumOptions_Impl.allowAlias
@@ -6472,21 +6369,14 @@ private class MutableEnumOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumOptions {
         this.allowAlias = allowAlias
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toEnumOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumOptions)?.let {
-        it.copy(
-            allowAlias = other.allowAlias ?: allowAlias,
-            deprecated = other.deprecated ?: deprecated,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumOptions() = EnumOptions_Impl(
         allowAlias = allowAlias,
@@ -6500,6 +6390,17 @@ private class MutableEnumOptions_Impl(
         this.deprecated = this@MutableEnumOptions_Impl.deprecated
         this.uninterpretedOption += this@MutableEnumOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableEnumOptions_Impl.unknownFields
+    }
+}
+
+private fun EnumOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumOptions {
+    if (other !is pbandk.wkt.EnumOptions) return this
+
+    return copy {
+        allowAlias = other.allowAlias ?: allowAlias
+        deprecated = other.deprecated ?: deprecated
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6566,19 +6467,13 @@ private class EnumValueOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumValueOptions {
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumValueOptions)?.let {
-        it.copy(
-            deprecated = other.deprecated ?: deprecated,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumValueOptions() = pbandk.wkt.MutableEnumValueOptions {
         this.deprecated = this@EnumValueOptions_Impl.deprecated
@@ -6603,19 +6498,13 @@ private class MutableEnumValueOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.EnumValueOptions {
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toEnumValueOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.EnumValueOptions)?.let {
-        it.copy(
-            deprecated = other.deprecated ?: deprecated,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumValueOptions() = EnumValueOptions_Impl(
         deprecated = deprecated,
@@ -6627,6 +6516,16 @@ private class MutableEnumValueOptions_Impl(
         this.deprecated = this@MutableEnumValueOptions_Impl.deprecated
         this.uninterpretedOption += this@MutableEnumValueOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableEnumValueOptions_Impl.unknownFields
+    }
+}
+
+private fun EnumValueOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.EnumValueOptions {
+    if (other !is pbandk.wkt.EnumValueOptions) return this
+
+    return copy {
+        deprecated = other.deprecated ?: deprecated
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6691,19 +6590,13 @@ private class ServiceOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ServiceOptions {
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ServiceOptions)?.let {
-        it.copy(
-            deprecated = other.deprecated ?: deprecated,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableServiceOptions() = pbandk.wkt.MutableServiceOptions {
         this.deprecated = this@ServiceOptions_Impl.deprecated
@@ -6728,19 +6621,13 @@ private class MutableServiceOptions_Impl(
         deprecated: Boolean?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.ServiceOptions {
         this.deprecated = deprecated
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toServiceOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.ServiceOptions)?.let {
-        it.copy(
-            deprecated = other.deprecated ?: deprecated,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toServiceOptions() = ServiceOptions_Impl(
         deprecated = deprecated,
@@ -6752,6 +6639,16 @@ private class MutableServiceOptions_Impl(
         this.deprecated = this@MutableServiceOptions_Impl.deprecated
         this.uninterpretedOption += this@MutableServiceOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableServiceOptions_Impl.unknownFields
+    }
+}
+
+private fun ServiceOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.ServiceOptions {
+    if (other !is pbandk.wkt.ServiceOptions) return this
+
+    return copy {
+        deprecated = other.deprecated ?: deprecated
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6821,21 +6718,14 @@ private class MethodOptions_Impl(
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.MethodOptions {
         this.deprecated = deprecated
         this.idempotencyLevel = idempotencyLevel
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.MethodOptions)?.let {
-        it.copy(
-            deprecated = other.deprecated ?: deprecated,
-            idempotencyLevel = other.idempotencyLevel ?: idempotencyLevel,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMethodOptions() = pbandk.wkt.MutableMethodOptions {
         this.deprecated = this@MethodOptions_Impl.deprecated
@@ -6863,21 +6753,14 @@ private class MutableMethodOptions_Impl(
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.MethodOptions {
         this.deprecated = deprecated
         this.idempotencyLevel = idempotencyLevel
         this.uninterpretedOption += uninterpretedOption
         this.unknownFields += unknownFields
-    }.toMethodOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.MethodOptions)?.let {
-        it.copy(
-            deprecated = other.deprecated ?: deprecated,
-            idempotencyLevel = other.idempotencyLevel ?: idempotencyLevel,
-            uninterpretedOption = uninterpretedOption + other.uninterpretedOption,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMethodOptions() = MethodOptions_Impl(
         deprecated = deprecated,
@@ -6891,6 +6774,17 @@ private class MutableMethodOptions_Impl(
         this.idempotencyLevel = this@MutableMethodOptions_Impl.idempotencyLevel
         this.uninterpretedOption += this@MutableMethodOptions_Impl.uninterpretedOption
         this.unknownFields += this@MutableMethodOptions_Impl.unknownFields
+    }
+}
+
+private fun MethodOptions.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.MethodOptions {
+    if (other !is pbandk.wkt.MethodOptions) return this
+
+    return copy {
+        deprecated = other.deprecated ?: deprecated
+        idempotencyLevel = other.idempotencyLevel ?: idempotencyLevel
+        uninterpretedOption += other.uninterpretedOption
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6981,7 +6875,7 @@ private class UninterpretedOption_Impl(
         stringValue: pbandk.ByteArr?,
         aggregateValue: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UninterpretedOption {
         this.name += name
         this.identifierValue = identifierValue
         this.positiveIntValue = positiveIntValue
@@ -6992,18 +6886,7 @@ private class UninterpretedOption_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UninterpretedOption)?.let {
-        it.copy(
-            name = name + other.name,
-            identifierValue = other.identifierValue ?: identifierValue,
-            positiveIntValue = other.positiveIntValue ?: positiveIntValue,
-            negativeIntValue = other.negativeIntValue ?: negativeIntValue,
-            doubleValue = other.doubleValue ?: doubleValue,
-            stringValue = other.stringValue ?: stringValue,
-            aggregateValue = other.aggregateValue ?: aggregateValue,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableUninterpretedOption() = pbandk.wkt.MutableUninterpretedOption {
         this.name += this@UninterpretedOption_Impl.name
@@ -7042,7 +6925,7 @@ private class MutableUninterpretedOption_Impl(
         stringValue: pbandk.ByteArr?,
         aggregateValue: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UninterpretedOption {
         this.name += name
         this.identifierValue = identifierValue
         this.positiveIntValue = positiveIntValue
@@ -7051,20 +6934,9 @@ private class MutableUninterpretedOption_Impl(
         this.stringValue = stringValue
         this.aggregateValue = aggregateValue
         this.unknownFields += unknownFields
-    }.toUninterpretedOption()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UninterpretedOption)?.let {
-        it.copy(
-            name = name + other.name,
-            identifierValue = other.identifierValue ?: identifierValue,
-            positiveIntValue = other.positiveIntValue ?: positiveIntValue,
-            negativeIntValue = other.negativeIntValue ?: negativeIntValue,
-            doubleValue = other.doubleValue ?: doubleValue,
-            stringValue = other.stringValue ?: stringValue,
-            aggregateValue = other.aggregateValue ?: aggregateValue,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toUninterpretedOption() = UninterpretedOption_Impl(
         name = name.toList(),
@@ -7086,6 +6958,21 @@ private class MutableUninterpretedOption_Impl(
         this.stringValue = this@MutableUninterpretedOption_Impl.stringValue
         this.aggregateValue = this@MutableUninterpretedOption_Impl.aggregateValue
         this.unknownFields += this@MutableUninterpretedOption_Impl.unknownFields
+    }
+}
+
+private fun UninterpretedOption.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UninterpretedOption {
+    if (other !is pbandk.wkt.UninterpretedOption) return this
+
+    return copy {
+        name += other.name
+        identifierValue = other.identifierValue ?: identifierValue
+        positiveIntValue = other.positiveIntValue ?: positiveIntValue
+        negativeIntValue = other.negativeIntValue ?: negativeIntValue
+        doubleValue = other.doubleValue ?: doubleValue
+        stringValue = other.stringValue ?: stringValue
+        aggregateValue = other.aggregateValue ?: aggregateValue
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7167,17 +7054,13 @@ private class UninterpretedOption_NamePart_Impl(
         namePart: String,
         isExtension: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UninterpretedOption.NamePart {
         this.namePart = namePart
         this.isExtension = isExtension
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UninterpretedOption.NamePart)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableNamePart() = pbandk.wkt.UninterpretedOption.MutableNamePart {
         this.namePart = this@UninterpretedOption_NamePart_Impl.namePart
@@ -7201,17 +7084,13 @@ private class UninterpretedOption_MutableNamePart_Impl(
         namePart: String,
         isExtension: Boolean,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.UninterpretedOption.NamePart {
         this.namePart = namePart
         this.isExtension = isExtension
         this.unknownFields += unknownFields
-    }.toNamePart()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.UninterpretedOption.NamePart)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toNamePart() = UninterpretedOption_NamePart_Impl(
         namePart = namePart,
@@ -7223,6 +7102,16 @@ private class UninterpretedOption_MutableNamePart_Impl(
         this.namePart = this@UninterpretedOption_MutableNamePart_Impl.namePart
         this.isExtension = this@UninterpretedOption_MutableNamePart_Impl.isExtension
         this.unknownFields += this@UninterpretedOption_MutableNamePart_Impl.unknownFields
+    }
+}
+
+private fun UninterpretedOption.NamePart.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.UninterpretedOption.NamePart {
+    if (other !is pbandk.wkt.UninterpretedOption.NamePart) return this
+
+    return copy {
+        namePart = other.namePart
+        isExtension = other.isExtension
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7281,17 +7170,12 @@ private class SourceCodeInfo_Impl(
     override fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.SourceCodeInfo {
         this.location += location
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.SourceCodeInfo)?.let {
-        it.copy(
-            location = location + other.location,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSourceCodeInfo() = pbandk.wkt.MutableSourceCodeInfo {
         this.location += this@SourceCodeInfo_Impl.location
@@ -7312,17 +7196,12 @@ private class MutableSourceCodeInfo_Impl(
     override fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.SourceCodeInfo {
         this.location += location
         this.unknownFields += unknownFields
-    }.toSourceCodeInfo()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.SourceCodeInfo)?.let {
-        it.copy(
-            location = location + other.location,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSourceCodeInfo() = SourceCodeInfo_Impl(
         location = location.toList(),
@@ -7332,6 +7211,15 @@ private class MutableSourceCodeInfo_Impl(
     override fun toMutableSourceCodeInfo() = pbandk.wkt.MutableSourceCodeInfo {
         this.location += this@MutableSourceCodeInfo_Impl.location
         this.unknownFields += this@MutableSourceCodeInfo_Impl.unknownFields
+    }
+}
+
+private fun SourceCodeInfo.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo {
+    if (other !is pbandk.wkt.SourceCodeInfo) return this
+
+    return copy {
+        location += other.location
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7415,7 +7303,7 @@ private class SourceCodeInfo_Location_Impl(
         trailingComments: String?,
         leadingDetachedComments: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.SourceCodeInfo.Location {
         this.path += path
         this.span += span
         this.leadingComments = leadingComments
@@ -7424,16 +7312,7 @@ private class SourceCodeInfo_Location_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.SourceCodeInfo.Location)?.let {
-        it.copy(
-            path = path + other.path,
-            span = span + other.span,
-            leadingComments = other.leadingComments ?: leadingComments,
-            trailingComments = other.trailingComments ?: trailingComments,
-            leadingDetachedComments = leadingDetachedComments + other.leadingDetachedComments,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableLocation() = pbandk.wkt.SourceCodeInfo.MutableLocation {
         this.path += this@SourceCodeInfo_Location_Impl.path
@@ -7466,25 +7345,16 @@ private class SourceCodeInfo_MutableLocation_Impl(
         trailingComments: String?,
         leadingDetachedComments: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.SourceCodeInfo.Location {
         this.path += path
         this.span += span
         this.leadingComments = leadingComments
         this.trailingComments = trailingComments
         this.leadingDetachedComments += leadingDetachedComments
         this.unknownFields += unknownFields
-    }.toLocation()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.SourceCodeInfo.Location)?.let {
-        it.copy(
-            path = path + other.path,
-            span = span + other.span,
-            leadingComments = other.leadingComments ?: leadingComments,
-            trailingComments = other.trailingComments ?: trailingComments,
-            leadingDetachedComments = leadingDetachedComments + other.leadingDetachedComments,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toLocation() = SourceCodeInfo_Location_Impl(
         path = path.toList(),
@@ -7502,6 +7372,19 @@ private class SourceCodeInfo_MutableLocation_Impl(
         this.trailingComments = this@SourceCodeInfo_MutableLocation_Impl.trailingComments
         this.leadingDetachedComments += this@SourceCodeInfo_MutableLocation_Impl.leadingDetachedComments
         this.unknownFields += this@SourceCodeInfo_MutableLocation_Impl.unknownFields
+    }
+}
+
+private fun SourceCodeInfo.Location.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo.Location {
+    if (other !is pbandk.wkt.SourceCodeInfo.Location) return this
+
+    return copy {
+        path += other.path
+        span += other.span
+        leadingComments = other.leadingComments ?: leadingComments
+        trailingComments = other.trailingComments ?: trailingComments
+        leadingDetachedComments += other.leadingDetachedComments
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7567,17 +7450,12 @@ private class GeneratedCodeInfo_Impl(
     override fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.GeneratedCodeInfo {
         this.annotation += annotation
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.GeneratedCodeInfo)?.let {
-        it.copy(
-            annotation = annotation + other.annotation,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableGeneratedCodeInfo() = pbandk.wkt.MutableGeneratedCodeInfo {
         this.annotation += this@GeneratedCodeInfo_Impl.annotation
@@ -7598,17 +7476,12 @@ private class MutableGeneratedCodeInfo_Impl(
     override fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.GeneratedCodeInfo {
         this.annotation += annotation
         this.unknownFields += unknownFields
-    }.toGeneratedCodeInfo()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.GeneratedCodeInfo)?.let {
-        it.copy(
-            annotation = annotation + other.annotation,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toGeneratedCodeInfo() = GeneratedCodeInfo_Impl(
         annotation = annotation.toList(),
@@ -7618,6 +7491,15 @@ private class MutableGeneratedCodeInfo_Impl(
     override fun toMutableGeneratedCodeInfo() = pbandk.wkt.MutableGeneratedCodeInfo {
         this.annotation += this@MutableGeneratedCodeInfo_Impl.annotation
         this.unknownFields += this@MutableGeneratedCodeInfo_Impl.unknownFields
+    }
+}
+
+private fun GeneratedCodeInfo.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo {
+    if (other !is pbandk.wkt.GeneratedCodeInfo) return this
+
+    return copy {
+        annotation += other.annotation
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7696,7 +7578,7 @@ private class GeneratedCodeInfo_Annotation_Impl(
         begin: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.GeneratedCodeInfo.Annotation {
         this.path += path
         this.sourceFile = sourceFile
         this.begin = begin
@@ -7704,15 +7586,7 @@ private class GeneratedCodeInfo_Annotation_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.GeneratedCodeInfo.Annotation)?.let {
-        it.copy(
-            path = path + other.path,
-            sourceFile = other.sourceFile ?: sourceFile,
-            begin = other.begin ?: begin,
-            end = other.end ?: end,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableAnnotation() = pbandk.wkt.GeneratedCodeInfo.MutableAnnotation {
         this.path += this@GeneratedCodeInfo_Annotation_Impl.path
@@ -7742,23 +7616,15 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         begin: Int?,
         end: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.GeneratedCodeInfo.Annotation {
         this.path += path
         this.sourceFile = sourceFile
         this.begin = begin
         this.end = end
         this.unknownFields += unknownFields
-    }.toAnnotation()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.GeneratedCodeInfo.Annotation)?.let {
-        it.copy(
-            path = path + other.path,
-            sourceFile = other.sourceFile ?: sourceFile,
-            begin = other.begin ?: begin,
-            end = other.end ?: end,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toAnnotation() = GeneratedCodeInfo_Annotation_Impl(
         path = path.toList(),
@@ -7774,6 +7640,18 @@ private class GeneratedCodeInfo_MutableAnnotation_Impl(
         this.begin = this@GeneratedCodeInfo_MutableAnnotation_Impl.begin
         this.end = this@GeneratedCodeInfo_MutableAnnotation_Impl.end
         this.unknownFields += this@GeneratedCodeInfo_MutableAnnotation_Impl.unknownFields
+    }
+}
+
+private fun GeneratedCodeInfo.Annotation.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo.Annotation {
+    if (other !is pbandk.wkt.GeneratedCodeInfo.Annotation) return this
+
+    return copy {
+        path += other.path
+        sourceFile = other.sourceFile ?: sourceFile
+        begin = other.begin ?: begin
+        end = other.end ?: end
+        unknownFields += other.unknownFields
     }
 }
 

@@ -564,16 +564,12 @@ private class Foo_Impl(
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Foo {
         this.`val` = `val`
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Foo)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFoo() = pbandk.testpb.MutableFoo {
         this.`val` = this@Foo_Impl.`val`
@@ -594,16 +590,12 @@ private class MutableFoo_Impl(
     override fun copy(
         `val`: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Foo {
         this.`val` = `val`
         this.unknownFields += unknownFields
-    }.toFoo()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Foo)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFoo() = Foo_Impl(
         `val` = `val`,
@@ -613,6 +605,15 @@ private class MutableFoo_Impl(
     override fun toMutableFoo() = pbandk.testpb.MutableFoo {
         this.`val` = this@MutableFoo_Impl.`val`
         this.unknownFields += this@MutableFoo_Impl.unknownFields
+    }
+}
+
+private fun Foo.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Foo {
+    if (other !is pbandk.testpb.Foo) return this
+
+    return copy {
+        `val` = other.`val`
+        unknownFields += other.unknownFields
     }
 }
 
@@ -674,19 +675,13 @@ private class Bar_Impl(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Bar {
         this.foos += foos
         this.singleFoo = singleFoo
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Bar)?.let {
-        it.copy(
-            foos = foos + other.foos,
-            singleFoo = singleFoo?.plus(other.singleFoo) ?: other.singleFoo,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableBar() = pbandk.testpb.MutableBar {
         this.foos += this@Bar_Impl.foos
@@ -710,19 +705,13 @@ private class MutableBar_Impl(
         foos: List<pbandk.testpb.Foo>,
         singleFoo: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Bar {
         this.foos += foos
         this.singleFoo = singleFoo
         this.unknownFields += unknownFields
-    }.toBar()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Bar)?.let {
-        it.copy(
-            foos = foos + other.foos,
-            singleFoo = singleFoo?.plus(other.singleFoo) ?: other.singleFoo,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toBar() = Bar_Impl(
         foos = foos.toList(),
@@ -734,6 +723,16 @@ private class MutableBar_Impl(
         this.foos += this@MutableBar_Impl.foos
         this.singleFoo = this@MutableBar_Impl.singleFoo
         this.unknownFields += this@MutableBar_Impl.unknownFields
+    }
+}
+
+private fun Bar.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Bar {
+    if (other !is pbandk.testpb.Bar) return this
+
+    return copy {
+        foos += other.foos
+        singleFoo = singleFoo?.plus(other.singleFoo) ?: other.singleFoo
+        unknownFields += other.unknownFields
     }
 }
 
@@ -792,17 +791,12 @@ private class MessageWithMap_Impl(
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MessageWithMap {
         this.map += map
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageWithMap)?.let {
-        it.copy(
-            map = map + other.map,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMessageWithMap() = pbandk.testpb.MutableMessageWithMap {
         this.map += this@MessageWithMap_Impl.map
@@ -823,17 +817,12 @@ private class MutableMessageWithMap_Impl(
     override fun copy(
         map: Map<String, String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MessageWithMap {
         this.map += map
         this.unknownFields += unknownFields
-    }.toMessageWithMap()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageWithMap)?.let {
-        it.copy(
-            map = map + other.map,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMessageWithMap() = MessageWithMap_Impl(
         map = map.toMessageMap(),
@@ -843,6 +832,15 @@ private class MutableMessageWithMap_Impl(
     override fun toMutableMessageWithMap() = pbandk.testpb.MutableMessageWithMap {
         this.map += this@MutableMessageWithMap_Impl.map
         this.unknownFields += this@MutableMessageWithMap_Impl.unknownFields
+    }
+}
+
+private fun MessageWithMap.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MessageWithMap {
+    if (other !is pbandk.testpb.MessageWithMap) return this
+
+    return copy {
+        map += other.map
+        unknownFields += other.unknownFields
     }
 }
 
@@ -899,17 +897,12 @@ private class FooMap_Impl(
     override fun copy(
         map: Map<String, pbandk.testpb.Foo?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FooMap {
         this.map += map
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FooMap)?.let {
-        it.copy(
-            map = map + other.map,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFooMap() = pbandk.testpb.MutableFooMap {
         this.map += this@FooMap_Impl.map
@@ -930,17 +923,12 @@ private class MutableFooMap_Impl(
     override fun copy(
         map: Map<String, pbandk.testpb.Foo?>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FooMap {
         this.map += map
         this.unknownFields += unknownFields
-    }.toFooMap()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FooMap)?.let {
-        it.copy(
-            map = map + other.map,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFooMap() = FooMap_Impl(
         map = map.toMessageMap(),
@@ -950,6 +938,15 @@ private class MutableFooMap_Impl(
     override fun toMutableFooMap() = pbandk.testpb.MutableFooMap {
         this.map += this@MutableFooMap_Impl.map
         this.unknownFields += this@MutableFooMap_Impl.unknownFields
+    }
+}
+
+private fun FooMap.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMap {
+    if (other !is pbandk.testpb.FooMap) return this
+
+    return copy {
+        map += other.map
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1006,17 +1003,12 @@ private class FooMapEntries_Impl(
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FooMapEntries {
         this.map += map
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FooMapEntries)?.let {
-        it.copy(
-            map = map + other.map,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFooMapEntries() = pbandk.testpb.MutableFooMapEntries {
         this.map += this@FooMapEntries_Impl.map
@@ -1037,17 +1029,12 @@ private class MutableFooMapEntries_Impl(
     override fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FooMapEntries {
         this.map += map
         this.unknownFields += unknownFields
-    }.toFooMapEntries()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FooMapEntries)?.let {
-        it.copy(
-            map = map + other.map,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFooMapEntries() = FooMapEntries_Impl(
         map = map.toList(),
@@ -1057,6 +1044,15 @@ private class MutableFooMapEntries_Impl(
     override fun toMutableFooMapEntries() = pbandk.testpb.MutableFooMapEntries {
         this.map += this@MutableFooMapEntries_Impl.map
         this.unknownFields += this@MutableFooMapEntries_Impl.unknownFields
+    }
+}
+
+private fun FooMapEntries.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMapEntries {
+    if (other !is pbandk.testpb.FooMapEntries) return this
+
+    return copy {
+        map += other.map
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1125,18 +1121,13 @@ private class FooMapEntries_MapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FooMapEntries.MapEntry {
         this.key = key
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FooMapEntries.MapEntry)?.let {
-        it.copy(
-            value = value?.plus(other.value) ?: other.value,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMapEntry() = pbandk.testpb.FooMapEntries.MutableMapEntry {
         this.key = this@FooMapEntries_MapEntry_Impl.key
@@ -1160,18 +1151,13 @@ private class FooMapEntries_MutableMapEntry_Impl(
         key: String,
         value: pbandk.testpb.Foo?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FooMapEntries.MapEntry {
         this.key = key
         this.value = value
         this.unknownFields += unknownFields
-    }.toMapEntry()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FooMapEntries.MapEntry)?.let {
-        it.copy(
-            value = value?.plus(other.value) ?: other.value,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMapEntry() = FooMapEntries_MapEntry_Impl(
         key = key,
@@ -1183,6 +1169,16 @@ private class FooMapEntries_MutableMapEntry_Impl(
         this.key = this@FooMapEntries_MutableMapEntry_Impl.key
         this.value = this@FooMapEntries_MutableMapEntry_Impl.value
         this.unknownFields += this@FooMapEntries_MutableMapEntry_Impl.unknownFields
+    }
+}
+
+private fun FooMapEntries.MapEntry.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FooMapEntries.MapEntry {
+    if (other !is pbandk.testpb.FooMapEntries.MapEntry) return this
+
+    return copy {
+        key = other.key
+        value = value?.plus(other.value) ?: other.value
+        unknownFields += other.unknownFields
     }
 }
 
@@ -1246,19 +1242,13 @@ private class Wrappers_Impl(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Wrappers {
         this.stringValue = stringValue
         this.uint64Values += uint64Values
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Wrappers)?.let {
-        it.copy(
-            stringValue = other.stringValue ?: stringValue,
-            uint64Values = uint64Values + other.uint64Values,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableWrappers() = pbandk.testpb.MutableWrappers {
         this.stringValue = this@Wrappers_Impl.stringValue
@@ -1282,19 +1272,13 @@ private class MutableWrappers_Impl(
         stringValue: String?,
         uint64Values: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Wrappers {
         this.stringValue = stringValue
         this.uint64Values += uint64Values
         this.unknownFields += unknownFields
-    }.toWrappers()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Wrappers)?.let {
-        it.copy(
-            stringValue = other.stringValue ?: stringValue,
-            uint64Values = uint64Values + other.uint64Values,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toWrappers() = Wrappers_Impl(
         stringValue = stringValue,
@@ -1306,6 +1290,16 @@ private class MutableWrappers_Impl(
         this.stringValue = this@MutableWrappers_Impl.stringValue
         this.uint64Values += this@MutableWrappers_Impl.uint64Values
         this.unknownFields += this@MutableWrappers_Impl.unknownFields
+    }
+}
+
+private fun Wrappers.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Wrappers {
+    if (other !is pbandk.testpb.Wrappers) return this
+
+    return copy {
+        stringValue = other.stringValue ?: stringValue
+        uint64Values += other.uint64Values
+        unknownFields += other.unknownFields
     }
 }
 

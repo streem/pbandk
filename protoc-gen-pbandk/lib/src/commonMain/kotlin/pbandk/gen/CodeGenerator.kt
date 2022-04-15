@@ -326,6 +326,7 @@ public open class CodeGenerator(
         writeMessageBuilder(type)
         writeMessageOrDefaultExtension(type)
         writeMessageImpl(type)
+        writeMessageMergeExtension(type)
         writeMessageDecodeWithExtension(type)
         type.nestedTypes.filterIsInstance<File.Type.Message>().forEach { writeMessageExtensions(it) }
     }
@@ -427,89 +428,16 @@ public open class CodeGenerator(
                 }
 //                line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
                 line("unknownFields: Map<Int, pbandk.UnknownField>")
-            }.line(") = copy {").indented {
+            }.line(") = ${type.kotlinName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
                     if (field is File.Field.Numbered && field.options.deprecated == true) line("@Suppress(\"DEPRECATION\")")
                     line(field.builderSetter())
                 }
                 line("this.unknownFields += unknownFields")
             }
-            if (isMutable) {
-                line("}.to${type.kotlinName.simple}()")
-            } else {
-                line("}")
-            }
+            line("}")
         }
 
-        fun mergeStandard(field: File.Field.Numbered.Standard) {
-            if (field.repeated) {
-                line("${field.kotlinName} = ${field.kotlinName} + other.${field.kotlinName},")
-            } else if (field.type == File.Field.Type.MESSAGE) {
-                line(
-                    "${field.kotlinName} = " +
-                            "${field.kotlinName}?.plus(other.${field.kotlinName}) ?: other.${field.kotlinName},"
-                )
-            } else if (field.hasPresence) {
-                line("${field.kotlinName} = other.${field.kotlinName} ?: ${field.kotlinName},")
-            }
-        }
-
-        fun mergeWrapper(field: File.Field.Numbered.Wrapper) {
-            if (field.repeated) {
-                line("${field.kotlinName} = ${field.kotlinName} + other.${field.kotlinName},")
-            } else {
-                line("${field.kotlinName} = other.${field.kotlinName} ?: ${field.kotlinName},")
-            }
-        }
-
-        fun mergeOneOf(oneOf: File.Field.OneOf) {
-            val fieldsToMerge = oneOf.fields.filter { it.repeated || it.type == File.Field.Type.MESSAGE }
-            if (fieldsToMerge.isEmpty()) {
-                line("${oneOf.kotlinName} = other.${oneOf.kotlinName} ?: ${oneOf.kotlinName},")
-            } else {
-                line("${oneOf.kotlinName} = when {").indented {
-                    fieldsToMerge.forEach { subField ->
-                        val subTypeName = "${type.kotlinName.full}." +
-                                "${oneOf.kotlinTypeName}.${oneOf.kotlinFieldNames[subField.name]}"
-                        line(
-                            "${oneOf.kotlinName} is $subTypeName && " +
-                                    "other.${oneOf.kotlinName} is $subTypeName ->"
-                        ).indented {
-                            line(
-                                "$subTypeName((${oneOf.kotlinName} as $subTypeName).value + " +
-                                        "(other.${oneOf.kotlinName} as $subTypeName).value)"
-                            )
-                        }
-                    }
-                    line("else ->").indented {
-                        line("other.${oneOf.kotlinName} ?: ${oneOf.kotlinName}")
-                    }
-                }.line("},")
-            }
-        }
-
-        fun writeMergeMethod() {
-            lineBegin("override operator fun plus(other: pbandk.Message?) = ")
-            lineEnd("(other as? ${type.kotlinName.fullWithPackage})?.let {").indented {
-                if (type.sortedStandardFieldsWithOneOfs().any { it.first.options.deprecated == true }) {
-                    line("@Suppress(\"DEPRECATION\")")
-                }
-                // TODO: convert from copy() to copy {}
-                line("it.copy(").indented {
-                    type.fields.forEach { field ->
-                        when (field) {
-                            is File.Field.Numbered.Standard -> mergeStandard(field)
-                            is File.Field.Numbered.Wrapper -> mergeWrapper(field)
-                            is File.Field.OneOf -> mergeOneOf(field)
-                        }
-                    }
-                    line("unknownFields = unknownFields + other.unknownFields")
-//                    line("this.unknownFields += this@$implName.unknownFields")
-//                    line("this.unknownFields += other.unknownFields")
-                }.line(")")
-
-            }.line("} ?: this")
-        }
 
         line().line("private class ${type.implName.simple}(").indented {
             type.fields.forEach { field ->
@@ -588,8 +516,7 @@ public open class CodeGenerator(
             line()
             writeCopyMethod(false)
 
-            line()
-            writeMergeMethod()
+            line().line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
 
             line().line("override fun to${type.mutableTypeName.simple}() = ${type.mutableTypeName.fullWithPackage} {").indented {
                 type.fields.forEach { field ->
@@ -643,8 +570,7 @@ public open class CodeGenerator(
             line()
             writeCopyMethod(true)
 
-            line()
-            writeMergeMethod()
+            line().line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
 
             line().line("override fun to${type.kotlinName.simple}() = ${type.implName.full}(").indented {
                 type.fields.forEach { field ->
@@ -668,6 +594,63 @@ public open class CodeGenerator(
                     line(field.builderSetter("this@${type.mutableImplName.simple}."))
                 }
                 line("this.unknownFields += this@${type.mutableImplName.simple}.unknownFields")
+            }.line("}")
+        }.line("}")
+    }
+
+    protected fun writeMessageMergeExtension(type: File.Type.Message) {
+        fun mergeStandard(field: File.Field.Numbered.Standard) {
+            if (field.repeated) {
+                line("${field.kotlinName} += other.${field.kotlinName}")
+            } else if (field.type == File.Field.Type.MESSAGE) {
+                line("${field.kotlinName} = ${field.kotlinName}?.plus(other.${field.kotlinName}) ?: other.${field.kotlinName}")
+            } else if (field.hasPresence) {
+                line("${field.kotlinName} = other.${field.kotlinName} ?: ${field.kotlinName}")
+            } else {
+                line("${field.kotlinName} = other.${field.kotlinName}")
+            }
+        }
+
+        fun mergeWrapper(field: File.Field.Numbered.Wrapper) {
+            if (field.repeated) {
+                line("${field.kotlinName} += other.${field.kotlinName}")
+            } else {
+                line("${field.kotlinName} = other.${field.kotlinName} ?: ${field.kotlinName}")
+            }
+        }
+
+        fun mergeOneOf(oneOf: File.Field.OneOf) {
+            line("when (other.${oneOf.kotlinName}) {").indented {
+                oneOf.fields.forEach { subField ->
+                    val subTypeName = "${type.kotlinName.full}.${oneOf.kotlinTypeName}.${oneOf.kotlinFieldNames[subField.name]}"
+                    lineBegin("is $subTypeName -> ${subField.kotlinName} = ")
+                    if (subField.repeated || subField.type == File.Field.Type.MESSAGE) {
+                        lineEnd("${subField.kotlinName}?.plus(other.${subField.kotlinName}) ?: other.${subField.kotlinName}")
+                    } else {
+                        lineEnd("other.${subField.kotlinName}")
+                    }
+                }
+                // keep this message's oneof value if the other message's oneof is null
+                line("null -> {}")
+            }.line("}")
+        }
+
+        line()
+        line("private fun ${type.kotlinName.full}.protoMergeImpl(other: pbandk.Message?): ${type.kotlinName.fullWithPackage} {").indented {
+            line("if (other !is ${type.kotlinName.fullWithPackage}) return this")
+            line()
+            line("return copy {").indented {
+                type.fields.forEach { field ->
+                    if (field is File.Field.Numbered && field.options.deprecated == true) {
+                        line("@Suppress(\"DEPRECATION\")")
+                    }
+                    when (field) {
+                        is File.Field.Numbered.Standard -> mergeStandard(field)
+                        is File.Field.Numbered.Wrapper -> mergeWrapper(field)
+                        is File.Field.OneOf -> mergeOneOf(field)
+                    }
+                }
+                line("unknownFields += other.unknownFields")
             }.line("}")
         }.line("}")
     }

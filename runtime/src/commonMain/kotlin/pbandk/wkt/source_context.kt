@@ -112,16 +112,12 @@ private class SourceContext_Impl(
     override fun copy(
         fileName: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.SourceContext {
         this.fileName = fileName
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.SourceContext)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSourceContext() = pbandk.wkt.MutableSourceContext {
         this.fileName = this@SourceContext_Impl.fileName
@@ -142,16 +138,12 @@ private class MutableSourceContext_Impl(
     override fun copy(
         fileName: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.SourceContext {
         this.fileName = fileName
         this.unknownFields += unknownFields
-    }.toSourceContext()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.SourceContext)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSourceContext() = SourceContext_Impl(
         fileName = fileName,
@@ -161,6 +153,15 @@ private class MutableSourceContext_Impl(
     override fun toMutableSourceContext() = pbandk.wkt.MutableSourceContext {
         this.fileName = this@MutableSourceContext_Impl.fileName
         this.unknownFields += this@MutableSourceContext_Impl.unknownFields
+    }
+}
+
+private fun SourceContext.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.SourceContext {
+    if (other !is pbandk.wkt.SourceContext) return this
+
+    return copy {
+        fileName = other.fileName
+        unknownFields += other.unknownFields
     }
 }
 

@@ -286,16 +286,12 @@ private class SingleRequiredCustomOption_Impl(
     override fun copy(
         single: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SingleRequiredCustomOption {
         this.single = single
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SingleRequiredCustomOption)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSingleRequiredCustomOption() = pbandk.testpb.MutableSingleRequiredCustomOption {
         this.single = this@SingleRequiredCustomOption_Impl.single
@@ -316,16 +312,12 @@ private class MutableSingleRequiredCustomOption_Impl(
     override fun copy(
         single: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SingleRequiredCustomOption {
         this.single = single
         this.unknownFields += unknownFields
-    }.toSingleRequiredCustomOption()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SingleRequiredCustomOption)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSingleRequiredCustomOption() = SingleRequiredCustomOption_Impl(
         single = single,
@@ -335,6 +327,15 @@ private class MutableSingleRequiredCustomOption_Impl(
     override fun toMutableSingleRequiredCustomOption() = pbandk.testpb.MutableSingleRequiredCustomOption {
         this.single = this@MutableSingleRequiredCustomOption_Impl.single
         this.unknownFields += this@MutableSingleRequiredCustomOption_Impl.unknownFields
+    }
+}
+
+private fun SingleRequiredCustomOption.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.SingleRequiredCustomOption {
+    if (other !is pbandk.testpb.SingleRequiredCustomOption) return this
+
+    return copy {
+        single = other.single
+        unknownFields += other.unknownFields
     }
 }
 
@@ -391,16 +392,12 @@ private class MultipleCustomOptions_Impl(
     override fun copy(
         multiple: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MultipleCustomOptions {
         this.multiple = multiple
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MultipleCustomOptions)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMultipleCustomOptions() = pbandk.testpb.MutableMultipleCustomOptions {
         this.multiple = this@MultipleCustomOptions_Impl.multiple
@@ -421,16 +418,12 @@ private class MutableMultipleCustomOptions_Impl(
     override fun copy(
         multiple: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MultipleCustomOptions {
         this.multiple = multiple
         this.unknownFields += unknownFields
-    }.toMultipleCustomOptions()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MultipleCustomOptions)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMultipleCustomOptions() = MultipleCustomOptions_Impl(
         multiple = multiple,
@@ -440,6 +433,15 @@ private class MutableMultipleCustomOptions_Impl(
     override fun toMutableMultipleCustomOptions() = pbandk.testpb.MutableMultipleCustomOptions {
         this.multiple = this@MutableMultipleCustomOptions_Impl.multiple
         this.unknownFields += this@MutableMultipleCustomOptions_Impl.unknownFields
+    }
+}
+
+private fun MultipleCustomOptions.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptions {
+    if (other !is pbandk.testpb.MultipleCustomOptions) return this
+
+    return copy {
+        multiple = other.multiple
+        unknownFields += other.unknownFields
     }
 }
 
@@ -498,18 +500,13 @@ private class MultipleCustomOptionsPlusDeprecated_Impl(
     override fun copy(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
         @Suppress("DEPRECATION")
         this.multipleDeprecated = multipleDeprecated
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MultipleCustomOptionsPlusDeprecated)?.let {
-        @Suppress("DEPRECATION")
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMultipleCustomOptionsPlusDeprecated() = pbandk.testpb.MutableMultipleCustomOptionsPlusDeprecated {
         @Suppress("DEPRECATION")
@@ -532,18 +529,13 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
     override fun copy(
         multipleDeprecated: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
         @Suppress("DEPRECATION")
         this.multipleDeprecated = multipleDeprecated
         this.unknownFields += unknownFields
-    }.toMultipleCustomOptionsPlusDeprecated()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MultipleCustomOptionsPlusDeprecated)?.let {
-        @Suppress("DEPRECATION")
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMultipleCustomOptionsPlusDeprecated() = MultipleCustomOptionsPlusDeprecated_Impl(
         multipleDeprecated = @Suppress("DEPRECATION") multipleDeprecated,
@@ -554,6 +546,16 @@ private class MutableMultipleCustomOptionsPlusDeprecated_Impl(
         @Suppress("DEPRECATION")
         this.multipleDeprecated = this@MutableMultipleCustomOptionsPlusDeprecated_Impl.multipleDeprecated
         this.unknownFields += this@MutableMultipleCustomOptionsPlusDeprecated_Impl.unknownFields
+    }
+}
+
+private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptionsPlusDeprecated {
+    if (other !is pbandk.testpb.MultipleCustomOptionsPlusDeprecated) return this
+
+    return copy {
+        @Suppress("DEPRECATION")
+        multipleDeprecated = other.multipleDeprecated
+        unknownFields += other.unknownFields
     }
 }
 

@@ -449,7 +449,7 @@ private class Api_Impl(
         mixins: List<pbandk.wkt.Mixin>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Api {
         this.name = name
         this.methods += methods
         this.options += options
@@ -460,15 +460,7 @@ private class Api_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Api)?.let {
-        it.copy(
-            methods = methods + other.methods,
-            options = options + other.options,
-            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
-            mixins = mixins + other.mixins,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableApi() = pbandk.wkt.MutableApi {
         this.name = this@Api_Impl.name
@@ -507,7 +499,7 @@ private class MutableApi_Impl(
         mixins: List<pbandk.wkt.Mixin>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Api {
         this.name = name
         this.methods += methods
         this.options += options
@@ -516,17 +508,9 @@ private class MutableApi_Impl(
         this.mixins += mixins
         this.syntax = syntax
         this.unknownFields += unknownFields
-    }.toApi()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Api)?.let {
-        it.copy(
-            methods = methods + other.methods,
-            options = options + other.options,
-            sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext,
-            mixins = mixins + other.mixins,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toApi() = Api_Impl(
         name = name,
@@ -548,6 +532,21 @@ private class MutableApi_Impl(
         this.mixins += this@MutableApi_Impl.mixins
         this.syntax = this@MutableApi_Impl.syntax
         this.unknownFields += this@MutableApi_Impl.unknownFields
+    }
+}
+
+private fun Api.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Api {
+    if (other !is pbandk.wkt.Api) return this
+
+    return copy {
+        name = other.name
+        methods += other.methods
+        options += other.options
+        version = other.version
+        sourceContext = sourceContext?.plus(other.sourceContext) ?: other.sourceContext
+        mixins += other.mixins
+        syntax = other.syntax
+        unknownFields += other.unknownFields
     }
 }
 
@@ -647,7 +646,7 @@ private class Method_Impl(
         options: List<pbandk.wkt.Option>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Method {
         this.name = name
         this.requestTypeUrl = requestTypeUrl
         this.requestStreaming = requestStreaming
@@ -658,12 +657,7 @@ private class Method_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Method)?.let {
-        it.copy(
-            options = options + other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMethod() = pbandk.wkt.MutableMethod {
         this.name = this@Method_Impl.name
@@ -702,7 +696,7 @@ private class MutableMethod_Impl(
         options: List<pbandk.wkt.Option>,
         syntax: pbandk.wkt.Syntax,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Method {
         this.name = name
         this.requestTypeUrl = requestTypeUrl
         this.requestStreaming = requestStreaming
@@ -711,14 +705,9 @@ private class MutableMethod_Impl(
         this.options += options
         this.syntax = syntax
         this.unknownFields += unknownFields
-    }.toMethod()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Method)?.let {
-        it.copy(
-            options = options + other.options,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMethod() = Method_Impl(
         name = name,
@@ -740,6 +729,21 @@ private class MutableMethod_Impl(
         this.options += this@MutableMethod_Impl.options
         this.syntax = this@MutableMethod_Impl.syntax
         this.unknownFields += this@MutableMethod_Impl.unknownFields
+    }
+}
+
+private fun Method.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Method {
+    if (other !is pbandk.wkt.Method) return this
+
+    return copy {
+        name = other.name
+        requestTypeUrl = other.requestTypeUrl
+        requestStreaming = other.requestStreaming
+        responseTypeUrl = other.responseTypeUrl
+        responseStreaming = other.responseStreaming
+        options += other.options
+        syntax = other.syntax
+        unknownFields += other.unknownFields
     }
 }
 
@@ -814,17 +818,13 @@ private class Mixin_Impl(
         name: String,
         root: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Mixin {
         this.name = name
         this.root = root
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Mixin)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMixin() = pbandk.wkt.MutableMixin {
         this.name = this@Mixin_Impl.name
@@ -848,17 +848,13 @@ private class MutableMixin_Impl(
         name: String,
         root: String,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Mixin {
         this.name = name
         this.root = root
         this.unknownFields += unknownFields
-    }.toMixin()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Mixin)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMixin() = Mixin_Impl(
         name = name,
@@ -870,6 +866,16 @@ private class MutableMixin_Impl(
         this.name = this@MutableMixin_Impl.name
         this.root = this@MutableMixin_Impl.root
         this.unknownFields += this@MutableMixin_Impl.unknownFields
+    }
+}
+
+private fun Mixin.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Mixin {
+    if (other !is pbandk.wkt.Mixin) return this
+
+    return copy {
+        name = other.name
+        root = other.root
+        unknownFields += other.unknownFields
     }
 }
 

@@ -130,17 +130,13 @@ private class Timestamp_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Timestamp {
         this.seconds = seconds
         this.nanos = nanos
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Timestamp)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableTimestamp() = pbandk.wkt.MutableTimestamp {
         this.seconds = this@Timestamp_Impl.seconds
@@ -164,17 +160,13 @@ private class MutableTimestamp_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Timestamp {
         this.seconds = seconds
         this.nanos = nanos
         this.unknownFields += unknownFields
-    }.toTimestamp()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Timestamp)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toTimestamp() = Timestamp_Impl(
         seconds = seconds,
@@ -186,6 +178,16 @@ private class MutableTimestamp_Impl(
         this.seconds = this@MutableTimestamp_Impl.seconds
         this.nanos = this@MutableTimestamp_Impl.nanos
         this.unknownFields += this@MutableTimestamp_Impl.unknownFields
+    }
+}
+
+private fun Timestamp.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Timestamp {
+    if (other !is pbandk.wkt.Timestamp) return this
+
+    return copy {
+        seconds = other.seconds
+        nanos = other.nanos
+        unknownFields += other.unknownFields
     }
 }
 

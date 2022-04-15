@@ -130,17 +130,13 @@ private class Duration_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Duration {
         this.seconds = seconds
         this.nanos = nanos
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Duration)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableDuration() = pbandk.wkt.MutableDuration {
         this.seconds = this@Duration_Impl.seconds
@@ -164,17 +160,13 @@ private class MutableDuration_Impl(
         seconds: Long,
         nanos: Int,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Duration {
         this.seconds = seconds
         this.nanos = nanos
         this.unknownFields += unknownFields
-    }.toDuration()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Duration)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toDuration() = Duration_Impl(
         seconds = seconds,
@@ -186,6 +178,16 @@ private class MutableDuration_Impl(
         this.seconds = this@MutableDuration_Impl.seconds
         this.nanos = this@MutableDuration_Impl.nanos
         this.unknownFields += this@MutableDuration_Impl.unknownFields
+    }
+}
+
+private fun Duration.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Duration {
+    if (other !is pbandk.wkt.Duration) return this
+
+    return copy {
+        seconds = other.seconds
+        nanos = other.nanos
+        unknownFields += other.unknownFields
     }
 }
 

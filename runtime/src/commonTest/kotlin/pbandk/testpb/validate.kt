@@ -3834,64 +3834,13 @@ private class FieldRules_Impl(
         message: pbandk.testpb.MessageRules?,
         type: pbandk.testpb.FieldRules.Type<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FieldRules {
         this.message = message
         this.type = type
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FieldRules)?.let {
-        it.copy(
-            message = message?.plus(other.message) ?: other.message,
-            type = when {
-                type is FieldRules.Type.Float_ && other.type is FieldRules.Type.Float_ ->
-                    FieldRules.Type.Float_((type as FieldRules.Type.Float_).value + (other.type as FieldRules.Type.Float_).value)
-                type is FieldRules.Type.Double_ && other.type is FieldRules.Type.Double_ ->
-                    FieldRules.Type.Double_((type as FieldRules.Type.Double_).value + (other.type as FieldRules.Type.Double_).value)
-                type is FieldRules.Type.Int32 && other.type is FieldRules.Type.Int32 ->
-                    FieldRules.Type.Int32((type as FieldRules.Type.Int32).value + (other.type as FieldRules.Type.Int32).value)
-                type is FieldRules.Type.Int64 && other.type is FieldRules.Type.Int64 ->
-                    FieldRules.Type.Int64((type as FieldRules.Type.Int64).value + (other.type as FieldRules.Type.Int64).value)
-                type is FieldRules.Type.Uint32 && other.type is FieldRules.Type.Uint32 ->
-                    FieldRules.Type.Uint32((type as FieldRules.Type.Uint32).value + (other.type as FieldRules.Type.Uint32).value)
-                type is FieldRules.Type.Uint64 && other.type is FieldRules.Type.Uint64 ->
-                    FieldRules.Type.Uint64((type as FieldRules.Type.Uint64).value + (other.type as FieldRules.Type.Uint64).value)
-                type is FieldRules.Type.Sint32 && other.type is FieldRules.Type.Sint32 ->
-                    FieldRules.Type.Sint32((type as FieldRules.Type.Sint32).value + (other.type as FieldRules.Type.Sint32).value)
-                type is FieldRules.Type.Sint64 && other.type is FieldRules.Type.Sint64 ->
-                    FieldRules.Type.Sint64((type as FieldRules.Type.Sint64).value + (other.type as FieldRules.Type.Sint64).value)
-                type is FieldRules.Type.Fixed32 && other.type is FieldRules.Type.Fixed32 ->
-                    FieldRules.Type.Fixed32((type as FieldRules.Type.Fixed32).value + (other.type as FieldRules.Type.Fixed32).value)
-                type is FieldRules.Type.Fixed64 && other.type is FieldRules.Type.Fixed64 ->
-                    FieldRules.Type.Fixed64((type as FieldRules.Type.Fixed64).value + (other.type as FieldRules.Type.Fixed64).value)
-                type is FieldRules.Type.Sfixed32 && other.type is FieldRules.Type.Sfixed32 ->
-                    FieldRules.Type.Sfixed32((type as FieldRules.Type.Sfixed32).value + (other.type as FieldRules.Type.Sfixed32).value)
-                type is FieldRules.Type.Sfixed64 && other.type is FieldRules.Type.Sfixed64 ->
-                    FieldRules.Type.Sfixed64((type as FieldRules.Type.Sfixed64).value + (other.type as FieldRules.Type.Sfixed64).value)
-                type is FieldRules.Type.Bool && other.type is FieldRules.Type.Bool ->
-                    FieldRules.Type.Bool((type as FieldRules.Type.Bool).value + (other.type as FieldRules.Type.Bool).value)
-                type is FieldRules.Type.String_ && other.type is FieldRules.Type.String_ ->
-                    FieldRules.Type.String_((type as FieldRules.Type.String_).value + (other.type as FieldRules.Type.String_).value)
-                type is FieldRules.Type.Bytes && other.type is FieldRules.Type.Bytes ->
-                    FieldRules.Type.Bytes((type as FieldRules.Type.Bytes).value + (other.type as FieldRules.Type.Bytes).value)
-                type is FieldRules.Type.Enum && other.type is FieldRules.Type.Enum ->
-                    FieldRules.Type.Enum((type as FieldRules.Type.Enum).value + (other.type as FieldRules.Type.Enum).value)
-                type is FieldRules.Type.Repeated && other.type is FieldRules.Type.Repeated ->
-                    FieldRules.Type.Repeated((type as FieldRules.Type.Repeated).value + (other.type as FieldRules.Type.Repeated).value)
-                type is FieldRules.Type.Map_ && other.type is FieldRules.Type.Map_ ->
-                    FieldRules.Type.Map_((type as FieldRules.Type.Map_).value + (other.type as FieldRules.Type.Map_).value)
-                type is FieldRules.Type.Any && other.type is FieldRules.Type.Any ->
-                    FieldRules.Type.Any((type as FieldRules.Type.Any).value + (other.type as FieldRules.Type.Any).value)
-                type is FieldRules.Type.Duration && other.type is FieldRules.Type.Duration ->
-                    FieldRules.Type.Duration((type as FieldRules.Type.Duration).value + (other.type as FieldRules.Type.Duration).value)
-                type is FieldRules.Type.Timestamp && other.type is FieldRules.Type.Timestamp ->
-                    FieldRules.Type.Timestamp((type as FieldRules.Type.Timestamp).value + (other.type as FieldRules.Type.Timestamp).value)
-                else ->
-                    other.type ?: type
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFieldRules() = pbandk.testpb.MutableFieldRules {
         this.message = this@FieldRules_Impl.message
@@ -3979,64 +3928,13 @@ private class MutableFieldRules_Impl(
         message: pbandk.testpb.MessageRules?,
         type: pbandk.testpb.FieldRules.Type<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FieldRules {
         this.message = message
         this.type = type
         this.unknownFields += unknownFields
-    }.toFieldRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FieldRules)?.let {
-        it.copy(
-            message = message?.plus(other.message) ?: other.message,
-            type = when {
-                type is FieldRules.Type.Float_ && other.type is FieldRules.Type.Float_ ->
-                    FieldRules.Type.Float_((type as FieldRules.Type.Float_).value + (other.type as FieldRules.Type.Float_).value)
-                type is FieldRules.Type.Double_ && other.type is FieldRules.Type.Double_ ->
-                    FieldRules.Type.Double_((type as FieldRules.Type.Double_).value + (other.type as FieldRules.Type.Double_).value)
-                type is FieldRules.Type.Int32 && other.type is FieldRules.Type.Int32 ->
-                    FieldRules.Type.Int32((type as FieldRules.Type.Int32).value + (other.type as FieldRules.Type.Int32).value)
-                type is FieldRules.Type.Int64 && other.type is FieldRules.Type.Int64 ->
-                    FieldRules.Type.Int64((type as FieldRules.Type.Int64).value + (other.type as FieldRules.Type.Int64).value)
-                type is FieldRules.Type.Uint32 && other.type is FieldRules.Type.Uint32 ->
-                    FieldRules.Type.Uint32((type as FieldRules.Type.Uint32).value + (other.type as FieldRules.Type.Uint32).value)
-                type is FieldRules.Type.Uint64 && other.type is FieldRules.Type.Uint64 ->
-                    FieldRules.Type.Uint64((type as FieldRules.Type.Uint64).value + (other.type as FieldRules.Type.Uint64).value)
-                type is FieldRules.Type.Sint32 && other.type is FieldRules.Type.Sint32 ->
-                    FieldRules.Type.Sint32((type as FieldRules.Type.Sint32).value + (other.type as FieldRules.Type.Sint32).value)
-                type is FieldRules.Type.Sint64 && other.type is FieldRules.Type.Sint64 ->
-                    FieldRules.Type.Sint64((type as FieldRules.Type.Sint64).value + (other.type as FieldRules.Type.Sint64).value)
-                type is FieldRules.Type.Fixed32 && other.type is FieldRules.Type.Fixed32 ->
-                    FieldRules.Type.Fixed32((type as FieldRules.Type.Fixed32).value + (other.type as FieldRules.Type.Fixed32).value)
-                type is FieldRules.Type.Fixed64 && other.type is FieldRules.Type.Fixed64 ->
-                    FieldRules.Type.Fixed64((type as FieldRules.Type.Fixed64).value + (other.type as FieldRules.Type.Fixed64).value)
-                type is FieldRules.Type.Sfixed32 && other.type is FieldRules.Type.Sfixed32 ->
-                    FieldRules.Type.Sfixed32((type as FieldRules.Type.Sfixed32).value + (other.type as FieldRules.Type.Sfixed32).value)
-                type is FieldRules.Type.Sfixed64 && other.type is FieldRules.Type.Sfixed64 ->
-                    FieldRules.Type.Sfixed64((type as FieldRules.Type.Sfixed64).value + (other.type as FieldRules.Type.Sfixed64).value)
-                type is FieldRules.Type.Bool && other.type is FieldRules.Type.Bool ->
-                    FieldRules.Type.Bool((type as FieldRules.Type.Bool).value + (other.type as FieldRules.Type.Bool).value)
-                type is FieldRules.Type.String_ && other.type is FieldRules.Type.String_ ->
-                    FieldRules.Type.String_((type as FieldRules.Type.String_).value + (other.type as FieldRules.Type.String_).value)
-                type is FieldRules.Type.Bytes && other.type is FieldRules.Type.Bytes ->
-                    FieldRules.Type.Bytes((type as FieldRules.Type.Bytes).value + (other.type as FieldRules.Type.Bytes).value)
-                type is FieldRules.Type.Enum && other.type is FieldRules.Type.Enum ->
-                    FieldRules.Type.Enum((type as FieldRules.Type.Enum).value + (other.type as FieldRules.Type.Enum).value)
-                type is FieldRules.Type.Repeated && other.type is FieldRules.Type.Repeated ->
-                    FieldRules.Type.Repeated((type as FieldRules.Type.Repeated).value + (other.type as FieldRules.Type.Repeated).value)
-                type is FieldRules.Type.Map_ && other.type is FieldRules.Type.Map_ ->
-                    FieldRules.Type.Map_((type as FieldRules.Type.Map_).value + (other.type as FieldRules.Type.Map_).value)
-                type is FieldRules.Type.Any && other.type is FieldRules.Type.Any ->
-                    FieldRules.Type.Any((type as FieldRules.Type.Any).value + (other.type as FieldRules.Type.Any).value)
-                type is FieldRules.Type.Duration && other.type is FieldRules.Type.Duration ->
-                    FieldRules.Type.Duration((type as FieldRules.Type.Duration).value + (other.type as FieldRules.Type.Duration).value)
-                type is FieldRules.Type.Timestamp && other.type is FieldRules.Type.Timestamp ->
-                    FieldRules.Type.Timestamp((type as FieldRules.Type.Timestamp).value + (other.type as FieldRules.Type.Timestamp).value)
-                else ->
-                    other.type ?: type
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFieldRules() = FieldRules_Impl(
         message = message,
@@ -4048,6 +3946,39 @@ private class MutableFieldRules_Impl(
         this.message = this@MutableFieldRules_Impl.message
         this.type = this@MutableFieldRules_Impl.type
         this.unknownFields += this@MutableFieldRules_Impl.unknownFields
+    }
+}
+
+private fun FieldRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FieldRules {
+    if (other !is pbandk.testpb.FieldRules) return this
+
+    return copy {
+        message = message?.plus(other.message) ?: other.message
+        when (other.type) {
+            is FieldRules.Type.Float_ -> float = float?.plus(other.float) ?: other.float
+            is FieldRules.Type.Double_ -> double = double?.plus(other.double) ?: other.double
+            is FieldRules.Type.Int32 -> int32 = int32?.plus(other.int32) ?: other.int32
+            is FieldRules.Type.Int64 -> int64 = int64?.plus(other.int64) ?: other.int64
+            is FieldRules.Type.Uint32 -> uint32 = uint32?.plus(other.uint32) ?: other.uint32
+            is FieldRules.Type.Uint64 -> uint64 = uint64?.plus(other.uint64) ?: other.uint64
+            is FieldRules.Type.Sint32 -> sint32 = sint32?.plus(other.sint32) ?: other.sint32
+            is FieldRules.Type.Sint64 -> sint64 = sint64?.plus(other.sint64) ?: other.sint64
+            is FieldRules.Type.Fixed32 -> fixed32 = fixed32?.plus(other.fixed32) ?: other.fixed32
+            is FieldRules.Type.Fixed64 -> fixed64 = fixed64?.plus(other.fixed64) ?: other.fixed64
+            is FieldRules.Type.Sfixed32 -> sfixed32 = sfixed32?.plus(other.sfixed32) ?: other.sfixed32
+            is FieldRules.Type.Sfixed64 -> sfixed64 = sfixed64?.plus(other.sfixed64) ?: other.sfixed64
+            is FieldRules.Type.Bool -> bool = bool?.plus(other.bool) ?: other.bool
+            is FieldRules.Type.String_ -> string = string?.plus(other.string) ?: other.string
+            is FieldRules.Type.Bytes -> bytes = bytes?.plus(other.bytes) ?: other.bytes
+            is FieldRules.Type.Enum -> enum = enum?.plus(other.enum) ?: other.enum
+            is FieldRules.Type.Repeated -> repeated = repeated?.plus(other.repeated) ?: other.repeated
+            is FieldRules.Type.Map_ -> map = map?.plus(other.map) ?: other.map
+            is FieldRules.Type.Any -> any = any?.plus(other.any) ?: other.any
+            is FieldRules.Type.Duration -> duration = duration?.plus(other.duration) ?: other.duration
+            is FieldRules.Type.Timestamp -> timestamp = timestamp?.plus(other.timestamp) ?: other.timestamp
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4156,7 +4087,7 @@ private class FloatRules_Impl(
         `in`: List<Float>,
         notIn: List<Float>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FloatRules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4167,18 +4098,7 @@ private class FloatRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FloatRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFloatRules() = pbandk.testpb.MutableFloatRules {
         this.const = this@FloatRules_Impl.const
@@ -4217,7 +4137,7 @@ private class MutableFloatRules_Impl(
         `in`: List<Float>,
         notIn: List<Float>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.FloatRules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4226,20 +4146,9 @@ private class MutableFloatRules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toFloatRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.FloatRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFloatRules() = FloatRules_Impl(
         const = const,
@@ -4261,6 +4170,21 @@ private class MutableFloatRules_Impl(
         this.`in` += this@MutableFloatRules_Impl.`in`
         this.notIn += this@MutableFloatRules_Impl.notIn
         this.unknownFields += this@MutableFloatRules_Impl.unknownFields
+    }
+}
+
+private fun FloatRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.FloatRules {
+    if (other !is pbandk.testpb.FloatRules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4360,7 +4284,7 @@ private class DoubleRules_Impl(
         `in`: List<Double>,
         notIn: List<Double>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.DoubleRules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4371,18 +4295,7 @@ private class DoubleRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DoubleRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableDoubleRules() = pbandk.testpb.MutableDoubleRules {
         this.const = this@DoubleRules_Impl.const
@@ -4421,7 +4334,7 @@ private class MutableDoubleRules_Impl(
         `in`: List<Double>,
         notIn: List<Double>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.DoubleRules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4430,20 +4343,9 @@ private class MutableDoubleRules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toDoubleRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DoubleRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toDoubleRules() = DoubleRules_Impl(
         const = const,
@@ -4465,6 +4367,21 @@ private class MutableDoubleRules_Impl(
         this.`in` += this@MutableDoubleRules_Impl.`in`
         this.notIn += this@MutableDoubleRules_Impl.notIn
         this.unknownFields += this@MutableDoubleRules_Impl.unknownFields
+    }
+}
+
+private fun DoubleRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.DoubleRules {
+    if (other !is pbandk.testpb.DoubleRules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4564,7 +4481,7 @@ private class Int32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Int32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4575,18 +4492,7 @@ private class Int32Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableInt32Rules() = pbandk.testpb.MutableInt32Rules {
         this.const = this@Int32Rules_Impl.const
@@ -4625,7 +4531,7 @@ private class MutableInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Int32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4634,20 +4540,9 @@ private class MutableInt32Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toInt32Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toInt32Rules() = Int32Rules_Impl(
         const = const,
@@ -4669,6 +4564,21 @@ private class MutableInt32Rules_Impl(
         this.`in` += this@MutableInt32Rules_Impl.`in`
         this.notIn += this@MutableInt32Rules_Impl.notIn
         this.unknownFields += this@MutableInt32Rules_Impl.unknownFields
+    }
+}
+
+private fun Int32Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Int32Rules {
+    if (other !is pbandk.testpb.Int32Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4768,7 +4678,7 @@ private class Int64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Int64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4779,18 +4689,7 @@ private class Int64Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableInt64Rules() = pbandk.testpb.MutableInt64Rules {
         this.const = this@Int64Rules_Impl.const
@@ -4829,7 +4728,7 @@ private class MutableInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Int64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4838,20 +4737,9 @@ private class MutableInt64Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toInt64Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Int64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toInt64Rules() = Int64Rules_Impl(
         const = const,
@@ -4873,6 +4761,21 @@ private class MutableInt64Rules_Impl(
         this.`in` += this@MutableInt64Rules_Impl.`in`
         this.notIn += this@MutableInt64Rules_Impl.notIn
         this.unknownFields += this@MutableInt64Rules_Impl.unknownFields
+    }
+}
+
+private fun Int64Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Int64Rules {
+    if (other !is pbandk.testpb.Int64Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4972,7 +4875,7 @@ private class UInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.UInt32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -4983,18 +4886,7 @@ private class UInt32Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableUInt32Rules() = pbandk.testpb.MutableUInt32Rules {
         this.const = this@UInt32Rules_Impl.const
@@ -5033,7 +4925,7 @@ private class MutableUInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.UInt32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5042,20 +4934,9 @@ private class MutableUInt32Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toUInt32Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toUInt32Rules() = UInt32Rules_Impl(
         const = const,
@@ -5077,6 +4958,21 @@ private class MutableUInt32Rules_Impl(
         this.`in` += this@MutableUInt32Rules_Impl.`in`
         this.notIn += this@MutableUInt32Rules_Impl.notIn
         this.unknownFields += this@MutableUInt32Rules_Impl.unknownFields
+    }
+}
+
+private fun UInt32Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.UInt32Rules {
+    if (other !is pbandk.testpb.UInt32Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5176,7 +5072,7 @@ private class UInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.UInt64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5187,18 +5083,7 @@ private class UInt64Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableUInt64Rules() = pbandk.testpb.MutableUInt64Rules {
         this.const = this@UInt64Rules_Impl.const
@@ -5237,7 +5122,7 @@ private class MutableUInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.UInt64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5246,20 +5131,9 @@ private class MutableUInt64Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toUInt64Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.UInt64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toUInt64Rules() = UInt64Rules_Impl(
         const = const,
@@ -5281,6 +5155,21 @@ private class MutableUInt64Rules_Impl(
         this.`in` += this@MutableUInt64Rules_Impl.`in`
         this.notIn += this@MutableUInt64Rules_Impl.notIn
         this.unknownFields += this@MutableUInt64Rules_Impl.unknownFields
+    }
+}
+
+private fun UInt64Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.UInt64Rules {
+    if (other !is pbandk.testpb.UInt64Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5380,7 +5269,7 @@ private class SInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SInt32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5391,18 +5280,7 @@ private class SInt32Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSInt32Rules() = pbandk.testpb.MutableSInt32Rules {
         this.const = this@SInt32Rules_Impl.const
@@ -5441,7 +5319,7 @@ private class MutableSInt32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SInt32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5450,20 +5328,9 @@ private class MutableSInt32Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toSInt32Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSInt32Rules() = SInt32Rules_Impl(
         const = const,
@@ -5485,6 +5352,21 @@ private class MutableSInt32Rules_Impl(
         this.`in` += this@MutableSInt32Rules_Impl.`in`
         this.notIn += this@MutableSInt32Rules_Impl.notIn
         this.unknownFields += this@MutableSInt32Rules_Impl.unknownFields
+    }
+}
+
+private fun SInt32Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.SInt32Rules {
+    if (other !is pbandk.testpb.SInt32Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5584,7 +5466,7 @@ private class SInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SInt64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5595,18 +5477,7 @@ private class SInt64Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSInt64Rules() = pbandk.testpb.MutableSInt64Rules {
         this.const = this@SInt64Rules_Impl.const
@@ -5645,7 +5516,7 @@ private class MutableSInt64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SInt64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5654,20 +5525,9 @@ private class MutableSInt64Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toSInt64Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SInt64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSInt64Rules() = SInt64Rules_Impl(
         const = const,
@@ -5689,6 +5549,21 @@ private class MutableSInt64Rules_Impl(
         this.`in` += this@MutableSInt64Rules_Impl.`in`
         this.notIn += this@MutableSInt64Rules_Impl.notIn
         this.unknownFields += this@MutableSInt64Rules_Impl.unknownFields
+    }
+}
+
+private fun SInt64Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.SInt64Rules {
+    if (other !is pbandk.testpb.SInt64Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5788,7 +5663,7 @@ private class Fixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Fixed32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5799,18 +5674,7 @@ private class Fixed32Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFixed32Rules() = pbandk.testpb.MutableFixed32Rules {
         this.const = this@Fixed32Rules_Impl.const
@@ -5849,7 +5713,7 @@ private class MutableFixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Fixed32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -5858,20 +5722,9 @@ private class MutableFixed32Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toFixed32Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFixed32Rules() = Fixed32Rules_Impl(
         const = const,
@@ -5893,6 +5746,21 @@ private class MutableFixed32Rules_Impl(
         this.`in` += this@MutableFixed32Rules_Impl.`in`
         this.notIn += this@MutableFixed32Rules_Impl.notIn
         this.unknownFields += this@MutableFixed32Rules_Impl.unknownFields
+    }
+}
+
+private fun Fixed32Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Fixed32Rules {
+    if (other !is pbandk.testpb.Fixed32Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5992,7 +5860,7 @@ private class Fixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Fixed64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -6003,18 +5871,7 @@ private class Fixed64Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFixed64Rules() = pbandk.testpb.MutableFixed64Rules {
         this.const = this@Fixed64Rules_Impl.const
@@ -6053,7 +5910,7 @@ private class MutableFixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Fixed64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -6062,20 +5919,9 @@ private class MutableFixed64Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toFixed64Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Fixed64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFixed64Rules() = Fixed64Rules_Impl(
         const = const,
@@ -6097,6 +5943,21 @@ private class MutableFixed64Rules_Impl(
         this.`in` += this@MutableFixed64Rules_Impl.`in`
         this.notIn += this@MutableFixed64Rules_Impl.notIn
         this.unknownFields += this@MutableFixed64Rules_Impl.unknownFields
+    }
+}
+
+private fun Fixed64Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Fixed64Rules {
+    if (other !is pbandk.testpb.Fixed64Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6196,7 +6057,7 @@ private class SFixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SFixed32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -6207,18 +6068,7 @@ private class SFixed32Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSFixed32Rules() = pbandk.testpb.MutableSFixed32Rules {
         this.const = this@SFixed32Rules_Impl.const
@@ -6257,7 +6107,7 @@ private class MutableSFixed32Rules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SFixed32Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -6266,20 +6116,9 @@ private class MutableSFixed32Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toSFixed32Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed32Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSFixed32Rules() = SFixed32Rules_Impl(
         const = const,
@@ -6301,6 +6140,21 @@ private class MutableSFixed32Rules_Impl(
         this.`in` += this@MutableSFixed32Rules_Impl.`in`
         this.notIn += this@MutableSFixed32Rules_Impl.notIn
         this.unknownFields += this@MutableSFixed32Rules_Impl.unknownFields
+    }
+}
+
+private fun SFixed32Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.SFixed32Rules {
+    if (other !is pbandk.testpb.SFixed32Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6400,7 +6254,7 @@ private class SFixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SFixed64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -6411,18 +6265,7 @@ private class SFixed64Rules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableSFixed64Rules() = pbandk.testpb.MutableSFixed64Rules {
         this.const = this@SFixed64Rules_Impl.const
@@ -6461,7 +6304,7 @@ private class MutableSFixed64Rules_Impl(
         `in`: List<Long>,
         notIn: List<Long>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.SFixed64Rules {
         this.const = const
         this.lt = lt
         this.lte = lte
@@ -6470,20 +6313,9 @@ private class MutableSFixed64Rules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toSFixed64Rules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.SFixed64Rules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            lt = other.lt ?: lt,
-            lte = other.lte ?: lte,
-            gt = other.gt ?: gt,
-            gte = other.gte ?: gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toSFixed64Rules() = SFixed64Rules_Impl(
         const = const,
@@ -6505,6 +6337,21 @@ private class MutableSFixed64Rules_Impl(
         this.`in` += this@MutableSFixed64Rules_Impl.`in`
         this.notIn += this@MutableSFixed64Rules_Impl.notIn
         this.unknownFields += this@MutableSFixed64Rules_Impl.unknownFields
+    }
+}
+
+private fun SFixed64Rules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.SFixed64Rules {
+    if (other !is pbandk.testpb.SFixed64Rules) return this
+
+    return copy {
+        const = other.const ?: const
+        lt = other.lt ?: lt
+        lte = other.lte ?: lte
+        gt = other.gt ?: gt
+        gte = other.gte ?: gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6574,17 +6421,12 @@ private class BoolRules_Impl(
     override fun copy(
         const: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.BoolRules {
         this.const = const
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BoolRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableBoolRules() = pbandk.testpb.MutableBoolRules {
         this.const = this@BoolRules_Impl.const
@@ -6605,17 +6447,12 @@ private class MutableBoolRules_Impl(
     override fun copy(
         const: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.BoolRules {
         this.const = const
         this.unknownFields += unknownFields
-    }.toBoolRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BoolRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toBoolRules() = BoolRules_Impl(
         const = const,
@@ -6625,6 +6462,15 @@ private class MutableBoolRules_Impl(
     override fun toMutableBoolRules() = pbandk.testpb.MutableBoolRules {
         this.const = this@MutableBoolRules_Impl.const
         this.unknownFields += this@MutableBoolRules_Impl.unknownFields
+    }
+}
+
+private fun BoolRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.BoolRules {
+    if (other !is pbandk.testpb.BoolRules) return this
+
+    return copy {
+        const = other.const ?: const
+        unknownFields += other.unknownFields
     }
 }
 
@@ -6777,7 +6623,7 @@ private class StringRules_Impl(
         strict: Boolean?,
         wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.StringRules {
         this.const = const
         this.len = len
         this.minLen = minLen
@@ -6797,27 +6643,7 @@ private class StringRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.StringRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            len = other.len ?: len,
-            minLen = other.minLen ?: minLen,
-            maxLen = other.maxLen ?: maxLen,
-            lenBytes = other.lenBytes ?: lenBytes,
-            minBytes = other.minBytes ?: minBytes,
-            maxBytes = other.maxBytes ?: maxBytes,
-            pattern = other.pattern ?: pattern,
-            prefix = other.prefix ?: prefix,
-            suffix = other.suffix ?: suffix,
-            contains = other.contains ?: contains,
-            notContains = other.notContains ?: notContains,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            strict = other.strict ?: strict,
-            wellKnown = other.wellKnown ?: wellKnown,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableStringRules() = pbandk.testpb.MutableStringRules {
         this.const = this@StringRules_Impl.const
@@ -6914,7 +6740,7 @@ private class MutableStringRules_Impl(
         strict: Boolean?,
         wellKnown: pbandk.testpb.StringRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.StringRules {
         this.const = const
         this.len = len
         this.minLen = minLen
@@ -6932,29 +6758,9 @@ private class MutableStringRules_Impl(
         this.strict = strict
         this.wellKnown = wellKnown
         this.unknownFields += unknownFields
-    }.toStringRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.StringRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            len = other.len ?: len,
-            minLen = other.minLen ?: minLen,
-            maxLen = other.maxLen ?: maxLen,
-            lenBytes = other.lenBytes ?: lenBytes,
-            minBytes = other.minBytes ?: minBytes,
-            maxBytes = other.maxBytes ?: maxBytes,
-            pattern = other.pattern ?: pattern,
-            prefix = other.prefix ?: prefix,
-            suffix = other.suffix ?: suffix,
-            contains = other.contains ?: contains,
-            notContains = other.notContains ?: notContains,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            strict = other.strict ?: strict,
-            wellKnown = other.wellKnown ?: wellKnown,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toStringRules() = StringRules_Impl(
         const = const,
@@ -6994,6 +6800,42 @@ private class MutableStringRules_Impl(
         this.strict = this@MutableStringRules_Impl.strict
         this.wellKnown = this@MutableStringRules_Impl.wellKnown
         this.unknownFields += this@MutableStringRules_Impl.unknownFields
+    }
+}
+
+private fun StringRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.StringRules {
+    if (other !is pbandk.testpb.StringRules) return this
+
+    return copy {
+        const = other.const ?: const
+        len = other.len ?: len
+        minLen = other.minLen ?: minLen
+        maxLen = other.maxLen ?: maxLen
+        lenBytes = other.lenBytes ?: lenBytes
+        minBytes = other.minBytes ?: minBytes
+        maxBytes = other.maxBytes ?: maxBytes
+        pattern = other.pattern ?: pattern
+        prefix = other.prefix ?: prefix
+        suffix = other.suffix ?: suffix
+        contains = other.contains ?: contains
+        notContains = other.notContains ?: notContains
+        `in` += other.`in`
+        notIn += other.notIn
+        strict = other.strict ?: strict
+        when (other.wellKnown) {
+            is StringRules.WellKnown.Email -> email = other.email
+            is StringRules.WellKnown.Hostname -> hostname = other.hostname
+            is StringRules.WellKnown.Ip -> ip = other.ip
+            is StringRules.WellKnown.Ipv4 -> ipv4 = other.ipv4
+            is StringRules.WellKnown.Ipv6 -> ipv6 = other.ipv6
+            is StringRules.WellKnown.Uri -> uri = other.uri
+            is StringRules.WellKnown.UriRef -> uriRef = other.uriRef
+            is StringRules.WellKnown.Address -> address = other.address
+            is StringRules.WellKnown.Uuid -> uuid = other.uuid
+            is StringRules.WellKnown.WellKnownRegex -> wellKnownRegex = other.wellKnownRegex
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7149,7 +6991,7 @@ private class BytesRules_Impl(
         notIn: List<pbandk.ByteArr>,
         wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.BytesRules {
         this.const = const
         this.len = len
         this.minLen = minLen
@@ -7164,22 +7006,7 @@ private class BytesRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BytesRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            len = other.len ?: len,
-            minLen = other.minLen ?: minLen,
-            maxLen = other.maxLen ?: maxLen,
-            pattern = other.pattern ?: pattern,
-            prefix = other.prefix ?: prefix,
-            suffix = other.suffix ?: suffix,
-            contains = other.contains ?: contains,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            wellKnown = other.wellKnown ?: wellKnown,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableBytesRules() = pbandk.testpb.MutableBytesRules {
         this.const = this@BytesRules_Impl.const
@@ -7240,7 +7067,7 @@ private class MutableBytesRules_Impl(
         notIn: List<pbandk.ByteArr>,
         wellKnown: pbandk.testpb.BytesRules.WellKnown<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.BytesRules {
         this.const = const
         this.len = len
         this.minLen = minLen
@@ -7253,24 +7080,9 @@ private class MutableBytesRules_Impl(
         this.notIn += notIn
         this.wellKnown = wellKnown
         this.unknownFields += unknownFields
-    }.toBytesRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.BytesRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            len = other.len ?: len,
-            minLen = other.minLen ?: minLen,
-            maxLen = other.maxLen ?: maxLen,
-            pattern = other.pattern ?: pattern,
-            prefix = other.prefix ?: prefix,
-            suffix = other.suffix ?: suffix,
-            contains = other.contains ?: contains,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            wellKnown = other.wellKnown ?: wellKnown,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toBytesRules() = BytesRules_Impl(
         const = const,
@@ -7300,6 +7112,30 @@ private class MutableBytesRules_Impl(
         this.notIn += this@MutableBytesRules_Impl.notIn
         this.wellKnown = this@MutableBytesRules_Impl.wellKnown
         this.unknownFields += this@MutableBytesRules_Impl.unknownFields
+    }
+}
+
+private fun BytesRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.BytesRules {
+    if (other !is pbandk.testpb.BytesRules) return this
+
+    return copy {
+        const = other.const ?: const
+        len = other.len ?: len
+        minLen = other.minLen ?: minLen
+        maxLen = other.maxLen ?: maxLen
+        pattern = other.pattern ?: pattern
+        prefix = other.prefix ?: prefix
+        suffix = other.suffix ?: suffix
+        contains = other.contains ?: contains
+        `in` += other.`in`
+        notIn += other.notIn
+        when (other.wellKnown) {
+            is BytesRules.WellKnown.Ip -> ip = other.ip
+            is BytesRules.WellKnown.Ipv4 -> ipv4 = other.ipv4
+            is BytesRules.WellKnown.Ipv6 -> ipv6 = other.ipv6
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7395,7 +7231,7 @@ private class EnumRules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.EnumRules {
         this.const = const
         this.definedOnly = definedOnly
         this.`in` += `in`
@@ -7403,15 +7239,7 @@ private class EnumRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.EnumRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            definedOnly = other.definedOnly ?: definedOnly,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEnumRules() = pbandk.testpb.MutableEnumRules {
         this.const = this@EnumRules_Impl.const
@@ -7441,23 +7269,15 @@ private class MutableEnumRules_Impl(
         `in`: List<Int>,
         notIn: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.EnumRules {
         this.const = const
         this.definedOnly = definedOnly
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toEnumRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.EnumRules)?.let {
-        it.copy(
-            const = other.const ?: const,
-            definedOnly = other.definedOnly ?: definedOnly,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEnumRules() = EnumRules_Impl(
         const = const,
@@ -7473,6 +7293,18 @@ private class MutableEnumRules_Impl(
         this.`in` += this@MutableEnumRules_Impl.`in`
         this.notIn += this@MutableEnumRules_Impl.notIn
         this.unknownFields += this@MutableEnumRules_Impl.unknownFields
+    }
+}
+
+private fun EnumRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.EnumRules {
+    if (other !is pbandk.testpb.EnumRules) return this
+
+    return copy {
+        const = other.const ?: const
+        definedOnly = other.definedOnly ?: definedOnly
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7540,19 +7372,13 @@ private class MessageRules_Impl(
         skip: Boolean?,
         required: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MessageRules {
         this.skip = skip
         this.required = required
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageRules)?.let {
-        it.copy(
-            skip = other.skip ?: skip,
-            required = other.required ?: required,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMessageRules() = pbandk.testpb.MutableMessageRules {
         this.skip = this@MessageRules_Impl.skip
@@ -7576,19 +7402,13 @@ private class MutableMessageRules_Impl(
         skip: Boolean?,
         required: Boolean?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MessageRules {
         this.skip = skip
         this.required = required
         this.unknownFields += unknownFields
-    }.toMessageRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MessageRules)?.let {
-        it.copy(
-            skip = other.skip ?: skip,
-            required = other.required ?: required,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMessageRules() = MessageRules_Impl(
         skip = skip,
@@ -7600,6 +7420,16 @@ private class MutableMessageRules_Impl(
         this.skip = this@MutableMessageRules_Impl.skip
         this.required = this@MutableMessageRules_Impl.required
         this.unknownFields += this@MutableMessageRules_Impl.unknownFields
+    }
+}
+
+private fun MessageRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MessageRules {
+    if (other !is pbandk.testpb.MessageRules) return this
+
+    return copy {
+        skip = other.skip ?: skip
+        required = other.required ?: required
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7673,7 +7503,7 @@ private class RepeatedRules_Impl(
         unique: Boolean?,
         items: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.RepeatedRules {
         this.minItems = minItems
         this.maxItems = maxItems
         this.unique = unique
@@ -7681,15 +7511,7 @@ private class RepeatedRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.RepeatedRules)?.let {
-        it.copy(
-            minItems = other.minItems ?: minItems,
-            maxItems = other.maxItems ?: maxItems,
-            unique = other.unique ?: unique,
-            items = items?.plus(other.items) ?: other.items,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableRepeatedRules() = pbandk.testpb.MutableRepeatedRules {
         this.minItems = this@RepeatedRules_Impl.minItems
@@ -7719,23 +7541,15 @@ private class MutableRepeatedRules_Impl(
         unique: Boolean?,
         items: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.RepeatedRules {
         this.minItems = minItems
         this.maxItems = maxItems
         this.unique = unique
         this.items = items
         this.unknownFields += unknownFields
-    }.toRepeatedRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.RepeatedRules)?.let {
-        it.copy(
-            minItems = other.minItems ?: minItems,
-            maxItems = other.maxItems ?: maxItems,
-            unique = other.unique ?: unique,
-            items = items?.plus(other.items) ?: other.items,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toRepeatedRules() = RepeatedRules_Impl(
         minItems = minItems,
@@ -7751,6 +7565,18 @@ private class MutableRepeatedRules_Impl(
         this.unique = this@MutableRepeatedRules_Impl.unique
         this.items = this@MutableRepeatedRules_Impl.items
         this.unknownFields += this@MutableRepeatedRules_Impl.unknownFields
+    }
+}
+
+private fun RepeatedRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.RepeatedRules {
+    if (other !is pbandk.testpb.RepeatedRules) return this
+
+    return copy {
+        minItems = other.minItems ?: minItems
+        maxItems = other.maxItems ?: maxItems
+        unique = other.unique ?: unique
+        items = items?.plus(other.items) ?: other.items
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7833,7 +7659,7 @@ private class MapRules_Impl(
         keys: pbandk.testpb.FieldRules?,
         values: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MapRules {
         this.minPairs = minPairs
         this.maxPairs = maxPairs
         this.noSparse = noSparse
@@ -7842,16 +7668,7 @@ private class MapRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MapRules)?.let {
-        it.copy(
-            minPairs = other.minPairs ?: minPairs,
-            maxPairs = other.maxPairs ?: maxPairs,
-            noSparse = other.noSparse ?: noSparse,
-            keys = keys?.plus(other.keys) ?: other.keys,
-            values = values?.plus(other.values) ?: other.values,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMapRules() = pbandk.testpb.MutableMapRules {
         this.minPairs = this@MapRules_Impl.minPairs
@@ -7884,25 +7701,16 @@ private class MutableMapRules_Impl(
         keys: pbandk.testpb.FieldRules?,
         values: pbandk.testpb.FieldRules?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.MapRules {
         this.minPairs = minPairs
         this.maxPairs = maxPairs
         this.noSparse = noSparse
         this.keys = keys
         this.values = values
         this.unknownFields += unknownFields
-    }.toMapRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.MapRules)?.let {
-        it.copy(
-            minPairs = other.minPairs ?: minPairs,
-            maxPairs = other.maxPairs ?: maxPairs,
-            noSparse = other.noSparse ?: noSparse,
-            keys = keys?.plus(other.keys) ?: other.keys,
-            values = values?.plus(other.values) ?: other.values,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMapRules() = MapRules_Impl(
         minPairs = minPairs,
@@ -7920,6 +7728,19 @@ private class MutableMapRules_Impl(
         this.keys = this@MutableMapRules_Impl.keys
         this.values = this@MutableMapRules_Impl.values
         this.unknownFields += this@MutableMapRules_Impl.unknownFields
+    }
+}
+
+private fun MapRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.MapRules {
+    if (other !is pbandk.testpb.MapRules) return this
+
+    return copy {
+        minPairs = other.minPairs ?: minPairs
+        maxPairs = other.maxPairs ?: maxPairs
+        noSparse = other.noSparse ?: noSparse
+        keys = keys?.plus(other.keys) ?: other.keys
+        values = values?.plus(other.values) ?: other.values
+        unknownFields += other.unknownFields
     }
 }
 
@@ -7995,21 +7816,14 @@ private class AnyRules_Impl(
         `in`: List<String>,
         notIn: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.AnyRules {
         this.required = required
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.AnyRules)?.let {
-        it.copy(
-            required = other.required ?: required,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableAnyRules() = pbandk.testpb.MutableAnyRules {
         this.required = this@AnyRules_Impl.required
@@ -8036,21 +7850,14 @@ private class MutableAnyRules_Impl(
         `in`: List<String>,
         notIn: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.AnyRules {
         this.required = required
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toAnyRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.AnyRules)?.let {
-        it.copy(
-            required = other.required ?: required,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toAnyRules() = AnyRules_Impl(
         required = required,
@@ -8064,6 +7871,17 @@ private class MutableAnyRules_Impl(
         this.`in` += this@MutableAnyRules_Impl.`in`
         this.notIn += this@MutableAnyRules_Impl.notIn
         this.unknownFields += this@MutableAnyRules_Impl.unknownFields
+    }
+}
+
+private fun AnyRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.AnyRules {
+    if (other !is pbandk.testpb.AnyRules) return this
+
+    return copy {
+        required = other.required ?: required
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -8159,7 +7977,7 @@ private class DurationRules_Impl(
         `in`: List<pbandk.wkt.Duration>,
         notIn: List<pbandk.wkt.Duration>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.DurationRules {
         this.required = required
         this.const = const
         this.lt = lt
@@ -8171,19 +7989,7 @@ private class DurationRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DurationRules)?.let {
-        it.copy(
-            required = other.required ?: required,
-            const = const?.plus(other.const) ?: other.const,
-            lt = lt?.plus(other.lt) ?: other.lt,
-            lte = lte?.plus(other.lte) ?: other.lte,
-            gt = gt?.plus(other.gt) ?: other.gt,
-            gte = gte?.plus(other.gte) ?: other.gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableDurationRules() = pbandk.testpb.MutableDurationRules {
         this.required = this@DurationRules_Impl.required
@@ -8225,7 +8031,7 @@ private class MutableDurationRules_Impl(
         `in`: List<pbandk.wkt.Duration>,
         notIn: List<pbandk.wkt.Duration>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.DurationRules {
         this.required = required
         this.const = const
         this.lt = lt
@@ -8235,21 +8041,9 @@ private class MutableDurationRules_Impl(
         this.`in` += `in`
         this.notIn += notIn
         this.unknownFields += unknownFields
-    }.toDurationRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.DurationRules)?.let {
-        it.copy(
-            required = other.required ?: required,
-            const = const?.plus(other.const) ?: other.const,
-            lt = lt?.plus(other.lt) ?: other.lt,
-            lte = lte?.plus(other.lte) ?: other.lte,
-            gt = gt?.plus(other.gt) ?: other.gt,
-            gte = gte?.plus(other.gte) ?: other.gte,
-            `in` = `in` + other.`in`,
-            notIn = notIn + other.notIn,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toDurationRules() = DurationRules_Impl(
         required = required,
@@ -8273,6 +8067,22 @@ private class MutableDurationRules_Impl(
         this.`in` += this@MutableDurationRules_Impl.`in`
         this.notIn += this@MutableDurationRules_Impl.notIn
         this.unknownFields += this@MutableDurationRules_Impl.unknownFields
+    }
+}
+
+private fun DurationRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.DurationRules {
+    if (other !is pbandk.testpb.DurationRules) return this
+
+    return copy {
+        required = other.required ?: required
+        const = const?.plus(other.const) ?: other.const
+        lt = lt?.plus(other.lt) ?: other.lt
+        lte = lte?.plus(other.lte) ?: other.lte
+        gt = gt?.plus(other.gt) ?: other.gt
+        gte = gte?.plus(other.gte) ?: other.gte
+        `in` += other.`in`
+        notIn += other.notIn
+        unknownFields += other.unknownFields
     }
 }
 
@@ -8384,7 +8194,7 @@ private class TimestampRules_Impl(
         gtNow: Boolean?,
         within: pbandk.wkt.Duration?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.TimestampRules {
         this.required = required
         this.const = const
         this.lt = lt
@@ -8397,20 +8207,7 @@ private class TimestampRules_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.TimestampRules)?.let {
-        it.copy(
-            required = other.required ?: required,
-            const = const?.plus(other.const) ?: other.const,
-            lt = lt?.plus(other.lt) ?: other.lt,
-            lte = lte?.plus(other.lte) ?: other.lte,
-            gt = gt?.plus(other.gt) ?: other.gt,
-            gte = gte?.plus(other.gte) ?: other.gte,
-            ltNow = other.ltNow ?: ltNow,
-            gtNow = other.gtNow ?: gtNow,
-            within = within?.plus(other.within) ?: other.within,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableTimestampRules() = pbandk.testpb.MutableTimestampRules {
         this.required = this@TimestampRules_Impl.required
@@ -8455,7 +8252,7 @@ private class MutableTimestampRules_Impl(
         gtNow: Boolean?,
         within: pbandk.wkt.Duration?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.TimestampRules {
         this.required = required
         this.const = const
         this.lt = lt
@@ -8466,22 +8263,9 @@ private class MutableTimestampRules_Impl(
         this.gtNow = gtNow
         this.within = within
         this.unknownFields += unknownFields
-    }.toTimestampRules()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.TimestampRules)?.let {
-        it.copy(
-            required = other.required ?: required,
-            const = const?.plus(other.const) ?: other.const,
-            lt = lt?.plus(other.lt) ?: other.lt,
-            lte = lte?.plus(other.lte) ?: other.lte,
-            gt = gt?.plus(other.gt) ?: other.gt,
-            gte = gte?.plus(other.gte) ?: other.gte,
-            ltNow = other.ltNow ?: ltNow,
-            gtNow = other.gtNow ?: gtNow,
-            within = within?.plus(other.within) ?: other.within,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toTimestampRules() = TimestampRules_Impl(
         required = required,
@@ -8507,6 +8291,23 @@ private class MutableTimestampRules_Impl(
         this.gtNow = this@MutableTimestampRules_Impl.gtNow
         this.within = this@MutableTimestampRules_Impl.within
         this.unknownFields += this@MutableTimestampRules_Impl.unknownFields
+    }
+}
+
+private fun TimestampRules.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.TimestampRules {
+    if (other !is pbandk.testpb.TimestampRules) return this
+
+    return copy {
+        required = other.required ?: required
+        const = const?.plus(other.const) ?: other.const
+        lt = lt?.plus(other.lt) ?: other.lt
+        lte = lte?.plus(other.lte) ?: other.lte
+        gt = gt?.plus(other.gt) ?: other.gt
+        gte = gte?.plus(other.gte) ?: other.gte
+        ltNow = other.ltNow ?: ltNow
+        gtNow = other.gtNow ?: gtNow
+        within = within?.plus(other.within) ?: other.within
+        unknownFields += other.unknownFields
     }
 }
 

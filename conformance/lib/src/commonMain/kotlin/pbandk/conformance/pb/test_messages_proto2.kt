@@ -2857,7 +2857,7 @@ private class TestAllTypesProto2_Impl(
         fieldName18_: Int?,
         oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2 {
         this.optionalInt32 = optionalInt32
         this.optionalInt64 = optionalInt64
         this.optionalUint32 = optionalUint32
@@ -2970,125 +2970,7 @@ private class TestAllTypesProto2_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2)?.let {
-        it.copy(
-            optionalInt32 = other.optionalInt32 ?: optionalInt32,
-            optionalInt64 = other.optionalInt64 ?: optionalInt64,
-            optionalUint32 = other.optionalUint32 ?: optionalUint32,
-            optionalUint64 = other.optionalUint64 ?: optionalUint64,
-            optionalSint32 = other.optionalSint32 ?: optionalSint32,
-            optionalSint64 = other.optionalSint64 ?: optionalSint64,
-            optionalFixed32 = other.optionalFixed32 ?: optionalFixed32,
-            optionalFixed64 = other.optionalFixed64 ?: optionalFixed64,
-            optionalSfixed32 = other.optionalSfixed32 ?: optionalSfixed32,
-            optionalSfixed64 = other.optionalSfixed64 ?: optionalSfixed64,
-            optionalFloat = other.optionalFloat ?: optionalFloat,
-            optionalDouble = other.optionalDouble ?: optionalDouble,
-            optionalBool = other.optionalBool ?: optionalBool,
-            optionalString = other.optionalString ?: optionalString,
-            optionalBytes = other.optionalBytes ?: optionalBytes,
-            optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage,
-            optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage,
-            optionalNestedEnum = other.optionalNestedEnum ?: optionalNestedEnum,
-            optionalForeignEnum = other.optionalForeignEnum ?: optionalForeignEnum,
-            optionalStringPiece = other.optionalStringPiece ?: optionalStringPiece,
-            optionalCord = other.optionalCord ?: optionalCord,
-            recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage,
-            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
-            repeatedInt64 = repeatedInt64 + other.repeatedInt64,
-            repeatedUint32 = repeatedUint32 + other.repeatedUint32,
-            repeatedUint64 = repeatedUint64 + other.repeatedUint64,
-            repeatedSint32 = repeatedSint32 + other.repeatedSint32,
-            repeatedSint64 = repeatedSint64 + other.repeatedSint64,
-            repeatedFixed32 = repeatedFixed32 + other.repeatedFixed32,
-            repeatedFixed64 = repeatedFixed64 + other.repeatedFixed64,
-            repeatedSfixed32 = repeatedSfixed32 + other.repeatedSfixed32,
-            repeatedSfixed64 = repeatedSfixed64 + other.repeatedSfixed64,
-            repeatedFloat = repeatedFloat + other.repeatedFloat,
-            repeatedDouble = repeatedDouble + other.repeatedDouble,
-            repeatedBool = repeatedBool + other.repeatedBool,
-            repeatedString = repeatedString + other.repeatedString,
-            repeatedBytes = repeatedBytes + other.repeatedBytes,
-            repeatedNestedMessage = repeatedNestedMessage + other.repeatedNestedMessage,
-            repeatedForeignMessage = repeatedForeignMessage + other.repeatedForeignMessage,
-            repeatedNestedEnum = repeatedNestedEnum + other.repeatedNestedEnum,
-            repeatedForeignEnum = repeatedForeignEnum + other.repeatedForeignEnum,
-            repeatedStringPiece = repeatedStringPiece + other.repeatedStringPiece,
-            repeatedCord = repeatedCord + other.repeatedCord,
-            packedInt32 = packedInt32 + other.packedInt32,
-            packedInt64 = packedInt64 + other.packedInt64,
-            packedUint32 = packedUint32 + other.packedUint32,
-            packedUint64 = packedUint64 + other.packedUint64,
-            packedSint32 = packedSint32 + other.packedSint32,
-            packedSint64 = packedSint64 + other.packedSint64,
-            packedFixed32 = packedFixed32 + other.packedFixed32,
-            packedFixed64 = packedFixed64 + other.packedFixed64,
-            packedSfixed32 = packedSfixed32 + other.packedSfixed32,
-            packedSfixed64 = packedSfixed64 + other.packedSfixed64,
-            packedFloat = packedFloat + other.packedFloat,
-            packedDouble = packedDouble + other.packedDouble,
-            packedBool = packedBool + other.packedBool,
-            packedNestedEnum = packedNestedEnum + other.packedNestedEnum,
-            unpackedInt32 = unpackedInt32 + other.unpackedInt32,
-            unpackedInt64 = unpackedInt64 + other.unpackedInt64,
-            unpackedUint32 = unpackedUint32 + other.unpackedUint32,
-            unpackedUint64 = unpackedUint64 + other.unpackedUint64,
-            unpackedSint32 = unpackedSint32 + other.unpackedSint32,
-            unpackedSint64 = unpackedSint64 + other.unpackedSint64,
-            unpackedFixed32 = unpackedFixed32 + other.unpackedFixed32,
-            unpackedFixed64 = unpackedFixed64 + other.unpackedFixed64,
-            unpackedSfixed32 = unpackedSfixed32 + other.unpackedSfixed32,
-            unpackedSfixed64 = unpackedSfixed64 + other.unpackedSfixed64,
-            unpackedFloat = unpackedFloat + other.unpackedFloat,
-            unpackedDouble = unpackedDouble + other.unpackedDouble,
-            unpackedBool = unpackedBool + other.unpackedBool,
-            unpackedNestedEnum = unpackedNestedEnum + other.unpackedNestedEnum,
-            mapInt32Int32 = mapInt32Int32 + other.mapInt32Int32,
-            mapInt64Int64 = mapInt64Int64 + other.mapInt64Int64,
-            mapUint32Uint32 = mapUint32Uint32 + other.mapUint32Uint32,
-            mapUint64Uint64 = mapUint64Uint64 + other.mapUint64Uint64,
-            mapSint32Sint32 = mapSint32Sint32 + other.mapSint32Sint32,
-            mapSint64Sint64 = mapSint64Sint64 + other.mapSint64Sint64,
-            mapFixed32Fixed32 = mapFixed32Fixed32 + other.mapFixed32Fixed32,
-            mapFixed64Fixed64 = mapFixed64Fixed64 + other.mapFixed64Fixed64,
-            mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + other.mapSfixed32Sfixed32,
-            mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + other.mapSfixed64Sfixed64,
-            mapInt32Float = mapInt32Float + other.mapInt32Float,
-            mapInt32Double = mapInt32Double + other.mapInt32Double,
-            mapBoolBool = mapBoolBool + other.mapBoolBool,
-            mapStringString = mapStringString + other.mapStringString,
-            mapStringBytes = mapStringBytes + other.mapStringBytes,
-            mapStringNestedMessage = mapStringNestedMessage + other.mapStringNestedMessage,
-            mapStringForeignMessage = mapStringForeignMessage + other.mapStringForeignMessage,
-            mapStringNestedEnum = mapStringNestedEnum + other.mapStringNestedEnum,
-            mapStringForeignEnum = mapStringForeignEnum + other.mapStringForeignEnum,
-            fieldname1 = other.fieldname1 ?: fieldname1,
-            fieldName2 = other.fieldName2 ?: fieldName2,
-            fieldName3 = other.fieldName3 ?: fieldName3,
-            field_name4 = other.field_name4 ?: field_name4,
-            field0name5 = other.field0name5 ?: field0name5,
-            field0Name6 = other.field0Name6 ?: field0Name6,
-            fieldName7 = other.fieldName7 ?: fieldName7,
-            fieldName8 = other.fieldName8 ?: fieldName8,
-            fieldName9 = other.fieldName9 ?: fieldName9,
-            fieldName10 = other.fieldName10 ?: fieldName10,
-            fIELDNAME11 = other.fIELDNAME11 ?: fIELDNAME11,
-            fIELDName12 = other.fIELDName12 ?: fIELDName12,
-            _fieldName13 = other._fieldName13 ?: _fieldName13,
-            _FieldName14 = other._FieldName14 ?: _FieldName14,
-            field_name15 = other.field_name15 ?: field_name15,
-            field_Name16 = other.field_Name16 ?: field_Name16,
-            fieldName17_ = other.fieldName17_ ?: fieldName17_,
-            fieldName18_ = other.fieldName18_ ?: fieldName18_,
-            oneofField = when {
-                oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage && other.oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage ->
-                    TestAllTypesProto2.OneofField.OneofNestedMessage((oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value + (other.oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value)
-                else ->
-                    other.oneofField ?: oneofField
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableTestAllTypesProto2() = pbandk.conformance.pb.MutableTestAllTypesProto2 {
         this.optionalInt32 = this@TestAllTypesProto2_Impl.optionalInt32
@@ -3462,7 +3344,7 @@ private class MutableTestAllTypesProto2_Impl(
         fieldName18_: Int?,
         oneofField: pbandk.conformance.pb.TestAllTypesProto2.OneofField<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2 {
         this.optionalInt32 = optionalInt32
         this.optionalInt64 = optionalInt64
         this.optionalUint32 = optionalUint32
@@ -3573,127 +3455,9 @@ private class MutableTestAllTypesProto2_Impl(
         this.fieldName18_ = fieldName18_
         this.oneofField = oneofField
         this.unknownFields += unknownFields
-    }.toTestAllTypesProto2()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2)?.let {
-        it.copy(
-            optionalInt32 = other.optionalInt32 ?: optionalInt32,
-            optionalInt64 = other.optionalInt64 ?: optionalInt64,
-            optionalUint32 = other.optionalUint32 ?: optionalUint32,
-            optionalUint64 = other.optionalUint64 ?: optionalUint64,
-            optionalSint32 = other.optionalSint32 ?: optionalSint32,
-            optionalSint64 = other.optionalSint64 ?: optionalSint64,
-            optionalFixed32 = other.optionalFixed32 ?: optionalFixed32,
-            optionalFixed64 = other.optionalFixed64 ?: optionalFixed64,
-            optionalSfixed32 = other.optionalSfixed32 ?: optionalSfixed32,
-            optionalSfixed64 = other.optionalSfixed64 ?: optionalSfixed64,
-            optionalFloat = other.optionalFloat ?: optionalFloat,
-            optionalDouble = other.optionalDouble ?: optionalDouble,
-            optionalBool = other.optionalBool ?: optionalBool,
-            optionalString = other.optionalString ?: optionalString,
-            optionalBytes = other.optionalBytes ?: optionalBytes,
-            optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage,
-            optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage,
-            optionalNestedEnum = other.optionalNestedEnum ?: optionalNestedEnum,
-            optionalForeignEnum = other.optionalForeignEnum ?: optionalForeignEnum,
-            optionalStringPiece = other.optionalStringPiece ?: optionalStringPiece,
-            optionalCord = other.optionalCord ?: optionalCord,
-            recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage,
-            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
-            repeatedInt64 = repeatedInt64 + other.repeatedInt64,
-            repeatedUint32 = repeatedUint32 + other.repeatedUint32,
-            repeatedUint64 = repeatedUint64 + other.repeatedUint64,
-            repeatedSint32 = repeatedSint32 + other.repeatedSint32,
-            repeatedSint64 = repeatedSint64 + other.repeatedSint64,
-            repeatedFixed32 = repeatedFixed32 + other.repeatedFixed32,
-            repeatedFixed64 = repeatedFixed64 + other.repeatedFixed64,
-            repeatedSfixed32 = repeatedSfixed32 + other.repeatedSfixed32,
-            repeatedSfixed64 = repeatedSfixed64 + other.repeatedSfixed64,
-            repeatedFloat = repeatedFloat + other.repeatedFloat,
-            repeatedDouble = repeatedDouble + other.repeatedDouble,
-            repeatedBool = repeatedBool + other.repeatedBool,
-            repeatedString = repeatedString + other.repeatedString,
-            repeatedBytes = repeatedBytes + other.repeatedBytes,
-            repeatedNestedMessage = repeatedNestedMessage + other.repeatedNestedMessage,
-            repeatedForeignMessage = repeatedForeignMessage + other.repeatedForeignMessage,
-            repeatedNestedEnum = repeatedNestedEnum + other.repeatedNestedEnum,
-            repeatedForeignEnum = repeatedForeignEnum + other.repeatedForeignEnum,
-            repeatedStringPiece = repeatedStringPiece + other.repeatedStringPiece,
-            repeatedCord = repeatedCord + other.repeatedCord,
-            packedInt32 = packedInt32 + other.packedInt32,
-            packedInt64 = packedInt64 + other.packedInt64,
-            packedUint32 = packedUint32 + other.packedUint32,
-            packedUint64 = packedUint64 + other.packedUint64,
-            packedSint32 = packedSint32 + other.packedSint32,
-            packedSint64 = packedSint64 + other.packedSint64,
-            packedFixed32 = packedFixed32 + other.packedFixed32,
-            packedFixed64 = packedFixed64 + other.packedFixed64,
-            packedSfixed32 = packedSfixed32 + other.packedSfixed32,
-            packedSfixed64 = packedSfixed64 + other.packedSfixed64,
-            packedFloat = packedFloat + other.packedFloat,
-            packedDouble = packedDouble + other.packedDouble,
-            packedBool = packedBool + other.packedBool,
-            packedNestedEnum = packedNestedEnum + other.packedNestedEnum,
-            unpackedInt32 = unpackedInt32 + other.unpackedInt32,
-            unpackedInt64 = unpackedInt64 + other.unpackedInt64,
-            unpackedUint32 = unpackedUint32 + other.unpackedUint32,
-            unpackedUint64 = unpackedUint64 + other.unpackedUint64,
-            unpackedSint32 = unpackedSint32 + other.unpackedSint32,
-            unpackedSint64 = unpackedSint64 + other.unpackedSint64,
-            unpackedFixed32 = unpackedFixed32 + other.unpackedFixed32,
-            unpackedFixed64 = unpackedFixed64 + other.unpackedFixed64,
-            unpackedSfixed32 = unpackedSfixed32 + other.unpackedSfixed32,
-            unpackedSfixed64 = unpackedSfixed64 + other.unpackedSfixed64,
-            unpackedFloat = unpackedFloat + other.unpackedFloat,
-            unpackedDouble = unpackedDouble + other.unpackedDouble,
-            unpackedBool = unpackedBool + other.unpackedBool,
-            unpackedNestedEnum = unpackedNestedEnum + other.unpackedNestedEnum,
-            mapInt32Int32 = mapInt32Int32 + other.mapInt32Int32,
-            mapInt64Int64 = mapInt64Int64 + other.mapInt64Int64,
-            mapUint32Uint32 = mapUint32Uint32 + other.mapUint32Uint32,
-            mapUint64Uint64 = mapUint64Uint64 + other.mapUint64Uint64,
-            mapSint32Sint32 = mapSint32Sint32 + other.mapSint32Sint32,
-            mapSint64Sint64 = mapSint64Sint64 + other.mapSint64Sint64,
-            mapFixed32Fixed32 = mapFixed32Fixed32 + other.mapFixed32Fixed32,
-            mapFixed64Fixed64 = mapFixed64Fixed64 + other.mapFixed64Fixed64,
-            mapSfixed32Sfixed32 = mapSfixed32Sfixed32 + other.mapSfixed32Sfixed32,
-            mapSfixed64Sfixed64 = mapSfixed64Sfixed64 + other.mapSfixed64Sfixed64,
-            mapInt32Float = mapInt32Float + other.mapInt32Float,
-            mapInt32Double = mapInt32Double + other.mapInt32Double,
-            mapBoolBool = mapBoolBool + other.mapBoolBool,
-            mapStringString = mapStringString + other.mapStringString,
-            mapStringBytes = mapStringBytes + other.mapStringBytes,
-            mapStringNestedMessage = mapStringNestedMessage + other.mapStringNestedMessage,
-            mapStringForeignMessage = mapStringForeignMessage + other.mapStringForeignMessage,
-            mapStringNestedEnum = mapStringNestedEnum + other.mapStringNestedEnum,
-            mapStringForeignEnum = mapStringForeignEnum + other.mapStringForeignEnum,
-            fieldname1 = other.fieldname1 ?: fieldname1,
-            fieldName2 = other.fieldName2 ?: fieldName2,
-            fieldName3 = other.fieldName3 ?: fieldName3,
-            field_name4 = other.field_name4 ?: field_name4,
-            field0name5 = other.field0name5 ?: field0name5,
-            field0Name6 = other.field0Name6 ?: field0Name6,
-            fieldName7 = other.fieldName7 ?: fieldName7,
-            fieldName8 = other.fieldName8 ?: fieldName8,
-            fieldName9 = other.fieldName9 ?: fieldName9,
-            fieldName10 = other.fieldName10 ?: fieldName10,
-            fIELDNAME11 = other.fIELDNAME11 ?: fIELDNAME11,
-            fIELDName12 = other.fIELDName12 ?: fIELDName12,
-            _fieldName13 = other._fieldName13 ?: _fieldName13,
-            _FieldName14 = other._FieldName14 ?: _FieldName14,
-            field_name15 = other.field_name15 ?: field_name15,
-            field_Name16 = other.field_Name16 ?: field_Name16,
-            fieldName17_ = other.fieldName17_ ?: fieldName17_,
-            fieldName18_ = other.fieldName18_ ?: fieldName18_,
-            oneofField = when {
-                oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage && other.oneofField is TestAllTypesProto2.OneofField.OneofNestedMessage ->
-                    TestAllTypesProto2.OneofField.OneofNestedMessage((oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value + (other.oneofField as TestAllTypesProto2.OneofField.OneofNestedMessage).value)
-                else ->
-                    other.oneofField ?: oneofField
-            },
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toTestAllTypesProto2() = TestAllTypesProto2_Impl(
         optionalInt32 = optionalInt32,
@@ -3919,6 +3683,134 @@ private class MutableTestAllTypesProto2_Impl(
         this.fieldName18_ = this@MutableTestAllTypesProto2_Impl.fieldName18_
         this.oneofField = this@MutableTestAllTypesProto2_Impl.oneofField
         this.unknownFields += this@MutableTestAllTypesProto2_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto2.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2 {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto2) return this
+
+    return copy {
+        optionalInt32 = other.optionalInt32 ?: optionalInt32
+        optionalInt64 = other.optionalInt64 ?: optionalInt64
+        optionalUint32 = other.optionalUint32 ?: optionalUint32
+        optionalUint64 = other.optionalUint64 ?: optionalUint64
+        optionalSint32 = other.optionalSint32 ?: optionalSint32
+        optionalSint64 = other.optionalSint64 ?: optionalSint64
+        optionalFixed32 = other.optionalFixed32 ?: optionalFixed32
+        optionalFixed64 = other.optionalFixed64 ?: optionalFixed64
+        optionalSfixed32 = other.optionalSfixed32 ?: optionalSfixed32
+        optionalSfixed64 = other.optionalSfixed64 ?: optionalSfixed64
+        optionalFloat = other.optionalFloat ?: optionalFloat
+        optionalDouble = other.optionalDouble ?: optionalDouble
+        optionalBool = other.optionalBool ?: optionalBool
+        optionalString = other.optionalString ?: optionalString
+        optionalBytes = other.optionalBytes ?: optionalBytes
+        optionalNestedMessage = optionalNestedMessage?.plus(other.optionalNestedMessage) ?: other.optionalNestedMessage
+        optionalForeignMessage = optionalForeignMessage?.plus(other.optionalForeignMessage) ?: other.optionalForeignMessage
+        optionalNestedEnum = other.optionalNestedEnum ?: optionalNestedEnum
+        optionalForeignEnum = other.optionalForeignEnum ?: optionalForeignEnum
+        optionalStringPiece = other.optionalStringPiece ?: optionalStringPiece
+        optionalCord = other.optionalCord ?: optionalCord
+        recursiveMessage = recursiveMessage?.plus(other.recursiveMessage) ?: other.recursiveMessage
+        repeatedInt32 += other.repeatedInt32
+        repeatedInt64 += other.repeatedInt64
+        repeatedUint32 += other.repeatedUint32
+        repeatedUint64 += other.repeatedUint64
+        repeatedSint32 += other.repeatedSint32
+        repeatedSint64 += other.repeatedSint64
+        repeatedFixed32 += other.repeatedFixed32
+        repeatedFixed64 += other.repeatedFixed64
+        repeatedSfixed32 += other.repeatedSfixed32
+        repeatedSfixed64 += other.repeatedSfixed64
+        repeatedFloat += other.repeatedFloat
+        repeatedDouble += other.repeatedDouble
+        repeatedBool += other.repeatedBool
+        repeatedString += other.repeatedString
+        repeatedBytes += other.repeatedBytes
+        repeatedNestedMessage += other.repeatedNestedMessage
+        repeatedForeignMessage += other.repeatedForeignMessage
+        repeatedNestedEnum += other.repeatedNestedEnum
+        repeatedForeignEnum += other.repeatedForeignEnum
+        repeatedStringPiece += other.repeatedStringPiece
+        repeatedCord += other.repeatedCord
+        packedInt32 += other.packedInt32
+        packedInt64 += other.packedInt64
+        packedUint32 += other.packedUint32
+        packedUint64 += other.packedUint64
+        packedSint32 += other.packedSint32
+        packedSint64 += other.packedSint64
+        packedFixed32 += other.packedFixed32
+        packedFixed64 += other.packedFixed64
+        packedSfixed32 += other.packedSfixed32
+        packedSfixed64 += other.packedSfixed64
+        packedFloat += other.packedFloat
+        packedDouble += other.packedDouble
+        packedBool += other.packedBool
+        packedNestedEnum += other.packedNestedEnum
+        unpackedInt32 += other.unpackedInt32
+        unpackedInt64 += other.unpackedInt64
+        unpackedUint32 += other.unpackedUint32
+        unpackedUint64 += other.unpackedUint64
+        unpackedSint32 += other.unpackedSint32
+        unpackedSint64 += other.unpackedSint64
+        unpackedFixed32 += other.unpackedFixed32
+        unpackedFixed64 += other.unpackedFixed64
+        unpackedSfixed32 += other.unpackedSfixed32
+        unpackedSfixed64 += other.unpackedSfixed64
+        unpackedFloat += other.unpackedFloat
+        unpackedDouble += other.unpackedDouble
+        unpackedBool += other.unpackedBool
+        unpackedNestedEnum += other.unpackedNestedEnum
+        mapInt32Int32 += other.mapInt32Int32
+        mapInt64Int64 += other.mapInt64Int64
+        mapUint32Uint32 += other.mapUint32Uint32
+        mapUint64Uint64 += other.mapUint64Uint64
+        mapSint32Sint32 += other.mapSint32Sint32
+        mapSint64Sint64 += other.mapSint64Sint64
+        mapFixed32Fixed32 += other.mapFixed32Fixed32
+        mapFixed64Fixed64 += other.mapFixed64Fixed64
+        mapSfixed32Sfixed32 += other.mapSfixed32Sfixed32
+        mapSfixed64Sfixed64 += other.mapSfixed64Sfixed64
+        mapInt32Float += other.mapInt32Float
+        mapInt32Double += other.mapInt32Double
+        mapBoolBool += other.mapBoolBool
+        mapStringString += other.mapStringString
+        mapStringBytes += other.mapStringBytes
+        mapStringNestedMessage += other.mapStringNestedMessage
+        mapStringForeignMessage += other.mapStringForeignMessage
+        mapStringNestedEnum += other.mapStringNestedEnum
+        mapStringForeignEnum += other.mapStringForeignEnum
+        fieldname1 = other.fieldname1 ?: fieldname1
+        fieldName2 = other.fieldName2 ?: fieldName2
+        fieldName3 = other.fieldName3 ?: fieldName3
+        field_name4 = other.field_name4 ?: field_name4
+        field0name5 = other.field0name5 ?: field0name5
+        field0Name6 = other.field0Name6 ?: field0Name6
+        fieldName7 = other.fieldName7 ?: fieldName7
+        fieldName8 = other.fieldName8 ?: fieldName8
+        fieldName9 = other.fieldName9 ?: fieldName9
+        fieldName10 = other.fieldName10 ?: fieldName10
+        fIELDNAME11 = other.fIELDNAME11 ?: fIELDNAME11
+        fIELDName12 = other.fIELDName12 ?: fIELDName12
+        _fieldName13 = other._fieldName13 ?: _fieldName13
+        _FieldName14 = other._FieldName14 ?: _FieldName14
+        field_name15 = other.field_name15 ?: field_name15
+        field_Name16 = other.field_Name16 ?: field_Name16
+        fieldName17_ = other.fieldName17_ ?: fieldName17_
+        fieldName18_ = other.fieldName18_ ?: fieldName18_
+        when (other.oneofField) {
+            is TestAllTypesProto2.OneofField.OneofUint32 -> oneofUint32 = other.oneofUint32
+            is TestAllTypesProto2.OneofField.OneofNestedMessage -> oneofNestedMessage = oneofNestedMessage?.plus(other.oneofNestedMessage) ?: other.oneofNestedMessage
+            is TestAllTypesProto2.OneofField.OneofString -> oneofString = other.oneofString
+            is TestAllTypesProto2.OneofField.OneofBytes -> oneofBytes = other.oneofBytes
+            is TestAllTypesProto2.OneofField.OneofBool -> oneofBool = other.oneofBool
+            is TestAllTypesProto2.OneofField.OneofUint64 -> oneofUint64 = other.oneofUint64
+            is TestAllTypesProto2.OneofField.OneofFloat -> oneofFloat = other.oneofFloat
+            is TestAllTypesProto2.OneofField.OneofDouble -> oneofDouble = other.oneofDouble
+            is TestAllTypesProto2.OneofField.OneofEnum -> oneofEnum = other.oneofEnum
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4238,19 +4130,13 @@ private class TestAllTypesProto2_NestedMessage_Impl(
         a: Int?,
         corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {
         this.a = a
         this.corecursive = corecursive
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.NestedMessage)?.let {
-        it.copy(
-            a = other.a ?: a,
-            corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableNestedMessage() = pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage {
         this.a = this@TestAllTypesProto2_NestedMessage_Impl.a
@@ -4274,19 +4160,13 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
         a: Int?,
         corecursive: pbandk.conformance.pb.TestAllTypesProto2?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {
         this.a = a
         this.corecursive = corecursive
         this.unknownFields += unknownFields
-    }.toNestedMessage()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.NestedMessage)?.let {
-        it.copy(
-            a = other.a ?: a,
-            corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toNestedMessage() = TestAllTypesProto2_NestedMessage_Impl(
         a = a,
@@ -4298,6 +4178,16 @@ private class TestAllTypesProto2_MutableNestedMessage_Impl(
         this.a = this@TestAllTypesProto2_MutableNestedMessage_Impl.a
         this.corecursive = this@TestAllTypesProto2_MutableNestedMessage_Impl.corecursive
         this.unknownFields += this@TestAllTypesProto2_MutableNestedMessage_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto2.NestedMessage.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto2.NestedMessage) return this
+
+    return copy {
+        a = other.a ?: a
+        corecursive = corecursive?.plus(other.corecursive) ?: other.corecursive
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4368,19 +4258,13 @@ private class TestAllTypesProto2_Data_Impl(
         groupInt32: Int?,
         groupUint32: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.Data {
         this.groupInt32 = groupInt32
         this.groupUint32 = groupUint32
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.Data)?.let {
-        it.copy(
-            groupInt32 = other.groupInt32 ?: groupInt32,
-            groupUint32 = other.groupUint32 ?: groupUint32,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableData() = pbandk.conformance.pb.TestAllTypesProto2.MutableData {
         this.groupInt32 = this@TestAllTypesProto2_Data_Impl.groupInt32
@@ -4404,19 +4288,13 @@ private class TestAllTypesProto2_MutableData_Impl(
         groupInt32: Int?,
         groupUint32: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.Data {
         this.groupInt32 = groupInt32
         this.groupUint32 = groupUint32
         this.unknownFields += unknownFields
-    }.toData()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.Data)?.let {
-        it.copy(
-            groupInt32 = other.groupInt32 ?: groupInt32,
-            groupUint32 = other.groupUint32 ?: groupUint32,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toData() = TestAllTypesProto2_Data_Impl(
         groupInt32 = groupInt32,
@@ -4428,6 +4306,16 @@ private class TestAllTypesProto2_MutableData_Impl(
         this.groupInt32 = this@TestAllTypesProto2_MutableData_Impl.groupInt32
         this.groupUint32 = this@TestAllTypesProto2_MutableData_Impl.groupUint32
         this.unknownFields += this@TestAllTypesProto2_MutableData_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto2.Data.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.Data {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto2.Data) return this
+
+    return copy {
+        groupInt32 = other.groupInt32 ?: groupInt32
+        groupUint32 = other.groupUint32 ?: groupUint32
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4489,15 +4377,11 @@ private class TestAllTypesProto2_MessageSetCorrect_Impl(
     @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMessageSetCorrect() = pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect {
         this.unknownFields += this@TestAllTypesProto2_MessageSetCorrect_Impl.unknownFields
@@ -4516,15 +4400,11 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
     @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {
         this.unknownFields += unknownFields
-    }.toMessageSetCorrect()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMessageSetCorrect() = TestAllTypesProto2_MessageSetCorrect_Impl(
         unknownFields = unknownFields.toMap()
@@ -4532,6 +4412,14 @@ private class TestAllTypesProto2_MutableMessageSetCorrect_Impl(
 
     override fun toMutableMessageSetCorrect() = pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect {
         this.unknownFields += this@TestAllTypesProto2_MutableMessageSetCorrect_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto2.MessageSetCorrect.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect) return this
+
+    return copy {
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4590,17 +4478,12 @@ private class TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
     override fun copy(
         str: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {
         this.str = str
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1)?.let {
-        it.copy(
-            str = other.str ?: str,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMessageSetCorrectExtension1() = pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1 {
         this.str = this@TestAllTypesProto2_MessageSetCorrectExtension1_Impl.str
@@ -4621,17 +4504,12 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
     override fun copy(
         str: String?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {
         this.str = str
         this.unknownFields += unknownFields
-    }.toMessageSetCorrectExtension1()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1)?.let {
-        it.copy(
-            str = other.str ?: str,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMessageSetCorrectExtension1() = TestAllTypesProto2_MessageSetCorrectExtension1_Impl(
         str = str,
@@ -4641,6 +4519,15 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
     override fun toMutableMessageSetCorrectExtension1() = pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1 {
         this.str = this@TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl.str
         this.unknownFields += this@TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto2.MessageSetCorrectExtension1.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1) return this
+
+    return copy {
+        str = other.str ?: str
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4704,17 +4591,12 @@ private class TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
     override fun copy(
         i: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {
         this.i = i
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2)?.let {
-        it.copy(
-            i = other.i ?: i,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableMessageSetCorrectExtension2() = pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2 {
         this.i = this@TestAllTypesProto2_MessageSetCorrectExtension2_Impl.i
@@ -4735,17 +4617,12 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
     override fun copy(
         i: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {
         this.i = i
         this.unknownFields += unknownFields
-    }.toMessageSetCorrectExtension2()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2)?.let {
-        it.copy(
-            i = other.i ?: i,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMessageSetCorrectExtension2() = TestAllTypesProto2_MessageSetCorrectExtension2_Impl(
         i = i,
@@ -4755,6 +4632,15 @@ private class TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
     override fun toMutableMessageSetCorrectExtension2() = pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2 {
         this.i = this@TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl.i
         this.unknownFields += this@TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl.unknownFields
+    }
+}
+
+private fun TestAllTypesProto2.MessageSetCorrectExtension2.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 {
+    if (other !is pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2) return this
+
+    return copy {
+        i = other.i ?: i
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4811,17 +4697,12 @@ private class ForeignMessageProto2_Impl(
     override fun copy(
         c: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ForeignMessageProto2 {
         this.c = c
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ForeignMessageProto2)?.let {
-        it.copy(
-            c = other.c ?: c,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableForeignMessageProto2() = pbandk.conformance.pb.MutableForeignMessageProto2 {
         this.c = this@ForeignMessageProto2_Impl.c
@@ -4842,17 +4723,12 @@ private class MutableForeignMessageProto2_Impl(
     override fun copy(
         c: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.ForeignMessageProto2 {
         this.c = c
         this.unknownFields += unknownFields
-    }.toForeignMessageProto2()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.ForeignMessageProto2)?.let {
-        it.copy(
-            c = other.c ?: c,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toForeignMessageProto2() = ForeignMessageProto2_Impl(
         c = c,
@@ -4862,6 +4738,15 @@ private class MutableForeignMessageProto2_Impl(
     override fun toMutableForeignMessageProto2() = pbandk.conformance.pb.MutableForeignMessageProto2 {
         this.c = this@MutableForeignMessageProto2_Impl.c
         this.unknownFields += this@MutableForeignMessageProto2_Impl.unknownFields
+    }
+}
+
+private fun ForeignMessageProto2.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.ForeignMessageProto2 {
+    if (other !is pbandk.conformance.pb.ForeignMessageProto2) return this
+
+    return copy {
+        c = other.c ?: c
+        unknownFields += other.unknownFields
     }
 }
 
@@ -4938,7 +4823,7 @@ private class UnknownToTestAllTypes_Impl(
         optionalBool: Boolean?,
         repeatedInt32: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.UnknownToTestAllTypes {
         this.optionalInt32 = optionalInt32
         this.optionalString = optionalString
         this.nestedMessage = nestedMessage
@@ -4947,16 +4832,7 @@ private class UnknownToTestAllTypes_Impl(
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.UnknownToTestAllTypes)?.let {
-        it.copy(
-            optionalInt32 = other.optionalInt32 ?: optionalInt32,
-            optionalString = other.optionalString ?: optionalString,
-            nestedMessage = nestedMessage?.plus(other.nestedMessage) ?: other.nestedMessage,
-            optionalBool = other.optionalBool ?: optionalBool,
-            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableUnknownToTestAllTypes() = pbandk.conformance.pb.MutableUnknownToTestAllTypes {
         this.optionalInt32 = this@UnknownToTestAllTypes_Impl.optionalInt32
@@ -4989,25 +4865,16 @@ private class MutableUnknownToTestAllTypes_Impl(
         optionalBool: Boolean?,
         repeatedInt32: List<Int>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.UnknownToTestAllTypes {
         this.optionalInt32 = optionalInt32
         this.optionalString = optionalString
         this.nestedMessage = nestedMessage
         this.optionalBool = optionalBool
         this.repeatedInt32 += repeatedInt32
         this.unknownFields += unknownFields
-    }.toUnknownToTestAllTypes()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.UnknownToTestAllTypes)?.let {
-        it.copy(
-            optionalInt32 = other.optionalInt32 ?: optionalInt32,
-            optionalString = other.optionalString ?: optionalString,
-            nestedMessage = nestedMessage?.plus(other.nestedMessage) ?: other.nestedMessage,
-            optionalBool = other.optionalBool ?: optionalBool,
-            repeatedInt32 = repeatedInt32 + other.repeatedInt32,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toUnknownToTestAllTypes() = UnknownToTestAllTypes_Impl(
         optionalInt32 = optionalInt32,
@@ -5025,6 +4892,19 @@ private class MutableUnknownToTestAllTypes_Impl(
         this.optionalBool = this@MutableUnknownToTestAllTypes_Impl.optionalBool
         this.repeatedInt32 += this@MutableUnknownToTestAllTypes_Impl.repeatedInt32
         this.unknownFields += this@MutableUnknownToTestAllTypes_Impl.unknownFields
+    }
+}
+
+private fun UnknownToTestAllTypes.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.UnknownToTestAllTypes {
+    if (other !is pbandk.conformance.pb.UnknownToTestAllTypes) return this
+
+    return copy {
+        optionalInt32 = other.optionalInt32 ?: optionalInt32
+        optionalString = other.optionalString ?: optionalString
+        nestedMessage = nestedMessage?.plus(other.nestedMessage) ?: other.nestedMessage
+        optionalBool = other.optionalBool ?: optionalBool
+        repeatedInt32 += other.repeatedInt32
+        unknownFields += other.unknownFields
     }
 }
 
@@ -5097,17 +4977,12 @@ private class UnknownToTestAllTypes_OptionalGroup_Impl(
     override fun copy(
         a: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {
         this.a = a
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup)?.let {
-        it.copy(
-            a = other.a ?: a,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableOptionalGroup() = pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup {
         this.a = this@UnknownToTestAllTypes_OptionalGroup_Impl.a
@@ -5128,17 +5003,12 @@ private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
     override fun copy(
         a: Int?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {
         this.a = a
         this.unknownFields += unknownFields
-    }.toOptionalGroup()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup)?.let {
-        it.copy(
-            a = other.a ?: a,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toOptionalGroup() = UnknownToTestAllTypes_OptionalGroup_Impl(
         a = a,
@@ -5148,6 +5018,15 @@ private class UnknownToTestAllTypes_MutableOptionalGroup_Impl(
     override fun toMutableOptionalGroup() = pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup {
         this.a = this@UnknownToTestAllTypes_MutableOptionalGroup_Impl.a
         this.unknownFields += this@UnknownToTestAllTypes_MutableOptionalGroup_Impl.unknownFields
+    }
+}
+
+private fun UnknownToTestAllTypes.OptionalGroup.protoMergeImpl(other: pbandk.Message?): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup {
+    if (other !is pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup) return this
+
+    return copy {
+        a = other.a ?: a
+        unknownFields += other.unknownFields
     }
 }
 

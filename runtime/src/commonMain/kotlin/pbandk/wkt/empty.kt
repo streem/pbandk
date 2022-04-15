@@ -94,15 +94,11 @@ private class Empty_Impl(
     @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Empty {
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Empty)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableEmpty() = pbandk.wkt.MutableEmpty {
         this.unknownFields += this@Empty_Impl.unknownFields
@@ -120,15 +116,11 @@ private class MutableEmpty_Impl(
     @Deprecated("Use copy {} instead")
     override fun copy(
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.Empty {
         this.unknownFields += unknownFields
-    }.toEmpty()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.Empty)?.let {
-        it.copy(
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toEmpty() = Empty_Impl(
         unknownFields = unknownFields.toMap()
@@ -136,6 +128,14 @@ private class MutableEmpty_Impl(
 
     override fun toMutableEmpty() = pbandk.wkt.MutableEmpty {
         this.unknownFields += this@MutableEmpty_Impl.unknownFields
+    }
+}
+
+private fun Empty.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.Empty {
+    if (other !is pbandk.wkt.Empty) return this
+
+    return copy {
+        unknownFields += other.unknownFields
     }
 }
 

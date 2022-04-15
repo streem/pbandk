@@ -112,17 +112,12 @@ private class FieldMask_Impl(
     override fun copy(
         paths: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FieldMask {
         this.paths += paths
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldMask)?.let {
-        it.copy(
-            paths = paths + other.paths,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableFieldMask() = pbandk.wkt.MutableFieldMask {
         this.paths += this@FieldMask_Impl.paths
@@ -143,17 +138,12 @@ private class MutableFieldMask_Impl(
     override fun copy(
         paths: List<String>,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.wkt.FieldMask {
         this.paths += paths
         this.unknownFields += unknownFields
-    }.toFieldMask()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.wkt.FieldMask)?.let {
-        it.copy(
-            paths = paths + other.paths,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toFieldMask() = FieldMask_Impl(
         paths = paths.toList(),
@@ -163,6 +153,15 @@ private class MutableFieldMask_Impl(
     override fun toMutableFieldMask() = pbandk.wkt.MutableFieldMask {
         this.paths += this@MutableFieldMask_Impl.paths
         this.unknownFields += this@MutableFieldMask_Impl.unknownFields
+    }
+}
+
+private fun FieldMask.protoMergeImpl(other: pbandk.Message?): pbandk.wkt.FieldMask {
+    if (other !is pbandk.wkt.FieldMask) return this
+
+    return copy {
+        paths += other.paths
+        unknownFields += other.unknownFields
     }
 }
 

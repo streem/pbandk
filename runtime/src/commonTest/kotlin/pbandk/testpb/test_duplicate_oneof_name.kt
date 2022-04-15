@@ -156,17 +156,12 @@ private class Value_Impl(
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Value {
         this.value = value
         this.unknownFields += unknownFields
     }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Value)?.let {
-        it.copy(
-            value = other.value ?: value,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toMutableValue() = pbandk.testpb.MutableValue {
         this.value = this@Value_Impl.value
@@ -197,17 +192,12 @@ private class MutableValue_Impl(
     override fun copy(
         value: pbandk.testpb.Value.Value<*>?,
         unknownFields: Map<Int, pbandk.UnknownField>
-    ) = copy {
+    ) = pbandk.testpb.Value {
         this.value = value
         this.unknownFields += unknownFields
-    }.toValue()
+    }
 
-    override operator fun plus(other: pbandk.Message?) = (other as? pbandk.testpb.Value)?.let {
-        it.copy(
-            value = other.value ?: value,
-            unknownFields = unknownFields + other.unknownFields
-        )
-    } ?: this
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
 
     override fun toValue() = Value_Impl(
         value = value,
@@ -217,6 +207,20 @@ private class MutableValue_Impl(
     override fun toMutableValue() = pbandk.testpb.MutableValue {
         this.value = this@MutableValue_Impl.value
         this.unknownFields += this@MutableValue_Impl.unknownFields
+    }
+}
+
+private fun Value.protoMergeImpl(other: pbandk.Message?): pbandk.testpb.Value {
+    if (other !is pbandk.testpb.Value) return this
+
+    return copy {
+        when (other.value) {
+            is Value.Value.StringValue -> stringValue = other.stringValue
+            is Value.Value.BooleanValue -> booleanValue = other.booleanValue
+            is Value.Value.IntegerValue -> integerValue = other.integerValue
+            null -> {}
+        }
+        unknownFields += other.unknownFields
     }
 }
 
