@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface Duration : pbandk.Message {
     public val seconds: Long
     public val nanos: Int
@@ -19,6 +18,7 @@ public sealed interface Duration : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         seconds: Long = this.seconds,
         nanos: Int = this.nanos,
@@ -63,7 +63,6 @@ public sealed interface Duration : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableDuration : pbandk.wkt.Duration, pbandk.MutableMessage {
     public override var seconds: Long
     public override var nanos: Int
@@ -91,6 +90,7 @@ public fun Duration(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDuration")
 public fun Duration(builderAction: pbandk.wkt.MutableDuration.() -> Unit): pbandk.wkt.Duration = pbandk.wkt.MutableDuration_Impl(
     seconds = 0L,
     nanos = 0,

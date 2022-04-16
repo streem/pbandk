@@ -2,7 +2,6 @@
 
 package pbandk.testpb
 
-@pbandk.Export
 public sealed interface Value : pbandk.Message {
     public val value: Value<*>?
 
@@ -18,6 +17,7 @@ public sealed interface Value : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: pbandk.testpb.Value.Value<*>? = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -84,7 +84,6 @@ public sealed interface Value : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableValue : pbandk.testpb.Value, pbandk.MutableMessage {
     public override var value: Value.Value<*>?
 
@@ -113,6 +112,7 @@ public fun Value(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildValue")
 public fun Value(builderAction: pbandk.testpb.MutableValue.() -> Unit): pbandk.testpb.Value = pbandk.testpb.MutableValue_Impl(
     value = null,
     unknownFields = mutableMapOf()

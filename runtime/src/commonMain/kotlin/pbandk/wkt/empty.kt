@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface Empty : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Empty
@@ -17,6 +16,7 @@ public sealed interface Empty : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
     ): pbandk.wkt.Empty
@@ -39,7 +39,6 @@ public sealed interface Empty : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEmpty : pbandk.wkt.Empty, pbandk.MutableMessage {
 }
 
@@ -61,6 +60,7 @@ public fun Empty(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEmpty")
 public fun Empty(builderAction: pbandk.wkt.MutableEmpty.() -> Unit): pbandk.wkt.Empty = pbandk.wkt.MutableEmpty_Impl(
     unknownFields = mutableMapOf()
 ).also(builderAction).toEmpty()

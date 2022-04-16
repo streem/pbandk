@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface FieldMask : pbandk.Message {
     public val paths: List<String>
 
@@ -18,6 +17,7 @@ public sealed interface FieldMask : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         paths: List<String> = this.paths,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -51,7 +51,6 @@ public sealed interface FieldMask : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFieldMask : pbandk.wkt.FieldMask, pbandk.MutableMessage {
     public override val paths: MutableList<String>
 }
@@ -76,6 +75,7 @@ public fun FieldMask(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFieldMask")
 public fun FieldMask(builderAction: pbandk.wkt.MutableFieldMask.() -> Unit): pbandk.wkt.FieldMask = pbandk.wkt.MutableFieldMask_Impl(
     paths = mutableListOf(),
     unknownFields = mutableMapOf()

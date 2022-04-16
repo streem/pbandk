@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface FileDescriptorSet : pbandk.Message {
     public val file: List<pbandk.wkt.FileDescriptorProto>
 
@@ -18,6 +17,7 @@ public sealed interface FileDescriptorSet : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         file: List<pbandk.wkt.FileDescriptorProto> = this.file,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -51,12 +51,10 @@ public sealed interface FileDescriptorSet : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFileDescriptorSet : pbandk.wkt.FileDescriptorSet, pbandk.MutableMessage {
     public override val file: MutableList<pbandk.wkt.FileDescriptorProto>
 }
 
-@pbandk.Export
 public sealed interface FileDescriptorProto : pbandk.Message {
     public val name: String?
     public val `package`: String?
@@ -83,6 +81,7 @@ public sealed interface FileDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         `package`: String? = this.`package`,
@@ -237,7 +236,6 @@ public sealed interface FileDescriptorProto : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFileDescriptorProto : pbandk.wkt.FileDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override var `package`: String?
@@ -253,7 +251,6 @@ public sealed interface MutableFileDescriptorProto : pbandk.wkt.FileDescriptorPr
     public override var syntax: String?
 }
 
-@pbandk.Export
 public sealed interface DescriptorProto : pbandk.Message {
     public val name: String?
     public val field: List<pbandk.wkt.FieldDescriptorProto>
@@ -278,6 +275,7 @@ public sealed interface DescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         field: List<pbandk.wkt.FieldDescriptorProto> = this.field,
@@ -426,6 +424,7 @@ public sealed interface DescriptorProto : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             start: Int? = this.start,
             end: Int? = this.end,
@@ -481,7 +480,6 @@ public sealed interface DescriptorProto : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableExtensionRange : pbandk.wkt.DescriptorProto.ExtensionRange, pbandk.MutableMessage {
         public override var start: Int?
         public override var end: Int?
@@ -504,6 +502,7 @@ public sealed interface DescriptorProto : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             start: Int? = this.start,
             end: Int? = this.end,
@@ -548,14 +547,12 @@ public sealed interface DescriptorProto : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableReservedRange : pbandk.wkt.DescriptorProto.ReservedRange, pbandk.MutableMessage {
         public override var start: Int?
         public override var end: Int?
     }
 }
 
-@pbandk.Export
 public sealed interface MutableDescriptorProto : pbandk.wkt.DescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override val field: MutableList<pbandk.wkt.FieldDescriptorProto>
@@ -569,7 +566,6 @@ public sealed interface MutableDescriptorProto : pbandk.wkt.DescriptorProto, pba
     public override val reservedName: MutableList<String>
 }
 
-@pbandk.Export
 public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
@@ -585,6 +581,7 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -618,12 +615,10 @@ public sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableExtensionRangeOptions : pbandk.wkt.ExtensionRangeOptions, pbandk.MutableMessage {
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface FieldDescriptorProto : pbandk.Message {
     public val name: String?
     public val number: Int?
@@ -649,6 +644,7 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         number: Int? = this.number,
@@ -841,7 +837,6 @@ public sealed interface FieldDescriptorProto : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFieldDescriptorProto : pbandk.wkt.FieldDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override var number: Int?
@@ -856,7 +851,6 @@ public sealed interface MutableFieldDescriptorProto : pbandk.wkt.FieldDescriptor
     public override var proto3Optional: Boolean?
 }
 
-@pbandk.Export
 public sealed interface OneofDescriptorProto : pbandk.Message {
     public val name: String?
     public val options: pbandk.wkt.OneofOptions?
@@ -873,6 +867,7 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         options: pbandk.wkt.OneofOptions? = this.options,
@@ -917,13 +912,11 @@ public sealed interface OneofDescriptorProto : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableOneofDescriptorProto : pbandk.wkt.OneofDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override var options: pbandk.wkt.OneofOptions?
 }
 
-@pbandk.Export
 public sealed interface EnumDescriptorProto : pbandk.Message {
     public val name: String?
     public val value: List<pbandk.wkt.EnumValueDescriptorProto>
@@ -943,6 +936,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         value: List<pbandk.wkt.EnumValueDescriptorProto> = this.value,
@@ -1035,6 +1029,7 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             start: Int? = this.start,
             end: Int? = this.end,
@@ -1079,14 +1074,12 @@ public sealed interface EnumDescriptorProto : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableEnumReservedRange : pbandk.wkt.EnumDescriptorProto.EnumReservedRange, pbandk.MutableMessage {
         public override var start: Int?
         public override var end: Int?
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnumDescriptorProto : pbandk.wkt.EnumDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override val value: MutableList<pbandk.wkt.EnumValueDescriptorProto>
@@ -1095,7 +1088,6 @@ public sealed interface MutableEnumDescriptorProto : pbandk.wkt.EnumDescriptorPr
     public override val reservedName: MutableList<String>
 }
 
-@pbandk.Export
 public sealed interface EnumValueDescriptorProto : pbandk.Message {
     public val name: String?
     public val number: Int?
@@ -1113,6 +1105,7 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         number: Int? = this.number,
@@ -1168,14 +1161,12 @@ public sealed interface EnumValueDescriptorProto : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnumValueDescriptorProto : pbandk.wkt.EnumValueDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override var number: Int?
     public override var options: pbandk.wkt.EnumValueOptions?
 }
 
-@pbandk.Export
 public sealed interface ServiceDescriptorProto : pbandk.Message {
     public val name: String?
     public val method: List<pbandk.wkt.MethodDescriptorProto>
@@ -1193,6 +1184,7 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         method: List<pbandk.wkt.MethodDescriptorProto> = this.method,
@@ -1248,14 +1240,12 @@ public sealed interface ServiceDescriptorProto : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableServiceDescriptorProto : pbandk.wkt.ServiceDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override val method: MutableList<pbandk.wkt.MethodDescriptorProto>
     public override var options: pbandk.wkt.ServiceOptions?
 }
 
-@pbandk.Export
 public sealed interface MethodDescriptorProto : pbandk.Message {
     public val name: String?
     public val inputType: String?
@@ -1276,6 +1266,7 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String? = this.name,
         inputType: String? = this.inputType,
@@ -1364,7 +1355,6 @@ public sealed interface MethodDescriptorProto : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMethodDescriptorProto : pbandk.wkt.MethodDescriptorProto, pbandk.MutableMessage {
     public override var name: String?
     public override var inputType: String?
@@ -1374,7 +1364,6 @@ public sealed interface MutableMethodDescriptorProto : pbandk.wkt.MethodDescript
     public override var serverStreaming: Boolean?
 }
 
-@pbandk.Export
 public sealed interface FileOptions : pbandk.ExtendableMessage {
     public val javaPackage: String?
     public val javaOuterClassname: String?
@@ -1411,6 +1400,7 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         javaPackage: String? = this.javaPackage,
         javaOuterClassname: String? = this.javaOuterClassname,
@@ -1685,7 +1675,6 @@ public sealed interface FileOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFileOptions : pbandk.wkt.FileOptions, pbandk.MutableMessage {
     public override var javaPackage: String?
     public override var javaOuterClassname: String?
@@ -1711,7 +1700,6 @@ public sealed interface MutableFileOptions : pbandk.wkt.FileOptions, pbandk.Muta
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface MessageOptions : pbandk.ExtendableMessage {
     public val messageSetWireFormat: Boolean?
     public val noStandardDescriptorAccessor: Boolean?
@@ -1731,6 +1719,7 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         messageSetWireFormat: Boolean? = this.messageSetWireFormat,
         noStandardDescriptorAccessor: Boolean? = this.noStandardDescriptorAccessor,
@@ -1808,7 +1797,6 @@ public sealed interface MessageOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMessageOptions : pbandk.wkt.MessageOptions, pbandk.MutableMessage {
     public override var messageSetWireFormat: Boolean?
     public override var noStandardDescriptorAccessor: Boolean?
@@ -1817,7 +1805,6 @@ public sealed interface MutableMessageOptions : pbandk.wkt.MessageOptions, pband
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface FieldOptions : pbandk.ExtendableMessage {
     public val ctype: pbandk.wkt.FieldOptions.CType?
     public val packed: Boolean?
@@ -1839,6 +1826,7 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         ctype: pbandk.wkt.FieldOptions.CType? = this.ctype,
         packed: Boolean? = this.packed,
@@ -1972,7 +1960,6 @@ public sealed interface FieldOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFieldOptions : pbandk.wkt.FieldOptions, pbandk.MutableMessage {
     public override var ctype: pbandk.wkt.FieldOptions.CType?
     public override var packed: Boolean?
@@ -1983,7 +1970,6 @@ public sealed interface MutableFieldOptions : pbandk.wkt.FieldOptions, pbandk.Mu
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface OneofOptions : pbandk.ExtendableMessage {
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
@@ -1999,6 +1985,7 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2032,12 +2019,10 @@ public sealed interface OneofOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableOneofOptions : pbandk.wkt.OneofOptions, pbandk.MutableMessage {
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface EnumOptions : pbandk.ExtendableMessage {
     public val allowAlias: Boolean?
     public val deprecated: Boolean?
@@ -2055,6 +2040,7 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         allowAlias: Boolean? = this.allowAlias,
         deprecated: Boolean? = this.deprecated,
@@ -2110,14 +2096,12 @@ public sealed interface EnumOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnumOptions : pbandk.wkt.EnumOptions, pbandk.MutableMessage {
     public override var allowAlias: Boolean?
     public override var deprecated: Boolean?
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     public val deprecated: Boolean?
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
@@ -2134,6 +2118,7 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         deprecated: Boolean? = this.deprecated,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
@@ -2178,13 +2163,11 @@ public sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnumValueOptions : pbandk.wkt.EnumValueOptions, pbandk.MutableMessage {
     public override var deprecated: Boolean?
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface ServiceOptions : pbandk.ExtendableMessage {
     public val deprecated: Boolean?
     public val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
@@ -2201,6 +2184,7 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         deprecated: Boolean? = this.deprecated,
         uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
@@ -2245,13 +2229,11 @@ public sealed interface ServiceOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableServiceOptions : pbandk.wkt.ServiceOptions, pbandk.MutableMessage {
     public override var deprecated: Boolean?
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface MethodOptions : pbandk.ExtendableMessage {
     public val deprecated: Boolean?
     public val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?
@@ -2269,6 +2251,7 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         deprecated: Boolean? = this.deprecated,
         idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = this.idempotencyLevel,
@@ -2341,14 +2324,12 @@ public sealed interface MethodOptions : pbandk.ExtendableMessage {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMethodOptions : pbandk.wkt.MethodOptions, pbandk.MutableMessage {
     public override var deprecated: Boolean?
     public override var idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?
     public override val uninterpretedOption: MutableList<pbandk.wkt.UninterpretedOption>
 }
 
-@pbandk.Export
 public sealed interface UninterpretedOption : pbandk.Message {
     public val name: List<pbandk.wkt.UninterpretedOption.NamePart>
     public val identifierValue: String?
@@ -2370,6 +2351,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: List<pbandk.wkt.UninterpretedOption.NamePart> = this.name,
         identifierValue: String? = this.identifierValue,
@@ -2484,6 +2466,7 @@ public sealed interface UninterpretedOption : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             namePart: String = this.namePart,
             isExtension: Boolean = this.isExtension,
@@ -2528,14 +2511,12 @@ public sealed interface UninterpretedOption : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableNamePart : pbandk.wkt.UninterpretedOption.NamePart, pbandk.MutableMessage {
         public override var namePart: String
         public override var isExtension: Boolean
     }
 }
 
-@pbandk.Export
 public sealed interface MutableUninterpretedOption : pbandk.wkt.UninterpretedOption, pbandk.MutableMessage {
     public override val name: MutableList<pbandk.wkt.UninterpretedOption.NamePart>
     public override var identifierValue: String?
@@ -2546,7 +2527,6 @@ public sealed interface MutableUninterpretedOption : pbandk.wkt.UninterpretedOpt
     public override var aggregateValue: String?
 }
 
-@pbandk.Export
 public sealed interface SourceCodeInfo : pbandk.Message {
     public val location: List<pbandk.wkt.SourceCodeInfo.Location>
 
@@ -2562,6 +2542,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         location: List<pbandk.wkt.SourceCodeInfo.Location> = this.location,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2613,6 +2594,7 @@ public sealed interface SourceCodeInfo : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             path: List<Int> = this.path,
             span: List<Int> = this.span,
@@ -2690,7 +2672,6 @@ public sealed interface SourceCodeInfo : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableLocation : pbandk.wkt.SourceCodeInfo.Location, pbandk.MutableMessage {
         public override val path: MutableList<Int>
         public override val span: MutableList<Int>
@@ -2700,12 +2681,10 @@ public sealed interface SourceCodeInfo : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableSourceCodeInfo : pbandk.wkt.SourceCodeInfo, pbandk.MutableMessage {
     public override val location: MutableList<pbandk.wkt.SourceCodeInfo.Location>
 }
 
-@pbandk.Export
 public sealed interface GeneratedCodeInfo : pbandk.Message {
     public val annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>
 
@@ -2721,6 +2700,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = this.annotation,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2771,6 +2751,7 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             path: List<Int> = this.path,
             sourceFile: String? = this.sourceFile,
@@ -2837,7 +2818,6 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableAnnotation : pbandk.wkt.GeneratedCodeInfo.Annotation, pbandk.MutableMessage {
         public override val path: MutableList<Int>
         public override var sourceFile: String?
@@ -2846,7 +2826,6 @@ public sealed interface GeneratedCodeInfo : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableGeneratedCodeInfo : pbandk.wkt.GeneratedCodeInfo, pbandk.MutableMessage {
     public override val annotation: MutableList<pbandk.wkt.GeneratedCodeInfo.Annotation>
 }
@@ -2871,6 +2850,7 @@ public fun FileDescriptorSet(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFileDescriptorSet")
 public fun FileDescriptorSet(builderAction: pbandk.wkt.MutableFileDescriptorSet.() -> Unit): pbandk.wkt.FileDescriptorSet = pbandk.wkt.MutableFileDescriptorSet_Impl(
     file = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -2990,6 +2970,7 @@ public fun FileDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFileDescriptorProto")
 public fun FileDescriptorProto(builderAction: pbandk.wkt.MutableFileDescriptorProto.() -> Unit): pbandk.wkt.FileDescriptorProto = pbandk.wkt.MutableFileDescriptorProto_Impl(
     name = null,
     `package` = null,
@@ -3228,6 +3209,7 @@ public fun DescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDescriptorProto")
 public fun DescriptorProto(builderAction: pbandk.wkt.MutableDescriptorProto.() -> Unit): pbandk.wkt.DescriptorProto = pbandk.wkt.MutableDescriptorProto_Impl(
     name = null,
     field = mutableListOf(),
@@ -3430,6 +3412,7 @@ public fun DescriptorProto.Companion.ExtensionRange(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDescriptorProtoExtensionRange")
 public fun DescriptorProto.Companion.ExtensionRange(builderAction: pbandk.wkt.DescriptorProto.MutableExtensionRange.() -> Unit): pbandk.wkt.DescriptorProto.ExtensionRange = pbandk.wkt.DescriptorProto_MutableExtensionRange_Impl(
     start = null,
     end = null,
@@ -3558,6 +3541,7 @@ public fun DescriptorProto.Companion.ReservedRange(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDescriptorProtoReservedRange")
 public fun DescriptorProto.Companion.ReservedRange(builderAction: pbandk.wkt.DescriptorProto.MutableReservedRange.() -> Unit): pbandk.wkt.DescriptorProto.ReservedRange = pbandk.wkt.DescriptorProto_MutableReservedRange_Impl(
     start = null,
     end = null,
@@ -3673,6 +3657,7 @@ public fun ExtensionRangeOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildExtensionRangeOptions")
 public fun ExtensionRangeOptions(builderAction: pbandk.wkt.MutableExtensionRangeOptions.() -> Unit): pbandk.wkt.ExtensionRangeOptions = pbandk.wkt.MutableExtensionRangeOptions_Impl(
     uninterpretedOption = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -3792,6 +3777,7 @@ public fun FieldDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFieldDescriptorProto")
 public fun FieldDescriptorProto(builderAction: pbandk.wkt.MutableFieldDescriptorProto.() -> Unit): pbandk.wkt.FieldDescriptorProto = pbandk.wkt.MutableFieldDescriptorProto_Impl(
     name = null,
     number = null,
@@ -4003,6 +3989,7 @@ public fun OneofDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildOneofDescriptorProto")
 public fun OneofDescriptorProto(builderAction: pbandk.wkt.MutableOneofDescriptorProto.() -> Unit): pbandk.wkt.OneofDescriptorProto = pbandk.wkt.MutableOneofDescriptorProto_Impl(
     name = null,
     options = null,
@@ -4119,6 +4106,7 @@ public fun EnumDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumDescriptorProto")
 public fun EnumDescriptorProto(builderAction: pbandk.wkt.MutableEnumDescriptorProto.() -> Unit): pbandk.wkt.EnumDescriptorProto = pbandk.wkt.MutableEnumDescriptorProto_Impl(
     name = null,
     value = mutableListOf(),
@@ -4263,6 +4251,7 @@ public fun EnumDescriptorProto.Companion.EnumReservedRange(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumDescriptorProtoEnumReservedRange")
 public fun EnumDescriptorProto.Companion.EnumReservedRange(builderAction: pbandk.wkt.EnumDescriptorProto.MutableEnumReservedRange.() -> Unit): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = pbandk.wkt.EnumDescriptorProto_MutableEnumReservedRange_Impl(
     start = null,
     end = null,
@@ -4382,6 +4371,7 @@ public fun EnumValueDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumValueDescriptorProto")
 public fun EnumValueDescriptorProto(builderAction: pbandk.wkt.MutableEnumValueDescriptorProto.() -> Unit): pbandk.wkt.EnumValueDescriptorProto = pbandk.wkt.MutableEnumValueDescriptorProto_Impl(
     name = null,
     number = null,
@@ -4505,6 +4495,7 @@ public fun ServiceDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildServiceDescriptorProto")
 public fun ServiceDescriptorProto(builderAction: pbandk.wkt.MutableServiceDescriptorProto.() -> Unit): pbandk.wkt.ServiceDescriptorProto = pbandk.wkt.MutableServiceDescriptorProto_Impl(
     name = null,
     method = mutableListOf(),
@@ -4634,6 +4625,7 @@ public fun MethodDescriptorProto(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMethodDescriptorProto")
 public fun MethodDescriptorProto(builderAction: pbandk.wkt.MutableMethodDescriptorProto.() -> Unit): pbandk.wkt.MethodDescriptorProto = pbandk.wkt.MutableMethodDescriptorProto_Impl(
     name = null,
     inputType = null,
@@ -4828,6 +4820,7 @@ public fun FileOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFileOptions")
 public fun FileOptions(builderAction: pbandk.wkt.MutableFileOptions.() -> Unit): pbandk.wkt.FileOptions = pbandk.wkt.MutableFileOptions_Impl(
     javaPackage = null,
     javaOuterClassname = null,
@@ -5165,6 +5158,7 @@ public fun MessageOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMessageOptions")
 public fun MessageOptions(builderAction: pbandk.wkt.MutableMessageOptions.() -> Unit): pbandk.wkt.MessageOptions = pbandk.wkt.MutableMessageOptions_Impl(
     messageSetWireFormat = null,
     noStandardDescriptorAccessor = null,
@@ -5321,6 +5315,7 @@ public fun FieldOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFieldOptions")
 public fun FieldOptions(builderAction: pbandk.wkt.MutableFieldOptions.() -> Unit): pbandk.wkt.FieldOptions = pbandk.wkt.MutableFieldOptions_Impl(
     ctype = null,
     packed = null,
@@ -5487,6 +5482,7 @@ public fun OneofOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildOneofOptions")
 public fun OneofOptions(builderAction: pbandk.wkt.MutableOneofOptions.() -> Unit): pbandk.wkt.OneofOptions = pbandk.wkt.MutableOneofOptions_Impl(
     uninterpretedOption = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -5590,6 +5586,7 @@ public fun EnumOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumOptions")
 public fun EnumOptions(builderAction: pbandk.wkt.MutableEnumOptions.() -> Unit): pbandk.wkt.EnumOptions = pbandk.wkt.MutableEnumOptions_Impl(
     allowAlias = null,
     deprecated = null,
@@ -5713,6 +5710,7 @@ public fun EnumValueOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumValueOptions")
 public fun EnumValueOptions(builderAction: pbandk.wkt.MutableEnumValueOptions.() -> Unit): pbandk.wkt.EnumValueOptions = pbandk.wkt.MutableEnumValueOptions_Impl(
     deprecated = null,
     uninterpretedOption = mutableListOf(),
@@ -5825,6 +5823,7 @@ public fun ServiceOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildServiceOptions")
 public fun ServiceOptions(builderAction: pbandk.wkt.MutableServiceOptions.() -> Unit): pbandk.wkt.ServiceOptions = pbandk.wkt.MutableServiceOptions_Impl(
     deprecated = null,
     uninterpretedOption = mutableListOf(),
@@ -5939,6 +5938,7 @@ public fun MethodOptions(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMethodOptions")
 public fun MethodOptions(builderAction: pbandk.wkt.MutableMethodOptions.() -> Unit): pbandk.wkt.MethodOptions = pbandk.wkt.MutableMethodOptions_Impl(
     deprecated = null,
     idempotencyLevel = null,
@@ -6072,6 +6072,7 @@ public fun UninterpretedOption(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUninterpretedOption")
 public fun UninterpretedOption(builderAction: pbandk.wkt.MutableUninterpretedOption.() -> Unit): pbandk.wkt.UninterpretedOption = pbandk.wkt.MutableUninterpretedOption_Impl(
     name = mutableListOf(),
     identifierValue = null,
@@ -6238,6 +6239,7 @@ public fun UninterpretedOption.Companion.NamePart(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUninterpretedOptionNamePart")
 public fun UninterpretedOption.Companion.NamePart(builderAction: pbandk.wkt.UninterpretedOption.MutableNamePart.() -> Unit): pbandk.wkt.UninterpretedOption.NamePart = pbandk.wkt.UninterpretedOption_MutableNamePart_Impl(
     namePart = "",
     isExtension = false,
@@ -6353,6 +6355,7 @@ public fun SourceCodeInfo(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSourceCodeInfo")
 public fun SourceCodeInfo(builderAction: pbandk.wkt.MutableSourceCodeInfo.() -> Unit): pbandk.wkt.SourceCodeInfo = pbandk.wkt.MutableSourceCodeInfo_Impl(
     location = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -6458,6 +6461,7 @@ public fun SourceCodeInfo.Companion.Location(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSourceCodeInfoLocation")
 public fun SourceCodeInfo.Companion.Location(builderAction: pbandk.wkt.SourceCodeInfo.MutableLocation.() -> Unit): pbandk.wkt.SourceCodeInfo.Location = pbandk.wkt.SourceCodeInfo_MutableLocation_Impl(
     path = mutableListOf(),
     span = mutableListOf(),
@@ -6607,6 +6611,7 @@ public fun GeneratedCodeInfo(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildGeneratedCodeInfo")
 public fun GeneratedCodeInfo(builderAction: pbandk.wkt.MutableGeneratedCodeInfo.() -> Unit): pbandk.wkt.GeneratedCodeInfo = pbandk.wkt.MutableGeneratedCodeInfo_Impl(
     annotation = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -6710,6 +6715,7 @@ public fun GeneratedCodeInfo.Companion.Annotation(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildGeneratedCodeInfoAnnotation")
 public fun GeneratedCodeInfo.Companion.Annotation(builderAction: pbandk.wkt.GeneratedCodeInfo.MutableAnnotation.() -> Unit): pbandk.wkt.GeneratedCodeInfo.Annotation = pbandk.wkt.GeneratedCodeInfo_MutableAnnotation_Impl(
     path = mutableListOf(),
     sourceFile = null,

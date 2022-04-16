@@ -99,7 +99,9 @@ public open class CodeGenerator(
 
         line()
         // Only mark top-level classes for export, internal classes will be exported transitively
-        if (type.kotlinName.parent == null) line("@pbandk.Export")
+        // TODO: temporarily disabled because interfaces can't be exported in Kotlin 1.5. This can be reenabled after
+        //  upgrading to Kotlin 1.6.20
+        //if (type.kotlinName.parent == null) line("@pbandk.Export")
         line("$visibility sealed interface ${type.kotlinName.simple} : $messageInterface {").indented {
             val fieldBegin = if (type.mapEntry) "$visibility override " else "$visibility "
 
@@ -140,6 +142,7 @@ public open class CodeGenerator(
                 }.line(")")
                  */
             }.line(")")
+            line("@pbandk.JsName(\"copyDeprecated\")")
             line("$visibility fun copy(").indented {
                 type.fields.forEach { field ->
                     lineBegin("${field.kotlinName}: ")
@@ -173,7 +176,9 @@ public open class CodeGenerator(
         }.line("}")
 
         line()
-        line("@pbandk.Export")
+        // TODO: temporarily disabled because interfaces can't be exported in Kotlin 1.5. This can be reenabled after
+        //  upgrading to Kotlin 1.6.20
+        //line("@pbandk.Export")
         line("$visibility sealed interface ${type.mutableTypeName.simple} : ${type.kotlinName.fullWithPackage}, pbandk.MutableMessage {").indented {
             type.fields.forEach { field ->
                 addDeprecatedAnnotation(field)
@@ -362,6 +367,7 @@ public open class CodeGenerator(
         line(" * Using it outside of the function produces an unspecified behavior.")
         line(" */")
         line("@pbandk.Export")
+        line("@pbandk.JsName(\"build${type.kotlinName.full.replace(".", "")}\")")
         lineBegin("$visibility fun ${builderName.full}(builderAction: ${type.mutableTypeName.fullWithPackage}.() -> Unit): ${type.kotlinName.fullWithPackage} = ")
         lineEnd("${type.mutableImplName.fullWithPackage}(").indented {
             type.fields.forEach { field -> line("${field.kotlinName} = ${field.defaultValue(mutable = true, parentMessage = type)},") }

@@ -4,7 +4,6 @@ import kotlin.js.JsExport
 import kotlin.reflect.KClass
 
 @PublicForGeneratedCode
-@JsExport
 public class MessageMap<K, V> internal constructor(entries: Collection<Entry<K, V>>) : Map<K, V> {
     private val delegate: Map<K, Entry<K, V>> = entries.associateBy(Entry<K, V>::key)
 
@@ -40,20 +39,6 @@ public class MessageMap<K, V> internal constructor(entries: Collection<Entry<K, 
     override fun toString(): String = delegate.values.joinToString(separator = ", ", prefix = "{", postfix = "}") {
         "${it.key}=${it.value}" + if (it.unknownFields.isNotEmpty()) " (has unknown fields)" else ""
     }
-
-    /*
-    @PublicForGeneratedCode
-    public class Builder<K, V> {
-        public val entries: MutableSet<Entry<K, V>> = mutableSetOf()
-
-        public fun fixed(): MessageMap<K, V> = MessageMap(entries)
-
-        @PublicForGeneratedCode
-        public companion object {
-            public fun <K, V> fixed(bld: Builder<K, V>?): MessageMap<K, V> = bld?.fixed() ?: empty()
-        }
-    }
-     */
 
     @PublicForGeneratedCode
     public interface Entry<K, V> : Map.Entry<K, V>, Message {
@@ -103,22 +88,6 @@ public class MessageMap<K, V> internal constructor(entries: Collection<Entry<K, 
         }
     }
 
-    /*
-    public fun Entry(builderAction: MutableMessageMap.MutableEntry<K, V>.() -> Unit): Entry<K, V> =
-        MutableMessageMap.MutableEntry<K, V>().also(builderAction).toEntry()
-
-    public class Entry_Impl<K, V>(
-        override val key: K,
-        override val value: V,
-        companion: Entry.Companion<K, V>,
-        override val unknownFields: Map<Int, UnknownField> = emptyMap()
-    ) : Entry<K, V>, GeneratedMessage<Entry<K, V>>() {
-        override val descriptor: MessageDescriptor<Entry<K, V>> = companion.descriptor
-
-        override fun plus(other: Message?): Entry<K, V> = throw UnsupportedOperationException()
-    }
-     */
-
     @PublicForGeneratedCode
     public companion object {
         private val Empty = MessageMap<Nothing, Nothing>(emptySet())
@@ -143,11 +112,6 @@ public class MessageMap<K, V> internal constructor(entries: Collection<Entry<K, 
 }
 
 //@PublicForGeneratedCode
-//@JsExport
-//public fun <K, V> MutableMessageMap<K, V>?.toMessageMap(): MessageMap<K, V> = this?.toMessageMap() ?: MessageMap.empty()
-
-//@PublicForGeneratedCode
-@JsExport
 public class MutableMessageMap<K, V>(private val entryCompanion: MessageMap.Entry.Companion<K, V>) : MutableMap<K, V> {
     // Convenience constructor to keep generated code more succinct
     @Suppress("UNCHECKED_CAST")
@@ -279,19 +243,11 @@ public class MutableMessageMap<K, V>(private val entryCompanion: MessageMap.Entr
         "${it.key}=${it.value}" + if (it.unknownFields.isNotEmpty()) " (has unknown fields)" else ""
     }
 
-    internal interface MutableEntry<K, V> : MutableMap.MutableEntry<K, V>, MessageMap.Entry<K, V> /*, MutableMessage {
-        override var key: K
-        override var value: V
-
-//        fun toEntry(): MessageMap.Entry<K, V>
-    }
-    */
+    internal interface MutableEntry<K, V> : MutableMap.MutableEntry<K, V>, MessageMap.Entry<K, V>
 
     public fun toMessageMap(): MessageMap<K, V> = if (isEmpty()) MessageMap.empty() else MessageMap(delegate.values)
 
 }
-
-//private object UninitializedValue
 
 internal class MutableMessageMapEntry<K, V>(
     override val key: K,
@@ -299,29 +255,8 @@ internal class MutableMessageMapEntry<K, V>(
     companion: MessageMap.Entry.Companion<K, V>,
     override val unknownFields: Map<Int, UnknownField> = emptyMap()
 ) : MutableMessageMap.MutableEntry<K, V>, GeneratedMessage<MessageMap.Entry<K, V>>() {
-
     private var _value: V = value
     override val value: V get() = _value
-
-/*
-private class MutableMessageMapEntry<K, V>(
-    override var key: K,
-    override var value: V,
-    companion: MessageMap.Entry.Companion<K, V>,
-    override val unknownFields: MutableMap<Int, UnknownField> = mutableMapOf()
-) : MutableMessageMap.MutableEntry<K, V>, MutableGeneratedMessage<MutableMessageMap.MutableEntry<K, V>>() {
- */
-    /*
-    private var _key: Any? = UninitializedValue
-    override var key: K
-        get() = if (_key === UninitializedValue) error("") else _key as K
-        set(value) { _key = value }
-
-    private var _value: Any? = UninitializedValue
-    override var value: V
-        get() = if (_value === UninitializedValue) error("") else _value as V
-        set(value) { _value = value }
-     */
 
     override fun setValue(newValue: V): V {
         val oldValue = _value

@@ -1018,7 +1018,6 @@ public sealed class HugeEnum(override val value: Int, override val name: String?
     }
 }
 
-@pbandk.Export
 public sealed interface MessageWithLotsOfFields : pbandk.Message {
     public val field1000: String
     public val field1001: String
@@ -2033,6 +2032,7 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         field1000: String = this.field1000,
         field1001: String = this.field1001,
@@ -13078,7 +13078,6 @@ public sealed interface MessageWithLotsOfFields : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMessageWithLotsOfFields : pbandk.testpb.MessageWithLotsOfFields, pbandk.MutableMessage {
     public override var field1000: String
     public override var field1001: String
@@ -14082,7 +14081,6 @@ public sealed interface MutableMessageWithLotsOfFields : pbandk.testpb.MessageWi
     public override var field1999: String
 }
 
-@pbandk.Export
 public sealed interface MessageWithHugeOneof : pbandk.Message {
     public val hugeOneof: HugeOneof<*>?
 
@@ -14098,6 +14096,7 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         hugeOneof: pbandk.testpb.MessageWithHugeOneof.HugeOneof<*>? = this.hugeOneof,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -40173,7 +40172,6 @@ public sealed interface MessageWithHugeOneof : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMessageWithHugeOneof : pbandk.testpb.MessageWithHugeOneof, pbandk.MutableMessage {
     public override var hugeOneof: MessageWithHugeOneof.HugeOneof<*>?
 
@@ -44197,6 +44195,7 @@ public fun MessageWithLotsOfFields(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMessageWithLotsOfFields")
 public fun MessageWithLotsOfFields(builderAction: pbandk.testpb.MutableMessageWithLotsOfFields.() -> Unit): pbandk.testpb.MessageWithLotsOfFields = pbandk.testpb.MutableMessageWithLotsOfFields_Impl(
     field1000 = "",
     field1001 = "",
@@ -55532,6 +55531,7 @@ public fun MessageWithHugeOneof(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMessageWithHugeOneof")
 public fun MessageWithHugeOneof(builderAction: pbandk.testpb.MutableMessageWithHugeOneof.() -> Unit): pbandk.testpb.MessageWithHugeOneof = pbandk.testpb.MutableMessageWithHugeOneof_Impl(
     hugeOneof = null,
     unknownFields = mutableMapOf()

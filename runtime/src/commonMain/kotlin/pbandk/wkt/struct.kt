@@ -18,7 +18,6 @@ public sealed class NullValue(override val value: Int, override val name: String
     }
 }
 
-@pbandk.Export
 public sealed interface Struct : pbandk.Message {
     public val fields: Map<String, pbandk.wkt.Value?>
 
@@ -34,6 +33,7 @@ public sealed interface Struct : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         fields: Map<String, pbandk.wkt.Value?> = this.fields,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -67,12 +67,10 @@ public sealed interface Struct : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableStruct : pbandk.wkt.Struct, pbandk.MutableMessage {
     public override val fields: MutableMap<String, pbandk.wkt.Value?>
 }
 
-@pbandk.Export
 public sealed interface Value : pbandk.Message {
     public val kind: Kind<*>?
 
@@ -88,6 +86,7 @@ public sealed interface Value : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         kind: pbandk.wkt.Value.Kind<*>? = this.kind,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -193,7 +192,6 @@ public sealed interface Value : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableValue : pbandk.wkt.Value, pbandk.MutableMessage {
     public override var kind: Value.Kind<*>?
 
@@ -205,7 +203,6 @@ public sealed interface MutableValue : pbandk.wkt.Value, pbandk.MutableMessage {
     public override var listValue: pbandk.wkt.ListValue?
 }
 
-@pbandk.Export
 public sealed interface ListValue : pbandk.Message {
     public val values: List<pbandk.wkt.Value>
 
@@ -221,6 +218,7 @@ public sealed interface ListValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         values: List<pbandk.wkt.Value> = this.values,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -254,7 +252,6 @@ public sealed interface ListValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableListValue : pbandk.wkt.ListValue, pbandk.MutableMessage {
     public override val values: MutableList<pbandk.wkt.Value>
 }
@@ -279,6 +276,7 @@ public fun Struct(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildStruct")
 public fun Struct(builderAction: pbandk.wkt.MutableStruct.() -> Unit): pbandk.wkt.Struct = pbandk.wkt.MutableStruct_Impl(
     fields = pbandk.MutableMessageMap(pbandk.wkt.Struct.descriptor.fields[1]),
     unknownFields = mutableMapOf()
@@ -376,6 +374,7 @@ public fun Value(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildValue")
 public fun Value(builderAction: pbandk.wkt.MutableValue.() -> Unit): pbandk.wkt.Value = pbandk.wkt.MutableValue_Impl(
     kind = null,
     unknownFields = mutableMapOf()
@@ -518,6 +517,7 @@ public fun ListValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildListValue")
 public fun ListValue(builderAction: pbandk.wkt.MutableListValue.() -> Unit): pbandk.wkt.ListValue = pbandk.wkt.MutableListValue_Impl(
     values = mutableListOf(),
     unknownFields = mutableMapOf()

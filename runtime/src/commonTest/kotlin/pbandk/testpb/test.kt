@@ -2,7 +2,6 @@
 
 package pbandk.testpb
 
-@pbandk.Export
 public sealed interface Foo : pbandk.Message {
     public val `val`: String
 
@@ -18,6 +17,7 @@ public sealed interface Foo : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         `val`: String = this.`val`,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -51,12 +51,10 @@ public sealed interface Foo : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFoo : pbandk.testpb.Foo, pbandk.MutableMessage {
     public override var `val`: String
 }
 
-@pbandk.Export
 public sealed interface Bar : pbandk.Message {
     public val foos: List<pbandk.testpb.Foo>
     public val singleFoo: pbandk.testpb.Foo?
@@ -73,6 +71,7 @@ public sealed interface Bar : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         foos: List<pbandk.testpb.Foo> = this.foos,
         singleFoo: pbandk.testpb.Foo? = this.singleFoo,
@@ -117,13 +116,11 @@ public sealed interface Bar : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableBar : pbandk.testpb.Bar, pbandk.MutableMessage {
     public override val foos: MutableList<pbandk.testpb.Foo>
     public override var singleFoo: pbandk.testpb.Foo?
 }
 
-@pbandk.Export
 public sealed interface MessageWithMap : pbandk.Message {
     public val map: Map<String, String>
 
@@ -139,6 +136,7 @@ public sealed interface MessageWithMap : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         map: Map<String, String> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -172,12 +170,10 @@ public sealed interface MessageWithMap : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMessageWithMap : pbandk.testpb.MessageWithMap, pbandk.MutableMessage {
     public override val map: MutableMap<String, String>
 }
 
-@pbandk.Export
 public sealed interface FooMap : pbandk.Message {
     public val map: Map<String, pbandk.testpb.Foo?>
 
@@ -193,6 +189,7 @@ public sealed interface FooMap : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         map: Map<String, pbandk.testpb.Foo?> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -226,12 +223,10 @@ public sealed interface FooMap : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFooMap : pbandk.testpb.FooMap, pbandk.MutableMessage {
     public override val map: MutableMap<String, pbandk.testpb.Foo?>
 }
 
-@pbandk.Export
 public sealed interface FooMapEntries : pbandk.Message {
     public val map: List<pbandk.testpb.FooMapEntries.MapEntry>
 
@@ -247,6 +242,7 @@ public sealed interface FooMapEntries : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         map: List<pbandk.testpb.FooMapEntries.MapEntry> = this.map,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -295,6 +291,7 @@ public sealed interface FooMapEntries : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             key: String = this.key,
             value: pbandk.testpb.Foo? = this.value,
@@ -339,19 +336,16 @@ public sealed interface FooMapEntries : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableMapEntry : pbandk.testpb.FooMapEntries.MapEntry, pbandk.MutableMessage {
         public override var key: String
         public override var value: pbandk.testpb.Foo?
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFooMapEntries : pbandk.testpb.FooMapEntries, pbandk.MutableMessage {
     public override val map: MutableList<pbandk.testpb.FooMapEntries.MapEntry>
 }
 
-@pbandk.Export
 public sealed interface Wrappers : pbandk.Message {
     public val stringValue: String?
     public val uint64Values: List<Long>
@@ -368,6 +362,7 @@ public sealed interface Wrappers : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         stringValue: String? = this.stringValue,
         uint64Values: List<Long> = this.uint64Values,
@@ -412,7 +407,6 @@ public sealed interface Wrappers : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableWrappers : pbandk.testpb.Wrappers, pbandk.MutableMessage {
     public override var stringValue: String?
     public override val uint64Values: MutableList<Long>
@@ -438,6 +432,7 @@ public fun Foo(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFoo")
 public fun Foo(builderAction: pbandk.testpb.MutableFoo.() -> Unit): pbandk.testpb.Foo = pbandk.testpb.MutableFoo_Impl(
     `val` = "",
     unknownFields = mutableMapOf()
@@ -537,6 +532,7 @@ public fun Bar(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildBar")
 public fun Bar(builderAction: pbandk.testpb.MutableBar.() -> Unit): pbandk.testpb.Bar = pbandk.testpb.MutableBar_Impl(
     foos = mutableListOf(),
     singleFoo = null,
@@ -645,6 +641,7 @@ public fun MessageWithMap(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMessageWithMap")
 public fun MessageWithMap(builderAction: pbandk.testpb.MutableMessageWithMap.() -> Unit): pbandk.testpb.MessageWithMap = pbandk.testpb.MutableMessageWithMap_Impl(
     map = pbandk.MutableMessageMap(pbandk.testpb.MessageWithMap.descriptor.fields[1]),
     unknownFields = mutableMapOf()
@@ -742,6 +739,7 @@ public fun FooMap(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFooMap")
 public fun FooMap(builderAction: pbandk.testpb.MutableFooMap.() -> Unit): pbandk.testpb.FooMap = pbandk.testpb.MutableFooMap_Impl(
     map = pbandk.MutableMessageMap(pbandk.testpb.FooMap.descriptor.fields[1]),
     unknownFields = mutableMapOf()
@@ -839,6 +837,7 @@ public fun FooMapEntries(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFooMapEntries")
 public fun FooMapEntries(builderAction: pbandk.testpb.MutableFooMapEntries.() -> Unit): pbandk.testpb.FooMapEntries = pbandk.testpb.MutableFooMapEntries_Impl(
     map = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -938,6 +937,7 @@ public fun FooMapEntries.Companion.MapEntry(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFooMapEntriesMapEntry")
 public fun FooMapEntries.Companion.MapEntry(builderAction: pbandk.testpb.FooMapEntries.MutableMapEntry.() -> Unit): pbandk.testpb.FooMapEntries.MapEntry = pbandk.testpb.FooMapEntries_MutableMapEntry_Impl(
     key = "",
     value = null,
@@ -1055,6 +1055,7 @@ public fun Wrappers(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildWrappers")
 public fun Wrappers(builderAction: pbandk.testpb.MutableWrappers.() -> Unit): pbandk.testpb.Wrappers = pbandk.testpb.MutableWrappers_Impl(
     stringValue = null,
     uint64Values = mutableListOf(),

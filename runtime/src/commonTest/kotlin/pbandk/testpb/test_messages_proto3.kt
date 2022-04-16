@@ -20,7 +20,6 @@ public sealed class ForeignEnum(override val value: Int, override val name: Stri
     }
 }
 
-@pbandk.Export
 public sealed interface TestAllTypesProto3 : pbandk.Message {
     public val optionalInt32: Int
     public val optionalInt64: Long
@@ -176,6 +175,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         optionalInt32: Int = this.optionalInt32,
         optionalInt64: Long = this.optionalInt64,
@@ -1913,6 +1913,7 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             a: Int = this.a,
             corecursive: pbandk.testpb.TestAllTypesProto3? = this.corecursive,
@@ -1957,14 +1958,12 @@ public sealed interface TestAllTypesProto3 : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableNestedMessage : pbandk.testpb.TestAllTypesProto3.NestedMessage, pbandk.MutableMessage {
         public override var a: Int
         public override var corecursive: pbandk.testpb.TestAllTypesProto3?
     }
 }
 
-@pbandk.Export
 public sealed interface MutableTestAllTypesProto3 : pbandk.testpb.TestAllTypesProto3, pbandk.MutableMessage {
     public override var optionalInt32: Int
     public override var optionalInt64: Long
@@ -2119,7 +2118,6 @@ public sealed interface MutableTestAllTypesProto3 : pbandk.testpb.TestAllTypesPr
     public override var oneofEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum?
 }
 
-@pbandk.Export
 public sealed interface ForeignMessage : pbandk.Message {
     public val c: Int
 
@@ -2135,6 +2133,7 @@ public sealed interface ForeignMessage : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         c: Int = this.c,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2168,7 +2167,6 @@ public sealed interface ForeignMessage : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableForeignMessage : pbandk.testpb.ForeignMessage, pbandk.MutableMessage {
     public override var c: Int
 }
@@ -2473,6 +2471,7 @@ public fun TestAllTypesProto3(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto3")
 public fun TestAllTypesProto3(builderAction: pbandk.testpb.MutableTestAllTypesProto3.() -> Unit): pbandk.testpb.TestAllTypesProto3 = pbandk.testpb.MutableTestAllTypesProto3_Impl(
     optionalInt32 = 0,
     optionalInt64 = 0L,
@@ -4213,6 +4212,7 @@ public fun TestAllTypesProto3.Companion.NestedMessage(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto3NestedMessage")
 public fun TestAllTypesProto3.Companion.NestedMessage(builderAction: pbandk.testpb.TestAllTypesProto3.MutableNestedMessage.() -> Unit): pbandk.testpb.TestAllTypesProto3.NestedMessage = pbandk.testpb.TestAllTypesProto3_MutableNestedMessage_Impl(
     a = 0,
     corecursive = null,
@@ -4328,6 +4328,7 @@ public fun ForeignMessage(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildForeignMessage")
 public fun ForeignMessage(builderAction: pbandk.testpb.MutableForeignMessage.() -> Unit): pbandk.testpb.ForeignMessage = pbandk.testpb.MutableForeignMessage_Impl(
     c = 0,
     unknownFields = mutableMapOf()

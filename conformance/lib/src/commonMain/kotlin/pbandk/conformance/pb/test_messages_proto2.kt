@@ -20,7 +20,6 @@ public sealed class ForeignEnumProto2(override val value: Int, override val name
     }
 }
 
-@pbandk.Export
 public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     public val optionalInt32: Int?
     public val optionalInt64: Long?
@@ -144,6 +143,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         optionalInt32: Int? = this.optionalInt32,
         optionalInt64: Long? = this.optionalInt64,
@@ -1509,6 +1509,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             a: Int? = this.a,
             corecursive: pbandk.conformance.pb.TestAllTypesProto2? = this.corecursive,
@@ -1553,7 +1554,6 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableNestedMessage : pbandk.conformance.pb.TestAllTypesProto2.NestedMessage, pbandk.MutableMessage {
         public override var a: Int?
         public override var corecursive: pbandk.conformance.pb.TestAllTypesProto2?
@@ -1575,6 +1575,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             groupInt32: Int? = this.groupInt32,
             groupUint32: Int? = this.groupUint32,
@@ -1619,7 +1620,6 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableData : pbandk.conformance.pb.TestAllTypesProto2.Data, pbandk.MutableMessage {
         public override var groupInt32: Int?
         public override var groupUint32: Int?
@@ -1639,6 +1639,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
         ): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
@@ -1661,7 +1662,6 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableMessageSetCorrect : pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect, pbandk.MutableMessage {
     }
 
@@ -1680,6 +1680,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             str: String? = this.str,
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -1713,7 +1714,6 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableMessageSetCorrectExtension1 : pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1, pbandk.MutableMessage {
         public override var str: String?
     }
@@ -1733,6 +1733,7 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             i: Int? = this.i,
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -1766,13 +1767,11 @@ public sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableMessageSetCorrectExtension2 : pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2, pbandk.MutableMessage {
         public override var i: Int?
     }
 }
 
-@pbandk.Export
 public sealed interface MutableTestAllTypesProto2 : pbandk.conformance.pb.TestAllTypesProto2, pbandk.MutableMessage {
     public override var optionalInt32: Int?
     public override var optionalInt64: Long?
@@ -1895,7 +1894,6 @@ public sealed interface MutableTestAllTypesProto2 : pbandk.conformance.pb.TestAl
     public override var oneofEnum: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
 }
 
-@pbandk.Export
 public sealed interface ForeignMessageProto2 : pbandk.Message {
     public val c: Int?
 
@@ -1911,6 +1909,7 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         c: Int? = this.c,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -1944,12 +1943,10 @@ public sealed interface ForeignMessageProto2 : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableForeignMessageProto2 : pbandk.conformance.pb.ForeignMessageProto2, pbandk.MutableMessage {
     public override var c: Int?
 }
 
-@pbandk.Export
 public sealed interface UnknownToTestAllTypes : pbandk.Message {
     public val optionalInt32: Int?
     public val optionalString: String?
@@ -1969,6 +1966,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         optionalInt32: Int? = this.optionalInt32,
         optionalString: String? = this.optionalString,
@@ -2060,6 +2058,7 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             a: Int? = this.a,
             unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2093,13 +2092,11 @@ public sealed interface UnknownToTestAllTypes : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableOptionalGroup : pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup, pbandk.MutableMessage {
         public override var a: Int?
     }
 }
 
-@pbandk.Export
 public sealed interface MutableUnknownToTestAllTypes : pbandk.conformance.pb.UnknownToTestAllTypes, pbandk.MutableMessage {
     public override var optionalInt32: Int?
     public override var optionalString: String?
@@ -2357,6 +2354,7 @@ public fun TestAllTypesProto2(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto2")
 public fun TestAllTypesProto2(builderAction: pbandk.conformance.pb.MutableTestAllTypesProto2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2 = pbandk.conformance.pb.MutableTestAllTypesProto2_Impl(
     optionalInt32 = null,
     optionalInt64 = null,
@@ -3739,6 +3737,7 @@ public fun TestAllTypesProto2.Companion.NestedMessage(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto2NestedMessage")
 public fun TestAllTypesProto2.Companion.NestedMessage(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableNestedMessage.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.NestedMessage = pbandk.conformance.pb.TestAllTypesProto2_MutableNestedMessage_Impl(
     a = null,
     corecursive = null,
@@ -3856,6 +3855,7 @@ public fun TestAllTypesProto2.Companion.Data(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto2Data")
 public fun TestAllTypesProto2.Companion.Data(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableData.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.Data = pbandk.conformance.pb.TestAllTypesProto2_MutableData_Impl(
     groupInt32 = null,
     groupUint32 = null,
@@ -3969,6 +3969,7 @@ public fun TestAllTypesProto2.Companion.MessageSetCorrect(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto2MessageSetCorrect")
 public fun TestAllTypesProto2.Companion.MessageSetCorrect(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrect.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect = pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrect_Impl(
     unknownFields = mutableMapOf()
 ).also(builderAction).toMessageSetCorrect()
@@ -4061,6 +4062,7 @@ public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto2MessageSetCorrectExtension1")
 public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension1(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension1.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1 = pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrectExtension1_Impl(
     str = null,
     unknownFields = mutableMapOf()
@@ -4165,6 +4167,7 @@ public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTestAllTypesProto2MessageSetCorrectExtension2")
 public fun TestAllTypesProto2.Companion.MessageSetCorrectExtension2(builderAction: pbandk.conformance.pb.TestAllTypesProto2.MutableMessageSetCorrectExtension2.() -> Unit): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2 = pbandk.conformance.pb.TestAllTypesProto2_MutableMessageSetCorrectExtension2_Impl(
     i = null,
     unknownFields = mutableMapOf()
@@ -4269,6 +4272,7 @@ public fun ForeignMessageProto2(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildForeignMessageProto2")
 public fun ForeignMessageProto2(builderAction: pbandk.conformance.pb.MutableForeignMessageProto2.() -> Unit): pbandk.conformance.pb.ForeignMessageProto2 = pbandk.conformance.pb.MutableForeignMessageProto2_Impl(
     c = null,
     unknownFields = mutableMapOf()
@@ -4374,6 +4378,7 @@ public fun UnknownToTestAllTypes(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUnknownToTestAllTypes")
 public fun UnknownToTestAllTypes(builderAction: pbandk.conformance.pb.MutableUnknownToTestAllTypes.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes = pbandk.conformance.pb.MutableUnknownToTestAllTypes_Impl(
     optionalInt32 = null,
     optionalString = null,
@@ -4516,6 +4521,7 @@ public fun UnknownToTestAllTypes.Companion.OptionalGroup(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUnknownToTestAllTypesOptionalGroup")
 public fun UnknownToTestAllTypes.Companion.OptionalGroup(builderAction: pbandk.conformance.pb.UnknownToTestAllTypes.MutableOptionalGroup.() -> Unit): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup = pbandk.conformance.pb.UnknownToTestAllTypes_MutableOptionalGroup_Impl(
     a = null,
     unknownFields = mutableMapOf()

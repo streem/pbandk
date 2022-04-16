@@ -19,7 +19,6 @@ public sealed class Syntax(override val value: Int, override val name: String? =
     }
 }
 
-@pbandk.Export
 public sealed interface Type : pbandk.Message {
     public val name: String
     public val fields: List<pbandk.wkt.Field>
@@ -40,6 +39,7 @@ public sealed interface Type : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         fields: List<pbandk.wkt.Field> = this.fields,
@@ -128,7 +128,6 @@ public sealed interface Type : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage {
     public override var name: String
     public override val fields: MutableList<pbandk.wkt.Field>
@@ -138,7 +137,6 @@ public sealed interface MutableType : pbandk.wkt.Type, pbandk.MutableMessage {
     public override var syntax: pbandk.wkt.Syntax
 }
 
-@pbandk.Export
 public sealed interface Field : pbandk.Message {
     public val kind: pbandk.wkt.Field.Kind
     public val cardinality: pbandk.wkt.Field.Cardinality
@@ -163,6 +161,7 @@ public sealed interface Field : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         kind: pbandk.wkt.Field.Kind = this.kind,
         cardinality: pbandk.wkt.Field.Cardinality = this.cardinality,
@@ -346,7 +345,6 @@ public sealed interface Field : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage {
     public override var kind: pbandk.wkt.Field.Kind
     public override var cardinality: pbandk.wkt.Field.Cardinality
@@ -360,7 +358,6 @@ public sealed interface MutableField : pbandk.wkt.Field, pbandk.MutableMessage {
     public override var defaultValue: String
 }
 
-@pbandk.Export
 public sealed interface Enum : pbandk.Message {
     public val name: String
     public val enumvalue: List<pbandk.wkt.EnumValue>
@@ -380,6 +377,7 @@ public sealed interface Enum : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         enumvalue: List<pbandk.wkt.EnumValue> = this.enumvalue,
@@ -457,7 +455,6 @@ public sealed interface Enum : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage {
     public override var name: String
     public override val enumvalue: MutableList<pbandk.wkt.EnumValue>
@@ -466,7 +463,6 @@ public sealed interface MutableEnum : pbandk.wkt.Enum, pbandk.MutableMessage {
     public override var syntax: pbandk.wkt.Syntax
 }
 
-@pbandk.Export
 public sealed interface EnumValue : pbandk.Message {
     public val name: String
     public val number: Int
@@ -484,6 +480,7 @@ public sealed interface EnumValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         number: Int = this.number,
@@ -539,14 +536,12 @@ public sealed interface EnumValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnumValue : pbandk.wkt.EnumValue, pbandk.MutableMessage {
     public override var name: String
     public override var number: Int
     public override val options: MutableList<pbandk.wkt.Option>
 }
 
-@pbandk.Export
 public sealed interface Option : pbandk.Message {
     public val name: String
     public val value: pbandk.wkt.Any?
@@ -563,6 +558,7 @@ public sealed interface Option : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         value: pbandk.wkt.Any? = this.value,
@@ -607,7 +603,6 @@ public sealed interface Option : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableOption : pbandk.wkt.Option, pbandk.MutableMessage {
     public override var name: String
     public override var value: pbandk.wkt.Any?
@@ -643,6 +638,7 @@ public fun Type(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildType")
 public fun Type(builderAction: pbandk.wkt.MutableType.() -> Unit): pbandk.wkt.Type = pbandk.wkt.MutableType_Impl(
     name = "",
     fields = mutableListOf(),
@@ -814,6 +810,7 @@ public fun Field(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildField")
 public fun Field(builderAction: pbandk.wkt.MutableField.() -> Unit): pbandk.wkt.Field = pbandk.wkt.MutableField_Impl(
     kind = pbandk.wkt.Field.Kind.fromValue(0),
     cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
@@ -1020,6 +1017,7 @@ public fun Enum(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnum")
 public fun Enum(builderAction: pbandk.wkt.MutableEnum.() -> Unit): pbandk.wkt.Enum = pbandk.wkt.MutableEnum_Impl(
     name = "",
     enumvalue = mutableListOf(),
@@ -1166,6 +1164,7 @@ public fun EnumValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumValue")
 public fun EnumValue(builderAction: pbandk.wkt.MutableEnumValue.() -> Unit): pbandk.wkt.EnumValue = pbandk.wkt.MutableEnumValue_Impl(
     name = "",
     number = 0,
@@ -1287,6 +1286,7 @@ public fun Option(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildOption")
 public fun Option(builderAction: pbandk.wkt.MutableOption.() -> Unit): pbandk.wkt.Option = pbandk.wkt.MutableOption_Impl(
     name = "",
     value = null,

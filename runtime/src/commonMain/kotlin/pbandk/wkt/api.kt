@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface Api : pbandk.Message {
     public val name: String
     public val methods: List<pbandk.wkt.Method>
@@ -24,6 +23,7 @@ public sealed interface Api : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         methods: List<pbandk.wkt.Method> = this.methods,
@@ -123,7 +123,6 @@ public sealed interface Api : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage {
     public override var name: String
     public override val methods: MutableList<pbandk.wkt.Method>
@@ -134,7 +133,6 @@ public sealed interface MutableApi : pbandk.wkt.Api, pbandk.MutableMessage {
     public override var syntax: pbandk.wkt.Syntax
 }
 
-@pbandk.Export
 public sealed interface Method : pbandk.Message {
     public val name: String
     public val requestTypeUrl: String
@@ -156,6 +154,7 @@ public sealed interface Method : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         requestTypeUrl: String = this.requestTypeUrl,
@@ -255,7 +254,6 @@ public sealed interface Method : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage {
     public override var name: String
     public override var requestTypeUrl: String
@@ -266,7 +264,6 @@ public sealed interface MutableMethod : pbandk.wkt.Method, pbandk.MutableMessage
     public override var syntax: pbandk.wkt.Syntax
 }
 
-@pbandk.Export
 public sealed interface Mixin : pbandk.Message {
     public val name: String
     public val root: String
@@ -283,6 +280,7 @@ public sealed interface Mixin : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         name: String = this.name,
         root: String = this.root,
@@ -327,7 +325,6 @@ public sealed interface Mixin : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMixin : pbandk.wkt.Mixin, pbandk.MutableMessage {
     public override var name: String
     public override var root: String
@@ -365,6 +362,7 @@ public fun Api(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildApi")
 public fun Api(builderAction: pbandk.wkt.MutableApi.() -> Unit): pbandk.wkt.Api = pbandk.wkt.MutableApi_Impl(
     name = "",
     methods = mutableListOf(),
@@ -541,6 +539,7 @@ public fun Method(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMethod")
 public fun Method(builderAction: pbandk.wkt.MutableMethod.() -> Unit): pbandk.wkt.Method = pbandk.wkt.MutableMethod_Impl(
     name = "",
     requestTypeUrl = "",
@@ -707,6 +706,7 @@ public fun Mixin(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMixin")
 public fun Mixin(builderAction: pbandk.wkt.MutableMixin.() -> Unit): pbandk.wkt.Mixin = pbandk.wkt.MutableMixin_Impl(
     name = "",
     root = "",

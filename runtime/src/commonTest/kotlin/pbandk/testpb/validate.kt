@@ -20,7 +20,6 @@ public sealed class KnownRegex(override val value: Int, override val name: Strin
     }
 }
 
-@pbandk.Export
 public sealed interface FieldRules : pbandk.Message {
     public val message: pbandk.testpb.MessageRules?
     public val type: Type<*>?
@@ -37,6 +36,7 @@ public sealed interface FieldRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         message: pbandk.testpb.MessageRules? = this.message,
         type: pbandk.testpb.FieldRules.Type<*>? = this.type,
@@ -348,7 +348,6 @@ public sealed interface FieldRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFieldRules : pbandk.testpb.FieldRules, pbandk.MutableMessage {
     public override var message: pbandk.testpb.MessageRules?
     public override var type: FieldRules.Type<*>?
@@ -376,7 +375,6 @@ public sealed interface MutableFieldRules : pbandk.testpb.FieldRules, pbandk.Mut
     public override var timestamp: pbandk.testpb.TimestampRules?
 }
 
-@pbandk.Export
 public sealed interface FloatRules : pbandk.Message {
     public val const: Float?
     public val lt: Float?
@@ -398,6 +396,7 @@ public sealed interface FloatRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Float? = this.const,
         lt: Float? = this.lt,
@@ -497,7 +496,6 @@ public sealed interface FloatRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFloatRules : pbandk.testpb.FloatRules, pbandk.MutableMessage {
     public override var const: Float?
     public override var lt: Float?
@@ -508,7 +506,6 @@ public sealed interface MutableFloatRules : pbandk.testpb.FloatRules, pbandk.Mut
     public override val notIn: MutableList<Float>
 }
 
-@pbandk.Export
 public sealed interface DoubleRules : pbandk.Message {
     public val const: Double?
     public val lt: Double?
@@ -530,6 +527,7 @@ public sealed interface DoubleRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Double? = this.const,
         lt: Double? = this.lt,
@@ -629,7 +627,6 @@ public sealed interface DoubleRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableDoubleRules : pbandk.testpb.DoubleRules, pbandk.MutableMessage {
     public override var const: Double?
     public override var lt: Double?
@@ -640,7 +637,6 @@ public sealed interface MutableDoubleRules : pbandk.testpb.DoubleRules, pbandk.M
     public override val notIn: MutableList<Double>
 }
 
-@pbandk.Export
 public sealed interface Int32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -662,6 +658,7 @@ public sealed interface Int32Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -761,7 +758,6 @@ public sealed interface Int32Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableInt32Rules : pbandk.testpb.Int32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
@@ -772,7 +768,6 @@ public sealed interface MutableInt32Rules : pbandk.testpb.Int32Rules, pbandk.Mut
     public override val notIn: MutableList<Int>
 }
 
-@pbandk.Export
 public sealed interface Int64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -794,6 +789,7 @@ public sealed interface Int64Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -893,7 +889,6 @@ public sealed interface Int64Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableInt64Rules : pbandk.testpb.Int64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
@@ -904,7 +899,6 @@ public sealed interface MutableInt64Rules : pbandk.testpb.Int64Rules, pbandk.Mut
     public override val notIn: MutableList<Long>
 }
 
-@pbandk.Export
 public sealed interface UInt32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -926,6 +920,7 @@ public sealed interface UInt32Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1025,7 +1020,6 @@ public sealed interface UInt32Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableUInt32Rules : pbandk.testpb.UInt32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
@@ -1036,7 +1030,6 @@ public sealed interface MutableUInt32Rules : pbandk.testpb.UInt32Rules, pbandk.M
     public override val notIn: MutableList<Int>
 }
 
-@pbandk.Export
 public sealed interface UInt64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1058,6 +1051,7 @@ public sealed interface UInt64Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1157,7 +1151,6 @@ public sealed interface UInt64Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableUInt64Rules : pbandk.testpb.UInt64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
@@ -1168,7 +1161,6 @@ public sealed interface MutableUInt64Rules : pbandk.testpb.UInt64Rules, pbandk.M
     public override val notIn: MutableList<Long>
 }
 
-@pbandk.Export
 public sealed interface SInt32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1190,6 +1182,7 @@ public sealed interface SInt32Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1289,7 +1282,6 @@ public sealed interface SInt32Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableSInt32Rules : pbandk.testpb.SInt32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
@@ -1300,7 +1292,6 @@ public sealed interface MutableSInt32Rules : pbandk.testpb.SInt32Rules, pbandk.M
     public override val notIn: MutableList<Int>
 }
 
-@pbandk.Export
 public sealed interface SInt64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1322,6 +1313,7 @@ public sealed interface SInt64Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1421,7 +1413,6 @@ public sealed interface SInt64Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableSInt64Rules : pbandk.testpb.SInt64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
@@ -1432,7 +1423,6 @@ public sealed interface MutableSInt64Rules : pbandk.testpb.SInt64Rules, pbandk.M
     public override val notIn: MutableList<Long>
 }
 
-@pbandk.Export
 public sealed interface Fixed32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1454,6 +1444,7 @@ public sealed interface Fixed32Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1553,7 +1544,6 @@ public sealed interface Fixed32Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFixed32Rules : pbandk.testpb.Fixed32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
@@ -1564,7 +1554,6 @@ public sealed interface MutableFixed32Rules : pbandk.testpb.Fixed32Rules, pbandk
     public override val notIn: MutableList<Int>
 }
 
-@pbandk.Export
 public sealed interface Fixed64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1586,6 +1575,7 @@ public sealed interface Fixed64Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1685,7 +1675,6 @@ public sealed interface Fixed64Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFixed64Rules : pbandk.testpb.Fixed64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
@@ -1696,7 +1685,6 @@ public sealed interface MutableFixed64Rules : pbandk.testpb.Fixed64Rules, pbandk
     public override val notIn: MutableList<Long>
 }
 
-@pbandk.Export
 public sealed interface SFixed32Rules : pbandk.Message {
     public val const: Int?
     public val lt: Int?
@@ -1718,6 +1706,7 @@ public sealed interface SFixed32Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
         lt: Int? = this.lt,
@@ -1817,7 +1806,6 @@ public sealed interface SFixed32Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableSFixed32Rules : pbandk.testpb.SFixed32Rules, pbandk.MutableMessage {
     public override var const: Int?
     public override var lt: Int?
@@ -1828,7 +1816,6 @@ public sealed interface MutableSFixed32Rules : pbandk.testpb.SFixed32Rules, pban
     public override val notIn: MutableList<Int>
 }
 
-@pbandk.Export
 public sealed interface SFixed64Rules : pbandk.Message {
     public val const: Long?
     public val lt: Long?
@@ -1850,6 +1837,7 @@ public sealed interface SFixed64Rules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Long? = this.const,
         lt: Long? = this.lt,
@@ -1949,7 +1937,6 @@ public sealed interface SFixed64Rules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableSFixed64Rules : pbandk.testpb.SFixed64Rules, pbandk.MutableMessage {
     public override var const: Long?
     public override var lt: Long?
@@ -1960,7 +1947,6 @@ public sealed interface MutableSFixed64Rules : pbandk.testpb.SFixed64Rules, pban
     public override val notIn: MutableList<Long>
 }
 
-@pbandk.Export
 public sealed interface BoolRules : pbandk.Message {
     public val const: Boolean?
 
@@ -1976,6 +1962,7 @@ public sealed interface BoolRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Boolean? = this.const,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -2009,12 +1996,10 @@ public sealed interface BoolRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableBoolRules : pbandk.testpb.BoolRules, pbandk.MutableMessage {
     public override var const: Boolean?
 }
 
-@pbandk.Export
 public sealed interface StringRules : pbandk.Message {
     public val const: String?
     public val len: Long?
@@ -2045,6 +2030,7 @@ public sealed interface StringRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: String? = this.const,
         len: Long? = this.len,
@@ -2367,7 +2353,6 @@ public sealed interface StringRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableStringRules : pbandk.testpb.StringRules, pbandk.MutableMessage {
     public override var const: String?
     public override var len: Long?
@@ -2398,7 +2383,6 @@ public sealed interface MutableStringRules : pbandk.testpb.StringRules, pbandk.M
     public override var wellKnownRegex: pbandk.testpb.KnownRegex?
 }
 
-@pbandk.Export
 public sealed interface BytesRules : pbandk.Message {
     public val const: pbandk.ByteArr?
     public val len: Long?
@@ -2424,6 +2408,7 @@ public sealed interface BytesRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: pbandk.ByteArr? = this.const,
         len: Long? = this.len,
@@ -2600,7 +2585,6 @@ public sealed interface BytesRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableBytesRules : pbandk.testpb.BytesRules, pbandk.MutableMessage {
     public override var const: pbandk.ByteArr?
     public override var len: Long?
@@ -2619,7 +2603,6 @@ public sealed interface MutableBytesRules : pbandk.testpb.BytesRules, pbandk.Mut
     public override var ipv6: Boolean?
 }
 
-@pbandk.Export
 public sealed interface EnumRules : pbandk.Message {
     public val const: Int?
     public val definedOnly: Boolean?
@@ -2638,6 +2621,7 @@ public sealed interface EnumRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         const: Int? = this.const,
         definedOnly: Boolean? = this.definedOnly,
@@ -2704,7 +2688,6 @@ public sealed interface EnumRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableEnumRules : pbandk.testpb.EnumRules, pbandk.MutableMessage {
     public override var const: Int?
     public override var definedOnly: Boolean?
@@ -2712,7 +2695,6 @@ public sealed interface MutableEnumRules : pbandk.testpb.EnumRules, pbandk.Mutab
     public override val notIn: MutableList<Int>
 }
 
-@pbandk.Export
 public sealed interface MessageRules : pbandk.Message {
     public val skip: Boolean?
     public val required: Boolean?
@@ -2729,6 +2711,7 @@ public sealed interface MessageRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         skip: Boolean? = this.skip,
         required: Boolean? = this.required,
@@ -2773,13 +2756,11 @@ public sealed interface MessageRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMessageRules : pbandk.testpb.MessageRules, pbandk.MutableMessage {
     public override var skip: Boolean?
     public override var required: Boolean?
 }
 
-@pbandk.Export
 public sealed interface RepeatedRules : pbandk.Message {
     public val minItems: Long?
     public val maxItems: Long?
@@ -2798,6 +2779,7 @@ public sealed interface RepeatedRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         minItems: Long? = this.minItems,
         maxItems: Long? = this.maxItems,
@@ -2864,7 +2846,6 @@ public sealed interface RepeatedRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableRepeatedRules : pbandk.testpb.RepeatedRules, pbandk.MutableMessage {
     public override var minItems: Long?
     public override var maxItems: Long?
@@ -2872,7 +2853,6 @@ public sealed interface MutableRepeatedRules : pbandk.testpb.RepeatedRules, pban
     public override var items: pbandk.testpb.FieldRules?
 }
 
-@pbandk.Export
 public sealed interface MapRules : pbandk.Message {
     public val minPairs: Long?
     public val maxPairs: Long?
@@ -2892,6 +2872,7 @@ public sealed interface MapRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         minPairs: Long? = this.minPairs,
         maxPairs: Long? = this.maxPairs,
@@ -2969,7 +2950,6 @@ public sealed interface MapRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableMapRules : pbandk.testpb.MapRules, pbandk.MutableMessage {
     public override var minPairs: Long?
     public override var maxPairs: Long?
@@ -2978,7 +2958,6 @@ public sealed interface MutableMapRules : pbandk.testpb.MapRules, pbandk.Mutable
     public override var values: pbandk.testpb.FieldRules?
 }
 
-@pbandk.Export
 public sealed interface AnyRules : pbandk.Message {
     public val required: Boolean?
     public val `in`: List<String>
@@ -2996,6 +2975,7 @@ public sealed interface AnyRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         required: Boolean? = this.required,
         `in`: List<String> = this.`in`,
@@ -3051,14 +3031,12 @@ public sealed interface AnyRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableAnyRules : pbandk.testpb.AnyRules, pbandk.MutableMessage {
     public override var required: Boolean?
     public override val `in`: MutableList<String>
     public override val notIn: MutableList<String>
 }
 
-@pbandk.Export
 public sealed interface DurationRules : pbandk.Message {
     public val required: Boolean?
     public val const: pbandk.wkt.Duration?
@@ -3081,6 +3059,7 @@ public sealed interface DurationRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         required: Boolean? = this.required,
         const: pbandk.wkt.Duration? = this.const,
@@ -3191,7 +3170,6 @@ public sealed interface DurationRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableDurationRules : pbandk.testpb.DurationRules, pbandk.MutableMessage {
     public override var required: Boolean?
     public override var const: pbandk.wkt.Duration?
@@ -3203,7 +3181,6 @@ public sealed interface MutableDurationRules : pbandk.testpb.DurationRules, pban
     public override val notIn: MutableList<pbandk.wkt.Duration>
 }
 
-@pbandk.Export
 public sealed interface TimestampRules : pbandk.Message {
     public val required: Boolean?
     public val const: pbandk.wkt.Timestamp?
@@ -3227,6 +3204,7 @@ public sealed interface TimestampRules : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         required: Boolean? = this.required,
         const: pbandk.wkt.Timestamp? = this.const,
@@ -3348,7 +3326,6 @@ public sealed interface TimestampRules : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableTimestampRules : pbandk.testpb.TimestampRules, pbandk.MutableMessage {
     public override var required: Boolean?
     public override var const: pbandk.wkt.Timestamp?
@@ -3422,6 +3399,7 @@ public fun FieldRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFieldRules")
 public fun FieldRules(builderAction: pbandk.testpb.MutableFieldRules.() -> Unit): pbandk.testpb.FieldRules = pbandk.testpb.MutableFieldRules_Impl(
     message = null,
     type = null,
@@ -3692,6 +3670,7 @@ public fun FloatRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFloatRules")
 public fun FloatRules(builderAction: pbandk.testpb.MutableFloatRules.() -> Unit): pbandk.testpb.FloatRules = pbandk.testpb.MutableFloatRules_Impl(
     const = null,
     lt = null,
@@ -3868,6 +3847,7 @@ public fun DoubleRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDoubleRules")
 public fun DoubleRules(builderAction: pbandk.testpb.MutableDoubleRules.() -> Unit): pbandk.testpb.DoubleRules = pbandk.testpb.MutableDoubleRules_Impl(
     const = null,
     lt = null,
@@ -4044,6 +4024,7 @@ public fun Int32Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildInt32Rules")
 public fun Int32Rules(builderAction: pbandk.testpb.MutableInt32Rules.() -> Unit): pbandk.testpb.Int32Rules = pbandk.testpb.MutableInt32Rules_Impl(
     const = null,
     lt = null,
@@ -4220,6 +4201,7 @@ public fun Int64Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildInt64Rules")
 public fun Int64Rules(builderAction: pbandk.testpb.MutableInt64Rules.() -> Unit): pbandk.testpb.Int64Rules = pbandk.testpb.MutableInt64Rules_Impl(
     const = null,
     lt = null,
@@ -4396,6 +4378,7 @@ public fun UInt32Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUInt32Rules")
 public fun UInt32Rules(builderAction: pbandk.testpb.MutableUInt32Rules.() -> Unit): pbandk.testpb.UInt32Rules = pbandk.testpb.MutableUInt32Rules_Impl(
     const = null,
     lt = null,
@@ -4572,6 +4555,7 @@ public fun UInt64Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUInt64Rules")
 public fun UInt64Rules(builderAction: pbandk.testpb.MutableUInt64Rules.() -> Unit): pbandk.testpb.UInt64Rules = pbandk.testpb.MutableUInt64Rules_Impl(
     const = null,
     lt = null,
@@ -4748,6 +4732,7 @@ public fun SInt32Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSInt32Rules")
 public fun SInt32Rules(builderAction: pbandk.testpb.MutableSInt32Rules.() -> Unit): pbandk.testpb.SInt32Rules = pbandk.testpb.MutableSInt32Rules_Impl(
     const = null,
     lt = null,
@@ -4924,6 +4909,7 @@ public fun SInt64Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSInt64Rules")
 public fun SInt64Rules(builderAction: pbandk.testpb.MutableSInt64Rules.() -> Unit): pbandk.testpb.SInt64Rules = pbandk.testpb.MutableSInt64Rules_Impl(
     const = null,
     lt = null,
@@ -5100,6 +5086,7 @@ public fun Fixed32Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFixed32Rules")
 public fun Fixed32Rules(builderAction: pbandk.testpb.MutableFixed32Rules.() -> Unit): pbandk.testpb.Fixed32Rules = pbandk.testpb.MutableFixed32Rules_Impl(
     const = null,
     lt = null,
@@ -5276,6 +5263,7 @@ public fun Fixed64Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFixed64Rules")
 public fun Fixed64Rules(builderAction: pbandk.testpb.MutableFixed64Rules.() -> Unit): pbandk.testpb.Fixed64Rules = pbandk.testpb.MutableFixed64Rules_Impl(
     const = null,
     lt = null,
@@ -5452,6 +5440,7 @@ public fun SFixed32Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSFixed32Rules")
 public fun SFixed32Rules(builderAction: pbandk.testpb.MutableSFixed32Rules.() -> Unit): pbandk.testpb.SFixed32Rules = pbandk.testpb.MutableSFixed32Rules_Impl(
     const = null,
     lt = null,
@@ -5628,6 +5617,7 @@ public fun SFixed64Rules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSFixed64Rules")
 public fun SFixed64Rules(builderAction: pbandk.testpb.MutableSFixed64Rules.() -> Unit): pbandk.testpb.SFixed64Rules = pbandk.testpb.MutableSFixed64Rules_Impl(
     const = null,
     lt = null,
@@ -5792,6 +5782,7 @@ public fun BoolRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildBoolRules")
 public fun BoolRules(builderAction: pbandk.testpb.MutableBoolRules.() -> Unit): pbandk.testpb.BoolRules = pbandk.testpb.MutableBoolRules_Impl(
     const = null,
     unknownFields = mutableMapOf()
@@ -5919,6 +5910,7 @@ public fun StringRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildStringRules")
 public fun StringRules(builderAction: pbandk.testpb.MutableStringRules.() -> Unit): pbandk.testpb.StringRules = pbandk.testpb.MutableStringRules_Impl(
     const = null,
     len = null,
@@ -6277,6 +6269,7 @@ public fun BytesRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildBytesRules")
 public fun BytesRules(builderAction: pbandk.testpb.MutableBytesRules.() -> Unit): pbandk.testpb.BytesRules = pbandk.testpb.MutableBytesRules_Impl(
     const = null,
     len = null,
@@ -6516,6 +6509,7 @@ public fun EnumRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildEnumRules")
 public fun EnumRules(builderAction: pbandk.testpb.MutableEnumRules.() -> Unit): pbandk.testpb.EnumRules = pbandk.testpb.MutableEnumRules_Impl(
     const = null,
     definedOnly = null,
@@ -6648,6 +6642,7 @@ public fun MessageRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMessageRules")
 public fun MessageRules(builderAction: pbandk.testpb.MutableMessageRules.() -> Unit): pbandk.testpb.MessageRules = pbandk.testpb.MutableMessageRules_Impl(
     skip = null,
     required = null,
@@ -6762,6 +6757,7 @@ public fun RepeatedRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildRepeatedRules")
 public fun RepeatedRules(builderAction: pbandk.testpb.MutableRepeatedRules.() -> Unit): pbandk.testpb.RepeatedRules = pbandk.testpb.MutableRepeatedRules_Impl(
     minItems = null,
     maxItems = null,
@@ -6900,6 +6896,7 @@ public fun MapRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildMapRules")
 public fun MapRules(builderAction: pbandk.testpb.MutableMapRules.() -> Unit): pbandk.testpb.MapRules = pbandk.testpb.MutableMapRules_Impl(
     minPairs = null,
     maxPairs = null,
@@ -7046,6 +7043,7 @@ public fun AnyRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildAnyRules")
 public fun AnyRules(builderAction: pbandk.testpb.MutableAnyRules.() -> Unit): pbandk.testpb.AnyRules = pbandk.testpb.MutableAnyRules_Impl(
     required = null,
     `in` = mutableListOf(),
@@ -7179,6 +7177,7 @@ public fun DurationRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDurationRules")
 public fun DurationRules(builderAction: pbandk.testpb.MutableDurationRules.() -> Unit): pbandk.testpb.DurationRules = pbandk.testpb.MutableDurationRules_Impl(
     required = null,
     const = null,
@@ -7370,6 +7369,7 @@ public fun TimestampRules(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTimestampRules")
 public fun TimestampRules(builderAction: pbandk.testpb.MutableTimestampRules.() -> Unit): pbandk.testpb.TimestampRules = pbandk.testpb.MutableTimestampRules_Impl(
     required = null,
     const = null,

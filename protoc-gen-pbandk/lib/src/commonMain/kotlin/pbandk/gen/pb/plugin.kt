@@ -2,7 +2,6 @@
 
 package pbandk.gen.pb
 
-@pbandk.Export
 public sealed interface Version : pbandk.Message {
     public val major: Int?
     public val minor: Int?
@@ -21,6 +20,7 @@ public sealed interface Version : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         major: Int? = this.major,
         minor: Int? = this.minor,
@@ -87,7 +87,6 @@ public sealed interface Version : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableVersion : pbandk.gen.pb.Version, pbandk.MutableMessage {
     public override var major: Int?
     public override var minor: Int?
@@ -95,7 +94,6 @@ public sealed interface MutableVersion : pbandk.gen.pb.Version, pbandk.MutableMe
     public override var suffix: String?
 }
 
-@pbandk.Export
 public sealed interface CodeGeneratorRequest : pbandk.Message {
     public val fileToGenerate: List<String>
     public val parameter: String?
@@ -114,6 +112,7 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         fileToGenerate: List<String> = this.fileToGenerate,
         parameter: String? = this.parameter,
@@ -180,7 +179,6 @@ public sealed interface CodeGeneratorRequest : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableCodeGeneratorRequest : pbandk.gen.pb.CodeGeneratorRequest, pbandk.MutableMessage {
     public override val fileToGenerate: MutableList<String>
     public override var parameter: String?
@@ -188,7 +186,6 @@ public sealed interface MutableCodeGeneratorRequest : pbandk.gen.pb.CodeGenerato
     public override var compilerVersion: pbandk.gen.pb.Version?
 }
 
-@pbandk.Export
 public sealed interface CodeGeneratorResponse : pbandk.Message {
     public val error: String?
     public val supportedFeatures: Long?
@@ -206,6 +203,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         error: String? = this.error,
         supportedFeatures: Long? = this.supportedFeatures,
@@ -294,6 +292,7 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         @Deprecated(
             message = "Use copy { } instead",
         )
+        @pbandk.JsName("copyDeprecated")
         public fun copy(
             name: String? = this.name,
             insertionPoint: String? = this.insertionPoint,
@@ -360,7 +359,6 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
         }
     }
 
-    @pbandk.Export
     public sealed interface MutableFile : pbandk.gen.pb.CodeGeneratorResponse.File, pbandk.MutableMessage {
         public override var name: String?
         public override var insertionPoint: String?
@@ -369,7 +367,6 @@ public sealed interface CodeGeneratorResponse : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableCodeGeneratorResponse : pbandk.gen.pb.CodeGeneratorResponse, pbandk.MutableMessage {
     public override var error: String?
     public override var supportedFeatures: Long?
@@ -402,6 +399,7 @@ public fun Version(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildVersion")
 public fun Version(builderAction: pbandk.gen.pb.MutableVersion.() -> Unit): pbandk.gen.pb.Version = pbandk.gen.pb.MutableVersion_Impl(
     major = null,
     minor = null,
@@ -538,6 +536,7 @@ public fun CodeGeneratorRequest(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildCodeGeneratorRequest")
 public fun CodeGeneratorRequest(builderAction: pbandk.gen.pb.MutableCodeGeneratorRequest.() -> Unit): pbandk.gen.pb.CodeGeneratorRequest = pbandk.gen.pb.MutableCodeGeneratorRequest_Impl(
     fileToGenerate = mutableListOf(),
     parameter = null,
@@ -672,6 +671,7 @@ public fun CodeGeneratorResponse(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildCodeGeneratorResponse")
 public fun CodeGeneratorResponse(builderAction: pbandk.gen.pb.MutableCodeGeneratorResponse.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse = pbandk.gen.pb.MutableCodeGeneratorResponse_Impl(
     error = null,
     supportedFeatures = null,
@@ -797,6 +797,7 @@ public fun CodeGeneratorResponse.Companion.File(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildCodeGeneratorResponseFile")
 public fun CodeGeneratorResponse.Companion.File(builderAction: pbandk.gen.pb.CodeGeneratorResponse.MutableFile.() -> Unit): pbandk.gen.pb.CodeGeneratorResponse.File = pbandk.gen.pb.CodeGeneratorResponse_MutableFile_Impl(
     name = null,
     insertionPoint = null,

@@ -43,7 +43,6 @@ public sealed class TestCategory(override val value: Int, override val name: Str
     }
 }
 
-@pbandk.Export
 public sealed interface FailureSet : pbandk.Message {
     public val failure: List<String>
 
@@ -59,6 +58,7 @@ public sealed interface FailureSet : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         failure: List<String> = this.failure,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -92,12 +92,10 @@ public sealed interface FailureSet : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFailureSet : pbandk.conformance.pb.FailureSet, pbandk.MutableMessage {
     public override val failure: MutableList<String>
 }
 
-@pbandk.Export
 public sealed interface ConformanceRequest : pbandk.Message {
     public val requestedOutputFormat: pbandk.conformance.pb.WireFormat
     public val messageType: String
@@ -118,6 +116,7 @@ public sealed interface ConformanceRequest : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         requestedOutputFormat: pbandk.conformance.pb.WireFormat = this.requestedOutputFormat,
         messageType: String = this.messageType,
@@ -252,7 +251,6 @@ public sealed interface ConformanceRequest : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableConformanceRequest : pbandk.conformance.pb.ConformanceRequest, pbandk.MutableMessage {
     public override var requestedOutputFormat: pbandk.conformance.pb.WireFormat
     public override var messageType: String
@@ -267,7 +265,6 @@ public sealed interface MutableConformanceRequest : pbandk.conformance.pb.Confor
     public override var textPayload: String?
 }
 
-@pbandk.Export
 public sealed interface ConformanceResponse : pbandk.Message {
     public val result: Result<*>?
 
@@ -283,6 +280,7 @@ public sealed interface ConformanceResponse : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = this.result,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -414,7 +412,6 @@ public sealed interface ConformanceResponse : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableConformanceResponse : pbandk.conformance.pb.ConformanceResponse, pbandk.MutableMessage {
     public override var result: ConformanceResponse.Result<*>?
 
@@ -428,7 +425,6 @@ public sealed interface MutableConformanceResponse : pbandk.conformance.pb.Confo
     public override var textPayload: String?
 }
 
-@pbandk.Export
 public sealed interface JspbEncodingConfig : pbandk.Message {
     public val useJspbArrayAnyFormat: Boolean
 
@@ -444,6 +440,7 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         useJspbArrayAnyFormat: Boolean = this.useJspbArrayAnyFormat,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -477,7 +474,6 @@ public sealed interface JspbEncodingConfig : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableJspbEncodingConfig : pbandk.conformance.pb.JspbEncodingConfig, pbandk.MutableMessage {
     public override var useJspbArrayAnyFormat: Boolean
 }
@@ -502,6 +498,7 @@ public fun FailureSet(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFailureSet")
 public fun FailureSet(builderAction: pbandk.conformance.pb.MutableFailureSet.() -> Unit): pbandk.conformance.pb.FailureSet = pbandk.conformance.pb.MutableFailureSet_Impl(
     failure = mutableListOf(),
     unknownFields = mutableMapOf()
@@ -609,6 +606,7 @@ public fun ConformanceRequest(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildConformanceRequest")
 public fun ConformanceRequest(builderAction: pbandk.conformance.pb.MutableConformanceRequest.() -> Unit): pbandk.conformance.pb.ConformanceRequest = pbandk.conformance.pb.MutableConformanceRequest_Impl(
     requestedOutputFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
     messageType = "",
@@ -793,6 +791,7 @@ public fun ConformanceResponse(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildConformanceResponse")
 public fun ConformanceResponse(builderAction: pbandk.conformance.pb.MutableConformanceResponse.() -> Unit): pbandk.conformance.pb.ConformanceResponse = pbandk.conformance.pb.MutableConformanceResponse_Impl(
     result = null,
     unknownFields = mutableMapOf()
@@ -949,6 +948,7 @@ public fun JspbEncodingConfig(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildJspbEncodingConfig")
 public fun JspbEncodingConfig(builderAction: pbandk.conformance.pb.MutableJspbEncodingConfig.() -> Unit): pbandk.conformance.pb.JspbEncodingConfig = pbandk.conformance.pb.MutableJspbEncodingConfig_Impl(
     useJspbArrayAnyFormat = false,
     unknownFields = mutableMapOf()

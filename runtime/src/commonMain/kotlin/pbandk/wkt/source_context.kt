@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface SourceContext : pbandk.Message {
     public val fileName: String
 
@@ -18,6 +17,7 @@ public sealed interface SourceContext : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         fileName: String = this.fileName,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -51,7 +51,6 @@ public sealed interface SourceContext : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableSourceContext : pbandk.wkt.SourceContext, pbandk.MutableMessage {
     public override var fileName: String
 }
@@ -76,6 +75,7 @@ public fun SourceContext(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildSourceContext")
 public fun SourceContext(builderAction: pbandk.wkt.MutableSourceContext.() -> Unit): pbandk.wkt.SourceContext = pbandk.wkt.MutableSourceContext_Impl(
     fileName = "",
     unknownFields = mutableMapOf()

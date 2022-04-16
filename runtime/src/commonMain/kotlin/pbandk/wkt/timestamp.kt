@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface Timestamp : pbandk.Message {
     public val seconds: Long
     public val nanos: Int
@@ -19,6 +18,7 @@ public sealed interface Timestamp : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         seconds: Long = this.seconds,
         nanos: Int = this.nanos,
@@ -63,7 +63,6 @@ public sealed interface Timestamp : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableTimestamp : pbandk.wkt.Timestamp, pbandk.MutableMessage {
     public override var seconds: Long
     public override var nanos: Int
@@ -91,6 +90,7 @@ public fun Timestamp(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildTimestamp")
 public fun Timestamp(builderAction: pbandk.wkt.MutableTimestamp.() -> Unit): pbandk.wkt.Timestamp = pbandk.wkt.MutableTimestamp_Impl(
     seconds = 0L,
     nanos = 0,

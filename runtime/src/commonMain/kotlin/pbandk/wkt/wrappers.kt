@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface DoubleValue : pbandk.Message {
     public val value: Double
 
@@ -18,6 +17,7 @@ public sealed interface DoubleValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Double = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -51,12 +51,10 @@ public sealed interface DoubleValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableDoubleValue : pbandk.wkt.DoubleValue, pbandk.MutableMessage {
     public override var value: Double
 }
 
-@pbandk.Export
 public sealed interface FloatValue : pbandk.Message {
     public val value: Float
 
@@ -72,6 +70,7 @@ public sealed interface FloatValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Float = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -105,12 +104,10 @@ public sealed interface FloatValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableFloatValue : pbandk.wkt.FloatValue, pbandk.MutableMessage {
     public override var value: Float
 }
 
-@pbandk.Export
 public sealed interface Int64Value : pbandk.Message {
     public val value: Long
 
@@ -126,6 +123,7 @@ public sealed interface Int64Value : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Long = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -159,12 +157,10 @@ public sealed interface Int64Value : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableInt64Value : pbandk.wkt.Int64Value, pbandk.MutableMessage {
     public override var value: Long
 }
 
-@pbandk.Export
 public sealed interface UInt64Value : pbandk.Message {
     public val value: Long
 
@@ -180,6 +176,7 @@ public sealed interface UInt64Value : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Long = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -213,12 +210,10 @@ public sealed interface UInt64Value : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableUInt64Value : pbandk.wkt.UInt64Value, pbandk.MutableMessage {
     public override var value: Long
 }
 
-@pbandk.Export
 public sealed interface Int32Value : pbandk.Message {
     public val value: Int
 
@@ -234,6 +229,7 @@ public sealed interface Int32Value : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Int = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -267,12 +263,10 @@ public sealed interface Int32Value : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableInt32Value : pbandk.wkt.Int32Value, pbandk.MutableMessage {
     public override var value: Int
 }
 
-@pbandk.Export
 public sealed interface UInt32Value : pbandk.Message {
     public val value: Int
 
@@ -288,6 +282,7 @@ public sealed interface UInt32Value : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Int = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -321,12 +316,10 @@ public sealed interface UInt32Value : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableUInt32Value : pbandk.wkt.UInt32Value, pbandk.MutableMessage {
     public override var value: Int
 }
 
-@pbandk.Export
 public sealed interface BoolValue : pbandk.Message {
     public val value: Boolean
 
@@ -342,6 +335,7 @@ public sealed interface BoolValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: Boolean = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -375,12 +369,10 @@ public sealed interface BoolValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableBoolValue : pbandk.wkt.BoolValue, pbandk.MutableMessage {
     public override var value: Boolean
 }
 
-@pbandk.Export
 public sealed interface StringValue : pbandk.Message {
     public val value: String
 
@@ -396,6 +388,7 @@ public sealed interface StringValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: String = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -429,12 +422,10 @@ public sealed interface StringValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableStringValue : pbandk.wkt.StringValue, pbandk.MutableMessage {
     public override var value: String
 }
 
-@pbandk.Export
 public sealed interface BytesValue : pbandk.Message {
     public val value: pbandk.ByteArr
 
@@ -450,6 +441,7 @@ public sealed interface BytesValue : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         value: pbandk.ByteArr = this.value,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -483,7 +475,6 @@ public sealed interface BytesValue : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableBytesValue : pbandk.wkt.BytesValue, pbandk.MutableMessage {
     public override var value: pbandk.ByteArr
 }
@@ -508,6 +499,7 @@ public fun DoubleValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildDoubleValue")
 public fun DoubleValue(builderAction: pbandk.wkt.MutableDoubleValue.() -> Unit): pbandk.wkt.DoubleValue = pbandk.wkt.MutableDoubleValue_Impl(
     value = 0.0,
     unknownFields = mutableMapOf()
@@ -605,6 +597,7 @@ public fun FloatValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildFloatValue")
 public fun FloatValue(builderAction: pbandk.wkt.MutableFloatValue.() -> Unit): pbandk.wkt.FloatValue = pbandk.wkt.MutableFloatValue_Impl(
     value = 0.0F,
     unknownFields = mutableMapOf()
@@ -702,6 +695,7 @@ public fun Int64Value(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildInt64Value")
 public fun Int64Value(builderAction: pbandk.wkt.MutableInt64Value.() -> Unit): pbandk.wkt.Int64Value = pbandk.wkt.MutableInt64Value_Impl(
     value = 0L,
     unknownFields = mutableMapOf()
@@ -799,6 +793,7 @@ public fun UInt64Value(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUInt64Value")
 public fun UInt64Value(builderAction: pbandk.wkt.MutableUInt64Value.() -> Unit): pbandk.wkt.UInt64Value = pbandk.wkt.MutableUInt64Value_Impl(
     value = 0L,
     unknownFields = mutableMapOf()
@@ -896,6 +891,7 @@ public fun Int32Value(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildInt32Value")
 public fun Int32Value(builderAction: pbandk.wkt.MutableInt32Value.() -> Unit): pbandk.wkt.Int32Value = pbandk.wkt.MutableInt32Value_Impl(
     value = 0,
     unknownFields = mutableMapOf()
@@ -993,6 +989,7 @@ public fun UInt32Value(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildUInt32Value")
 public fun UInt32Value(builderAction: pbandk.wkt.MutableUInt32Value.() -> Unit): pbandk.wkt.UInt32Value = pbandk.wkt.MutableUInt32Value_Impl(
     value = 0,
     unknownFields = mutableMapOf()
@@ -1090,6 +1087,7 @@ public fun BoolValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildBoolValue")
 public fun BoolValue(builderAction: pbandk.wkt.MutableBoolValue.() -> Unit): pbandk.wkt.BoolValue = pbandk.wkt.MutableBoolValue_Impl(
     value = false,
     unknownFields = mutableMapOf()
@@ -1187,6 +1185,7 @@ public fun StringValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildStringValue")
 public fun StringValue(builderAction: pbandk.wkt.MutableStringValue.() -> Unit): pbandk.wkt.StringValue = pbandk.wkt.MutableStringValue_Impl(
     value = "",
     unknownFields = mutableMapOf()
@@ -1284,6 +1283,7 @@ public fun BytesValue(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildBytesValue")
 public fun BytesValue(builderAction: pbandk.wkt.MutableBytesValue.() -> Unit): pbandk.wkt.BytesValue = pbandk.wkt.MutableBytesValue_Impl(
     value = pbandk.ByteArr.empty,
     unknownFields = mutableMapOf()

@@ -2,7 +2,6 @@
 
 package pbandk.wkt
 
-@pbandk.Export
 public sealed interface Any : pbandk.Message {
     public val typeUrl: String
     public val value: pbandk.ByteArr
@@ -19,6 +18,7 @@ public sealed interface Any : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         typeUrl: String = this.typeUrl,
         value: pbandk.ByteArr = this.value,
@@ -63,7 +63,6 @@ public sealed interface Any : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableAny : pbandk.wkt.Any, pbandk.MutableMessage {
     public override var typeUrl: String
     public override var value: pbandk.ByteArr
@@ -91,6 +90,7 @@ public fun Any(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildAny")
 public fun Any(builderAction: pbandk.wkt.MutableAny.() -> Unit): pbandk.wkt.Any = pbandk.wkt.MutableAny_Impl(
     typeUrl = "",
     value = pbandk.ByteArr.empty,

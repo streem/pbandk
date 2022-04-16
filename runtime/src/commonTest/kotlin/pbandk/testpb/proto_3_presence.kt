@@ -19,7 +19,6 @@ public sealed class Proto3PresenceEnum(override val value: Int, override val nam
     }
 }
 
-@pbandk.Export
 public sealed interface Proto3PresenceMessage : pbandk.Message {
     public val int: Int
 
@@ -35,6 +34,7 @@ public sealed interface Proto3PresenceMessage : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         int: Int = this.int,
         unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
@@ -68,12 +68,10 @@ public sealed interface Proto3PresenceMessage : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableProto3PresenceMessage : pbandk.testpb.Proto3PresenceMessage, pbandk.MutableMessage {
     public override var int: Int
 }
 
-@pbandk.Export
 public sealed interface Proto3PresenceMain : pbandk.Message {
     public val message: pbandk.testpb.Proto3PresenceMessage?
     public val string: String
@@ -97,6 +95,7 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
     @Deprecated(
         message = "Use copy { } instead",
     )
+    @pbandk.JsName("copyDeprecated")
     public fun copy(
         message: pbandk.testpb.Proto3PresenceMessage? = this.message,
         string: String = this.string,
@@ -238,7 +237,6 @@ public sealed interface Proto3PresenceMain : pbandk.Message {
     }
 }
 
-@pbandk.Export
 public sealed interface MutableProto3PresenceMain : pbandk.testpb.Proto3PresenceMain, pbandk.MutableMessage {
     public override var message: pbandk.testpb.Proto3PresenceMessage?
     public override var string: String
@@ -274,6 +272,7 @@ public fun Proto3PresenceMessage(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildProto3PresenceMessage")
 public fun Proto3PresenceMessage(builderAction: pbandk.testpb.MutableProto3PresenceMessage.() -> Unit): pbandk.testpb.Proto3PresenceMessage = pbandk.testpb.MutableProto3PresenceMessage_Impl(
     int = 0,
     unknownFields = mutableMapOf()
@@ -387,6 +386,7 @@ public fun Proto3PresenceMain(
  * Using it outside of the function produces an unspecified behavior.
  */
 @pbandk.Export
+@pbandk.JsName("buildProto3PresenceMain")
 public fun Proto3PresenceMain(builderAction: pbandk.testpb.MutableProto3PresenceMain.() -> Unit): pbandk.testpb.Proto3PresenceMain = pbandk.testpb.MutableProto3PresenceMain_Impl(
     message = null,
     string = "",
